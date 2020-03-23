@@ -232,7 +232,8 @@
 <script src="{% static 'applicationForm/parsley/parsley.min.js' %}"></script>
 <script src="{% static 'applicationForm/tagsinput/tagsinput.js' %}"></script>
 <script src="{% static 'applicationForm/tagsinput/custom.js' %}"></script>
-<script src="{% static 'applicationForm/js/combodate/combodate.js' %}"></script>
+<script src="{% static 'applicationForm/js/jquery-dropdown-datepicker/jquery-dropdown-datepicker.js' %}"></script>
+<script src="{% static 'applicationForm/js/jquery-dropdown-datepicker/jquery-datepicker.js' %}"></script>
 <script src="{% static 'applicationForm/datepicker/bootstrap-datepicker.min.js' %}"></script>
 <script src="{% static 'applicationForm/datepicker/datePicker.js' %}"></script>
 <script src="{% static 'applicationForm/momentjs/moment.min.js' %}"></script>
@@ -251,8 +252,9 @@
 <script src="{% static 'applicationForm/js/countryScripts.js' %}"></script>
 <script src="{% static 'applicationForm/js/phoneScripts.js' %}"></script>
 <script src="{% static 'applicationForm/js/prereqFormScripts.js' %}"></script>
+
 <script>
-    $(function () {
+   /* $(function () {
         $('.date').combodate({
             minYear: 1900,
             maxYear: 2020,
@@ -261,7 +263,7 @@
             firstItem: 'name',
             format: "DD/MM/YYYY"
         });
-    });
+    });*/
 </script>
 <script>
     $(function () {
@@ -269,23 +271,6 @@
     });
 </script>
 
-<script>
-    window.Parsley
-    .addValidator('maxDate', {
-        requirementType: 'date',
-
-        validateDate(value){
-        var now = new Date();
-        var date = new Date(value);
-        return date < now;
-    },
-  
-    messages: {
-        en: 'This value should be less than current date'
-      }
-    });
-    
-</script>
 
 {% endblock scriptContent %}
 

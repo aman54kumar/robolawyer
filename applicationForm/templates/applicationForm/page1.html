@@ -107,8 +107,11 @@
                                 <label class="lead">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
                                     <h5> When did the fact you are complaing about take place?</h5>
                                 </label>
-                                <input type="text" class="date" name="page1[decisionDate]" id="decisionDate"
-                                    data-template='DD MMM YYYY' required data-parsley-group="page1">
+                                <!-- <input type="text" class="date" name="page1[decisionDate]" id="decisionDate"
+                                    data-template='DD MMM YYYY' required data-parsley-group="page1"> -->
+                                    <input type="text" id="decisionDate" readonly='readonly' class="jsdatedropdown form-control" name="page1[decisionDate]" id="decisionDate"
+                                    required data-parsley-group="page1">
+
                                 <div id='echrDetails'>
 
                                 </div>
@@ -172,8 +175,8 @@
                         re-submit a second and complete application form." data-trigger="click"
                                     data-placement="bottom"><span><i class="fas fa-question-circle"></i></span></a></h5>
                             <div class="form-group">
-                                <input type="text" class="date" name="page1[finalDecisionDate]" id="finalDecisionDate"
-                                    data-template='DD MMM YYYY' required data-parsley-group="page1">
+                                <input type="text" class="form-control jsdatedropdown" readonly="readonly" name="page1[finalDecisionDate]" id="finalDecisionDate"
+                                    required data-parsley-group="page1">
                             </div>
                         </li>
                         <br>

@@ -9,6 +9,12 @@ margin-left:0px !important
     background-color: green !important;
 }
 
+.form-control-inline {
+  min-width: 0;
+  width: auto;
+  display: inline;
+}
+
 label {
   display: block;
 }
@@ -194,4 +200,9 @@ textarea {
 .feedback_banner {
   height: 10vw;
   width: 20vw;
+}
+
+
+#stofFacts {
+  white-space: pre;
 }

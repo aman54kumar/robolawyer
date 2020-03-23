@@ -60,7 +60,7 @@
 
                         <div class="form-group col-sm-6">
                             <label>Date of Birth</label>
-                            <input type="text" class="date" name="page2[birthDate]" id="birthDate"
+                            <input type="text" class="form-control jsdatedropdown" readonly="readonly" name="page2[birthDate]" id="birthDate"
                                 data-template='DD MMM YYYY'>
                             <div class="input-group-addon">
                                 <span class="glyphicon glyphicon-th"></span>
@@ -163,33 +163,29 @@
                             <label>Name</label>
                             <textarea class="form-control" type="text" rows=2
                                 placeholder="Enter the Organisation's Name" name="page2[orgName]" required
-                                data-parsley-group="page2b" maxlength="120"></textarea>
+                                data-parsley-group="page2b" maxlength="110"></textarea>
                         </div>
                         
                         <div class="row">
-                        <div class="form-group col-sm-4">
-                            
-                                <label>Identification number (if any)</label>
-                            <input class="form-control" type="text" placeholder="Enter Identification Number"
-                                name="page2[orgID]" maxlength="40">
-                        </div>
-                        <div class="form-group col-sm-8">
-                            <label>Activity</label>
-                            <input class="form-control" type="text" name="page2[orgActivity]" required
-                                data-parsley-group="page2b" maxlength="40">
-                        </div>
+                            <div class="form-group col-sm-4">
+                                
+                                    <label>Identification number (if any)</label>
+                                <input class="form-control" type="text" placeholder="Enter Identification Number"
+                                    name="page2[orgID]" maxlength="40">
+                            </div>
+                            <div class="form-group col-sm-8">
+                                <label>Activity</label>
+                                <input class="form-control" type="text" name="page2[orgActivity]" required
+                                    data-parsley-group="page2b" maxlength="40">
+                            </div>
                         </div>
  
                      
 
                         <div class="form-group">
                             <label>Date of registration or incorporation (if any)</label>
-                            <input type="text" class="date" name="page2[orgDate]" id="orgDate">
+                            <input type="text" class="form-control jsdatedropdown" readonly="readonly"  name="page2[orgDate]" id="orgDate">
                         </div>
-
-
-                      
-
 
                         <div class="form-group">
                             <label>Registered Address </label>
@@ -210,7 +206,6 @@
                                 placeholder="Email" data-parsley-type="email" data-parsley-group="page2b" maxlength="40">
                         </div>
                         </div>
- 
                     </div>
                 </div>
             </div>

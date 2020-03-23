@@ -1,46 +1,46 @@
 
-dateValidator = function(dateSelector) {
-  $(dateSelector).on('change', function(){
-    result =  $(dateSelector).combodate('getValue',format='YYYY-MM-DD');
-    currentDate = moment().format('YYYY-MM-DD');
-    diffDate = moment(currentDate).diff(moment(result), 'days', true);
-    if (!isNaN(diffDate)){
-      if (diffDate >0) {
-        console.log($(this).combodate('setValue', moment()));
-        $(this).combodate('setValue', moment())
-      }
-      else{
-        swal("Future Date is not allowed. Please enter a valid date.");
-      }
-    }
-  })  
-}
+// dateValidator = function(dateSelector) {
+//   $(dateSelector).on('change', function(){
+//     result =  $(dateSelector).combodate('getValue',format='YYYY-MM-DD');
+//     currentDate = moment().format('YYYY-MM-DD');
+//     diffDate = moment(currentDate).diff(moment(result), 'days', true);
+//     if (!isNaN(diffDate)){
+//       if (diffDate >0) {
+//         console.log($(this).combodate('setValue', moment()));
+//         $(this).combodate('setValue', moment())
+//       }
+//       else{
+//         swal("Future Date is not allowed. Please enter a valid date.");
+//       }
+//     }
+//   })  
+// }
 
-dateValidator('input[name="page1[decisionDate]"]');
-dateValidator('input[name="page1[finalDecisionDate]"]');
-dateValidator('input[name="page2[birthDate]"]');
-dateValidator('input[name="page2[orgDate]"]');
+// dateValidator('input[name="page1[decisionDate]"]');
 // dateValidator('input[name="page1[finalDecisionDate]"]');
-// dateValidator('input[name="page1[finalDecisionDate]"]');
+// dateValidator('input[name="page2[birthDate]"]');
+// dateValidator('input[name="page2[orgDate]"]');
+// // dateValidator('input[name="page1[finalDecisionDate]"]');
+// // dateValidator('input[name="page1[finalDecisionDate]"]');
 
 
-$('#finalDecisionDate').on('change', function(){
-    finalDecisionDate = $('#finalDecisionDate').combodate('getValue',format='YYYY-MM-DD');
-    currentDate = moment().format('YYYY-MM-DD');
-    diffDate = moment(currentDate).diff(moment(finalDecisionDate), 'months', true);
-    if (!isNaN(diffDate)){
-      if(diffDate < 6) {
-        sixFutureDate = moment(finalDecisionDate).add(6, 'months').format('YYYY-MM-DD');
-        swal('Attention, according to the information entered in the date field, you must send your application in good time before '+ sixFutureDate);
-      }
-      else if (diffDate > 6) {
-        swal('You have missed the 6 months limit deadline imposed by the court. It is possible, but not necessary that your application might be declared inadmissible.')  
-      }
-      else {
-        console.warn('check for problem')
-      }
-    }
-  });
+// $('#finalDecisionDate').on('change', function(){
+//     finalDecisionDate = $('#finalDecisionDate').combodate('getValue',format='YYYY-MM-DD');
+//     currentDate = moment().format('YYYY-MM-DD');
+//     diffDate = moment(currentDate).diff(moment(finalDecisionDate), 'months', true);
+//     if (!isNaN(diffDate)){
+//       if(diffDate < 6) {
+//         sixFutureDate = moment(finalDecisionDate).add(6, 'months').format('YYYY-MM-DD');
+//         swal('Attention, according to the information entered in the date field, you must send your application in good time before '+ sixFutureDate);
+//       }
+//       else if (diffDate > 6) {
+//         swal('You have missed the 6 months limit deadline imposed by the court. It is possible, but not necessary that your application might be declared inadmissible.')  
+//       }
+//       else {
+//         console.warn('check for problem')
+//       }
+//     }
+//   });
 
 
 

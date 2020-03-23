@@ -44,18 +44,37 @@ class PrepareResult:
         # self.createOrDeleteDirectory('applicationForm/dataPreparation/pages')
         # self.pdf_splitter(filename)
         sof = self.inputObj['page4']['page4[stOfFacts]']
-        sof1 = sof[:3890]
-        sof2 = sof[3790:8140]
-        sof3 = sof[8140: 12500]
+        sof1 = ""
+        sof2 = ""
+        sof3 = ""
+        lines = sof
+        print(lines)
+        lines = formatText(self, lines, 81)
+        cnt = 0
+        temp = ""
+        for line in lines.split("\n"):
+            cnt = cnt+1
+            temp += line + "\n"
 
-        
+            if cnt == 48:
+                sof1 = temp
+                print(repr(sof1))
+                temp = ""
+            if cnt == 103:
+                sof2 = temp
+                temp = ""
+            if(cnt == 158):
+                sof3 += temp
+                temp = ""
+
         article = []
         article.append(self.spclReplies[1])
         article.append(self.spclReplies[2])
 
         complains = []
         complains.append(self.spclReplies[3])
-        complains.append([m+' '+ str(n) for m,n in zip(self.spclReplies[5], self.spclReplies[4])])
+        complains.append([m+' ' + str(n)
+                          for m, n in zip(self.spclReplies[5], self.spclReplies[4])])
 
         docs = []
         docs.append(self.spclReplies[6])
@@ -65,21 +84,23 @@ class PrepareResult:
 
         paths = glob.glob(
             'applicationForm/dataPreparation/pages/App_form_page_*.pdf')
-        
+
         codeList = []
         barCodeText = "ENG - 2018/1|"
         for key, value in self.inputObj['page2'].items():
             if key not in ["page2[applicantType]", "page2[applicantAnon]", "page2[applicantAnonExp]", "page2[indAddress]", "page2[orgAddress]"]:
-                barCodeText+= value+"|"
+                barCodeText += value+"|"
 
         for key, value in self.inputObj['page3'].items():
-            if key not in ["page3[indRepresentativeType]","page3[indNLCapacity]", "page3[orgnlCapacity]", "page3[orgnlAddress]", "page3[orglAddress]", "page3[indNLAddress]", "page3[indLAddress]"]:
-                barCodeText+= value+"|"
+            if key not in ["page3[indRepresentativeType]", "page3[indNLCapacity]", "page3[orgnlCapacity]", "page3[orgnlAddress]", "page3[orglAddress]", "page3[indNLAddress]", "page3[indLAddress]"]:
+                barCodeText += value+"|"
         codeList.append(barCodeText)
         codeList.append(self.sessionID)
 
-        self.createOrDeleteDirectory('applicationForm/dataPreparation/results/'+self.sessionID+'/finalPage/')
-        self.createOrDeleteDirectory('applicationForm/dataPreparation/results/'+self.sessionID+'/watermark/')
+        self.createOrDeleteDirectory(
+            'applicationForm/dataPreparation/results/'+self.sessionID+'/finalPage/')
+        self.createOrDeleteDirectory(
+            'applicationForm/dataPreparation/results/'+self.sessionID+'/watermark/')
         output1 = self.create_watermark_pdf(self.inputObj['page2'], pos=1)
         output2 = self.create_watermark_pdf(self.spclReplies[0], pos=2)
         if self.inputObj['page2']["page2[applicantType]"] == "Individual":
@@ -94,28 +115,32 @@ class PrepareResult:
         output8 = self.create_watermark_pdf(article, pos=8)
         output9 = self.create_watermark_pdf(article, pos=9)
         output10 = self.create_watermark_pdf(complains, pos=10)
-        output11 = self.create_watermark_pdf(self.inputObj['page6'], pos=11, tempInput=self.inputObj['page7'])
+        output11 = self.create_watermark_pdf(
+            self.inputObj['page6'], pos=11, tempInput=self.inputObj['page7'])
         output12 = self.create_watermark_pdf(docs, pos=12)
-        output13 = self.create_watermark_pdf(self.inputObj['page9'], pos=13, tempInput=codeList)
-        
+        output13 = self.create_watermark_pdf(
+            self.inputObj['page9'], pos=13, tempInput=codeList)
 
         self.create_New_Pdf(docs)
         # print(self.inputObj)
         anonValue = self.inputObj['page2']['page2[applicantAnonExp]']
         anonValue = anonValue.replace(" ", "")
         if anonValue != '':
-            filenameAnon = 'applicationForm/dataPreparation/results/'+self.sessionID+'/finalPage/Result_form_page_14.pdf'
-            go(filenameAnon, self.inputObj['page2']['page2[applicantAnonExp]'], anonymityPage)
+            filenameAnon = 'applicationForm/dataPreparation/results/' + \
+                self.sessionID+'/finalPage/Result_form_page_14.pdf'
+            go(filenameAnon, self.inputObj['page2']
+               ['page2[applicantAnonExp]'], anonymityPage)
 
         sofValue = self.inputObj['page4']['page4[stOfFactsExtra]']
         sofValue = sofValue.replace(" ", "")
         if sofValue != '':
-            filenameStOfFacts = 'applicationForm/dataPreparation/results/'+self.sessionID+'/finalPage/Result_form_page_15.pdf'
-            go(filenameStOfFacts, self.inputObj['page4']['page4[stOfFactsExtra]'], extraStOfFactsFirstPage, extraStOfFactsLaterPage)
+            filenameStOfFacts = 'applicationForm/dataPreparation/results/' + \
+                self.sessionID+'/finalPage/Result_form_page_15.pdf'
+            go(filenameStOfFacts, self.inputObj['page4']['page4[stOfFactsExtra]'],
+               extraStOfFactsFirstPage, extraStOfFactsLaterPage)
 
         logger.warning("Your log message is here")
 
-        
         self.watermark('applicationForm/dataPreparation/pages/App_form_page_1.pdf',
                        'applicationForm/dataPreparation/results/'+self.sessionID+'/finalPage/Result_form_page_1.pdf', output1)
         self.watermark('applicationForm/dataPreparation/pages/App_form_page_2.pdf',
@@ -143,9 +168,13 @@ class PrepareResult:
         self.watermark('applicationForm/dataPreparation/pages/App_form_page_13.pdf',
                        'applicationForm/dataPreparation/results/'+self.sessionID+'/finalPage/Result_form_page_13.pdf', output13),
 
-        resultPath = glob.glob('applicationForm/dataPreparation/results/'+self.sessionID+'/finalPage/Result_form_page_*.pdf')
+        resultPath = glob.glob('applicationForm/dataPreparation/results/' +
+                               self.sessionID+'/finalPage/Result_form_page_*.pdf')
         resultPath.sort(key=self.natural_key)
-        self.pdf_merger('applicationForm/dataPreparation/results/'+self.sessionID+'/finalPage/finalForm.pdf', resultPath)
+        self.pdf_merger('applicationForm/dataPreparation/results/' +
+                        self.sessionID+'/finalPage/finalForm.pdf', resultPath)
+
+    
 
     def pdf_splitter(self, path):
         fname = os.path.splitext(os.path.basename(path))[0]
@@ -208,7 +237,7 @@ class PrepareResult:
             can = eleventhPageInputs(self, can, inputObj, tempInput)
         elif pos == 12:
             can = twelvthPageInputs(self, can, inputObj)
-        elif pos==13:
+        elif pos == 13:
             can = thirteenthPageInputs(self, can, inputObj, tempInput)
         else:
             print('bug reported')
@@ -219,13 +248,14 @@ class PrepareResult:
         totalBookmark = len(inputObj[1])
         if inputObj[1] == ['']:
             print("no doc entered")
-        else: 
+        else:
             docs4List = sortDocumentsDate(self, inputObj)
             for single in range(totalBookmark):
                 filename = 'applicationForm/dataPreparation/results/'+self.sessionID+'/finalPage/Result_form_page_' + \
                     str(15+single) + '.pdf'
                 can = canvas.Canvas(filename, pagesize=letter)
-                can = bookmarkPageInputs(self, can, [docs4List[1][single], docs4List[4][single]])
+                can = bookmarkPageInputs(
+                    self, can, [docs4List[1][single], docs4List[4][single]])
                 can.save()
 
     def createAnonymityDoc(self, inputObj):
@@ -233,46 +263,49 @@ class PrepareResult:
             print('no anonymity request')
         else:
             filename = 'applicationForm/dataPreparation/results/'+self.sessionID+'/finalPage/Result_form_page_' + \
-                    str(14) + '.pdf'
+                str(14) + '.pdf'
             can = canvas.Canvas(filename, pagesize=letter)
             can = anonymityDoc(self, can, inputObj)
             can.save()
 
 
 def anonymityPage(canvas, doc):
-    PAGE_HEIGHT=defaultPageSize[1]
-    PAGE_WIDTH=defaultPageSize[0]
+    PAGE_HEIGHT = defaultPageSize[1]
+    PAGE_WIDTH = defaultPageSize[0]
     pageinfo = "Request of Anonymity"
     Title = "Request of Anonymity"
     canvas.saveState()
-    canvas.setFont('Times-Bold',16)
+    canvas.setFont('Times-Bold', 16)
     canvas.drawCentredString(PAGE_WIDTH/2.0, PAGE_HEIGHT-108, Title)
-    canvas.setFont('Times-Roman',9)
-    canvas.drawString(inch, 0.75 * inch,"Page %s" % pageinfo)
+    canvas.setFont('Times-Roman', 9)
+    canvas.drawString(inch, 0.75 * inch, "Page %s" % pageinfo)
     canvas.restoreState()
+
 
 def anonymityLaterPages(canvas, doc):
     pageinfo = "Request of Anonymity"
     canvas.saveState()
     canvas.setFont('Times-Roman', 9)
-    canvas.drawString(inch, 0.75 * inch,"Page %d %s" % (doc.page, pageinfo))
+    canvas.drawString(inch, 0.75 * inch, "Page %d %s" % (doc.page, pageinfo))
     canvas.restoreState()
 
+
 def extraStOfFactsFirstPage(canvas, doc):
-    PAGE_HEIGHT=defaultPageSize[1]
-    PAGE_WIDTH=defaultPageSize[0]
+    PAGE_HEIGHT = defaultPageSize[1]
+    PAGE_WIDTH = defaultPageSize[0]
     pageinfo = "Statement of Facts(Extra)"
     Title = "Statement of Facts"
     canvas.saveState()
-    canvas.setFont('Times-Bold',16)
+    canvas.setFont('Times-Bold', 16)
     canvas.drawCentredString(PAGE_WIDTH/2.0, PAGE_HEIGHT-108, Title)
-    canvas.setFont('Times-Roman',9)
-    canvas.drawString(inch, 0.75 * inch," %s" % pageinfo)
+    canvas.setFont('Times-Roman', 9)
+    canvas.drawString(inch, 0.75 * inch, " %s" % pageinfo)
     canvas.restoreState()
+
 
 def extraStOfFactsLaterPage(canvas, doc):
     pageinfo = "Statement of Facts (Extra)"
     canvas.saveState()
     canvas.setFont('Times-Roman', 9)
-    canvas.drawString(inch, 0.75 * inch,"Page %d %s" % (doc.page, pageinfo))
+    canvas.drawString(inch, 0.75 * inch, "Page %d %s" % (doc.page, pageinfo))
     canvas.restoreState()

@@ -91,29 +91,9 @@ jQuery(document).ready(function($) {
   alterClass();
 });
 
-// $(document).ready(function(){
 
-// })
 
-// if($("input'[page2[applicantAnon]']")).val === 'Yes'{
-//   getData = $(this).val();
-// }
 
-$('#page8Group').repeater({
-              btnAddClass: 'r-btnAdd',
-              btnRemoveClass: 'r-btnRemove',
-              groupClass: 'r-group',
-              minItems: 1,
-              maxItems: 24,
-              startingIndex: 0,
-              showMinItemsOnLoad: true,
-              reindexOnDelete: true,
-              repeatMode: 'append',
-              animation: 'fade',
-              animationSpeed: 400,
-              animationEasing: 'swing',
-              clearValues: true
-          });
 
 $('#page6Group').repeater({
             btnAddClass: 's-btnAdd',
@@ -189,7 +169,6 @@ $("input[name='page7[intInvestigation]']").change(function() {
 
 $("input[name='page7[prevApplications]']").change(function() {
   result = this.value;
-  console.log(result);
   if (result === 'Yes') $('.prevAppDesc').removeClass('is-hidden');
   else {
     $('.prevAppDesc').addClass('is-hidden');
@@ -198,6 +177,8 @@ $("input[name='page7[prevApplications]']").change(function() {
 
 function textCounter(field, field2, maxlimit) {
   var countfield = document.getElementById(field2);
+  console.log(field.value.length);
+  console.log(maxlimit);
   if (field.value.length > maxlimit) {  
     if(field.id==="stofFacts"){
     swal("You have used up the allocated length for Statement of Facts. For more explanation, please use the extra provided area by clicking the button 'Do you need more writing space?'");
@@ -213,3 +194,28 @@ function textCounter(field, field2, maxlimit) {
   }
 }
 
+
+// $("input[name='page2[applicantAnon]']").change(function(){
+//   result = this.value;
+//   if (result === 'Yes') {
+
+//   }
+// })
+
+
+
+$('#page8Group').repeater({
+  btnAddClass: 'r-btnAdd',
+  btnRemoveClass: 'r-btnRemove',
+  groupClass: 'r-group',
+  minItems: 1,
+  maxItems: 24,
+  startingIndex: 0,
+  showMinItemsOnLoad: true,
+  reindexOnDelete: true,
+  repeatMode: 'append',
+  animation: 'fade',
+  animationSpeed: 400,
+  animationEasing: 'swing',
+  clearValues: true
+});

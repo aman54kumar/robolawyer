@@ -29,7 +29,7 @@ def firstPageInputs(self, can, inputObj):
 
         addressOne = inputObj["page2[indAddress]"]
         addressOneLength = len(addressOne)
-        newAddress = "\n".join(wrap(addressOne, 40))
+        newAddress = formatTextWithoutDash(self, addressOne, 38)
         t.setTextOrigin(25, 208)
         t.textLines(newAddress)
         can.drawText(t)
@@ -51,7 +51,7 @@ def firstPageInputs(self, can, inputObj):
         can.drawString(25, 285, "")
         can.drawString(25, 245, "")
         nameOne = inputObj["page2[orgName]"]
-        newNameOne = "\n".join(wrap(nameOne, 40))
+        newNameOne = formatTextWithoutDash(self, nameOne, 38)
         t.setTextOrigin(308, 422)
         t.textLines(newNameOne)
         can.drawText(t)
@@ -68,7 +68,7 @@ def firstPageInputs(self, can, inputObj):
         can.drawString(310, 265, inputObj["page2[orgActivity]"])
         
         addressTwo = inputObj["page2[orgAddress]"]
-        newAddressTwo = "\n".join(wrap(addressTwo, 40))
+        newAddressTwo = formatTextWithoutDash(self, addressTwo, 38)
         t.setTextOrigin(310, 227)
         t.textLines(newAddressTwo)
 
@@ -102,9 +102,10 @@ def thirdPageInputs(self, can, inputObj):
 
             indNLNationalityNew = modifyCountryNames(inputObj["page3[indNLNationality]"])
             can.drawString(25, 544, indNLNationalityNew)
+
             addressThree = inputObj["page3[indNLAddress]"]
             addressThreeLength = len(addressThree)
-            newAddress = "\n".join(wrap(addressThree, 40))
+            newAddress = formatTextWithoutDash(self, addressThree, 39)
             t.setTextOrigin(25, 503)
             t.textLines(newAddress)
             can.drawText(t)
@@ -119,7 +120,7 @@ def thirdPageInputs(self, can, inputObj):
             indLNationalityNew = modifyCountryNames(inputObj["page3[indLNationality]"])
             can.drawString(310, 581, indLNationalityNew)
             addressFour = inputObj["page3[indLAddress]"]
-            newAddressFour = "\n".join(wrap(addressFour, 40))
+            newAddressFour = formatTextWithoutDash(self, addressFour, 39)
             t.setTextOrigin(310, 543)
             t.textLines(newAddressFour)
             can.drawText(t)
@@ -150,7 +151,7 @@ def fourthPageInputs(self, can, inputObj):
             orgnlNationalityNew = modifyCountryNames(inputObj["page3[orgnlNationality]"])
             can.drawString(25, 548, orgnlNationalityNew)
             addressFour = inputObj["page3[orgnlAddress]"]
-            newAddressFour = "\n".join(wrap(addressFour, 40))
+            newAddressFour = formatTextWithoutDash(self, addressFour, 39)
             t.setTextOrigin(25, 508)
             t.textLines(newAddressFour)
             can.drawText(t)
@@ -166,7 +167,7 @@ def fourthPageInputs(self, can, inputObj):
             orgnlNationalityNew = modifyCountryNames(inputObj["page3[orgnlNationality]"])
             can.drawString(25, 548, orgnlNationalityNew)
             addressFour = inputObj["page3[orgnlAddress]"]
-            newAddressFour = "\n".join(wrap(addressFour, 40))
+            newAddressFour = formatTextWithoutDash(self, addressFour, 39)
             t.setTextOrigin(25, 508)
             t.textLines(newAddressFour)
             can.drawText(t)
@@ -180,7 +181,7 @@ def fourthPageInputs(self, can, inputObj):
             orglNationalityNew = modifyCountryNames(inputObj["page3[orglNationality]"])
             can.drawString(310, 585, orglNationalityNew)
             addressFive = inputObj["page3[orglAddress]"]
-            newAddressFive = "\n".join(wrap(addressFive, 40))
+            newAddressFive = formatTextWithoutDash(self, addressFive, 39)
             t.setTextOrigin(310, 548)
             t.textLines(newAddressFive)
             can.drawText(t)
@@ -198,35 +199,30 @@ def fourthPageInputs(self, can, inputObj):
 
 def fifthPageInputs(self, can, inputObj):
     t = can.beginText()
+    t.setTextOrigin(25, 670)
     t.setFont(customFont, customFontSize)
     stOfFactsText = inputObj
-    stOfFactsText = stOfFactsText.replace('\r\n','\n')
-    newStOfFactsText = "\n".join(wrap(stOfFactsText, 82))
-    newStOfFactsList = newStOfFactsText.split('\n')
-    t.setTextOrigin(25, 670)
-    t.textLines(newStOfFactsText)
-    can.drawText(t)
+    t.textLines(stOfFactsText)
+    can.drawText(t) 
     can.showPage()
     return can
 
 def sixthPageInputs(self, can, inputObj):
     t = can.beginText()
+    t.setTextOrigin(25, 760)
     t.setFont(customFont, customFontSize)
     stOfFactsText = inputObj
-    newStOfFactsText = "\n".join(wrap(stOfFactsText, 82))
-    t.setTextOrigin(25, 760)
-    t.textLines(newStOfFactsText)
+    t.textLines(stOfFactsText)
     can.drawText(t)
     can.showPage()
     return can
 
 def seventhPageInputs(self, can, inputObj):
     t = can.beginText()
+    t.setTextOrigin(25, 760)
     t.setFont(customFont, customFontSize)
     stOfFactsText = inputObj
-    newStOfFactsText = "\n".join(wrap(stOfFactsText, 82))
-    t.setTextOrigin(25, 760)
-    t.textLines(newStOfFactsText)
+    t.textLines(stOfFactsText)
     can.drawText(t)
     can.showPage()
     return can
@@ -247,14 +243,14 @@ def eighthPageInputs(self, can, inputObj):
         else:
             print("error reported in EighthPageInputs")
 
-        newArticle = "\n".join(wrap(article, 20))
+        newArticle = formatTextWithoutDash(self, article, 19)
         t1.setTextOrigin(25, yCoord)
         t1.textLines(newArticle)
         can.drawText(t1)
 
         t2 = can.beginText()
         t2.setFont(customFont, customFontSize)
-        newArticleExp = "\n".join(wrap(articleExp, 59))
+        newArticleExp = formatTextWithoutDash(self, articleExp, 59)
         t2.setTextOrigin(180, yCoord)
         t2.textLines(newArticleExp)
         can.drawText(t2)
@@ -285,7 +281,7 @@ def ninthPageInputs(self, can, inputObj):
 
             t2 = can.beginText()
             t2.setFont(customFont, customFontSize)
-            newArticleExp = "\n".join(wrap(articleExp, 59))
+            newArticleExp = formatTextWithoutDash(self, articleExp, 59)
             t2.setTextOrigin(180, yCoord)
             t2.textLines(newArticleExp)
             can.drawText(t2)
@@ -303,13 +299,13 @@ def tenthPageInputs(self, can, inputObj):
         if len(inputObj[0]) > 1:
             complain = inputObj[0][item]
             remedies = inputObj[1][item]
-        elif len(inputObj[0]) == 1:
+        elif len(inputObj[0]) == 1: 
             complain = inputObj[0][0]
             remedies = inputObj[1][0]
         else:
             print("error reported in TenthPageInputs")
 
-        newComplain = "\n".join(wrap(complain, 22))
+        newComplain = formatTextWithoutDash(self, complain, 22)
         t1.setTextOrigin(25, yCoord)
         t1.textLines(newComplain)
         can.drawText(t1)
@@ -317,7 +313,7 @@ def tenthPageInputs(self, can, inputObj):
 
         t2 = can.beginText()
         t2.setFont(customFont, customFontSize)
-        newRemedy = "\n".join(wrap(remedies, 58))
+        newRemedy = formatTextWithoutDash(self, remedies, 58)
         t2.setTextOrigin(185, yCoord)
         t2.textLines(newRemedy)
         can.drawText(t2)
@@ -333,7 +329,7 @@ def eleventhPageInputs(self, can, inputObj, secondInput):
                 t = can.beginText()
                 t.setFont(customFont, customFontSize)
                 appealDescribe = inputObj['page6[appealDescribe]']
-                newAppealDescribe = "\n".join(wrap(appealDescribe, 82))
+                newAppealDescribe = formatTextWithoutDash(self, appealDescribe, 81)
                 t.setTextOrigin(25, 735)
                 t.textLines(newAppealDescribe)
                 can.drawText(t)
@@ -348,7 +344,7 @@ def eleventhPageInputs(self, can, inputObj, secondInput):
                 t = can.beginText()
                 t.setFont(customFont, customFontSize)
                 intInvestigationDesc = secondInput['page7[intInvestigationDesc]']
-                newIntInvestigationDesc = "\n".join(wrap(intInvestigationDesc, 82))
+                newIntInvestigationDesc = formatTextWithoutDash(self, intInvestigationDesc, 81)
                 t.setTextOrigin(25, 400)
                 t.textLines(newIntInvestigationDesc)
                 can.drawText(t)
@@ -363,7 +359,7 @@ def eleventhPageInputs(self, can, inputObj, secondInput):
                 t = can.beginText()
                 t.setFont(customFont, customFontSize)
                 prevAppDesc = secondInput['page7[prevAppDesc]']
-                newPrevAppDesc = "\n".join(wrap(prevAppDesc, 82))
+                newPrevAppDesc = formatTextWithoutDash(self, prevAppDesc, 81)
                 t.setTextOrigin(25, 75)
                 t.textLines(newPrevAppDesc)
                 can.drawText(t)
@@ -418,7 +414,7 @@ def thirteenthPageInputs(self, can, inputObj, tempInput):
     t = can.beginText()
     t.setFont(customFont, customFontSize)
     comments = inputObj['page9[formComments]']
-    newComments = "\n".join(wrap(comments, 82))
+    newComments = formatTextWithoutDash(self, comments, 81)
     t.setTextOrigin(25, 730)
     t.textLines(newComments)
     can.drawText(t)
@@ -562,15 +558,6 @@ def modifyCountryNames(initialName):
     tempList = initialName.split("(")
     return tempList[0]
 
-
-# def extraStOfFactsPage(self, inputObj):
-
-
-
-
-
-
-
 def go(filename, textString, firstPage, laterPage=None):
     styles = getSampleStyleSheet()
     doc = SimpleDocTemplate(filename)
@@ -581,3 +568,92 @@ def go(filename, textString, firstPage, laterPage=None):
     Story.append(p)
     Story.append(Spacer(1,0.2*inch))
     doc.build(Story, onFirstPage=firstPage)
+
+
+def formatTextWithoutDash(self,lines,limit):
+    limitCount = limit
+    wordStartPos = 0
+    str = ''
+    itrPosition = 0
+    for ch in lines:
+        limitCount -= 1
+        itrPosition += 1
+        str += ch
+        if ch == '\n':
+            limitCount = limit
+        if limitCount == 0:
+            if ch != ' ':
+                str = str[:wordStartPos]+'\n'+str[wordStartPos:]
+                limitCount = limit - (itrPosition-wordStartPos)
+            else:
+                str = str[:itrPosition]+'\n'+str[itrPosition:]
+                limitCount = limit
+            itrPosition += 1         
+        if ch == ' ':
+            wordStartPos = itrPosition
+    return str
+
+def formatText(self, lines, limit,suffixLen=3,prefixLen=2):
+    str = ""
+    itrPosition = 0
+
+    limitCount = limit
+    flag = 0
+    inWordPos = 0
+    wordPrefix = 0
+    wordSuffix = 0
+    wordStartPos = 0
+    for ch in lines:
+        itrPosition += 1
+        str += ch
+        limitCount -= 1
+        
+        if ch == '\n':
+            if flag==1:
+                wordSuffix = itrPosition - inWordPos
+                str = str[:wordStartPos]+'\n'+str[wordStartPos:]
+                limitCount = limit-(wordPrefix+wordSuffix)
+                flag = 0
+                continue
+            else:
+                limitCount = limit
+                flag = 0
+                wordStartPos = itrPosition
+        if flag == 1:
+            wordSuffix = itrPosition - inWordPos
+            if wordSuffix >= suffixLen and ch!=' ':
+                flag = 0
+                str = str[:inWordPos]+'-\n' + str[inWordPos:]
+                itrPosition += len('-\n')
+                limitCount = limit - wordSuffix
+                wordStartPos = inWordPos + len('-\n')
+                continue
+            elif wordSuffix<=suffixLen and ch == ' ':
+                str = str[:wordStartPos] + '\n' + str[wordStartPos:]
+                flag= 0
+                itrPosition += len('\n')
+                limitCount = limit - (wordSuffix+wordPrefix)
+                continue;
+        if ch == ' ':
+            wordStartPos = itrPosition
+        
+        if limitCount == 0:
+            if ch != ' ':
+                inWordPos = itrPosition
+                wordPrefix = inWordPos - wordStartPos
+                if wordPrefix <= prefixLen:
+                    str = str[:wordStartPos]+'\n'+str[wordStartPos:]
+                    limitCount = limit - wordPrefix
+                    itrPosition += 1
+                    wordStartPos += 1
+                else:
+                    flag = 1
+                    limitCount = limit
+            else:
+                str = str[:itrPosition] + '\n' + str[itrPosition:]
+                limitCount = limit
+                itrPosition += 1
+                wordStartPos+=1
+    if flag == 1:
+        str = str[:wordStartPos] + '\n' + str[wordStartPos:]
+    return str

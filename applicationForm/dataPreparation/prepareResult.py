@@ -48,25 +48,26 @@ class PrepareResult:
         sof2 = ""
         sof3 = ""
         lines = sof
-        print(lines)
+        
         lines = formatText(self, lines, 81)
+        
         cnt = 0
         temp = ""
         for line in lines.split("\n"):
             cnt = cnt+1
             temp += line + "\n"
 
-            if cnt == 48:
-                sof1 = temp
-                print(repr(sof1))
+            if cnt <= 48:
+                sof1 += temp
+               
                 temp = ""
-            if cnt == 103:
-                sof2 = temp
+            elif cnt <= 103:
+                sof2 += temp
                 temp = ""
-            if(cnt == 158):
+            elif cnt <= 158:
                 sof3 += temp
                 temp = ""
-
+        print(repr(sof1))
         article = []
         article.append(self.spclReplies[1])
         article.append(self.spclReplies[2])

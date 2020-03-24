@@ -4,7 +4,6 @@
 var applicantTypeOption = function() {
   $("input[name='page2[applicantType]']").change(function() {
     result = this.value;
-    console.log(result);
     if (result === 'Individual') {
       $('#indBeginner').removeClass('is-hidden');  
       $('#orgBeginner').addClass('is-hidden');
@@ -61,7 +60,6 @@ $("input[name='page3[indRepresentativeType]']").change(function() {
 
 $("input[name='page3[orgRepresentativeType]']").change(function() {
   result = this.value;
-  console.log(result);
   if (result === 'orgYesLawyer') {
     $('#orgLawyerRep').removeClass('is-hidden');
     $('.orgAuthority').removeClass('is-hidden');
@@ -160,7 +158,6 @@ $("input[name='page6[appealAvailable]']").change(function() {
 
 $("input[name='page7[intInvestigation]']").change(function() {
   result = this.value;
-  console.log(result);
   if (result === 'Yes') $('.intInvestigation').removeClass('is-hidden');
   else {
     $('.intInvestigation').addClass('is-hidden');
@@ -177,8 +174,6 @@ $("input[name='page7[prevApplications]']").change(function() {
 
 function textCounter(field, field2, maxlimit) {
   var countfield = document.getElementById(field2);
-  console.log(field.value.length);
-  console.log(maxlimit);
   if (field.value.length > maxlimit) {  
     if(field.id==="stofFacts"){
     swal("You have used up the allocated length for Statement of Facts. For more explanation, please use the extra provided area by clicking the button 'Do you need more writing space?'");

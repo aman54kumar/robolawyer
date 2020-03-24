@@ -528,13 +528,62 @@ def sortDocumentsDate(self, inputObj):
     return [dateListNew, titleListNew, descListNew, pageListNew, pageListTemp]
 
 def bookmarkPageInputs(self, can, inputObj):
-    title = inputObj[0] + " (" + inputObj[1] + " pages) "
+    from reportlab.pdfbase.pdfmetrics import stringWidth
+    print(inputObj)
+    headingText = 'Accompanying Documents: Document '+ str(inputObj[4]+1)
+    can.setFont('Courier', 18)
+    can.drawString(120, 600, headingText)
+    can.setFont('Times-Roman', 12)
+    can.drawString(80, 500, "Document Title: ")
+    can.drawString(80, 470, "Short Description: ")
+    can.drawString(80, 440, "Number of Pages: ")
+
+    startPage = str(13+ int(inputObj[2]))
+    endPage = str(13 + int(inputObj[2]) + int(inputObj[3]) - 1)
+
+    x = 80
+    y = 410
+    pagesText1 = "Document starts at page "
+    pagesText2 = " and ends at page "
+    can.drawString(x, y, pagesText1)
+    textWidth = stringWidth(pagesText1, 'Times-Roman', 12)
+    can.setFont('Courier', 12)
+    x += textWidth + 1
+    can.drawString(x, y, startPage)
+    textWidth = stringWidth(startPage, 'Courier', 12)
+    can.setFont('Times-Roman', 12)
+    x += textWidth + 1
+    can.drawString(x, y, pagesText2)
+    textWidth = stringWidth(pagesText2, 'Times-Roman', 12)
+    can.setFont('Courier', 12)
+    x += textWidth + 1
+    can.drawString(x, y, endPage)
+
+
+
     t1 = can.beginText()
-    t1.setFont('Courier-Bold', 20)
-    newPage = "\n".join(wrap(title, 40))
-    t1.setTextOrigin(50, 600)
-    t1.textLines(newPage)
+    t1.setTextOrigin(180, 500)
+    can.setFont('Courier', 12)
+    title = inputObj[0] 
+    newTitle = formatText(self, title, 45)
+    t1.textLines(newTitle)
     can.drawText(t1)
+
+    t2 = can.beginText()
+    t2.setTextOrigin(180, 470)
+    can.setFont('Courier', 12)
+    desc = inputObj[1] 
+    newDesc = formatText(self, desc, 45)
+    t2.textLines(newDesc)
+    can.drawText(t2)
+
+    t3 = can.beginText()
+    t3.setTextOrigin(180, 440)
+    can.setFont('Courier', 12)
+    nOPages = inputObj[3] 
+    t3.textLines(nOPages)
+    can.drawText(t3)
+
     can.showPage()
     return can
 

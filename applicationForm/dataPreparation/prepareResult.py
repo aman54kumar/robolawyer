@@ -67,7 +67,6 @@ class PrepareResult:
             elif cnt <= 158:
                 sof3 += temp
                 temp = ""
-        print(repr(sof1))
         article = []
         article.append(self.spclReplies[1])
         article.append(self.spclReplies[2])
@@ -256,7 +255,7 @@ class PrepareResult:
                     str(15+single) + '.pdf'
                 can = canvas.Canvas(filename, pagesize=letter)
                 can = bookmarkPageInputs(
-                    self, can, [docs4List[1][single], docs4List[4][single]])
+                    self, can, [docs4List[1][single], docs4List[2][single], docs4List[3][single], docs4List[4][single], single])
                 can.save()
 
     def createAnonymityDoc(self, inputObj):

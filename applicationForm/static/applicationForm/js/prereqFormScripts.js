@@ -25,7 +25,7 @@
 
 
 $('#finalDecisionDate').on('change', function(){
-    finalDecisionDate = $('#finalDecisionDate').val();
+    finalDecisionDate = moment($('#finalDecisionDate').val(), 'DD/MM/YYYY');
     finalDecisionDate = moment(finalDecisionDate, 'DD/MM/YYYY').format('YYYY-MM-DD');
     currentDate = moment().format('YYYY-MM-DD');
     diffDate = moment(currentDate).diff(moment(finalDecisionDate), 'months', true);

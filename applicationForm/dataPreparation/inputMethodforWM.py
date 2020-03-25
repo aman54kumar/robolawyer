@@ -305,7 +305,7 @@ def tenthPageInputs(self, can, inputObj):
         else:
             print("error reported in TenthPageInputs")
 
-        newComplain = formatTextWithoutDash(self, complain, 22)
+        newComplain = formatText(self, complain, 23)
         t1.setTextOrigin(25, yCoord)
         t1.textLines(newComplain)
         can.drawText(t1)
@@ -313,11 +313,11 @@ def tenthPageInputs(self, can, inputObj):
 
         t2 = can.beginText()
         t2.setFont(customFont, customFontSize)
-        newRemedy = formatTextWithoutDash(self, remedies, 58)
+        newRemedy = formatText(self, remedies, 58)
         t2.setTextOrigin(185, yCoord)
         t2.textLines(newRemedy)
         can.drawText(t2)
-        yCoord -= nextLineForPara(len(newRemedy), 60, 17.5)
+        yCoord -= nextLineForPara(len(newRemedy), 60, 17)
 
     can.showPage()
     return can

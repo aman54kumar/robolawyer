@@ -329,7 +329,7 @@ def eleventhPageInputs(self, can, inputObj, secondInput):
                 t = can.beginText()
                 t.setFont(customFont, customFontSize)
                 appealDescribe = inputObj['page6[appealDescribe]']
-                newAppealDescribe = formatTextWithoutDash(self, appealDescribe, 81)
+                newAppealDescribe = formatText(self, appealDescribe, 82)
                 t.setTextOrigin(25, 735)
                 t.textLines(newAppealDescribe)
                 can.drawText(t)
@@ -344,8 +344,8 @@ def eleventhPageInputs(self, can, inputObj, secondInput):
                 t = can.beginText()
                 t.setFont(customFont, customFontSize)
                 intInvestigationDesc = secondInput['page7[intInvestigationDesc]']
-                newIntInvestigationDesc = formatTextWithoutDash(self, intInvestigationDesc, 81)
-                t.setTextOrigin(25, 400)
+                newIntInvestigationDesc = formatText(self, intInvestigationDesc, 82)
+                t.setTextOrigin(25, 403)
                 t.textLines(newIntInvestigationDesc)
                 can.drawText(t)
             elif secondInput["page7[intInvestigation]"] == 'No':
@@ -359,8 +359,8 @@ def eleventhPageInputs(self, can, inputObj, secondInput):
                 t = can.beginText()
                 t.setFont(customFont, customFontSize)
                 prevAppDesc = secondInput['page7[prevAppDesc]']
-                newPrevAppDesc = formatTextWithoutDash(self, prevAppDesc, 81)
-                t.setTextOrigin(25, 75)
+                newPrevAppDesc = formatText(self, prevAppDesc, 82)
+                t.setTextOrigin(25, 76)
                 t.textLines(newPrevAppDesc)
                 can.drawText(t)
             elif secondInput["page7[prevApplications]"] == 'No':
@@ -414,8 +414,8 @@ def thirteenthPageInputs(self, can, inputObj, tempInput):
     t = can.beginText()
     t.setFont(customFont, customFontSize)
     comments = inputObj['page9[formComments]']
-    newComments = formatTextWithoutDash(self, comments, 81)
-    t.setTextOrigin(25, 730)
+    newComments = formatText(self, comments, 82)
+    t.setTextOrigin(25, 732)
     t.textLines(newComments)
     can.drawText(t)
     if "page9[signatureDeclaration]" in inputObj:

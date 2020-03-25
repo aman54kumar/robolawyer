@@ -317,7 +317,7 @@ def tenthPageInputs(self, can, inputObj):
         t2.setTextOrigin(185, yCoord)
         t2.textLines(newRemedy)
         can.drawText(t2)
-        yCoord -= nextLineForPara(len(newRemedy), 60, 14.5)
+        yCoord -= nextLineForPara(len(newRemedy), 60, 17.5)
 
     can.showPage()
     return can

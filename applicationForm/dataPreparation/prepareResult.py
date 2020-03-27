@@ -122,7 +122,6 @@ class PrepareResult:
             self.inputObj['page9'], pos=13, tempInput=codeList)
 
         self.create_New_Pdf(docs)
-        # print(self.inputObj)
         anonValue = self.inputObj['page2']['page2[applicantAnonExp]']
         anonValue = anonValue.replace(" ", "")
         if anonValue != '':

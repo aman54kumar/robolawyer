@@ -397,7 +397,7 @@ def twelvthPageInputs(self, can, inputObj):
             can.setFont('Courier', 11)
             can.drawString(40, yCoord-12, desc)
             can.drawString(550, yCoord-12, page)
-            yCoord -= 26
+            yCoord -= 25.5
 
     can.showPage()
     return can
@@ -595,7 +595,7 @@ def anonymityDoc(self, can, inputObj):
     t = can.beginText()
     t.setFont(customFont, customFontSize)
     text = inputObj
-    newText = "\n".join(wrap(text, 85))
+    newText = formatText(self, text, 85)
     t.setTextOrigin(25, 640)
     t.textLines(newText)
     can.drawText(t)

@@ -520,10 +520,10 @@ def sortDocumentsDate(self, inputObj):
     descList = inputObj[2]
     pageList = inputObj[3]
     list_of_dates= [datetime.strptime(date,"%d/%m/%Y") for date in dateList]
-    dateListNew = [x for _,x in sorted(zip(list_of_dates, dateList))]
-    titleListNew = [x for _,x in sorted(zip(list_of_dates, titleList))]
-    descListNew = [x for _,x in sorted(zip(list_of_dates, descList))]
-    pageListTemp = [x for _,x in sorted(zip(list_of_dates, pageList))]
+    dateListNew = [x for _,x in sorted(zip(list_of_dates, dateList), reverse=True)]
+    titleListNew = [x for _,x in sorted(zip(list_of_dates, titleList), reverse=True)]
+    descListNew = [x for _,x in sorted(zip(list_of_dates, descList), reverse=True)]
+    pageListTemp = [x for _,x in sorted(zip(list_of_dates, pageList), reverse=True)]
     pageListNew = add_one_by_one(pageListTemp)
     return [dateListNew, titleListNew, descListNew, pageListNew, pageListTemp]
 

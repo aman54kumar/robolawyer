@@ -254,7 +254,7 @@ def eighthPageInputs(self, can, inputObj):
         t2.setTextOrigin(180, yCoord)
         t2.textLines(newArticleExp)
         can.drawText(t2)
-        yCoord -= nextLineForPara(len(newArticleExp), 59, 13.7)
+        yCoord -= nextLineForPara(len(newArticleExp), 59, 13.2)
 
     can.showPage()
     return can
@@ -285,7 +285,7 @@ def ninthPageInputs(self, can, inputObj):
             t2.setTextOrigin(180, yCoord)
             t2.textLines(newArticleExp)
             can.drawText(t2)
-            yCoord -= nextLineForPara(len(newArticleExp), 59, 13.7)
+            yCoord -= nextLineForPara(len(newArticleExp), 59, 15.8)
 
 
     can.showPage()

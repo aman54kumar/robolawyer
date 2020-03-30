@@ -254,16 +254,15 @@
 <script src="{% static 'applicationForm/js/prereqFormScripts.js' %}"></script>
 
 <script>
-   /* $(function () {
-        $('.date').combodate({
-            minYear: 1900,
-            maxYear: 2020,
-            customClass: 'custom-control-inline form-control',
-            smartDays: true,
-            firstItem: 'name',
-            format: "DD/MM/YYYY"
+    window.Parsley.addValidator('intlTelNo' , {
+        requirementType : 'integer',
+        validateNumber : (val , requirement , options) => {
+            return $(options.element).intlTelInput("isValidNumber");	
+        },
+        messages : {
+        en : 'Please enter a valid phone number.'
+        }
         });
-    });*/
 </script>
 <script>
     $(function () {

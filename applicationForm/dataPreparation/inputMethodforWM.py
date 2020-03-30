@@ -28,7 +28,6 @@ def firstPageInputs(self, can, inputObj):
         can.drawString(25, 245, indNationalityNew)
 
         addressOne = inputObj["page2[indAddress]"]
-        print(repr(addressOne))
         newAddress = formatTextWithoutDash(self, addressOne, 42)
         t.setTextOrigin(25, 208)
         t.textLines(newAddress)
@@ -529,7 +528,6 @@ def sortDocumentsDate(self, inputObj):
 
 def bookmarkPageInputs(self, can, inputObj):
     from reportlab.pdfbase.pdfmetrics import stringWidth
-    print(inputObj)
     headingText = 'Accompanying Documents: Document '+ str(inputObj[4]+1)
     can.setFont('Courier', 18)
     can.drawString(120, 600, headingText)
@@ -587,32 +585,32 @@ def bookmarkPageInputs(self, can, inputObj):
     can.showPage()
     return can
 
-def anonymityDoc(self, can, inputObj):
-    title = "Request of Anonymity"
-    can.setFont('Courier-Bold', 20)
-    can.drawString(180, 700, title)
+# def anonymityDoc(self, can, inputObj):
+#     title = "Request of Anonymity"
+#     can.setFont('Courier-Bold', 20)
+#     can.drawString(180, 700, title)
 
-    t = can.beginText()
-    t.setFont(customFont, customFontSize)
-    text = inputObj
-    newText = formatText(self, text, 85)
-    t.setTextOrigin(25, 640)
-    t.textLines(newText)
-    can.drawText(t)
-    can.showPage()
-    return can
+#     t = can.beginText()
+#     t.setFont(customFont, customFontSize)
+#     text = inputObj
+#     newText = formatText(self, text, 85)
+#     t.setTextOrigin(25, 640)
+#     t.textLines(newText)
+#     can.drawText(t)
+#     can.showPage()
+#     return can
 
 
 def modifyCountryNames(initialName):
     tempList = initialName.split("(")
     return tempList[0]
 
-def go(filename, textString, firstPage, laterPage=None):
+def go(self, filename, textString, firstPage, laterPage=None):
     styles = getSampleStyleSheet()
     doc = SimpleDocTemplate(filename)
     Story = [Spacer(1,2*inch)]
     style = styles["Normal"]
-    
+    textString = textString.replace('\n', '<br/>')
     p = Paragraph(textString, style)
     Story.append(p)
     Story.append(Spacer(1,0.2*inch))
@@ -705,4 +703,72 @@ def formatText(self, lines, limit,suffixLen=3,prefixLen=2):
                 wordStartPos+=1
     if flag == 1:
         str = str[:wordStartPos] + '\n' + str[wordStartPos:]
+    return str
+
+
+
+
+def formatTextBR(self, lines, limit,suffixLen=3,prefixLen=2):
+    str = ""
+    itrPosition = 0
+
+    limitCount = limit
+    flag = 0
+    inWordPos = 0
+    wordPrefix = 0
+    wordSuffix = 0
+    wordStartPos = 0
+    for ch in lines:
+        itrPosition += 1
+        str += ch
+        limitCount -= 1
+        
+        if ch == '<br/>':
+            if flag==1:
+                wordSuffix = itrPosition - inWordPos
+                str = str[:wordStartPos]+'<br/>'+str[wordStartPos:]
+                limitCount = limit-(wordPrefix+wordSuffix)
+                flag = 0
+                continue
+            else:
+                limitCount = limit
+                flag = 0
+                wordStartPos = itrPosition
+        if flag == 1:
+            wordSuffix = itrPosition - inWordPos
+            if wordSuffix >= suffixLen and ch!=' ':
+                flag = 0
+                str = str[:inWordPos]+'-<br/>' + str[inWordPos:]
+                itrPosition += len('-<br/>')
+                limitCount = limit - wordSuffix
+                wordStartPos = inWordPos + len('-<br/>')
+                continue
+            elif wordSuffix<=suffixLen and ch == ' ':
+                str = str[:wordStartPos] + '<br/>' + str[wordStartPos:]
+                flag= 0
+                itrPosition += len('<br/>')
+                limitCount = limit - (wordSuffix+wordPrefix)
+                continue;
+        if ch == ' ':
+            wordStartPos = itrPosition
+        
+        if limitCount == 0:
+            if ch != ' ':
+                inWordPos = itrPosition
+                wordPrefix = inWordPos - wordStartPos
+                if wordPrefix <= prefixLen:
+                    str = str[:wordStartPos]+'<br/>'+str[wordStartPos:]
+                    limitCount = limit - wordPrefix
+                    itrPosition += 1
+                    wordStartPos += 1
+                else:
+                    flag = 1
+                    limitCount = limit
+            else:
+                str = str[:itrPosition] + '<br/>' + str[itrPosition:]
+                limitCount = limit
+                itrPosition += 1
+                wordStartPos+=1
+    if flag == 1:
+        str = str[:wordStartPos] + '<br/>' + str[wordStartPos:]
     return str

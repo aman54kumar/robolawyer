@@ -135,7 +135,7 @@ class PrepareResult:
         if sofValue != '':
             filenameStOfFacts = 'applicationForm/dataPreparation/results/' + \
                 self.sessionID+'/finalPage/Result_form_page_15.pdf'
-            go(filenameStOfFacts, self.inputObj['page4']['page4[stOfFactsExtra]'],
+            go(self, filenameStOfFacts, self.inputObj['page4']['page4[stOfFactsExtra]'],
                extraStOfFactsFirstPage, extraStOfFactsLaterPage)
 
         logger.warning("Your log message is here")
@@ -257,15 +257,15 @@ class PrepareResult:
                     self, can, [docs4List[1][single], docs4List[2][single], docs4List[3][single], docs4List[4][single], single])
                 can.save()
 
-    def createAnonymityDoc(self, inputObj):
-        if inputObj == '':
-            print('no anonymity request')
-        else:
-            filename = 'applicationForm/dataPreparation/results/'+self.sessionID+'/finalPage/Result_form_page_' + \
-                str(14) + '.pdf'
-            can = canvas.Canvas(filename, pagesize=letter)
-            can = anonymityDoc(self, can, inputObj)
-            can.save()
+    # def createAnonymityDoc(self, inputObj):
+    #     if inputObj == '':
+    #         print('no anonymity request')
+    #     else:
+    #         filename = 'applicationForm/dataPreparation/results/'+self.sessionID+'/finalPage/Result_form_page_' + \
+    #             str(14) + '.pdf'
+    #         can = canvas.Canvas(filename, pagesize=letter)
+    #         can = anonymityDoc(self, can, inputObj)
+    #         can.save()
 
 
 def anonymityPage(canvas, doc):

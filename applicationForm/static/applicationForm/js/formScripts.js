@@ -73,21 +73,21 @@ $("input[name='page3[orgRepresentativeType]']").change(function() {
 
 //  stepper responsive
 
-jQuery(document).ready(function($) {
-  var alterClass = function() {
-    var ww = document.body.clientWidth;
-    if (ww < 700) {
-      $('#stepperForm').addClass('vertical');
-    } else if (ww >= 701) {
-      $('#stepperForm').removeClass('vertical');
-    }
-  };
-  $(window).resize(function() {
-    alterClass();
-  });
-  //Fire it when the page first loads:
-  alterClass();
-});
+// jQuery(document).ready(function($) {
+//   var alterClass = function() {
+//     var ww = document.body.clientWidth;
+//     if (ww < 700) {
+//       $('#stepperForm').addClass('vertical');
+//     } else if (ww >= 701) {
+//       $('#stepperForm').removeClass('vertical');
+//     }
+//   };
+//   $(window).resize(function() {
+//     alterClass();
+//   });
+//   //Fire it when the page first loads:
+//   alterClass();
+// });
 
 
 
@@ -214,3 +214,45 @@ $('#page8Group').repeater({
   animationEasing: 'swing',
   clearValues: true
 });
+
+
+limitLines = function(limit, textarea) {
+  var spaces = textarea.getAttribute("cols");
+  
+  textarea.onkeyup = function() {
+     var lines = textarea.value.split("\n");
+      
+     for (var i = 0; i < lines.length; i++) 
+     {
+           if (lines[i].length <= spaces) continue;
+           var j = 0;
+           
+          var space = spaces;
+          
+          while (j++ <= spaces) 
+          {
+             if (lines[i].charAt(j) === " ") space = j;  
+          }
+      lines[i + 1] = lines[i].substring(space + 1) + (lines[i + 1] || "");
+      lines[i] = lines[i].substring(0, space);
+    }
+      if(lines.length>limit)
+      {
+          textarea.style.color = 'red';
+          setTimeout(function(){
+              textarea.style.color = '';
+          },500);
+      }    
+     textarea.value = lines.slice(0, limit).join("\n");
+  };
+}
+
+
+limitLines(6, document.getElementById('indAddress'));
+// limitLines(20, document.getElementById('prevAppDesc'));
+limitLines(16, document.getElementById('appealDescribe'));
+limitLines(20, document.getElementById('intInvestigationDesc'));
+limitLines(4, document.getElementById('prevAppDesc'));
+limitLines(5, document.getElementById('formComments'));
+
+

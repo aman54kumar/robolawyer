@@ -28,8 +28,8 @@ def firstPageInputs(self, can, inputObj):
         can.drawString(25, 245, indNationalityNew)
 
         addressOne = inputObj["page2[indAddress]"]
-        addressOneLength = len(addressOne)
-        newAddress = formatTextWithoutDash(self, addressOne, 38)
+        print(repr(addressOne))
+        newAddress = formatTextWithoutDash(self, addressOne, 42)
         t.setTextOrigin(25, 208)
         t.textLines(newAddress)
         can.drawText(t)

@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ) {
       return true;
     } else {
-      return false;
+      return true;
     }
   }
 

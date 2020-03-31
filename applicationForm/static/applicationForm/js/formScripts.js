@@ -249,7 +249,11 @@ limitLines = function(limit, textarea) {
 
 
 limitLines(6, document.getElementById('indAddress'));
-// limitLines(20, document.getElementById('prevAppDesc'));
+limitLines(9, document.getElementById('orgAddress'));
+limitLines(9, document.getElementById('indNLAddress'));
+limitLines(9, document.getElementById('indLAddress'));
+limitLines(20, document.getElementById('orgnlAddress'));
+limitLines(20, document.getElementById('orglAddress'));
 limitLines(16, document.getElementById('appealDescribe'));
 limitLines(20, document.getElementById('intInvestigationDesc'));
 limitLines(4, document.getElementById('prevAppDesc'));

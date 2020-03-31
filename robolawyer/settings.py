@@ -37,8 +37,9 @@ EMAIL_HOST_PASSWORD=config('EMAIL_HOST_PASSWORD')
 EMAIL_HOST_USER=config('EMAIL_HOST_USER')
 EMAIL_PORT=config('EMAIL_PORT')
 EMAIL_USE_TLS=config('EMAIL_USE_TLS')
-ADMINS = [("Aman","aman54kumar@gmail.com")]
-
+# ADMINS = [("Aman","aman54kumar@gmail.com")]
+# below code for env var in heroku
+ADMINS = [("Justbot", "contact@justbot.org")]
 
 
 

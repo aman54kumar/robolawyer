@@ -67,7 +67,7 @@ def firstPageInputs(self, can, inputObj):
         can.drawString(310, 265, inputObj["page2[orgActivity]"])
         
         addressTwo = inputObj["page2[orgAddress]"]
-        newAddressTwo = formatTextWithoutDash(self, addressTwo, 38)
+        newAddressTwo = formatTextWithoutDash(self, addressTwo, 42)
         t.setTextOrigin(310, 227)
         t.textLines(newAddressTwo)
 
@@ -104,7 +104,7 @@ def thirdPageInputs(self, can, inputObj):
 
             addressThree = inputObj["page3[indNLAddress]"]
             addressThreeLength = len(addressThree)
-            newAddress = formatTextWithoutDash(self, addressThree, 39)
+            newAddress = formatTextWithoutDash(self, addressThree, 42)
             t.setTextOrigin(25, 503)
             t.textLines(newAddress)
             can.drawText(t)
@@ -119,7 +119,7 @@ def thirdPageInputs(self, can, inputObj):
             indLNationalityNew = modifyCountryNames(inputObj["page3[indLNationality]"])
             can.drawString(310, 581, indLNationalityNew)
             addressFour = inputObj["page3[indLAddress]"]
-            newAddressFour = formatTextWithoutDash(self, addressFour, 39)
+            newAddressFour = formatTextWithoutDash(self, addressFour, 42)
             t.setTextOrigin(310, 543)
             t.textLines(newAddressFour)
             can.drawText(t)
@@ -150,7 +150,7 @@ def fourthPageInputs(self, can, inputObj):
             orgnlNationalityNew = modifyCountryNames(inputObj["page3[orgnlNationality]"])
             can.drawString(25, 548, orgnlNationalityNew)
             addressFour = inputObj["page3[orgnlAddress]"]
-            newAddressFour = formatTextWithoutDash(self, addressFour, 39)
+            newAddressFour = formatTextWithoutDash(self, addressFour, 42)
             t.setTextOrigin(25, 508)
             t.textLines(newAddressFour)
             can.drawText(t)
@@ -166,7 +166,7 @@ def fourthPageInputs(self, can, inputObj):
             orgnlNationalityNew = modifyCountryNames(inputObj["page3[orgnlNationality]"])
             can.drawString(25, 548, orgnlNationalityNew)
             addressFour = inputObj["page3[orgnlAddress]"]
-            newAddressFour = formatTextWithoutDash(self, addressFour, 39)
+            newAddressFour = formatTextWithoutDash(self, addressFour, 42)
             t.setTextOrigin(25, 508)
             t.textLines(newAddressFour)
             can.drawText(t)
@@ -180,7 +180,7 @@ def fourthPageInputs(self, can, inputObj):
             orglNationalityNew = modifyCountryNames(inputObj["page3[orglNationality]"])
             can.drawString(310, 585, orglNationalityNew)
             addressFive = inputObj["page3[orglAddress]"]
-            newAddressFive = formatTextWithoutDash(self, addressFive, 39)
+            newAddressFive = formatTextWithoutDash(self, addressFive, 42)
             t.setTextOrigin(310, 548)
             t.textLines(newAddressFive)
             can.drawText(t)
@@ -253,7 +253,7 @@ def eighthPageInputs(self, can, inputObj):
         t2.setTextOrigin(180, yCoord)
         t2.textLines(newArticleExp)
         can.drawText(t2)
-        yCoord -= nextLineForPara(len(newArticleExp), 59, 13.2)
+        yCoord -= nextLineForPara(len(newArticleExp), 59, 14.3)
 
     can.showPage()
     return can

@@ -32,11 +32,11 @@ def formProcessing(request):
         spclReplies.append(request.POST.getlist('page6[complaintDate]'))
         spclReplies.append(request.POST.getlist('page6[remediesUsed]'))
 
-        spclReplies.append(request.POST.getlist('page8[finalDecisionDate]'))
-        spclReplies.append(request.POST.getlist('page8[docTitle]'))
-        spclReplies.append(request.POST.getlist('page8[docDescription]'))
-        spclReplies.append(request.POST.getlist('page8[pageNumber]'))
-
+        # spclReplies.append(request.POST.getlist('page8[finalDecisionDate]'))
+        # spclReplies.append(request.POST.getlist('page8[docTitle]'))
+        # spclReplies.append(request.POST.getlist('page8[docDescription]'))
+        # spclReplies.append(request.POST.getlist('page8[pageNumber]'))
+        # print(form_dict)
        
         pagesName = ['page1', 'page2', 'page3', 'page4', 'page5',
                      'page6', 'page7', 'page8', 'page9', 'page10']

@@ -50,6 +50,26 @@ document.addEventListener('DOMContentLoaded', function() {
   
     btnNextList.forEach(function(btn) {
       btn.addEventListener('click', function() {
+        if (currentStep === 4){
+          if (!$.trim($("stOfFactsExtra").val())){
+            var pageNumbers = $("#stofFactsExtra").val().length;
+            var pageNumbers = Math.ceil(pageNumbers/4000);
+            console.log(pageNumbers);
+            if ($("input[name='page2[applicantAnon]']").val() === 'Yes') {
+              $("input[name='page8[1][date]']").val(moment().format('DD/MM/YYYY'));
+              $("input[name='page8[1][title]']").val("Extra Statement of Facts");
+              $("input[name='page8[1][desc]']").val("Extra pages for explaining statement of facts");
+              $("input[name='page8[1][page]']").val(String(1));
+            }
+            else{
+              $("input[name='page8[0][date]']").val(moment().format('DD/MM/YYYY'));
+              $("input[name='page8[0][title]']").val("Extra Statement of Facts");
+              $("input[name='page8[0][desc]']").val("Extra pages for explaining statement of facts");
+              $("input[name='page8[0][page]']").val(String(1));
+            }
+          }
+          
+        }
         stepperForm.next();
       });
     });
@@ -75,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ) {
       return true;
     } else {
-      return false;
+      return true;
     }
   }
 

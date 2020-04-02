@@ -371,32 +371,23 @@ def eleventhPageInputs(self, can, inputObj, secondInput):
     return can
 
 def twelvthPageInputs(self, can, inputObj):
-    if inputObj[0] == ['']:
-        print("no value entered twelvth")
-    else:
-        [dateListNew, titleListNew, descListNew, pageListNew, pageListTemp] = sortDocumentsDate(self, inputObj)
-        pageListNew = add_one_by_one(pageListTemp)
-        yCoord = 666
-        for item in range(len(inputObj[0])):
-            t1 = can.beginText()
-            t1.setFont(customFont, customFontSize)
-            if len(inputObj[0]) > 1:
-                desc = descListNew[item]
-                title = titleListNew[item]
-                page = str(13+ int(pageListNew[item]))
-            elif len(inputObj[0]) == 1:
-                desc = descListNew[0]
-                title = titleListNew[0]  
-                page = str(13+ int(pageListNew[0]))
-            else:
-                print("error reported in TwelvethPageInputs")
-                
-            can.setFont('Courier-Bold', 12)
-            can.drawString(40, yCoord, title)
-            can.setFont('Courier', 11)
-            can.drawString(40, yCoord-12, desc)
-            can.drawString(550, yCoord-12, page)
-            yCoord -= 25.5
+    [dateListNew, titleListNew, descListNew, pageListNew, pageListTemp] = sortDocumentsDate(self, inputObj)
+    pageListNew = add_one_by_one(pageListTemp)
+    length = int((len(inputObj))/4)
+    yCoord = 666
+    for item in range(length):
+        t1 = can.beginText()
+        t1.setFont(customFont, customFontSize)
+        desc = descListNew[item]
+        title = titleListNew[item]
+        # page = str(14+ int(pageListNew[item]))
+        page = pageListTemp[item]
+        can.setFont('Courier-Bold', 12)
+        can.drawString(40, yCoord, title)
+        can.setFont('Courier', 11)
+        can.drawString(40, yCoord-12, desc)
+        can.drawString(550, yCoord-12, page)
+        yCoord -= 25.5
 
     can.showPage()
     return can
@@ -513,11 +504,17 @@ def barcodeMaker(self, formInputs, applicantCode):
 
 def sortDocumentsDate(self, inputObj):
     from datetime import datetime
-    indexList = []
-    dateList = inputObj[0]
-    titleList = inputObj[1]
-    descList = inputObj[2]
-    pageList = inputObj[3]
+
+    length = int((len(inputObj))/4)
+    dateList = []
+    titleList = [] 
+    descList = []
+    pageList = []
+    for i in range(length):
+        dateList.append(inputObj['page8['+str(i) + '][date]'])
+        titleList.append(inputObj['page8['+str(i) + '][title]'])
+        descList.append(inputObj['page8['+str(i) + '][desc]'])
+        pageList.append(inputObj['page8['+str(i) + '][page]'])
     list_of_dates= [datetime.strptime(date,"%d/%m/%Y") for date in dateList]
     dateListNew = [x for _,x in sorted(zip(list_of_dates, dateList), reverse=True)]
     titleListNew = [x for _,x in sorted(zip(list_of_dates, titleList), reverse=True)]
@@ -536,8 +533,8 @@ def bookmarkPageInputs(self, can, inputObj):
     can.drawString(80, 470, "Short Description: ")
     can.drawString(80, 440, "Number of Pages: ")
 
-    startPage = str(13+ int(inputObj[2]))
-    endPage = str(13 + int(inputObj[2]) + int(inputObj[3]) - 1)
+    startPage = str(14 + int(inputObj[2]) - int(inputObj[3]))
+    endPage = str(14 + int(inputObj[2]) - 1)
 
     x = 80
     y = 410

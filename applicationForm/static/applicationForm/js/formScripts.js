@@ -197,13 +197,27 @@ function textCounter(field, field2, maxlimit) {
 //   }
 // })
 
+$("input[name='page2[applicantAnon]']").change(function() {
+  result = this.value;
+  if (result==='Yes'){
+    $("input[name='page8[0][date]']").val(moment().format('DD/MM/YYYY'))
+    $("input[name='page8[0][title]']").val("Anonymity Request");
+    $("input[name='page8[0][desc]']").val("Request for Anonymity");
+    $("input[name='page8[0][page]']").val("1");
+  }
+  else {
+    console.log("no anonymity");
+  }
+});
+
+
 
 
 $('#page8Group').repeater({
   btnAddClass: 'r-btnAdd',
   btnRemoveClass: 'r-btnRemove',
   groupClass: 'r-group',
-  minItems: 1,
+  minItems: 2,
   maxItems: 24,
   startingIndex: 0,
   showMinItemsOnLoad: true,

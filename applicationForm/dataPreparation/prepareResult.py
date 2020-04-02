@@ -76,12 +76,8 @@ class PrepareResult:
         complains.append([m+' ' + str(n)
                           for m, n in zip(self.spclReplies[5], self.spclReplies[4])])
 
-        docs = []
-        docs.append(self.spclReplies[6])
-        docs.append(self.spclReplies[7])
-        docs.append(self.spclReplies[8])
-        docs.append(self.spclReplies[9])
-
+        docs = self.inputObj['page8']
+   
         paths = glob.glob(
             'applicationForm/dataPreparation/pages/App_form_page_*.pdf')
 
@@ -125,10 +121,8 @@ class PrepareResult:
         anonValue = self.inputObj['page2']['page2[applicantAnonExp]']
         anonValue = anonValue.replace(" ", "")
         if anonValue != '':
-            filenameAnon = 'applicationForm/dataPreparation/results/' + \
-                self.sessionID+'/finalPage/Result_form_page_14.pdf'
-            go(filenameAnon, self.inputObj['page2']
-               ['page2[applicantAnonExp]'], anonymityPage)
+            filenameAnon = 'applicationForm/dataPreparation/results/' + self.sessionID+'/finalPage/Result_form_page_14.pdf'
+            go(self, filenameAnon, self.inputObj['page2']['page2[applicantAnonExp]'], anonymityPage)
 
         sofValue = self.inputObj['page4']['page4[stOfFactsExtra]']
         sofValue = sofValue.replace(" ", "")
@@ -244,18 +238,15 @@ class PrepareResult:
         return filename
 
     def create_New_Pdf(self, inputObj):
-        totalBookmark = len(inputObj[1])
-        if inputObj[1] == ['']:
-            print("no doc entered")
-        else:
-            docs4List = sortDocumentsDate(self, inputObj)
-            for single in range(totalBookmark):
-                filename = 'applicationForm/dataPreparation/results/'+self.sessionID+'/finalPage/Result_form_page_' + \
-                    str(16+single) + '.pdf'
-                can = canvas.Canvas(filename, pagesize=letter)
-                can = bookmarkPageInputs(
-                    self, can, [docs4List[1][single], docs4List[2][single], docs4List[3][single], docs4List[4][single], single])
-                can.save()
+        totalBookmark = int((len(inputObj))/4)
+        docs4List = sortDocumentsDate(self, inputObj)
+        for single in range(totalBookmark):
+            filename = 'applicationForm/dataPreparation/results/'+self.sessionID+'/finalPage/Result_form_page_' + \
+                str(14+single) + '.pdf'
+            can = canvas.Canvas(filename, pagesize=letter)
+            can = bookmarkPageInputs(
+                self, can, [docs4List[1][single], docs4List[2][single], docs4List[3][single], docs4List[4][single], single])
+            can.save()
 
     # def createAnonymityDoc(self, inputObj):
     #     if inputObj == '':

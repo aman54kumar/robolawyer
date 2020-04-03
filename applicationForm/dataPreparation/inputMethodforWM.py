@@ -607,6 +607,9 @@ def go(self, filename, textString, firstPage, laterPage=None):
     doc = SimpleDocTemplate(filename)
     Story = [Spacer(1,2*inch)]
     style = styles["Normal"]
+    style.fontName = "Courier"
+    style.fontSize = 9
+    textString = formatText(self, textString, 78)
     textString = textString.replace('\n', '<br/>')
     p = Paragraph(textString, style)
     Story.append(p)

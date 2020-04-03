@@ -199,11 +199,18 @@ function textCounter(field, field2, maxlimit) {
 
 $("input[name='page2[applicantAnon]']").change(function() {
   result = this.value;
+  numOfLines = lines.split('\n').length - 1;
+  if (numOfLines <= 45) {
+    pageCount = 1;
+  }
+  else {
+    pageCount = 1+ Math.ceil((numOfLines - 45)/56);
+  }
   if (result==='Yes'){
     $("input[name='page8[0][date]']").val(moment().format('DD/MM/YYYY'))
     $("input[name='page8[0][title]']").val("Anonymity Request");
-    $("input[name='page8[0][desc]']").val("Request for Anonymity");
-    $("input[name='page8[0][page]']").val("1");
+    $("input[name='page8[0][desc]']").val("Documents requesting anonymity in the public documents of the court.");
+    $("input[name='page8[0][page]']").val(pageCount);
   }
   else {
     console.log("no anonymity");

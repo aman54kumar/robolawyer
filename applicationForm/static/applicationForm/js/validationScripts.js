@@ -51,21 +51,31 @@ document.addEventListener('DOMContentLoaded', function() {
     btnNextList.forEach(function(btn) {
       btn.addEventListener('click', function() {
         if (currentStep === 4){
-          if (!$.trim($("stOfFactsExtra").val())){
-            var pageNumbers = $("#stofFactsExtra").val().length;
-            var pageNumbers = Math.ceil(pageNumbers/4000);
-            console.log(pageNumbers);
+          if ($("#stofFactsExtra").val().trim()){
+            inputValue = $("#stofFactsExtra").val();
+            lines = formatText(inputValue, 78);
+            pageCount = 0;
+            temp = "";
+            
+            numOfLines = lines.split('\n').length - 1;
+            if (numOfLines <= 45) {
+              pageCount = 1;
+            }
+            else {
+              pageCount = 1+ Math.ceil((numOfLines - 45)/56);
+            }
+
             if ($("input[name='page2[applicantAnon]']").val() === 'Yes') {
               $("input[name='page8[1][date]']").val(moment().format('DD/MM/YYYY'));
               $("input[name='page8[1][title]']").val("Extra Statement of Facts");
               $("input[name='page8[1][desc]']").val("Extra pages for explaining statement of facts");
-              $("input[name='page8[1][page]']").val(String(1));
+              $("input[name='page8[1][page]']").val(pageCount);
             }
             else{
               $("input[name='page8[0][date]']").val(moment().format('DD/MM/YYYY'));
               $("input[name='page8[0][title]']").val("Extra Statement of Facts");
               $("input[name='page8[0][desc]']").val("Extra pages for explaining statement of facts");
-              $("input[name='page8[0][page]']").val(String(1));
+              $("input[name='page8[0][page]']").val(pageCount);
             }
           }
           
@@ -213,3 +223,93 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     
   
+
+
+      function formatText(lines, limit,suffixLen=3,prefixLen=2){
+        lines = lines.split("");
+        // console.log(lines)
+        str = "";
+        itrPosition = 0;
+        
+        limitCount = limit;
+        flag = 0;
+        inWordPos = 0;
+        wordPrefix = 0;
+        wordSuffix = 0;
+        wordStartPos = 0;
+        lines.forEach(function(ch){
+            itrPosition += 1;
+            str += ch;
+            limitCount -= 1;
+            
+            if (ch === '\n'){
+                
+                if (flag===1){
+                    wordSuffix = itrPosition - inWordPos;
+                    str = str.slice(0,wordStartPos) + '\n' + str.slice(wordStartPos,str.length);
+                    limitCount = limit-(wordPrefix+wordSuffix);
+                    flag = 0;
+                    return;
+                }
+                else{
+                    limitCount = limit;
+                    flag = 0;
+                    wordStartPos = itrPosition;
+                }
+            }
+            
+            if (flag === 1){
+                
+                wordSuffix = itrPosition - inWordPos;
+                if ((wordSuffix >= suffixLen) && (ch!=' ')) {
+                    flag = 0;
+                    str = str.slice(0,inWordPos) + '-\n' + str.slice(inWordPos,str.length);
+                    itrPosition += '-\n'.length;
+                    limitCount = limit - wordSuffix;
+                    wordStartPos = inWordPos + '-\n'.length;
+                    return;
+                }
+                else if ((wordSuffix<=suffixLen) && (ch === ' ')) {
+                    str = str.slice(0,wordStartPos) + '\n' + str.slice(wordStartPos,str.length);
+                
+                    flag= 0;
+                    itrPosition += '\n'.length;
+                    limitCount = limit - (wordSuffix+wordPrefix);
+                    return;
+                    
+                }
+            }
+            
+            if (ch === ' ') {
+                wordStartPos = itrPosition;
+            }
+            if (limitCount === 0) {
+                if (ch != ' ') {
+                    inWordPos = itrPosition;
+                    wordPrefix = inWordPos - wordStartPos;
+                    if (wordPrefix <= prefixLen) {
+                        str = str.slice(0,wordStartPos) + '\n' + str.slice(wordStartPos,str.length);
+                        limitCount = limit - wordPrefix;
+                        itrPosition += 1;
+                        wordStartPos += 1;
+                    }
+                    else{
+                        flag = 1;
+                        limitCount = limit;
+                    }
+                }
+                else{
+                    str = str.slice(0,itrPosition) + '\n' + str.slice(itrPosition,str.length);
+                    limitCount = limit;
+                    itrPosition += 1;
+                    wordStartPos+=1;
+                }
+            }
+            
+        });
+        
+        if(flag === 1){
+            str = str.slice(0,wordStartPos) + '\n' + str.slice(wordStartPos,str.length);
+        }
+        return str
+    }

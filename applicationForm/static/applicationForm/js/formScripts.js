@@ -199,6 +199,8 @@ function textCounter(field, field2, maxlimit) {
 
 $("input[name='page2[applicantAnon]']").change(function() {
   result = this.value;
+  lines = $("#anonReqText").val();
+  pageCount = 0;
   numOfLines = lines.split('\n').length - 1;
   if (numOfLines <= 45) {
     pageCount = 1;

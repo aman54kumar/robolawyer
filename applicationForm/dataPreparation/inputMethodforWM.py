@@ -380,8 +380,7 @@ def twelvthPageInputs(self, can, inputObj):
         t1.setFont(customFont, customFontSize)
         desc = descListNew[item]
         title = titleListNew[item]
-        # page = str(14+ int(pageListNew[item]))
-        page = pageListTemp[item]
+        page = str(14 + int(pageListNew[item]) - int(pageListTemp[item]))
         can.setFont('Courier-Bold', 12)
         can.drawString(40, yCoord, title)
         can.setFont('Courier', 11)
@@ -535,7 +534,6 @@ def bookmarkPageInputs(self, can, inputObj):
 
     startPage = str(14 + int(inputObj[2]) - int(inputObj[3]))
     endPage = str(14 + int(inputObj[2]) - 1)
-
     x = 80
     y = 410
     pagesText1 = "Document starts at page "
@@ -581,21 +579,6 @@ def bookmarkPageInputs(self, can, inputObj):
 
     can.showPage()
     return can
-
-# def anonymityDoc(self, can, inputObj):
-#     title = "Request of Anonymity"
-#     can.setFont('Courier-Bold', 20)
-#     can.drawString(180, 700, title)
-
-#     t = can.beginText()
-#     t.setFont(customFont, customFontSize)
-#     text = inputObj
-#     newText = formatText(self, text, 85)
-#     t.setTextOrigin(25, 640)
-#     t.textLines(newText)
-#     can.drawText(t)
-#     can.showPage()
-#     return can
 
 
 def modifyCountryNames(initialName):

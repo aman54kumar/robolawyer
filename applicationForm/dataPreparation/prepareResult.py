@@ -240,14 +240,26 @@ class PrepareResult:
     def create_New_Pdf(self, inputObj):
         totalBookmark = int((len(inputObj))/4)
         docs4List = sortDocumentsDate(self, inputObj)
+        initPages = self.checkDocsOrNot(docs4List)
         for single in range(totalBookmark):
             filename = 'applicationForm/dataPreparation/results/'+self.sessionID+'/finalPage/Result_form_page_' + \
-                str(14+single) + '.pdf'
+                str(initPages+single) + '.pdf'
             can = canvas.Canvas(filename, pagesize=letter)
             can = bookmarkPageInputs(
                 self, can, [docs4List[1][single], docs4List[2][single], docs4List[3][single], docs4List[4][single], single])
             can.save()
 
+    def checkDocsOrNot(self, docsList):
+        sofExtra = any("Extra Statement of Facts" in sublist for sublist in docsList)
+        anonReq = any("Anonymity Request" in sublist for sublist in docsList)
+        totalPages = 0
+        if sofExtra and anonReq:
+            totalPages = 14 + int(docsList[3][1])
+        elif sofExtra or anonReq:
+            totalPages = 14 + int(docsList[3][0])
+        else:
+            totalPages = 14
+        return totalPages
     # def createAnonymityDoc(self, inputObj):
     #     if inputObj == '':
     #         print('no anonymity request')

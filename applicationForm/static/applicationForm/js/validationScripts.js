@@ -55,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
             inputValue = $("#stofFactsExtra").val();
             lines = formatText(inputValue, 78);
             pageCount = 0;
-            temp = "";
             
             numOfLines = lines.split('\n').length - 1;
             if (numOfLines <= 45) {
@@ -105,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ) {
       return true;
     } else {
-      return true;
+      return false;
     }
   }
 

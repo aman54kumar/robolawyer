@@ -109,8 +109,9 @@ def thirdPageInputs(self, can, inputObj):
             t.textLines(newAddress)
             can.drawText(t)
             can.drawString(25, 402, inputObj["page3[indNLTel]"])
-            can.drawString(25, 322, inputObj["page3[indNLFax]"])
-            can.drawString(25, 362, inputObj["page3[indNLEmail]"])
+            can.drawString(25, 362, inputObj["page3[indNLFax]"])
+            can.drawString(25, 322, inputObj["page3[indNLEmail]"])
+            can.drawString(30, 37, inputObj["page3[indIndeComms]"])
 
         elif inputObj["page3[indRepresentativeType]"] == "lawyer":
             can.drawString(310, 662, inputObj["page3[indLSurname]"])
@@ -124,8 +125,8 @@ def thirdPageInputs(self, can, inputObj):
             t.textLines(newAddressFour)
             can.drawText(t)
             can.drawString(310, 402, inputObj["page3[indLTel]"])
-            can.drawString(310, 322, inputObj["page3[indLFax]"])
-            can.drawString(310, 362, inputObj["page3[indLEmail]"])
+            can.drawString(310, 362, inputObj["page3[indLFax]"])
+            can.drawString(310, 322, inputObj["page3[indLEmail]"])
             can.drawString(30, 37, inputObj["page3[indIndeComms]"])
         
         else:
@@ -155,9 +156,9 @@ def fourthPageInputs(self, can, inputObj):
             t.textLines(newAddressFour)
             can.drawText(t)
             
-            can.drawString(25, 367, inputObj["page3[orgnlTel]"])
-            can.drawString(25, 327, inputObj["page3[orgnlFax]"])
-            can.drawString(25, 407, inputObj["page3[orgnlEmail]"])
+            can.drawString(25, 407, inputObj["page3[orgnlTel]"])
+            can.drawString(25, 367, inputObj["page3[orgnlFax]"])
+            can.drawString(25, 327, inputObj["page3[orgnlEmail]"])
 
         elif inputObj["page3[orgRepresentativeType]"] == "orgYesLawyer":
             can.drawString(25, 666, inputObj["page3[orgCapacity]"])
@@ -409,22 +410,22 @@ def thirteenthPageInputs(self, can, inputObj, tempInput):
     can.drawText(t)
     if "page9[signatureDeclaration]" in inputObj:
         if inputObj["page9[signatureDeclaration]"] == 'Applicant':
-            can.circle(105, 508, 4, fill=1)
+            can.circle(141, 268.3, 4, fill=1)
             s = can.beginText()
             s.setFont(customFont, customFontSize)
             name = inputObj['page9[confirmationApplicantName]']
-            can.drawString(25, 480, name)
+            can.drawString(25, 240, name)
             address = inputObj['page9[confirmationApplicantAddress]']
             newAddress = "\n".join(wrap(address, 82))
-            s.setTextOrigin(25, 450)
+            s.setTextOrigin(25, 227)
             s.textLines(newAddress)
             can.drawText(s)
         elif inputObj["page9[signatureDeclaration]"] == 'Representative':
-            can.circle(184.5, 508, 4, fill=1)
+            can.circle(213.3, 268.3, 4, fill=1)
             s = can.beginText()
             s.setFont(customFont, customFontSize)
             name = inputObj['page9[confirmationRepresentativeName]']
-            can.drawString(25, 480, name)
+            can.drawString(25, 240, name)
             address = inputObj['page9[confirmationRepresentativeAddress]']
             newAddress = "\n".join(wrap(address, 82))
             s.setTextOrigin(25, 450)

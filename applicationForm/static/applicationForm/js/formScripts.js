@@ -71,25 +71,6 @@ $("input[name='page3[orgRepresentativeType]']").change(function() {
   }
 });
 
-//  stepper responsive
-
-// jQuery(document).ready(function($) {
-//   var alterClass = function() {
-//     var ww = document.body.clientWidth;
-//     if (ww < 700) {
-//       $('#stepperForm').addClass('vertical');
-//     } else if (ww >= 701) {
-//       $('#stepperForm').removeClass('vertical');
-//     }
-//   };
-//   $(window).resize(function() {
-//     alterClass();
-//   });
-//   //Fire it when the page first loads:
-//   alterClass();
-// });
-
-
 
 
 
@@ -190,13 +171,6 @@ function textCounter(field, field2, maxlimit) {
 }
 
 
-// $("input[name='page2[applicantAnon]']").change(function(){
-//   result = this.value;
-//   if (result === 'Yes') {
-
-//   }
-// })
-
 $("input[name='page2[applicantAnon]']").change(function() {
   result = this.value;
   lines = $("#anonReqText").val();
@@ -283,3 +257,54 @@ limitLines(4, document.getElementById('prevAppDesc'));
 limitLines(5, document.getElementById('formComments'));
 
 
+
+// For page 9 auto filling name and address based on page 2 or 3
+$("input[name='page9[signatureDeclaration]']").change(function() {
+  result = this.value;
+  if (result === "Applicant") {
+    if ($("input[name='page2[applicantType]']").val() === "Individual"){
+      nameValue = $("#indFirstName").val() + " " + $("#indSurname").val();
+      addressValue = $("#indAddress").val().replace("\n", ", ").replace(",,", ",").replace(" ,", ",");   
+    }
+    else {
+      nameValue = $("input[name='page2[orgName]']").val();
+      addressValue = $("#orgAddress").val().replace("\n", ", ").replace(",,", ",").replace(" ,", ",");
+    }
+    $("#confirmationApplicantName").val(nameValue);
+    $("#confirmationApplicantAddress").val(addressValue);
+  }
+  else if (result === "Representative") {
+    if ($("input[name='page2[applicantType]']").val() === "Individual"){
+      if ($("#representativeNL").val() === "non-lawyer") {
+        nameValue = $("#indNLFirstName").val() + " " + $("#indNLSurname").val();
+        addressValue = $("#indNLAddress").val().replace("\n", ", ").replace(",,", ",").replace(" ,", ",");
+      }
+      else if ($("#representativeNL").val() === "lawyer"){
+        nameValue = $("#indLFirstName").val() + " " + $("#indLSurname").val();
+        addressValue = $("#indLAddress").val().replace("\n", ", ").replace(",,", ",").replace(" ,", ",");
+      }
+      else{
+        swal("No representative entered in Page 3");
+      }
+    }
+    else {
+      if ($("input[name='page3[orgRepresentativeType]']").val() === "orgYesLawyer") {
+        nameValue = $("#orglFirstName").val() + " " + $("#orglSurname").val();
+        addressValue = $("#orglAddress").val().replace("\n", ", ").replace(",,", ",").replace(" ,", ",");
+      }
+      else if ($("input[name='page3[orgRepresentativeType]']").val() === "orgNoLawyer") {
+        nameValue = $("#orgnlFirstName").val() + " " + $("#orgnlSurname").val();
+        addressValue = $("#orgnlAddress").val().replace("\n", ", ").replace(",,", ",").replace(" ,", ",");
+      }
+      else {
+        swal("Problem in page 3 organisation representative");
+      }
+    }
+    $("#confirmationRepresentativeName").val(nameValue);
+    $("#confirmationRepresentativeAddress").val(addressValue);
+  }
+else {
+  swal("check for error");
+}
+  
+})

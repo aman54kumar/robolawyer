@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ) {
       return true;
     } else {
-      return true;
+      return false;
     }
   }
 

@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/home/aman/.local/share/virtualenvs/robolawyer-URDV3nII/bin/python"
+    "python.pythonPath": "/home/aman/.local/share/virtualenvs/robolawyer-URDV3nII/bin/python",
+    "python.linting.enabled": true
 }

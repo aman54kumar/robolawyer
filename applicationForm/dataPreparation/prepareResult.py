@@ -1,7 +1,8 @@
 from reportlab.pdfgen import canvas
 from reportlab.lib import colors
 from reportlab.lib.units import cm
-from reportlab.lib.pagesizes import letter
+from reportlab.lib.pagesizes import A4
+from reportlab.rl_config import defaultPageSize
 import io
 import sys
 import os
@@ -179,11 +180,10 @@ class PrepareResult:
                 fname, page+1)
             with open(output_filename, 'wb') as out:
                 pdf_writer.write(out)
-            print('Created: {}'.format(output_filename))
+            # print('Created: {}'.format(output_filename))
 
     def pdf_merger(self, output_path, input_paths):
         pdf_merger = PdfFileMerger()
-        file_handles = []
         for path in input_paths:
             pdf_merger.append(path)
         with open(output_path, 'wb') as fileobj:
@@ -205,7 +205,7 @@ class PrepareResult:
     def create_watermark_pdf(self, inputObj, pos, tempInput=None):
         filename = 'applicationForm/dataPreparation/results/'+self.sessionID+'/watermark/resultForm_' + \
             str(pos) + '.pdf'
-        can = canvas.Canvas(filename, pagesize=letter)
+        can = canvas.Canvas(filename, pagesize=A4)
         if pos == 1:
             can = firstPageInputs(self, can, inputObj)
         elif pos == 2:
@@ -244,13 +244,13 @@ class PrepareResult:
         for single in range(totalBookmark):
             filename = 'applicationForm/dataPreparation/results/'+self.sessionID+'/finalPage/Result_form_page_' + \
                 str(initPages+single) + '.pdf'
-            can = canvas.Canvas(filename, pagesize=letter)
+            can = canvas.Canvas(filename, pagesize=A4)
             can = bookmarkPageInputs(
                 self, can, [docs4List[1][single], docs4List[2][single], docs4List[3][single], docs4List[4][single], single])
             can.save()
 
     def checkDocsOrNot(self, docsList):
-        sofExtra = any("Extra Statement of Facts" in sublist for sublist in docsList)
+        sofExtra = any("Extra pages for the Statement of Facts" in sublist for sublist in docsList)
         anonReq = any("Anonymity Request" in sublist for sublist in docsList)
         totalPages = 0
         if sofExtra and anonReq:
@@ -260,15 +260,6 @@ class PrepareResult:
         else:
             totalPages = 14
         return totalPages
-    # def createAnonymityDoc(self, inputObj):
-    #     if inputObj == '':
-    #         print('no anonymity request')
-    #     else:
-    #         filename = 'applicationForm/dataPreparation/results/'+self.sessionID+'/finalPage/Result_form_page_' + \
-    #             str(14) + '.pdf'
-    #         can = canvas.Canvas(filename, pagesize=letter)
-    #         can = anonymityDoc(self, can, inputObj)
-    #         can.save()
 
 
 def anonymityPage(canvas, doc):

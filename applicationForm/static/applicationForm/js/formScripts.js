@@ -107,18 +107,7 @@ $('#page5Group').repeater({
       });
 // Correspondent details
 
-$("input[name='page9[signatureDeclaration]']").change(function() {
-  result = this.value;
-  if (result === 'Applicant') {
-    $('#correspondentOptionApplicant').removeClass('is-hidden');
-    $('#correspondentOptionRepresentative').addClass('is-hidden');
-  } else if (result === 'Representative') {
-    $('#correspondentOptionApplicant').addClass('is-hidden');
-    $('#correspondentOptionRepresentative').removeClass('is-hidden');
-  } else {
-    console.log('check for bugs');
-  }
-});
+
 
 // Correcpondant details end
 
@@ -257,12 +246,13 @@ limitLines(4, document.getElementById('prevAppDesc'));
 limitLines(5, document.getElementById('formComments'));
 
 
-
 // For page 9 auto filling name and address based on page 2 or 3
 $("input[name='page9[signatureDeclaration]']").change(function() {
   result = this.value;
   if (result === "Applicant") {
-    if ($("input[name='page2[applicantType]']").val() === "Individual"){
+    $('#correspondentOptionApplicant').removeClass('is-hidden');
+    $('#correspondentOptionRepresentative').addClass('is-hidden');
+    if ($("input[name='page2[applicantType]']:checked").val() === "Individual"){
       nameValue = $("#indFirstName").val() + " " + $("#indSurname").val();
       addressValue = $("#indAddress").val().replace("\n", ", ").replace(",,", ",").replace(" ,", ",");   
     }
@@ -274,12 +264,14 @@ $("input[name='page9[signatureDeclaration]']").change(function() {
     $("#confirmationApplicantAddress").val(addressValue);
   }
   else if (result === "Representative") {
-    if ($("input[name='page2[applicantType]']").val() === "Individual"){
-      if ($("#representativeNL").val() === "non-lawyer") {
+    $('#correspondentOptionApplicant').addClass('is-hidden');
+    $('#correspondentOptionRepresentative').removeClass('is-hidden');
+    if ($("input[name='page2[applicantType]']:checked").val() === "Individual"){
+      if ($("input[name='page3[indRepresentativeType]']:checked").val() === "non-lawyer") {
         nameValue = $("#indNLFirstName").val() + " " + $("#indNLSurname").val();
         addressValue = $("#indNLAddress").val().replace("\n", ", ").replace(",,", ",").replace(" ,", ",");
       }
-      else if ($("#representativeNL").val() === "lawyer"){
+      else if ($("input[name='page3[indRepresentativeType]']:checked").val() === "lawyer"){
         nameValue = $("#indLFirstName").val() + " " + $("#indLSurname").val();
         addressValue = $("#indLAddress").val().replace("\n", ", ").replace(",,", ",").replace(" ,", ",");
       }
@@ -288,11 +280,11 @@ $("input[name='page9[signatureDeclaration]']").change(function() {
       }
     }
     else {
-      if ($("input[name='page3[orgRepresentativeType]']").val() === "orgYesLawyer") {
+      if ($("input[name='page3[orgRepresentativeType]']:checked").val() === "orgYesLawyer") {
         nameValue = $("#orglFirstName").val() + " " + $("#orglSurname").val();
         addressValue = $("#orglAddress").val().replace("\n", ", ").replace(",,", ",").replace(" ,", ",");
       }
-      else if ($("input[name='page3[orgRepresentativeType]']").val() === "orgNoLawyer") {
+      else if ($("input[name='page3[orgRepresentativeType]']:checked").val() === "orgNoLawyer") {
         nameValue = $("#orgnlFirstName").val() + " " + $("#orgnlSurname").val();
         addressValue = $("#orgnlAddress").val().replace("\n", ", ").replace(",,", ",").replace(" ,", ",");
       }

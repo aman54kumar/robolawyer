@@ -7,7 +7,8 @@ import os
 
 
 filename = "Countries_and_national_courts.csv"
-path = "C:/Personal_DS/robo/robolawyer-project/courtAPI"
+# path = "C:/Personal_DS/robo/robolawyer-project/courtAPI"
+path = "/home/aman/Documents/Projects/robolawyer/courtAPI"
 
 os.chdir(path)
 with open(filename, encoding="UTF-8") as csvFile:

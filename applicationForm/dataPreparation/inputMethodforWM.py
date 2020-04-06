@@ -3,7 +3,7 @@ from reportlab.graphics import shapes
 from .countryCoordDict import coordinateDict
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet
-from reportlab.rl_config import defaultPageSize
+# from reportlab.rl_config import defaultPageSize
 from reportlab.lib.units import inch
 customFont = 'Courier'
 customFontSize = 11
@@ -428,7 +428,7 @@ def thirteenthPageInputs(self, can, inputObj, tempInput):
             can.drawString(25, 240, name)
             address = inputObj['page9[confirmationRepresentativeAddress]']
             newAddress = "\n".join(wrap(address, 82))
-            s.setTextOrigin(25, 450)
+            s.setTextOrigin(25, 227)
             s.textLines(newAddress)
             can.drawText(s)
         else:
@@ -500,11 +500,14 @@ def barcodeMaker(self, formInputs, applicantCode):
     # Generate barcode as SVG
     svg = render_svg(codes)  # ElementTree object
     svg.write(os.path.join(settings.BASE_DIR, 'applicationForm/dataPreparation/results/'+applicantCode+'/barcode.svg'))
-    
+import operator
+def sortAccordingToDate(firstList,secondList):
+    newList = list(zip(firstList, secondList))
+    newList.sort(key = operator.itemgetter(0),reverse=True)
+    return [i[1] for i in newList]
 
 def sortDocumentsDate(self, inputObj):
     from datetime import datetime
-
     length = int((len(inputObj))/4)
     dateList = []
     titleList = [] 
@@ -515,12 +518,14 @@ def sortDocumentsDate(self, inputObj):
         titleList.append(inputObj['page8['+str(i) + '][title]'])
         descList.append(inputObj['page8['+str(i) + '][desc]'])
         pageList.append(inputObj['page8['+str(i) + '][page]'])
+
     list_of_dates= [datetime.strptime(date,"%d/%m/%Y") for date in dateList]
-    dateListNew = [x for _,x in sorted(zip(list_of_dates, dateList), reverse=True)]
-    titleListNew = [x for _,x in sorted(zip(list_of_dates, titleList), reverse=True)]
-    descListNew = [x for _,x in sorted(zip(list_of_dates, descList), reverse=True)]
-    pageListTemp = [x for _,x in sorted(zip(list_of_dates, pageList), reverse=True)]
+    dateListNew = sortAccordingToDate(list_of_dates,dateList)
+    titleListNew = sortAccordingToDate(list_of_dates,titleList)
+    descListNew = sortAccordingToDate(list_of_dates,descList)
+    pageListTemp =sortAccordingToDate(list_of_dates,pageList)
     pageListNew = add_one_by_one(pageListTemp)
+    
     return [dateListNew, titleListNew, descListNew, pageListNew, pageListTemp]
 
 def bookmarkPageInputs(self, can, inputObj):
@@ -529,14 +534,22 @@ def bookmarkPageInputs(self, can, inputObj):
     can.setFont('Courier', 18)
     can.drawString(120, 600, headingText)
     can.setFont('Times-Roman', 12)
+
+
+    if len(inputObj[1]) > 60:
+        extraHeight = 30
+    else:
+        extraHeight = 0
+
     can.drawString(80, 500, "Document Title: ")
     can.drawString(80, 470, "Short Description: ")
-    can.drawString(80, 440, "Number of Pages: ")
+    can.drawString(80, 440 + extraHeight, "Number of Pages: ")
+
 
     startPage = str(14 + int(inputObj[2]) - int(inputObj[3]))
     endPage = str(14 + int(inputObj[2]) - 1)
     x = 80
-    y = 410
+    y = 410 + extraHeight
     pagesText1 = "Document starts at page "
     pagesText2 = " and ends at page "
     can.drawString(x, y, pagesText1)
@@ -572,7 +585,7 @@ def bookmarkPageInputs(self, can, inputObj):
     can.drawText(t2)
 
     t3 = can.beginText()
-    t3.setTextOrigin(180, 440)
+    t3.setTextOrigin(180, 440 + extraHeight)
     can.setFont('Courier', 12)
     nOPages = inputObj[3] 
     t3.textLines(nOPages)

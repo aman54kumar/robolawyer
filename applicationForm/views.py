@@ -18,7 +18,6 @@ class FormPageView(TemplateView):
 def formProcessing(request):
     import uuid
     sessionID = uuid.uuid4().hex
-    print(sessionID)
     spclReplies = []
     filepath = os.path.join(settings.BASE_DIR, 'applicationForm/dataPreparation/results/'+sessionID+'/finalPage/finalForm.pdf')
     if request.method == 'POST':

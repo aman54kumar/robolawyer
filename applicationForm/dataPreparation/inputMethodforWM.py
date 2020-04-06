@@ -172,9 +172,10 @@ def fourthPageInputs(self, can, inputObj):
             t.textLines(newAddressFour)
             can.drawText(t)
             
-            can.drawString(25, 367, inputObj["page3[orgnlTel]"])
-            can.drawString(25, 327, inputObj["page3[orgnlFax]"])
-            can.drawString(25, 407, inputObj["page3[orgnlEmail]"])
+            can.drawString(25, 407, inputObj["page3[orgnlTel]"])
+            can.drawString(25, 367, inputObj["page3[orgnlFax]"])
+            can.drawString(25, 327, inputObj["page3[orgnlEmail]"])
+            
             can.drawString(310, 666, inputObj["page3[orglSurname]"])
             can.drawString(310, 626, inputObj["page3[orglFirstName]"])
 

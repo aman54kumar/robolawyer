@@ -544,13 +544,13 @@ def bookmarkPageInputs(self, can, inputObj):
 
     can.drawString(80, 500, "Document Title: ")
     can.drawString(80, 470, "Short Description: ")
-    can.drawString(80, 440 + extraHeight, "Number of Pages: ")
+    can.drawString(80, 440 - extraHeight, "Number of Pages: ")
 
 
     startPage = str(14 + int(inputObj[2]) - int(inputObj[3]))
     endPage = str(14 + int(inputObj[2]) - 1)
     x = 80
-    y = 410 + extraHeight
+    y = 410 - extraHeight
     pagesText1 = "Document starts at page "
     pagesText2 = " and ends at page "
     can.drawString(x, y, pagesText1)
@@ -586,7 +586,7 @@ def bookmarkPageInputs(self, can, inputObj):
     can.drawText(t2)
 
     t3 = can.beginText()
-    t3.setTextOrigin(180, 440 + extraHeight)
+    t3.setTextOrigin(180, 440 - extraHeight)
     can.setFont('Courier', 12)
     nOPages = inputObj[3] 
     t3.textLines(nOPages)

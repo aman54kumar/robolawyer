@@ -5,11 +5,13 @@ var applicantTypeOption = function() {
   $("input[name='page2[applicantType]']").change(function() {
     result = this.value;
     if (result === 'Individual') {
+      $('#generalPage-2').removeClass('is-hidden');
       $('#indBeginner').removeClass('is-hidden');  
       $('#orgBeginner').addClass('is-hidden');
       $('#indRepresentative').removeClass('is-hidden');
       $('#orgRepresentative').addClass('is-hidden');
     } else if (result === 'Organisation') {
+      $('#generalPage-2').removeClass('is-hidden');
       $('#orgBeginner').removeClass('is-hidden');
       $('#indBeginner').addClass('is-hidden');
       $('#orgRepresentative').removeClass('is-hidden');

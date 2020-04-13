@@ -1,23 +1,26 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.template import RequestContext
 from django.http import HttpResponse, FileResponse, Http404, HttpResponseRedirect
 from django.template.loader import render_to_string
 from .dataPreparation.prepareResult import PrepareResult
+from django.urls import reverse
 import json
 from django.conf import settings
 from django.core.mail import send_mail
+from django.core.mail import EmailMessage
 import os
 import logging
 logger = logging.getLogger(__name__)
 
+import uuid
+sessionID = uuid.uuid4().hex
 class FormPageView(TemplateView):
     template_name = "applicationForm/form.html"
 
 
 def formProcessing(request):
-    import uuid
-    sessionID = uuid.uuid4().hex
+    
     spclReplies = []
     filepath = os.path.join(settings.BASE_DIR, 'applicationForm/dataPreparation/results/'+sessionID+'/finalPage/finalForm.pdf')
     if request.method == 'POST':
@@ -26,16 +29,10 @@ def formProcessing(request):
 
         spclReplies.append(request.POST.getlist('page5[articleSelect]'))
         spclReplies.append(request.POST.getlist('page5[articleExplanation]'))
-        
+
         spclReplies.append(request.POST.getlist('page6[complainSelect]'))
         spclReplies.append(request.POST.getlist('page6[complaintDate]'))
         spclReplies.append(request.POST.getlist('page6[remediesUsed]'))
-
-        # spclReplies.append(request.POST.getlist('page8[finalDecisionDate]'))
-        # spclReplies.append(request.POST.getlist('page8[docTitle]'))
-        # spclReplies.append(request.POST.getlist('page8[docDescription]'))
-        # spclReplies.append(request.POST.getlist('page8[pageNumber]'))
-        # print(form_dict)
        
         pagesName = ['page1', 'page2', 'page3', 'page4', 'page5',
                      'page6', 'page7', 'page8', 'page9', 'page10']
@@ -47,9 +44,12 @@ def formProcessing(request):
         prepareResult.main()  
         logger.warning("Your log message is here")
 
-    return FileResponse(open(filepath, 'rb'), content_type='application/pdf')    
-    # return render(request, 'applicationForm/finalPage.html', {'filepath': filepath})
-
+    path_to_file = filepath
+    print(filepath)
+    # response = download(request, filepath)
+    # return FileResponse(open(filepath, 'rb'), content_type='application/pdf')    
+    return render(request, 'applicationForm/finalPage.html')
+    # return redirect(reverse('random'))
 
 def feedback(request):
     if request.method == 'POST':
@@ -69,23 +69,45 @@ def feedback(request):
 
     
 
-# def download(request, path, sessionID):
-#     file_path = path
+
+# def download(request):
+#     file_path = os.path.join(settings.BASE_DIR, 'applicationForm/dataPreparation/results/'+sessionID+'/finalPage/finalForm.pdf')
+#     print(file_path)
 #     if os.path.exists(file_path):
 #         with open(file_path, 'rb') as fh:
-#             response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
-#             response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+#             response = HttpResponse(fh.read(), content_type="application/pdf")
+#             response['Content-Disposition'] = 'inline; filename='+ file_path
 #             return response
 #     raise Http404
 
+def download(request):
+    import mimetypes
+    from django.http import StreamingHttpResponse
+    from wsgiref.util import FileWrapper
+    file_path = os.path.join(settings.BASE_DIR, 'applicationForm/dataPreparation/results/'+sessionID+'/finalPage/finalForm.pdf')
+    the_file = open(file_path, "rb")
+    filename = os.path.basename(the_file)
+    chunk_size = 8192
+    response = StreamingHttpResponse(FileWrapper(open(the_file, 'rb'), chunk_size),
+                           content_type=mimetypes.guess_type(the_file)[0])
+    response['Content-Length'] = os.path.getsize(the_file)    
+    response['Content-Disposition'] = "attachment; filename=%s" % filename
+    return response
 
-def download(request, path):
-    try:
-        return FileResponse(open(path, 'rb'), content_type='application/pdf')
-    except FileNotFoundError:
-        raise Http404()
 
-
-# def finalView(request):
-#     filerequest = download(request, filepath)
-#     return render(request, )
+def pdf_email(request):
+    file_path = os.path.join(settings.BASE_DIR, 'applicationForm/dataPreparation/results/'+sessionID+'/finalPage/finalForm.pdf')
+    if request.method == 'POST':
+        emailInput = request.POST.get('emailInput')
+        print(emailInput)
+        subject = "ECHR pdf"
+        from_user = settings.EMAIL_HOST_USER
+        to = [emailInput]
+        message = EmailMessage(subject=subject, body='Here is your application.', from_email=from_user, to=to)
+        # send_mail(subject, message, from_user, to, fail_silently=False)
+        message.attach_file(file_path)
+        message.content_subtype="html"
+        message.send()
+        return redirect('The email was sent')
+    else:
+        return HttpResponse('Our developers are working to resolve this issue. Please try after sometime.')

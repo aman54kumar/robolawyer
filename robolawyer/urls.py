@@ -26,13 +26,12 @@ urlpatterns = [
     path('form/', include('applicationForm.urls')),
     path('aboutUs/', include('about.urls')),
     path('externalResources/', include('extResources.urls')),
-
     # Rest APIs
     path('api/echr/', include('echrAPI.urls', 'echr_api')),
     path('api/court/', include('courtAPI.urls', 'court_api')),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-# urlpatterns += static(settings.PDF_URL, document_root=settings.PDF_ROOT)
+# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns += [

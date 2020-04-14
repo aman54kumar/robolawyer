@@ -70,29 +70,29 @@ def feedback(request):
     
 
 
-# def download(request):
-#     file_path = os.path.join(settings.BASE_DIR, 'applicationForm/dataPreparation/results/'+sessionID+'/finalPage/finalForm.pdf')
-#     print(file_path)
-#     if os.path.exists(file_path):
-#         with open(file_path, 'rb') as fh:
-#             response = HttpResponse(fh.read(), content_type="application/pdf")
-#             response['Content-Disposition'] = 'inline; filename='+ file_path
-#             return response
-#     raise Http404
-
 def download(request):
-    import mimetypes
-    from django.http import StreamingHttpResponse
-    from wsgiref.util import FileWrapper
     file_path = os.path.join(settings.BASE_DIR, 'applicationForm/dataPreparation/results/'+sessionID+'/finalPage/finalForm.pdf')
-    the_file = open(file_path, "rb")
-    filename = os.path.basename(the_file)
-    chunk_size = 8192
-    response = StreamingHttpResponse(FileWrapper(open(the_file, 'rb'), chunk_size),
-                           content_type=mimetypes.guess_type(the_file)[0])
-    response['Content-Length'] = os.path.getsize(the_file)    
-    response['Content-Disposition'] = "attachment; filename=%s" % filename
-    return response
+    print(file_path)
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/pdf")
+            response['Content-Disposition'] = 'inline; filename=ECHR_form.pdf'
+            return response
+    raise Http404
+
+# def download(request):
+#     import mimetypes
+#     from django.http import StreamingHttpResponse
+#     from wsgiref.util import FileWrapper
+#     file_path = os.path.join(settings.BASE_DIR, 'applicationForm/dataPreparation/results/'+sessionID+'/finalPage/finalForm.pdf')
+#     the_file = open(file_path, "rb")
+#     filename = os.path.basename(the_file)
+#     chunk_size = 8192
+#     response = StreamingHttpResponse(FileWrapper(open(the_file, 'rb'), chunk_size),
+#                            content_type=mimetypes.guess_type(the_file)[0])
+#     response['Content-Length'] = os.path.getsize(the_file)    
+#     response['Content-Disposition'] = "attachment; filename=%s" % filename
+#     return response
 
 
 def pdf_email(request):
@@ -108,6 +108,6 @@ def pdf_email(request):
         message.attach_file(file_path)
         message.content_subtype="html"
         message.send()
-        return redirect('The email was sent')
+        return HttpResponse('The email was sent')
     else:
         return HttpResponse('Our developers are working to resolve this issue. Please try after sometime.')

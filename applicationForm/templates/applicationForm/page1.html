@@ -7,19 +7,29 @@
                     <h4 class="card-header-title" align="center">Prerequisites</h4>
                 </div>
                 <div class="card-body">
+                    <div class="container">
+                        <p class="lead">
+                            Please fill in this application form with outmost care. If you miss something out or omit a
+                            relevant document, your application form is likely to be rejected as incomplete. Sending an
+                            incomplete application form does not interrupt the 6-month term required by the Court which
+                            starts to run from the movement you or your representative had sufficient knowledge of the
+                            final domestic decision.
+                        </p> <br><br>
+                    </div>
                     <ol>
                         <li>
                             <h5>
-                                Which state/s is/are concerned by your application? <a href="javascript://" data-toggle="popover" data-content="If the State you complain against is not amongst those enumerated below, your application is inadmissible. The Court is competent to assess only allegations involving one or several of the 47 member states of the Council of Europe." data-trigger="click" data-placement="bottom">
-                                <span><i class="fas fa-question-circle"></i></span></a>
+                                Which state/s is/are concerned by your application? <a href="javascript://"
+                                    data-toggle="popover"
+                                    data-content="If the State you complain against is not amongst those enumerated below, your application is inadmissible. The Court is competent to assess only allegations involving one or several of the 47 member states of the Council of Europe."
+                                    data-trigger="click" data-placement="bottom">
+                                    <span><i class="fas fa-question-circle"></i></span></a>
 
                             </h5>
-                            <div id="map"></div>
                             <div class="form-group">
-                                <label for="involvedStates" class="lead"> Select the name(s) of the State(s) against which the application is directed.</label>
                                 <select multiple class="countrySelect show-menu-arrow form-control dropup" size="15"
                                     name="page1[involvedStates]" id="involvedStates" data-parsley-mincheck="1"
-                                    data-parsley-group="page1" required >
+                                    data-parsley-group="page1" required>
                                     <option value="ALB - Albania">ALB - Albania</option>
                                     <option value="AND - Andorra">AND - Andorra</option>
                                     <option value="ARM - Armenia">ARM - Armenia</option>
@@ -77,26 +87,34 @@
                                 <div id="error-container-concern">
                                     <div class="custom-control custom-radio custom-control-inline">
                                         <input type="radio" class="custom-control-input" id="concernYouYes"
-                                            name="page1[concernYou]" value="Yes" data-parsley-errors-container="#error-container-concern" required data-parsley-group="page1">
+                                            name="page1[concernYou]" value="Yes"
+                                            data-parsley-errors-container="#error-container-concern" required
+                                            data-parsley-group="page1">
                                         <label class="custom-control-label" for="concernYouYes">
                                             You directly</label>
                                     </div>
                                     <div class="custom-control custom-radio custom-control-inline">
                                         <input type="radio" class="custom-control-input" id="concernYouNo"
-                                            name="page1[concernYou]" value="No" data-parsley-errors-container="#error-container-concern" data-parsley-group="page1">
+                                            name="page1[concernYou]" value="No"
+                                            data-parsley-errors-container="#error-container-concern"
+                                            data-parsley-group="page1">
                                         <label class="custom-control-label" for="concernYouNo">A close relative who
                                             is
-                                            unable to lodge an application himself or herself 
+                                            unable to lodge an application himself or herself
                                         </label>
                                     </div>
                                     <div class="custom-control custom-radio custom-control-inline">
                                         <input type="radio" class="custom-control-input" id="concernYouOther"
-                                            name="page1[concernYou]" value="Other" data-parsley-errors-container="#error-container-concern" data-parsley-group="page1">
-                                        <label class="custom-control-label" for="concernYouOther">A person under your care or responsibility or a person with whom you share a sufficiently close link and who is unable to submit the application themselves <a href="javascript://"
-                                            data-toggle="popover"
-                                            data-content="The Convention institutions have held that special considerations may arise in the case of victims of alleged breaches of Articles 2 (right to life), 3 (prohibition of torture) and 8 (right to respect for private and family life) at the hands of the national authorities. In this case you need to show legitimate interest in pursuing the application before the Court."
-                                            data-trigger="click" data-placement="bottom"><span><i
-                                                    class="fas fa-question-circle"></i></span></a>
+                                            name="page1[concernYou]" value="Other"
+                                            data-parsley-errors-container="#error-container-concern"
+                                            data-parsley-group="page1">
+                                        <label class="custom-control-label" for="concernYouOther">A person under your
+                                            care or responsibility or a person with whom you share a sufficiently close
+                                            link and who is unable to submit the application themselves <a
+                                                href="javascript://" data-toggle="popover"
+                                                data-content="The Convention institutions have held that special considerations may arise in the case of victims of alleged breaches of Articles 2 (right to life), 3 (prohibition of torture) and 8 (right to respect for private and family life) at the hands of the national authorities. In this case you need to show legitimate interest in pursuing the application before the Court."
+                                                data-trigger="click" data-placement="bottom"><span><i
+                                                        class="fas fa-question-circle"></i></span></a>
                                         </label>
                                     </div>
                                 </div>
@@ -104,12 +122,13 @@
                         </li>
                         <li>
                             <div class="form-group">
-                                <label class="lead">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+                                <label class="lead">
                                     <h5> When did the fact you are complaing about take place?</h5>
                                 </label>
                                 <!-- <input type="text" class="date" name="page1[decisionDate]" id="decisionDate"
                                     data-template='DD MMM YYYY' required data-parsley-group="page1"> -->
-                                    <input type="text" id="decisionDate" readonly='readonly' class="jsdatedropdown form-control" name="page1[decisionDate]" id="decisionDate"
+                                <input type="text" id="decisionDate" readonly='readonly'
+                                    class="jsdatedropdown form-control" name="page1[decisionDate]" id="decisionDate"
                                     required data-parsley-group="page1">
 
                                 <div id='echrDetails'>
@@ -121,19 +140,20 @@
                         <br>
                         <li>
                             <h5>
-                                Have you brought your case before the highest court competent to deal with the subject matter of your dispute?  The competent national courts in the selected
+                                Have you brought your case before the highest court competent to deal with the subject
+                                matter of your dispute? The competent national courts in the selected
                                 state(s) are
                                 in principle:</h5>
                             <table class="table-bodered" id="courtTable" cellspacing="0">
                                 <thead style="border:none">
-                                   <tr style="background-color:#2679c7;color:white">
+                                    <tr style="background-color:#2679c7;color:white">
                                         <th style="border:none" scope="col">Country</th>
                                         <th style="border:none" scope="col">Type of proceeding</th>
                                         <th style="border:none" scope="col">National court(s)</th>
                                     </tr>
                                 </thead>
                                 <tbody id="courtData">
-                                </tbody> 
+                                </tbody>
                             </table> <br><br>
                             <div class="custom-control custom-radio custom-control-inline">
                                 <input type="radio" class="custom-control-input" id="courtCaseYes"
@@ -148,11 +168,11 @@
                             <br>
                         </li> <br><br>
                         <li>
-                            <h5>Were there available legal or administrative remedies capable of remedying your situation that you have not used? <a href="javascript://"
-                                data-toggle="popover"
-                                data-content="Before you apply to the Court, you need to exhaust domestic remedies. The only remedies the Convention requires to be exhausted are those that relate to the breaches alleged and those that are available, effective and sufficient. Essential is that the competent national authorities analyzed the merits of your claim/claims."
-                                data-trigger="click" data-placement="bottom"><span><i
-                                        class="fas fa-question-circle"></i></span></a></h5>
+                            <h5>Were there available legal or administrative remedies capable of remedying your
+                                situation that you have not used? <a href="javascript://" data-toggle="popover"
+                                    data-content="Before you apply to the Court, you need to exhaust domestic remedies. The only remedies the Convention requires to be exhausted are those that relate to the breaches alleged and those that are available, effective and sufficient. Essential is that the competent national authorities analyzed the merits of your claim/claims."
+                                    data-trigger="click" data-placement="bottom"><span><i
+                                            class="fas fa-question-circle"></i></span></a></h5>
 
                             <div class="custom-control custom-radio custom-control-inline">
                                 <input type="radio" class="custom-control-input" id="complySixYes"
@@ -167,32 +187,37 @@
                         </li> <br><br>
                         <li>
                             <h5> When was the final decision in your case delivered or served on you? <a
-                                    href="javascript://" data-toggle="popover" data-content="You are strongly advised to send your application form as soon as practicable after the last
-                        remedy in the national system has been exhausted or where there are no remedies as soon as
-                        possible after the events being complained about. If an applicant misses something out in the
-                        application form or omits a relevant document, the application form is likely to be rejected as
-                        incomplete. If the form has been sent at the last moment, this will give the applicant no time to
-                        re-submit a second and complete application form." data-trigger="click"
-                                    data-placement="bottom"><span><i class="fas fa-question-circle"></i></span></a></h5>
+                                    href="javascript://" data-toggle="popover" data-content="Your application needs to comply with the six-month rule which means you need to send your application no later than 6 months after the last remedy in the national system has been exhausted or where there are no remedies within 6 months after the events being complained about occurred. The six-month period starts running from the date on which you or your representative had sufficient knowledge of the final national decision. 
+
+                                    Exceptions to this rule are 1) continuous violations or 2) situations where there is no remedy available. In the first case, the six-month period starts to run from the end of the continuing situation. The fact that the event/alleged violation has consequences over time does not mean that the event has produced a continuing situation. In the second case, the six-month period starts running from the date on which the act complained of took place or the date on which you were directly affected.
+                                    
+                                    
+                                    Please submit your application as soon as possible. If you send it at the last moment and is incomplete, you will have no time to re-submit a complete application form within the required 6-month time limit.
+                                    " data-trigger="click" data-placement="bottom"><span><i
+                                            class="fas fa-question-circle"></i></span></a></h5>
                             <div class="form-group">
-                                <input type="text" class="form-control jsdatedropdown" readonly="readonly" name="page1[finalDecisionDate]" id="finalDecisionDate"
-                                    required data-parsley-group="page1">
+                                <input type="text" class="form-control jsdatedropdown" readonly="readonly"
+                                    name="page1[finalDecisionDate]" id="finalDecisionDate" required
+                                    data-parsley-group="page1">
                             </div>
                         </li>
                         <br>
                     </ol>
                 </div>
-                <div class="card-footer" >
-               	<div class="row">
-                    <div class="col-sm-6" align="left"><button class="btn btn-primary" onclick="stepperForm.previous()">Previous</button></div>
-                    <div class="col-sm-6"align="right"><button class="btn btn-primary btn-next-form" onclick="stepperForm.next()">Next</button></div>
-                  </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-sm-6" align="left"><button class="btn btn-primary"
+                                onclick="stepperForm.previous()">Previous</button></div>
+                        <div class="col-sm-6" align="right"><button class="btn btn-primary btn-next-form"
+                                onclick="stepperForm.next()">Next</button></div>
+                    </div>
                 </div>
             </div>
             <div style="position:fixed;right:20px;bottom:10px; width: 100%; margin-top: 5vw;" class="col-sm-1">
-                	This is a Beta Testing version of Just Bot. 
-                    <button class="showModal btn btn-info" class="btn btn-success" value='1' onclick="curPageNum(this);">Feedback</button> 
-            
+                This is a Beta Testing version of Just Bot.
+                <button class="showModal btn btn-info" class="btn btn-success" value='1'
+                    onclick="curPageNum(this);">Feedback</button>
+
             </div>
         </div>
     </div>

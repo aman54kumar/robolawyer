@@ -1,12 +1,12 @@
 
 
 
-var applicantTypeOption = function() {
-  $("input[name='page2[applicantType]']").change(function() {
+var applicantTypeOption = function () {
+  $("input[name='page2[applicantType]']").change(function () {
     result = this.value;
     if (result === 'Individual') {
       $('#generalPage-2').removeClass('is-hidden');
-      $('#indBeginner').removeClass('is-hidden');  
+      $('#indBeginner').removeClass('is-hidden');
       $('#orgBeginner').addClass('is-hidden');
       $('#indRepresentative').removeClass('is-hidden');
       $('#orgRepresentative').addClass('is-hidden');
@@ -25,7 +25,7 @@ var applicantTypeOption = function() {
 applicantTypeOption();
 
 // anonymity Description
-$("input[name='page2[applicantAnon]']").change(function() {
+$("input[name='page2[applicantAnon]']").change(function () {
   result = this.value;
 
   if (result === 'Yes') {
@@ -38,7 +38,7 @@ $("input[name='page2[applicantAnon]']").change(function() {
 
 // ___________________Page4
 
-$("input[name='page3[indRepresentativeType]']").change(function() {
+$("input[name='page3[indRepresentativeType]']").change(function () {
   result = this.value;
   if (result === 'lawyer') {
     $('#lawyerRep').removeClass('is-hidden');
@@ -60,7 +60,7 @@ $("input[name='page3[indRepresentativeType]']").change(function() {
   }
 });
 
-$("input[name='page3[orgRepresentativeType]']").change(function() {
+$("input[name='page3[orgRepresentativeType]']").change(function () {
   result = this.value;
   if (result === 'orgYesLawyer') {
     $('#orgLawyerRep').removeClass('is-hidden');
@@ -77,36 +77,74 @@ $("input[name='page3[orgRepresentativeType]']").change(function() {
 
 
 $('#page6Group').repeater({
-            btnAddClass: 's-btnAdd',
-            btnRemoveClass: 's-btnRemove',
-            groupClass: 's-group',
-            minItems: 1,
-            maxItems: 0,
-            startingIndex: 0,
-            showMinItemsOnLoad: true,
-            reindexOnDelete: true,
-            repeatMode: 'append',
-            animation: 'fade',
-            animationSpeed: 400,
-            animationEasing: 'swing',
-            clearValues: true
-        });
+  btnAddClass: 's-btnAdd',
+  btnRemoveClass: 's-btnRemove',
+  groupClass: 's-group',
+  minItems: 1,
+  maxItems: 0,
+  startingIndex: 0,
+  showMinItemsOnLoad: true,
+  reindexOnDelete: true,
+  repeatMode: 'append',
+  animation: 'fade',
+  animationSpeed: 400,
+  animationEasing: 'swing',
+  clearValues: true,
+  afterAdd: function () {
+    cur_id = this.id
+    id_no = cur_id.split("_6_")[1];
+    for (i = id_no; i >= 0; i--) {
+      newID = "addButton_6_" + i;
+      currentButtonElement = document.getElementById(newID);
+      if (currentButtonElement && !currentButtonElement.classList.contains("is-hidden")) {
+        currentButtonElement.className += " is-hidden";
+      }
+    }
+  },
+  afterDelete: function () {
+    groups = $("#page6Group").children();
+    divTag = groups.children()[groups.children().length-1];
+    buttonTag = divTag.children[1]
+    if (buttonTag.classList.contains("is-hidden")){
+      divTag.children[1].classList.remove("is-hidden");
+    }
+  }
+});
 
 $('#page5Group').repeater({
-          btnAddClass: 'a-btnAdd',
-          btnRemoveClass: 'a-btnRemove',
-          groupClass: 'a-group',
-          minItems: 1,
-          maxItems: 0,
-          startingIndex: 0,
-          showMinItemsOnLoad: true,
-          reindexOnDelete: true,
-          repeatMode: 'append',
-          animation: 'fade',
-          animationSpeed: 400,
-          animationEasing: 'swing',
-          clearValues: true
-      });
+  btnAddClass: 'a-btnAdd',
+  btnRemoveClass: 'a-btnRemove',
+  groupClass: 'a-group',
+  minItems: 1,
+  maxItems: 0,
+  startingIndex: 0,
+  showMinItemsOnLoad: true,
+  reindexOnDelete: true,
+  repeatMode: 'append',
+  animation: 'fade',
+  animationSpeed: 400,
+  animationEasing: 'swing',
+  clearValues: true,
+  afterAdd: function () {
+    cur_id = this.id
+    id_no = cur_id.split("_5_")[1];
+    for (i = id_no; i >= 0; i--) {
+      newID = "addButton_5_" + i;
+      currentButtonElement = document.getElementById(newID);
+      if (currentButtonElement && !currentButtonElement.classList.contains("is-hidden")) {
+        currentButtonElement.className += " is-hidden";
+      }
+    }
+  },
+  afterDelete: function () {
+    groups = $("#page5Group").children();
+    divTag = groups.children()[groups.children().length-1];
+    buttonTag = divTag.children[1]
+    if (buttonTag.classList.contains("is-hidden")){
+      divTag.children[1].classList.remove("is-hidden");
+    }
+  }
+});
 // Correspondent details
 
 
@@ -115,7 +153,7 @@ $('#page5Group').repeater({
 
 
 // Page 6 condition for text area
-$("input[name='page6[appealAvailable]']").change(function() {
+$("input[name='page6[appealAvailable]']").change(function () {
   result = this.value;
   if (result === 'Yes') $('.appealDescribe').removeClass('is-hidden');
   else {
@@ -128,7 +166,7 @@ $("input[name='page6[appealAvailable]']").change(function() {
 // page 7 conditions for text area
 
 
-$("input[name='page7[intInvestigation]']").change(function() {
+$("input[name='page7[intInvestigation]']").change(function () {
   result = this.value;
   if (result === 'Yes') $('.intInvestigation').removeClass('is-hidden');
   else {
@@ -136,7 +174,7 @@ $("input[name='page7[intInvestigation]']").change(function() {
   }
 });
 
-$("input[name='page7[prevApplications]']").change(function() {
+$("input[name='page7[prevApplications]']").change(function () {
   result = this.value;
   if (result === 'Yes') $('.prevAppDesc').removeClass('is-hidden');
   else {
@@ -146,15 +184,15 @@ $("input[name='page7[prevApplications]']").change(function() {
 
 function textCounter(field, field2, maxlimit) {
   var countfield = document.getElementById(field2);
-  if (field.value.length > maxlimit) {  
-    if(field.id==="stofFacts"){
-    swal("You have used up the allocated length for Statement of Facts. For more explanation, please use the extra provided area by clicking the button 'Do you need more writing space?'");
+  if (field.value.length > maxlimit) {
+    if (field.id === "stofFacts") {
+      swal("You have used up the allocated length for Statement of Facts. For more explanation, please use the extra provided area by clicking the button 'Do you need more writing space?'");
     }
-    if(field.id==="stofFactsExtra"){
+    if (field.id === "stofFactsExtra") {
       swal("Unfortunately there is no more space available to add extra content in statement of facts according to the guidelines provided by ECtHR. Please try to modify the existing text.");
     }
     field.value = field.value.substring(0, maxlimit);
-    
+
     return false;
   } else {
     countfield.value = maxlimit - field.value.length;
@@ -162,7 +200,7 @@ function textCounter(field, field2, maxlimit) {
 }
 
 
-$("input[name='page2[applicantAnon]']").change(function() {
+$("input[name='page2[applicantAnon]']").change(function () {
   result = this.value;
   lines = $("#anonReqText").val();
   pageCount = 0;
@@ -171,9 +209,9 @@ $("input[name='page2[applicantAnon]']").change(function() {
     pageCount = 1;
   }
   else {
-    pageCount = 1+ Math.ceil((numOfLines - 45)/56);
+    pageCount = 1 + Math.ceil((numOfLines - 45) / 56);
   }
-  if (result==='Yes'){
+  if (result === 'Yes') {
     $("input[name='page8[0][date]']").val(moment().format('DD/MM/YYYY'))
     $("input[name='page8[0][title]']").val("Anonymity Request");
     $("input[name='page8[0][desc]']").val("Documents requesting anonymity in the public documents of the court.");
@@ -200,38 +238,58 @@ $('#page8Group').repeater({
   animation: 'fade',
   animationSpeed: 400,
   animationEasing: 'swing',
-  clearValues: true
+  clearValues: true,
+  afterAdd: function () {
+    cur_id = this.id
+    id_no = cur_id.split("_8_")[1];
+    for (i = id_no; i >= 0; i--) {
+      newID = "addButton_8_" + i;
+      currentButtonElement = document.getElementById(newID);
+      if (currentButtonElement && !currentButtonElement.classList.contains("is-hidden")) {
+        currentButtonElement.className += " is-hidden";
+      }
+    }
+  },
+  afterDelete: function () {
+    groups = $("#page8Group").children();
+    divTag = groups.children()[groups.children().length-1];
+    buttonTag = divTag.children[1]
+    if (buttonTag.classList.contains("is-hidden")){
+      divTag.children[1].classList.remove("is-hidden");
+    }
+  }
+
 });
 
 
-limitLines = function(limit, textarea) {
+
+
+
+limitLines = function (limit, textarea) {
   var spaces = textarea.getAttribute("cols");
-  
-  textarea.onkeyup = function() {
-     var lines = textarea.value.split("\n");
-      
-     for (var i = 0; i < lines.length; i++) 
-     {
-           if (lines[i].length <= spaces) continue;
-           var j = 0;
-           
-          var space = spaces;
-          
-          while (j++ <= spaces) 
-          {
-             if (lines[i].charAt(j) === " ") space = j;  
-          }
+
+  textarea.onkeyup = function () {
+    var lines = textarea.value.split("\n");
+
+    for (var i = 0; i < lines.length; i++) {
+      if (lines[i].length <= spaces) continue;
+      var j = 0;
+
+      var space = spaces;
+
+      while (j++ <= spaces) {
+        if (lines[i].charAt(j) === " ") space = j;
+      }
       lines[i + 1] = lines[i].substring(space + 1) + (lines[i + 1] || "");
       lines[i] = lines[i].substring(0, space);
     }
-      if(lines.length>limit)
-      {
-          textarea.style.color = 'red';
-          setTimeout(function(){
-              textarea.style.color = '';
-          },500);
-      }    
-     textarea.value = lines.slice(0, limit).join("\n");
+    if (lines.length > limit) {
+      textarea.style.color = 'red';
+      setTimeout(function () {
+        textarea.style.color = '';
+      }, 500);
+    }
+    textarea.value = lines.slice(0, limit).join("\n");
   };
 }
 
@@ -249,14 +307,14 @@ limitLines(5, document.getElementById('formComments'));
 
 
 // For page 9 auto filling name and address based on page 2 or 3
-$("input[name='page9[signatureDeclaration]']").change(function() {
+$("input[name='page9[signatureDeclaration]']").change(function () {
   result = this.value;
   if (result === "Applicant") {
     $('#correspondentOptionApplicant').removeClass('is-hidden');
     $('#correspondentOptionRepresentative').addClass('is-hidden');
-    if ($("input[name='page2[applicantType]']:checked").val() === "Individual"){
+    if ($("input[name='page2[applicantType]']:checked").val() === "Individual") {
       nameValue = $("#indFirstName").val() + " " + $("#indSurname").val();
-      addressValue = $("#indAddress").val().replace("\n", ", ").replace(",,", ",").replace(" ,", ",");   
+      addressValue = $("#indAddress").val().replace("\n", ", ").replace(",,", ",").replace(" ,", ",");
     }
     else {
       nameValue = $("input[name='page2[orgName]']").val();
@@ -268,16 +326,16 @@ $("input[name='page9[signatureDeclaration]']").change(function() {
   else if (result === "Representative") {
     $('#correspondentOptionApplicant').addClass('is-hidden');
     $('#correspondentOptionRepresentative').removeClass('is-hidden');
-    if ($("input[name='page2[applicantType]']:checked").val() === "Individual"){
+    if ($("input[name='page2[applicantType]']:checked").val() === "Individual") {
       if ($("input[name='page3[indRepresentativeType]']:checked").val() === "non-lawyer") {
         nameValue = $("#indNLFirstName").val() + " " + $("#indNLSurname").val();
         addressValue = $("#indNLAddress").val().replace("\n", ", ").replace(",,", ",").replace(" ,", ",");
       }
-      else if ($("input[name='page3[indRepresentativeType]']:checked").val() === "lawyer"){
+      else if ($("input[name='page3[indRepresentativeType]']:checked").val() === "lawyer") {
         nameValue = $("#indLFirstName").val() + " " + $("#indLSurname").val();
         addressValue = $("#indLAddress").val().replace("\n", ", ").replace(",,", ",").replace(" ,", ",");
       }
-      else{
+      else {
         swal("No representative entered in Page 3");
       }
     }
@@ -297,8 +355,8 @@ $("input[name='page9[signatureDeclaration]']").change(function() {
     $("#confirmationRepresentativeName").val(nameValue);
     $("#confirmationRepresentativeAddress").val(addressValue);
   }
-else {
-  swal("check for error");
-}
-  
+  else {
+    swal("check for error");
+  }
+
 })

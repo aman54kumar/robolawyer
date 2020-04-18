@@ -25,15 +25,7 @@ def formProcessing(request):
     filepath = os.path.join(settings.BASE_DIR, 'applicationForm/dataPreparation/results/'+sessionID+'/finalPage/finalForm.pdf')
     if request.method == 'POST':
         form_dict = request.POST
-        spclReplies.append(request.POST.getlist('page1[involvedStates]'))
-
-        spclReplies.append(request.POST.getlist('page5[articleSelect]'))
-        spclReplies.append(request.POST.getlist('page5[articleExplanation]'))
-
-        spclReplies.append(request.POST.getlist('page6[complainSelect]'))
-        spclReplies.append(request.POST.getlist('page6[complaintDate]'))
-        spclReplies.append(request.POST.getlist('page6[remediesUsed]'))
-       
+        spclReplies.append(request.POST.getlist('page1[involvedStates]'))       
         pagesName = ['page1', 'page2', 'page3', 'page4', 'page5',
                      'page6', 'page7', 'page8', 'page9', 'page10']
         pages = {}

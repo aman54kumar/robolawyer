@@ -229,96 +229,102 @@ def seventhPageInputs(self, can, inputObj):
     return can
 
 def eighthPageInputs(self, can, inputObj):
-    yCoord = 750
-    for item in range(len(inputObj[0])):
-        if item>2:
-            break
-        t1 = can.beginText()
-        t1.setFont(customFont, customFontSize)
-        if len(inputObj[0]) > 1:
-            article = inputObj[0][item]
-            articleExp = inputObj[1][item]
-        elif len(inputObj[0]) == 1:
-            article = inputObj[0][0]
-            articleExp = inputObj[1][0]
-        else:
-            print("error reported in EighthPageInputs")
+    length = int((len(inputObj))/2)
+    # yCoord = 750
+    # print(inputObj[0])
+    # for item in range(length):
+    #     print(item)
+    #     if item>2:
+    #         break
+    #     t1 = can.beginText()
+    #     t1.setFont(customFont, customFontSize)
+    #     if len(inputObj[item]) > 1:
+    #         print("if")
+    #         article = inputObj[item]
+    #         articleExp = inputObj[item]
+    #     elif len(inputObj[item]) == 1:
+    #         print("elif")
+    #         article = inputObj[item][0]
+    #         articleExp = inputObj[item][0]
+    #     else:
+    #         print("error reported in EighthPageInputs")
 
-        newArticle = formatTextWithoutDash(self, article, 19)
-        t1.setTextOrigin(25, yCoord)
-        t1.textLines(newArticle)
-        can.drawText(t1)
+    #     newArticle = formatTextWithoutDash(self, article, 19)
+    #     t1.setTextOrigin(25, yCoord)
+    #     t1.textLines(newArticle)
+    #     can.drawText(t1)
 
-        t2 = can.beginText()
-        t2.setFont(customFont, customFontSize)
-        newArticleExp = formatTextWithoutDash(self, articleExp, 59)
-        t2.setTextOrigin(180, yCoord)
-        t2.textLines(newArticleExp)
-        can.drawText(t2)
-        yCoord -= nextLineForPara(len(newArticleExp), 59, 14.3)
+    #     t2 = can.beginText()
+    #     t2.setFont(customFont, customFontSize)
+    #     newArticleExp = formatTextWithoutDash(self, articleExp, 59)
+    #     t2.setTextOrigin(180, yCoord)
+    #     t2.textLines(newArticleExp)
+    #     can.drawText(t2)
+    #     yCoord -= nextLineForPara(len(newArticleExp), 59, 14.3)
 
     can.showPage()
     return can
 
 def ninthPageInputs(self, can, inputObj):
-    yCoord = 750
-    for item in range(len(inputObj[0])):
-        if item>2:
-            t1 = can.beginText()
-            t1.setFont(customFont, customFontSize)
-            if len(inputObj[0]) > 1:
-                article = inputObj[0][item]
-                articleExp = inputObj[1][item]
-            elif len(inputObj[0]) == 1:
-                article = inputObj[0][0]
-                articleExp = inputObj[1][0]
-            else:
-                print("error reported in EighthPageInputs")
+    # yCoord = 750
+    # length = int((len(inputObj))/2)
+    # for item in range(length):
+    #     if item>2:
+    #         t1 = can.beginText()
+    #         t1.setFont(customFont, customFontSize)
+    #         if len(inputObj[item]) > 1:
+    #             article = inputObj[item]
+    #             articleExp = inputObj[item]
+    #         elif len(inputObj[item]) == 1:
+    #             article = inputObj[item][0]
+    #             articleExp = inputObj[item][0]
+    #         else:
+    #             print("error reported in EighthPageInputs")
 
-            newArticle = "\n".join(wrap(article, 20))
-            t1.setTextOrigin(25, yCoord)
-            t1.textLines(newArticle)
-            can.drawText(t1)
+    #         newArticle = "\n".join(wrap(article, 20))
+    #         t1.setTextOrigin(25, yCoord)
+    #         t1.textLines(newArticle)
+    #         can.drawText(t1)
 
-            t2 = can.beginText()
-            t2.setFont(customFont, customFontSize)
-            newArticleExp = formatTextWithoutDash(self, articleExp, 59)
-            t2.setTextOrigin(180, yCoord)
-            t2.textLines(newArticleExp)
-            can.drawText(t2)
-            yCoord -= nextLineForPara(len(newArticleExp), 59, 15.8)
+    #         t2 = can.beginText()
+    #         t2.setFont(customFont, customFontSize)
+    #         newArticleExp = formatTextWithoutDash(self, articleExp, 59)
+    #         t2.setTextOrigin(180, yCoord)
+    #         t2.textLines(newArticleExp)
+    #         can.drawText(t2)
+    #         yCoord -= nextLineForPara(len(newArticleExp), 59, 15.8)
 
 
     can.showPage()
     return can
 
 def tenthPageInputs(self, can, inputObj):
-    yCoord = 705
-    for item in range(len(inputObj[0])):
-        t1 = can.beginText()
-        t1.setFont(customFont, customFontSize)
-        if len(inputObj[0]) > 1:
-            complain = inputObj[0][item]
-            remedies = inputObj[1][item]
-        elif len(inputObj[0]) == 1: 
-            complain = inputObj[0][0]
-            remedies = inputObj[1][0]
-        else:
-            print("error reported in TenthPageInputs")
+    # yCoord = 705
+    # for item in range(len(inputObj[0])):
+    #     t1 = can.beginText()
+    #     t1.setFont(customFont, customFontSize)
+    #     if len(inputObj[0]) > 1:
+    #         complain = inputObj[0][item]
+    #         remedies = inputObj[1][item]
+    #     elif len(inputObj[0]) == 1: 
+    #         complain = inputObj[0][0]
+    #         remedies = inputObj[1][0]
+    #     else:
+    #         print("error reported in TenthPageInputs")
 
-        newComplain = formatText(self, complain, 23)
-        t1.setTextOrigin(25, yCoord)
-        t1.textLines(newComplain)
-        can.drawText(t1)
+    #     newComplain = formatText(self, complain, 23)
+    #     t1.setTextOrigin(25, yCoord)
+    #     t1.textLines(newComplain)
+    #     can.drawText(t1)
 
 
-        t2 = can.beginText()
-        t2.setFont(customFont, customFontSize)
-        newRemedy = formatText(self, remedies, 58)
-        t2.setTextOrigin(185, yCoord)
-        t2.textLines(newRemedy)
-        can.drawText(t2)
-        yCoord -= nextLineForPara(len(newRemedy), 60, 17)
+    #     t2 = can.beginText()
+    #     t2.setFont(customFont, customFontSize)
+    #     newRemedy = formatText(self, remedies, 58)
+    #     t2.setTextOrigin(185, yCoord)
+    #     t2.textLines(newRemedy)
+    #     can.drawText(t2)
+    #     yCoord -= nextLineForPara(len(newRemedy), 60, 17)
 
     can.showPage()
     return can

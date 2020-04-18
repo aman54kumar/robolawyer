@@ -68,14 +68,13 @@ class PrepareResult:
             elif cnt <= 158:
                 sof3 += temp
                 temp = ""
-        article = []
-        article.append(self.spclReplies[1])
-        article.append(self.spclReplies[2])
-
-        complains = []
-        complains.append(self.spclReplies[3])
-        complains.append([m+' ' + str(n)
-                          for m, n in zip(self.spclReplies[5], self.spclReplies[4])])
+        article = self.inputObj['page5']
+        # article.append(self.spclReplies[1])
+        # article.append(self.spclReplies[2])
+        complains = self.inputObj['page6']
+        # complains.append(self.spclReplies[3])
+        # complains.append([m+' ' + str(n)
+        #                   for m, n in zip(self.spclReplies[5], self.spclReplies[4])])
 
         docs = self.inputObj['page8']
    

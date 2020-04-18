@@ -6,79 +6,83 @@
                 <div class="card-master-header">
                     <h4 class="card-header-title">Finish</h4>
                 </div>
-                <div class="card-body alert-info" >
-                    
-                        <h4>VERY IMPORTANT </h4>
-                        <div style="text-align:justify">
-                            <p class="lead" style="text-align:center">The application form has to be printed out and sent by mail to the registrar of the
-                                European
-                                Court of Human Rights.
-                            </p>
-									<div style="padding:5%">
-                            <p class="lead"><b><u>Before mailing the form, please make sure to:</u></b>
-                                
-                                    <ol class="lead" style="text-align:justify">
-                                        <li>Add the original signatures of the applicant(s) and/or the authorised
-                                            representative(s) in all the relevant fields (page 3 if you are an
-                                            individual
-                                            that is represented by someone else, page 4 if you are an organisation that
-                                            is
-                                            represented by a lawyer, and page 13 of the printed application form). The
-                                            receipt of a faxed application is not counted as a complete application as
-                                            the
-                                            Court needs to receive the original signed application form.
-                                        </li><br>
-                                        <li>Sign the application in the required fields;</li><br>
-                                        <li>Add full and legible copies of all documents mentioned in your application.
-                                            No
-                                            documents will be returned to you. It is thus in your interests to submit
-                                            copies, not originals. You MUST:
+                <div class="card-body alert-info">
 
-                                            <ul>
-                                                <li>arrange the documents in order by date and by procedure; </li>
-                                                <li>number the pages consecutively; and </li>
-                                                <li>NOT staple, bind or tape the documents.</li>
-                                            </ul>
-                                            <p>Please indicate at page 12 of the printed application (the page titled
-                                                “List
-                                                of Accompanying Documents”) the page number at which each document
-                                                annexed
-                                                may be found.
-                                            </p>
-                                        </li><br>
-                                        <li>Applicants must dispatch the signed original by post within the six-month
-                                            time-limit from the date when the final decision from the highest national
-                                            court
-                                            was communicated.
-                                        </li><br>
-                                        <li>
-                                            <span> The completed and signed application form should be sent by post
-                                                to:</span> <br>
-                                            <div style="margin-left:100px">
-                                                <b>The Registrar</b><br>
-                                                <b>European Court of Human Rights</b><br>
-                                                <b>Council of Europe</b><br>
-                                                <b>67075 STRASBOURG CEDEX</b><br>
-                                                <b>FRANCE</b>
-                                            </div>
-                                        </li>
-                                    </ol>
-                                </p>
-                               
+                    <h4>VERY IMPORTANT </h4>
+                    <div style="text-align:justify">
+                        <p class="lead" style="text-align:center">The application form has to be printed out and sent by
+                            mail to the registrar of the
+                            European
+                            Court of Human Rights.
+                        </p>
+                        <div style="padding:5%">
+                            <p class="lead"><b><u>Before mailing the form, please make sure to:</u></b>
+
+                                <ol class="lead" style="text-align:justify">
+                                    <li>Add the original signatures of the applicant(s) and/or the authorised
+                                        representative(s) in all the relevant fields (page 3 if you are an
+                                        individual
+                                        that is represented by someone else, page 4 if you are an organisation that
+                                        is
+                                        represented by a lawyer, and page 13 of the printed application form). The
+                                        receipt of a faxed application is not counted as a complete application as
+                                        the
+                                        Court needs to receive the original signed application form.
+                                    </li><br>
+                                    <li>Sign the application in the required fields;</li><br>
+                                    <li>Add full and legible copies of all documents mentioned in your application.
+                                        No
+                                        documents will be returned to you. It is thus in your interests to submit
+                                        copies, not originals. You MUST:
+
+                                        <ul>
+                                            <li>arrange the documents in order by date and by procedure; </li>
+                                            <li>number the pages consecutively; and </li>
+                                            <li>NOT staple, bind or tape the documents.</li>
+                                        </ul>
+                                        <p>Please indicate at page 12 of the printed application (the page titled
+                                            “List
+                                            of Accompanying Documents”) the page number at which each document
+                                            annexed
+                                            may be found.
+                                        </p>
+                                    </li><br>
+                                    <li>Applicants must dispatch the signed original by post within the six-month
+                                        time-limit from the date when the final decision from the highest national
+                                        court
+                                        was communicated.
+                                    </li><br>
+                                    <li>
+                                        <span> The completed and signed application form should be sent by post
+                                            to:</span> <br>
+                                        <div style="margin-left:100px">
+                                            <b>The Registrar</b><br>
+                                            <b>European Court of Human Rights</b><br>
+                                            <b>Council of Europe</b><br>
+                                            <b>67075 STRASBOURG CEDEX</b><br>
+                                            <b>FRANCE</b>
+                                        </div>
+                                    </li>
+                                </ol>
+                            </p>
+
                         </div>
-              
+
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary" onclick="stepperForm.previous()">Previous</button>
+                        <button id="form-submit-btn" type="submit" class="btn btn-primary" name="appFormSubmit">Generate
+                            Printable PDF
+                            Form</button>
+                    </div>
                 </div>
-                <div class="card-footer">
-                    <button class="btn btn-primary" onclick="stepperForm.previous()">Previous</button>
-                    <button id="form-submit-btn" type="submit" class="btn btn-primary" name="appFormSubmit">Generate Printable PDF
-                        Form</button>
+                <div style="position:fixed;right:20px;bottom:20px; width: 100%; margin-top: 5vw;" class="col-sm-1">
+                    <p class="text-white"> This is a Beta version of Just Bot and we rely on your feedback to
+                        improve it. </p>
+                    <button class="showModal btn feedback-button" value='10'
+                        onclick="curPageNum(this);">Feedback</button>
+
                 </div>
-            </div>
-            <div style="position:fixed;right:20px;bottom:20px; width: 100%; margin-top: 5vw;" class="col-sm-1">
-                	This is a Beta Testing version of Just Bot. 
-                    <button class="showModal btn btn-info" class="btn btn-success" value='1' onclick="curPageNum(this);">Feedback</button> 
-            
             </div>
         </div>
     </div>
-</div>

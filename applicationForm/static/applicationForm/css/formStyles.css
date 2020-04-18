@@ -201,3 +201,7 @@ textarea {
   height: 10vw;
   width: 20vw;
 }
+
+.feedback-button {
+  background-color: #fbcd33;
+}

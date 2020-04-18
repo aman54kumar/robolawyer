@@ -1,55 +1,3 @@
-/* html,
-body {
-    display: flex;
-    flex-direction: column;
-}
-
-
-footer {
-    background-color: black;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 10vw;
-    width: 100%;
-    overflow: auto;
-}
-
-.Content {
-    flex-grow: 1;
-}*/
-
-/* Other Classes for Page Styling */
-
-/* body {
-    background: #007bff;
-    background: linear-gradient(to right, #0062E6, #33AEFF);
-} */
-
-/* h1 {
-    color: black;
-}
-
-.navbar-links:hover {
-    color: white !important;
-    background-color: black;
-}
-
-.contrib-logo {
-    margin: 0 60px;
-} */
-
-
-
-/* footer {
-    background-color: black;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 10vw;
-    width: 100%;
-    overflow: hidden;
-} */
 html {
     zoom: 75%;
     margin: 0;
@@ -116,6 +64,11 @@ footer {
     justify-content: center !important;
 }
 
-/* .space-divider {
-    height: 10vw;
-} */
+.home-header{
+    margin-top:-60px; 
+    margin-right:-20px;
+}
+
+.beta-logo {
+    transform: rotate(90deg);
+}

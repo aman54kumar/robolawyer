@@ -124,9 +124,10 @@
                                     </table>
                                     <div>
                                         <!-- Add a remove button for the item. If one didn't exist, it would be added to overall group -->
-                                        <button type="button" class="r-btnRemove btn btn-danger">Remove -</button>
                                         <button type="button" class="r-btnAdd btn btn-primary" id="addButton_8_0"
                                             data-pattern-id="addButton_8_++">Add +</button>
+                                        <button type="button" class="r-btnRemove btn btn-danger">Remove -</button>
+
                                     </div>
                                 </div>
                                 <!-- add button here -->
@@ -143,8 +144,9 @@
                         </div>
                         <div style="position:fixed;right:20px;bottom:20px; width: 100%; margin-top: 5vw;"
                             class="col-sm-1">
-                            This is a Beta Testing version of Just Bot.
-                            <button class="showModal btn btn-info" class="btn btn-success" value='1'
+                            <p class="text-white"> This is a Beta version of Just Bot and we rely on your feedback to
+                                improve it. </p>
+                            <button class="showModal btn feedback-button" value='8'
                                 onclick="curPageNum(this);">Feedback</button>
 
                         </div>
@@ -154,32 +156,3 @@
         </div>
     </div>
 </div>
-<!-- 
-  <table width="100%">
-    <tr>
-      <td width="10%">
-        <label><b>Date</b></label>
-        <input type="text" class="page8Date datepicker" name="page8[finalDecisionDate]"
-        data-date-end-date="0d" data-provide="datepicker" required data-parsley-group="page8"/>
-      </td>
-      <td width="30%" style="padding-right:10px;">
-        <label for="docSelect"><b>Document Title</b></label>
-        <input class="form-control" name="page8[docTitle]" id="docTitle"
-           maxlength="60" required data-parsley-group="page8">
-      </td>
-      <td width="55%" style="padding-right:10px;">
-        <label for="docSelect"><b>Short Description</b></label>
-        <textarea class="form-control" name="page8[docDescription]" id="docSelect"
-          oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px"' cols="30"
-          rows="2" maxlength="70" required data-parsley-group="page8"></textarea>
-      </td>
-      <td width="5%">
-        <label><b>Number of Pages</b>
-          <a href="javascript://" data-toggle="popover"
-            data-content="Indicate the total number of pages in each document" data-trigger="click"
-            data-placement="bottom"><span><i class="fas fa-question-circle"></i></span></a></label>
-            <br>
-        <input type="number" name="page8[pageNumber]" id="noOfPage" class="form-control" min="1" required data-parsley-group="page8"></input>
-      </td>
-    </tr>
-  </table> -->

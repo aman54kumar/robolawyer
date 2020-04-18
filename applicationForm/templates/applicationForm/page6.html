@@ -61,10 +61,9 @@
                     <td width="30%">
                       <label><b>Date of Final Decision from the highest court</b>
                       </label>
-                      <input type="text" class="page6Date datepicker" name="page6[0][complainDate]"
-                        id="complain_0_date" data-date-end-date="0d" data-provide="datepicker" required
-                        data-parsley-group="page6" data-pattern-id="complain_++_date"
-                        data-pattern-name="page6[++][complainDate]" />
+                      <input type="text" class="page6Date datepicker" name="page6[0][complainDate]" id="complain_0_date"
+                        data-date-end-date="0d" data-provide="datepicker" required data-parsley-group="page6"
+                        data-pattern-id="complain_++_date" data-pattern-name="page6[++][complainDate]" />
                     </td>
                     <td width="45%">
                       <label><b> Remedies Used</b></label>
@@ -76,9 +75,10 @@
                   </tr>
                 </table>
                 <div>
-                  <button type="button" class="s-btnRemove btn btn-danger">Remove -</button>
                   <button type="button" class="s-btnAdd btn btn-primary" id="addButton_6_0"
                     data-pattern-id="addButton_6_++">Add +</button>
+                  <button type="button" class="s-btnRemove btn btn-danger">Remove -</button>
+
                 </div>
 
 
@@ -170,9 +170,9 @@
         </div>
       </div>
       <div style="position:fixed;right:20px;bottom:20px; width: 100%; margin-top: 5vw;" class="col-sm-1">
-        This is a Beta Testing version of Just Bot.
-        <button class="showModal btn btn-info" class="btn btn-success" value='1'
-          onclick="curPageNum(this);">Feedback</button>
+        <p class="text-white"> This is a Beta version of Just Bot and we rely on your feedback to
+          improve it. </p>
+        <button class="showModal btn feedback-button" value='6' onclick="curPageNum(this);">Feedback</button>
 
       </div>
     </div>

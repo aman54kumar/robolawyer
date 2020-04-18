@@ -104,9 +104,9 @@ $('#page6Group').repeater({
   afterDelete: function () {
     groups = $("#page6Group").children();
     divTag = groups.children()[groups.children().length-1];
-    buttonTag = divTag.children[1]
+    buttonTag = divTag.children[0]
     if (buttonTag.classList.contains("is-hidden")){
-      divTag.children[1].classList.remove("is-hidden");
+      divTag.children[0].classList.remove("is-hidden");
     }
   }
 });
@@ -139,9 +139,9 @@ $('#page5Group').repeater({
   afterDelete: function () {
     groups = $("#page5Group").children();
     divTag = groups.children()[groups.children().length-1];
-    buttonTag = divTag.children[1]
+    buttonTag = divTag.children[0]
     if (buttonTag.classList.contains("is-hidden")){
-      divTag.children[1].classList.remove("is-hidden");
+      divTag.children[0].classList.remove("is-hidden");
     }
   }
 });
@@ -253,9 +253,9 @@ $('#page8Group').repeater({
   afterDelete: function () {
     groups = $("#page8Group").children();
     divTag = groups.children()[groups.children().length-1];
-    buttonTag = divTag.children[1]
+    buttonTag = divTag.children[0]
     if (buttonTag.classList.contains("is-hidden")){
-      divTag.children[1].classList.remove("is-hidden");
+      divTag.children[0].classList.remove("is-hidden");
     }
   }
 

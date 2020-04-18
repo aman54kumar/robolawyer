@@ -12,14 +12,15 @@
                     </h4>
                 </div>
                 <div class="card-body">
-                    <div class="form-text" >
-                        <p>The facts of your case enable the Court to determine the nature and scope of the case and  is essential for the proper and prompt examination for your
+                    <div class="form-text">
+                        <p>The facts of your case enable the Court to determine the nature and scope of the case and is
+                            essential for the proper and prompt examination for your
                             application.
                         </p>
                         <div class="text-center">
-                        <button class="btn" data-toggle="collapse" data-target="#info-1" >More Info</button>
+                            <button class="btn" data-toggle="collapse" data-target="#info-1">More Info</button>
                         </div>
-                        <div id="info-1" class="collapse" >
+                        <div id="info-1" class="collapse">
                             <ol style="font-size:14px;">
                                 <li>Be clear and concise and give exact dates.</li>
                                 <li>Be chronological and set out events in the order in which they occurred. If
@@ -64,48 +65,54 @@
                         <input disabled maxlength="5" size="5" value="12700" id="counter" class="alert alert-success">
                         <textarea class="form-control" name="page4[stOfFacts]" id="stofFacts"
                             oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px"' cols="30"
-                            rows="10" onkeyup="textCounter(this,'counter', 12700);" required data-parsley-group="page4"></textarea>
+                            rows="10" onkeyup="textCounter(this,'counter', 12700);" required
+                            data-parsley-group="page4"></textarea>
                     </div>
-                            <div class="text-right">
-                                <button class="btn "data-toggle="collapse" data-target="#info-2" align="right">
-                                    Do you need more writing space?
-                                </button>
-                            </div>
-						<br>
-						<div id="info-2" class="collapse">
-                            <div class="form-group">
-                                <label for="stofFactsExtra" >You have reached the character limit
-                                    imposed by the Court.
-                                    It is possible, but not required, for applicants to add an additional
-                                    statement expanding on
-                                    thefacts, complaints or remedies used. This extra statement should be not more
-                                    than 20 pages.
-                                    It should not add new complaints or violations but only develop what is set out
-                                    on the
-                                    form.
-                                    If you want to add more statement of facts, then please use the area below
-                                    for this.</label>
-                                <input disabled maxlength="5" size="5" id="counter2" value="100000" class="alert alert-success">
-                                <textarea class="form-control" name="page4[stOfFactsExtra]" id="stofFactsExtra"
-                                    oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' cols="30"
-                                    rows="10" onkeyup="textCounter(this,'counter2', 100000);"></textarea>
-                            </div>
+                    <div class="text-right">
+                        <button class="btn " data-toggle="collapse" data-target="#info-2" align="right">
+                            Do you need more writing space?
+                        </button>
+                    </div>
+                    <br>
+                    <div id="info-2" class="collapse">
+                        <div class="form-group">
+                            <label for="stofFactsExtra">You have reached the character limit
+                                imposed by the Court.
+                                It is possible, but not required, for applicants to add an additional
+                                statement expanding on
+                                thefacts, complaints or remedies used. This extra statement should be not more
+                                than 20 pages.
+                                It should not add new complaints or violations but only develop what is set out
+                                on the
+                                form.
+                                If you want to add more statement of facts, then please use the area below
+                                for this.</label>
+                            <input disabled maxlength="5" size="5" id="counter2" value="100000"
+                                class="alert alert-success">
+                            <textarea class="form-control" name="page4[stOfFactsExtra]" id="stofFactsExtra"
+                                oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' cols="30"
+                                rows="10" onkeyup="textCounter(this,'counter2', 100000);"></textarea>
                         </div>
-                        <div class="card-footer" >
-               	<div class="row">
-                    <div class="col-sm-6" align="left"><button class="btn btn-primary" onclick="stepperForm.previous()">Previous</button></div>
-                    <div class="col-sm-6"align="right"><button class="btn btn-primary btn-next-form" onclick="stepperForm.next()">Next</button></div>
-                  </div>
-                </div>
-
                     </div>
-                </div>                
-                
-                <div style="position:fixed;right:20px;bottom:20px; width: 100%; margin-top: 5vw;" class="col-sm-1">
-                	This is a Beta Testing version of Just Bot. 
-                    <button class="showModal btn btn-info" class="btn btn-success" value='1' onclick="curPageNum(this);">Feedback</button> 
-            
-            </div>    
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-sm-6" align="left"><button class="btn btn-primary"
+                                    onclick="stepperForm.previous()">Previous</button></div>
+                            <div class="col-sm-6" align="right"><button class="btn btn-primary btn-next-form"
+                                    onclick="stepperForm.next()">Next</button></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div style="position:fixed;right:20px;bottom:20px; width: 100%; margin-top: 5vw;" class="col-sm-1">
+                <p class="text-white"> This is a Beta version of Just Bot and we rely on your feedback to
+                    improve it. </p>
+                <button class="showModal btn feedback-button" value='4'
+                    onclick="curPageNum(this);">Feedback</button>
+
+            </div>
         </div>
     </div>
 </div>

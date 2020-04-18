@@ -69,13 +69,7 @@ class PrepareResult:
                 sof3 += temp
                 temp = ""
         article = self.inputObj['page5']
-        # article.append(self.spclReplies[1])
-        # article.append(self.spclReplies[2])
         complains = self.inputObj['page6']
-        # complains.append(self.spclReplies[3])
-        # complains.append([m+' ' + str(n)
-        #                   for m, n in zip(self.spclReplies[5], self.spclReplies[4])])
-
         docs = self.inputObj['page8']
    
         paths = glob.glob(

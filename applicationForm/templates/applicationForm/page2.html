@@ -53,7 +53,7 @@
                                     <h4 class="card-header-title" align="center">Individual</h4>
                                     <p class="lead">
                                         Fill in this part only if you’re an Individual. If you’re a company,
-                                        association, NGO or other legal entity, select “Organization” above.
+                                        association, NGO or other legal entity, select “Organisation” above.
                                     </p>
                                 </div>
                                 <div class="card-body">
@@ -152,26 +152,58 @@
                                                 placeholder="Enter the Organisation's Name" name="page2[orgName]"
                                                 required data-parsley-group="page2b" maxlength="110"></textarea>
                                         </div>
-                                        <div class="col-sm-5 form-group">
-                                            <label>Identification number (if any)</label>
-                                            <input class="form-control" type="text"
-                                                placeholder="Enter Identification Number" name="page2[orgID]"
-                                                maxlength="40">
+                                        <div class="form-group col-sm-6">
+                                            <label>Activity</label>
+                                            <input class="form-control" type="text" name="page2[orgActivity]" required
+                                                data-parsley-group="page2b" maxlength="40" placeholder="Activity">
                                         </div>
                                     </div>
 
                                     <div class="row divSpacing">
-                                        <div class="form-group col-sm-4">
-                                            <label>Date of registration or incorporation (if any)</label>
-                                            <input type="text" id="orgDate" class="datepicker form-control"
-                                                name="page2[orgDate]" data-date-end-date="0d" data-provide="datepicker"
-                                                data-parsley-group="page2"
-                                                placeholder="Date of registration or incorporation" />
+                                        
+                                        <div class="form-group col-sm-6">
+                                            Do you have a Date of Registration or incorporation?
+                                            <div class="custom-control custom-radio custom-control">
+                                                <input type="radio" class="custom-control-input" id="orgDateYes"
+                                                    name="page2[orgDateOption]" value="Yes" required
+                                                    data-parsley-group="page2">
+                                                <label class="custom-control-label" for="orgDateYes">Yes</label>
+                                            </div>
+                                            <div class="custom-control custom-radio custom-control">
+                                                <input type="radio" class="custom-control-input" id="orgDateNo"
+                                                    name="page2[orgDateOption]" value="No" required
+                                                    data-parsley-group="page2">
+                                                <label class="custom-control-label" for="orgDateNo">No</label>
+                                            </div>
+                                            <div class="form-group is-hidden orgDateDiv">
+
+                                                <label>Please provide the Date of registration or incorporation</label>
+                                                <input type="text" id="orgDate" class="datepicker form-control col-sm-6"
+                                                    name="page2[orgDate]" data-date-end-date="0d"
+                                                    data-provide="datepicker" data-parsley-group="page2"
+                                                    placeholder="Date of registration or incorporation" />
+                                            </div>
                                         </div>
-                                        <div class="form-group col-sm-8">
-                                            <label>Activity</label>
-                                            <input class="form-control" type="text" name="page2[orgActivity]" required
-                                                data-parsley-group="page2b" maxlength="40" placeholder="Activity">
+                                        <div class="col-sm-6 form-group">
+                                            Do you have an Identification Number?
+                                            <div class="custom-control custom-radio custom-control">
+                                                <input type="radio" class="custom-control-input" id="orgIdentityYes"
+                                                    name="page2[orgIdentityOption]" value="Yes" required
+                                                    data-parsley-group="page2">
+                                                <label class="custom-control-label" for="orgIdentityYes">Yes</label>
+                                            </div>
+                                            <div class="custom-control custom-radio custom-control">
+                                                <input type="radio" class="custom-control-input" id="orgIdentityNo"
+                                                    name="page2[orgIdentityOption]" value="No" required
+                                                    data-parsley-group="page2">
+                                                <label class="custom-control-label" for="orgIdentityNo">No</label>
+                                            </div>
+                                            <div class="form-group is-hidden orgIdentityDiv">
+                                                <label>Please provide the Identification number (if any)</label>
+                                                <input class="form-control col-sm-6" type="text"
+                                                    placeholder="Enter Identification Number" name="page2[orgID]"
+                                                    maxlength="40">
+                                            </div>
                                         </div>
                                     </div>
 
@@ -208,7 +240,7 @@
                                     court?</h3>
                             </label>
 
-                            <div class="text-center"><button class="btn" data-toggle="collapse"
+                            <div class="text-center"><button class="btn more-info-button" data-toggle="collapse"
                                     data-target="#info-1">More Info</button></div>
                             <div id="info-1" class="collapse">
                                 <p><small>If your application is declared admissible by the Court, your name will appear
@@ -240,7 +272,9 @@
                                 <label class="custom-control-label" for="applicantAnonNo">No</label>
                             </div>
                             <div class="form-group applicantAnonReq is-hidden">
-                                <label for="">Please provide reasons for your request</label>
+                                <label for="">If you do not wish to disclose your identity, you need to explain the
+                                    reasons that justify your request for anonymity in the field below. Please note that
+                                    the Court may or may not authorize it.</label>
                                 <textarea class="form-control" type="text" rows=8
                                     placeholder="Provide a detailed explanation" name="page2[applicantAnonExp]"
                                     maxlength="4000" id="anonReqText"></textarea>

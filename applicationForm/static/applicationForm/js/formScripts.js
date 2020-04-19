@@ -36,6 +36,25 @@ $("input[name='page2[applicantAnon]']").change(function () {
 });
 // anonymity Description End
 
+
+$("input[name='page2[orgDateOption]']").change(function() {
+  result = this.value;
+  if(result === 'Yes') {
+    $('.orgDateDiv').removeClass('is-hidden');
+  } else {
+    $('.orgDateDiv').addClass('is-hidden');
+  }
+});
+
+$("input[name='page2[orgIdentityOption]']").change(function() {
+  result = this.value;
+  if(result === 'Yes') {
+    $('.orgIdentityDiv').removeClass('is-hidden');
+  } else {
+    $('.orgIdentityDiv').addClass('is-hidden');
+  }
+});
+
 // ___________________Page4
 
 $("input[name='page3[indRepresentativeType]']").change(function () {

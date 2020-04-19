@@ -9,26 +9,40 @@
                 </div>
 
                 <div class="card-body">
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="applicantTypeInd"
-                            name="page2[applicantType]" value="Individual" required data-parsley-group="page2">
-                        <label class="custom-control-label" for="applicantTypeInd">
-                            <h1>Individual <a href="javascript://" data-toggle="popover"
-                                    data-content="This section applies to an applicant who is an individual person, as opposed to a legal entity such as a company or association. If there is more than one individual applicant, this information must be provided for each additional applicant, on a separate application form."
-                                    data-trigger="click" data-placement="bottom"><span><i
-                                            class="fas fa-question-circle"></i></span></a> </h1>
-                        </label>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label>
+                                <h3>Type of Applicant: </h3>
+                            </label>
+                        </div>
+                        <div class="col-sm-6 d-flex justify-content-center">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" id="applicantTypeInd"
+                                    name="page2[applicantType]" value="Individual" required data-parsley-group="page2">
+                                <label class="custom-control-label" for="applicantTypeInd">
+                                    <h3>Individual <a href="javascript://" data-toggle="popover"
+                                            data-content="This section applies to an applicant who is an individual person, as opposed to a legal entity such as a company or association. If there is more than one individual applicant, this information must be provided for each additional applicant, on a separate application form."
+                                            data-trigger="click" data-placement="bottom"><span><i
+                                                    class="fas fa-question-circle"></i></span></a> </h3>
+                                </label>
 
-                    </div> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="applicantTypeOrg"
-                            name="page2[applicantType]" value="Organisation" required data-parsley-group="page2">
-                        <label class="custom-control-label" for="applicantTypeOrg">
-                            <h1>Organisation <a href="javascript://" data-toggle="popover"
-                                    data-content="This section concerns applicants that are legal entities such as a company, non-governmental organisation or association, etc. The identity and contact details of the applicant organisation must be filled in. If there is more than one such applicant, this information must be provided for each additional applicant, on a separate application form."
-                                    data-trigger="click" data-placement="bottom"><span><i
-                                            class="fas fa-question-circle"></i></span></a></h1>
-                        </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 d-flex justify-content-center">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" id="applicantTypeOrg"
+                                    name="page2[applicantType]" value="Organisation" required
+                                    data-parsley-group="page2">
+                                <label class="custom-control-label" for="applicantTypeOrg">
+                                    <h3>Organisation <a href="javascript://" data-toggle="popover"
+                                            data-content="This section concerns applicants that are legal entities such as a company, non-governmental organisation or association, etc. The identity and contact details of the applicant organisation must be filled in. If there is more than one such applicant, this information must be provided for each additional applicant, on a separate application form."
+                                            data-trigger="click" data-placement="bottom"><span><i
+                                                    class="fas fa-question-circle"></i></span></a></h3>
+                                </label>
+                            </div>
+                        </div>
+
+
                     </div>
 
 
@@ -43,7 +57,7 @@
                                     </p>
                                 </div>
                                 <div class="card-body">
-                                    <div class="row">
+                                    <div class="row divSpacing">
                                         <div class="form-group col-sm-6">
                                             <label>Surname</label>
                                             <input class="form-control" type="text" placeholder="Enter Surname"
@@ -57,51 +71,52 @@
                                                 data-parsley-group="page2a">
                                         </div>
                                     </div>
-                                    <div class="row">
 
-                                        <div class="form-group col-sm-6">
+                                    <div class="row divSpacing">
+                                        <div class="form-group col-sm-4">
                                             <label>Date of Birth</label>
                                             <input type="text" id="birthDate" class="datepicker form-control"
-                                                style="width:50%;" name="page2[birthDate]" data-date-end-date="0d"
+                                                name="page2[birthDate]" data-date-end-date="0d"
                                                 data-provide="datepicker" data-parsley-group="page2" />
                                             <div class="input-group-addon">
                                                 <span class="glyphicon glyphicon-th"></span>
                                             </div>
                                         </div>
-                                        <div class="form-group col-sm-6">
+                                        <div class="form-group col-sm-4">
                                             <label>Place of Birth</label>
                                             <input class="form-control" name="page2[indPob]" id="indPob" maxlength="40">
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Nationality</label>
-                                        <input class="form-control" name="page2[indNationality]" id="indNationality"
-                                            maxlength="40">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Address <a href="javascript://" data-toggle="popover"
-                                                data-content="An applicant must provide a postal address separate from that of a lawyer or representative so that the Court can make contact if necessary. An applicant who is homeless or has no fixed residence may have to give a box number or friend’s details but should provide an explanation."
-                                                data-trigger="click" data-placement="bottom"><span><i
-                                                        class="fas fa-question-circle"></i></span></a></label>
-
-                                        <textarea class="form-control" name="page2[indAddress]" id="indAddress"
-                                            cols="40" rows="6" maxlength="220"></textarea>
-                                    </div>
-
-                                    <div class="row">
-
                                         <div class="form-group col-sm-4">
-                                            <label>Telephone Number (select country code)</label>
-                                            <input type="tel" name="page2[indPhone]" id="indPhone" class="form-control"
-                                                data-parsley-group="page2a" data-parsley-intl-tel-no>
-                                        </div>
-                                        <div class="form-group col-sm-8">
-                                            <label>Email</label>
-                                            <input class="form-control" type="email" name="page2[indEmail]"
-                                                placeholder="Email" id="indEmail" data-parsley-type="email"
-                                                data-parsley-group="page2a" maxlength="40">
+                                            <label>Nationality</label>
+                                            <input class="form-control" name="page2[indNationality]" id="indNationality"
+                                                maxlength="40">
                                         </div>
                                     </div>
+                                    <div class="row divSpacing">
+                                        <div class="form-group col-sm-6">
+                                            <label>Address <a href="javascript://" data-toggle="popover"
+                                                    data-content="An applicant must provide a postal address separate from that of a lawyer or representative so that the Court can make contact if necessary. An applicant who is homeless or has no fixed residence may have to give a box number or friend’s details but should provide an explanation."
+                                                    data-trigger="click" data-placement="bottom"><span><i
+                                                            class="fas fa-question-circle"></i></span></a></label>
+    
+                                            <textarea class="form-control" name="page2[indAddress]" id="indAddress"
+                                                cols="40" rows="6" maxlength="220"></textarea>
+                                        </div>
+                                        <div class="row col-sm-6">
+                                            <div class="form-group col-sm-8">
+                                                <label>Telephone Number (select country code)</label>
+                                                <input type="tel" name="page2[indPhone]" id="indPhone" class="form-control"
+                                                    data-parsley-group="page2a" data-parsley-intl-tel-no>
+                                            </div>
+                                            <div class="form-group col-sm-8">
+                                                <label>Email</label>
+                                                <input class="form-control" type="email" name="page2[indEmail]"
+                                                    placeholder="Email" id="indEmail" data-parsley-type="email"
+                                                    data-parsley-group="page2a" maxlength="40">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
 
                                     <div class="form-group">
                                         <label>Sex</label>
@@ -128,55 +143,55 @@
                                         company, NGO, association or other legal entity. </p>
                                 </div>
                                 <div class="card-body">
-                                    <div class="form-group">
-                                        <label>Name</label>
-                                        <textarea class="form-control" type="text" rows=2
-                                            placeholder="Enter the Organisation's Name" name="page2[orgName]" required
-                                            data-parsley-group="page2b" maxlength="110"></textarea>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="form-group col-sm-4">
-
+                                    <div class="row divSpacing">
+                                        <div class="col-sm-6 form-group">
+                                            <label>Name</label>
+                                            <textarea class="form-control" type="text" rows=2
+                                                placeholder="Enter the Organisation's Name" name="page2[orgName]"
+                                                required data-parsley-group="page2b" maxlength="110"></textarea>
+                                        </div>
+                                        <div class="col-sm-5 form-group">
                                             <label>Identification number (if any)</label>
                                             <input class="form-control" type="text"
                                                 placeholder="Enter Identification Number" name="page2[orgID]"
                                                 maxlength="40">
                                         </div>
+                                    </div>
+
+                                    <div class="row divSpacing">
+                                        <div class="form-group col-sm-4">
+                                            <label>Date of registration or incorporation (if any)</label>
+                                            <input type="text" id="orgDate" class="datepicker form-control"
+                                                name="page2[orgDate]" data-date-end-date="0d" data-provide="datepicker"
+                                                data-parsley-group="page2"
+                                                placeholder="Date of registration or incorporation" />
+                                        </div>
                                         <div class="form-group col-sm-8">
                                             <label>Activity</label>
                                             <input class="form-control" type="text" name="page2[orgActivity]" required
-                                                data-parsley-group="page2b" maxlength="40">
+                                                data-parsley-group="page2b" maxlength="40" placeholder="Activity">
                                         </div>
                                     </div>
 
+                                    <div class="row divSpacing">
+                                        <div class="col-sm-6 form-group">
+                                            <label>Registered Address </label>
 
-
-                                    <div class="form-group">
-                                        <label>Date of registration or incorporation (if any)</label>
-                                        <input type="text" id="orgDate" class="datepicker form-control"
-                                            style="width:50%;" name="page2[orgDate]" data-date-end-date="0d"
-                                            data-provide="datepicker" data-parsley-group="page2" />
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Registered Address </label>
-
-                                        <textarea class="form-control" name="page2[orgAddress]" id="orgAddress"
-                                            cols="40" rows="9" maxlength="320"></textarea>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="form-group col-sm-4">
-                                            <label for="orgPhone">Telephone (select country code)</label>
-                                            <input class="form-control" type="tel" id="orgPhone" name="page2[orgPhone]"
-                                                data-parsley-group="page2b">
+                                            <textarea class="form-control" name="page2[orgAddress]" id="orgAddress"
+                                                cols="40" rows="9" maxlength="320"></textarea>
                                         </div>
-                                        <div class="form-group col-sm-8">
-                                            <label>Email</label>
-                                            <input class="form-control" type="email" name="page2[orgEmail]"
-                                                id="orgEmail" placeholder="Email" data-parsley-type="email"
-                                                data-parsley-group="page2b" maxlength="40">
+                                        <div class="row col-sm-6">
+                                            <div class="form-group col-sm-8">
+                                                <label for="orgPhone">Telephone (select country code)</label>
+                                                <input class="form-control" type="tel" id="orgPhone"
+                                                    name="page2[orgPhone]" data-parsley-group="page2b">
+                                            </div>
+                                            <div class="form-group col-sm-8">
+                                                <label>Email</label>
+                                                <input class="form-control" type="email" name="page2[orgEmail]"
+                                                    id="orgEmail" placeholder="Email" data-parsley-type="email"
+                                                    data-parsley-group="page2b" maxlength="40">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -250,8 +265,7 @@
             <div style="position:fixed;right:20px;bottom:20px; width: 100%; margin-top: 5vw;" class="col-sm-1">
                 <p class="text-white"> This is a Beta version of Just Bot and we rely on your feedback to
                     improve it. </p>
-                <button class="showModal btn feedback-button" value='2'
-                    onclick="curPageNum(this);">Feedback</button>
+                <button class="showModal btn feedback-button" value='2' onclick="curPageNum(this);">Feedback</button>
 
             </div>
 

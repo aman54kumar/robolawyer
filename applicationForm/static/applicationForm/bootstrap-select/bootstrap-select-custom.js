@@ -1,15 +1,16 @@
 $('.countrySelect').selectpicker({
   liveSearch: true,
   noneSelectedText: 'Select Involved State(s)',
-  maxOptions: 8,
+  maxOptions: 12,
   maxOptionsText: 'Reached Maximum Limit',
   selectedTextFormat: 'values',
   actionsBox: true,
   selectOnTab: true,
   multipleSeparator: ' , ',
-  style: 'btn-muted',
+  style: 'btn-outline-dark',
   styleBase: 'form-control',
-  virtualScroll: true
+  virtualScroll: false,
+  size: 12,
 });
 
 $(document).ready(function() {

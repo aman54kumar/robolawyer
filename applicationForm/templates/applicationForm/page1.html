@@ -17,7 +17,7 @@
                         </p> <br><br>
                     </div>
                     <ol>
-                        <li>
+                        <li class="ordLists">
                             <h5>
                                 Which state/s is/are concerned by your application? <a href="javascript://"
                                     data-toggle="popover"
@@ -26,62 +26,67 @@
                                     <span><i class="fas fa-question-circle"></i></span></a>
 
                             </h5>
-                            <div class="form-group" style="width: 50%;">
-                                <select multiple class="countrySelect show-menu-arrow form-control dropup" size="15"
-                                    name="page1[involvedStates]" id="involvedStates" data-parsley-mincheck="1"
-                                    data-parsley-group="page1" required>
-                                    <option value="ALB - Albania">ALB - Albania</option>
-                                    <option value="AND - Andorra">AND - Andorra</option>
-                                    <option value="ARM - Armenia">ARM - Armenia</option>
-                                    <option value="AUT - Austria">AUT - Austria</option>
-                                    <option value="AZE - Azerbaijan">AZE - Azerbaijan</option>
-                                    <option value="BEL - Belgium">BEL - Belgium</option>
-                                    <option value="BGR - Bulgaria">BGR - Bulgaria</option>
-                                    <option value="BIH - Bosnia and Herzegovina">BIH - Bosnia and Herzegovina
-                                    </option>
-                                    <option value="CHE - Switzerland">CHE - Switzerland</option>
-                                    <option value="CYP - Cyprus">CYP - Cyprus</option>
-                                    <option value="CZE - Czech Republic">CZE - Czech Republic</option>
-                                    <option value="DEU - Germany">DEU - Germany</option>
-                                    <option value="DNK - Denmark">DNK - Denmark</option>
-                                    <option value="ESP - Spain">ESP - Spain</option>
-                                    <option value="EST - Estonia">EST - Estonia</option>
-                                    <option value="FIN - Finland">FIN - Finland</option>
-                                    <option value="FRA - France">FRA - France</option>
-                                    <option value="GBR - United Kingdom">GBR - United Kingdom</option>
-                                    <option value="GEO - Georgia">GEO - Georgia</option>
-                                    <option value="GRC - Greece">GRC - Greece</option>
-                                    <option value="HRV - Croatia">HRV - Croatia</option>
-                                    <option value="HUN - Hungary">HUN - Hungary</option>
-                                    <option value="IRL - Ireland">IRL - Ireland</option>
-                                    <option value="ISL - Iceland">ISL - Iceland</option>
-                                    <option value="ITA - Italy">ITA - Italy</option>
-                                    <option value="LIE - Liechtenstein">LIE - Liechtenstein</option>
-                                    <option value="LTU - Lithuania">LTU - Lithuania</option>
-                                    <option value="LUX - Luxembourg">LUX - Luxembourg</option>
-                                    <option value="LVA - Latvia">LVA - Latvia</option>
-                                    <option value="MCO - Monaco">MCO - Monaco</option>
-                                    <option value="MDA - Republic of Moldova">MDA - Republic of Moldova</option>
-                                    <option value="MKD - North Macedonia">MKD - North Macedonia</option>
-                                    <option value="MLT - Malta">MLT - Malta</option>
-                                    <option value="MNE - Montenegro">MNE - Montenegro</option>
-                                    <option value="NLD - Netherlands">NLD - Netherlands</option>
-                                    <option value="NOR - Norway">NOR - Norway</option>
-                                    <option value="POL - Poland">POL - Poland</option>
-                                    <option value="PRT - Portugal">PRT - Portugal</option>
-                                    <option value="ROU - Romania">ROU - Romania</option>
-                                    <option value="RUS - Russian Federation">RUS - Russian Federation</option>
-                                    <option value="SMR - San Marino">SMR - San Marino</option>
-                                    <option value="SRB - Serbia">SRB - Serbia</option>
-                                    <option value="SVK - Slovak Republic">SVK - Slovak Republic</option>
-                                    <option value="SVN - Slovenia">SVN - Slovenia</option>
-                                    <option value="SWE - Sweden">SWE - Sweden</option>
-                                    <option value="TUR - Turkey">TUR - Turkey</option>
-                                    <option value="UKR - Ukraine">UKR - Ukraine</option>
-                                </select>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <select multiple class="countrySelect show-menu-arrow form-control"
+                                            data-dropup-auto="false" name="page1[involvedStates]" id="involvedStates"
+                                            data-parsley-mincheck="1" data-parsley-group="page1" required>
+                                            <option value="ALB - Albania">ALB - Albania</option>
+                                            <option value="AND - Andorra">AND - Andorra</option>
+                                            <option value="ARM - Armenia">ARM - Armenia</option>
+                                            <option value="AUT - Austria">AUT - Austria</option>
+                                            <option value="AZE - Azerbaijan">AZE - Azerbaijan</option>
+                                            <option value="BEL - Belgium">BEL - Belgium</option>
+                                            <option value="BGR - Bulgaria">BGR - Bulgaria</option>
+                                            <option value="BIH - Bosnia and Herzegovina">BIH - Bosnia and Herzegovina
+                                            </option>
+                                            <option value="CHE - Switzerland">CHE - Switzerland</option>
+                                            <option value="CYP - Cyprus">CYP - Cyprus</option>
+                                            <option value="CZE - Czech Republic">CZE - Czech Republic</option>
+                                            <option value="DEU - Germany">DEU - Germany</option>
+                                            <option value="DNK - Denmark">DNK - Denmark</option>
+                                            <option value="ESP - Spain">ESP - Spain</option>
+                                            <option value="EST - Estonia">EST - Estonia</option>
+                                            <option value="FIN - Finland">FIN - Finland</option>
+                                            <option value="FRA - France">FRA - France</option>
+                                            <option value="GBR - United Kingdom">GBR - United Kingdom</option>
+                                            <option value="GEO - Georgia">GEO - Georgia</option>
+                                            <option value="GRC - Greece">GRC - Greece</option>
+                                            <option value="HRV - Croatia">HRV - Croatia</option>
+                                            <option value="HUN - Hungary">HUN - Hungary</option>
+                                            <option value="IRL - Ireland">IRL - Ireland</option>
+                                            <option value="ISL - Iceland">ISL - Iceland</option>
+                                            <option value="ITA - Italy">ITA - Italy</option>
+                                            <option value="LIE - Liechtenstein">LIE - Liechtenstein</option>
+                                            <option value="LTU - Lithuania">LTU - Lithuania</option>
+                                            <option value="LUX - Luxembourg">LUX - Luxembourg</option>
+                                            <option value="LVA - Latvia">LVA - Latvia</option>
+                                            <option value="MCO - Monaco">MCO - Monaco</option>
+                                            <option value="MDA - Republic of Moldova">MDA - Republic of Moldova</option>
+                                            <option value="MKD - North Macedonia">MKD - North Macedonia</option>
+                                            <option value="MLT - Malta">MLT - Malta</option>
+                                            <option value="MNE - Montenegro">MNE - Montenegro</option>
+                                            <option value="NLD - Netherlands">NLD - Netherlands</option>
+                                            <option value="NOR - Norway">NOR - Norway</option>
+                                            <option value="POL - Poland">POL - Poland</option>
+                                            <option value="PRT - Portugal">PRT - Portugal</option>
+                                            <option value="ROU - Romania">ROU - Romania</option>
+                                            <option value="RUS - Russian Federation">RUS - Russian Federation</option>
+                                            <option value="SMR - San Marino">SMR - San Marino</option>
+                                            <option value="SRB - Serbia">SRB - Serbia</option>
+                                            <option value="SVK - Slovak Republic">SVK - Slovak Republic</option>
+                                            <option value="SVN - Slovenia">SVN - Slovenia</option>
+                                            <option value="SWE - Sweden">SWE - Sweden</option>
+                                            <option value="TUR - Turkey">TUR - Turkey</option>
+                                            <option value="UKR - Ukraine">UKR - Ukraine</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
+
                         </li>
-                        <li>
+                        <li class="ordLists">
                             <h5>The facts you are complaining about concern:</h5>
                             <div class="form-group">
                                 <div id="error-container-concern">
@@ -120,22 +125,31 @@
                                 </div>
                             </div>
                         </li>
-                        <li>
+                        <li class="ordLists">
+
                             <div class="form-group">
                                 <label class="lead">
                                     <h5> When did the fact you are complaing about take place?</h5>
                                 </label>
-                                <input type="text" id="decisionDate" class="datepicker form-control" style="width:50%;"
-                                    name="page1[decisionDate]" data-date-end-date="0d" data-provide="datepicker"
-                                    required data-parsley-group="page1" />
-                                <div id='echrDetails'>
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <input type="text" id="decisionDate"
+                                            class="datepicker form-control btn-outline-dark" name="page1[decisionDate]"
+                                            data-date-end-date="0d" data-provide="datepicker" required
+                                            data-parsley-group="page1" />
 
+                                    </div>
+                                </div>
+                                <div class="col-sm-10">
+                                    <div id='echrDetails'>
+
+                                    </div>
                                 </div>
                             </div>
 
+
                         </li>
-                        <br>
-                        <li>
+                        <li class="ordLists">
                             <h5>
                                 Have you brought your case before the highest court competent to deal with the subject
                                 matter of your dispute? The competent national courts in the selected
@@ -163,8 +177,8 @@
                                 <label class="custom-control-label" for="courtCaseNo">No</label>
                             </div>
                             <br>
-                        </li> <br><br>
-                        <li>
+                        </li>
+                        <li class="ordLists">
                             <h5>Were there available legal or administrative remedies capable of remedying your
                                 situation that you have not used? <a href="javascript://" data-toggle="popover"
                                     data-content="Before you apply to the Court, you need to exhaust domestic remedies. The only remedies the Convention requires to be exhausted are those that relate to the breaches alleged and those that are available, effective and sufficient. Essential is that the competent national authorities analyzed the merits of your claim/claims."
@@ -181,8 +195,8 @@
                                     name="page1[complySix]" value="No">
                                 <label class="custom-control-label" for="complySixNo">No</label>
                             </div>
-                        </li> <br><br>
-                        <li>
+                        </li>
+                        <li class="ordLists">
                             <h5> When was the final decision in your case delivered or served on you? <a
                                     href="javascript://" data-toggle="popover" data-content="Your application needs to comply with the six-month rule which means you need to send your application no later than 6 months after the last remedy in the national system has been exhausted or where there are no remedies within 6 months after the events being complained about occurred. The six-month period starts running from the date on which you or your representative had sufficient knowledge of the final national decision. 
 
@@ -191,13 +205,19 @@
                                     
                                     Please submit your application as soon as possible. If you send it at the last moment and is incomplete, you will have no time to re-submit a complete application form within the required 6-month time limit.
                                     " data-trigger="click" data-placement="bottom"><span><i
-                                            class="fas fa-question-circle"></i></span></a></h5>
-                            <div class="form-group">
-                                <input type="text" id="finalDecisionDate" class="datepicker form-control"
-                                    style="width:50%;" name="page1[finalDecisionDate]" data-date-end-date="0d"
-                                    data-provide="datepicker" required data-parsley-group="page1" /> </div>
+                                            class="fas fa-question-circle"></i></span></a>
+                            </h5>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <input type="text" id="finalDecisionDate"
+                                            class="datepicker form-control btn-outline-dark"
+                                            name="page1[finalDecisionDate]" data-date-end-date="0d"
+                                            data-provide="datepicker" required data-parsley-group="page1" /> </div>
+                                </div>
+                            </div>
+
                         </li>
-                        <br>
                     </ol>
                 </div>
                 <div class="card-footer">
@@ -209,11 +229,10 @@
                     </div>
                 </div>
             </div>
-            <div style="position:fixed;right:20px;bottom:10px; width: 100%; margin-top: 5vw;" class="col-sm-1" >
-               <p class="text-white"> This is a Beta version of Just Bot and we rely on your feedback to
-                improve it. </p>
-                <button class="showModal btn feedback-button" value='1'
-                    onclick="curPageNum(this);">Feedback</button>
+            <div style="position:fixed;right:20px;bottom:10px; width: 100%; margin-top: 5vw;" class="col-sm-1">
+                <p class="text-white"> This is a Beta version of Just Bot and we rely on your feedback to
+                    improve it. </p>
+                <button class="showModal btn feedback-button" value='1' onclick="curPageNum(this);">Feedback</button>
 
             </div>
         </div>

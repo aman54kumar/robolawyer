@@ -9,13 +9,13 @@
 
         <div class="card-body alert-info">
           <p>
-            The ECtHR, as an international court, cannot examine complaints by
-            anyone if they have not first given the competent national
-            authorities, the courts in particular, the opportunity to put the
-            matter right.
+            Indicate here all relevant legal and/or administrative remedies you have used in your country.
           </p>
+          <p>For each complaint, state all relevant court decisions, including those from lower courts and the final
+            decision. <b>IMPORTANT</b>: indicate the date and case-file number of all court decisions in the domestic
+            proceedings.</p>
           <div class="text-center">
-            <button class="btn" data-toggle="collapse" data-target="#info-4">
+            <button class="btn more-info-button" data-toggle="collapse" data-target="#info-4">
               More Info
             </button>
           </div>
@@ -48,24 +48,46 @@
           </div>
 
           <div class="form-group">
+            <div class=" ">
+              <h5 class="alert-heading">Examples</h5>
+              <table class="table-bordered">
+                <thead style="border:none">
+                  <tr style="background-color:#2679c7;color:white">
+                    <th width="25%" scope="col">Complaint</th>
+                    <th width="45%" scope="col">Remedies Used</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Art. 5 complaint about arrest by police</td>
+                    <td>
+                      High Court rejected claim on 05/12/13; leave to appeal
+                      refused by Court of Appeal on 14/01/15 in the case with the case file number XXXXXXX.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Art. 6 complaint about neighbour dispute</td>
+                    <td>
+                      County Court rejected claim on 03/04/12; Court of Appeal
+                      dismissed appeal on 04/12/14 in the case with the case file number XXXXXXX.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <br><br>
+            <hr>
             <div id="page6Group">
               <div class="s-group">
                 <table width="100%">
                   <tr>
-                    <td width="25%">
+                    <td width="40%">
                       <label for="complainSelect_0_0"><b>Complaint</b></label>
                       <input name="page6[0][complainSelect]" id="complain_0_select" class="form-control complainSelect"
                         maxlength="100" required data-parsley-group="page6" data-pattern-id="complain_++_select"
                         data-pattern-name="page6[++][complainSelect]" />
                     </td>
-                    <td width="30%">
-                      <label><b>Date of Final Decision from the highest court</b>
-                      </label>
-                      <input type="text" class="page6Date datepicker" name="page6[0][complainDate]" id="complain_0_date"
-                        data-date-end-date="0d" data-provide="datepicker" required data-parsley-group="page6"
-                        data-pattern-id="complain_++_date" data-pattern-name="page6[++][complainDate]" />
-                    </td>
-                    <td width="45%">
+                    <td width="60%">
                       <label><b> Remedies Used</b></label>
                       <textarea class="form-control remedies" name="page6[0][remediesUsed]" id="complain_0_remedy"
                         oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px"' cols="30"
@@ -97,41 +119,7 @@
                     class="fas fa-question-circle"></i></span></a></label>
           </div>
 
-          <hr />
-          <div class=" ">
-            <h5 class="alert-heading">Examples</h5>
-            <table class="table-bordered">
-              <thead style="border:none">
-                <tr style="background-color:#2679c7;color:white">
-                  <th width="25%" scope="col">Complaint</th>
-                  <th width="30%" scope="col">
-                    Date of Final Decision by highest court
-                  </th>
-                  <th width="45%" scope="col">Remedies Used</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Art. 5 complaint about arrest by police</td>
-                  <td>14/01/15</td>
-                  <td>
-                    High Court rejected claim on 05/12/13; leave to appeal
-                    refused by Court of Appeal on 14/01/15
-                  </td>
-                </tr>
-                <tr>
-                  <td>Art. 6 complaint about neighbour dispute</td>
-                  <td>04/12/14</td>
-                  <td>
-                    County Court rejected claim on 03/04/12; Court of Appeal
-                    dismissed appeal on 04/12/14
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
 
-          <hr />
           <br />
           <br />
           <div class="form-group">

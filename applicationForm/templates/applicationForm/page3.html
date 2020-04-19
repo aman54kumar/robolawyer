@@ -8,7 +8,7 @@
                     <div class="card-master">
                         <div class="card-master-header">
                             <h4 class="card-header-title" align="center">
-                                Representative
+                                Representative:
                             </h4>
                         </div>
                         <div class="card-body">
@@ -18,37 +18,44 @@
                             <p class="lead">An individual applicant does not have to be represented by a lawyer at this
                                 stage. If the applicant is not represented, please select option "I represent myself at
                                 this stage".</p>
-                            <div class="form-group">
-                                <label>Representative Type</label>
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" class="custom-control-input" id="representativeNL"
-                                        name="page3[indRepresentativeType]" value="non-lawyer" required
-                                        data-parsley-group="page3a">
-                                    <label class="custom-control-label" for="representativeNL">Non-Lawyer<a
-                                            href="javascript://" data-toggle="popover"
-                                            data-content="Some applicants may choose not to, or may not be able to, take part in the proceedings themselves for reasons such as health or incapacity. They may be represented by a person without legal training, for example a parent representing a child, or a guardian or family member or partner representing someone whose practical or medical circumstances make it difficult to take part in the proceedings (e.g. an applicant who is in hospital or prison). The representative must indicate in what capacity he or she is representing the applicant or his or her relationship with the applicant, together with his or her identity and contact details."
-                                            data-trigger="click" data-placement="bottom"><span><i
-                                                    class="fas fa-question-circle"></i></span></a></label>
+                            <h3 class="divSpacing"><label>Representative Type</label></h3>
+                            <div class="row">
+                                <div class="col-sm-4 form-group">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" class="custom-control-input" id="representativeNL"
+                                            name="page3[indRepresentativeType]" value="non-lawyer" required
+                                            data-parsley-group="page3a">
+                                        <h4><label class="custom-control-label" for="representativeNL">Non-Lawyer<a
+                                                    href="javascript://" data-toggle="popover"
+                                                    data-content="Some applicants may choose not to, or may not be able to, take part in the proceedings themselves for reasons such as health or incapacity. They may be represented by a person without legal training, for example a parent representing a child, or a guardian or family member or partner representing someone whose practical or medical circumstances make it difficult to take part in the proceedings (e.g. an applicant who is in hospital or prison). The representative must indicate in what capacity he or she is representing the applicant or his or her relationship with the applicant, together with his or her identity and contact details."
+                                                    data-trigger="click" data-placement="bottom"><span><i
+                                                            class="fas fa-question-circle"></i></span></a></label></h4>
+                                    </div>
                                 </div>
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input class="custom-control-input" id="representativeL" type="radio"
-                                        name="page3[indRepresentativeType]" value="lawyer" required
-                                        data-parsley-group="page3a">
-                                    <label class="custom-control-label" for="representativeL">Lawyer<a
-                                            href="javascript://" data-toggle="popover"
-                                            data-content="If the application is lodged by a lawyer. An applicant does not have to instruct a lawyer at the stage of lodging the application, although it may be advisable to do so. The applicant is informed if the case reaches a stage of the proceedings where representation by a lawyer is required. At this point – after a decision by the Court to give notice of the application to the Government concerned for written observations – the applicant may be eligible for free legal aid if he or she has insufficient means to pay a lawyer’s fees and if the grant of such aid is considered necessary for the proper conduct of the case. Information is sent to applicants about this at the relevant time."
-                                            data-trigger="click" data-placement="bottom"><span><i
-                                                    class="fas fa-question-circle"></i></span></a></label>
+                                <div class="col-sm-4">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input class="custom-control-input" id="representativeL" type="radio"
+                                            name="page3[indRepresentativeType]" value="lawyer" required
+                                            data-parsley-group="page3a">
+                                        <h4><label class="custom-control-label" for="representativeL">Lawyer<a
+                                                    href="javascript://" data-toggle="popover"
+                                                    data-content="If the application is lodged by a lawyer. An applicant does not have to instruct a lawyer at the stage of lodging the application, although it may be advisable to do so. The applicant is informed if the case reaches a stage of the proceedings where representation by a lawyer is required. At this point – after a decision by the Court to give notice of the application to the Government concerned for written observations – the applicant may be eligible for free legal aid if he or she has insufficient means to pay a lawyer’s fees and if the grant of such aid is considered necessary for the proper conduct of the case. Information is sent to applicants about this at the relevant time."
+                                                    data-trigger="click" data-placement="bottom"><span><i
+                                                            class="fas fa-question-circle"></i></span></a></label></h4>
+                                    </div>
                                 </div>
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input class="custom-control-input" id="representativeNone" type="radio"
-                                        name="page3[indRepresentativeType]" value="selfRepresented" required
-                                        data-parsley-group="page3a">
-                                    <label class="custom-control-label" for="representativeNone">I represent myself at
-                                        this stage</label>
+                                <div class="col-sm-4">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input class="custom-control-input" id="representativeNone" type="radio"
+                                            name="page3[indRepresentativeType]" value="selfRepresented" required
+                                            data-parsley-group="page3a">
+                                        <h4><label class="custom-control-label" for="representativeNone">I represent
+                                                myself
+                                                at
+                                                this stage</label></h4>
+                                    </div>
                                 </div>
                             </div>
-
 
                             <div class="is-hidden" id="nonLawyerRep">
                                 <div class="form-group">
@@ -72,32 +79,41 @@
                                             required data-parsley-group="page3b">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label>Nationality</label>
-                                    <input class="form-control" name="page3[indNLNationality]" id="indNLNationality"
-                                        maxlength="40">
-                                    <input type="hidden" id="indPhoneNLNationality">
-                                </div>
-                                <div class="form-group">
-                                    <label>Address </label>
-                                    <textarea class="form-control" rows="6" cols="40" placeholder="Enter Address"
-                                        name="page3[indNLAddress]" id="indNLAddress" maxlength="220"></textarea>`
-                                </div>
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <input class="form-control" type="email" name="page3[indNLEmail]"
-                                        placeholder="Email" id="indNLEmail" maxlength="40">
-                                </div>
+
+
                                 <div class="row">
-                                    <div class="form-group col-sm-6">
-                                        <label>Telephone Number (select country code)</label>
-                                        <input class="form-control" type="tel" style="width: 100%;"
-                                            name="page3[indNLTel]" id="indNLTel">
+                                    <div class="form-group col-sm-4">
+                                        <label>Address </label>
+                                        <textarea class="form-control" rows="6" cols="40" placeholder="Enter Address"
+                                            name="page3[indNLAddress]" id="indNLAddress" maxlength="220"></textarea>`
                                     </div>
-                                    <div class="form-group col-sm-6">
-                                        <label>Fax</label>
-                                        <input class="form-control" type="tel" name="page3[indNLFax]"
-                                            placeholder="Enter Fax number" id="indNLFax" maxlength="15">
+
+                                    <div class="row col-sm-8">
+                                        <div class="row col-sm-12">
+                                            <div class="form-group col-sm-6">
+                                                <label>Nationality</label>
+                                                <input class="form-control" name="page3[indNLNationality]"
+                                                    id="indNLNationality" maxlength="40">
+                                                <input type="hidden" id="indPhoneNLNationality">
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label>Email</label>
+                                                <input class="form-control" type="email" name="page3[indNLEmail]"
+                                                    placeholder="Email" id="indNLEmail" maxlength="40">
+                                            </div>
+                                        </div>
+                                        <div class="row col-sm-12">
+                                            <div class="form-group col-sm-6">
+                                                <label>Telephone Number (select country code)</label>
+                                                <input class="form-control" type="tel" style="width: 100%;"
+                                                    name="page3[indNLTel]" id="indNLTel">
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label>Fax</label>
+                                                <input class="form-control" type="tel" name="page3[indNLFax]"
+                                                    placeholder="Enter Fax number" id="indNLFax" maxlength="15">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -324,6 +340,11 @@
                                             data-trigger="click" data-placement="bottom">
                                             <span>
                                                 <i class="fas fa-question-circle"></i>
+
+                                                <div class="row">
+
+
+                                                </div>
                                             </span>
                                         </a>
                                     </label>
@@ -503,8 +524,7 @@
             <div style="position:fixed;right:20px;bottom:20px; width: 100%; margin-top: 5vw;" class="col-sm-1">
                 <p class="text-white"> This is a Beta version of Just Bot and we rely on your feedback to
                     improve it. </p>
-                <button class="showModal btn feedback-button" value='3'
-                    onclick="curPageNum(this);">Feedback</button>
+                <button class="showModal btn feedback-button" value='3' onclick="curPageNum(this);">Feedback</button>
 
             </div>
         </div>

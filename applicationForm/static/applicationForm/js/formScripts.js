@@ -206,6 +206,7 @@ function textCounter(field, field2, maxlimit) {
   if (field.value.length > maxlimit) {
     if (field.id === "stofFacts") {
       swal("You have used up the allocated length for Statement of Facts. For more explanation, please use the extra provided area by clicking the button 'Do you need more writing space?'");
+      $(".extraWritingArea").removeClass("is-hidden")
     }
     if (field.id === "stofFactsExtra") {
       swal("Unfortunately there is no more space available to add extra content in statement of facts according to the guidelines provided by ECtHR. Please try to modify the existing text.");

@@ -13,12 +13,15 @@
                 </div>
                 <div class="card-body">
                     <div class="form-text">
-                        <p>The facts of your case enable the Court to determine the nature and scope of the case and is
-                            essential for the proper and prompt examination for your
-                            application.
+                        <p>Describe here in chronological order the facts concerning your case. Describe here only key
+                            events and court decisions concerning your case. Please make sure to deal with each factual
+                            matter separately. Kindly note that the length of the description of the facts is not
+                            important. In fact, the more concise your description, the better. It is important to be
+                            honest, give exact dates and present events in the order in which they occurred.
                         </p>
                         <div class="text-center">
-                            <button class="btn" data-toggle="collapse" data-target="#info-1">More Info</button>
+                            <button class="btn more-info-button" data-toggle="collapse" data-target="#info-1">More
+                                Info</button>
                         </div>
                         <div id="info-1" class="collapse">
                             <ol style="font-size:14px;">
@@ -68,30 +71,33 @@
                             rows="10" onkeyup="textCounter(this,'counter', 12700);" required
                             data-parsley-group="page4"></textarea>
                     </div>
-                    <div class="text-right">
-                        <button class="btn " data-toggle="collapse" data-target="#info-2" align="right">
-                            Do you need more writing space?
-                        </button>
-                    </div>
-                    <br>
-                    <div id="info-2" class="collapse">
-                        <div class="form-group">
-                            <label for="stofFactsExtra">You have reached the character limit
-                                imposed by the Court.
-                                It is possible, but not required, for applicants to add an additional
-                                statement expanding on
-                                thefacts, complaints or remedies used. This extra statement should be not more
-                                than 20 pages.
-                                It should not add new complaints or violations but only develop what is set out
-                                on the
-                                form.
-                                If you want to add more statement of facts, then please use the area below
-                                for this.</label>
-                            <input disabled maxlength="5" size="5" id="counter2" value="100000"
-                                class="alert alert-success">
-                            <textarea class="form-control" name="page4[stOfFactsExtra]" id="stofFactsExtra"
-                                oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' cols="30"
-                                rows="10" onkeyup="textCounter(this,'counter2', 100000);"></textarea>
+                    <div class="extraWritingArea is-hidden">
+                        <div class="text-right">
+                            <button class="btn more-info-button" data-toggle="collapse" data-target="#info-2"
+                                align="right">
+                                Do you need more writing space?
+                            </button>
+                        </div>
+                        <br>
+                        <div id="info-2" class="collapse">
+                            <div class="form-group">
+                                <label for="stofFactsExtra">You have reached the character limit
+                                    imposed by the Court.
+                                    It is possible, but not required, for applicants to add an additional
+                                    statement expanding on
+                                    the facts, complaints or remedies used. This extra statement should be not more
+                                    than 20 pages.
+                                    It should not add new complaints or violations but only develop what is set out
+                                    on the
+                                    form.
+                                    If you want to add more statement of facts, then please use the area below
+                                    for this.</label>
+                                <input disabled maxlength="5" size="5" id="counter2" value="100000"
+                                    class="alert alert-success">
+                                <textarea class="form-control" name="page4[stOfFactsExtra]" id="stofFactsExtra"
+                                    oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
+                                    cols="30" rows="10" onkeyup="textCounter(this,'counter2', 100000);"></textarea>
+                            </div>
                         </div>
                     </div>
                     <div class="card-footer">
@@ -109,8 +115,7 @@
             <div style="position:fixed;right:20px;bottom:20px; width: 100%; margin-top: 5vw;" class="col-sm-1">
                 <p class="text-white"> This is a Beta version of Just Bot and we rely on your feedback to
                     improve it. </p>
-                <button class="showModal btn feedback-button" value='4'
-                    onclick="curPageNum(this);">Feedback</button>
+                <button class="showModal btn feedback-button" value='4' onclick="curPageNum(this);">Feedback</button>
 
             </div>
         </div>

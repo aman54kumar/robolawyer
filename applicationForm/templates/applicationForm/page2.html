@@ -52,8 +52,8 @@
                                 <div class="card-header">
                                     <h4 class="card-header-title" align="center">Individual</h4>
                                     <p class="lead">
-                                        This section refers to applicants who are individual persons only.
-                                        If the applicant is an organisation, please select Organisation above.
+                                        Fill in this part only if you’re an Individual. If you’re a company,
+                                        association, NGO or other legal entity, select “Organization” above.
                                     </p>
                                 </div>
                                 <div class="card-body">
@@ -73,7 +73,7 @@
                                     </div>
 
                                     <div class="row divSpacing">
-                                        <div class="form-group col-sm-4">
+                                        <div class="form-group col-sm-3">
                                             <label>Date of Birth</label>
                                             <input type="text" id="birthDate" class="datepicker form-control"
                                                 name="page2[birthDate]" data-date-end-date="0d"
@@ -82,11 +82,11 @@
                                                 <span class="glyphicon glyphicon-th"></span>
                                             </div>
                                         </div>
-                                        <div class="form-group col-sm-4">
+                                        <div class="form-group col-sm-3">
                                             <label>Place of Birth</label>
                                             <input class="form-control" name="page2[indPob]" id="indPob" maxlength="40">
                                         </div>
-                                        <div class="form-group col-sm-4">
+                                        <div class="form-group col-sm-3">
                                             <label>Nationality</label>
                                             <input class="form-control" name="page2[indNationality]" id="indNationality"
                                                 maxlength="40">
@@ -98,15 +98,16 @@
                                                     data-content="An applicant must provide a postal address separate from that of a lawyer or representative so that the Court can make contact if necessary. An applicant who is homeless or has no fixed residence may have to give a box number or friend’s details but should provide an explanation."
                                                     data-trigger="click" data-placement="bottom"><span><i
                                                             class="fas fa-question-circle"></i></span></a></label>
-    
+
                                             <textarea class="form-control" name="page2[indAddress]" id="indAddress"
                                                 cols="40" rows="6" maxlength="220"></textarea>
                                         </div>
                                         <div class="row col-sm-6">
                                             <div class="form-group col-sm-8">
                                                 <label>Telephone Number (select country code)</label>
-                                                <input type="tel" name="page2[indPhone]" id="indPhone" class="form-control"
-                                                    data-parsley-group="page2a" data-parsley-intl-tel-no>
+                                                <input type="tel" name="page2[indPhone]" id="indPhone"
+                                                    class="form-control" data-parsley-group="page2a"
+                                                    data-parsley-intl-tel-no>
                                             </div>
                                             <div class="form-group col-sm-8">
                                                 <label>Email</label>
@@ -116,7 +117,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+
 
                                     <div class="form-group">
                                         <label>Sex</label>
@@ -139,8 +140,9 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-header-title" align="center">Organisation</h4>
-                                    <p class="lead">This section should only be filled in where the applicant is a
-                                        company, NGO, association or other legal entity. </p>
+                                    <p class="lead">Fill in this part only if you’re a company, association, NGO or
+                                        other legal entity. If you’re an individual, select "Individual" above.
+                                    </p>
                                 </div>
                                 <div class="card-body">
                                     <div class="row divSpacing">

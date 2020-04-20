@@ -7,63 +7,64 @@
                 <div class="is-hidden" id="indRepresentative">
                     <div class="card-master">
                         <div class="card-master-header">
-                            <h4 class="card-header-title" align="center">
+                            <h3 class="card-header-title" align="center">
                                 Representation
-                            </h4>
+                            </h3>
                         </div>
                         <div class="card-body">
                             <div class="container">
-                                <h2 align="center">
+                                <h3 align="center">
                                     Representative(s) of the Individual Applicant
-                                </h2>
+                                </h3>
                                 <p class="lead">You do not have to be represented by a lawyer at this stage, but if you
                                     are,
                                     please select "lawyer". If this application is lodged on your behalf by someone
                                     else,
                                     such as a friend, a relative, or a guardian, please select "non-lawyer".
-                                    If you are not represented by another person, please select the option "I represent
                                     myself at this stage".
+                                    If you are not represented by another person, please select the option "I represent
                                 </p>
                             </div><br><br>
-                            <h4 class="divSpacing"><label>Representative Type</label></h4>
-                            <div class="row">
-                                <div class="col-sm-4 form-group">
+                            <div class="row form-group">
+                                <h4 class="divSpacing col-sm-12"><label>Representative Type</label></h4>
+                                <div class="col-sm-4 d-flex justify-content-center">
                                     <div class="custom-control custom-radio custom-control-inline">
                                         <input type="radio" class="custom-control-input" id="representativeNL"
-                                            name="page3[indRepresentativeType]" value="non-lawyer" required
-                                            data-parsley-group="page3a">
-                                        <h4><label class="custom-control-label" for="representativeNL">Non-Lawyer <a
-                                                    href="javascript://" data-toggle="popover"
-                                                    data-content="Some applicants may choose not to, or may not be able to, take part in the proceedings themselves for reasons such as health or incapacity. They may be represented by a person without legal training, for example a parent representing a child, or a guardian or family member or partner representing someone whose practical or medical circumstances make it difficult to take part in the proceedings (e.g. an applicant who is in hospital or prison). The representative must indicate in what capacity he or she is representing the applicant or his or her relationship with the applicant, together with his or her identity and contact details."
-                                                    data-trigger="click" data-placement="bottom"><span><i
-                                                            class="fas fa-question-circle"></i></span></a></label></h4>
+                                            name="page3[indRepresentativeType]" value="non-lawyer">
+                                        <label class="custom-control-label" for="representativeNL">
+                                            <h4>Non-Lawyer <a href="#" data-toggle="popover" data-content="Some applicants may choose not to, or may not be able to, take part in the proceedings themselves for reasons such as health or incapacity. They may be represented by a person without legal training, for example a parent representing a child, or a guardian or family member or partner representing someone whose practical or medical circumstances make it difficult to take part in the proceedings (e.g. an applicant who is in hospital or prison). The representative must indicate in what capacity he or she is representing the applicant or his or her relationship with the applicant, together with his or her identity and contact details. 
+                                                data-trigger=" hover" data-placement="bottom"><span>
+                                                        <i class="fas fa-question-circle"></i></span></a></h4>
+                                        </label>
                                     </div>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-sm-4 d-flex justify-content-center">
                                     <div class="custom-control custom-radio custom-control-inline">
                                         <input class="custom-control-input" id="representativeL" type="radio"
-                                            name="page3[indRepresentativeType]" value="lawyer" required
-                                            data-parsley-group="page3a">
-                                        <h4><label class="custom-control-label" for="representativeL">Lawyer <a
-                                                    href="javascript://" data-toggle="popover"
+                                            name="page3[indRepresentativeType]" value="lawyer">
+                                        <label class="custom-control-label" for="representativeL">
+                                            <h3>Lawyer <a href="#" data-toggle="popover"
                                                     data-content="If the application is lodged by a lawyer. An applicant does not have to instruct a lawyer at the stage of lodging the application, although it may be advisable to do so. The applicant is informed if the case reaches a stage of the proceedings where representation by a lawyer is required. At this point – after a decision by the Court to give notice of the application to the Government concerned for written observations – the applicant may be eligible for free legal aid if he or she has insufficient means to pay a lawyer’s fees and if the grant of such aid is considered necessary for the proper conduct of the case. Information is sent to applicants about this at the relevant time."
-                                                    data-trigger="click" data-placement="bottom"><span><i
-                                                            class="fas fa-question-circle"></i></span></a></label></h4>
+                                                    data-trigger="hover" data-placement="bottom"><span><i
+                                                            class="fas fa-question-circle"></i></span></a></h3>
+                                        </label>
                                     </div>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-sm-4 d-flex justify-content-center">
                                     <div class="custom-control custom-radio custom-control-inline">
                                         <input class="custom-control-input" id="representativeNone" type="radio"
-                                            name="page3[indRepresentativeType]" value="selfRepresented" required
-                                            data-parsley-group="page3a">
-                                        <h4><label class="custom-control-label" for="representativeNone">I represent
-                                                myself
+                                            name="page3[indRepresentativeType]" value="selfRepresented">
+                                        <label class="custom-control-label" for="representativeNone">
+                                            <h3>I represent myself
                                                 at
-                                                this stage</label></h4>
+                                                this
+                                                stage</h3>
+                                        </label>
                                     </div>
                                 </div>
-                            </div>
 
+                            </div>
+                            <hr>
                             <div class="is-hidden" id="nonLawyerRep">
 
                                 <div class="row">
@@ -294,7 +295,7 @@
                         </div>
 
                         <div class="card-body">
-                            <h4 align="center">Representative(s) of the Applicant Organisation</h4>
+                            <h3 align="center">Representative(s) of the Applicant Organisation</h3>
                             <p class="lead">Where the applicant is an organisation, it must be represented before the
                                 Court by a person entitled to act on its behalf and in its name (e.g. a duly authorised
                                 director or official).
@@ -487,7 +488,8 @@
                                     </div>
 
                                     <div class="text-center">
-                                        <button class="btn more-info-button" data-toggle="collapse" data-target="#info-ecomm">More
+                                        <button class="btn more-info-button" data-toggle="collapse"
+                                            data-target="#info-ecomm">More
                                             Info</button></div>
                                     <div id="info-ecomm" class="collapse"><label for=""></label>
                                         <p align="Justify">eComms is a service initiated by the Court for communicating

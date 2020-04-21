@@ -3,6 +3,7 @@
 {% block headContent %}
 <link rel="stylesheet" href="{% static 'applicationForm/css/animate.min.css' %}" type="text/css" />
 <link rel="stylesheet" href="{% static 'applicationForm/rmodal/rmodal.css' %}" type="text/css" />
+<link rel="stylesheet" href="{% static 'applicationForm/css/finalPage.css' %}" type="text/css" />
 <style type="text/css">
     .modal .modal-dialog {
         width: 400px;
@@ -57,23 +58,21 @@
 {% endblock headContent %}
 
 {% block content %}
-<div class="jumbotron"
-    style="margin-bottom: 0;background: linear-gradient(to bottom,  #1f549e 0%,#2989d8 100%); height:900px">
-    <br>
-    <h1 class="display-3" id="form-title"> Your Application Form to the European Court of Human Rights is ready! You can
-        download it as a PDF or you can send it as an attachment to your email address.</h1>
-
+<div class="jumbotron allButFooter"
+    style="margin-bottom: 0;background: linear-gradient(to bottom,  #1f549e 0%,#2989d8 100%);">
+    <div class="finalPageHeader">
+        <h5 id="finalPage-title"> Your Application Form to the European Court of Human Rights is ready! <br> You can
+            download it as a PDF or you can send it as an attachment to your email address.</h5>
+    </div>
     <div class="col-md-12 mx-auto form-section">
         <div class="card-body">
             <div class="text-center"> <img src="{% static 'images/team.png' %}" width=20%;></div>
             <br>
-            <div class="row">
-                <div class="col-xs-12 text-center">
+            <div class="buttonHolder">
+                
+                <a href="{% url 'download' %}" download><button class="btn btn-primary pdfButton">Download as PDF</button></a>
 
-                    <a href="{% url 'download' %}" download><button class="btn btn-primary">Download as PDF</button></a>
-
-                    <button class="showEmailModal btn btn-primary">Send PDF to Email</button>
-                </div>
+                <button class="showEmailModal btn btn-primary">Send PDF to Email</button>
             </div>
         </div>
 

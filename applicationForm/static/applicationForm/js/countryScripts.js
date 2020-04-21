@@ -4,7 +4,7 @@ options = {
   preferredCountries: []
 };
 
-$('#indPob').countrySelect(options);
+// $('#indPob').countrySelect(options);
 $('#indNationality').countrySelect(options);
 $('#indLNationality').countrySelect(options);
 $('#indNLNationality').countrySelect(options);

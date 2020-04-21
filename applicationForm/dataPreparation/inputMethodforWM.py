@@ -409,7 +409,7 @@ def twelvthPageInputs(self, can, inputObj):
         t1.setFont(customFont, customFontSize)
         desc = descListNew[item]
         title = titleListNew[item]
-        page = str(14 + int(pageListNew[item]) - int(pageListTemp[item]))
+        page = str(1 + int(pageListNew[item]) - int(pageListTemp[item]))
         can.setFont('Courier-Bold', 12)
         can.drawString(40, yCoord, title)
         can.setFont('Courier', 11)
@@ -574,8 +574,8 @@ def bookmarkPageInputs(self, can, inputObj):
     can.drawString(80, 440 - extraHeight, "Number of Pages: ")
 
 
-    startPage = str(14 + int(inputObj[2]) - int(inputObj[3]))
-    endPage = str(14 + int(inputObj[2]) - 1)
+    startPage = str(1 + int(inputObj[2]) - int(inputObj[3]))
+    endPage = str(1 + int(inputObj[2]) - 1)
     x = 80
     y = 410 - extraHeight
     pagesText1 = "Document starts at page "

@@ -19,6 +19,9 @@ body {
 
 }
 
+.lead{
+    font-weight: 400 !important;
+}
 footer {
     height: 8vw;
 }

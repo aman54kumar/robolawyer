@@ -307,7 +307,7 @@ def ninthPageInputs(self, can, inputObj):
 
 def tenthPageInputs(self, can, inputObj):
     length = int((len(inputObj))/2) -2
-    complainList, dateList, remediesList = getListFromComplainObj(self, inputObj, length)
+    complainList, remediesList = getListFromComplainObj(self, inputObj, length)
     yCoord = 705
     for item in range(length):
         t1 = can.beginText()
@@ -342,14 +342,12 @@ def tenthPageInputs(self, can, inputObj):
 def getListFromComplainObj(self, inputDict, length):
     print(inputDict)
     complainList = []
-    dateList = [] 
     remediesList = []
     for i in range(length):
         print(i)
-        complainList.append(inputDict['page6['+str(i) + '][complainSelect]'])
-        dateList.append(inputDict['page6['+str(i) + '][complainDate]'])   
+        complainList.append(inputDict['page6['+str(i) + '][complainSelect]'])   
         remediesList.append(inputDict['page6['+str(i) + '][remediesUsed]'])   
-    return [complainList, dateList, remediesList]
+    return [complainList, remediesList]
 
 
 def eleventhPageInputs(self, can, inputObj, secondInput):

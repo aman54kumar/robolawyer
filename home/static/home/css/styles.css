@@ -6,7 +6,7 @@ html {
 @-moz-document url-prefix() {
 html {
     margin: 0;
-    font-size: 3mm;
+    /* font-size: 3mm; */
 }
 }
 
@@ -15,6 +15,7 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
+    font-size: 1.05rem;
 
 }
 

@@ -82,7 +82,7 @@ class PrepareResult:
                 barCodeText += value+"|"
 
         for key, value in self.inputObj['page3'].items():
-            if key not in ["page3[indRepresentativeType]", "page3[indNLCapacity]", "page3[orgnlCapacity]", "page3[orgnlAddress]", "page3[orglAddress]", "page3[indNLAddress]", "page3[indLAddress]"]:
+            if key not in ["page3[indRepresentativeType]", "page3[indNLCapacity]", "page3[orgnlCapacity]"]:
                 barCodeText += value+"|"
         codeList.append(barCodeText)
         codeList.append(self.sessionID)

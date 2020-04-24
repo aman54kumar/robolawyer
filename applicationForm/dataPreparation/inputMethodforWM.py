@@ -340,11 +340,9 @@ def tenthPageInputs(self, can, inputObj):
 
 
 def getListFromComplainObj(self, inputDict, length):
-    print(inputDict)
     complainList = []
     remediesList = []
     for i in range(length):
-        print(i)
         complainList.append(inputDict['page6['+str(i) + '][complainSelect]'])   
         remediesList.append(inputDict['page6['+str(i) + '][remediesUsed]'])   
     return [complainList, remediesList]
@@ -626,6 +624,13 @@ def bookmarkPageInputs(self, can, inputObj):
 def modifyCountryNames(initialName):
     tempList = initialName.split("(")
     return tempList[0]
+
+def modifyCountryNames1(initialString):
+    if initialString!="":
+        indexFound = initialString.index("(") - 1
+        return initialString[:indexFound]
+    else:
+        return initialString
 
 def go(self, filename, textString, firstPage, laterPage=None):
     styles = getSampleStyleSheet()

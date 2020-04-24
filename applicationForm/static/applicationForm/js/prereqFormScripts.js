@@ -101,3 +101,12 @@ if (result == 'No') {
   swal('If you have not used all the available domestic legal remedies for your case. It is possible, but not necessary that your application might be declared inadmissible.')
 }
 })
+
+
+$("input[name='page1[referenceOption]']").change(function () {
+  result = this.value;
+  if (result === 'Yes') $('.referenceField').removeClass('is-hidden');
+  else {
+    $('.referenceField').addClass('is-hidden');
+  }
+});

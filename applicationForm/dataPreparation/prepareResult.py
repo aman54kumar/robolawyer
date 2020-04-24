@@ -14,6 +14,7 @@ import shutil
 from pathlib import Path
 from .inputMethodforWM import *
 import logging
+from .countryCoordDict import coordinateDict
 
 logger = logging.getLogger(__name__)
 
@@ -77,16 +78,36 @@ class PrepareResult:
 
         codeList = []
         barCodeText = "ENG - 2018/1|"
+
+        inputState = self.spclReplies[0]
+        statesValue = self.changeCountryToCode(inputState)
+        # print(statesValue)
+        for key, value in self.inputObj['page1'].items():
+            if key in ["page1[referenceText]"]:
+                barCodeText += value+"|"
+        #     if key in ["page1[involvedStates]"]:
+        #         statesValue.append(value)
         for key, value in self.inputObj['page2'].items():
-            if key not in ["page2[applicantType]", "page2[applicantAnon]", "page2[applicantAnonExp]", "page2[indAddress]", "page2[orgAddress]"]:
+            if key not in ["page2[applicantType]", "page2[applicantAnon]", "page2[applicantAnonExp]", "page2[indAddress]", "page2[orgAddress]", "page2[orgDateOption]", "page2[orgIdentityOption]"]:
+                barCodeText += value+"|"
+        for key, value in self.inputObj['page3'].items():
+            if key not in ["page3[indRepresentativeType]", "page3[indNLCapacity]", "page3[orgnlCapacity]", "page3[orgRepresentativeType]"]:
                 barCodeText += value+"|"
 
-        for key, value in self.inputObj['page3'].items():
-            if key not in ["page3[indRepresentativeType]", "page3[indNLCapacity]", "page3[orgnlCapacity]"]:
-                barCodeText += value+"|"
+
+        # pipeCount = 48, need to fix one count
+        pipeCount = 0
+        barCodeText = barCodeText.replace("\r\n", "").replace("\n", "")
+        barCodeList = barCodeText.split("|")
+        barCodeList.insert(16, statesValue)
+        for indexes in [6, 20, 27, 34, 41]:
+            barCodeList[indexes] = modifyCountryNames1(barCodeList[indexes])
+
+                
+        barCodeText = '|'.join(barCodeList)
+
         codeList.append(barCodeText)
         codeList.append(self.sessionID)
-
         self.createOrDeleteDirectory(
             'applicationForm/dataPreparation/results/'+self.sessionID+'/finalPage/')
         self.createOrDeleteDirectory(
@@ -253,45 +274,53 @@ class PrepareResult:
         else:
             totalPages = 14
         return totalPages
+    
+
+    def anonymityPage(canvas, doc):
+        PAGE_HEIGHT = defaultPageSize[1]
+        PAGE_WIDTH = defaultPageSize[0]
+        pageinfo = "Request of Anonymity"
+        Title = "Request of Anonymity"
+        canvas.saveState()
+        canvas.setFont('Times-Bold', 16)
+        canvas.drawCentredString(PAGE_WIDTH/2.0, PAGE_HEIGHT-108, Title)
+        canvas.setFont('Times-Roman', 9)
+        canvas.drawString(inch, 0.75 * inch, "Page %s" % pageinfo)
+        canvas.restoreState()
 
 
-def anonymityPage(canvas, doc):
-    PAGE_HEIGHT = defaultPageSize[1]
-    PAGE_WIDTH = defaultPageSize[0]
-    pageinfo = "Request of Anonymity"
-    Title = "Request of Anonymity"
-    canvas.saveState()
-    canvas.setFont('Times-Bold', 16)
-    canvas.drawCentredString(PAGE_WIDTH/2.0, PAGE_HEIGHT-108, Title)
-    canvas.setFont('Times-Roman', 9)
-    canvas.drawString(inch, 0.75 * inch, "Page %s" % pageinfo)
-    canvas.restoreState()
+    def anonymityLaterPages(canvas, doc):
+        pageinfo = "Request of Anonymity"
+        canvas.saveState()
+        canvas.setFont('Times-Roman', 9)
+        canvas.drawString(inch, 0.75 * inch, "Page %d %s" % (doc.page, pageinfo))
+        canvas.restoreState()
 
 
-def anonymityLaterPages(canvas, doc):
-    pageinfo = "Request of Anonymity"
-    canvas.saveState()
-    canvas.setFont('Times-Roman', 9)
-    canvas.drawString(inch, 0.75 * inch, "Page %d %s" % (doc.page, pageinfo))
-    canvas.restoreState()
+    def extraStOfFactsFirstPage(canvas, doc):
+        PAGE_HEIGHT = defaultPageSize[1]
+        PAGE_WIDTH = defaultPageSize[0]
+        pageinfo = "Statement of Facts(Extra)"
+        Title = "Statement of Facts"
+        canvas.saveState()
+        canvas.setFont('Times-Bold', 16)
+        canvas.drawCentredString(PAGE_WIDTH/2.0, PAGE_HEIGHT-108, Title)
+        canvas.setFont('Times-Roman', 9)
+        canvas.drawString(inch, 0.75 * inch, " %s" % pageinfo)
+        canvas.restoreState()
 
 
-def extraStOfFactsFirstPage(canvas, doc):
-    PAGE_HEIGHT = defaultPageSize[1]
-    PAGE_WIDTH = defaultPageSize[0]
-    pageinfo = "Statement of Facts(Extra)"
-    Title = "Statement of Facts"
-    canvas.saveState()
-    canvas.setFont('Times-Bold', 16)
-    canvas.drawCentredString(PAGE_WIDTH/2.0, PAGE_HEIGHT-108, Title)
-    canvas.setFont('Times-Roman', 9)
-    canvas.drawString(inch, 0.75 * inch, " %s" % pageinfo)
-    canvas.restoreState()
+    def extraStOfFactsLaterPage(canvas, doc):
+        pageinfo = "Statement of Facts (Extra)"
+        canvas.saveState()
+        canvas.setFont('Times-Roman', 9)
+        canvas.drawString(inch, 0.75 * inch, "Page %d %s" % (doc.page, pageinfo))
+        canvas.restoreState()
 
-
-def extraStOfFactsLaterPage(canvas, doc):
-    pageinfo = "Statement of Facts (Extra)"
-    canvas.saveState()
-    canvas.setFont('Times-Roman', 9)
-    canvas.drawString(inch, 0.75 * inch, "Page %d %s" % (doc.page, pageinfo))
-    canvas.restoreState()
+    def changeCountryToCode(self, countryList):
+        sumValue = 0
+        for country in countryList:
+            # print(country)
+            if country in coordinateDict:
+                sumValue += coordinateDict[country]['n']
+        return str(sumValue) + ".00000000"

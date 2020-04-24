@@ -198,13 +198,11 @@
                         </li>
                         <li class="ordLists">
                             <h5> When was the final decision in your case delivered or served on you? <a
-                                    href="javascript://" data-toggle="popover" data-content="Your application needs to comply with the six-month rule which means you need to send your application no later than 6 months after the last remedy in the national system has been exhausted or where there are no remedies within 6 months after the events being complained about occurred. The six-month period starts running from the date on which you or your representative had sufficient knowledge of the final national decision. 
-
+                                    href="javascript://" data-toggle="popover"
+                                    data-content="Your application needs to comply with the six-month rule which means you need to send your application no later than 6 months after the last remedy in the national system has been exhausted or where there are no remedies within 6 months after the events being complained about occurred. The six-month period starts running from the date on which you or your representative had sufficient knowledge of the final national decision. 
                                     Exceptions to this rule are 1) continuous violations or 2) situations where there is no remedy available. In the first case, the six-month period starts to run from the end of the continuing situation. The fact that the event/alleged violation has consequences over time does not mean that the event has produced a continuing situation. In the second case, the six-month period starts running from the date on which the act complained of took place or the date on which you were directly affected.
-                                    
-                                    
-                                    Please submit your application as soon as possible. If you send it at the last moment and is incomplete, you will have no time to re-submit a complete application form within the required 6-month time limit.
-                                    " data-trigger="click" data-placement="bottom"><span><i
+                                    Please submit your application as soon as possible. If you send it at the last moment and is incomplete, you will have no time to re-submit a complete application form within the required 6-month time limit."
+                                    data-trigger="click" data-placement="bottom"><span><i
                                             class="fas fa-question-circle"></i></span></a>
                             </h5>
                             <div class="row">
@@ -217,6 +215,29 @@
                                 </div>
                             </div>
 
+                        </li>
+                        <li class="ordLists">
+                            <div class="form-group">
+                                <h5>Do you already have a reference number from the Court in relation to these
+                                    complaints?</h5>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" class="custom-control-input" id="referenceYes"
+                                        name="page1[referenceOption]" value="Yes" required data-parsley-group="page7a">
+                                    <label class="custom-control-label" for="referenceYes">Yes</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" class="custom-control-input" id="referenceNo"
+                                        name="page1[referenceOption]" value="No" required data-parsley-group="page7a">
+                                    <label class="custom-control-label" for="referenceNo">No</label>
+                                </div>
+
+                                <div class="is-hidden referenceField col-sm-3">
+                                    <label for="referenceText">Please indicate the reference number in this box.
+                                    </label>
+                                    <input class="form-control" name="page1[referenceText]" id="referenceText"
+                                        maxlength="10" required data-parsley-group="page1"></input>
+                                </div>
+                            </div>
                         </li>
                     </ol>
                 </div>

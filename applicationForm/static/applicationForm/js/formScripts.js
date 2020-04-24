@@ -10,12 +10,17 @@ var applicantTypeOption = function () {
       $('#orgBeginner').addClass('is-hidden');
       $('#indRepresentative').removeClass('is-hidden');
       $('#orgRepresentative').addClass('is-hidden');
+      $('#orgnlNationality').val("");
+      $('#orglNationality').val("");
     } else if (result === 'Organisation') {
       $('#generalPage-2').removeClass('is-hidden');
       $('#orgBeginner').removeClass('is-hidden');
       $('#indBeginner').addClass('is-hidden');
       $('#orgRepresentative').removeClass('is-hidden');
       $('#indRepresentative').addClass('is-hidden');
+      $('#indNationality').val("");
+      $('#indNLNationality').val("");
+      $('#indLNationality').val("");
     } else {
       console.log('check for bug');
     }
@@ -57,6 +62,7 @@ $("input[name='page2[orgIdentityOption]']").change(function() {
 
 // ___________________Page4
 
+
 $("input[name='page3[indRepresentativeType]']").change(function () {
   result = this.value;
   if (result === 'lawyer') {
@@ -64,16 +70,20 @@ $("input[name='page3[indRepresentativeType]']").change(function () {
     $('#nonLawyerRep').addClass('is-hidden');
     $('#selfRep').addClass('is-hidden');
     $('.indAuthority').removeClass('is-hidden');
+    $('#indNLNationality').val("");    
   } else if (result === 'non-lawyer') {
     $('#nonLawyerRep').removeClass('is-hidden');
     $('#lawyerRep').addClass('is-hidden');
     $('#selfRep').addClass('is-hidden');
     $('.indAuthority').removeClass('is-hidden');
+    $('#indLNationality').val("");
   } else if (result === 'selfRepresented') {
     $('#selfRep').removeClass('is-hidden');
     $('#nonLawyerRep').addClass('is-hidden');
     $('#lawyerRep').addClass('is-hidden');
     $('.indAuthority').addClass('is-hidden');
+    $('#indNLNationality').val("");
+    $('#indLNationality').val("");
   } else {
     console.log('check for bugs');
   }
@@ -87,6 +97,7 @@ $("input[name='page3[orgRepresentativeType]']").change(function () {
   } else if (result === 'orgNoLawyer') {
     $('#orgLawyerRep').addClass('is-hidden');
     $('.orgAuthority').addClass('is-hidden');
+    $('#orglNationality').val("");
   } else {
     console.log('check for bugs');
   }

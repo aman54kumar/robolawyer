@@ -37,7 +37,6 @@ def formProcessing(request):
         logger.warning("Your log message is here")
 
     path_to_file = filepath
-    print(filepath)
     # response = download(request, filepath)
     # return FileResponse(open(filepath, 'rb'), content_type='application/pdf')    
     return render(request, 'applicationForm/finalPage.html')

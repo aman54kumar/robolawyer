@@ -621,12 +621,12 @@ def bookmarkPageInputs(self, can, inputObj):
     return can
 
 
-def modifyCountryNames(initialName):
-    tempList = initialName.split("(")
-    return tempList[0]
+# def modifyCountryNames(initialName):
+#     tempList = initialName.split("(")
+#     return tempList[0]
 
-def modifyCountryNames1(initialString):
-    if initialString!="":
+def modifyCountryNames(initialString):
+    if initialString.find("(") and initialString.find(")") > 0:
         indexFound = initialString.index("(") - 1
         return initialString[:indexFound]
     else:
@@ -802,3 +802,5 @@ def formatTextBR(self, lines, limit,suffixLen=3,prefixLen=2):
     if flag == 1:
         str = str[:wordStartPos] + '<br/>' + str[wordStartPos:]
     return str
+
+

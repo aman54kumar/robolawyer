@@ -109,7 +109,7 @@ class PrepareResult:
             'applicationForm/dataPreparation/results/'+self.sessionID+'/finalPage/')
         self.createOrDeleteDirectory(
             'applicationForm/dataPreparation/results/'+self.sessionID+'/watermark/')
-        output1 = self.create_watermark_pdf(self.inputObj['page2'], pos=1)
+        output1 = self.create_watermark_pdf(self.inputObj['page2'], pos=1, tempInput=self.inputObj['page1']['page1[referenceText]'])
         output2 = self.create_watermark_pdf(self.spclReplies[0], pos=2)
         if self.inputObj['page2']["page2[applicantType]"] == "Individual":
             output3 = self.create_watermark_pdf(self.inputObj['page3'], pos=3)
@@ -218,7 +218,7 @@ class PrepareResult:
             str(pos) + '.pdf'
         can = canvas.Canvas(filename, pagesize=A4)
         if pos == 1:
-            can = firstPageInputs(self, can, inputObj)
+            can = firstPageInputs(self, can, inputObj, tempInput)
         elif pos == 2:
             can = secondPageInputs(self, can, inputObj)
         elif pos == 3:

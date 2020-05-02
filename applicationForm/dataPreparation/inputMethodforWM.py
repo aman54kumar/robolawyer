@@ -6,12 +6,13 @@ from reportlab.lib.styles import getSampleStyleSheet
 # from reportlab.rl_config import defaultPageSize
 from reportlab.lib.units import inch
 customFont = 'Courier'
-customFontSize = 11
+customFontSize = 9
 
-def firstPageInputs(self, can, inputObj):
+def firstPageInputs(self, can, inputObj, secondInput):
     t = can.beginText()
     t.setFont(customFont, customFontSize)
     can.setFont(customFont, customFontSize)
+    can.drawString(310, 560, secondInput)
     if inputObj["page2[applicantType]"] == "Individual":
         can.drawString(25, 420, inputObj["page2[indSurname]"])
         can.drawString(25, 380, inputObj["page2[indFirstName]"])
@@ -200,9 +201,11 @@ def fourthPageInputs(self, can, inputObj):
 
 def fifthPageInputs(self, can, inputObj):
     t = can.beginText()
-    t.setTextOrigin(25, 670)
+    t.setTextOrigin(25, 682)
+    leading = 13.2
     t.setFont(customFont, customFontSize)
     stOfFactsText = inputObj
+    t.setLeading(leading)
     t.textLines(stOfFactsText)
     can.drawText(t) 
     can.showPage()

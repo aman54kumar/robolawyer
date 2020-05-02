@@ -1,12 +1,12 @@
-.form-section{
-margin-left:0px !important
+.form-section {
+  margin-left: 0px !important;
 }
 .stuck {
   position: fixed;
-  top:45%;
+  top: 45%;
 }
 .btn-dark:visited {
-    background-color: green !important;
+  background-color: green !important;
 }
 
 .form-control-inline {
@@ -20,7 +20,7 @@ label {
 }
 
 .info-header {
-  border-left: 5px #fbcd33 solid
+  border-left: 5px #fbcd33 solid;
 }
 
 #form-title {
@@ -120,7 +120,7 @@ label {
 }
 
 .step:hover {
-  background-color: rgba(0, 0, 0, .06);
+  background-color: rgba(0, 0, 0, 0.06);
 }
 
 .bs-stepper .step-trigger:hover {
@@ -131,8 +131,6 @@ label {
 .is-hidden {
   display: none;
 }
-
-
 
 input[type="file"] {
   display: block;
@@ -173,7 +171,6 @@ thead {
   background-color: gainsboro;
   border: 2px solid black;
   border-bottom: 3px solid black;
-
 }
 
 td,
@@ -200,7 +197,6 @@ textarea {
   resize: none;
 }
 
-
 .feedback_banner {
   height: 10vw;
   width: 20vw;
@@ -226,3 +222,6 @@ textarea {
   margin-bottom: 30px;
 }
 
+.iti__selected-flag {
+  height: 2em !important;        /* such that flag stays in place. used to move downwards on selection */
+}

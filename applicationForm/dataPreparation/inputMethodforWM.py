@@ -6,7 +6,7 @@ from reportlab.lib.styles import getSampleStyleSheet
 # from reportlab.rl_config import defaultPageSize
 from reportlab.lib.units import inch
 customFont = 'Courier'
-customFontSize = 9
+customFontSize = 11
 
 def firstPageInputs(self, can, inputObj, secondInput):
     t = can.beginText()
@@ -200,10 +200,12 @@ def fourthPageInputs(self, can, inputObj):
 
 
 def fifthPageInputs(self, can, inputObj):
+    changedFontSize = 9
+
     t = can.beginText()
     t.setTextOrigin(25, 682)
     leading = 13.2
-    t.setFont(customFont, customFontSize)
+    t.setFont(customFont, changedFontSize)
     stOfFactsText = inputObj
     t.setLeading(leading)
     t.textLines(stOfFactsText)

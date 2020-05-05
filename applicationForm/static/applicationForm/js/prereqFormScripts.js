@@ -5,7 +5,7 @@ $('#finalDecisionDate').on('change', function(){
     diffDate = moment(currentDate).diff(moment(finalDecisionDate), 'months', true);
     if (!isNaN(diffDate)){
       if(diffDate < 6) {
-        sixFutureDate = moment(finalDecisionDate).add(6, 'months').format('YYYY-MM-DD');
+        sixFutureDate = moment(finalDecisionDate).add(6, 'months').format('DD-MM-YYYY');
         swal('Attention, according to the information entered in the date field, you must send your application in good time before '+ sixFutureDate);
       }
       else if (diffDate > 6) {

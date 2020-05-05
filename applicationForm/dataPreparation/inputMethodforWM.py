@@ -18,7 +18,7 @@ def firstPageInputs(self, can, inputObj, secondInput):
         can.drawString(25, 380, inputObj["page2[indFirstName]"])
         baseX = 27
         birthdate = inputObj["page2[birthDate]"]
-        for i in birthdate.replace('/', ''):
+        for i in birthdate.replace('-', ''):
             baseY = 340
             can.drawString(baseX, baseY, i)
             baseX = baseX+17
@@ -60,7 +60,7 @@ def firstPageInputs(self, can, inputObj, secondInput):
 
         baseX = 310
         incorpDate = inputObj["page2[orgDate]"]
-        for i in incorpDate.replace('/', ''):
+        for i in incorpDate.replace('-', ''):
             baseY = 320
             can.drawString(baseX, baseY, i)
             baseX = baseX+17
@@ -549,8 +549,7 @@ def sortDocumentsDate(self, inputObj):
         titleList.append(inputObj['page8['+str(i) + '][title]'])
         descList.append(inputObj['page8['+str(i) + '][desc]'])
         pageList.append(inputObj['page8['+str(i) + '][page]'])
-
-    list_of_dates= [datetime.strptime(date,"%d/%m/%Y") for date in dateList]
+    list_of_dates= [datetime.strptime(date,"%d-%m-%Y") for date in dateList]
     dateListNew = sortAccordingToDate(list_of_dates,dateList)
     titleListNew = sortAccordingToDate(list_of_dates,titleList)
     descListNew = sortAccordingToDate(list_of_dates,descList)

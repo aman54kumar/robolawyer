@@ -1,8 +1,9 @@
 // function addDatepicker() {        
+//   console.log("this triggered")
 //   $('.datepicker').datepicker({
-//     weekStart: 2,
+//     weekStart: 1,
 //     assumeNearbyYear: true,
-//     autoclose: false,
+//     autoclose: true,
 //     todayHighlight: true,
 //     clearBtn: true,
 //     todayHighlight: true,

@@ -87,7 +87,7 @@ class PrepareResult:
             if key in ["page1[referenceText]"]:
                 barCodeText += value+"|"
         for key, value in self.inputObj['page2'].items():
-            if key not in ["page2[applicantType]", "page2[applicantAnon]", "page2[applicantAnonExp]", "page2[indAddress]", "page2[orgAddress]", "page2[orgDateOption]", "page2[orgIdentityOption]"]:
+            if key not in ["page2[applicantType]", "page2[applicantAnon]", "page2[applicantAnonExp]", "page2[orgDateOption]", "page2[orgIdentityOption]"]:
                 barCodeText += value+"|"
         for key, value in self.inputObj['page3'].items():
             if key not in ["page3[indRepresentativeType]", "page3[indNLCapacity]", "page3[orgnlCapacity]", "page3[orgRepresentativeType]"]:
@@ -96,12 +96,36 @@ class PrepareResult:
 
         barCodeText = barCodeText.replace("\r\n", "").replace("\n", "")
         barCodeList = barCodeText.split("|")
-        barCodeList.insert(16, statesValue)
-        for indexes in [6, 20, 27, 34, 41]:
+        barCodeList.insert(17, statesValue)
+        for indexes in [6, 22, 29, 37, 44]:
             barCodeList[indexes] = modifyCountryNames(barCodeList[indexes])
+        def swapPositions(list, pos1, pos2): 
+            list[pos1],list[pos2] = list[pos2],list[pos1] 
+            return list
+        barCodeList = swapPositions(barCodeList, 28, 29)
+        barCodeList = swapPositions(barCodeList, 23, 24)
+        barCodeList = swapPositions(barCodeList, 24, 25)
 
-                
+
+        # swapping page1 values:
+        barCodeList = swapPositions(barCodeList, 11, 13)
+
+        # swapping page 4 address and nationality:
+        barCodeList = swapPositions(barCodeList, 36, 37)
+
+        # swapping page 4 L address and nationality:
+        barCodeList = swapPositions(barCodeList, 43, 44)
+
+        
+
+        print(barCodeList)
+        # barCodeList =        
         barCodeText = '|'.join(barCodeList)
+
+
+    
+
+
 
         codeList.append(barCodeText)
         codeList.append(self.sessionID)

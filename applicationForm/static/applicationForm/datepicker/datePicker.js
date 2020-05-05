@@ -1,19 +1,19 @@
-function addDatepicker() {
+$(document).ready(function() {
   $('.datepicker').datepicker({
     weekStart: 1,
     assumeNearbyYear: true,
-    autoclose: false,
+    autoclose: true,
     todayHighlight: true,
     clearBtn: true,
-    format: "dd/mm/yyyy",
     todayHighlight: true,
-    format: {
-      toDisplay: 'dd-mm-yyyy',
-      toValue: 'dd-mm-yyyy'
-        },
-  });
-}
+    format: "dd-mm-yyyy"
+  })
+});
+// function addDatepicker() {        
+  
+//   });
+// }
 
-$('document').on('focus',".datepicker", function(){
-  $(this).addDatepicker();
-})
+// $('document').on('focus',".datepicker", function(){
+//   $(this).addDatepicker();
+// })

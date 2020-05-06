@@ -36,9 +36,9 @@ def formProcessing(request):
         prepareResult.main()  
         logger.warning("Your log message is here")
 
-    path_to_file = filepath
-    return FileResponse(open(filepath, 'rb'), content_type='application/pdf')    
-    # return render(request, 'applicationForm/finalPage.html')
+    # path_to_file = filepath
+    # return FileResponse(open(filepath, 'rb'), content_type='application/pdf')    
+    return render(request, 'applicationForm/finalPage.html')
 
 def feedback(request):
     if request.method == 'POST':

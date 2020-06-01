@@ -87,29 +87,27 @@ class PrepareResult:
             if key in ["page1[referenceText]"]:
                 barCodeText += value+"|"
         for key, value in self.inputObj['page2'].items():
-            if key not in ["page2[applicantType]", "page2[applicantAnon]", "page2[applicantAnonExp]", "page2[orgDateOption]", "page2[orgIdentityOption]"]:
+            if key not in ["page2[applicantType]", "page2[applicantAnon]", "page2[applicantAnonExp]", "page2[orgDateOption]", "page2[orgIdentityOption]", "page2[orgActivity]"]:
                 barCodeText += value+"|"
         for key, value in self.inputObj['page3'].items():
-            if key not in ["page3[indRepresentativeType]", "page3[indNLCapacity]", "page3[orgnlCapacity]", "page3[orgRepresentativeType]"]:
+            if key not in ["page3[indRepresentativeType]", "page3[indNLCapacity]", "page3[orgCapacity]", "page3[orgRepresentativeType]"]:
                 barCodeText += value+"|"
 
 
         barCodeText = barCodeText.replace("\r\n", "").replace("\n", "")
         barCodeList = barCodeText.split("|")
         barCodeList.insert(17, statesValue)
-        for indexes in [6, 22, 29, 37, 44]:
+        for indexes in [6, 21, 29, 35, 42]:
             barCodeList[indexes] = modifyCountryNames(barCodeList[indexes])
         def swapPositions(list, pos1, pos2): 
             list[pos1],list[pos2] = list[pos2],list[pos1] 
             return list
+        barCodeList = swapPositions(barCodeList, 20, 21)    #address-nationality
+        barCodeList = swapPositions(barCodeList, 22, 23)   #phone-fax-email
+        barCodeList = swapPositions(barCodeList, 23, 24)    #phone-fax-email
         barCodeList = swapPositions(barCodeList, 28, 29)
-        barCodeList = swapPositions(barCodeList, 23, 24)
-        barCodeList = swapPositions(barCodeList, 24, 25)
-
-
         # swapping page1 values:
         barCodeList = swapPositions(barCodeList, 11, 13)
-
         # swapping page 4 address and nationality:
         barCodeList = swapPositions(barCodeList, 36, 37)
 
@@ -139,7 +137,7 @@ class PrepareResult:
             output3 = self.create_watermark_pdf(self.inputObj['page3'], pos=3)
             output4 = self.create_watermark_pdf([], pos=4)
         else:
-            output3 = self.create_watermark_pdf([], pos=3)
+            output3 = self.create_watermark_pdf([], pos=3)  
             output4 = self.create_watermark_pdf(self.inputObj['page3'], pos=4)
         output5 = self.create_watermark_pdf(sof1, pos=5)
         output6 = self.create_watermark_pdf(sof2, pos=6)

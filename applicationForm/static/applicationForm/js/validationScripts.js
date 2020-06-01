@@ -49,7 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
     );
   
     btnNextList.forEach(function(btn) {
+      count = 0;
       btn.addEventListener('click', function() {
+        count++;
         if (currentStep === 4){
           if ($("#stofFactsExtra").val().trim()){
             inputValue = $("#stofFactsExtra").val();
@@ -65,17 +67,26 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             anonSelection = $("input[name='page2[applicantAnon]']:checked").val();
 
-            if ($("input[name='page2[applicantAnon]']:checked").val() === 'Yes') {
+            if (($("input[name='page2[applicantAnon]']:checked").val() === 'Yes') && (count%2 == 1)) {
               $("input[name='page8[1][date]']").val(moment().format('DD/MM/YYYY'));
               $("input[name='page8[1][title]']").val("Extra pages for the Statement of Facts");
               $("input[name='page8[1][desc]']").val("Document to supplement further details on the facts.");
               $("input[name='page8[1][page]']").val(pageCount);
             }
-            else{
+            else if (($("input[name='page2[applicantAnon]']:checked").val() === 'No') && (count%2 == 1)) {
               $("input[name='page8[0][date]']").val(moment().format('DD/MM/YYYY'));
               $("input[name='page8[0][title]']").val("Extra pages for the Statement of Facts");
               $("input[name='page8[0][desc]']").val("Document to supplement further details on the facts.");
               $("input[name='page8[0][page]']").val(pageCount);
+            }
+            else if (($("input[name='page2[applicantAnon]']:checked").val() === 'No') && (count%2 == 0)) {
+              $("input[name='page8[1][date]']").val("");
+              $("input[name='page8[1][title]']").val("");
+              $("input[name='page8[1][desc]']").val("");
+              $("input[name='page8[1][page]']").val(null);
+            }
+            else {
+              console.log("no value for extra sof");
             }
           }
           

@@ -15,6 +15,7 @@ from pathlib import Path
 from .inputMethodforWM import *
 import logging
 from .countryCoordDict import coordinateDict
+from datetime import datetime
 
 logger = logging.getLogger(__name__)
 
@@ -38,6 +39,15 @@ class PrepareResult:
         else:
             shutil.rmtree(dirname)
             os.makedirs(dirname)
+    def swapPositions(self, list, pos1, pos2): 
+            list[pos1],list[pos2] = list[pos2],list[pos1]
+            return list
+
+    def changeDateFormat(self, inDate):
+        inputDate = datetime.strptime(inDate, "%d-%m-%Y").date()
+        # inputDate = datetime.strptime(str(inputDate), "%Y-%m-%d")
+        print(inputDate)
+        return str(inputDate)
 
     def main(self):
         """ next 3 lines to be executed when there is a change in application form file. Looks for the 
@@ -96,24 +106,26 @@ class PrepareResult:
 
         barCodeText = barCodeText.replace("\r\n", "").replace("\n", "")
         barCodeList = barCodeText.split("|")
+        if self.inputObj['page2']['page2[applicantType]'] == "Organisation" :
+            barCodeList.insert(10, "")   #insert empty field for individual sex
+
         barCodeList.insert(17, statesValue)
-        for indexes in [6, 21, 29, 35, 42]:
+        
+
+        for indexes in [6, 21, 29, 36, 43]:
             barCodeList[indexes] = modifyCountryNames(barCodeList[indexes])
-        def swapPositions(list, pos1, pos2): 
-            list[pos1],list[pos2] = list[pos2],list[pos1] 
-            return list
-        barCodeList = swapPositions(barCodeList, 20, 21)    #address-nationality
-        barCodeList = swapPositions(barCodeList, 22, 23)   #phone-fax-email
-        barCodeList = swapPositions(barCodeList, 23, 24)    #phone-fax-email
-        barCodeList = swapPositions(barCodeList, 28, 29)
-        # swapping page1 values:
-        barCodeList = swapPositions(barCodeList, 11, 13)
-        # swapping page 4 address and nationality:
-        barCodeList = swapPositions(barCodeList, 36, 37)
+        
+        barCodeList = self.swapPositions(barCodeList, 20, 21)    #address-nationality
+        barCodeList = self.swapPositions(barCodeList, 22, 23)    #phone-fax-email
+        barCodeList = self.swapPositions(barCodeList, 23, 24)    #phone-fax-email
+        barCodeList = self.swapPositions(barCodeList, 28, 29)    # swapping page1 values:
+        barCodeList = self.swapPositions(barCodeList, 12, 13)    # swapping page 4 address and nationality:
+        barCodeList = self.swapPositions(barCodeList, 36, 37)    # swapping page 4 L address and nationality:
+        barCodeList = self.swapPositions(barCodeList, 43, 44)
 
-        # swapping page 4 L address and nationality:
-        barCodeList = swapPositions(barCodeList, 43, 44)
-
+        barCodeList[4] = self.changeDateFormat(barCodeList[4])
+        barCodeList[13] = self.changeDateFormat(barCodeList[13])
+        
         
 
         print(barCodeList)

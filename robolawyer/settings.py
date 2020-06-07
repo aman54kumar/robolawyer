@@ -27,10 +27,12 @@ TEMPLATE_DEBUG = DEBUG
 # Application definition
 SECRET_KEY = config('SECRET_KEY')
 
+dotenv_file = os.path.join(BASE_DIR, ".env")
+if os.path.isfile(dotenv_file):
+    ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+else:
+    ALLOWED_HOSTS = ['.justbot.eu-central-1.elasticbeanstalk.com']
 
-
-
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 EMAIL_HOST=config('EMAIL_HOST')
 EMAIL_HOST_PASSWORD=config('EMAIL_HOST_PASSWORD')

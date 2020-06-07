@@ -6,8 +6,8 @@ import os
 
 
 filename = "Ratification of ECHR dates and coutries.csv"
-# path = "C:/Personal_DS/robo/robolawyer-project/echrAPI"
-path = "/home/aman/Documents/Projects/robolawyer/echrAPI"
+path = "D:/Projects/robolawyer/echrAPI"
+# path = "/home/aman/Documents/Projects/robolawyer/echrAPI"
 os.chdir(path)
 with open(filename) as csvFile:
     reader = csv.DictReader(csvFile)

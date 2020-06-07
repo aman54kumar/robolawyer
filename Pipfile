@@ -28,6 +28,7 @@ pdf417 = "*"
 svglib = "*"
 pylint = "==2.3.1"
 astroid = "==2.2.5"
+awsebcli = "*"
 
 [requires]
 python_version = "3.7"

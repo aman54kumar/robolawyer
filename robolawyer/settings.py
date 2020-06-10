@@ -31,8 +31,8 @@ dotenv_file = os.path.join(BASE_DIR, ".env")
 # if os.path.isfile(dotenv_file):
 #     ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # else:
-ALLOWED_HOSTS = ['.justbot.eu-central-1.elasticbeanstalk.com', '.localhost']
-
+# ALLOWED_HOSTS = ['.justbot.eu-central-1.elasticbeanstalk.com', '.localhost']
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 EMAIL_HOST=config('EMAIL_HOST')
 EMAIL_HOST_PASSWORD=config('EMAIL_HOST_PASSWORD')
@@ -203,7 +203,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 # STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 # STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-STATIC_ROOT = os.path.join(BASE_DIR, "www", "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = '/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 

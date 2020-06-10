@@ -233,7 +233,7 @@ function textCounter(field, field2, maxlimit) {
 
 $("input[name='page2[applicantAnon]']").change(function () {
   result = this.value;
-  print(result);
+  console.log(result);
   lines = $("#anonReqText").val();
   pageCount = 0;
   numOfLines = lines.split('\n').length - 1;
@@ -253,13 +253,11 @@ $("input[name='page2[applicantAnon]']").change(function () {
     $("input[name='page8[0][date]']").val("")
     $("input[name='page8[0][title]']").val("");
     $("input[name='page8[0][desc]']").val("");
-    $("input[name='page8[0][page]']").val();
+    $("input[name='page8[0][page]']").val(null);
   }
 
   else {
     console.log("no anonymity");
-  }
-    
   }
 });
 

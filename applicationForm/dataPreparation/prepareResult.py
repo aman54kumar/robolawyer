@@ -44,10 +44,13 @@ class PrepareResult:
             return list
 
     def changeDateFormat(self, inDate):
-        inputDate = datetime.strptime(inDate, "%d-%m-%Y").date()
-        # inputDate = datetime.strptime(str(inputDate), "%Y-%m-%d")
-        print(inputDate)
-        return str(inputDate)
+        if inDate == '':
+            return inDate
+        else:
+            inputDate = datetime.strptime(inDate, "%d-%m-%Y").date()
+            # inputDate = datetime.strptime(str(inputDate), "%Y-%m-%d")
+            print(inputDate)
+            return str(inputDate)
 
     def main(self):
         """ next 3 lines to be executed when there is a change in application form file. Looks for the 

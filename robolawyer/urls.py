@@ -18,7 +18,7 @@ from django.urls import path, include
 import home, applicationForm, about, extResources
 from django.conf.urls.static import static
 from django.conf import settings
-
+from robots_txt.views import RobotsTextView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,6 +29,8 @@ urlpatterns = [
     # Rest APIs
     path('api/echr/', include('echrAPI.urls', 'echr_api')),
     path('api/court/', include('courtAPI.urls', 'court_api')),
+    # robots.txt
+    path('robots.txt', RobotsTextView.as_view())
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

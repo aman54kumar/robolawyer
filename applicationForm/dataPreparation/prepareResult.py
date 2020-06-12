@@ -49,7 +49,6 @@ class PrepareResult:
         else:
             inputDate = datetime.strptime(inDate, "%d-%m-%Y").date()
             # inputDate = datetime.strptime(str(inputDate), "%Y-%m-%d")
-            print(inputDate)
             return str(inputDate)
 
     def main(self):
@@ -131,7 +130,7 @@ class PrepareResult:
         
         
 
-        print(barCodeList)
+        # print(barCodeList)
         # barCodeList =        
         barCodeText = '|'.join(barCodeList)
 

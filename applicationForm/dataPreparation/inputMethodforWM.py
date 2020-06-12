@@ -549,6 +549,7 @@ def sortDocumentsDate(self, inputObj):
         titleList.append(inputObj['page8['+str(i) + '][title]'])
         descList.append(inputObj['page8['+str(i) + '][desc]'])
         pageList.append(inputObj['page8['+str(i) + '][page]'])
+
     list_of_dates= [datetime.strptime(date,"%d-%m-%Y") for date in dateList]
     dateListNew = sortAccordingToDate(list_of_dates,dateList)
     titleListNew = sortAccordingToDate(list_of_dates,titleList)

@@ -30,5 +30,7 @@ pylint = "==2.3.1"
 astroid = "==2.2.5"
 awsebcli = "*"
 colorama = {version = "*", sys_platform="!='fake'"}
+django-robots-txt = "*"
+
 [requires]
 python_version = "3.7"

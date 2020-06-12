@@ -40,10 +40,19 @@ EMAIL_HOST_USER=config('EMAIL_HOST_USER')
 EMAIL_PORT=config('EMAIL_PORT')
 EMAIL_USE_TLS=config('EMAIL_USE_TLS')
 # ADMINS = [("Aman","aman54kumar@gmail.com")]
+# EMAIL_HOST=smtp.gmail.com
+# EMAIL_HOST_PASSWORD="Justice4All
+# EMAIL_HOST_USER=contact@justbot.org
+# EMAIL_PORT=587
+# EMAIL_USE_TLS=True
+
 # below code for env var in heroku
+
+
 ADMINS = [("Justbot", "contact@justbot.org")]
 
-
+# EMAIL_HOST_PASSWORD=skewevuyxzpexrfn
+# EMAIL_HOST_USER=aman54kumar@gmail.com
 
 # Application definition
 
@@ -64,7 +73,7 @@ INSTALLED_APPS = [
     'extResources',
     'echrAPI',
     'courtAPI',
-
+    'robots_txt',
 ]
 
 MIDDLEWARE = [

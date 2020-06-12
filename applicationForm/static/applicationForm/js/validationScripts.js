@@ -67,13 +67,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             anonSelection = $("input[name='page2[applicantAnon]']:checked").val();
             if ($("input[name='page2[applicantAnon]']:checked").val() === 'Yes') {
-              $("input[name='page8[1][date]']").val(moment().format('DD/MM/YYYY'));
+              $("input[name='page8[1][date]']").val(moment().format('DD-MM-YYYY'));
               $("input[name='page8[1][title]']").val("Extra pages for the Statement of Facts");
               $("input[name='page8[1][desc]']").val("Document to supplement further details on the facts.");
               $("input[name='page8[1][page]']").val(pageCount);
             }
             else{
-              $("input[name='page8[0][date]']").val(moment().format('DD/MM/YYYY'));
+              $("input[name='page8[0][date]']").val(moment().format('DD-MM-YYYY'));
               $("input[name='page8[0][title]']").val("Extra pages for the Statement of Facts");
               $("input[name='page8[0][desc]']").val("Document to supplement further details on the facts.");
               $("input[name='page8[0][page]']").val(pageCount);

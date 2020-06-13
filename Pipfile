@@ -8,14 +8,12 @@ autopep8 = "*"
 
 [packages]
 django = "*"
-weasyprint = "*"
 pycountry = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
 dj-database-url = "*"
 whitenoise = "*"
 pdfrw = "*"
-reportlab = "*"
 pypdf = "*"
 pypdf2 = "*"
 comtypes = "*"
@@ -31,6 +29,7 @@ astroid = "==2.2.5"
 awsebcli = "*"
 colorama = {version = "*", sys_platform="!='fake'"}
 django-robots-txt = "*"
+reportlab = "*"
 
 [requires]
 python_version = "3.7"

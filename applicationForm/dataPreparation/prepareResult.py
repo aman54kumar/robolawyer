@@ -82,7 +82,7 @@ class PrepareResult:
         sof3 = ""
         lines = sof
 
-        lines = formatText(self, lines, 81)
+        lines = formatText(self, lines, 99)
 
         cnt = 0
         temp = ""
@@ -90,14 +90,14 @@ class PrepareResult:
             cnt = cnt + 1
             temp += line + "\n"
 
-            if cnt <= 48:
+            if cnt <= 49:
                 sof1 += temp
 
                 temp = ""
-            elif cnt <= 103:
+            elif cnt <= 104:
                 sof2 += temp
                 temp = ""
-            elif cnt <= 158:
+            elif cnt <= 159:
                 sof3 += temp
                 temp = ""
         article = self.inputObj["page5"]

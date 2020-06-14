@@ -297,7 +297,7 @@ $("#page8Group").repeater({
 limitLines = function (limit, textarea) {
   var spaces = textarea.getAttribute("cols");
 
-  textarea.onkeydown = function () {
+  textarea.onkeyup = function () {
     var lines = textarea.value.split("\n");
 
     for (var i = 0; i < lines.length; i++) {
@@ -322,26 +322,8 @@ limitLines = function (limit, textarea) {
   };
 };
 
-autosize($("textArea"));
-// var max_chars = 294;
-
-// function textAreaLimit(element, maxLength) {
-//   $(element).keydown(function (e) {
-//     currentText = $(this).val();
-//     if (currentText.length >= max_chars) {
-//       currentText(currentText.substr(0, max_chars));
-//     }
-//     else {
-//       if
-//     }
-//   });
-// }
-
-// textAreaLimit("textArea", max_chars);
-// console.log(a);
 limitLines(6, document.getElementById("indAddress"));
-limitLines(2, document.getElementById("orgName"));
-limitLines(8, document.getElementById("orgAddress"));
+limitLines(9, document.getElementById("orgAddress"));
 limitLines(9, document.getElementById("indNLAddress"));
 limitLines(9, document.getElementById("indLAddress"));
 limitLines(20, document.getElementById("orgnlAddress"));

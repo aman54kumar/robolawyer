@@ -5,7 +5,7 @@ import operator
 from reportlab.lib.units import inch
 
 _customFont = "Courier"
-_customFontSize = 11
+_customFontSize = 9
 
 
 def firstPageInputs(self, can, inputObj, secondInput):
@@ -30,7 +30,7 @@ def firstPageInputs(self, can, inputObj, secondInput):
         can.drawString(25, 245, indNationalityNew)
 
         addressOne = inputObj["page2[indAddress]"]
-        newAddress = formatTextWithoutDash(self, addressOne, 42)
+        newAddress = formatTextWithoutDash(self, addressOne, 50)
         t.setTextOrigin(25, 208)
         t.textLines(newAddress)
         can.drawText(t)
@@ -67,7 +67,7 @@ def firstPageInputs(self, can, inputObj, secondInput):
         can.drawString(310, 265, inputObj["page2[orgActivity]"])
 
         addressTwo = inputObj["page2[orgAddress]"]
-        newAddressTwo = formatTextWithoutDash(self, addressTwo, 42)
+        newAddressTwo = formatTextWithoutDash(self, addressTwo, 49)
         t.setTextOrigin(310, 227)
         t.textLines(newAddressTwo)
 
@@ -212,7 +212,7 @@ def fifthPageInputs(self, can, inputObj):
     t = can.beginText()
     t.setTextOrigin(25, 682)
     leading = 13.2
-    t.setFont(_customFont, changedFontSize)
+    t.setFont(_customFont, _customFontSize)
     stOfFactsText = inputObj
     t.setLeading(leading)
     t.textLines(stOfFactsText)
@@ -224,8 +224,10 @@ def fifthPageInputs(self, can, inputObj):
 def sixthPageInputs(self, can, inputObj):
     t = can.beginText()
     t.setTextOrigin(25, 760)
+    leading = 13.2
     t.setFont(_customFont, _customFontSize)
     stOfFactsText = inputObj
+    t.setLeading(leading)
     t.textLines(stOfFactsText)
     can.drawText(t)
     can.showPage()
@@ -235,8 +237,10 @@ def sixthPageInputs(self, can, inputObj):
 def seventhPageInputs(self, can, inputObj):
     t = can.beginText()
     t.setTextOrigin(25, 760)
+    leading = 13.2
     t.setFont(_customFont, _customFontSize)
     stOfFactsText = inputObj
+    t.setLeading(leading)
     t.textLines(stOfFactsText)
     can.drawText(t)
     can.showPage()
@@ -253,6 +257,7 @@ def eighthPageInputs(self, can, inputObj):
         if item > 2:
             break
         t1 = can.beginText()
+        leading = 13.2
         t1.setFont(_customFont, _customFontSize)
         if len(articleList[item]) > 1:
             article = articleList[item]
@@ -263,18 +268,21 @@ def eighthPageInputs(self, can, inputObj):
         else:
             print("error reported in EighthPageInputs")
 
-        newArticle = formatTextWithoutDash(self, article, 19)
+        newArticle = formatTextWithoutDash(self, article, 26)
         t1.setTextOrigin(25, yCoord)
+        t1.setLeading(leading)
         t1.textLines(newArticle)
         can.drawText(t1)
 
         t2 = can.beginText()
+        leading = 13.2
         t2.setFont(_customFont, _customFontSize)
-        newArticleExp = formatTextWithoutDash(self, articleExp, 59)
+        newArticleExp = formatTextWithoutDash(self, articleExp, 72)
         t2.setTextOrigin(180, yCoord)
+        t2.setLeading(leading)
         t2.textLines(newArticleExp)
         can.drawText(t2)
-        yCoord -= nextLineForPara(len(newArticleExp), 59, 14.5)
+        yCoord -= nextLineForPara(len(newArticleExp), 59, 10)
 
     can.showPage()
     return can
@@ -295,6 +303,7 @@ def ninthPageInputs(self, can, inputObj):
     articleList, explanationList = getListFromArticleObj(
         self, inputObj, length)
     yCoord = 750
+    leading = 13.2
     for item in range(length):
         if item > 2:
             t1 = can.beginText()
@@ -308,18 +317,20 @@ def ninthPageInputs(self, can, inputObj):
             else:
                 print("error reported in EighthPageInputs")
 
-            newArticle = "\n".join(wrap(article, 20))
+            newArticle = "\n".join(wrap(article, 26))
             t1.setTextOrigin(25, yCoord)
+            t1.setLeading(leading)
             t1.textLines(newArticle)
             can.drawText(t1)
 
             t2 = can.beginText()
             t2.setFont(_customFont, _customFontSize)
-            newArticleExp = formatTextWithoutDash(self, articleExp, 59)
+            newArticleExp = formatTextWithoutDash(self, articleExp, 72)
             t2.setTextOrigin(180, yCoord)
+            t2.setLeading(leading)
             t2.textLines(newArticleExp)
             can.drawText(t2)
-            yCoord -= nextLineForPara(len(newArticleExp), 59, 14.5)
+            yCoord -= nextLineForPara(len(newArticleExp), 59, 10)
     can.showPage()
     return can
 
@@ -328,6 +339,7 @@ def tenthPageInputs(self, can, inputObj):
     length = int((len(inputObj)) / 2) - 2
     complainList, remediesList = getListFromComplainObj(self, inputObj, length)
     yCoord = 705
+    leading = 13.2
     for item in range(length):
         t1 = can.beginText()
         t1.setFont(_customFont, _customFontSize)
@@ -340,18 +352,20 @@ def tenthPageInputs(self, can, inputObj):
         else:
             print("error reported in TenthPageInputs")
 
-        newComplain = formatText(self, complain, 23)
+        newComplain = formatText(self, complain, 26)
+        t1.setLeading(leading)
         t1.setTextOrigin(25, yCoord)
         t1.textLines(newComplain)
         can.drawText(t1)
 
         t2 = can.beginText()
         t2.setFont(_customFont, _customFontSize)
-        newRemedy = formatText(self, remedies, 58)
+        newRemedy = formatText(self, remedies, 69)
+        t2.setLeading(leading)
         t2.setTextOrigin(185, yCoord)
         t2.textLines(newRemedy)
         can.drawText(t2)
-        yCoord -= nextLineForPara(len(newRemedy), 60, 17)
+        yCoord -= nextLineForPara(len(newRemedy), 60, 10.8)
 
     can.showPage()
     return can
@@ -371,10 +385,12 @@ def eleventhPageInputs(self, can, inputObj, secondInput):
         if inputObj["page6[appealAvailable]"] == "Yes":
             can.circle(466, 787, 4, fill=1)
             t = can.beginText()
+            leading = 13.2
             t.setFont(_customFont, _customFontSize)
             appealDescribe = inputObj["page6[appealDescribe]"]
-            newAppealDescribe = formatText(self, appealDescribe, 82)
+            newAppealDescribe = formatText(self, appealDescribe, 99)
             t.setTextOrigin(25, 735)
+            t.setLeading(leading)
             t.textLines(newAppealDescribe)
             can.drawText(t)
         elif inputObj["page6[appealAvailable]"] == "No":
@@ -387,10 +403,12 @@ def eleventhPageInputs(self, can, inputObj, secondInput):
             can.circle(466, 475, 4, fill=1)
             t = can.beginText()
             t.setFont(_customFont, _customFontSize)
+            leading = 13.2
             intInvestigationDesc = secondInput["page7[intInvestigationDesc]"]
             newIntInvestigationDesc = formatText(self, intInvestigationDesc,
-                                                 82)
+                                                 99)
             t.setTextOrigin(25, 403)
+            t.setLeading(leading)
             t.textLines(newIntInvestigationDesc)
             can.drawText(t)
         elif secondInput["page7[intInvestigation]"] == "No":
@@ -404,8 +422,10 @@ def eleventhPageInputs(self, can, inputObj, secondInput):
             t = can.beginText()
             t.setFont(_customFont, _customFontSize)
             prevAppDesc = secondInput["page7[prevAppDesc]"]
-            newPrevAppDesc = formatText(self, prevAppDesc, 82)
+            newPrevAppDesc = formatText(self, prevAppDesc, 99)
             t.setTextOrigin(25, 76)
+            leading = 13.2
+            t.setLeading(leading)
             t.textLines(newPrevAppDesc)
             can.drawText(t)
         elif secondInput["page7[prevApplications]"] == "No":

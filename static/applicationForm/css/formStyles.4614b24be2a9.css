@@ -15,6 +15,10 @@
   display: inline;
 }
 
+label {
+  display: block;
+}
+
 .info-header {
   border-left: 5px #fbcd33 solid;
 }
@@ -185,6 +189,10 @@ table tr td:last-of-type {
   margin: 50px;
 }
 
+textarea {
+  resize: none;
+}
+
 .feedback_banner {
   height: 10vw;
   width: 20vw;
@@ -215,15 +223,5 @@ table tr td:last-of-type {
 }
 
 input {
-  font-size: larger !important;
-}
-
-textarea {
-  font-size: larger !important;
-  padding-left: 30px !important;
-}
-
-label {
-  display: block;
-  font-size: large !important;
+  font-size: larger;
 }

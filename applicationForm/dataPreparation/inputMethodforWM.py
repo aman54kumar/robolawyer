@@ -4,6 +4,7 @@ from reportlab.lib.styles import getSampleStyleSheet
 import operator
 from reportlab.lib.units import inch
 import textwrap
+from .countryCoordDict import coordinateDict
 
 _customFont = "Courier"
 _customFontSize = 9

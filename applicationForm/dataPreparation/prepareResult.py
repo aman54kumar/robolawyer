@@ -163,11 +163,9 @@ class PrepareResult:
         barCodeList[4] = self.changeDateFormat(barCodeList[4])
         barCodeList[13] = self.changeDateFormat(barCodeList[13])
 
-        # print(barCodeList)
-        # barCodeList =
         barCodeText = "|".join(barCodeList)
 
-        codeList.append(barCodeText)
+        codeList.append(barCodeText[:928])
         codeList.append(self.sessionID)
         self.createOrDeleteDirectory(
             "applicationForm/dataPreparation/results/" + self.sessionID +

@@ -3,6 +3,7 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet
 import operator
 from reportlab.lib.units import inch
+import textwrap
 
 _customFont = "Courier"
 _customFontSize = 9
@@ -207,8 +208,6 @@ def fourthPageInputs(self, can, inputObj):
 
 
 def fifthPageInputs(self, can, inputObj):
-    changedFontSize = 9
-
     t = can.beginText()
     t.setTextOrigin(25, 682)
     leading = 13.2
@@ -388,7 +387,12 @@ def eleventhPageInputs(self, can, inputObj, secondInput):
             leading = 13.2
             t.setFont(_customFont, _customFontSize)
             appealDescribe = inputObj["page6[appealDescribe]"]
-            newAppealDescribe = formatText(self, appealDescribe, 99)
+            # newAppealDescribe = formatText(self, appealDescribe, 99)
+            wrapper = textwrap.TextWrapper(
+                width=100,
+                break_on_hyphens=True,
+            )
+            newAppealDescribe = wrapper.wrap(text=appealDescribe)
             t.setTextOrigin(25, 735)
             t.setLeading(leading)
             t.textLines(newAppealDescribe)
@@ -405,8 +409,11 @@ def eleventhPageInputs(self, can, inputObj, secondInput):
             t.setFont(_customFont, _customFontSize)
             leading = 13.2
             intInvestigationDesc = secondInput["page7[intInvestigationDesc]"]
-            newIntInvestigationDesc = formatText(self, intInvestigationDesc,
-                                                 99)
+            wrapper = textwrap.TextWrapper(
+                width=100,
+                break_on_hyphens=True,
+            )
+            newIntInvestigationDesc = wrapper.wrap(text=intInvestigationDesc)
             t.setTextOrigin(25, 403)
             t.setLeading(leading)
             t.textLines(newIntInvestigationDesc)
@@ -422,7 +429,11 @@ def eleventhPageInputs(self, can, inputObj, secondInput):
             t = can.beginText()
             t.setFont(_customFont, _customFontSize)
             prevAppDesc = secondInput["page7[prevAppDesc]"]
-            newPrevAppDesc = formatText(self, prevAppDesc, 99)
+            wrapper = textwrap.TextWrapper(
+                width=100,
+                break_on_hyphens=True,
+            )
+            newPrevAppDesc = wrapper.wrap(text=prevAppDesc)
             t.setTextOrigin(25, 76)
             leading = 13.2
             t.setLeading(leading)
@@ -473,10 +484,14 @@ def thirteenthPageInputs(self, can, inputObj, tempInput):
     from svglib.svglib import svg2rlg
     from reportlab.graphics import renderPM
 
+    wrapper = textwrap.TextWrapper(
+        width=100,
+        break_on_hyphens=True,
+    )
     t = can.beginText()
     t.setFont(_customFont, _customFontSize)
     comments = inputObj["page9[formComments]"]
-    newComments = formatText(self, comments, 82)
+    newComments = wrapper.wrap(text=comments)
     t.setTextOrigin(25, 732)
     t.textLines(newComments)
     can.drawText(t)
@@ -488,7 +503,7 @@ def thirteenthPageInputs(self, can, inputObj, tempInput):
             name = inputObj["page9[confirmationApplicantName]"]
             can.drawString(25, 240, name)
             address = inputObj["page9[confirmationApplicantAddress]"]
-            newAddress = "\n".join(wrap(address, 82))
+            newAddress = "\n".join(wrap(address, 99))
             s.setTextOrigin(25, 227)
             s.textLines(newAddress)
             can.drawText(s)
@@ -499,7 +514,7 @@ def thirteenthPageInputs(self, can, inputObj, tempInput):
             name = inputObj["page9[confirmationRepresentativeName]"]
             can.drawString(25, 240, name)
             address = inputObj["page9[confirmationRepresentativeAddress]"]
-            newAddress = "\n".join(wrap(address, 82))
+            newAddress = "\n".join(wrap(address, 99))
             s.setTextOrigin(25, 227)
             s.textLines(newAddress)
             can.drawText(s)
@@ -592,7 +607,7 @@ def barcodeMaker(self, formInputs, applicantCode):
     text = formInputs
 
     # Convert to code words
-    codes = encode(text, columns=10, security_level=2)
+    codes = encode(text)
 
     # Generate barcode as SVG
     svg = render_svg(codes)  # ElementTree object

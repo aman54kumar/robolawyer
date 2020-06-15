@@ -321,7 +321,7 @@ limitLines = function (limit, textarea) {
     textarea.value = lines.slice(0, limit).join("\n");
   };
 };
-
+$("textArea").hyphenate("en-us");
 autosize($("textArea"));
 // var max_chars = 294;
 
@@ -342,12 +342,12 @@ autosize($("textArea"));
 limitLines(6, document.getElementById("indAddress"));
 limitLines(2, document.getElementById("orgName"));
 limitLines(8, document.getElementById("orgAddress"));
-limitLines(9, document.getElementById("indNLAddress"));
-limitLines(9, document.getElementById("indLAddress"));
-limitLines(20, document.getElementById("orgnlAddress"));
-limitLines(20, document.getElementById("orglAddress"));
+limitLines(6, document.getElementById("indNLAddress"));
+limitLines(6, document.getElementById("indLAddress"));
+limitLines(8, document.getElementById("orgnlAddress"));
+limitLines(8, document.getElementById("orglAddress"));
 limitLines(16, document.getElementById("appealDescribe"));
-limitLines(20, document.getElementById("intInvestigationDesc"));
+limitLines(10, document.getElementById("intInvestigationDesc"));
 limitLines(4, document.getElementById("prevAppDesc"));
 limitLines(5, document.getElementById("formComments"));
 

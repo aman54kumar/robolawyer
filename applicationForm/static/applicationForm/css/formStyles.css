@@ -220,7 +220,11 @@ input {
 
 textarea {
   font-size: larger !important;
-  padding-left: 30px !important;
+  padding-left: 10px !important;
+  /* text-align: center !important; */
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
 }
 
 label {

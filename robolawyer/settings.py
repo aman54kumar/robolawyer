@@ -14,7 +14,6 @@ from decouple import config, Csv
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -32,13 +31,17 @@ dotenv_file = os.path.join(BASE_DIR, ".env")
 #     ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # else:
 # ALLOWED_HOSTS = ['.justbot.eu-central-1.elasticbeanstalk.com', '.localhost']
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
-EMAIL_HOST=config('EMAIL_HOST')
-EMAIL_HOST_PASSWORD=config('EMAIL_HOST_PASSWORD')
-EMAIL_HOST_USER=config('EMAIL_HOST_USER')
-EMAIL_PORT=config('EMAIL_PORT')
-EMAIL_USE_TLS=config('EMAIL_USE_TLS')
+# ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+ALLOWED_HOSTS = [
+   'justbot.eu-central-1.elasticbeanstalk.com'
+]
+
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 # ADMINS = [("Aman","aman54kumar@gmail.com")]
 # EMAIL_HOST=smtp.gmail.com
 # EMAIL_HOST_PASSWORD="Justice4All
@@ -47,7 +50,6 @@ EMAIL_USE_TLS=config('EMAIL_USE_TLS')
 # EMAIL_USE_TLS=True
 
 # below code for env var in heroku
-
 
 ADMINS = [("Justbot", "contact@justbot.org")]
 
@@ -86,7 +88,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
 ]
 
 ROOT_URLCONF = 'robolawyer.urls'
@@ -133,10 +134,7 @@ else:
             }
         }
     else:
-        DATABASES = {
-            'default': dj_database_url.config()
-        }
-
+        DATABASES = {'default': dj_database_url.config()}
 
 # DATABASES = {
 #     'default': dj_database_url.config()
@@ -147,19 +145,22 @@ else:
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -174,12 +175,9 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # TEMPLATES
 
-TEMPLATE_DIRS = (
-    os.path.join(os.path.dirname(__file__), 'templates'),
-)
+TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates'), )
 TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.auth.context_processors.auth",
     "django.core.context_processors.debug",
@@ -191,13 +189,12 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
 )
 
-
 # AWS Settings
 
-# AWS_ACCESS_KEY_ID = config('AWS_ACCESS_ID')    
+# AWS_ACCESS_KEY_ID = config('AWS_ACCESS_ID')
 # AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
-# AWS_S3_REGION_NAME = config('AWS_S3_REGION_NAME') 
-# AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')  
+# AWS_S3_REGION_NAME = config('AWS_S3_REGION_NAME')
+# AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
 # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com:443' % AWS_STORAGE_BUCKET_NAME
@@ -218,11 +215,9 @@ STATIC_URL = '/static/'
 
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"), os.path.join(BASE_DIR, os.path.join("applicationForm/dataPreparation/results"))]
 
-
 # MEDIA_URL = '/media/'
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'results')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 
 REST_FRAMEWORK = {
     "DATE_INPUT_FORMATS": ["%d-%m-%Y"],
@@ -231,49 +226,48 @@ REST_FRAMEWORK = {
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 
-
 LOGGING = {
-	'version': 1,
-	'disable_existing_loggers': False,
-	'filters': {
-		'require_debug_false': {
-			'()': 'django.utils.log.RequireDebugFalse',
-		},
-		'require_debug_true': {
-			'()': 'django.utils.log.RequireDebugTrue',
-		},
-	},
-	'formatters': {
-		'django.server': {
-			'()': 'django.utils.log.ServerFormatter',
-			'format': '[%(server_time)s] %(message)s',
-		},
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse',
+        },
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+    },
+    'formatters': {
+        'django.server': {
+            '()': 'django.utils.log.ServerFormatter',
+            'format': '[%(server_time)s] %(message)s',
+        },
         'console': {
             # exact format is not important, this is the minimum information
             'format': '%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
         },
-	},
-	'handlers': {
-		'console': {
-			'level': 'INFO',
-			'filters': ['require_debug_true'],
-			'class': 'logging.StreamHandler',
-		},
-		'console_debug_false': {
-			'level': 'ERROR',
-			'filters': ['require_debug_false'],
-			'class': 'logging.StreamHandler',
-		},
-		'django.server': {
-			'level': 'INFO',
-			'class': 'logging.StreamHandler',
-			'formatter': 'django.server',
-		},
-		'mail_admins': {
-        'level': 'INFO',
-        'class': 'django.utils.log.AdminEmailHandler',
-        'include_html': True,
-        'filters': ['require_debug_false']
+    },
+    'handlers': {
+        'console': {
+            'level': 'INFO',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+        },
+        'console_debug_false': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'logging.StreamHandler',
+        },
+        'django.server': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'django.server',
+        },
+        'mail_admins': {
+            'level': 'INFO',
+            'class': 'django.utils.log.AdminEmailHandler',
+            'include_html': True,
+            'filters': ['require_debug_false']
         },
         'file': {
             'level': 'DEBUG',
@@ -281,18 +275,18 @@ LOGGING = {
             'filename': 'justbot-debug.log',
             'formatter': 'console'
         },
-	},
-	'loggers': {
+    },
+    'loggers': {
         'django': {
             'handlers': ['console', 'console_debug_false', 'mail_admins'],
             'level': 'WARNING',
             'propagate': True,
             'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG')
         },
-		'django.server': {
-			'handlers': ['django.server'],
-			'level': 'INFO',
-			'propagate': False,
-		}
-	}
+        'django.server': {
+            'handlers': ['django.server'],
+            'level': 'INFO',
+            'propagate': False,
+        }
+    }
 }

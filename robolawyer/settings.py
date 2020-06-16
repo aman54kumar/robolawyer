@@ -32,10 +32,10 @@ dotenv_file = os.path.join(BASE_DIR, ".env")
 # else:
 # ALLOWED_HOSTS = ['.justbot.eu-central-1.elasticbeanstalk.com', '.localhost']
 
-# ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
-ALLOWED_HOSTS = [
-   'justbot.eu-central-1.elasticbeanstalk.com'
-]
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+# ALLOWED_HOSTS = [
+#    'justbot.eu-central-1.elasticbeanstalk.com'
+# ]
 
 EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')

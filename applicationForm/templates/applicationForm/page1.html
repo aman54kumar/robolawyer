@@ -195,18 +195,34 @@
                 <label class="lead">
                   <h5>
                     When did the facts that you are complaining about start and
-                    when did they stopped?
+                    when did they stopped? <br />
+                    If they are still continuing, please select the current date
+                    in the second field.
                   </h5>
                 </label>
                 <div class="row">
-                  <div class="col-sm-3">
+                  <div class="col-sm-6 input-group input-daterange">
+                    <label for="decisionDate1"
+                      >Start &nbsp; &nbsp;&nbsp;&nbsp;</label
+                    >
                     <input
                       type="text"
-                      id="decisionDate"
-                      class="datepicker form-control btn-outline-dark"
-                      name="page1[decisionDate]"
+                      id="decisionDate1"
+                      class="datepicker-range form-control btn-outline-dark"
+                      name="page1[decisionDate1]"
                       data-date-end-date="0d"
-                      data-provide="datepicker"
+                      required
+                      data-parsley-group="page1"
+                    />&nbsp;&nbsp;&nbsp;
+                    <label for="decisionDate2"
+                      >End&nbsp;&nbsp;&nbsp;&nbsp;</label
+                    >
+                    <input
+                      type="text"
+                      id="decisionDate2"
+                      class="datepicker-range form-control btn-outline-dark"
+                      name="page1[decisionDate2]"
+                      data-date-end-date="0d"
                       required
                       data-parsley-group="page1"
                     />

@@ -8,6 +8,9 @@ function UrlExists(url) {
     baseUrl = url;
     echrRat(baseUrl);
     courtCountry(baseUrl);
+    $(".articleSelect").on("focus mousedown", function () {
+      articleDrop(baseUrl);
+    });
   } catch (error) {
     console.error(error);
   }
@@ -121,6 +124,27 @@ var courtCountry = function (baseUrl) {
             }
           }
         }
+      });
+    });
+  });
+};
+
+var articleDrop = function (baseUrl) {
+  var articleUrl = baseUrl + "api/article/";
+  $(".articleSelect").on("focus mousedown", function () {
+    articleDropdown = $(this);
+    articleDropdown.prop("selectedIndex", 0);
+
+    axios({
+      method: "get",
+      url: articleUrl,
+    }).then(function (response) {
+      data = response.data;
+      $.each(data, function (article) {
+        textValue = data[article]["article"];
+        articleDropdown.append(
+          $("<option></option>").attr("value", textValue).text(textValue)
+        );
       });
     });
   });

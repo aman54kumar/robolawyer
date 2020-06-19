@@ -75,6 +75,7 @@ INSTALLED_APPS = [
     'extResources',
     'echrAPI',
     'courtAPI',
+    'articleAPI',
     'robots_txt',
 ]
 

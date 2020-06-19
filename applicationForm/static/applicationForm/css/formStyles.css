@@ -168,7 +168,7 @@ thead {
 td,
 th {
   padding: 10px;
-  text-align: center;
+  text-align: left;
   border-bottom: 2px solid white;
   border-right: 1px solid white;
 }

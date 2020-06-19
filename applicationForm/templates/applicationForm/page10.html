@@ -1,83 +1,434 @@
-<div id="form-page-10" role="tabpanel" class="bs-stepper-pane fade text-center" aria-labelledby="stepperFormTrigger10">
-    <div class="col-md-12 mx-auto form-section">
-        {% load static  %}
-        <div class="row">
-            <div class="card-master col-sm-11">
-                <div class="card-master-header">
-                    <h4 class="card-header-title">Finish</h4>
-                </div>
-                <div class="card-body alert-info">
-
-                    <h4>VERY IMPORTANT </h4>
-                    <div style="text-align:justify">
-                        <p class="lead" style="text-align:center">The application form has to be printed out and sent by
-                            mail to the registrar of the
-                            European
-                            Court of Human Rights. <br />
-                            Please keep the Court informed of any change of address and/or circumstances relevant to
-                            your application.
-                        </p>
-                        <div style="padding:5%">
-                            <p class="lead"><b><u>Before mailing the form, please make sure to:</u></b>
-
-                                <ol class="lead" style="text-align:justify">
-                                    <li>Add the original signatures of the applicant(s) and/or the authorised
-                                        representative(s) in all the relevant fields (page 3 if you are an
-                                        individual
-                                        that is represented by someone else, page 4 if you are an organisation that
-                                        is
-                                        represented by a lawyer, and page 13 of the printed application form). The
-                                        receipt of a faxed application is not counted as a complete application as
-                                        the
-                                        Court needs to receive the original signed application form.
-                                    </li><br>
-                                    <li>Add full and legible copies of all documents mentioned in your application.
-                                        No
-                                        documents will be returned to you. It is thus in your interests to submit
-                                        copies, not originals. You MUST:
-
-                                        <ul>
-                                            <li>arrange the documents in order by date and by procedure; </li>
-                                            <li>number the pages consecutively; and </li>
-                                            <li>NOT staple, bind or tape the documents.</li>
-                                        </ul>
-                                    </li><br>
-                                    <li>You must dispatch the signed original by post within the six-month
-                                        time-limit from the date when the final decision from the highest national
-                                        court
-                                        was communicated.
-                                    </li><br>
-                                    <li>
-                                        <span> The completed and signed application form should be sent by post
-                                            to:</span> <br> <br>
-                                        <div style="margin-left:100px">
-                                            <b>The Registrar</b><br>
-                                            <b>European Court of Human Rights</b><br>
-                                            <b>Council of Europe</b><br>
-                                            <b>67075 STRASBOURG CEDEX</b><br>
-                                            <b>FRANCE</b>
-                                        </div>
-                                    </li>
-                                </ol>
-                            </p>
-
-                        </div>
-
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn btn-primary" onclick="stepperForm.previous()">Previous</button>
-                        <button id="form-submit-btn" type="submit" class="btn btn-primary" name="appFormSubmit">Generate
-                            Printable PDF
-                            Form</button>
-                    </div>
-                </div>
-                <div style="position:fixed;right:20px;bottom:20px; width: 100%; margin-top: 5vw;" class="col-sm-1">
-                    <p class="text-white"> This is a Beta version of Just Bot and we rely on your feedback to
-                        improve it. </p>
-                    <button class="showModal btn feedback-button" value='10'
-                        onclick="curPageNum(this);">Feedback</button>
-
-                </div>
-            </div>
+<div
+  id="form-page-10"
+  role="tabpanel"
+  class="bs-stepper-pane fade text-center"
+  aria-labelledby="stepperFormTrigger10"
+>
+  <div class="col-md-12 mx-auto form-section">
+    {% load static %}
+    <div class="row">
+      <div class="card-master col-sm-11">
+        <div class="card-master-header">
+          <h4 class="card-header-title">Review</h4>
         </div>
+        <div class="card-body">
+          <button
+            class="btn btn-secondary reviewButton btn-block"
+            data-toggle="collapse"
+            data-target="#page1Elements"
+          >
+            Page1
+          </button>
+          <div id="page1Elements" class="collapse">
+            <table class="reviewTable">
+              <tbody>
+                <tr>
+                  <td>Which state(s) is/are concerned by your application?</td>
+                  <td id="page1-1"></td>
+                </tr>
+                <tr>
+                  <td>The facts you are complaining about concern:</td>
+                  <td>sample Country</td>
+                </tr>
+                <tr>
+                  <td>
+                    When did the facts that you are complaining about start and
+                    when did they stopped?
+                  </td>
+                  <td>selected Date</td>
+                </tr>
+                <tr>
+                  <td>
+                    Have you brought your case before the highest court
+                    competent to deal with the subject matter of your dispute?
+                  </td>
+                  <td>Yes/No answer</td>
+                </tr>
+                <tr>
+                  <td>
+                    Were there available legal or administrative remedies
+                    capable of remedying your situation that you have not used?
+                  </td>
+                  <td>yes/no reply</td>
+                </tr>
+                <tr>
+                  <td>
+                    When was the final decision in your case delivered or served
+                    on you?
+                  </td>
+                  <td>selected Date</td>
+                </tr>
+                <tr>
+                  <td>
+                    Do you already have a Reference number (Application number)
+                    from the Court in relation to these complaints?
+                  </td>
+                  <td>reference Number text</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <br />
+          <button
+            class="btn btn-secondary reviewButton btn-block"
+            data-toggle="collapse"
+            data-target="#page2Elements"
+          >
+            Page2
+          </button>
+          <div id="page2Elements" class="collapse">
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    Select the option appropriate for your situation and fill in
+                    the requested details.
+                  </td>
+                  <td></td>
+                </tr>
+                <div class="indReview">
+                  <tr>
+                    <td>Surname</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>First Name(s)</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Date of Birth</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Place of Birth</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Nationality</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Address</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Telephone Number</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Email</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Sex</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Anonymity Document</td>
+                    <td></td>
+                  </tr>
+                </div>
+                <div class="orgReview">
+                  <tr>
+                    <td>Name</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Activity</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Date of Registration or incorporation</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Identification Number</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Registered Address</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Telephone</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Email</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Anonymity Document</td>
+                    <td></td>
+                  </tr>
+                </div>
+              </tbody>
+            </table>
+          </div>
+          <br />
+          <button
+            class="btn btn-secondary reviewButton btn-block"
+            data-toggle="collapse"
+            data-target="#page3Elements"
+          >
+            Page3
+          </button>
+          <div id="page3Elements" class="collapse">
+            <table>
+              <tbody>
+                <div class="reviewRepIndividual">
+                  <tr>
+                    <td>Representative Type</td>
+                    <td></td>
+                  </tr>
+                  <div class="reviewRepIndNL">
+                    <tr>
+                      <td>Capacity/relationship/function</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Surname</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>First Name(s)</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Address</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Nationality</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Email</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Telephone Number</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Fax</td>
+                      <td></td>
+                    </tr>
+
+                    <tr>
+                      <td>Nationality</td>
+                      <td></td>
+                    </tr>
+                  </div>
+                  <div class="reviewRepIndL">
+                    <tr>
+                      <td>Surname</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>First Name(s)</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Address</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Nationality</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Email</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Telephone Number</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Fax</td>
+                      <td></td>
+                    </tr>
+
+                    <tr>
+                      <td>Nationality</td>
+                      <td></td>
+                    </tr>
+                  </div>
+                  <div class="reviewRepOrganisation">
+                    <div class="reviewRepOrgNL">
+                      <tr>
+                        <td>Capacity/relationship/function</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Surname</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>First Name(s)</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Address</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Nationality</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Email</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Telephone Number</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Fax</td>
+                        <td></td>
+                      </tr>
+
+                      <tr>
+                        <td>Nationality</td>
+                        <td></td>
+                      </tr>
+                    </div>
+                    <tr>
+                      <td>
+                        Is the organisation going to be represented by a Lawyer?
+                      </td>
+                      <td></td>
+                    </tr>
+                    <div class="reviewRepOrgL">
+                      <tr>
+                        <td>Surname</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>First Name(s)</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Address</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Nationality</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Email</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Telephone Number</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Fax</td>
+                        <td></td>
+                      </tr>
+
+                      <tr>
+                        <td>Nationality</td>
+                        <td></td>
+                      </tr>
+                    </div>
+                    <tr>
+                      <td>Email address for eComms account</td>
+                      <td></td>
+                    </tr>
+                  </div>
+                </div>
+              </tbody>
+            </table>
+          </div>
+
+     <br>   <button
+            class="btn btn-secondary reviewButton btn-block"
+            data-toggle="collapse"
+            data-target="#page4Elements"
+          >
+            Page4
+          </button>
+      <br>  <button
+            class="btn btn-secondary reviewButton btn-block"
+            data-toggle="collapse"
+            data-target="#page5Elements"
+          >
+            Page5
+          </button>
+        <br>  <button
+            class="btn btn-secondary reviewButton btn-block"
+            data-toggle="collapse"
+            data-target="#page6Elements"
+          >
+            Page6
+          </button>
+         <br> <button
+            class="btn btn-secondary reviewButton btn-block"
+            data-toggle="collapse"
+            data-target="#page7Elements"
+          >
+            Page7
+          </button>
+         <br> <button
+            class="btn btn-secondary reviewButton btn-block"
+            data-toggle="collapse"
+            data-target="#page8Elements"
+          >
+            Page8
+          </button>
+       <br>   <button
+            class="btn btn-secondary reviewButton btn-block"
+            data-toggle="collapse"
+            data-target="#page9Elements"
+          >
+            Page9
+          </button> <br><br>
+        <div class="card-footer">
+          <div class="row">
+            <div class="col-sm-6" align="left">
+              <button class="btn btn-primary" onclick="stepperForm.previous()">
+                Previous
+              </button>
+            </div>
+            <div class="col-sm-6" align="right">
+              <button
+                class="btn btn-primary btn-next-form"
+                onclick="stepperForm.next()"
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div
+        style="
+          position: fixed;
+          right: 20px;
+          bottom: 20px;
+          width: 100%;
+          margin-top: 5vw;
+        "
+        class="col-sm-1"
+      >
+        <p class="text-white">
+          This is a Beta version of Just Bot and we rely on your feedback to
+          improve it.
+        </p>
+        <button
+          class="showModal btn feedback-button"
+          value="10"
+          onclick="curPageNum(this);"
+        >
+          Feedback
+        </button>
+      </div>
     </div>
+  </div>
+</div>

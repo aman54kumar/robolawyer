@@ -223,6 +223,10 @@ function checkValidation(cur) {
         }
       }
     }
+  } else if (cur === 9) {
+    if (onValidate("page10")) {
+      return true;
+    }
   }
   return false;
 }

@@ -204,6 +204,13 @@
                     <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger10"
                         aria-controls="form-page-10">
                         <span class="bs-stepper-circle">10</span>
+                        <span class="bs-stepper-label">Review</span>
+                    </button>
+                </div>
+                <div class="step" data-target="#form-page-11">
+                    <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger11"
+                        aria-controls="form-page-11">
+                        <span class="bs-stepper-circle">11</span>
                         <span class="bs-stepper-label">Finish to PDF</span>
                     </button>
                 </div>
@@ -222,6 +229,7 @@
                     {% include 'applicationForm/page8.html' %}
                     {% include 'applicationForm/page9.html' %}
                     {% include 'applicationForm/page10.html' %}
+                    {% include 'applicationForm/page11.html' %}
                 </form>
 
 
@@ -257,6 +265,7 @@
 <script src="{% static 'applicationForm/js/countryScripts.js' %}"></script>
 <script src="{% static 'applicationForm/js/phoneScripts.js' %}"></script>
 <script src="{% static 'applicationForm/js/prereqFormScripts.js' %}"></script>
+<script src="{% static 'applicationForm/js/review.js' %}"></script>
 
 
 <script>

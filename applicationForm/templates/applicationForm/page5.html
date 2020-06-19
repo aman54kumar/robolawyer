@@ -1,27 +1,39 @@
-<div id="form-page-5" role="tabpanel" class="bs-stepper-pane fade" aria-labelledby="stepperFormTrigger5">
-    <div class="col-md-12 mx-auto form-section">
-        {% load static  %}
-        <div class="row">
-            <div class="card-master col-sm-11">
-                <div class="card-master-header">
-                    <h4 class="card-header-title" align="center">
-                        Article violation(s)
-                    </h4>
-                </div>
+<div
+  id="form-page-5"
+  role="tabpanel"
+  class="bs-stepper-pane fade"
+  aria-labelledby="stepperFormTrigger5"
+>
+  <div class="col-md-12 mx-auto form-section">
+    {% load static %}
+    <div class="row">
+      <div class="card-master col-sm-11">
+        <div class="card-master-header">
+          <h4 class="card-header-title" align="center">
+            Article violation(s)
+          </h4>
+        </div>
 
+        <div class="card-body alert-info">
+          <p class="lead" align="justified">
+            Indicate here alleged violation(s) of the
+            <a
+              href="https://www.echr.coe.int/Documents/Convention_ENG.pdf"
+              _target="#"
+            >
+              Convention and/or Protocols </a
+            >and relevant arguments. Explain as precisely as you can why the
+            facts described in the previous section entail a violation of the
+            Convention or/and Protocols. For each complaint raised you need to
+            indicate the Article/s that apply and argue in brief sentences how
+            it has been infringed.
+          </p>
 
-                <div class="card-body alert-info">
-                    <p class="lead" align="justified">Indicate here alleged violation(s) of the <a
-                            href="https://www.echr.coe.int/Documents/Convention_ENG.pdf" _target="#"> Convention and/or
-                            Protocols </a>and relevant arguments. Explain as precisely as you can why the facts described in the previous section entail a
-                            violation of the Convention or/and Protocols. For each complaint raised you need to indicate
-                            the Article/s that apply and argue in brief sentences how it has been infringed. </p>
-
-                    <!-- <div class="text-center"><button class="btn more-info-button" data-toggle="collapse"
+          <!-- <div class="text-center"><button class="btn more-info-button" data-toggle="collapse"
                             data-target="#info-3">More
                             Info</button></div> -->
-                    <br>
-                    <!-- <div id="info-3" class="collapse">
+          <br />
+          <!-- <div id="info-3" class="collapse">
                         <p align="Justify">
                             Explain as precisely as you can why the facts described in the previous section entail a
                             violation of the Convention or/and Protocols. For each complaint raised you need to indicate
@@ -29,8 +41,7 @@
                         </p>
                     </div> -->
 
-
-                    <!--        MACHINE LEARNING PART
+          <!--        MACHINE LEARNING PART
             				<hr>
             				 <div style="background-color:#fbcd33;border-radius: 5px;" align="center">
                         <br>
@@ -51,263 +62,152 @@
                     <hr>
  -->
 
+          <div class="form-group">
+            <div class="articleExample">
+              <h5 class="alert-heading">Examples</h5>
+              <table class="table-bordered">
+                <thead style="border: none;">
+                  <tr style="background-color: #2679c7; color: white;">
+                    <th scope="col" width="25%">Article Name</th>
+                    <th scope="col">Explanation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Article 6</td>
+                    <td>
+                      The criminal proceedings against me lasted 9 years and 8
+                      months for two levels of jurisdiction. Also, I was not
+                      allowed to cross-examine the witness who gave the sole
+                      evidence against me.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Article 5</td>
+                    <td>
+                      I was detained wrongfully at the border police station for
+                      three days without being told why or being allowed to
+                      phone a lawyer or my family.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Article 3</td>
+                    <td>
+                      The police kept me handcuffed in a cell without heating
+                      and gave me no food for three days. I became ill and
+                      needed treatment from the doctor for bronchitis.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <br />
+            <br />
+            <hr />
+            <div id="page5Group">
+              <div class="a-group">
+                <table width="100%" style="border: none;">
+                  <tr>
+                    <td width="25%" style="padding-right: 10px; border: none;">
+                      <label for="articleSelect"
+                        >Article(s) invoked
+                        </label
+                      >
+                      <select
+                        name="page5[0][articleSelect]"
+                        id="article_0_select"
+                        class="form-control articleSelect"
+                        required
+                        data-parsley-group="page5"
+                        data-pattern-name="page5[++][articleSelect]"
+                        data-pattern-id="article_++_select"
+                      >
+                      </select>
+                    </td>
+                    <td width="75%" style="border: none;">
+                      <label>Explanation</label>
+                      <textarea
+                        class="form-control articleExplanation"
+                        name="page5[0][articleExplanation]"
+                        id="article_0_explanation"
+                        data-pattern-id="article_++_explanation"
+                        data-pattern-name="page5[++][articleExplanation]"
+                        oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px"'
+                        cols="30"
+                        rows="2"
+                        maxlength="590"
+                        required
+                        data-parsley-group="page5"
+                      ></textarea>
+                    </td>
 
-                    <div class="form-group">
-                        <div class="articleExample">
-                            <h5 class="alert-heading">Examples</h5>
-                            <table class="table-bordered">
-                                <thead style="border:none">
-                                    <tr style="background-color:#2679c7;color:white">
-                                        <th scope="col" width="25%">Article Name</th>
-                                        <th scope="col">Explanation</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                    <tr>
-                                        <td>Article 6</td>
-                                        <td>The criminal proceedings against me lasted 9 years and 8 months for two
-                                            levels
-                                            of
-                                            jurisdiction. Also, I was not allowed to cross-examine the witness who
-                                            gave
-                                            the
-                                            sole
-                                            evidence against me.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Article 5</td>
-                                        <td>I was detained wrongfully at the border police station for three days
-                                            without
-                                            being
-                                            told
-                                            why or being allowed to phone a lawyer or my family.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Article 3</td>
-                                        <td>The police kept me handcuffed in a cell without heating and gave me no
-                                            food
-                                            for
-                                            three
-                                            days. I became ill and needed treatment from the doctor for bronchitis.
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <br> <br> <hr>
-                        <div id="page5Group">
-                            <div class="a-group">
-                                <table width="100%" style="border:none">
-                                    <tr>
-                                        <td width="25%" style="padding-right:10px;border:none">
-                                            <label for="articleSelect">Article(s) invoked</label>
-                                            <select name="page5[0][articleSelect]" id="article_0_select"
-                                                class="form-control articleSelect" required data-parsley-group="page5"
-                                                data-pattern-name="page5[++][articleSelect]"
-                                                data-pattern-id="article_++_select">
-                                                <option disabled selected value>Select relevant article</option>
-                                                <option value="(Art. 1) Obligation to respect human rights"> (Art. 1)
-                                                    Obligation to respect human rights </option>
-                                                <option value="(Art. 2) Right to life"> (Art. 2) Right to life </option>
-                                                <option value="(Art. 3) Prohibition of torture"> (Art. 3) Prohibition of
-                                                    torture </option>
-                                                <option value="(Art. 4) Prohibition of slavery and forced labour"> (Art.
-                                                    4) Prohibition of slavery and forced labour
-                                                </option>
-                                                <option value="(Art. 5) Right to liberty and security"> (Art. 5) Right
-                                                    to liberty and security </option>
-                                                <option value="(Art. 6) Right to a fair trial"> (Art. 6) Right to a fair
-                                                    trial </option>
-                                                <option value="(Art. 7) No punishment without law"> (Art. 7) No
-                                                    punishment without law </option>
-                                                <option value="(Art. 8) Right to respect for private and family life">
-                                                    (Art. 8) Right to respect for private and family life
-                                                </option>
-                                                <option value="(Art. 9) Freedom of thought, conscience and religion">
-                                                    (Art. 9) Freedom of thought, conscience and religion
-                                                </option>
-                                                <option value="(Art. 9) Positive obligations"> (Art. 9) Positive
-                                                    obligations </option>
-                                                <option value="(Art. 10) Freedom of expression"> (Art. 10)
-                                                    Freedom of expression </option>
-                                                <option value="(Art. 11) Freedom of assembly and association"> (Art. 11)
-                                                    Freedom of assembly and association
-                                                </option>
-                                                <option value="(Art. 12) Right to marry"> (Art. 12) Right to marry
-                                                </option>
-                                                <option value="(Art. 13) Right to an effective remedy"> (Art. 13) Right
-                                                    to an effective remedy</option>
-                                                <option value="(Art. 14) Prohibition of discrimination"> (Art. 14)
-                                                    Prohibition of discrimination </option>
-                                                <option value="(Art. 15) Derogation in time of emergency"> (Art. 15)
-                                                    Derogation in time of emergency</option>
-                                                <option value="(Art. 16) Restrictions on political activity of
-                                                aliens"> (Art. 16) Restrictions on political activity of
-                                                    aliens </option>
-                                                <option value="(Art. 17) Prohibition of abuse of rights"> (Art. 17)
-                                                    Prohibition of abuse of rights </option>
-                                                <option value="(Art. 18) Limitation on use of restrictions on
-                                                rights"> (Art. 18) Limitation on use of restrictions on
-                                                    rights
-                                                </option>
-                                                <option value="(Art. 19) Establishment of the Court"> (Art. 19)
-                                                    Establishment of the Court </option>
-                                                <option value="(Art. 33) Inter-State cases"> (Art. 33) Inter-State cases
-                                                </option>
-                                                <option value="(Art. 34) Individual applications"> (Art. 34) Individual
-                                                    applications </option>
-                                                <option value="(Art. 35) Admissibility criteria"> (Art. 35)
-                                                    Admissibility criteria </option>
-                                                <option value="(Art. 37) Striking out applications"> (Art. 37)
-                                                    Striking out applications
-                                                </option>
-                                                <option value="(Art. 38) Examination of the case"> (Art. 38)
-                                                    Examination of the case
-                                                </option>
-                                                <option value="(Art. 39) Friendly settlements"> (Art. 39) Friendly
-                                                    settlements </option>
-                                                <option value="(Art. 41) Just satisfaction"> (Art. 41) Just
-                                                    satisfaction</option>
-                                                <option value="(Art. 46) Binding force and execution of judgments">
-                                                    (Art. 46) Binding force and execution of judgments
-                                                </option>
-                                                <option value="(Art. 47) Advisory opinions"> (Art. 47)
-                                                    Advisory opinions </option>
-                                                <option value="(Art. 48) Advisory jurisdiction of the
-                                                Court"> (Art. 48) Advisory jurisdiction of the
-                                                    Court
-                                                </option>
-                                                <option value="(Art. 52) Inquiries by the Secretary General"> (Art. 52)
-                                                    Inquiries by the Secretary General
-                                                </option>
-                                                <option value="(Art. 53) Rights otherwise guaranteed"> (Art. 53) Rights
-                                                    otherwise guaranteed </option>
-                                                <option value="(Art. 54) Powers of the Committee of Ministers"> (Art.
-                                                    54) Powers of the Committee of Ministers
-                                                </option>
-                                                <option value="(Art. 55) Renunciation of other means of settlement">
-                                                    (Art. 55) Renunciation of other means of settlement
-                                                </option>
-                                                <option value="(Art. 56) Territorial application"> (Art. 56)
-                                                    Territorial application
-                                                </option>
-                                                <option value="(Art. 57) Reservations"> (Art. 57)
-                                                    Reservations </option>
-                                                <option value="(Art. 58) Denunciation"> (Art. 58) Denunciation </option>
-                                                <option value="(Art. 59) Signature and ratification"> (Art.
-                                                    59) Signature and ratification
-                                                </option>
-                                                <option value="(P1-1) Protection of property"> (P1-1) Protection of
-                                                    property </option>
-                                                <option value="(P1-2) Right to education"> (P1-2) Right to
-                                                    education </option>
-                                                <option value="(P1-3) Right to free elections"> (P1-3) Right
-                                                    to free elections </option>
-                                                <option value="(P1-4) Territorial application"> (P1-4) Territorial
-                                                    application </option>
-                                                <option value="(P1-6) Signature and ratification"> (P1-6) Signature and
-                                                    ratification </option>
-                                                <option value="(P4-1) Prohibition of imprisonment for
-                                                debt"> (P4-1) Prohibition of imprisonment for
-                                                    debt
-                                                </option>
-                                                <option value="(P4-2) Freedom of movement"> (P4-2) Freedom of
-                                                    movement </option>
-                                                <option value="(P4-3) Prohibition of expulsion of nationals"> (P4-3)
-                                                    Prohibition of expulsion of nationals
-                                                </option>
-                                                <option value="(P4-4) Prohibition of collective expulsion of
-                                                aliens"> (P4-4) Prohibition of collective expulsion of
-                                                    aliens </option>
-                                                <option value="(P4-5) Territorial application"> (P4-5) Territorial
-                                                    application </option>
-                                                <option value="(P4-7) Signature and ratification"> (P4-7) Signature and
-                                                    ratification </option>
-                                                <option value="(P6-1) Abolition of the death penalty"> (P6-1)
-                                                    Abolition of the death penalty
-                                                </option>
-                                                <option value="(P6-2) Death penalty in time of war"> (P6-2)
-                                                    Death penalty in time of war
-                                                </option>
-                                                <option value="(P6-4) Prohibition of reservations"> (P6-4)
-                                                    Prohibition of reservations
-                                                </option>
-                                                <option value="(P6-5) Territorial application"> (P6-5) Territorial
-                                                    application </option>
-                                                <option value="(P6-7) Signature and ratification"> (P6-7) Signature and
-                                                    ratification </option>
-                                                <option
-                                                    value="(P7-1) Procedural safeguards relating to expulsion of aliens">
-                                                    (P7-1) Procedural safeguards relating to expulsion of aliens
-                                                </option>
-                                                <option value="(P7-2) Right of appeal in criminal matters"> (P7-2) Right
-                                                    of appeal in criminal matters </option>
-                                                <option value="(P7-3) Compensation for wrongful conviction"> (P7-3)
-                                                    Compensation for wrongful conviction
-                                                </option>
-                                                <option value="(P7-4) Right not to be tried or punished
-                                                twice"> (P7-4) Right not to be tried or punished
-                                                    twice
-                                                </option>
-                                                <option value="(P7-5) Equality between spouses"> (P7-5)
-                                                    Equality between spouses </option>
-                                                <option value="(P7-6) Territorial application"> (P7-6) Territorial
-                                                    application </option>
-                                                <option value="(P7-8) Signature and ratification"> (P7-8) Signature and
-                                                    ratification</option>
-                                                <option value="(P12-1) General prohibition of discrimination"> (P12-1)
-                                                    General prohibition of discrimination
-                                                </option>
-                                                <option value="(P13-1) Abolition of the death penalty"> (P13-1)
-                                                    Abolition of the death penalty </option>
-                                            </select>
-                                        </td>
-                                        <td width="75%" style="border:none">
-                                            <label>Explanation</label>
-                                            <textarea class="form-control articleExplanation"
-                                                name="page5[0][articleExplanation]" id="article_0_explanation"
-                                                data-pattern-id="article_++_explanation"
-                                                data-pattern-name="page5[++][articleExplanation]"
-                                                oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px"'
-                                                cols="30" rows="2" maxlength="590" required
-                                                data-parsley-group="page5"></textarea>
-                                        </td>
-
-                                        <p>
-                                            <!-- Add a remove button for the item. If one didn't exist, it would be added to overall group -->
-
-                                        </p>
-
-                                    </tr>
-                                </table>
-                                <div>
-                                    <button type="button" class="a-btnAdd btn btn-primary" id="addButton_5_0"
-                                        data-pattern-id="addButton_5_++">Add +</button>
-                                    <button type="button" class="a-btnRemove btn btn-danger">Remove -</button>
-
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-sm-6" align="left"><button class="btn btn-primary"
-                                    onclick="stepperForm.previous()">Previous</button></div>
-                            <div class="col-sm-6" align="right"><button class="btn btn-primary btn-next-form"
-                                    onclick="stepperForm.next()">Next</button></div>
-                        </div>
-                    </div>
+                    <p>
+                      <!-- Add a remove button for the item. If one didn't exist, it would be added to overall group -->
+                    </p>
+                  </tr>
+                </table>
+                <div>
+                  <button
+                    type="button"
+                    class="a-btnAdd btn btn-primary"
+                    id="addButton_5_0"
+                    data-pattern-id="addButton_5_++"
+                  >
+                    Add +
+                  </button>
+                  <button type="button" class="a-btnRemove btn btn-danger">
+                    Remove -
+                  </button>
                 </div>
+              </div>
             </div>
-            <div style="position:fixed;right:20px;bottom:20px; width: 100%; margin-top: 5vw;" class="col-sm-1">
-                <p class="text-white"> This is a Beta version of Just Bot and we rely on your feedback to
-                    improve it. </p>
-                <button class="showModal btn feedback-button" value='5' onclick="curPageNum(this);">Feedback</button>
-
+          </div>
+          <div class="card-footer">
+            <div class="row">
+              <div class="col-sm-6" align="left">
+                <button
+                  class="btn btn-primary"
+                  onclick="stepperForm.previous()"
+                >
+                  Previous
+                </button>
+              </div>
+              <div class="col-sm-6" align="right">
+                <button
+                  class="btn btn-primary btn-next-form"
+                  onclick="stepperForm.next()"
+                >
+                  Next
+                </button>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
+      <div
+        style="
+          position: fixed;
+          right: 20px;
+          bottom: 20px;
+          width: 100%;
+          margin-top: 5vw;
+        "
+        class="col-sm-1"
+      >
+        <p class="text-white">
+          This is a Beta version of Just Bot and we rely on your feedback to
+          improve it.
+        </p>
+        <button
+          class="showModal btn feedback-button"
+          value="5"
+          onclick="curPageNum(this);"
+        >
+          Feedback
+        </button>
+      </div>
     </div>
+  </div>
 </div>
+
+

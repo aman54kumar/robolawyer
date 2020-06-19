@@ -29,6 +29,7 @@ urlpatterns = [
     # Rest APIs
     path('api/echr/', include('echrAPI.urls', 'echr_api')),
     path('api/court/', include('courtAPI.urls', 'court_api')),
+    path('api/article/', include('articleAPI.urls', 'article_api')),
     # robots.txt
     path('robots.txt', RobotsTextView.as_view())
 ]
@@ -36,5 +37,4 @@ urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 if settings.DEBUG:
     import debug_toolbar
-    urlpatterns += [
-        path('__debug__/', include(debug_toolbar.urls))]
+    urlpatterns += [path('__debug__/', include(debug_toolbar.urls))]

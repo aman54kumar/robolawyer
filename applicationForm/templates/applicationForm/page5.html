@@ -118,6 +118,7 @@
                         data-parsley-group="page5"
                         data-pattern-name="page5[++][articleSelect]"
                         data-pattern-id="article_++_select"
+                        onchange="populateDiv(this.id)"
                       >
                       </select>
                     </td>
@@ -143,12 +144,23 @@
                     </p>
                   </tr>
                 </table>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-3">
+                      <div class="nameDiv"></div>
+                    </div>
+                    <div class="col-9">
+                      <div class="descDiv"></div>
+                    </div>
+                  </div>
+                </div>
                 <div>
                   <button
                     type="button"
-                    class="a-btnAdd btn btn-primary"
+                    class="a-btnAdd btn btn-primary page5_addButton"
                     id="addButton_5_0"
                     data-pattern-id="addButton_5_++"
+                    onclick="callAPI(this.id);"
                   >
                     Add +
                   </button>

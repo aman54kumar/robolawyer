@@ -8,9 +8,20 @@ function UrlExists(url) {
     baseUrl = url;
     echrRat(baseUrl);
     courtCountry(baseUrl);
-    $(".articleSelect").on("focus mousedown", function () {
-      articleDrop(baseUrl);
-    });
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function UrlExists2(url) {
+  var http = new XMLHttpRequest();
+  http.open("HEAD", url, false);
+  http.withCredentials = true;
+  http.setRequestHeader("Content-Type", "application/json");
+  http.send();
+  try {
+    baseUrl = url;
+    articleDrop(baseUrl);
   } catch (error) {
     console.error(error);
   }
@@ -131,10 +142,8 @@ var courtCountry = function (baseUrl) {
 
 var articleDrop = function (baseUrl) {
   var articleUrl = baseUrl + "api/article/";
-  $(".articleSelect").on("focus mousedown", function () {
-    articleDropdown = $(this);
-    articleDropdown.prop("selectedIndex", 0);
-
+  $("#article_0_select").on("focus mousedown", function () {
+    articleDropdown = $("#article_0_select");
     axios({
       method: "get",
       url: articleUrl,
@@ -152,3 +161,77 @@ var articleDrop = function (baseUrl) {
 
 rootUrl = window.location.href.split("form/")[0];
 UrlExists(rootUrl);
+UrlExists2(rootUrl);
+
+function callAPI(addButtonID) {
+  console.log(addButtonID);
+  elementNumber = parseInt(addButtonID.split("_")[2]);
+  nextDropdown = "#article_" + String(elementNumber + 1) + "_select";
+  console.log(nextDropdown);
+  // console.log(document.getElementById(nextDropdown));
+  url = window.location.href.split("form/")[0];
+  var http = new XMLHttpRequest();
+  http.open("HEAD", url, false);
+  http.withCredentials = true;
+  http.setRequestHeader("Content-Type", "application/json");
+  http.send();
+  try {
+    baseUrl = url;
+    var articleUrl = baseUrl + "api/article/";
+    correspDropdownElement = nextDropdown;
+    console.log(correspDropdownElement);
+    axios({
+      method: "get",
+      url: articleUrl,
+    }).then(function (response) {
+      data = response.data;
+      console.log(data);
+      $.each(data, function (article) {
+        textValue = data[article]["article"];
+        correspDropdownElement.append(
+          $("<option></option>").attr("value", textValue).text(textValue)
+        );
+      });
+    });
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function populateDiv(elId) {
+  url = window.location.href.split("form/")[0];
+  var http = new XMLHttpRequest();
+  http.open("HEAD", url, false);
+  http.withCredentials = true;
+  http.setRequestHeader("Content-Type", "application/json");
+  http.send();
+
+  baseUrl = url;
+  var articleUrl = baseUrl + "api/article/";
+  element1 = document.getElementById("article_0_select");
+  element4 =
+    element1.parentElement.parentElement.parentElement.parentElement
+      .parentElement.children[2].parentElement.children[2].children[0];
+  selectedElement = element1.value;
+  pElement = document.createElement("p");
+  pElement.setAttribute("style", "text-align:center");
+  p2Element = document.createElement("p");
+  p2Element.setAttribute("style", "text-align:center");
+  element2 = element4.children[0].children[0];
+  element3 = element4.children[1].children[0];
+  axios({
+    method: "get",
+    url: articleUrl,
+  }).then(function (response) {
+    data = response.data;
+    $.each(data, function (article) {
+      textValue = data[article]["article"];
+      if (data[article]["article"] === selectedElement) {
+        pElement.innerHTML = data[article]["article"];
+        element2.append(pElement);
+        p2Element.innerHTML = data[article]["fullText"];
+        element3.append(p2Element);
+      }
+    });
+  });
+}

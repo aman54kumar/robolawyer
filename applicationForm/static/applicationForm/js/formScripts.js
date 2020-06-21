@@ -73,7 +73,7 @@ $("input[name='page3[indRepresentativeType]']").change(function () {
     $(".indAuthority").removeClass("is-hidden");
     $("#indLNationality").val("");
   } else if (result === "selfRepresented") {
-    $("#selfRep").removeClass("is-hidden");
+    $("#reviewRepSelf").removeClass("is-hidden");
     $("#nonLawyerRep").addClass("is-hidden");
     $("#lawyerRep").addClass("is-hidden");
     $(".indAuthority").addClass("is-hidden");

@@ -6,8 +6,9 @@ import csv
 import os
 
 filename = "CSV_articleAPI.csv"
-path = "D:/Projects/robolawyer/articleAPI"
+# path = "D:/Projects/robolawyer/articleAPI"
 # path = "/home/aman/Documents/Projects/robolawyer/articleAPI"
+path = "/app/articleAPI"  #for heroku
 
 os.chdir(path)
 with open(filename, encoding="UTF-8") as csvFile:

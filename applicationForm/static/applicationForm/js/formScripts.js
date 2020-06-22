@@ -151,6 +151,7 @@ $("#page5Group").repeater({
   animationEasing: "swing",
   clearValues: true,
   afterAdd: function () {
+    callAPI(this.id);
     cur_id = this.id;
     id_no = cur_id.split("_5_")[1];
     for (i = id_no; i >= 0; i--) {

@@ -7,7 +7,7 @@ from .models import ArticleDetail
 
 
 class ArticleViewSet(viewsets.ModelViewSet):
-    queryset = ArticleDetail.objects.all().order_by('article')
+    queryset = ArticleDetail.objects.all().order_by('sNo')
     serializer_class = ArticleSerializer
 
     def delete(self, request, pk, format=None):

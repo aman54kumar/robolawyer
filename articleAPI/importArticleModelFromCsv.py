@@ -5,17 +5,19 @@ from articleAPI.models import ArticleDetail
 import csv
 import os
 
-filename = "CSV_articleAPI.csv"
-# path = "D:/Projects/robolawyer/articleAPI"
+filename = "articleList.csv"
+path = "D:/Projects/robolawyer/articleAPI"
 # path = "/home/aman/Documents/Projects/robolawyer/articleAPI"
-path = "/app/articleAPI"  #for heroku
+# path = "/app/articleAPI"  #for heroku
 
 os.chdir(path)
-with open(filename, encoding="UTF-8") as csvFile:
+with open(filename, encoding="utf-8-sig") as csvFile:
     reader = csv.DictReader(csvFile)
     for row in reader:
-        p = ArticleDetail(article=row['\ufeffArticle'],
+        p = ArticleDetail(sNo=row['Index'],
+                          article=row['Article'],
                           fullText=row['Full text'])
+        # print(row)
         print(p)
         p.save()
 

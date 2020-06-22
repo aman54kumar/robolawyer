@@ -6,6 +6,7 @@ class ArticleSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = ArticleDetail
         fields = (
+            'sNo',
             'article',
             'fullText',
         )

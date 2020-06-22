@@ -150,9 +150,15 @@ var articleDrop = function (baseUrl) {
       data = response.data;
       $.each(data, function (article) {
         textValue = data[article]["article"];
-        articleDropdown.append(
-          $("<option></option>").attr("value", textValue).text(textValue)
-        );
+        if (textValue === "Other articles") {
+          articleDropdown.append(
+            $("<option></option>").prop("disabled", true).text(textValue)
+          );
+        } else {
+          articleDropdown.append(
+            $("<option></option>").attr("value", textValue).text(textValue)
+          );
+        }
       });
     });
   });
@@ -183,9 +189,15 @@ function callAPI(addButtonID) {
       data = response.data;
       $.each(data, function (article) {
         textValue = data[article]["article"];
-        correspDropdownElement.append(
-          $("<option></option>").attr("value", textValue).text(textValue)
-        );
+        if (textValue === "Other articles") {
+          correspDropdownElement.append(
+            $("<option></option>").prop("disabled", true).text(textValue)
+          );
+        } else {
+          correspDropdownElement.append(
+            $("<option></option>").attr("value", textValue).text(textValue)
+          );
+        }
       });
     });
   } catch (error) {
@@ -214,19 +226,24 @@ function populateDiv(elId) {
   p2Element.setAttribute("style", "text-align:center");
   articleElement = containerElement.children[0].children[0].children[0];
   descriptionElement = containerElement.children[0].children[1].children[0];
-  axios({
-    method: "get",
-    url: articleUrl,
-  }).then(function (response) {
-    data = response.data;
-    $.each(data, function (article) {
-      textValue = data[article]["article"];
-      if (data[article]["article"] === selectedElement) {
-        pElement.innerHTML = data[article]["article"];
-        articleElement.append(pElement);
-        p2Element.innerHTML = data[article]["fullText"];
-        descriptionElement.append(p2Element);
-      }
+  if (articleElement)
+    axios({
+      method: "get",
+      url: articleUrl,
+    }).then(function (response) {
+      data = response.data;
+      $.each(data, function (article) {
+        textValue = data[article]["article"];
+        if (data[article]["article"] === selectedElement) {
+          if (articleElement.lastChild) {
+            articleElement.lastChild.remove();
+            descriptionElement.lastChild.remove();
+          }
+          pElement.innerHTML = data[article]["article"];
+          articleElement.append(pElement);
+          p2Element.innerHTML = data[article]["fullText"];
+          descriptionElement.append(p2Element);
+        }
+      });
     });
-  });
 }

@@ -104,7 +104,7 @@ function onValidate(groupname) {
   ) {
     return true;
   } else {
-    return false;
+    return false; // false
   }
 }
 

@@ -272,6 +272,22 @@ $("#page8Group").repeater({
   animationEasing: "swing",
   clearValues: true,
   afterAdd: function () {
+    $(".datepicker").datepicker({
+      weekStart: 1,
+      daysOfWeekHighlighted: "0,6",
+      assumeNearbyYear: true,
+      autoclose: true,
+      todayHighlight: true,
+      clearBtn: true,
+      showOnFocus: true,
+      maxViewMode: "days",
+      format: "dd-mm-yyyy",
+      orientation: "top left",
+      templates: {
+        leftArrow: "&lt;",
+        rightArrow: "&gt;",
+      },
+    });
     cur_id = this.id;
     id_no = cur_id.split("_8_")[1];
     for (i = id_no; i >= 0; i--) {

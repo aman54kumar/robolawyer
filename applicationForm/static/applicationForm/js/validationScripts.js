@@ -104,7 +104,7 @@ function onValidate(groupname) {
   ) {
     return true;
   } else {
-    return true;
+    return false;
   }
 }
 
@@ -233,7 +233,6 @@ function checkValidation(cur) {
 
 function formatText(lines, limit, suffixLen = 3, prefixLen = 2) {
   lines = lines.split("");
-  // console.log(lines)
   str = "";
   itrPosition = 0;
 

@@ -166,7 +166,7 @@ class PrepareResult:
 
         barCodeText = "|".join(barCodeList)
 
-        codeList.append(barCodeText[:928])
+        codeList.append(barCodeText[:927])
         codeList.append(self.sessionID)
         self.createOrDeleteDirectory(
             "applicationForm/dataPreparation/results/" + self.sessionID +

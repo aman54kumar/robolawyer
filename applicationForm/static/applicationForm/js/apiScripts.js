@@ -148,6 +148,9 @@ var articleDrop = function (baseUrl) {
       url: articleUrl,
     }).then(function (response) {
       data = response.data;
+      articleDropdown.append(
+        $("<option></option>").text("Select Relevant Article")
+      );
       $.each(data, function (article) {
         textValue = data[article]["article"];
         if (textValue === "Other articles") {
@@ -187,6 +190,9 @@ function callAPI(addButtonID) {
       url: articleUrl,
     }).then(function (response) {
       data = response.data;
+      correspDropdownElement.append(
+        $("<option></option>").text("Select Relevant Article")
+      );
       $.each(data, function (article) {
         textValue = data[article]["article"];
         if (textValue === "Other articles") {

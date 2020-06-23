@@ -211,9 +211,11 @@ function textCounter(field, field2, maxlimit) {
   var countfield = document.getElementById(field2);
   if (field.value.length > maxlimit) {
     if (field.id === "stofFacts") {
-      swal(
-        "You have used up the allocated length for Statement of Facts. For more explanation, please use the extra provided area by clicking the button 'Do you need more writing space?'"
-      );
+      swal({
+        buttons: ["Go Back", "Confirm"],
+        text:
+          "You have reached the page limit imposed by the Court. It is possible for you to add a supplementary statement expanding on the facts, complaints or remedies used. This extra statement should not be more than 20 pages. It should not add new complaints or violations but only develop what is already set out in the form. You can either go back and rephrase your Statement of the facts to comply with the page limit, or you can add extra pages on the Subject matter of the application. Before adding extra pages, make sure that all the central facts are already mentioned in the main Statement of Facts and that you are not adding any additional information, but merely expanding on the already mentioned facts, violations and complaints.",
+      });
       $(".extraWritingArea").removeClass("is-hidden");
     }
     if (field.id === "stofFactsExtra") {

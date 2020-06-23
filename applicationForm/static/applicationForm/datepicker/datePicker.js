@@ -9,38 +9,47 @@ $(document).ready(function () {
     showOnFocus: true,
     maxViewMode: "days",
     format: "dd-mm-yyyy",
+    orientation: "top left",
     templates: {
       leftArrow: "&lt;",
       rightArrow: "&gt;",
     },
   });
 
-  var userTarget = "";
-  var exit = false;
-  $(".input-daterange").datepicker({
+  set_parameters();
+});
+
+function set_parameters() {
+  var date_start_input = $("#decisionDate1");
+  var date_end_input = $("#decisionDate2");
+  var container =
+    $(".bootstrap-iso form").length > 0
+      ? $(".bootstrap-iso form").parent()
+      : "body";
+
+  var options = {
+    container: container,
+    todayHighlight: true,
+    autoclose: true,
+    orientation: "top left",
     format: "dd-mm-yyyy",
     weekStart: 1,
     language: "en",
     daysOfWeekHighlighted: "0,6",
-    autoclose: true,
     showOnFocus: true,
     maxViewMode: "days",
-    keepEmptyValues: true,
     templates: {
       leftArrow: "&lt;",
       rightArrow: "&gt;",
     },
+  };
+
+  date_start_input.datepicker(options).on("changeDate", function (e) {
+    date_end_input.datepicker("setStartDate", e.date);
   });
-  $(".input-daterange").focusin(function (e) {
-    userTarget = e.target.name;
+  date_end_input.datepicker(options).on("changeDate", function (e) {
+    date_start_input.datepicker("setEndDate", e.date);
   });
-  $(".input-daterange").on("changeDate", function (e) {
-    if (exit) return;
-    if (e.target.name != userTarget) {
-      exit = true;
-      $(e.target).datepicker("clearDates");
-    }
-    exit = false;
-  });
-});
+}
+
 // Todo - change all formats to this. remove dataprovider attribute from all date fields.

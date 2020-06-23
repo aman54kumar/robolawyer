@@ -15,7 +15,7 @@ function pdfEmailSubmit(e) {
       csrfmiddlewaretoken: csrftoken,
     },
     success: function () {
-      console.log("PDF sent via Email");
+      swal("PDF sent via Email");
     },
   });
 }

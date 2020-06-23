@@ -4,9 +4,9 @@ from echrAPI.models import EchrDetail
 import csv
 import os
 
-
 filename = "Ratification of ECHR dates and coutries.csv"
-path = "D:/Projects/robolawyer/echrAPI"
+# path = "D:/Projects/robolawyer/echrAPI"
+path = "/app/echrAPI"  #for heroku
 # path = "/home/aman/Documents/Projects/robolawyer/echrAPI"
 os.chdir(path)
 with open(filename) as csvFile:
@@ -15,7 +15,6 @@ with open(filename) as csvFile:
         p = EchrDetail(country=row['Country'],
                        ratDate=row['Ratification date'])
         p.save()
-
 
 if __name__ == "__main__":
     print("data updated")

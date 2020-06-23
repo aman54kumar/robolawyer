@@ -5,10 +5,10 @@ from courtAPI.models import CourtDetail
 import csv
 import os
 
-
 filename = "Countries_and_national_courts.csv"
-path = "D:/Projects/robolawyer/courtAPI"
+# path = "D:/Projects/robolawyer/courtAPI"
 # path = "/home/aman/Documents/Projects/robolawyer/courtAPI"
+path = "/app/courtAPI"  #for heroku
 
 os.chdir(path)
 with open(filename, encoding="UTF-8") as csvFile:
@@ -23,7 +23,6 @@ with open(filename, encoding="UTF-8") as csvFile:
                         court3=row['Court3'])
         print(p)
         p.save()
-
 
 if __name__ == "__main__":
     print("data updated")

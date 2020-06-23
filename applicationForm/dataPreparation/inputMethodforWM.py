@@ -611,7 +611,7 @@ def barcodeMaker(self, formInputs, applicantCode):
     codes = encode(text)
 
     # Generate barcode as SVG
-    svg = render_svg(codes)  # ElementTree object
+    svg = render_svg(codes, columns=8)  # ElementTree object
     svg.write(
         os.path.join(
             settings.BASE_DIR,

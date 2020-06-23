@@ -143,7 +143,6 @@ class PrepareResult:
 
         barCodeList.insert(17, statesValue)
 
-        print(barCodeList)
         for indexes in [6, 21, 29, 36, 43]:
             barCodeList[indexes] = modifyCountryNames(barCodeList[indexes])
 

@@ -76,7 +76,8 @@ def download(request):
     if os.path.exists(file_path):
         with open(file_path, 'rb') as fh:
             response = HttpResponse(fh.read(), content_type="application/pdf")
-            response['Content-Disposition'] = 'inline; filename=ECHR_form.pdf'
+            response[
+                'Content-Disposition'] = 'inline; filename=ECHR_formApplication_form_to_the_ECtHR.pdf'
             return response
     raise Http404
 
@@ -103,11 +104,12 @@ def pdf_email(request):
     if request.method == 'POST':
         emailInput = request.POST.get('emailInput')
         print(emailInput)
-        subject = "ECHR pdf"
+        subject = "Your application to the European Court of Human Rights is here"
         from_user = settings.EMAIL_HOST_USER
         to = [emailInput]
+        body = "Hello, <br/> Thank you for using Just Bot to fill in your application form to the European Court of Human Rights. <br/> <br/> You can find your application in the attachment. Together you will find your Anonymity Form and the document containing your extra pages for the statement of facts, as well as separator pages for the documents you need to attach to your application. <br/> <br/> Do not forget to date and sign the application form before sending it to the Court! <br/> <br/> Here is a short checklist for you: <br/>    €    Have you dated and signed the printed application form? (you must always date and sign page 13 of your printed form, as well as either page 3 or page 4, depending on what type of applicant you are and whether you have someone else representing you); <br/>    €    Have you compiled the folder containing all the documents attached to the application? <br/>    €    Have you numbered all the documents that you are going to attach to the application? <br/>    €    Have you arranged the documents chronologically, from the newest document to the <br/> oldest? You can make use of the separator pages generated together with the application form to guide you in arranging the documents."
         message = EmailMessage(subject=subject,
-                               body='Here is your application.',
+                               body=body,
                                from_email=from_user,
                                to=to)
         # send_mail(subject, message, from_user, to, fail_silently=False)

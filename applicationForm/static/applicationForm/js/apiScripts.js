@@ -224,14 +224,16 @@ function populateDiv(elId) {
   containerElement = document.getElementById(elId).parentElement.parentElement
     .parentElement.parentElement.parentElement.children[2].parentElement
     .children[2];
+  console.log(containerElement);
   containerElement.classList.remove("is-hidden");
   selectedElement = document.getElementById(elId).value;
   pElement = document.createElement("p");
   pElement.setAttribute("style", "text-align:center");
   p2Element = document.createElement("p");
-  p2Element.setAttribute("style", "text-align:center");
-  articleElement = containerElement.children[0].children[0].children[0];
-  descriptionElement = containerElement.children[0].children[1].children[0];
+  p2Element.setAttribute("style", "text-align:justify");
+
+  articleElement = containerElement.children[0].children[0];
+  descriptionElement = containerElement.children[0].children[1];
   if (articleElement)
     axios({
       method: "get",

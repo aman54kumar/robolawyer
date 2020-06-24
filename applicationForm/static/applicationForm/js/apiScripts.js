@@ -149,7 +149,12 @@ var articleDrop = function (baseUrl) {
     }).then(function (response) {
       data = response.data;
       articleDropdown.append(
-        $("<option></option>").text("Select Relevant Article")
+        $("<option></option>")
+          .attr("value", "")
+          .prop("disabled", true)
+          .prop("selected", true)
+          .prop("hidden", true)
+          .text("Select Relevant Article")
       );
       $.each(data, function (article) {
         textValue = data[article]["article"];
@@ -191,7 +196,12 @@ function callAPI(addButtonID) {
     }).then(function (response) {
       data = response.data;
       correspDropdownElement.append(
-        $("<option></option>").text("Select Relevant Article")
+        $("<option></option>")
+          .attr("value", "")
+          .prop("disabled", true)
+          .prop("selected", true)
+          .prop("hidden", true)
+          .text("Select Relevant Article")
       );
       $.each(data, function (article) {
         textValue = data[article]["article"];
@@ -224,7 +234,6 @@ function populateDiv(elId) {
   containerElement = document.getElementById(elId).parentElement.parentElement
     .parentElement.parentElement.parentElement.children[2].parentElement
     .children[2];
-  console.log(containerElement);
   containerElement.classList.remove("is-hidden");
   selectedElement = document.getElementById(elId).value;
   pElement = document.createElement("p");

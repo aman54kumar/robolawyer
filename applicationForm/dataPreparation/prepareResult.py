@@ -314,7 +314,7 @@ class PrepareResult:
         resultPath.sort(key=self.natural_key)
         self.pdf_merger(
             "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/ECHR_formApplication_form_to_the_ECtHR.pdf",
+            "/finalPage/Application form to the ECtHR.pdf",
             resultPath,
         )
 

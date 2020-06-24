@@ -71,13 +71,13 @@ def feedback(request):
 def download(request):
     file_path = os.path.join(
         settings.BASE_DIR, 'applicationForm/dataPreparation/results/' +
-        sessionID + '/finalPage/finalForm.pdf')
+        sessionID + '/finalPage/Application form to the ECtHR.pdf')
     print(file_path)
     if os.path.exists(file_path):
         with open(file_path, 'rb') as fh:
             response = HttpResponse(fh.read(), content_type="application/pdf")
             response[
-                'Content-Disposition'] = 'inline; filename=ECHR_formApplication_form_to_the_ECtHR.pdf'
+                'Content-Disposition'] = 'inline; filename=Application form to the ECtHR.pdf'
             return response
     raise Http404
 
@@ -100,7 +100,7 @@ def download(request):
 def pdf_email(request):
     file_path = os.path.join(
         settings.BASE_DIR, 'applicationForm/dataPreparation/results/' +
-        sessionID + '/finalPage/ECHR_formApplication_form_to_the_ECtHR.pdf')
+        sessionID + '/finalPage/Application form to the ECtHR.pdf')
     if request.method == 'POST':
         emailInput = request.POST.get('emailInput')
         print(emailInput)

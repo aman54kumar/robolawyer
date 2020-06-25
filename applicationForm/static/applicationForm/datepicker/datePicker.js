@@ -6,6 +6,7 @@ $(document).ready(function () {
   swal({
     buttons: ["Go Back", "OK"],
     content: popUpText,
+    closeOnClickOutside: false,
   });
 
   $(".datepicker").datepicker({

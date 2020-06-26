@@ -237,7 +237,10 @@ function populateDiv(elId) {
   containerElement.classList.remove("is-hidden");
   selectedElement = document.getElementById(elId).value;
   pElement = document.createElement("p");
-  pElement.setAttribute("style", "text-align:center");
+  pElement.setAttribute(
+    "style",
+    "padding-left:30px; padding-right:30px; font-weight:600;"
+  );
   p2Element = document.createElement("p");
   p2Element.setAttribute("style", "text-align:justify");
 

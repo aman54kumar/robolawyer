@@ -1,58 +1,76 @@
-{% extends 'home/base.html' %}
-{% load static %}
-{% block headContent %}
+{% extends 'home/base.html' %} {% load static %} {% block headContent %}
 
-<link rel="stylesheet" href="{% static 'applicationForm/stepper/bs-stepper.min.css' %}">
-<link rel="stylesheet" href="{% static 'applicationForm/css/formStyles.css' %}">
+<link
+  rel="stylesheet"
+  href="{% static 'applicationForm/stepper/bs-stepper.min.css' %}"
+/>
+<link
+  rel="stylesheet"
+  href="{% static 'applicationForm/css/formStyles.css' %}"
+/>
 
-{% endblock headContent %}
-{% block content %}
+{% endblock headContent %} {% block content %}
 
-<div class="jumbotron"
-    style="margin-bottom: 0;background: linear-gradient(to bottom,  #1f549e 0%,#2989d8 100%); height:900px">
-    <br>
-    <h1 class="display-3" id="form-title"> About Us</h1>
+<div
+  class="jumbotron"
+  style="
+    margin-bottom: 0;
+    background: linear-gradient(to bottom, #1f549e 0%, #2989d8 100%);
+    height: 900px;
+  "
+>
+  <br />
+  <h1 class="display-3" id="form-title">About Us</h1>
 
-    <div class="col-md-12 mx-auto form-section">
-        <div class="card-body">
+  <div class="col-md-12 mx-auto form-section">
+    <div class="card-body">
+      <div class="text-center">
+        <img src="{% static 'images/team.png' %}" width="20%;" />
+      </div>
+      <p class="lead text-center">
+        This project is possible due to the hard work of a wonderful group of
+        people and financial support from the Law Faculty(University of Oslo),
+        Lovdata and The Centre for Excellence.
+      </p>
 
-
-            <div class="text-center"> <img src="{% static 'images/team.png' %}" width=20%;></div>
-            <p class="lead text-center">This project is possible due to the hard work of a wonderful group of people and
-                financial
-                support from the Law Faculty(University of Oslo), Lovdata and The Centre for Excellence.</p>
-
-
-            <br>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-4">
-                        <h4 class="font-weight-light jumbotron"><em>The Tech-R team is led by Lelia Marcau, and Kumar
-                                Aman coded the website,
-                                and Nabil Ouhi assisted with the graphic
-                                design.</em> </h4>
-                    </div>
-                    <!-- Dan Costin is the brilliant mind behind the Machine Learning algorithms  -->
-                    <div class="col-md-4">
-                        <h4 class="font-weight-light jumbotron"><em>The Law Faculty team is led by Malcolm Langford, and
-                                they offer legal
-                                guiding and material
-                                support throughout the development of this project. </em> </h4>
-                    </div>
-                    <div class="col-md-4">
-                        <h4 class="font-weight-light jumbotron"><em>Andra Matei, the leader of Avant-Garde Lawyers and
-                                former lawyer at the
-                                European Court of
-                                Human Rights, did the legal quality assurance for our digital form.</em></h4>
-                    </div>
-                </div>
-                <hr>
-            </div>
-
-
-
-        </div> <!-- /container -->
+      <br />
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4">
+            <h4 class="font-weight-light jumbotron">
+              <em
+                >The Tech-R team is led by Lelia Marcau, and Kumar Aman coded
+                the website, and Nabil Ouhi assisted with the graphic
+                design.</em
+              >
+            </h4>
+          </div>
+          <!-- Dan Costin is the brilliant mind behind the Machine Learning algorithms  -->
+          <div class="col-md-4">
+            <h4 class="font-weight-light jumbotron">
+              <em
+                >The Law Faculty team is coordinated by Malcolm Langford and
+                offers legal guiding as well as material support. In addition,
+                Runar Hilleren Lie assists in the development of the website as
+                a technical advisor.
+              </em>
+            </h4>
+          </div>
+          <div class="col-md-4">
+            <h4 class="font-weight-light jumbotron">
+              <em
+                >Andra Matei, the leader of Avant-Garde Lawyers and former
+                lawyer at the European Court of Human Rights, did the legal
+                quality assurance for our digital form.</em
+              >
+            </h4>
+          </div>
+        </div>
+        <hr />
+      </div>
     </div>
+    <!-- /container -->
+  </div>
 </div>
 
 {% endblock content %}

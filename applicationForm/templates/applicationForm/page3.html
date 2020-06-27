@@ -11,13 +11,13 @@
         <div class="is-hidden" id="indRepresentative">
           <div class="card-master">
             <div class="card-master-header">
-              <h4 class="card-header-title" align="center">
+              <h4 class="card-header-title acenter">
                 Representation
               </h4>
             </div>
             <div class="card-body">
               <div class="container">
-                <h3 align="center">
+                <h3 class="acenter">
                   Representative(s) of the Individual Applicant
                 </h3>
                 <p class="lead">
@@ -318,8 +318,24 @@
               </div>
               <div class="indAuthority is-hidden">
                 <div class="card-header">
+                  <div class="form-group">
+                    <label for="indIndeComms" class="lead"
+                      >Electronic communication between the representative and
+                      the Court
+                    </label>
+                    Email address for eComms account (if the representative
+                    already uses eComms, please provide the existing eComms
+                    account email address)
+                    <input
+                      class="form-control col-sm-4"
+                      type="email"
+                      name="page3[indIndeComms]"
+                      id="indIndeComms"
+                      maxlength="49"
+                    />
+                  </div>
                   <h4 class="alert-heading">Authority</h4>
-                  <p class="lead" align="Justify">
+                  <p class="lead ajustify">
                     An applicant must sign the authority empowering the
                     representative to act on his or her behalf, unless, for
                     example, the applicant is a child or lacks legal capacity
@@ -345,7 +361,7 @@
                   </div>
                   <br />
                   <div id="info-authority" class="collapse">
-                    <p align="Justify">
+                    <p class="ajustify">
                       If an applicant is represented by a lawyer or other
                       person, both the applicant and the designated
                       representative – whose identifying details must be
@@ -387,23 +403,6 @@
                 <br />
                 <hr />
 
-                <div class="form-group">
-                  <label for="indIndeComms" class="lead"
-                    >Electronic communication between the representative and the
-                    Court
-                  </label>
-                  Email address for eComms account (if the representative
-                  already uses eComms, please provide the existing eComms
-                  account email address)
-                  <input
-                    class="form-control col-sm-4"
-                    type="email"
-                    name="page3[indIndeComms]"
-                    id="indIndeComms"
-                    maxlength="49"
-                  />
-                </div>
-
                 <div class="text-center">
                   <button
                     class="btn more-info-button"
@@ -416,7 +415,7 @@
                 <br />
                 <div id="info-ecomm" class="collapse">
                   <label for=""></label>
-                  <p align="Justify">
+                  <p class="ajustify">
                     eComms is a service initiated by the Court for communicating
                     electronically with an applicant’s representative. The
                     service is only activated if and when the case reaches a
@@ -452,7 +451,7 @@
           </div>
           <div class="card-footer">
             <div class="row">
-              <div class="col-sm-6" align="left">
+              <div class="col-sm-6 aleft">
                 <button
                   class="btn btn-primary"
                   onclick="stepperForm.previous()"
@@ -460,7 +459,7 @@
                   Previous
                 </button>
               </div>
-              <div class="col-sm-6" align="right">
+              <div class="col-sm-6 aright">
                 <button
                   class="btn btn-primary btn-next-form"
                   onclick="stepperForm.next()"
@@ -475,13 +474,13 @@
         <div class="is-hidden" id="orgRepresentative">
           <div class="card-master">
             <div class="card-master-header">
-              <h4 class="card-header-title" align="center">
+              <h4 class="card-header-title acenter">
                 Representation
               </h4>
             </div>
 
             <div class="card-body">
-              <h3 align="center">
+              <h3 class="acenter">
                 Representative(s) of the Applicant Organisation
               </h3>
               <p class="lead">
@@ -500,7 +499,7 @@
               </div>
               <br />
               <div id="info-ORG" class="collapse">
-                <p align="Justify">
+                <p class="ajustify">
                   This official representative might be the person specifically
                   designated by the board, or council of administration for that
                   purpose, or the person who is authorised generally under
@@ -774,6 +773,22 @@
 
                 <div class="orgAuthority is-hidden col-sm-12">
                   <div class="card-header">
+                    <div class="form-group">
+                      <label for="orgIndeComms" class="lead"
+                        >Electronic communication between the representative and
+                        the Court
+                      </label>
+                      Email address for eComms account (if the representative
+                      already uses eComms, please provide the existing eComms
+                      account email address)
+                      <input
+                        class="form-control col-sm-4"
+                        type="email"
+                        name="page3[orgIndeComms]"
+                        id="orgIndeComms"
+                        maxlength="49"
+                      />
+                    </div>
                     <h4 class="alert-heading">Authority</h4>
 
                     <p class="lead">
@@ -803,22 +818,6 @@
                   />
                   <br />
                   <hr />
-                  <div class="form-group">
-                    <label for="orgIndeComms" class="lead"
-                      >Electronic communication between the representative and
-                      the Court
-                    </label>
-                    Email address for eComms account (if the representative
-                    already uses eComms, please provide the existing eComms
-                    account email address)
-                    <input
-                      class="form-control col-sm-4"
-                      type="email"
-                      name="page3[orgIndeComms]"
-                      id="orgIndeComms"
-                      maxlength="49"
-                    />
-                  </div>
 
                   <div class="text-center">
                     <button
@@ -832,7 +831,7 @@
                   <br />
                   <div id="info-ecomm" class="collapse">
                     <label for=""></label>
-                    <p align="Justify">
+                    <p class="ajustify">
                       eComms is a service initiated by the Court for
                       communicating electronically with an applicant’s
                       representative. The service is only activated if and when
@@ -855,9 +854,9 @@
                 </div>
               </div>
 
-              <div class="card-footer" align="center">
+              <div class="card-footer acenter">
                 <div class="row">
-                  <div class="col-sm-6" align="left">
+                  <div class="col-sm-6 aleft">
                     <button
                       class="btn btn-primary"
                       onclick="stepperForm.previous()"
@@ -865,7 +864,7 @@
                       Previous
                     </button>
                   </div>
-                  <div class="col-sm-6" align="right">
+                  <div class="col-sm-6 aright">
                     <button
                       class="btn btn-primary btn-next-form"
                       onclick="stepperForm.next()"

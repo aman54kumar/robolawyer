@@ -1,78 +1,92 @@
 html {
-    zoom: 75%;
-    margin: 0;
-
+  zoom: 75%;
+  margin: 0;
 }
 @-moz-document url-prefix() {
-html {
+  html {
     margin: 0;
     /* font-size: 3mm; */
-}
+  }
 }
 
 body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    font-size: 1.05rem;
-
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.05rem;
 }
 
-.lead{
-    font-weight: 400 !important;
+.lead {
+  font-weight: 400 !important;
 }
 footer {
-    height: 8vw;
+  height: 8vw;
 }
-.bubble{
-	z-index: 999;
-	position: fixed;
-		top: 95px;
-		left: 10px;
-		width: 240px;
-		height: 33px;
-		padding: 0px;
-		background: rgba(0255,255,255,0.1);
-		-webkit-border-radius: 5px;
-		-moz-border-radius: 5px;
-		border-radius: 5px;
-		color:black;
-		font-size:10px;
-		font-family:Nunito;
-		text-align:left;
-		padding-left: 10px;
+.bubble {
+  z-index: 999;
+  position: fixed;
+  top: 95px;
+  left: 10px;
+  width: 240px;
+  height: 33px;
+  padding: 0px;
+  background: rgba(0255, 255, 255, 0.1);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: black;
+  font-size: 10px;
+  font-family: Nunito;
+  text-align: left;
+  padding-left: 10px;
 }
 
 .lead b {
-    font-weight: 800;
+  font-weight: 800;
 }
 
 .modal-dialog {
-    /* width: 80% !important; */
-    max-width: 80% !important;
-    max-height: 80% !important;
-    height: 60%;
+  /* width: 80% !important; */
+  max-width: 80% !important;
+  max-height: 80% !important;
+  height: 60%;
 }
 
 .modal-content {
-    height: 100% !important;
-    width: 100% !important;
+  height: 100% !important;
+  width: 100% !important;
 }
 
 .home-jumbo {
-    border: 30px white solid;
+  border: 30px white solid;
 }
 
 .modal-footer {
-    justify-content: center !important;
+  justify-content: center !important;
 }
 
-.home-header{
-    margin-top:-60px; 
-    margin-right:-20px;
+.home-header {
+  margin-top: -60px;
+  margin-right: -20px;
 }
 
 .beta-logo {
-    transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.aleft {
+  text-align: left;
+}
+
+.aright {
+  text-align: right;
+}
+
+.acenter {
+  text-align: center;
+}
+
+.ajustify {
+  text-align: justify;
 }

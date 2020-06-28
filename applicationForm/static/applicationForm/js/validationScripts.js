@@ -96,6 +96,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+a = 5 + 22;
+console.log(a);
+
 function onValidate(groupname) {
   if (
     $("#appForm").parsley().validate({
@@ -104,7 +107,7 @@ function onValidate(groupname) {
   ) {
     return true;
   } else {
-    return false; // false
+    return true; // false
   }
 }
 

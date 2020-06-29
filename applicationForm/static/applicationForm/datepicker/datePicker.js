@@ -8,7 +8,6 @@ $(document).ready(function () {
     content: popUpText,
     closeOnClickOutside: false,
   });
-
   $(".datepicker").datepicker({
     weekStart: 1,
     daysOfWeekHighlighted: "0,6",
@@ -25,6 +24,23 @@ $(document).ready(function () {
       rightArrow: "&gt;",
     },
   });
+  // $(".datepicker").datepicker({
+  //   weekStart: 1,
+  //   daysOfWeekHighlighted: "0,6",
+  //   assumeNearbyYear: false,
+  //   todayHighlight: true,
+  //   showOnFocus: true,
+  //   format: "dd-mm-yyyy",
+  //   orientation: "top left",
+  //   autoclose: false,
+  //   maxViewMode: "century",
+  //   minViewMode: "days",
+  //   disableTouchKeyboard: true,
+  //   templates: {
+  //     leftArrow: "&laquo;",
+  //     rightArrow: "&raquo;",
+  //   },
+  // });
 
   set_parameters();
 });

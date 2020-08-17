@@ -109,12 +109,11 @@ function onValidate(groupname) {
 }
 
 function checkValidation(cur) {
-  // if (cur === 0) {
-  //   if (onValidate("page1")) {
-  //     return true;
-  //   }
-  // } else if (cur === 1) {
-  if (cur === 1) {
+  if (cur === 0) {
+    if (onValidate("page1")) {
+      return true;
+    }
+  } else if (cur === 1) {
     if (onValidate("page2")) {
       appVal = document.querySelector(
         "input[name='page2[applicantType]']:checked"

@@ -47,6 +47,7 @@
                       data-content="This section applies to an applicant who is an individual person, as opposed to a legal entity such as a company or association. If there is more than one individual applicant, this information must be provided for each additional applicant, on a separate application form."
                       data-trigger="focus"
                       data-placement="bottom"
+                      required
                       ><span><i class="fas fa-question-circle"></i></span
                     ></a>
                   </h4>
@@ -61,7 +62,6 @@
                   id="applicantTypeOrg"
                   name="page2[applicantType]"
                   value="Organisation"
-                  required
                   data-parsley-group="page2"
                 />
                 <label class="custom-control-label" for="applicantTypeOrg">
@@ -105,7 +105,6 @@
                         name="page2[indSurname]"
                         id="indSurname"
                         maxlength="49"
-                        required
                         data-parsley-group="page2a"
                       />
                     </div>
@@ -118,7 +117,6 @@
                         name="page2[indFirstName]"
                         id="indFirstName"
                         maxlength="49"
-                        required
                         data-parsley-group="page2a"
                       />
                     </div>
@@ -180,7 +178,6 @@
                         cols="49"
                         maxlength="294"
                         data-parsley-group="page2a"
-                        required
                       ></textarea>
                     </div>
                     <div class="row col-sm-6">
@@ -220,7 +217,6 @@
                         name="page2[applicantSex]"
                         value="M"
                         data-parsley-group="page2a"
-                        required
                       />
                       <label class="custom-control-label" for="applicantSexMale"
                         >Male</label
@@ -234,7 +230,6 @@
                         name="page2[applicantSex]"
                         value="F"
                         data-parsley-group="page2a"
-                        required
                       />
                       <label
                         class="custom-control-label"
@@ -269,7 +264,6 @@
                         type="text"
                         placeholder="Enter the Organisation's Name"
                         name="page2[orgName]"
-                        required
                         data-parsley-group="page2b"
                         cols="49"
                         id="orgName"
@@ -282,7 +276,6 @@
                         class="form-control"
                         type="text"
                         name="page2[orgActivity]"
-                        required
                         data-parsley-group="page2b"
                         maxlength="49"
                         placeholder="Activity"
@@ -301,7 +294,6 @@
                           id="orgDateYes"
                           name="page2[orgDateOption]"
                           value="Yes"
-                          required
                           data-parsley-group="page2b"
                         />
                         <label class="custom-control-label" for="orgDateYes"
@@ -315,7 +307,6 @@
                           id="orgDateNo"
                           name="page2[orgDateOption]"
                           value="No"
-                          required
                           data-parsley-group="page2b"
                         />
                         <label class="custom-control-label" for="orgDateNo"
@@ -347,7 +338,6 @@
                           id="orgIdentityYes"
                           name="page2[orgIdentityOption]"
                           value="Yes"
-                          required
                           data-parsley-group="page2b"
                         />
                         <label class="custom-control-label" for="orgIdentityYes"
@@ -361,7 +351,6 @@
                           id="orgIdentityNo"
                           name="page2[orgIdentityOption]"
                           value="No"
-                          required
                           data-parsley-group="page2b"
                         />
                         <label class="custom-control-label" for="orgIdentityNo"
@@ -480,7 +469,6 @@
                   id="applicantAnonYes"
                   name="page2[applicantAnon]"
                   value="Yes"
-                  required
                   data-parsley-group="page2"
                 />
                 <label class="custom-control-label" for="applicantAnonYes"
@@ -494,7 +482,6 @@
                   id="applicantAnonNo"
                   name="page2[applicantAnon]"
                   value="No"
-                  required
                   data-parsley-group="page2"
                 />
                 <label class="custom-control-label" for="applicantAnonNo"

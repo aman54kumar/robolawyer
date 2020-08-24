@@ -1,18 +1,28 @@
 options = {
-  defaultCountry: 'no',
   responsiveDropdown: true,
-  preferredCountries: []
+  preferredCountries: ["xx"],
 };
 
 // $('#indPob').countrySelect(options);
-$('#indNationality').countrySelect(options);
-$('#indLNationality').countrySelect(options);
-$('#indNLNationality').countrySelect(options);
-$('#orgnlNationality').countrySelect(options);
-$('#orglNationality').countrySelect(options);
+$("#indNationality").countrySelect(options);
+$("#indLNationality").countrySelect(options);
+$("#indNLNationality").countrySelect(options);
+$("#orgnlNationality").countrySelect(options);
+$("#orglNationality").countrySelect(options);
 
+blankFlag.call(this);
 
+$(
+  "#indNationality, #indLNationality, #indNLNationality, #orgnlNationality, #orglNationality"
+).on("change", blankFlag);
 
+function blankFlag(e) {
+  if ($(".flag").hasClass("xx")) {
+    $(".xx").addClass("blank");
+  } else {
+    return false;
+  }
+}
 
 // var countrySelect = function(countryID, telID) {
 //   var countryData = window.intlTelInputGlobals.getCountryData(),

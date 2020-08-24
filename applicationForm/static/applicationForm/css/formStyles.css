@@ -237,3 +237,15 @@ label {
   padding: 15px;
   margin: 20px;
 }
+
+.flag.xx.xx.blank.blank {
+  background: url(data:image/gif;base64,R0lGODlhAQABAIABAP///wAAACwAAAAAAQABAAACAkQBADs=)
+    round;
+  background-size: cover;
+}
+
+.flag.xx.xx.blank.blank:hover {
+  background: url(data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==)
+    round;
+  background-size: cover;
+}

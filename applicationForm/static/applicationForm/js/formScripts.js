@@ -1,3 +1,69 @@
+$(".shortAddress").textcounter({
+  type: "character",
+  max: 294,
+  countSpaces: true,
+  countDown: true,
+});
+
+$(".longAddress").textcounter({
+  type: "character",
+  max: 392,
+  countSpaces: true,
+  countDown: true,
+});
+
+$(".orgNameField").textcounter({
+  type: "character",
+  max: 95,
+  countSpaces: true,
+  countDown: true,
+});
+
+$(".articleExpCounter").textcounter({
+  type: "character",
+  max: 590,
+  countSpaces: true,
+  countDown: true,
+});
+
+$(".remediesTextCounter").textcounter({
+  type: "character",
+  max: 290,
+  countSpaces: true,
+  countDown: true,
+});
+
+$(".appealDescribeTextCounter").textcounter({
+  type: "character",
+  max: 1550,
+  countSpaces: true,
+  countDown: true,
+});
+
+$(".intInvestigationTextCounter").textcounter({
+  type: "character",
+  max: 1850,
+  countSpaces: true,
+  countDown: true,
+});
+$(".prevApplicationTextCounter").textcounter({
+  type: "character",
+  max: 350,
+  countSpaces: true,
+  countDown: true,
+});
+$(".commentTextCounter").textcounter({
+  type: "character",
+  max: 550,
+  countSpaces: true,
+  countDown: true,
+});
+// $(".factsTextCounter").textcounter({
+//   type: "character",
+//   max: 15600,
+//   countSpaces: true,
+// });
+
 var applicantTypeOption = function () {
   $("input[name='page2[applicantType]']").change(function () {
     result = this.value;
@@ -344,7 +410,8 @@ limitLines = function (limit, textarea) {
     textarea.value = lines.slice(0, limit).join("\n");
   };
 };
-$("textArea").hyphenate("en-us");
+
+// $("textArea").hyphenate("en-us");
 autosize($("textArea"));
 // var max_chars = 294;
 

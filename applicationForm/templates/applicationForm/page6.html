@@ -110,13 +110,12 @@
                     <td width="60%">
                       <label><b> Remedies Used</b></label>
                       <textarea
-                        class="form-control remedies"
+                        class="form-control remedies remediesTextCounter"
                         name="page6[0][remediesUsed]"
                         id="complain_0_remedy"
                         oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px"'
                         cols="30"
                         rows="3"
-                        maxlength="290"
                         data-parsley-group="page6"
                         data-pattern-id="complain_++_remedy"
                         data-pattern-name="page6[++][remediesUsed]"
@@ -186,11 +185,10 @@
             </div>
             <div class="row justify-content-center">
               <textarea
-                class="form-control col-sm-8"
+                class="form-control col-sm-8 appealDescribeTextCounter"
                 name="page6[appealDescribe]"
                 id="appealDescribe"
                 cols="100"
-                maxlength="1550"
               ></textarea>
             </div>
           </div>

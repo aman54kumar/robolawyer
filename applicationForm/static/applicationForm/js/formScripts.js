@@ -1,15 +1,9 @@
-$(".shortAddress").textcounter({
-  type: "character",
-  max: 294,
-  countSpaces: true,
-  countDown: true,
-});
-
 $(".longAddress").textcounter({
   type: "character",
   max: 392,
   countSpaces: true,
   countDown: true,
+  countDownText: "Characters Remaining: %d",
 });
 
 $(".orgNameField").textcounter({
@@ -17,6 +11,7 @@ $(".orgNameField").textcounter({
   max: 95,
   countSpaces: true,
   countDown: true,
+  countDownText: "Characters Remaining: %d",
 });
 
 $(".articleExpCounter").textcounter({
@@ -24,6 +19,7 @@ $(".articleExpCounter").textcounter({
   max: 590,
   countSpaces: true,
   countDown: true,
+  countDownText: "Characters Remaining: %d",
 });
 
 $(".remediesTextCounter").textcounter({
@@ -31,6 +27,7 @@ $(".remediesTextCounter").textcounter({
   max: 290,
   countSpaces: true,
   countDown: true,
+  countDownText: "Characters Remaining: %d",
 });
 
 $(".appealDescribeTextCounter").textcounter({
@@ -38,6 +35,7 @@ $(".appealDescribeTextCounter").textcounter({
   max: 1550,
   countSpaces: true,
   countDown: true,
+  countDownText: "Characters Remaining: %d",
 });
 
 $(".intInvestigationTextCounter").textcounter({
@@ -45,18 +43,21 @@ $(".intInvestigationTextCounter").textcounter({
   max: 1850,
   countSpaces: true,
   countDown: true,
+  countDownText: "Characters Remaining: %d",
 });
 $(".prevApplicationTextCounter").textcounter({
   type: "character",
   max: 350,
   countSpaces: true,
   countDown: true,
+  countDownText: "Characters Remaining: %d",
 });
 $(".commentTextCounter").textcounter({
   type: "character",
   max: 550,
   countSpaces: true,
   countDown: true,
+  countDownText: "Characters Remaining: %d",
 });
 // $(".factsTextCounter").textcounter({
 //   type: "character",
@@ -383,10 +384,45 @@ $("#page8Group").repeater({
   },
 });
 
-limitLines = function (limit, textarea) {
-  var spaces = textarea.getAttribute("cols");
+// get cursor position in textarea
+$.fn.setCursorPosition = function (position) {
+  if (this.length == 0) return this;
+  return $(this).setSelection(position, position);
+};
 
-  textarea.onkeydown = function () {
+$.fn.setSelection = function (selectionStart, selectionEnd) {
+  if (this.length == 0) return this;
+  var input = this[0];
+
+  if (input.createTextRange) {
+    var range = input.createTextRange();
+    range.collapse(true);
+    range.moveEnd("character", selectionEnd);
+    range.moveStart("character", selectionStart);
+    range.select();
+  } else if (input.setSelectionRange) {
+    input.focus();
+    input.setSelectionRange(selectionStart, selectionEnd);
+  }
+
+  return this;
+};
+
+limitLines = function (limit, textarea, areaClass) {
+  var spaces = textarea.getAttribute("cols");
+  var limitVal = "";
+  $(areaClass).textcounter({
+    type: "character",
+    max: 299,
+    countSpaces: true,
+    countDown: true,
+    countDownText: "Characters Remaining: %d",
+    // maxunder: function (el) {
+    //   if (el.value[el.textLength - 1] == "\n" || el.value[t]) {
+    //   }
+    // },
+  });
+  textarea.oninput = function (event) {
     var lines = textarea.value.split("\n");
 
     for (var i = 0; i < lines.length; i++) {
@@ -398,38 +434,40 @@ limitLines = function (limit, textarea) {
       while (j++ <= spaces) {
         if (lines[i].charAt(j) === " ") space = j;
       }
+
       lines[i + 1] = lines[i].substring(space + 1) + (lines[i + 1] || "");
+      if (lines.length > limit) {
+        break;
+      }
       lines[i] = lines[i].substring(0, space);
+      //count characters
     }
-    if (lines.length > limit) {
+
+    // if (event.keyCode === 13) console.log("enter");
+
+    if (lines.length > limit || textarea.value.length >= textarea.maxLength) {
       textarea.style.color = "red";
       setTimeout(function () {
         textarea.style.color = "";
       }, 500);
     }
+    if (lines.length > limit && (event.keyCode != 8 || event.keyCode != 46)) {
+      textarea.value = limitVal;
+      return;
+    }
+    var cursorPosition = $(areaClass).prop("selectionStart");
+    console.log(cursorPosition);
     textarea.value = lines.slice(0, limit).join("\n");
+    $(areaClass).setCursorPosition(cursorPosition);
+    limitVal = textarea.value;
   };
 };
 
-// $("textArea").hyphenate("en-us");
-autosize($("textArea"));
-// var max_chars = 294;
-
-// function textAreaLimit(element, maxLength) {
-//   $(element).keydown(function (e) {
-//     currentText = $(this).val();
-//     if (currentText.length >= max_chars) {
-//       currentText(currentText.substr(0, max_chars));
-//     }
-//     else {
-//       if
-//     }
-//   });
-// }
-
 // textAreaLimit("textArea", max_chars);
+
 // console.log(a);
-limitLines(6, document.getElementById("indAddress"));
+
+limitLines(6, document.getElementById("indAddress"), "#indAddress");
 limitLines(2, document.getElementById("orgName"));
 limitLines(8, document.getElementById("orgAddress"));
 limitLines(6, document.getElementById("indNLAddress"));

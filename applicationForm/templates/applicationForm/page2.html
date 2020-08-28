@@ -9,9 +9,7 @@
     <div class="row">
       <div class="card-master col-sm-11">
         <div class="card-master-header">
-          <h4 class="card-header-title acenter">
-            Applicant
-          </h4>
+          <h4 class="card-header-title acenter">Applicant</h4>
         </div>
 
         <div class="card-body">
@@ -85,9 +83,7 @@
             <div class="is-hidden" id="indBeginner">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-header-title acenter">
-                    Individual
-                  </h4>
+                  <h4 class="card-header-title acenter">Individual</h4>
                   <p class="lead">
                     Fill in this part only if you’re an Individual. If you’re a
                     company, association, NGO or other legal entity, select
@@ -159,7 +155,7 @@
                     </div>
                   </div>
                   <div class="row divSpacing">
-                    <div class="form-group col-sm-5">
+                    <div class="form-group col-sm-4">
                       <label
                         >Address
                         <a
@@ -179,7 +175,9 @@
                         cols="49"
                         rows="6"
                         data-parsley-group="page2a"
+                        maxlength="299"
                       ></textarea>
+                      <div><p id="indAddressCounter"></p></div>
                     </div>
                     <div class="row col-sm-6">
                       <div class="form-group col-sm-8">
@@ -247,9 +245,7 @@
             <div class="is-hidden" id="orgBeginner">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-header-title acenter">
-                    Organisation
-                  </h4>
+                  <h4 class="card-header-title acenter">Organisation</h4>
                   <p class="lead">
                     Fill in this part only if you’re a company, association, NGO
                     or other legal entity. If you’re an individual, select

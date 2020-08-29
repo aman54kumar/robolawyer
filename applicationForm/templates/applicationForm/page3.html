@@ -160,9 +160,12 @@
                     <textarea
                       class="form-control shortAddress"
                       cols="49"
+                      rows="6"
+                      maxlength="299"
                       placeholder="Enter Address"
                       name="page3[indNLAddress]"
                       id="indNLAddress"
+                      oninput="limitLines(this, event);"
                     ></textarea
                     >`
                   </div>
@@ -256,7 +259,7 @@
                       placeholder="Enter Address"
                       name="page3[indLAddress]"
                       id="indLAddress"
-                      maxlength="400"
+                      maxlength="399"
                       oninput="limitLines(this, event);"
                     ></textarea>
                   </div>
@@ -578,9 +581,11 @@
                       class="form-control shortAddress"
                       rows="6"
                       cols="49"
+                      maxlength="299"
                       placeholder="Enter Address"
                       name="page3[orgnlAddress]"
                       id="orgnlAddress"
+                      oninput="limitLines(this, event);"
                     ></textarea>
                   </div>
                   <div class="col-sm-8 row">
@@ -708,11 +713,13 @@
                     <label>Address</label>
                     <textarea
                       class="form-control longAddress"
-                      rows="9"
+                      rows="8"
                       cols="49"
+                      maxlength="399"
                       placeholder="Enter Address"
                       name="page3[orglAddress]"
                       id="orglAddress"
+                      oninput="limitLines(this, event);"
                     ></textarea>
                   </div>
 

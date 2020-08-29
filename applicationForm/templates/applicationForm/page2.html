@@ -264,7 +264,10 @@
                         name="page2[orgName]"
                         data-parsley-group="page2b"
                         cols="49"
+                        maxlength="95"
+                        rows="2"
                         id="orgName"
+                        oninput="limitLines(this, event);"
                       ></textarea>
                     </div>
                     <div class="form-group col-sm-6">
@@ -380,6 +383,9 @@
                         name="page2[orgAddress]"
                         id="orgAddress"
                         cols="49"
+                        rows="8"
+                        maxlength="399"
+                        oninput="limitLines(this, event);"
                       ></textarea>
                     </div>
                     <div class="row col-sm-6">
@@ -498,6 +504,7 @@
                   name="page2[applicantAnonExp]"
                   maxlength="10000"
                   id="anonReqText"
+                  rows="20"
                 ></textarea>
               </div>
             </div>

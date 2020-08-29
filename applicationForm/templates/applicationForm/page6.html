@@ -9,9 +9,7 @@
     <div class="row">
       <div class="card-master col-sm-11">
         <div class="card-master-header">
-          <h4 class="card-header-title acenter">
-            Domestic Proceedings
-          </h4>
+          <h4 class="card-header-title acenter">Domestic Proceedings</h4>
         </div>
 
         <div class="card-body alert-info">
@@ -63,8 +61,8 @@
             <div class=" ">
               <h5 class="alert-heading">Examples</h5>
               <table class="table-bordered">
-                <thead style="border: none;">
-                  <tr style="background-color: #2679c7; color: white;">
+                <thead style="border: none">
+                  <tr style="background-color: #2679c7; color: white">
                     <th width="25%" scope="col">Complaint</th>
                     <th width="45%" scope="col">Remedies Used</th>
                   </tr>
@@ -116,6 +114,7 @@
                         oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px"'
                         cols="30"
                         rows="3"
+                        maxlength="290"
                         data-parsley-group="page6"
                         data-pattern-id="complain_++_remedy"
                         data-pattern-name="page6[++][remediesUsed]"
@@ -189,6 +188,8 @@
                 name="page6[appealDescribe]"
                 id="appealDescribe"
                 cols="100"
+                maxlength="550"
+                rows="6"
               ></textarea>
             </div>
           </div>

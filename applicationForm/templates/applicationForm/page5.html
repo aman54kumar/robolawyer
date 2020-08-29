@@ -9,9 +9,7 @@
     <div class="row">
       <div class="card-master col-sm-11">
         <div class="card-master-header">
-          <h4 class="card-header-title acenter">
-            Article violation(s)
-          </h4>
+          <h4 class="card-header-title acenter">Article violation(s)</h4>
         </div>
 
         <div class="card-body alert-info">
@@ -35,8 +33,8 @@
             <div class="articleExample">
               <h5 class="alert-heading">Examples</h5>
               <table class="table-bordered">
-                <thead style="border: none;">
-                  <tr style="background-color: #2679c7; color: white;">
+                <thead style="border: none">
+                  <tr style="background-color: #2679c7; color: white">
                     <th scope="col" width="25%">Article Name</th>
                     <th scope="col">Explanation</th>
                   </tr>
@@ -75,9 +73,9 @@
             <hr />
             <div id="page5Group">
               <div class="a-group">
-                <table width="100%" style="border: none;">
+                <table width="100%" style="border: none">
                   <tr>
-                    <td width="25%" style="padding-right: 10px; border: none;">
+                    <td width="25%" style="padding-right: 10px; border: none">
                       <label for="articleSelect">Article(s) invoked </label>
                       <select
                         name="page5[0][articleSelect]"
@@ -87,10 +85,9 @@
                         data-pattern-name="page5[++][articleSelect]"
                         data-pattern-id="article_++_select"
                         onchange="populateDiv(this.id)"
-                      >
-                      </select>
+                      ></select>
                     </td>
-                    <td width="75%" style="border: none;">
+                    <td width="75%" style="border: none">
                       <label>Explanation</label>
                       <textarea
                         class="form-control articleExplanation articleExpCounter"
@@ -101,6 +98,7 @@
                         oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px"'
                         cols="30"
                         rows="2"
+                        maxlength="590"
                         data-parsley-group="page5"
                       ></textarea>
                     </td>
@@ -115,7 +113,7 @@
                     <div class="nameDiv"></div>
                     <div
                       class="descDiv"
-                      style="padding-left: 30px; padding-right: 30px;"
+                      style="padding-left: 30px; padding-right: 30px"
                     ></div>
                   </div>
                   <hr />

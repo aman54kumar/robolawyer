@@ -1,10 +1,14 @@
-// $(".orgNameField").textcounter({
-//   type: "character",
-//   max: 95,
-//   countSpaces: true,
-//   countDown: true,
-//   countDownText: "Characters Remaining: %d",
-// });
+// limitLines(6, document.getElementById("indAddress"));
+// limitLines(2, document.getElementById("orgName"));
+// limitLines(8, document.getElementById("orgAddress"));
+// limitLines(6, document.getElementById("indNLAddress"));
+// limitLines(6, document.getElementById("indLAddress"));
+// limitLines(8, document.getElementById("orgnlAddress"));
+// limitLines(8, document.getElementById("orglAddress"));
+// limitLines(16, document.getElementById("appealDescribe"));
+// limitLines(10, document.getElementById("intInvestigationDesc"));
+// limitLines(4, document.getElementById("prevAppDesc"));
+// limitLines(5, document.getElementById("formComments"));
 
 // $(".articleExpCounter").textcounter({
 //   type: "character",
@@ -400,13 +404,13 @@ $.fn.setSelection = function (selectionStart, selectionEnd) {
   return this;
 };
 
-// console.log("ggg");
-// areaIdentifier = "#" + String(this.id);
-// console.log(areaIdentifier);
-$("textArea").each(function () {
+var areaArray = $("textArea");
+
+var removedArea = areaArray.splice(9, 2);
+areaArray.each(function () {
   $(this).textcounter({
     type: "character",
-    max: 299,
+    max: $(this)[0].maxLength,
     countSpaces: true,
     countDown: true,
     countDownText: "Characters Remaining: %d",
@@ -460,18 +464,6 @@ limitLines = function (textarea) {
 // textAreaLimit("textArea", max_chars);
 
 // console.log(a);
-
-// limitLines(6, document.getElementById("indAddress"));
-// limitLines(2, document.getElementById("orgName"));
-// limitLines(8, document.getElementById("orgAddress"));
-// limitLines(6, document.getElementById("indNLAddress"));
-// limitLines(6, document.getElementById("indLAddress"));
-// limitLines(8, document.getElementById("orgnlAddress"));
-// limitLines(8, document.getElementById("orglAddress"));
-// limitLines(16, document.getElementById("appealDescribe"));
-// limitLines(10, document.getElementById("intInvestigationDesc"));
-// limitLines(4, document.getElementById("prevAppDesc"));
-// limitLines(5, document.getElementById("formComments"));
 
 // For page 9 auto filling name and address based on page 2 or 3
 $("input[name='page9[signatureDeclaration]']").change(function () {

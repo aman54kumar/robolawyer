@@ -11,9 +11,7 @@
         <div class="is-hidden" id="indRepresentative">
           <div class="card-master">
             <div class="card-master-header">
-              <h4 class="card-header-title acenter">
-                Representation
-              </h4>
+              <h4 class="card-header-title acenter">Representation</h4>
             </div>
             <div class="card-body">
               <div class="container">
@@ -200,7 +198,7 @@
                         <input
                           class="form-control"
                           type="tel"
-                          style="width: 100%;"
+                          style="width: 100%"
                           name="page3[indNLTel]"
                           id="indNLTel"
                         />
@@ -254,9 +252,12 @@
                     <textarea
                       class="form-control longAddress"
                       cols="49"
+                      rows="8"
                       placeholder="Enter Address"
                       name="page3[indLAddress]"
                       id="indLAddress"
+                      maxlength="400"
+                      oninput="limitLines(this, event);"
                     ></textarea>
                   </div>
                   <div class="col-sm-8 row">
@@ -277,7 +278,7 @@
                         <input
                           class="form-control"
                           type="tel"
-                          style="width: 100%;"
+                          style="width: 100%"
                           name="page3[indLTel]"
                           id="indLTel"
                         />
@@ -434,7 +435,7 @@
                 <img
                   src="{% static 'applicationForm/img/Signature-Indiv.png' %}"
                   width="70%"
-                  style="border: #ea0000 solid 4px;"
+                  style="border: #ea0000 solid 4px"
                 />
                 <br />
                 <br />
@@ -478,9 +479,7 @@
         <div class="is-hidden" id="orgRepresentative">
           <div class="card-master">
             <div class="card-master-header">
-              <h4 class="card-header-title acenter">
-                Representation
-              </h4>
+              <h4 class="card-header-title acenter">Representation</h4>
             </div>
 
             <div class="card-body">
@@ -628,7 +627,7 @@
                           placeholder="Email"
                           id="orgnlEmail"
                           maxlength="49 "
-                          style="width: 60%;"
+                          style="width: 60%"
                         />
                       </div>
                     </div>
@@ -761,7 +760,7 @@
                           placeholder="Email"
                           id="orglEmail"
                           maxlength="49"
-                          style="width: 60%;"
+                          style="width: 60%"
                         />
                       </div>
                     </div>
@@ -853,7 +852,7 @@
                   <img
                     src="{% static 'applicationForm/img/Signature-ORG.png' %}"
                     width="70%"
-                    style="border: #ea0000 solid 4px;"
+                    style="border: #ea0000 solid 4px"
                   />
                   <br />
                 </div>

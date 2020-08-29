@@ -1,69 +1,61 @@
-$(".longAddress").textcounter({
-  type: "character",
-  max: 392,
-  countSpaces: true,
-  countDown: true,
-  countDownText: "Characters Remaining: %d",
-});
-
-$(".orgNameField").textcounter({
-  type: "character",
-  max: 95,
-  countSpaces: true,
-  countDown: true,
-  countDownText: "Characters Remaining: %d",
-});
-
-$(".articleExpCounter").textcounter({
-  type: "character",
-  max: 590,
-  countSpaces: true,
-  countDown: true,
-  countDownText: "Characters Remaining: %d",
-});
-
-$(".remediesTextCounter").textcounter({
-  type: "character",
-  max: 290,
-  countSpaces: true,
-  countDown: true,
-  countDownText: "Characters Remaining: %d",
-});
-
-$(".appealDescribeTextCounter").textcounter({
-  type: "character",
-  max: 1550,
-  countSpaces: true,
-  countDown: true,
-  countDownText: "Characters Remaining: %d",
-});
-
-$(".intInvestigationTextCounter").textcounter({
-  type: "character",
-  max: 1850,
-  countSpaces: true,
-  countDown: true,
-  countDownText: "Characters Remaining: %d",
-});
-$(".prevApplicationTextCounter").textcounter({
-  type: "character",
-  max: 350,
-  countSpaces: true,
-  countDown: true,
-  countDownText: "Characters Remaining: %d",
-});
-$(".commentTextCounter").textcounter({
-  type: "character",
-  max: 550,
-  countSpaces: true,
-  countDown: true,
-  countDownText: "Characters Remaining: %d",
-});
-// $(".factsTextCounter").textcounter({
+// $(".orgNameField").textcounter({
 //   type: "character",
-//   max: 15600,
+//   max: 95,
 //   countSpaces: true,
+//   countDown: true,
+//   countDownText: "Characters Remaining: %d",
 // });
+
+// $(".articleExpCounter").textcounter({
+//   type: "character",
+//   max: 590,
+//   countSpaces: true,
+//   countDown: true,
+//   countDownText: "Characters Remaining: %d",
+// });
+
+// $(".remediesTextCounter").textcounter({
+//   type: "character",
+//   max: 290,
+//   countSpaces: true,
+//   countDown: true,
+//   countDownText: "Characters Remaining: %d",
+// });
+
+// $(".appealDescribeTextCounter").textcounter({
+//   type: "character",
+//   max: 1550,
+//   countSpaces: true,
+//   countDown: true,
+//   countDownText: "Characters Remaining: %d",
+// });
+
+// $(".intInvestigationTextCounter").textcounter({
+//   type: "character",
+//   max: 1850,
+//   countSpaces: true,
+//   countDown: true,
+//   countDownText: "Characters Remaining: %d",
+// });
+// $(".prevApplicationTextCounter").textcounter({
+//   type: "character",
+//   max: 350,
+//   countSpaces: true,
+//   countDown: true,
+//   countDownText: "Characters Remaining: %d",
+// });
+// $(".commentTextCounter").textcounter({
+//   type: "character",
+//   max: 550,
+//   countSpaces: true,
+//   countDown: true,
+//   countDownText: "Characters Remaining: %d",
+// });
+// // $(".factsTextCounter").textcounter({
+// //   type: "character",
+// //   max: 15600,
+// //   countSpaces: true,
+// // });
 
 var applicantTypeOption = function () {
   $("input[name='page2[applicantType]']").change(function () {
@@ -408,20 +400,25 @@ $.fn.setSelection = function (selectionStart, selectionEnd) {
   return this;
 };
 
-limitLines = function (limit, textarea, areaClass) {
-  var spaces = textarea.getAttribute("cols");
-  var limitVal = "";
-  $(areaClass).textcounter({
+// console.log("ggg");
+// areaIdentifier = "#" + String(this.id);
+// console.log(areaIdentifier);
+$("textArea").each(function () {
+  $(this).textcounter({
     type: "character",
     max: 299,
     countSpaces: true,
     countDown: true,
     countDownText: "Characters Remaining: %d",
-    // maxunder: function (el) {
-    //   if (el.value[el.textLength - 1] == "\n" || el.value[t]) {
-    //   }
-    // },
   });
+});
+
+// $("textArea").on("ready", counterChars(this));
+
+limitLines = function (textarea) {
+  limit = textarea.rows;
+  var spaces = textarea.getAttribute("cols");
+  var limitVal = "";
   textarea.oninput = function (event) {
     var lines = textarea.value.split("\n");
 
@@ -440,10 +437,7 @@ limitLines = function (limit, textarea, areaClass) {
         break;
       }
       lines[i] = lines[i].substring(0, space);
-      //count characters
     }
-
-    // if (event.keyCode === 13) console.log("enter");
 
     if (lines.length > limit || textarea.value.length >= textarea.maxLength) {
       textarea.style.color = "red";
@@ -455,10 +449,10 @@ limitLines = function (limit, textarea, areaClass) {
       textarea.value = limitVal;
       return;
     }
-    var cursorPosition = $(areaClass).prop("selectionStart");
-    console.log(cursorPosition);
+    idTextArea = "#" + String(textarea.id);
+    var cursorPosition = $(idTextArea).prop("selectionStart");
     textarea.value = lines.slice(0, limit).join("\n");
-    $(areaClass).setCursorPosition(cursorPosition);
+    $(idTextArea).setCursorPosition(cursorPosition);
     limitVal = textarea.value;
   };
 };
@@ -467,17 +461,17 @@ limitLines = function (limit, textarea, areaClass) {
 
 // console.log(a);
 
-limitLines(6, document.getElementById("indAddress"), "#indAddress");
-limitLines(2, document.getElementById("orgName"));
-limitLines(8, document.getElementById("orgAddress"));
-limitLines(6, document.getElementById("indNLAddress"));
-limitLines(6, document.getElementById("indLAddress"));
-limitLines(8, document.getElementById("orgnlAddress"));
-limitLines(8, document.getElementById("orglAddress"));
-limitLines(16, document.getElementById("appealDescribe"));
-limitLines(10, document.getElementById("intInvestigationDesc"));
-limitLines(4, document.getElementById("prevAppDesc"));
-limitLines(5, document.getElementById("formComments"));
+// limitLines(6, document.getElementById("indAddress"));
+// limitLines(2, document.getElementById("orgName"));
+// limitLines(8, document.getElementById("orgAddress"));
+// limitLines(6, document.getElementById("indNLAddress"));
+// limitLines(6, document.getElementById("indLAddress"));
+// limitLines(8, document.getElementById("orgnlAddress"));
+// limitLines(8, document.getElementById("orglAddress"));
+// limitLines(16, document.getElementById("appealDescribe"));
+// limitLines(10, document.getElementById("intInvestigationDesc"));
+// limitLines(4, document.getElementById("prevAppDesc"));
+// limitLines(5, document.getElementById("formComments"));
 
 // For page 9 auto filling name and address based on page 2 or 3
 $("input[name='page9[signatureDeclaration]']").change(function () {

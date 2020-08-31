@@ -248,41 +248,27 @@ def seventhPageInputs(self, can, inputObj):
 
 
 def eighthPageInputs(self, can, inputObj):
-    length = int((len(inputObj)) / 2)
-    articleList, explanationList = getListFromArticleObj(
-        self, inputObj, length)
+    leading = 13.2
     yCoord = 750
-
-    for item in range(length):
-        if item > 2:
-            break
+    for article, explanation in inputObj:
+        article = "\n".join(wrap(article, 26))
         t1 = can.beginText()
-        leading = 13.2
         t1.setFont(_customFont, _customFontSize)
-        if len(articleList[item]) > 1:
-            article = articleList[item]
-            articleExp = explanationList[item]
-        elif len(articleList[item]) == 1:
-            article = articleList[item][0]
-            articleExp = explanationList[item][0]
-        else:
-            print("error reported in EighthPageInputs")
-
-        newArticle = formatTextWithoutDash(self, article, 26)
+        # newArticle = formatTextWithoutDash(self, article, 26)
         t1.setTextOrigin(25, yCoord)
         t1.setLeading(leading)
-        t1.textLines(newArticle)
+        t1.textLines(article)
         can.drawText(t1)
-
+        # explanation = "\n".join(wrap(explanation, 72))
         t2 = can.beginText()
-        leading = 13.2
         t2.setFont(_customFont, _customFontSize)
-        newArticleExp = formatTextWithoutDash(self, articleExp, 72)
+        # newArticleExp = formatTextWithoutDash(self, articleExp, 72)
         t2.setTextOrigin(180, yCoord)
         t2.setLeading(leading)
-        t2.textLines(newArticleExp)
+        t2.textLines(explanation)
         can.drawText(t2)
-        yCoord -= nextLineForPara(len(newArticleExp), 59, 10)
+        yCoord -= max(article.count('\n'),
+                      explanation.count('\n')) * leading + leading
 
     can.showPage()
     return can
@@ -299,38 +285,24 @@ def getListFromArticleObj(self, inputDict, length):
 
 
 def ninthPageInputs(self, can, inputObj):
-    length = int((len(inputObj)) / 2)
-    articleList, explanationList = getListFromArticleObj(
-        self, inputObj, length)
-    yCoord = 750
     leading = 13.2
-    for item in range(length):
-        if item > 2:
-            t1 = can.beginText()
-            t1.setFont(_customFont, _customFontSize)
-            if len(articleList[item]) > 1:
-                article = articleList[item]
-                articleExp = explanationList[item]
-            elif len(articleList[item]) == 1:
-                article = articleList[item][0]
-                articleExp = explanationList[item][0]
-            else:
-                print("error reported in EighthPageInputs")
-
-            newArticle = "\n".join(wrap(article, 26))
-            t1.setTextOrigin(25, yCoord)
-            t1.setLeading(leading)
-            t1.textLines(newArticle)
-            can.drawText(t1)
-
-            t2 = can.beginText()
-            t2.setFont(_customFont, _customFontSize)
-            newArticleExp = formatTextWithoutDash(self, articleExp, 72)
-            t2.setTextOrigin(180, yCoord)
-            t2.setLeading(leading)
-            t2.textLines(newArticleExp)
-            can.drawText(t2)
-            yCoord -= nextLineForPara(len(newArticleExp), 59, 10)
+    yCoord = 750
+    for article, explanation in inputObj:
+        article = "\n".join(wrap(article, 26))
+        t1 = can.beginText()
+        t1.setFont(_customFont, _customFontSize)
+        t1.setTextOrigin(25, yCoord)
+        t1.setLeading(leading)
+        t1.textLines(article)
+        can.drawText(t1)
+        t2 = can.beginText()
+        t2.setFont(_customFont, _customFontSize)
+        t2.setTextOrigin(180, yCoord)
+        t2.setLeading(leading)
+        t2.textLines(explanation)
+        can.drawText(t2)
+        yCoord -= max(article.count('\n'),
+                      explanation.count('\n')) * leading + leading
     can.showPage()
     return can
 

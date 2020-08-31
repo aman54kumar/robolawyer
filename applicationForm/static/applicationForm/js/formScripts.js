@@ -407,6 +407,85 @@ $.fn.setSelection = function (selectionStart, selectionEnd) {
 var areaArray = $("textArea");
 
 var removedArea = areaArray.splice(9, 2);
+jQuery(removedArea).each(function () {
+  stOfFactsElement = $(this)[0];
+  $(stOfFactsElement).textcounter({
+    type: "character",
+    max: $(this)[0].maxLength,
+    countSpaces: true,
+    countDown: true,
+    countDownText: "Characters Remaining: %d",
+    maxcount: function (el) {
+      el = jQuery(el);
+      el.off();
+      el.on("keydown paste", function (event) {
+        keyCodeList = [
+          8,
+          16,
+          17,
+          18,
+          19,
+          20,
+          27,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          91,
+          92,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          120,
+          121,
+          122,
+          123,
+          144,
+          145,
+        ];
+        if (el.attr("id") === "stofFacts") {
+          if (!keyCodeList.includes(event.keyCode)) {
+            var popUpStFactText = document.createElement("div");
+            popUpStFactText.style.textAlign = "justify";
+            popUpStFactText.innerHTML =
+              "You have reached the page limit imposed by the Court. It is possible for you to add a supplementary statement expanding on the facts, complaints or remedies used. This extra statement should not be more than 20 pages. It should not add new complaints or violations but only develop what is already set out in the form. <br/>You can either go back and rephrase your Statement of the facts to comply with the page limit, or you can add extra pages on the Subject matter of the application. Before adding extra pages, make sure that all the central facts are already mentioned in the main Statement of Facts and that you are not adding any additional information, but merely expanding on the already mentioned facts, violations and complaints.";
+            swal({
+              buttons: ["Go Back", "Add Supplementary Statement"],
+              closeOnClickOutside: false,
+              content: popUpStFactText,
+            });
+
+            $(".extraWritingArea").removeClass("is-hidden");
+          }
+        }
+      });
+    },
+
+    // mincount: function (el) {
+    // console.log(el);
+    // if (el.id === "stofFacts") {
+    //   var popUpStFactText = document.createElement("div");
+    //   popUpStFactText.style.textAlign = "justify";
+    //   popUpStFactText.innerHTML =
+    //     "You have reached the page limit imposed by the Court. It is possible for you to add a supplementary statement expanding on the facts, complaints or remedies used. This extra statement should not be more than 20 pages. It should not add new complaints or violations but only develop what is already set out in the form. <br/>You can either go back and rephrase your Statement of the facts to comply with the page limit, or you can add extra pages on the Subject matter of the application. Before adding extra pages, make sure that all the central facts are already mentioned in the main Statement of Facts and that you are not adding any additional information, but merely expanding on the already mentioned facts, violations and complaints.";
+    //   swal({
+    //     buttons: ["Go Back", "Add Supplementary Statement"],
+    //     closeOnClickOutside: false,
+    //     content: popUpStFactText,
+    //   });
+    //   $(".extraWritingArea").removeClass("is-hidden");
+    // }
+    // },
+  });
+});
+
 areaArray.each(function () {
   $(this).textcounter({
     type: "character",

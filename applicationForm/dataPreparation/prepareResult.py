@@ -10,6 +10,7 @@ import re
 import shutil
 from .inputMethodforWM import (
     firstPageInputs,
+    formatTextWithoutDash,
     secondPageInputs,
     thirdPageInputs,
     fourthPageInputs,
@@ -100,7 +101,57 @@ class PrepareResult:
             elif cnt <= 159:
                 sof3 += temp
                 temp = ""
+
+        #  inputsForArticlePage
         article = self.inputObj["page5"]
+        artName, artExplanation = [], []
+        for keys, value in article.items():
+            if 'articleSelect' in keys:
+                artName.append(value)
+            else:
+                artExplanation.append(value)
+
+        articleList = list(zip(artName, artExplanation))
+        pageLimitLines = 54
+        articlesInFirstPage = []
+        articlesInSecondPage = []
+
+        index = 0
+        pageFlag = 1
+
+        for i in range(len(articleList)):
+            articleName = formatTextWithoutDash(self, articleList[i][0], 26)
+            articleNameLines = len(articleName.split('\n'))
+            articleExplanation = formatTextWithoutDash(self, articleList[i][1],
+                                                       72)
+            explanationLines = len(articleExplanation.split('\n'))
+
+            if explanationLines - articleNameLines > 0:
+                articleName += '\n' * (explanationLines - articleNameLines + 2)
+                articleExplanation += '\n'
+            else:
+                articleExplanation += '\n' * (
+                    articleNameLines - explanationLines + 10)  # 1
+                articleName += '\n'
+            articleNameLines = articleName.count('\n')
+            explanationLines = articleExplanation.count('\n')
+            if pageLimitLines - max(articleNameLines, explanationLines) < 0:
+                # move all remainong articles to next page
+                pageFlag = 2
+
+                # second page lines
+                pageLimitLines = 54
+
+            pageLimitLines = pageLimitLines - max(articleNameLines,
+                                                  explanationLines) - 1
+            if pageFlag == 1:
+                articlesInFirstPage.append((articleName, articleExplanation))
+            else:
+
+                articlesInSecondPage.append((articleName, articleExplanation))
+
+        # finish Input for Article Page
+
         complains = self.inputObj["page6"]
         docs = self.inputObj["page8"]
 
@@ -188,8 +239,8 @@ class PrepareResult:
         output5 = self.create_watermark_pdf(sof1, pos=5)
         output6 = self.create_watermark_pdf(sof2, pos=6)
         output7 = self.create_watermark_pdf(sof3, pos=7)
-        output8 = self.create_watermark_pdf(article, pos=8)
-        output9 = self.create_watermark_pdf(article, pos=9)
+        output8 = self.create_watermark_pdf(articlesInFirstPage, pos=8)
+        output9 = self.create_watermark_pdf(articlesInSecondPage, pos=9)
         output10 = self.create_watermark_pdf(complains, pos=10)
         output11 = self.create_watermark_pdf(self.inputObj["page6"],
                                              pos=11,

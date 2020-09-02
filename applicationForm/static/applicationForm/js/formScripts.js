@@ -330,7 +330,7 @@ $("#page8Group").repeater({
   btnAddClass: "r-btnAdd",
   btnRemoveClass: "r-btnRemove",
   groupClass: "r-group",
-  minItems: 2,
+  minItems: 1,
   maxItems: 24,
   startingIndex: 0,
   showMinItemsOnLoad: true,
@@ -497,6 +497,19 @@ areaArray.each(function () {
 });
 
 // $("textArea").on("ready", counterChars(this));
+limitPasteLines = function (textarea, event) {
+  // var lines = event.clipboardData.getData("text");
+  // console.log(JSON.stringify(lines));
+  // finalValue = "";
+  // for (i = 0; i < lines.length; i++) {
+  //   if (i < textarea.rows) {
+  //     finalValue += lines[i];
+  //   }
+  // }
+  // console.log(finalValue);
+  // console.log(textarea.value);
+  // textarea.value = finalValue;
+};
 
 limitLines = function (textarea) {
   limit = textarea.rows;

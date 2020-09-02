@@ -85,7 +85,6 @@ var courtCountry = function (baseUrl) {
       crossorigin: true,
     }).then(function (response) {
       data = response.data;
-      console.log(data);
       courtData = document.getElementById("courtData");
       currentSelected.forEach((country) => {
         for (var i = 0; i < data.length; i++) {

@@ -77,10 +77,12 @@ def download(request):
         with open(file_path, 'rb') as fh:
             response = HttpResponse(fh.read(), content_type="application/pdf")
             response[
-                'Content-Disposition'] = 'inline; filename=Application form to the ECtHR.pdf'
+                'Content-Disposition'] = 'attachment; filename="Application form to the ECtHR.pdf"'
             return response
     raise Http404
 
+
+# add attachement header in download. change inline to attachment.
 
 # def download(request):
 #     import mimetypes

@@ -497,8 +497,8 @@ def anonymityLaterPages(canvas, doc):
 def extraStOfFactsFirstPage(canvas, doc):
     PAGE_HEIGHT = defaultPageSize[1]
     PAGE_WIDTH = defaultPageSize[0]
-    pageinfo = "Statement of Facts(Extra)"
-    Title = "Statement of Facts"
+    pageinfo = "Supplementary Statement on the Subject matter of the application"
+    Title = "Supplementary Statement on the Subject matter of the application"
     canvas.saveState()
     canvas.setFont("Times-Bold", 16)
     canvas.drawCentredString(PAGE_WIDTH / 2.0, PAGE_HEIGHT - 108, Title)
@@ -508,7 +508,7 @@ def extraStOfFactsFirstPage(canvas, doc):
 
 
 def extraStOfFactsLaterPage(canvas, doc):
-    pageinfo = "Statement of Facts (Extra)"
+    pageinfo = "Supplementary Statement on the Subject matter of the application"
     canvas.saveState()
     canvas.setFont("Times-Roman", 9)
     canvas.drawString(inch, 0.75 * inch, "Page %d %s" % (doc.page, pageinfo))

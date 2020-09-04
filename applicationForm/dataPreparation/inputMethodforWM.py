@@ -247,28 +247,35 @@ def seventhPageInputs(self, can, inputObj):
     return can
 
 
-def eighthPageInputs(self, can, inputObj):
+def eighthPageInputs(self, can, inputObj, flag=0):
     leading = 13.2
     yCoord = 750
-    for article, explanation in inputObj:
-        article = "\n".join(wrap(article, 26))
-        t1 = can.beginText()
-        t1.setFont(_customFont, _customFontSize)
-        # newArticle = formatTextWithoutDash(self, article, 26)
-        t1.setTextOrigin(25, yCoord)
-        t1.setLeading(leading)
-        t1.textLines(article)
-        can.drawText(t1)
-        # explanation = "\n".join(wrap(explanation, 72))
-        t2 = can.beginText()
-        t2.setFont(_customFont, _customFontSize)
-        # newArticleExp = formatTextWithoutDash(self, articleExp, 72)
-        t2.setTextOrigin(180, yCoord)
-        t2.setLeading(leading)
-        t2.textLines(explanation)
-        can.drawText(t2)
-        yCoord -= max(article.count('\n'),
-                      explanation.count('\n')) * leading + leading
+    tabEscape = '%+'
+    paraEscape = '$^'
+
+    can.setFont(_customFont, _customFontSize)
+    tabElements = []
+    # print(inputObj)
+    for line in inputObj:
+        # print(line)
+        tabElements = line.split(tabEscape)
+        if len(tabElements) == 2:
+            if paraEscape in tabElements[0]:
+                yCoord -= leading
+                tabElements[0] = tabElements[0].split(paraEscape)[1]
+            # print(tabElements)
+            t1 = can.beginText()
+            t1.setTextOrigin(25, yCoord)
+            t1.setLeading(leading)
+            t1.textLines(tabElements[0])
+            t1.setFont(_customFont, _customFontSize)
+            can.drawText(t1)
+            t1 = can.beginText()
+            t1.setTextOrigin(180, yCoord)
+            t1.textLines(tabElements[1])
+            t1.setFont(_customFont, _customFontSize)
+            can.drawText(t1)
+            yCoord -= leading
 
     can.showPage()
     return can
@@ -278,7 +285,7 @@ def getListFromArticleObj(self, inputDict, length):
     articleList = []
     explanationList = []
     for i in range(length):
-        articleList.append(inputDict["page5[" + str(i) + "][articleSelect]"])
+        articleList.append(inputDict["page5[" + str(i) + "][articleArea]"])
         explanationList.append(inputDict["page5[" + str(i) +
                                          "][articleExplanation]"])
     return [articleList, explanationList]
@@ -287,22 +294,33 @@ def getListFromArticleObj(self, inputDict, length):
 def ninthPageInputs(self, can, inputObj):
     leading = 13.2
     yCoord = 750
-    for article, explanation in inputObj:
-        article = "\n".join(wrap(article, 26))
-        t1 = can.beginText()
-        t1.setFont(_customFont, _customFontSize)
-        t1.setTextOrigin(25, yCoord)
-        t1.setLeading(leading)
-        t1.textLines(article)
-        can.drawText(t1)
-        t2 = can.beginText()
-        t2.setFont(_customFont, _customFontSize)
-        t2.setTextOrigin(180, yCoord)
-        t2.setLeading(leading)
-        t2.textLines(explanation)
-        can.drawText(t2)
-        yCoord -= max(article.count('\n'),
-                      explanation.count('\n')) * leading + leading
+    tabEscape = '%+'
+    paraEscape = '$^'
+    t1 = can.beginText()
+    t1.setFont(_customFont, _customFontSize)
+    tabElements = []
+    # print(inputObj)
+    for line in inputObj:
+        # print(line)
+        tabElements = line.split(tabEscape)
+        if len(tabElements) == 2:
+            if paraEscape in tabElements[0]:
+                yCoord -= leading
+                tabElements[0] = tabElements[0].split(paraEscape)[1]
+            # print(tabElements)
+            t1 = can.beginText()
+            t1.setTextOrigin(25, yCoord)
+            t1.setLeading(leading)
+            t1.textLines(tabElements[0])
+            t1.setFont(_customFont, _customFontSize)
+            can.drawText(t1)
+
+            t1 = can.beginText()
+            t1.setTextOrigin(180, yCoord)
+            t1.textLines(tabElements[1])
+            t1.setFont(_customFont, _customFontSize)
+            can.drawText(t1)
+            yCoord -= leading
     can.showPage()
     return can
 
@@ -863,3 +881,30 @@ def formatTextBR(self, lines, limit, suffixLen=3, prefixLen=2):
     if flag == 1:
         str = str[:wordStartPos] + "<br/>" + str[wordStartPos:]
     return str
+
+
+def extractStringFromList(firstList,
+                          secondList,
+                          tabEscape="%+",
+                          lineEscape="#-",
+                          paraEscape="$^"):
+    finalString = ''
+    for j in range(len(firstList)):
+        firstLines = firstList[j].split('\n')
+        secondLines = secondList[j].split('\n')
+        for i in range(max(len(firstLines), len(secondLines))):
+
+            if len(firstLines) > len(secondLines):
+                if i < len(secondLines):
+                    finalString += firstLines[i] + tabEscape + secondLines[
+                        i] + lineEscape
+                else:
+                    finalString += firstLines[i] + tabEscape + lineEscape
+            else:
+                if i < len(firstLines):
+                    finalString += firstLines[i] + tabEscape + secondLines[
+                        i] + lineEscape
+                else:
+                    finalString += tabEscape + secondLines[i] + lineEscape
+        finalString += paraEscape
+    return finalString

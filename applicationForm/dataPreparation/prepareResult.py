@@ -102,9 +102,9 @@ class PrepareResult:
                 articleExplanationList.append(value)
 
         # test
-        for i in range(12):
-            articleSelectList.append(articleSelectList[0])
-            articleExplanationList.append(articleExplanationList[0])
+        # for i in range(12):
+        #     articleSelectList.append(articleSelectList[0])
+        #     articleExplanationList.append(articleExplanationList[0])
         # close test
         lineEscape = '#-'
         tabEscape = '%+'

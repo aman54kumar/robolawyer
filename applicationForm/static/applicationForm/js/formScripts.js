@@ -197,6 +197,24 @@ $("#page6Group").repeater({
       divTag.children[0].classList.remove("is-hidden");
     }
   },
+  beforeDelete: function (element) {
+    var leftDeletedValue = element.children()[0].children[0].children[0]
+      .children[0].children[1].value;
+    var rightDeletedValue = element.children()[0].children[0].children[0]
+      .children[1].children[1].value;
+    limitLinesPage6 =
+      limitLinesPage6 +
+      Math.max(
+        leftDeletedValue.split("\n").length,
+        rightDeletedValue.split("\n").length
+      );
+    earlierLinesCountPage6 =
+      earlierLinesCountPage6 -
+      Math.max(
+        leftDeletedValue.split("\n").length,
+        rightDeletedValue.split("\n").length
+      );
+  },
 });
 
 $("#page5Group").repeater({
@@ -241,9 +259,6 @@ $("#page5Group").repeater({
       .children[1].children[1].value;
     var rightDeletedValue = element.children()[1].children[0].children[0]
       .children[2].children[1].value;
-    // console.log("LEFTDELETED " + leftDeletedValue.split("\n").length);
-    // console.log("RIGHTDELETED: " + rightDeletedValue.split("\n").length);
-    // console.log("LIMIT DELETED" + limitLinesPage5);
     limitLinesPage5 =
       limitLinesPage5 +
       Math.max(
@@ -321,7 +336,6 @@ function textCounter(field, field2, maxlimit) {
 
 $("input[name='page2[applicantAnon]']").change(function () {
   result = this.value;
-  console.log(result);
   lines = $("#anonReqText").val();
   pageCount = 0;
   numOfLines = lines.split("\n").length - 1;
@@ -426,8 +440,9 @@ $.fn.setSelection = function (selectionStart, selectionEnd) {
 };
 
 var areaArray = $("textArea");
+// console.log(areaArray);
 // var removeValueArea =
-var removedArea = areaArray.splice(9, 4);
+var removedArea = areaArray.splice(9, 6);
 // console.log(areaArray);
 jQuery(removedArea).each(function () {
   if ($(this)[0].id === "page4[stOfFacts]") {
@@ -559,10 +574,6 @@ limitLines = function (textarea, event) {
   $(idTextArea).setCursorPosition(cursorPosition);
 };
 
-// textAreaLimit("textArea", max_chars);
-
-// console.log(a);
-
 // For page 9 auto filling name and address based on page 2 or 3
 $("input[name='page9[signatureDeclaration]']").change(function () {
   result = this.value;
@@ -669,13 +680,13 @@ function formatTextWithoutDash(lines, limit) {
     if (limitCount == 0) {
       if (ch != " ") {
         strg = strg.slice(0, wordStartPos) + "\n" + strg.slice(wordStartPos); // strg[:wordStartPos] + "\n" + strg[wordStartPos:]
-        console.log("FROM 1: " + JSON.stringify(strg));
+
         limitCount = limit - (itrPosition - wordStartPos);
         itrPosition += 1;
       } else {
         if (i + 1 != lines.length && lines[i + 1] != "\n") {
           strg = strg.slice(0, itrPosition) + "\n" + strg.slice(itrPosition);
-          console.log("FROM 2: " + JSON.stringify(strg));
+
           limitCount = limit;
           itrPosition += 1;
         }
@@ -765,9 +776,7 @@ function formatText(lines, limit, suffixLen = 3, prefixLen = 2) {
 }
 
 limitLinesPage5 = 108;
-
 earlierLinesCount = 0;
-counterCreateFlag = 0;
 function articleWrapper(element, columnLength, isArticleSelectElement) {
   repeaterParentElement =
     element.parentElement.parentElement.parentElement.parentElement
@@ -789,8 +798,6 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
   // format firstElement
 
   resultString1 = formatTextWithoutDash(element.value, columnLength);
-  // console.log(JSON.stringify(resultString1));
-  // get the value of otherElement value
   if (isArticleSelectElement) {
     resultString2 = otherElement.value;
     invisibleArticleArea.value = resultString1;
@@ -798,10 +805,6 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
     resultString2 = invisibleArticleArea.value;
     element.value = resultString1;
   }
-  // console.log("1 : " + String(resultString1.split("\n").length));
-  // console.log("2 : " + String(resultString2.split("\n").length));
-  // console.log("LIMIT BEFORE" + String(limitLinesPage5));
-  // reduce limitlines value from max of element.value.lines and otherElement.value.lines
   var currentLineCount = 0;
   for (var i = 0; i < repeaterParentElement.length; i++) {
     var leftFieldValue =
@@ -858,6 +861,7 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
     }
   }
   if (!isArticleSelectElement) {
+    console.log("article element: " + element);
     counterElement =
       element.parentElement.parentElement.children[2].children[3];
     getCounterValue(counterElement);
@@ -866,14 +870,40 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
 }
 
 function getCounterValue(element) {
-  counterElement = element.parentElement.parentElement.children[2].children[3];
-  counterElement.innerHTML = "Lines Remaining: " + limitLinesPage5;
-  counterElement.classList.remove("is-hidden");
+  // console.log("inside method: " + element);
+  console.log(element.classList);
+  if (
+    element.parentElement.parentElement.parentElement.parentElement.parentElement.classList.contains(
+      "s-group"
+    )
+  ) {
+    counterElement =
+      element.parentElement.parentElement.children[1].children[3];
+    counterElement.innerHTML = "Lines Remaining: " + limitLinesPage6;
+    counterElement.classList.remove("is-hidden");
+  } else {
+    counterElement =
+      element.parentElement.parentElement.children[2].children[2];
+    counterElement.innerHTML = "Lines Remaining: " + limitLinesPage5;
+    counterElement.classList.remove("is-hidden");
+  }
 }
 
 function hideCounterElement(element) {
-  counterElement = element.parentElement.parentElement.children[2].children[3];
-  counterElement.classList.add("is-hidden");
+  if (
+    element.parentElement.parentElement.parentElement.parentElement.parentElement.classList.contains(
+      "s-group"
+    )
+  ) {
+    counterElement =
+      element.parentElement.parentElement.children[1].children[3];
+    counterElement.innerHTML = "Lines Remaining: " + limitLinesPage6;
+    counterElement.classList.remove("is-hidden");
+  } else {
+    counterElement =
+      element.parentElement.parentElement.children[2].children[2];
+    counterElement.classList.add("is-hidden");
+  }
 }
 var trimLastNthCharInString = function (str, ch, n) {
   finalStr = "";
@@ -895,4 +925,102 @@ function toggleAddButton(element) {
     element.parentElement.parentElement.parentElement.parentElement
       .parentElement.children[3].children[0];
   parentElement.disabled = false;
+}
+
+// Complaint Page processing
+
+limitLinesPage6 = 54;
+earlierLinesCountPage6 = 0;
+function complaintWrapper(element, columnLength, isComplaintInputElement) {
+  repeaterParentElement =
+    element.parentElement.parentElement.parentElement.parentElement
+      .parentElement.parentElement.children;
+  otherElementIndex = 0;
+  if (isComplaintInputElement) {
+    otherElementIndex = 1;
+  }
+
+  otherElement =
+    element.parentElement.parentElement.children[otherElementIndex].children[1];
+  if (isComplaintInputElement) {
+    otherElement.removeAttribute("disabled");
+  }
+
+  // format firstElement
+
+  resultString1 = formatTextWithoutDash(element.value, columnLength);
+
+  resultString2 = otherElement.value;
+  element.value = resultString1;
+
+  var currentLineCount = 0;
+
+  for (var i = 0; i < repeaterParentElement.length; i++) {
+    var leftFieldValue =
+      repeaterParentElement[i].children[0].children[0].children[0].children[0]
+        .children[1].value;
+    var rightFieldValue =
+      repeaterParentElement[i].children[0].children[0].children[0].children[1]
+        .children[1].value;
+    // console.log("LEFT: " + JSON.stringify(leftFieldValue));
+    // console.log("RIGHT: " + JSON.stringify(rightFieldValue));
+    if (i == repeaterParentElement.length - 1)
+      currentLineCount += Math.max(
+        leftFieldValue.split("\n").length,
+        rightFieldValue.split("\n").length
+      );
+    else
+      currentLineCount +=
+        Math.max(
+          leftFieldValue.split("\n").length,
+          rightFieldValue.split("\n").length
+        ) + 1;
+  }
+  // console.log("Current LIne count: " + currentLineCount);
+  if (earlierLinesCountPage6 < currentLineCount) {
+    limitLinesPage6 =
+      limitLinesPage6 - (currentLineCount - earlierLinesCountPage6);
+    earlierLinesCountPage6 = currentLineCount;
+  } else if (earlierLinesCountPage6 > currentLineCount) {
+    limitLinesPage6 += earlierLinesCountPage6 - currentLineCount;
+    earlierLinesCountPage6 = currentLineCount;
+  }
+
+  if (isComplaintInputElement) {
+    if (limitLinesPage6 < 0) {
+      swal("Text  exceedingline limit"); //popup that firstEt elemenxceeding page
+      element.value = trimLastNthCharInString(
+        resultString1,
+        "\n",
+        Math.abs(limitLinesPage6) - 1
+      );
+      element.style.color = "red";
+      setTimeout(function () {
+        element.style.color = "";
+      }, 500);
+    }
+    // set the formatted value to invisible text area
+  } else {
+    if (limitLinesPage6 < 0) {
+      swal("Text exceeding line limit");
+      element.value = trimLastNthCharInString(
+        resultString1,
+        "\n",
+        Math.abs(limitLinesPage6) - 1
+      );
+
+      element.style.color = "red";
+      setTimeout(function () {
+        element.style.color = "";
+      }, 500);
+    }
+  }
+  if (!isComplaintInputElement) {
+    console.log("complaints element: " + element);
+    counterElement =
+      element.parentElement.parentElement.children[1].children[3];
+    getCounterValue(counterElement);
+    counterElement.classList.remove("is-hidden");
+  }
+  console.log(limitLinesPage6);
 }

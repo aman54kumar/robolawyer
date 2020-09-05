@@ -95,15 +95,18 @@
                   <tr>
                     <td width="40%">
                       <label for="complainSelect_0_0"><b>Complaint</b></label>
-                      <input
+                      <textarea
                         name="page6[0][complainSelect]"
                         id="complain_0_select"
                         class="form-control complainSelect"
-                        maxlength="100"
                         data-parsley-group="page6"
                         data-pattern-id="complain_++_select"
                         data-pattern-name="page6[++][complainSelect]"
-                      />
+                        cols="26"
+                        rows="10"
+                        oninput="complaintWrapper(this, 26, true);"
+                        onpaste="complaintWrapper(this, 26, true);"
+                      ></textarea>
                     </td>
                     <td width="60%">
                       <label><b> Remedies Used</b></label>
@@ -111,14 +114,20 @@
                         class="form-control remedies remediesTextCounter"
                         name="page6[0][remediesUsed]"
                         id="complain_0_remedy"
-                        oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px"'
+                        oninput="complaintWrapper(this, 69, false);"
                         cols="30"
-                        rows="3"
-                        maxlength="290"
+                        rows="10"
                         data-parsley-group="page6"
                         data-pattern-id="complain_++_remedy"
                         data-pattern-name="page6[++][remediesUsed]"
+                        onpaste="complaintWrapper(this, 69, false);"
+                        onfocus="getCounterValue(this);"
+                        onblur="hideCounterElement(this);"
                       ></textarea>
+                      <br />
+                      <div class="remediesCounter is-hidden">
+                        Lines Remaining:
+                      </div>
                     </td>
                   </tr>
                 </table>

@@ -247,7 +247,7 @@ def seventhPageInputs(self, can, inputObj):
     return can
 
 
-def eighthPageInputs(self, can, inputObj, flag=0):
+def eighthPageInputs(self, can, inputObj):
     leading = 13.2
     yCoord = 750
     tabEscape = '%+'
@@ -326,36 +326,34 @@ def ninthPageInputs(self, can, inputObj):
 
 
 def tenthPageInputs(self, can, inputObj):
-    length = int((len(inputObj)) / 2) - 2
-    complainList, remediesList = getListFromComplainObj(self, inputObj, length)
-    yCoord = 705
     leading = 13.2
-    for item in range(length):
-        t1 = can.beginText()
-        t1.setFont(_customFont, _customFontSize)
-        if len(complainList[item]) > 1:
-            complain = complainList[item]
-            remedies = remediesList[item]
-        elif len(complainList[item]) == 1:
-            complain = complainList[item]
-            remedies = remediesList[item]
-        else:
-            print("error reported in TenthPageInputs")
+    yCoord = 705
+    tabEscape = '%+'
+    paraEscape = '$^'
 
-        newComplain = formatText(self, complain, 26)
-        t1.setLeading(leading)
-        t1.setTextOrigin(25, yCoord)
-        t1.textLines(newComplain)
-        can.drawText(t1)
-
-        t2 = can.beginText()
-        t2.setFont(_customFont, _customFontSize)
-        newRemedy = formatText(self, remedies, 69)
-        t2.setLeading(leading)
-        t2.setTextOrigin(185, yCoord)
-        t2.textLines(newRemedy)
-        can.drawText(t2)
-        yCoord -= nextLineForPara(len(newRemedy), 60, 10.8)
+    can.setFont(_customFont, _customFontSize)
+    tabElements = []
+    # print(inputObj)
+    for line in inputObj:
+        # print(line)
+        tabElements = line.split(tabEscape)
+        if len(tabElements) == 2:
+            if paraEscape in tabElements[0]:
+                yCoord -= leading
+                tabElements[0] = tabElements[0].split(paraEscape)[1]
+            # print(tabElements)
+            t1 = can.beginText()
+            t1.setTextOrigin(25, yCoord)
+            t1.setLeading(leading)
+            t1.textLines(tabElements[0])
+            t1.setFont(_customFont, _customFontSize)
+            can.drawText(t1)
+            t1 = can.beginText()
+            t1.setTextOrigin(180, yCoord)
+            t1.textLines(tabElements[1])
+            t1.setFont(_customFont, _customFontSize)
+            can.drawText(t1)
+            yCoord -= leading
 
     can.showPage()
     return can

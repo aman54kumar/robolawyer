@@ -929,7 +929,7 @@ function toggleAddButton(element) {
 
 // Complaint Page processing
 
-limitLinesPage6 = 54;
+limitLinesPage6 = 51;
 earlierLinesCountPage6 = 0;
 function complaintWrapper(element, columnLength, isComplaintInputElement) {
   repeaterParentElement =

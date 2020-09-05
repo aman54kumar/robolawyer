@@ -102,10 +102,12 @@ class PrepareResult:
                 articleExplanationList.append(value)
 
         # test
-        # for i in range(12):
-        #     articleSelectList.append(articleSelectList[0])
-        #     articleExplanationList.append(articleExplanationList[0])
-        # close test
+
+    # for i in range(12):
+    #     articleSelectList.append(articleSelectList[0])
+    #     articleExplanationList.append(articleExplanationList[0])
+    # close test
+
         lineEscape = '#-'
         tabEscape = '%+'
         finalString = extractStringFromList(articleSelectList,
@@ -114,22 +116,28 @@ class PrepareResult:
 
         # print(repr(finalString))
         articleLineList = finalString.split(lineEscape)
-
+        # print(articleLineList)
         no_of_lines_first_page = 54
         no_of_lines_second_page = 54
         articleFirstPage = []
         articleSecondPage = []
         paraEscape = '$^'
-        i = 0
+
         for i in range(no_of_lines_first_page):
-            if paraEscape in articleLineList[i]:
-                no_of_lines_first_page -= 1
+            if i < len(articleLineList):
+                if paraEscape in articleLineList[i]:
+                    no_of_lines_first_page -= 1
+            else:
+                break
 
         articleFirstPage = articleLineList[:no_of_lines_first_page]
-        i = no_of_lines_first_page
+
         for i in range(no_of_lines_first_page, no_of_lines_first_page + 54):
-            if paraEscape in articleLineList[i]:
-                no_of_lines_second_page -= 1
+            if i < len(articleLineList):
+                if paraEscape in articleLineList[i]:
+                    no_of_lines_second_page -= 1
+            else:
+                break
 
         articleSecondPage = articleLineList[
             no_of_lines_first_page:no_of_lines_first_page +
@@ -137,7 +145,42 @@ class PrepareResult:
 
         # finish Input for Article Page
 
+        # input for complaints page
         complains = self.inputObj["page6"]
+        # processing of page 6
+
+        complainSelectList = []
+        remediesUsedList = []
+        # print(complains)
+        for keys, value in complains.items():
+            if "complainSelect" in keys:
+                complainSelectList.append(value)
+            if "remediesUsed" in keys:
+                remediesUsedList.append(value)
+
+        # test
+        for i in range(2):
+            complainSelectList.append(complainSelectList[0])
+            remediesUsedList.append(remediesUsedList[0])
+        # close test
+
+        finalStringPage10 = extractStringFromList(complainSelectList,
+                                                  remediesUsedList, tabEscape,
+                                                  lineEscape)
+
+        # # print(repr(finalString))
+        complainLineList = finalStringPage10.split(lineEscape)
+
+        page_10_lines = 51
+
+        for i in range(page_10_lines):
+            if i < len(complainLineList):
+                if paraEscape in complainLineList[i]:
+                    page_10_lines -= 1
+            else:
+                break
+        complainFirstPage = complainLineList[:page_10_lines]
+
         docs = self.inputObj["page8"]
 
         paths = glob.glob(
@@ -226,7 +269,7 @@ class PrepareResult:
         output7 = self.create_watermark_pdf(sof3, pos=7)
         output8 = self.create_watermark_pdf(articleFirstPage, pos=8)
         output9 = self.create_watermark_pdf(articleSecondPage, pos=9)
-        output10 = self.create_watermark_pdf(complains, pos=10)
+        output10 = self.create_watermark_pdf(complainFirstPage, pos=10)
         output11 = self.create_watermark_pdf(self.inputObj["page6"],
                                              pos=11,
                                              tempInput=self.inputObj["page7"])

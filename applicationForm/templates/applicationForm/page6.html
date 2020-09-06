@@ -103,9 +103,9 @@
                         data-pattern-id="complain_++_select"
                         data-pattern-name="page6[++][complainSelect]"
                         cols="26"
-                        rows="10"
-                        oninput="complaintWrapper(this, 26, true);"
-                        onpaste="complaintWrapper(this, 26, true);"
+                        rows="3"
+                        oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper(this, 26, true);'
+                        onpaste='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper(this, 26, true);'
                       ></textarea>
                     </td>
                     <td width="60%">
@@ -114,13 +114,13 @@
                         class="form-control remedies remediesTextCounter"
                         name="page6[0][remediesUsed]"
                         id="complain_0_remedy"
-                        oninput="complaintWrapper(this, 69, false);"
+                        oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper(this, 69, false);'
                         cols="30"
                         rows="10"
                         data-parsley-group="page6"
                         data-pattern-id="complain_++_remedy"
                         data-pattern-name="page6[++][remediesUsed]"
-                        onpaste="complaintWrapper(this, 69, false);"
+                        onpaste='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper(this, 69, false);'
                         onfocus="getCounterValue(this);"
                         onblur="hideCounterElement(this);"
                       ></textarea>
@@ -198,8 +198,11 @@
                 id="appealDescribe"
                 cols="100"
                 maxlength="550"
-                rows="6"
+                rows="10"
+                oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"; limitLines(this)'
+                onpaste='this.style.height = "";this.style.height = this.scrollHeight + "px"; limitLines(this)'
               ></textarea>
+              <div class="row justify-content-center">Lines Remaining:</div>
             </div>
           </div>
           <br />

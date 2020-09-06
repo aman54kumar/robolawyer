@@ -336,7 +336,27 @@ function textCounter(field, field2, maxlimit) {
 
 $("input[name='page2[applicantAnon]']").change(function () {
   result = this.value;
-  lines = $("#anonReqText").val();
+
+  // if (result === "Yes") {
+  //   $("input[name='page8[0][date]']").val(moment().format("DD-MM-YYYY"));
+  //   $("input[name='page8[0][title]']").val("Anonymity Request");
+  //   $("input[name='page8[0][desc]']").val(
+  //     "Documents requesting anonymity in the public documents of the court."
+  //   );
+  //   $("input[name='page8[0][page]']").val(2);
+  // } else if (result === "No") {
+  //   $("input[name='page8[0][date]']").val("");
+  //   $("input[name='page8[0][title]']").val("");
+  //   $("input[name='page8[0][desc]']").val("");
+  //   $("input[name='page8[0][page]']").val(null);
+  // } else {
+  //   console.log("no anonymity");
+  // }
+});
+
+// function detectDocuments() {}
+function pageCountAnon(id) {
+  lines = $(id).val();
   pageCount = 0;
   numOfLines = lines.split("\n").length - 1;
   if (numOfLines <= 45) {
@@ -344,20 +364,73 @@ $("input[name='page2[applicantAnon]']").change(function () {
   } else {
     pageCount = 1 + Math.ceil((numOfLines - 45) / 56);
   }
-  if (result === "Yes") {
-    $("input[name='page8[0][date]']").val(moment().format("DD-MM-YYYY"));
-    $("input[name='page8[0][title]']").val("Anonymity Request");
-    $("input[name='page8[0][desc]']").val(
-      "Documents requesting anonymity in the public documents of the court."
-    );
-    $("input[name='page8[0][page]']").val(pageCount);
-  } else if (result === "No") {
-    $("input[name='page8[0][date]']").val("");
-    $("input[name='page8[0][title]']").val("");
-    $("input[name='page8[0][desc]']").val("");
-    $("input[name='page8[0][page]']").val(null);
-  } else {
-    console.log("no anonymity");
+  return pageCount;
+}
+
+$("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
+  docObject = [];
+  if (!!$("#anonReqText").val()) {
+    anon = {
+      date: moment().format("DD-MM-YYYY"),
+      title: "Anonymity Request",
+      desc:
+        "Documents requesting anonymity in the public documents of the court.",
+      page: pageCountAnon("#anonReqText"),
+    };
+    docObject.push(anon);
+  }
+  if (!!$("#stofFactsExtra").val()) {
+    facts = {
+      date: moment().format("DD-MM-YYYY"),
+      title: "Extra pages for the Statement of Facts",
+      desc: "Document to supplement further details on the facts.",
+      page: pageCountAnon("#stofFactsExtra"),
+    };
+    docObject.push(facts);
+  }
+  if (!!$("#orgnlCapacity").val() || !!$("#indNLCapacity").val()) {
+    official = {
+      date: moment().format("DD-MM-YYYY"),
+      title: "Proof of organisation official",
+      desc:
+        "Document showing that the organisation official is legally entitled.",
+      page: 1,
+    };
+    docObject.push(official);
+  }
+  console.log(docObject);
+  if (docObject.length === 1) {
+    $("input[name='page8[0][date]']").val(docObject[0].date);
+    $("input[name='page8[0][title]']").val(docObject[0].title);
+    $("input[name='page8[0][desc]']").val(docObject[0].desc);
+    $("input[name='page8[0][page]']").val(docObject[0].page);
+  } else if (docObject.length === 2) {
+    document.getElementById("addButton_8_0").click();
+    $("input[name='page8[0][date]']").val(docObject[0].date);
+    $("input[name='page8[0][title]']").val(docObject[0].title);
+    $("input[name='page8[0][desc]']").val(docObject[0].desc);
+    $("input[name='page8[0][page]']").val(docObject[0].page);
+    //
+    $("input[name='page8[1][date]']").val(docObject[1].date);
+    $("input[name='page8[1][title]']").val(docObject[1].title);
+    $("input[name='page8[1][desc]']").val(docObject[1].desc);
+    $("input[name='page8[1][page]']").val(docObject[1].page);
+  } else if (docObject.length === 3) {
+    document.getElementById("addButton_8_0").click();
+    $("input[name='page8[0][date]']").val(docObject[0].date);
+    $("input[name='page8[0][title]']").val(docObject[0].title);
+    $("input[name='page8[0][desc]']").val(docObject[0].desc);
+    $("input[name='page8[0][page]']").val(docObject[0].page);
+    document.getElementById("addButton_8_1").click();
+    $("input[name='page8[1][date]']").val(docObject[1].date);
+    $("input[name='page8[1][title]']").val(docObject[1].title);
+    $("input[name='page8[1][desc]']").val(docObject[1].desc);
+    $("input[name='page8[1][page]']").val(docObject[1].page);
+
+    $("input[name='page8[2][date]']").val(docObject[2].date);
+    $("input[name='page8[2][title]']").val(docObject[2].title);
+    $("input[name='page8[2][desc]']").val(docObject[2].desc);
+    $("input[name='page8[2][page]']").val(docObject[2].page);
   }
 });
 
@@ -414,7 +487,6 @@ $("#page8Group").repeater({
     }
   },
 });
-
 // get cursor position in textarea
 $.fn.setCursorPosition = function (position) {
   if (this.length == 0) return this;
@@ -425,8 +497,8 @@ $.fn.setSelection = function (selectionStart, selectionEnd) {
   if (this.length == 0) return this;
   var input = this[0];
 
-  if (input.createTextRange) {
-    var range = input.createTextRange();
+  if (input.createRange) {
+    var range = input.createRange();
     range.collapse(true);
     range.moveEnd("character", selectionEnd);
     range.moveStart("character", selectionStart);
@@ -436,16 +508,16 @@ $.fn.setSelection = function (selectionStart, selectionEnd) {
     input.setSelectionRange(selectionStart, selectionEnd);
   }
 
-  return this;
+  //   return this;
 };
 
 var areaArray = $("textArea");
-// console.log(areaArray);
-// var removeValueArea =
+
 var removedArea = areaArray.splice(9, 6);
-// console.log(areaArray);
+
+// console.log(areaArray)
 jQuery(removedArea).each(function () {
-  if ($(this)[0].id === "page4[stOfFacts]") {
+  if ($(this)[0].id === "stofFacts") {
     stOfFactsElement = $(this)[0];
     $(stOfFactsElement).textcounter({
       type: "character",
@@ -525,54 +597,105 @@ jQuery(removedArea).each(function () {
   }
 });
 
-areaArray.each(function () {
-  $(this).textcounter({
-    type: "character",
-    max: $(this)[0].maxLength,
-    countSpaces: true,
-    countDown: true,
-    countDownText: "Characters Remaining: %d",
-  });
-});
+// areaArray.each(function () {
+//   $(this).textcounter({
+//     type: "character",
+//     max: $(this)[0].maxLength,
+//     countSpaces: true,
+//     countDown: true,
+//     countDownText: "Characters Remaining: %d",
+//   });
+// });
 
-limitLines = function (textarea, event) {
-  var limit = textarea.rows;
-  var spaces = textarea.getAttribute("cols");
-  var lines = textarea.value.split("\n");
+limitLines = function (textarea) {
+  setTimeout(function () {
+    var limit = textarea.getAttribute("rows");
+    var spaces = textarea.getAttribute("cols");
+    var lines = textarea.value.split("\n");
 
-  for (var i = 0; i < lines.length; i++) {
-    if (lines[i].length <= spaces) continue;
-    var j = 0;
+    for (var i = 0; i < lines.length && i < limit; i++) {
+      if (lines[i].length <= spaces) continue;
+      var j = 0;
 
-    var space = spaces;
+      var space = spaces;
 
-    while (j++ <= spaces) {
-      if (lines[i].charAt(j) === " ") space = j;
+      while (j++ <= spaces) {
+        if (lines[i].charAt(j) === " ") space = j;
+      }
+
+      lines[i + 1] = lines[i].substring(space + 1) + (lines[i + 1] || "");
+      if (lines.length > limit) {
+        break;
+      }
+      lines[i] = lines[i].substring(0, space + 1);
     }
 
-    lines[i + 1] = lines[i].substring(space + 1) + (lines[i + 1] || "");
     if (lines.length > limit) {
-      break;
+      textarea.style.color = "red";
+      setTimeout(function () {
+        textarea.style.color = "";
+      }, 500);
+      p = lines.slice(0, limit).join("\n");
+      p = p.substring(0, p.length) + "\n" + p.substring(p.length);
+      textarea.value = p.split("\n").slice(0, limit).join("\n");
     }
-    lines[i] = lines[i].substring(0, space);
-  }
+    // if (lines.length > limit && (event.keyCode != 8 || event.keyCode != 46)) {
+    //   textarea.value = lines.slice(0, limit).join("\n");
+    //   return;
+    // }
+    idTextArea = "#" + String(textarea.id);
+    var cursorPosition = $(idTextArea).prop("selectionStart");
 
-  if (lines.length > limit || textarea.value.length >= textarea.maxLength) {
-    textarea.style.color = "red";
-    setTimeout(function () {
-      textarea.style.color = "";
-    }, 500);
-  }
-  if (lines.length > limit && (event.keyCode != 8 || event.keyCode != 46)) {
-    textarea.value = lines.slice(0, limit).join("\n");
+    $(idTextArea).setCursorPosition(cursorPosition);
 
-    return;
-  }
-  idTextArea = "#" + String(textarea.id);
-  var cursorPosition = $(idTextArea).prop("selectionStart");
-  textarea.value = lines.slice(0, limit).join("\n");
-  $(idTextArea).setCursorPosition(cursorPosition);
+    if (textarea.classList.contains("lastAreas")) {
+      textarea.parentElement.parentElement.children[2].innerHTML =
+        "Lines Remaining: " + String(limit - lines.length);
+    } else {
+      textarea.nextElementSibling.innerHTML =
+        "Lines Remaining: " + String(limit - lines.length);
+    }
+  }, 0);
 };
+
+function limitLines2(element, limitRow, onPaste) {
+  setTimeout(function () {
+    var cursorPosition = { value: $(element).prop("selectionStart") };
+    limitCol = element.cols;
+    rem = limitRow;
+    if (!onPaste) {
+      formattedText = formatTextWithoutDash(
+        element.value,
+        limitCol,
+        cursorPosition,
+        limitRow,
+        element
+      );
+    } else {
+      // do something with text
+
+      formattedText = onPasteformatTextWithoutDash($(element).val(), limitCol);
+    }
+    rem = rem - formattedText.split("\n").length;
+    if (rem < 0) {
+      element.style.color = "red";
+      setTimeout(function () {
+        element.style.color = "";
+      }, 500);
+      // element.value = trimLastNthCharInString(
+      //   formattedText,
+      //   "\n",
+      //   Math.abs(rem) - 1
+      // );
+
+      element.value = formattedText.split("\n").slice(0, limitRow).join("\n");
+      $(element).setCursorPosition(cursorPosition);
+    } else {
+      element.value = formattedText;
+    }
+    $(element).setCursorPosition(cursorPosition.value);
+  }, 0);
+}
 
 // For page 9 auto filling name and address based on page 2 or 3
 $("input[name='page9[signatureDeclaration]']").change(function () {
@@ -590,7 +713,7 @@ $("input[name='page9[signatureDeclaration]']").change(function () {
         .replace(",,", ",")
         .replace(" ,", ",");
     } else {
-      nameValue = $("input[name='page2[orgName]']").val();
+      nameValue = $("textarea[name='page2[orgName]']").val();
       addressValue = $("#orgAddress")
         .val()
         .replace("\n", ", ")
@@ -662,8 +785,14 @@ $("input[name='page9[signatureDeclaration]']").change(function () {
 
 //  text format
 
-function formatTextWithoutDash(lines, limit) {
-  var limitCount = limit;
+function formatTextWithoutDash(
+  lines,
+  colLimit,
+  cursorPosition,
+  rowLimit,
+  element
+) {
+  var limitCount = colLimit;
   var wordStartPos = 0;
   var strg = "";
   var itrPosition = 0;
@@ -673,7 +802,86 @@ function formatTextWithoutDash(lines, limit) {
     itrPosition += 1;
     strg += ch;
     if (ch == "\n") {
-      limitCount = limit;
+      if (lines.split("\n").length > rowLimit) {
+        // strg =
+        //   strg.slice(0, cursorPosition.value - 1) +
+        //   strg.slice(cursorPosition.value);
+        // itrPosition -= 1;
+        // element.style.color = "red";
+        // setTimeout(function () {
+        //   element.style.color = "";
+        // }, 500);
+      }
+      limitCount = colLimit;
+      continue;
+    }
+
+    if (limitCount == 0) {
+      if (ch != " ") {
+        if (lines.split("\n").length < rowLimit) {
+          strg = strg.slice(0, wordStartPos) + "\n" + strg.slice(wordStartPos); // strg[:wordStartPos] + "\n" + strg[wordStartPos:]
+
+          limitCount = colLimit - (itrPosition - wordStartPos);
+          itrPosition += 1;
+
+          if (i < lines.length && cursorPosition != null) {
+            cursorPosition.value += 1;
+          }
+        } else {
+          strg =
+            strg.slice(0, cursorPosition.value - 1) +
+            strg.slice(cursorPosition.value);
+          limitCount = colLimit;
+          itrPosition += 1;
+          element.style.color = "red";
+          setTimeout(function () {
+            element.style.color = "";
+          }, 500);
+          cursorPosition.value -= 1;
+        }
+      } else {
+        if (lines.split("\n").length < rowLimit) {
+          if (i + 1 != lines.length && lines[i + 1] != "\n") {
+            strg = strg.slice(0, itrPosition) + "\n" + strg.slice(itrPosition);
+
+            limitCount = colLimit;
+            itrPosition += 1;
+            if (i < lines.length && cursorPosition != null)
+              cursorPosition.value += 1;
+          }
+        } else {
+          strg =
+            strg.slice(0, cursorPosition.value - 1) +
+            strg.slice(cursorPosition.value);
+          limitCount = colLimit;
+          itrPosition += 1;
+          element.style.color = "red";
+          setTimeout(function () {
+            element.style.color = "";
+          }, 500);
+          cursorPosition.value -= 1;
+        }
+      }
+    }
+    if (ch == " ") {
+      wordStartPos = itrPosition;
+    }
+  }
+  return strg;
+}
+function onPasteformatTextWithoutDash(lines, colLimit) {
+  var limitCount = colLimit;
+  var wordStartPos = 0;
+  var strg = "";
+  var itrPosition = 0;
+
+  for (var i = 0; i < lines.length; i++) {
+    ch = lines[i];
+    limitCount -= 1;
+    itrPosition += 1;
+    strg += ch;
+    if (ch == "\n") {
+      limitCount = colLimit;
       continue;
     }
 
@@ -681,13 +889,12 @@ function formatTextWithoutDash(lines, limit) {
       if (ch != " ") {
         strg = strg.slice(0, wordStartPos) + "\n" + strg.slice(wordStartPos); // strg[:wordStartPos] + "\n" + strg[wordStartPos:]
 
-        limitCount = limit - (itrPosition - wordStartPos);
+        limitCount = colLimit - (itrPosition - wordStartPos);
         itrPosition += 1;
       } else {
         if (i + 1 != lines.length && lines[i + 1] != "\n") {
           strg = strg.slice(0, itrPosition) + "\n" + strg.slice(itrPosition);
-
-          limitCount = limit;
+          limitCount = colLimit;
           itrPosition += 1;
         }
       }
@@ -797,7 +1004,7 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
 
   // format firstElement
 
-  resultString1 = formatTextWithoutDash(element.value, columnLength);
+  resultString1 = formatTextWithoutDash(element.value, columnLength, null);
   if (isArticleSelectElement) {
     resultString2 = otherElement.value;
     invisibleArticleArea.value = resultString1;
@@ -813,8 +1020,7 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
     var rightFieldValue =
       repeaterParentElement[i].children[1].children[0].children[0].children[2]
         .children[1].value;
-    // console.log("LEFT: " + JSON.stringify(leftFieldValue));
-    // console.log("RIGHT: " + JSON.stringify(rightFieldValue));
+
     if (i == repeaterParentElement.length - 1)
       currentLineCount += Math.max(
         leftFieldValue.split("\n").length,
@@ -827,7 +1033,6 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
           rightFieldValue.split("\n").length
         ) + 1;
   }
-  // console.log("Current LIne count: " + currentLineCount);
   if (earlierLinesCount < currentLineCount) {
     limitLinesPage5 = limitLinesPage5 - (currentLineCount - earlierLinesCount);
     earlierLinesCount = currentLineCount;
@@ -861,7 +1066,6 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
     }
   }
   if (!isArticleSelectElement) {
-    console.log("article element: " + element);
     counterElement =
       element.parentElement.parentElement.children[2].children[3];
     getCounterValue(counterElement);
@@ -870,20 +1074,20 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
 }
 
 function getCounterValue(element) {
-  // console.log("inside method: " + element);
-  console.log(element.classList);
   if (
     element.parentElement.parentElement.parentElement.parentElement.parentElement.classList.contains(
       "s-group"
     )
   ) {
+    limitLinesPage6 = limitLinesPage6 < 0 ? 0 : limitLinesPage6;
     counterElement =
       element.parentElement.parentElement.children[1].children[3];
     counterElement.innerHTML = "Lines Remaining: " + limitLinesPage6;
     counterElement.classList.remove("is-hidden");
   } else {
+    limitLinesPage5 = limitLinesPage5 < 0 ? 0 : limitLinesPage5;
     counterElement =
-      element.parentElement.parentElement.children[2].children[2];
+      element.parentElement.parentElement.children[2].children[3];
     counterElement.innerHTML = "Lines Remaining: " + limitLinesPage5;
     counterElement.classList.remove("is-hidden");
   }
@@ -898,7 +1102,7 @@ function hideCounterElement(element) {
     counterElement =
       element.parentElement.parentElement.children[1].children[3];
     counterElement.innerHTML = "Lines Remaining: " + limitLinesPage6;
-    counterElement.classList.remove("is-hidden");
+    counterElement.classList.add("is-hidden");
   } else {
     counterElement =
       element.parentElement.parentElement.children[2].children[2];
@@ -920,12 +1124,12 @@ var trimLastNthCharInString = function (str, ch, n) {
   return str;
 };
 
-function toggleAddButton(element) {
-  parentElement =
-    element.parentElement.parentElement.parentElement.parentElement
-      .parentElement.children[3].children[0];
-  parentElement.disabled = false;
-}
+// function toggleAddButton(element) {
+//   parentElement =
+//     element.parentElement.parentElement.parentElement.parentElement
+//       .parentElement.children[3].children[0];
+//   parentElement.disabled = false;
+// }
 
 // Complaint Page processing
 
@@ -948,7 +1152,7 @@ function complaintWrapper(element, columnLength, isComplaintInputElement) {
 
   // format firstElement
 
-  resultString1 = formatTextWithoutDash(element.value, columnLength);
+  resultString1 = formatTextWithoutDash(element.value, columnLength, null);
 
   resultString2 = otherElement.value;
   element.value = resultString1;
@@ -962,8 +1166,6 @@ function complaintWrapper(element, columnLength, isComplaintInputElement) {
     var rightFieldValue =
       repeaterParentElement[i].children[0].children[0].children[0].children[1]
         .children[1].value;
-    // console.log("LEFT: " + JSON.stringify(leftFieldValue));
-    // console.log("RIGHT: " + JSON.stringify(rightFieldValue));
     if (i == repeaterParentElement.length - 1)
       currentLineCount += Math.max(
         leftFieldValue.split("\n").length,
@@ -976,7 +1178,6 @@ function complaintWrapper(element, columnLength, isComplaintInputElement) {
           rightFieldValue.split("\n").length
         ) + 1;
   }
-  // console.log("Current LIne count: " + currentLineCount);
   if (earlierLinesCountPage6 < currentLineCount) {
     limitLinesPage6 =
       limitLinesPage6 - (currentLineCount - earlierLinesCountPage6);
@@ -1016,11 +1217,9 @@ function complaintWrapper(element, columnLength, isComplaintInputElement) {
     }
   }
   if (!isComplaintInputElement) {
-    console.log("complaints element: " + element);
     counterElement =
       element.parentElement.parentElement.children[1].children[3];
     getCounterValue(counterElement);
     counterElement.classList.remove("is-hidden");
   }
-  console.log(limitLinesPage6);
 }

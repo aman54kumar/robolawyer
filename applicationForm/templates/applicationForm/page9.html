@@ -17,14 +17,18 @@
             <p>Do you have any other comments about your application?</p>
             <div class="row justify-content-center">
               <textarea
-                class="limitedArea form-control col-sm-8 commentTextCounter"
+                class="limitedArea form-control col-sm-8 lastAreas"
                 name="page9[formComments]"
                 id="formComments"
                 cols="100"
                 rows="5"
                 maxlength="550"
+                oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"; limitLines(this);'
+                onpaste='this.style.height = "";this.style.height = this.scrollHeight + "px"; limitLines(this);'
+                style="width: 100ch; padding: 10px"
               ></textarea>
             </div>
+            <div class="row justify-content-center"></div>
           </div>
           <label class="lead">Declaration and Signature</label>
           <div class="aleft">

@@ -132,7 +132,7 @@ $(document).ready(function () {
     curValue = this.value;
     $("#page2-org-2").text(curValue);
   });
-  $("#orgDate").on("input", function () {
+  $("#orgDate").on("change", function () {
     curValue = this.value;
     $("#page2-org-3").text(curValue);
   });
@@ -170,21 +170,21 @@ $(document).ready(function () {
   // Start of Page 3
   // Start of page 3 ind NL
   $("input[name='page3[indRepresentativeType]']").change(function () {
-    result = this.value;
+    console.log("lawyer: " + result);
     if (result === "lawyer") {
       $(".reviewRepIndL").removeClass("is-hidden");
       $("#reviewTable3").removeClass("is-hidden");
       $(".reviewRepIndividual").removeClass("is-hidden");
       $(".reviewRepIndNL").addClass("is-hidden");
       $("#reviewRepSelf").addClass("is-hidden");
-      $("#page3-ind-rep-NL").text(result);
+      $("#page3-ind-rep-L").text(result);
     } else if (result === "non-lawyer") {
       $(".reviewRepIndNL").removeClass("is-hidden");
       $("#reviewTable3").removeClass("is-hidden");
       $(".reviewRepIndividual").removeClass("is-hidden");
       $("#reviewRepIndL").addClass("is-hidden");
       $("#reviewRepSelf").addClass("is-hidden");
-      $("#page3-ind-rep-L").text(result);
+      $("#page3-ind-rep-NL").text(result);
     } else if (result === "selfRepresented") {
       $("#reviewTable3").removeClass("is-hidden");
       $(".reviewRepIndividual").removeClass("is-hidden");
@@ -314,6 +314,38 @@ $(document).ready(function () {
     if (result === "orgYesLawyer") {
       $(".reviewRepOrgL").removeClass("is-hidden");
       $("#page3-org-rep-NL-9").text("Yes");
+      $("#orglSurname").on("input", function () {
+        curValue = this.value;
+        $("#page3-org-rep-NL-1").text(curValue);
+      });
+      $("#orglSurname").on("input", function () {
+        curValue = this.value;
+        $("#page3-org-rep-NL-2").text(curValue);
+      });
+      $("#orglFirstName").on("input", function () {
+        curValue = this.value;
+        $("#page3-org-rep-NL-3").text(curValue);
+      });
+      $("#orglAddress").on("input", function () {
+        curValue = this.value;
+        $("#page3-org-rep-NL-4").text(curValue);
+      });
+      $("#orglNationality").on("input", function () {
+        curValue = this.value;
+        $("#page3-org-rep-NL-5").text(curValue);
+      });
+      $("#orglEmail").on("input", function () {
+        curValue = this.value;
+        $("#page3-org-rep-NL-6").text(curValue);
+      });
+      $("#orglFax").on("input", function () {
+        curValue = this.value;
+        $("#page3-org-rep-NL-7").text(curValue);
+      });
+      $("#orgIndeComms").on("input", function () {
+        curValue = this.value;
+        $("#page3-org-rep-NL-8").text(curValue);
+      });
     } else if (result === "orgNoLawyer") {
       $(".reviewRepOrgL").addClass("is-hidden");
       $("#page3-org-rep-NL-9").text("No");

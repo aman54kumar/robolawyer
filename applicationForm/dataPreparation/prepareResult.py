@@ -102,11 +102,11 @@ class PrepareResult:
                 articleExplanationList.append(value)
 
         # test
-
-    # for i in range(12):
-    #     articleSelectList.append(articleSelectList[0])
-    #     articleExplanationList.append(articleExplanationList[0])
-    # close test
+        print(articleSelectList)
+        # for i in range(12):
+        #     articleSelectList.append(articleSelectList[0])
+        #     articleExplanationList.append(articleExplanationList[0])
+        # close test
 
         lineEscape = '#-'
         tabEscape = '%+'
@@ -148,7 +148,6 @@ class PrepareResult:
         # input for complaints page
         complains = self.inputObj["page6"]
         # processing of page 6
-
         complainSelectList = []
         remediesUsedList = []
         # print(complains)

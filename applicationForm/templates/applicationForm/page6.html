@@ -97,6 +97,7 @@
                       <label for="complainSelect_0_0"><b>Complaint</b></label>
                       <textarea
                         name="page6[0][complainSelect]"
+                        style="width: 35ch; padding: 10px"
                         id="complain_0_select"
                         class="form-control complainSelect"
                         data-parsley-group="page6"
@@ -123,6 +124,7 @@
                         onpaste='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper(this, 69, false);'
                         onfocus="getCounterValue(this);"
                         onblur="hideCounterElement(this);"
+                        style="width: 80ch; padding: 10px"
                       ></textarea>
                       <br />
                       <div class="remediesCounter is-hidden">
@@ -197,10 +199,10 @@
                 name="page6[appealDescribe]"
                 id="appealDescribe"
                 cols="100"
-                maxlength="550"
                 rows="10"
-                oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"; limitLines(this)'
-                onpaste='this.style.height = "";this.style.height = this.scrollHeight + "px"; limitLines(this)'
+                oninput="limitLines(this)"
+                onpaste="limitLinesOnPaste(this)"
+                style="width: 110ch; padding: 10px"
               ></textarea>
             </div>
             <div class="row justify-content-center">Lines Remaining:</div>

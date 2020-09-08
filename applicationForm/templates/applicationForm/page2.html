@@ -176,7 +176,7 @@
                         rows="6"
                         data-parsley-group="page2a"
                         oninput="limitLines(this);"
-                        onpaste="limitLines(this);"
+                        onpaste="limitLinesOnPaste(this);"
                       ></textarea>
                       <div>Lines Remaining: 6</div>
                     </div>
@@ -267,7 +267,8 @@
                         maxlength="95"
                         rows="2"
                         id="orgName"
-                        oninput="limitLines(this, event);"
+                        oninput="limitLines(this);"
+                        onpaste="limitLinesOnPaste(this);"
                       ></textarea>
                       <div></div>
                     </div>
@@ -386,7 +387,8 @@
                         cols="49"
                         rows="8"
                         maxlength="399"
-                        oninput="limitLines(this, event);"
+                        oninput="limitLines(this);"
+                        onpaste="limitLinesOnPaste(this)"
                       ></textarea>
                       <div></div>
                     </div>

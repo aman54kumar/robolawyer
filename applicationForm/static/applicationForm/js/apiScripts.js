@@ -58,7 +58,7 @@ var echrRat = function (baseUrl) {
                 "</b>" +
                 " ratified the European Convention on Human Rights and its Protocols on <b>" +
                 formattedDate +
-                "</b>. If the act, decision or omission take place after " +
+                "</b>. If the act, decision or omission take place before " +
                 formattedDate +
                 ", but the effects of the act, decision or omission still continue to the present day (eg: the act of a disappearance, where the person has not been found, even if the person can be presumed dead), please continue to the next field.<br>";
               p2Tag.innerHTML += finalText;

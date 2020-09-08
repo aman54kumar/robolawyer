@@ -110,14 +110,14 @@
                         id="article_0_explanation"
                         data-pattern-id="article_++_explanation"
                         data-pattern-name="page5[++][articleExplanation]"
-                        oninput="articleWrapper(this,72,false)"
-                        onpaste="articleWrapper(this, 72, false)"
+                        oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px";articleWrapper(this,72,false)'
+                        onpaste='this.style.height = ""; this.style.height = this.scrollHeight + "px";articleWrapper(this, 72, false);'
                         onfocus="getCounterValue(this);"
                         onblur="hideCounterElement(this);"
                         cols="30"
                         rows="10"
                         data-parsley-group="page5"
-                        style="width: 72ch"
+                        style="width: 80ch; padding: 10px"
                         disabled
                       ></textarea>
                       <br />
@@ -148,6 +148,7 @@
                     class="a-btnAdd btn btn-primary page5_addButton"
                     id="addButton_5_0"
                     data-pattern-id="addButton_5_++"
+                    disabled
                   >
                     Add +
                   </button>

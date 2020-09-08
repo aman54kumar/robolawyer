@@ -388,7 +388,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     };
     docObject.push(facts);
   }
-  if (!!$("#orgnlCapacity").val() || !!$("#indNLCapacity").val()) {
+  if (!!$("#orgnlCapacity").val()) {
     official = {
       date: moment().format("DD-MM-YYYY"),
       title: "Proof of organisation official",
@@ -398,7 +398,6 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     };
     docObject.push(official);
   }
-  console.log(docObject);
   if (docObject.length === 1) {
     $("input[name='page8[0][date]']").val(docObject[0].date);
     $("input[name='page8[0][title]']").val(docObject[0].title);
@@ -515,7 +514,6 @@ var areaArray = $("textArea");
 
 var removedArea = areaArray.splice(9, 6);
 
-// console.log(areaArray)
 jQuery(removedArea).each(function () {
   if ($(this)[0].id === "stofFacts") {
     stOfFactsElement = $(this)[0];
@@ -607,7 +605,7 @@ jQuery(removedArea).each(function () {
 //   });
 // });
 
-limitLines = function (textarea) {
+limitLines3 = function (textarea) {
   setTimeout(function () {
     var limit = textarea.getAttribute("rows");
     var spaces = textarea.getAttribute("cols");
@@ -1003,8 +1001,7 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
   }
 
   // format firstElement
-
-  resultString1 = formatTextWithoutDash(element.value, columnLength, null);
+  resultString1 = onPasteformatTextWithoutDash(element.value, columnLength);
   if (isArticleSelectElement) {
     resultString2 = otherElement.value;
     invisibleArticleArea.value = resultString1;
@@ -1124,12 +1121,12 @@ var trimLastNthCharInString = function (str, ch, n) {
   return str;
 };
 
-// function toggleAddButton(element) {
-//   parentElement =
-//     element.parentElement.parentElement.parentElement.parentElement
-//       .parentElement.children[3].children[0];
-//   parentElement.disabled = false;
-// }
+function toggleAddButton(element) {
+  parentElement =
+    element.parentElement.parentElement.parentElement.parentElement
+      .parentElement.children[3].children[0];
+  parentElement.disabled = false;
+}
 
 // Complaint Page processing
 
@@ -1152,7 +1149,7 @@ function complaintWrapper(element, columnLength, isComplaintInputElement) {
 
   // format firstElement
 
-  resultString1 = formatTextWithoutDash(element.value, columnLength, null);
+  resultString1 = onPasteformatTextWithoutDash(element.value, columnLength);
 
   resultString2 = otherElement.value;
   element.value = resultString1;
@@ -1222,4 +1219,158 @@ function complaintWrapper(element, columnLength, isComplaintInputElement) {
     getCounterValue(counterElement);
     counterElement.classList.remove("is-hidden");
   }
+}
+//
+limitLinesOnPaste = function (textarea) {
+  setTimeout(function () {
+    var limit = textarea.rows;
+    var spaces = textarea.cols;
+    var lines = textarea.value.split("\n");
+
+    for (var i = 0; i < lines.length && i < limit; i++) {
+      if (lines[i].length <= spaces) continue;
+      var j = 0;
+
+      var space = spaces;
+
+      while (j <= spaces) {
+        if (lines[i].charAt(j) === " ") space = j;
+        j++;
+      }
+      lines[i + 1] = lines[i].substring(space + 1) + (lines[i + 1] || "");
+
+      lines[i] = lines[i].substring(0, space + 1);
+      if (lines.length > limit) {
+        break;
+      }
+    }
+    if (lines.length > limit) {
+      textarea.style.color = "red";
+      setTimeout(function () {
+        textarea.style.color = "";
+      }, 500);
+    }
+    // if (lines.length > limit && (event.keyCode != 8 || event.keyCode != 46)) {
+    //   textarea.value = lines.slice(0, limit).join("\n");
+    //   return;
+    // }
+    idTextArea = "#" + String(textarea.id);
+    var cursorPosition = $(idTextArea).prop("selectionStart");
+    textarea.value = lines.slice(0, limit).join("\n");
+    $(idTextArea).setCursorPosition(cursorPosition);
+  }, 0);
+};
+
+// new
+var limitLines = function (textarea) {
+  idTextArea = "#" + String(textarea.id);
+  var cursorPosition = $(idTextArea).prop("selectionStart");
+  var overFlowInfo = null;
+  var text = textarea.value;
+  var colLimit = textarea.cols;
+  var rowLimit = textarea.rows;
+  posInfo = getPosInfo(text, cursorPosition - 1, colLimit);
+  relPos = posInfo.rel_pos;
+
+  overFlowInfo = checkOverflow(
+    text,
+    cursorPosition - 1,
+    posInfo,
+    colLimit,
+    rowLimit
+  );
+
+  if (
+    overFlowInfo.overflow == false &&
+    overFlowInfo.formatted_text.split("\n").length <= rowLimit
+  ) {
+    if (checkIfNewLine(text, cursorPosition - 1, relPos, colLimit)) {
+      cursorPosition += 1;
+    }
+    textarea.value = overFlowInfo.formatted_text
+      .split("\n")
+      .slice(0, rowLimit)
+      .join("\n");
+    $(idTextArea).setCursorPosition(cursorPosition);
+  } else {
+    textarea.value = removeCharAt(text, cursorPosition - 1);
+  }
+  currentTotalLine = (textarea.value.match(/\n/g) || []).length + 1;
+
+  if (textarea.classList.contains("lastAreas")) {
+    textarea.parentElement.parentElement.children[2].innerHTML =
+      "Lines Remaining: " + String(rowLimit - currentTotalLine);
+  } else {
+    textarea.nextElementSibling.innerHTML =
+      "Lines Remaining: " + String(rowLimit - currentTotalLine);
+  }
+  // console.log(rowLimit - a);
+};
+
+function removeStringFromLine(text, startPos, pastedLength) {
+  return text.substring(0, startPos) + text.substring(startPos + pastedLength);
+}
+function checkIfNewLine(text, pos, relPos, colLimit) {
+  while (relPos <= colLimit) {
+    if (text[pos] == " " || text[pos] == "\n") return false;
+    relPos += 1;
+    pos++;
+  }
+  return true;
+}
+function getPosInfo(text, pos, colLimit) {
+  // assumption that line is formatted till pos
+  var relPos = 0;
+  var lastSpace = -1;
+  var lines = 0;
+  for (i = 0; i < pos; i++) {
+    if (text[i] == " ") lastSpace = i;
+    if (text[i] == "\n") {
+      relPos = -1;
+      lines++;
+    }
+    relPos++;
+  }
+  return { rel_pos: relPos, last_space: lastSpace, lines: lines };
+}
+
+var checkOverflow = function (text, pos, posInfo, colLimit, rowLimit) {
+  // checks overflow of each line
+  // limit cases -
+  // : if there is \n before colLimit
+  // : if pos>text.length
+  while (posInfo.rel_pos <= colLimit && posInfo.lines < rowLimit) {
+    if (text[pos] == "\n" || pos >= text.length) {
+      return { overflow: false, formatted_text: text };
+    }
+    if (text[pos] == " ") posInfo.last_space = pos;
+    pos++;
+    posInfo.rel_pos++;
+  }
+  posInfo.rel_pos = pos - posInfo.last_space;
+  text = insertCharAt(text, "\n", posInfo.last_space + 1);
+
+  posInfo.lines += 1;
+
+  if (posInfo.lines >= rowLimit) {
+    return { overflow: true, formatted_text: "" };
+  }
+  //check for extra \n
+  j = pos;
+  while (j < text.length) {
+    if (text[j] == "\n") {
+      text = removeCharAt(text, j);
+      break;
+    }
+    j++;
+  }
+  return checkOverflow(text, pos, posInfo, colLimit, rowLimit);
+};
+
+function insertCharAt(text, ch, pos) {
+  return text.substring(0, pos) + ch + text.substring(pos);
+}
+
+function removeCharAt(text, pos) {
+  return text.substring(0, pos) + text.substring(pos + 1);
 }

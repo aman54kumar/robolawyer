@@ -392,8 +392,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     official = {
       date: moment().format("DD-MM-YYYY"),
       title: "Proof of organisation official",
-      desc:
-        "Document showing that the organisation official is legally entitled.",
+      desc: "Proof of the official's right to represent the organisation.",
       page: 1,
     };
     docObject.push(official);

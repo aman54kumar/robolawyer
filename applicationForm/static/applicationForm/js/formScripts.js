@@ -595,15 +595,13 @@ jQuery(removedArea).each(function () {
   }
 });
 
-// areaArray.each(function () {
-//   $(this).textcounter({
-//     type: "character",
-//     max: $(this)[0].maxLength,
-//     countSpaces: true,
-//     countDown: true,
-//     countDownText: "Characters Remaining: %d",
-//   });
-// });
+$("#stofFactsExtra").textcounter({
+  type: "character",
+  max: 300000,
+  countSpaces: true,
+  countDown: true,
+  countDownText: "Characters Remaining: %d",
+});
 
 limitLines3 = function (textarea) {
   setTimeout(function () {

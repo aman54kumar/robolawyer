@@ -61,6 +61,10 @@
 // //   countSpaces: true,
 // // });
 
+$(".btn-next-form").on("click", function () {
+  $("html, body").animate({ scrollTop: 0 }, "fast");
+});
+
 var applicantTypeOption = function () {
   $("input[name='page2[applicantType]']").change(function () {
     result = this.value;

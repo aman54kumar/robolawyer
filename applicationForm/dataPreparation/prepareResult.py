@@ -102,7 +102,6 @@ class PrepareResult:
                 articleExplanationList.append(value)
 
         # test
-        print(articleSelectList)
         # for i in range(12):
         #     articleSelectList.append(articleSelectList[0])
         #     articleExplanationList.append(articleExplanationList[0])

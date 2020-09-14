@@ -887,7 +887,7 @@ def extractStringFromList(firstList,
                           lineEscape="#-",
                           paraEscape="$^"):
     finalString = ''
-    for j in range(len(firstList)):
+    for j in range(min(len(firstList), len(secondList))):
         firstLines = firstList[j].split('\n')
         secondLines = secondList[j].split('\n')
         for i in range(max(len(firstLines), len(secondLines))):

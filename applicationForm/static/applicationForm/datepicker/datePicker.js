@@ -49,9 +49,9 @@ function set_parameters() {
   var date_start_input = $("#decisionDate1");
   var date_end_input = $("#decisionDate2");
   var container =
-    $(".bootstrap-iso form").length > 0
-      ? $(".bootstrap-iso form").parent()
-      : "body";
+    $(".bootstrap-iso form").length > 0 ?
+    $(".bootstrap-iso form").parent() :
+    "body";
 
   var options = {
     container: container,

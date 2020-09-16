@@ -61,8 +61,12 @@
 // //   countSpaces: true,
 // // });
 
+
+
 $(".btn-next-form").on("click", function () {
-  $("html, body").animate({ scrollTop: 0 }, "fast");
+  $("html, body").animate({
+    scrollTop: 0
+  }, "fast");
 });
 
 var applicantTypeOption = function () {
@@ -377,8 +381,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     anon = {
       date: moment().format("DD-MM-YYYY"),
       title: "Anonymity Request",
-      desc:
-        "Documents requesting anonymity in the public documents of the court.",
+      desc: "Documents requesting anonymity in the public documents of the court.",
       page: pageCountAnon("#anonReqText"),
     };
     docObject.push(anon);
@@ -659,7 +662,9 @@ limitLines3 = function (textarea) {
 
 function limitLines2(element, limitRow, onPaste) {
   setTimeout(function () {
-    var cursorPosition = { value: $(element).prop("selectionStart") };
+    var cursorPosition = {
+      value: $(element).prop("selectionStart")
+    };
     limitCol = element.cols;
     rem = limitRow;
     if (!onPaste) {
@@ -868,6 +873,7 @@ function formatTextWithoutDash(
   }
   return strg;
 }
+
 function onPasteformatTextWithoutDash(lines, colLimit) {
   var limitCount = colLimit;
   var wordStartPos = 0;
@@ -983,10 +989,11 @@ function formatText(lines, limit, suffixLen = 3, prefixLen = 2) {
 
 limitLinesPage5 = 108;
 earlierLinesCount = 0;
+
 function articleWrapper(element, columnLength, isArticleSelectElement) {
   repeaterParentElement =
     element.parentElement.parentElement.parentElement.parentElement
-      .parentElement.parentElement.children;
+    .parentElement.parentElement.children;
   otherElementIndex = 0;
   if (isArticleSelectElement) {
     otherElementIndex = 2;
@@ -1014,10 +1021,10 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
   for (var i = 0; i < repeaterParentElement.length; i++) {
     var leftFieldValue =
       repeaterParentElement[i].children[1].children[0].children[0].children[1]
-        .children[1].value;
+      .children[1].value;
     var rightFieldValue =
       repeaterParentElement[i].children[1].children[0].children[0].children[2]
-        .children[1].value;
+      .children[1].value;
 
     if (i == repeaterParentElement.length - 1)
       currentLineCount += Math.max(
@@ -1026,10 +1033,10 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
       );
     else
       currentLineCount +=
-        Math.max(
-          leftFieldValue.split("\n").length,
-          rightFieldValue.split("\n").length
-        ) + 1;
+      Math.max(
+        leftFieldValue.split("\n").length,
+        rightFieldValue.split("\n").length
+      ) + 1;
   }
   if (earlierLinesCount < currentLineCount) {
     limitLinesPage5 = limitLinesPage5 - (currentLineCount - earlierLinesCount);
@@ -1125,7 +1132,7 @@ var trimLastNthCharInString = function (str, ch, n) {
 function toggleAddButton(element) {
   parentElement =
     element.parentElement.parentElement.parentElement.parentElement
-      .parentElement.children[3].children[0];
+    .parentElement.children[3].children[0];
   parentElement.disabled = false;
 }
 
@@ -1133,10 +1140,11 @@ function toggleAddButton(element) {
 
 limitLinesPage6 = 51;
 earlierLinesCountPage6 = 0;
+
 function complaintWrapper(element, columnLength, isComplaintInputElement) {
   repeaterParentElement =
     element.parentElement.parentElement.parentElement.parentElement
-      .parentElement.parentElement.children;
+    .parentElement.parentElement.children;
   otherElementIndex = 0;
   if (isComplaintInputElement) {
     otherElementIndex = 1;
@@ -1160,10 +1168,10 @@ function complaintWrapper(element, columnLength, isComplaintInputElement) {
   for (var i = 0; i < repeaterParentElement.length; i++) {
     var leftFieldValue =
       repeaterParentElement[i].children[0].children[0].children[0].children[0]
-        .children[1].value;
+      .children[1].value;
     var rightFieldValue =
       repeaterParentElement[i].children[0].children[0].children[0].children[1]
-        .children[1].value;
+      .children[1].value;
     if (i == repeaterParentElement.length - 1)
       currentLineCount += Math.max(
         leftFieldValue.split("\n").length,
@@ -1171,10 +1179,10 @@ function complaintWrapper(element, columnLength, isComplaintInputElement) {
       );
     else
       currentLineCount +=
-        Math.max(
-          leftFieldValue.split("\n").length,
-          rightFieldValue.split("\n").length
-        ) + 1;
+      Math.max(
+        leftFieldValue.split("\n").length,
+        rightFieldValue.split("\n").length
+      ) + 1;
   }
   if (earlierLinesCountPage6 < currentLineCount) {
     limitLinesPage6 =
@@ -1311,6 +1319,7 @@ var limitLines = function (textarea) {
 function removeStringFromLine(text, startPos, pastedLength) {
   return text.substring(0, startPos) + text.substring(startPos + pastedLength);
 }
+
 function checkIfNewLine(text, pos, relPos, colLimit) {
   while (relPos <= colLimit) {
     if (text[pos] == " " || text[pos] == "\n") return false;
@@ -1319,6 +1328,7 @@ function checkIfNewLine(text, pos, relPos, colLimit) {
   }
   return true;
 }
+
 function getPosInfo(text, pos, colLimit) {
   // assumption that line is formatted till pos
   var relPos = 0;
@@ -1332,7 +1342,11 @@ function getPosInfo(text, pos, colLimit) {
     }
     relPos++;
   }
-  return { rel_pos: relPos, last_space: lastSpace, lines: lines };
+  return {
+    rel_pos: relPos,
+    last_space: lastSpace,
+    lines: lines
+  };
 }
 
 var checkOverflow = function (text, pos, posInfo, colLimit, rowLimit) {
@@ -1342,7 +1356,10 @@ var checkOverflow = function (text, pos, posInfo, colLimit, rowLimit) {
   // : if pos>text.length
   while (posInfo.rel_pos <= colLimit && posInfo.lines < rowLimit) {
     if (text[pos] == "\n" || pos >= text.length) {
-      return { overflow: false, formatted_text: text };
+      return {
+        overflow: false,
+        formatted_text: text
+      };
     }
     if (text[pos] == " ") posInfo.last_space = pos;
     pos++;
@@ -1354,7 +1371,10 @@ var checkOverflow = function (text, pos, posInfo, colLimit, rowLimit) {
   posInfo.lines += 1;
 
   if (posInfo.lines >= rowLimit) {
-    return { overflow: true, formatted_text: "" };
+    return {
+      overflow: true,
+      formatted_text: ""
+    };
   }
   //check for extra \n
   j = pos;

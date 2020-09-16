@@ -5,8 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   stepperForm = new Stepper(stepperFormEl, {
     animation: true,
     linear: false,
-    excluded:
-      "input[type=button], input[type=submit], input[type=reset], input[type=hidden], :disabled",
+    excluded: "input[type=button], input[type=submit], input[type=reset], input[type=hidden], :disabled",
   });
   var form = stepperFormEl.querySelector(".bs-stepper-content form");
   stepperFormEl.addEventListener("show.bs-stepper", function (event) {
@@ -126,8 +125,7 @@ function checkValidation(cur) {
         if (onValidate("page2b")) {
           return true;
         }
-      } else {
-      }
+      } else {}
     }
   } else if (cur === 2) {
     appVal1 = document.querySelector(
@@ -231,94 +229,94 @@ function checkValidation(cur) {
   return false;
 }
 
-function formatText(lines, limit, suffixLen = 3, prefixLen = 2) {
-  lines = lines.split("");
-  str = "";
-  itrPosition = 0;
+// function formatText(lines, limit, suffixLen = 3, prefixLen = 2) {
+//   lines = lines.split("");
+//   str = "";
+//   itrPosition = 0;
 
-  limitCount = limit;
-  flag = 0;
-  inWordPos = 0;
-  wordPrefix = 0;
-  wordSuffix = 0;
-  wordStartPos = 0;
-  lines.forEach(function (ch) {
-    itrPosition += 1;
-    str += ch;
-    limitCount -= 1;
+//   limitCount = limit;
+//   flag = 0;
+//   inWordPos = 0;
+//   wordPrefix = 0;
+//   wordSuffix = 0;
+//   wordStartPos = 0;
+//   lines.forEach(function (ch) {
+//     itrPosition += 1;
+//     str += ch;
+//     limitCount -= 1;
 
-    if (ch === "\n") {
-      if (flag === 1) {
-        wordSuffix = itrPosition - inWordPos;
-        str =
-          str.slice(0, wordStartPos) +
-          "\n" +
-          str.slice(wordStartPos, str.length);
-        limitCount = limit - (wordPrefix + wordSuffix);
-        flag = 0;
-        return;
-      } else {
-        limitCount = limit;
-        flag = 0;
-        wordStartPos = itrPosition;
-      }
-    }
+//     if (ch === "\n") {
+//       if (flag === 1) {
+//         wordSuffix = itrPosition - inWordPos;
+//         str =
+//           str.slice(0, wordStartPos) +
+//           "\n" +
+//           str.slice(wordStartPos, str.length);
+//         limitCount = limit - (wordPrefix + wordSuffix);
+//         flag = 0;
+//         return;
+//       } else {
+//         limitCount = limit;
+//         flag = 0;
+//         wordStartPos = itrPosition;
+//       }
+//     }
 
-    if (flag === 1) {
-      wordSuffix = itrPosition - inWordPos;
-      if (wordSuffix >= suffixLen && ch != " ") {
-        flag = 0;
-        str =
-          str.slice(0, inWordPos) + "-\n" + str.slice(inWordPos, str.length);
-        itrPosition += "-\n".length;
-        limitCount = limit - wordSuffix;
-        wordStartPos = inWordPos + "-\n".length;
-        return;
-      } else if (wordSuffix <= suffixLen && ch === " ") {
-        str =
-          str.slice(0, wordStartPos) +
-          "\n" +
-          str.slice(wordStartPos, str.length);
+//     if (flag === 1) {
+//       wordSuffix = itrPosition - inWordPos;
+//       if (wordSuffix >= suffixLen && ch != " ") {
+//         flag = 0;
+//         str =
+//           str.slice(0, inWordPos) + "-\n" + str.slice(inWordPos, str.length);
+//         itrPosition += "-\n".length;
+//         limitCount = limit - wordSuffix;
+//         wordStartPos = inWordPos + "-\n".length;
+//         return;
+//       } else if (wordSuffix <= suffixLen && ch === " ") {
+//         str =
+//           str.slice(0, wordStartPos) +
+//           "\n" +
+//           str.slice(wordStartPos, str.length);
 
-        flag = 0;
-        itrPosition += "\n".length;
-        limitCount = limit - (wordSuffix + wordPrefix);
-        return;
-      }
-    }
+//         flag = 0;
+//         itrPosition += "\n".length;
+//         limitCount = limit - (wordSuffix + wordPrefix);
+//         return;
+//       }
+//     }
 
-    if (ch === " ") {
-      wordStartPos = itrPosition;
-    }
-    if (limitCount === 0) {
-      if (ch != " ") {
-        inWordPos = itrPosition;
-        wordPrefix = inWordPos - wordStartPos;
-        if (wordPrefix <= prefixLen) {
-          str =
-            str.slice(0, wordStartPos) +
-            "\n" +
-            str.slice(wordStartPos, str.length);
-          limitCount = limit - wordPrefix;
-          itrPosition += 1;
-          wordStartPos += 1;
-        } else {
-          flag = 1;
-          limitCount = limit;
-        }
-      } else {
-        str =
-          str.slice(0, itrPosition) + "\n" + str.slice(itrPosition, str.length);
-        limitCount = limit;
-        itrPosition += 1;
-        wordStartPos += 1;
-      }
-    }
-  });
+//     if (ch === " ") {
+//       wordStartPos = itrPosition;
+//     }
+//     if (limitCount === 0) {
+//       if (ch != " ") {
+//         inWordPos = itrPosition;
+//         wordPrefix = inWordPos - wordStartPos;
+//         if (wordPrefix <= prefixLen) {
+//           str =
+//             str.slice(0, wordStartPos) +
+//             "\n" +
+//             str.slice(wordStartPos, str.length);
+//           limitCount = limit - wordPrefix;
+//           itrPosition += 1;
+//           wordStartPos += 1;
+//         } else {
+//           flag = 1;
+//           limitCount = limit;
+//         }
+//       } else {
+//         str =
+//           str.slice(0, itrPosition) + "\n" + str.slice(itrPosition, str.length);
+//         limitCount = limit;
+//         itrPosition += 1;
+//         wordStartPos += 1;
+//       }
+//     }
+//   });
 
-  if (flag === 1) {
-    str =
-      str.slice(0, wordStartPos) + "\n" + str.slice(wordStartPos, str.length);
-  }
-  return str;
-}
+//   if (flag === 1) {
+//     str =
+//       str.slice(0, wordStartPos) + "\n" + str.slice(wordStartPos, str.length);
+//   }
+//   return str;
+// }

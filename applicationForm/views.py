@@ -11,9 +11,10 @@ from django.core.mail import send_mail
 from django.core.mail import EmailMessage
 import os
 import logging
+import uuid
+
 logger = logging.getLogger(__name__)
 
-import uuid
 sessionID = uuid.uuid4().hex
 
 
@@ -24,9 +25,9 @@ class FormPageView(TemplateView):
 def formProcessing(request):
 
     spclReplies = []
-    filepath = os.path.join(
-        settings.BASE_DIR, 'applicationForm/dataPreparation/results/' +
-        sessionID + '/finalPage/finalForm.pdf')
+    # filepath = os.path.join(
+    #     settings.BASE_DIR, 'applicationForm/dataPreparation/results/' +
+    #     sessionID + '/finalPage/finalForm.pdf')
     if request.method == 'POST':
         form_dict = request.POST
         spclReplies.append(request.POST.getlist('page1[involvedStates]'))

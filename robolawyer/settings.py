@@ -42,7 +42,7 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_PORT = config('EMAIL_PORT')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS')
-# ADMINS = [("Aman","aman54kumar@gmail.com")]
+ADMINS = [("Aman", "aman54kumar@gmail.com")]
 # EMAIL_HOST=smtp.gmail.com
 # EMAIL_HOST_PASSWORD="Justice4All
 # EMAIL_HOST_USER=contact@justbot.org
@@ -51,7 +51,7 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 
 # below code for env var in heroku
 
-ADMINS = [("Justbot", "contact@justbot.org")]
+# ADMINS = [("Justbot", "contact@justbot.org")]
 
 # EMAIL_HOST_PASSWORD=skewevuyxzpexrfn
 # EMAIL_HOST_USER=aman54kumar@gmail.com
@@ -237,9 +237,12 @@ LOGGING = {
             '()': 'django.utils.log.ServerFormatter',
             'format': '[%(server_time)s] %(message)s',
         },
-        'console': {
-            # exact format is not important, this is the minimum information
-            'format': '%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+        'verbose': {
+            'format':
+            '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
         },
     },
     'handlers': {
@@ -259,24 +262,24 @@ LOGGING = {
             'formatter': 'django.server',
         },
         'mail_admins': {
-            'level': 'INFO',
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler',
-            'include_html': True,
-            'filters': ['require_debug_false']
+            'formatter': 'verbose'
         },
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': 'justbot-debug.log',
-            'formatter': 'console'
+            'filters': ['require_debug_true'],
+            'filename': 'justbot-debug1.log',
+            'formatter': 'simple'
         },
     },
     'loggers': {
         'django': {
-            'handlers': ['console', 'console_debug_false', 'mail_admins'],
-            'level': 'WARNING',
-            'propagate': True,
-            'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG')
+            'handlers':
+            ['file', 'console', 'console_debug_false', 'mail_admins'],
+            'level': 'INFO',
         },
         'django.server': {
             'handlers': ['django.server'],

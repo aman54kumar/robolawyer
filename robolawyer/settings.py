@@ -42,19 +42,14 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_PORT = config('EMAIL_PORT')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS')
-ADMINS = [("Aman", "aman54kumar@gmail.com")]
-# EMAIL_HOST=smtp.gmail.com
-# EMAIL_HOST_PASSWORD="Justice4All
-# EMAIL_HOST_USER=contact@justbot.org
-# EMAIL_PORT=587
-# EMAIL_USE_TLS=True
+
+ADMINS = [(config('ADMINS_NAME'), config('ADMINS_EMAIL'))]
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
+SERVER_EMAIL = config('SERVER_EMAIL')
 
 # below code for env var in heroku
 
-# ADMINS = [("Justbot", "contact@justbot.org")]
-
-# EMAIL_HOST_PASSWORD=skewevuyxzpexrfn
-# EMAIL_HOST_USER=aman54kumar@gmail.com
+MANAGERS = ADMINS
 
 # Application definition
 
@@ -253,7 +248,7 @@ LOGGING = {
         },
         'console_debug_false': {
             'level': 'ERROR',
-            'filters': ['require_debug_false'],
+            'filters': ['require_debug_true'],
             'class': 'logging.StreamHandler',
         },
         'django.server': {
@@ -265,13 +260,14 @@ LOGGING = {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler',
-            'formatter': 'verbose'
+            'formatter': 'verbose',
+            'include_html': True,
         },
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'filters': ['require_debug_true'],
-            'filename': 'justbot-debug1.log',
+            'filename': 'justbot-debug.log',
             'formatter': 'simple'
         },
     },

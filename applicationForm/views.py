@@ -14,7 +14,7 @@ import logging
 import uuid
 
 logger = logging.getLogger(__name__)
-
+logger.info('Logging works!')
 sessionID = uuid.uuid4().hex
 
 

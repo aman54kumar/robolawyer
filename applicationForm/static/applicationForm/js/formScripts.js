@@ -61,12 +61,13 @@
 // //   countSpaces: true,
 // // });
 
-
-
 $(".btn-next-form").on("click", function () {
-  $("html, body").animate({
-    scrollTop: 0
-  }, "fast");
+  $("html, body").animate(
+    {
+      scrollTop: 0,
+    },
+    "fast"
+  );
 });
 
 var applicantTypeOption = function () {
@@ -381,7 +382,8 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     anon = {
       date: moment().format("DD-MM-YYYY"),
       title: "Anonymity Request",
-      desc: "Documents requesting anonymity in the public documents of the court.",
+      desc:
+        "Documents requesting anonymity in the public documents of the court.",
       page: pageCountAnon("#anonReqText"),
     };
     docObject.push(anon);
@@ -389,7 +391,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
   if (!!$("#stofFactsExtra").val()) {
     facts = {
       date: moment().format("DD-MM-YYYY"),
-      title: "Extra pages for the Statement of Facts",
+      title: "Supplementary Statement on the Subject matter of the application",
       desc: "Document to supplement further details on the facts.",
       page: pageCountAnon("#stofFactsExtra"),
     };
@@ -663,7 +665,7 @@ limitLines3 = function (textarea) {
 function limitLines2(element, limitRow, onPaste) {
   setTimeout(function () {
     var cursorPosition = {
-      value: $(element).prop("selectionStart")
+      value: $(element).prop("selectionStart"),
     };
     limitCol = element.cols;
     rem = limitRow;
@@ -993,7 +995,7 @@ earlierLinesCount = 0;
 function articleWrapper(element, columnLength, isArticleSelectElement) {
   repeaterParentElement =
     element.parentElement.parentElement.parentElement.parentElement
-    .parentElement.parentElement.children;
+      .parentElement.parentElement.children;
   otherElementIndex = 0;
   if (isArticleSelectElement) {
     otherElementIndex = 2;
@@ -1021,10 +1023,10 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
   for (var i = 0; i < repeaterParentElement.length; i++) {
     var leftFieldValue =
       repeaterParentElement[i].children[1].children[0].children[0].children[1]
-      .children[1].value;
+        .children[1].value;
     var rightFieldValue =
       repeaterParentElement[i].children[1].children[0].children[0].children[2]
-      .children[1].value;
+        .children[1].value;
 
     if (i == repeaterParentElement.length - 1)
       currentLineCount += Math.max(
@@ -1033,10 +1035,10 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
       );
     else
       currentLineCount +=
-      Math.max(
-        leftFieldValue.split("\n").length,
-        rightFieldValue.split("\n").length
-      ) + 1;
+        Math.max(
+          leftFieldValue.split("\n").length,
+          rightFieldValue.split("\n").length
+        ) + 1;
   }
   if (earlierLinesCount < currentLineCount) {
     limitLinesPage5 = limitLinesPage5 - (currentLineCount - earlierLinesCount);
@@ -1132,7 +1134,7 @@ var trimLastNthCharInString = function (str, ch, n) {
 function toggleAddButton(element) {
   parentElement =
     element.parentElement.parentElement.parentElement.parentElement
-    .parentElement.children[3].children[0];
+      .parentElement.children[3].children[0];
   parentElement.disabled = false;
 }
 
@@ -1144,7 +1146,7 @@ earlierLinesCountPage6 = 0;
 function complaintWrapper(element, columnLength, isComplaintInputElement) {
   repeaterParentElement =
     element.parentElement.parentElement.parentElement.parentElement
-    .parentElement.parentElement.children;
+      .parentElement.parentElement.children;
   otherElementIndex = 0;
   if (isComplaintInputElement) {
     otherElementIndex = 1;
@@ -1168,10 +1170,10 @@ function complaintWrapper(element, columnLength, isComplaintInputElement) {
   for (var i = 0; i < repeaterParentElement.length; i++) {
     var leftFieldValue =
       repeaterParentElement[i].children[0].children[0].children[0].children[0]
-      .children[1].value;
+        .children[1].value;
     var rightFieldValue =
       repeaterParentElement[i].children[0].children[0].children[0].children[1]
-      .children[1].value;
+        .children[1].value;
     if (i == repeaterParentElement.length - 1)
       currentLineCount += Math.max(
         leftFieldValue.split("\n").length,
@@ -1179,10 +1181,10 @@ function complaintWrapper(element, columnLength, isComplaintInputElement) {
       );
     else
       currentLineCount +=
-      Math.max(
-        leftFieldValue.split("\n").length,
-        rightFieldValue.split("\n").length
-      ) + 1;
+        Math.max(
+          leftFieldValue.split("\n").length,
+          rightFieldValue.split("\n").length
+        ) + 1;
   }
   if (earlierLinesCountPage6 < currentLineCount) {
     limitLinesPage6 =
@@ -1230,12 +1232,42 @@ function complaintWrapper(element, columnLength, isComplaintInputElement) {
   }
 }
 //
-limitLinesOnPaste = function (textarea) {
+
+limitLinesOnPaste1 = function (textarea) {
+  setTimeout(function () {
+    idTextArea = "#" + String(textarea.id);
+    var cursorPosition = $(idTextArea).prop("selectionStart");
+    var overFlowInfo = null;
+    var text = textarea.value;
+    var colLimit = textarea.cols;
+    var rowLimit = textarea.rows;
+    posInfo = getPosInfo(text, cursorPosition - 1, colLimit);
+    relPos = posInfo.rel_pos;
+
+    overFlowInfo = checkOverflow(
+      text,
+      cursorPosition - 1,
+      posInfo,
+      colLimit,
+      rowLimit
+    );
+    // if (lines.length > limit && (event.keyCode != 8 || event.keyCode != 46)) {
+    //   textarea.value = lines.slice(0, limit).join("\n");
+    //   return;
+    // }
+    idTextArea = "#" + String(textarea.id);
+    var cursorPosition = $(idTextArea).prop("selectionStart");
+    textarea.value = lines.slice(0, limit).join("\n");
+    $(idTextArea).setCursorPosition(cursorPosition);
+  }, 0);
+};
+
+limitLinesOnPaste = function (textarea, e) {
   setTimeout(function () {
     var limit = textarea.rows;
     var spaces = textarea.cols;
     var lines = textarea.value.split("\n");
-
+    var flag = false;
     for (var i = 0; i < lines.length && i < limit; i++) {
       if (lines[i].length <= spaces) continue;
       var j = 0;
@@ -1246,10 +1278,14 @@ limitLinesOnPaste = function (textarea) {
         if (lines[i].charAt(j) === " ") space = j;
         j++;
       }
-      lines[i + 1] = lines[i].substring(space + 1) + (lines[i + 1] || "");
 
+      lines[i + 1] = lines[i].substring(space + 1) + (lines[i + 1] || "");
       lines[i] = lines[i].substring(0, space + 1);
+      if (i == lines.length - 1) {
+        lines[i] = lines[i].substring(0, spaces);
+      }
       if (lines.length > limit) {
+        flag = true;
         break;
       }
     }
@@ -1266,54 +1302,64 @@ limitLinesOnPaste = function (textarea) {
     idTextArea = "#" + String(textarea.id);
     var cursorPosition = $(idTextArea).prop("selectionStart");
     textarea.value = lines.slice(0, limit).join("\n");
-    $(idTextArea).setCursorPosition(cursorPosition);
+    if (flag == true) {
+      $(idTextArea).focus();
+    } else {
+      $(idTextArea).setCursorPosition(cursorPosition);
+    }
+
+    console.log(JSON.stringify(textarea.value));
   }, 0);
 };
 
 // new
-var limitLines = function (textarea) {
-  idTextArea = "#" + String(textarea.id);
-  var cursorPosition = $(idTextArea).prop("selectionStart");
-  var overFlowInfo = null;
-  var text = textarea.value;
-  var colLimit = textarea.cols;
-  var rowLimit = textarea.rows;
-  posInfo = getPosInfo(text, cursorPosition - 1, colLimit);
-  relPos = posInfo.rel_pos;
+var limitLines = function (textarea, e) {
+  e.preventDefault();
+  setTimeout(function () {
+    console.log("input started");
+    idTextArea = "#" + String(textarea.id);
+    var cursorPosition = $(idTextArea).prop("selectionStart");
+    var overFlowInfo = null;
+    var text = textarea.value;
+    var colLimit = textarea.cols;
+    var rowLimit = textarea.rows;
+    posInfo = getPosInfo(text, cursorPosition - 1, colLimit);
+    relPos = posInfo.rel_pos;
 
-  overFlowInfo = checkOverflow(
-    text,
-    cursorPosition - 1,
-    posInfo,
-    colLimit,
-    rowLimit
-  );
+    overFlowInfo = checkOverflow(
+      text,
+      cursorPosition - 1,
+      posInfo,
+      colLimit,
+      rowLimit
+    );
 
-  if (
-    overFlowInfo.overflow == false &&
-    overFlowInfo.formatted_text.split("\n").length <= rowLimit
-  ) {
-    if (checkIfNewLine(text, cursorPosition - 1, relPos, colLimit)) {
-      cursorPosition += 1;
+    if (
+      overFlowInfo.overflow == false &&
+      overFlowInfo.formatted_text.split("\n").length <= rowLimit
+    ) {
+      if (checkIfNewLine(text, cursorPosition - 1, relPos, colLimit)) {
+        cursorPosition += 1;
+      }
+      textarea.value = overFlowInfo.formatted_text
+        .split("\n")
+        .slice(0, rowLimit)
+        .join("\n");
+      $(idTextArea).setCursorPosition(cursorPosition);
+    } else {
+      textarea.value = removeCharAt(text, cursorPosition - 1);
     }
-    textarea.value = overFlowInfo.formatted_text
-      .split("\n")
-      .slice(0, rowLimit)
-      .join("\n");
-    $(idTextArea).setCursorPosition(cursorPosition);
-  } else {
-    textarea.value = removeCharAt(text, cursorPosition - 1);
-  }
-  currentTotalLine = (textarea.value.match(/\n/g) || []).length + 1;
+    currentTotalLine = (textarea.value.match(/\n/g) || []).length + 1;
 
-  if (textarea.classList.contains("lastAreas")) {
-    textarea.parentElement.parentElement.children[2].innerHTML =
-      "Lines Remaining: " + String(rowLimit - currentTotalLine);
-  } else {
-    textarea.nextElementSibling.innerHTML =
-      "Lines Remaining: " + String(rowLimit - currentTotalLine);
-  }
-  // console.log(rowLimit - a);
+    if (textarea.classList.contains("lastAreas")) {
+      textarea.parentElement.parentElement.children[2].innerHTML =
+        "Lines Remaining: " + String(rowLimit - currentTotalLine);
+    } else {
+      textarea.nextElementSibling.innerHTML =
+        "Lines Remaining: " + String(rowLimit - currentTotalLine);
+    }
+    // console.log(rowLimit - a);
+  }, 0);
 };
 
 function removeStringFromLine(text, startPos, pastedLength) {
@@ -1345,7 +1391,7 @@ function getPosInfo(text, pos, colLimit) {
   return {
     rel_pos: relPos,
     last_space: lastSpace,
-    lines: lines
+    lines: lines,
   };
 }
 
@@ -1354,11 +1400,12 @@ var checkOverflow = function (text, pos, posInfo, colLimit, rowLimit) {
   // limit cases -
   // : if there is \n before colLimit
   // : if pos>text.length
+
   while (posInfo.rel_pos <= colLimit && posInfo.lines < rowLimit) {
     if (text[pos] == "\n" || pos >= text.length) {
       return {
         overflow: false,
-        formatted_text: text
+        formatted_text: text,
       };
     }
     if (text[pos] == " ") posInfo.last_space = pos;
@@ -1366,14 +1413,14 @@ var checkOverflow = function (text, pos, posInfo, colLimit, rowLimit) {
     posInfo.rel_pos++;
   }
   posInfo.rel_pos = pos - posInfo.last_space;
-  text = insertCharAt(text, "\n", posInfo.last_space + 1);
+  text = insertCharAt(text, "\n", posInfo.last_space);
 
   posInfo.lines += 1;
 
   if (posInfo.lines >= rowLimit) {
     return {
       overflow: true,
-      formatted_text: ""
+      formatted_text: "",
     };
   }
   //check for extra \n
@@ -1395,3 +1442,22 @@ function insertCharAt(text, ch, pos) {
 function removeCharAt(text, pos) {
   return text.substring(0, pos) + text.substring(pos + 1);
 }
+// $(document).ready(function () {
+
+//   $('#indAddress').keydown(function (e) {
+//     con
+//       var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
+//       if (key == 13) {
+//           e.preventDefault();
+
+//       }
+//   }).on("change", function () {
+//       // alert($(this).val());
+//   }).on("paste", function (e) {
+//       var _this = this;
+//       // Short pause to wait for paste to complete
+//       setTimeout(function () {
+//           console.log($(_this).val());
+//       }, 100);
+//   });
+// });

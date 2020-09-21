@@ -1,11 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.template import RequestContext
-from django.http import HttpResponse, FileResponse, Http404, HttpResponseRedirect
+from django.http import HttpResponse, Http404
 from django.template.loader import render_to_string
 from .dataPreparation.prepareResult import PrepareResult
 from django.urls import reverse
-import json
 from django.conf import settings
 from django.core.mail import send_mail
 from django.core.mail import EmailMessage
@@ -83,23 +82,6 @@ def download(request):
     raise Http404
 
 
-# add attachement header in download. change inline to attachment.
-
-# def download(request):
-#     import mimetypes
-#     from django.http import StreamingHttpResponse
-#     from wsgiref.util import FileWrapper
-#     file_path = os.path.join(settings.BASE_DIR, 'applicationForm/dataPreparation/results/'+sessionID+'/finalPage/finalForm.pdf')
-#     the_file = open(file_path, "rb")
-#     filename = os.path.basename(the_file)
-#     chunk_size = 8192
-#     response = StreamingHttpResponse(FileWrapper(open(the_file, 'rb'), chunk_size),
-#                            content_type=mimetypes.guess_type(the_file)[0])
-#     response['Content-Length'] = os.path.getsize(the_file)
-#     response['Content-Disposition'] = "attachment; filename=%s" % filename
-#     return response
-
-
 def pdf_email(request):
     file_path = os.path.join(
         settings.BASE_DIR, 'applicationForm/dataPreparation/results/' +
@@ -124,3 +106,19 @@ def pdf_email(request):
         return HttpResponse(
             'Our developers are working to resolve this issue. Please try after sometime.'
         )
+
+
+def server_error(request):
+    response = render('applicationForm/templates/errors/500.html',
+                      context_instance=RequestContext(request))
+    response.status_code = 500
+    return response
+    # return render(request,
+    #               'applicationForm/templates/errors/404.html',
+    #               status=404)
+
+
+# def handler500(request):
+#     return render(request,
+#                   'applicationForm/templates/errors/500.html',
+#                   status=500)

@@ -118,7 +118,7 @@ var courtCountry = function (baseUrl) {
             if (!data[i].proceedingType2 && !data[i].proceedingType3) {
               courtDetail1.setAttribute(
                 "style",
-                "border-bottom: solid 5px #FFCC00"
+                "border-bottom: solid 3px #FFCC00"
               );
             }
 
@@ -136,11 +136,11 @@ var courtCountry = function (baseUrl) {
               if (!data[i].proceedingType3) {
                 countryRow.setAttribute(
                   "style",
-                  "border-bottom: solid 5px #FFCC00"
+                  "border-bottom: solid 3px #FFCC00"
                 );
                 courtDetail2.setAttribute(
                   "style",
-                  "border-bottom: solid 5px #FFCC00"
+                  "border-bottom: solid 3px #FFCC00"
                 );
               }
             }
@@ -158,11 +158,11 @@ var courtCountry = function (baseUrl) {
               courtData.appendChild(courtDetail3);
               courtDetail3.setAttribute(
                 "style",
-                "border-bottom: solid 5px #FFCC00"
+                "border-bottom: solid 3px #FFCC00"
               );
               countryRow.setAttribute(
                 "style",
-                "border-bottom: solid 5px #FFCC00"
+                "border-bottom: solid 3px #FFCC00"
               );
             }
           }

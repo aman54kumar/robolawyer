@@ -93,11 +93,12 @@
               <div class="s-group">
                 <table width="100%">
                   <tr>
-                    <td width="40%">
+                    <td width="40%" style="vertical-align: top">
                       <label for="complainSelect_0_0"><b>Complaint</b></label>
+                      <!-- width: 35ch;-->
                       <textarea
                         name="page6[0][complainSelect]"
-                        style="width: 35ch; padding: 10px"
+                        style="padding: 10px"
                         id="complain_0_select"
                         class="form-control complainSelect"
                         data-parsley-group="page6"
@@ -124,8 +125,9 @@
                         onpaste='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper(this, 69, false);'
                         onfocus="getCounterValue(this);"
                         onblur="hideCounterElement(this);"
-                        style="width: 80ch; padding: 10px; vertical-align: top"
+                        style="padding: 10px"
                       ></textarea>
+                      <!-- width: 80ch; -->
                       <br />
                       <div class="remediesCounter is-hidden">
                         Lines Remaining:

@@ -1006,9 +1006,9 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
 
   otherElement =
     element.parentElement.parentElement.children[otherElementIndex].children[1];
-  if (isArticleSelectElement) {
-    otherElement.removeAttribute("disabled");
-  }
+  // if (isArticleSelectElement) {
+  //   otherElement.removeAttribute("disabled");
+  // }
 
   // format firstElement
   resultString1 = onPasteformatTextWithoutDash(element.value, columnLength);
@@ -1154,9 +1154,9 @@ function complaintWrapper(element, columnLength, isComplaintInputElement) {
 
   otherElement =
     element.parentElement.parentElement.children[otherElementIndex].children[1];
-  if (isComplaintInputElement) {
-    otherElement.removeAttribute("disabled");
-  }
+  // if (isComplaintInputElement) {
+  //   otherElement.removeAttribute("disabled");
+  // }
 
   // format firstElement
 

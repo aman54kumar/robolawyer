@@ -32,7 +32,11 @@ var echrRat = function (baseUrl) {
 
   var echrDiv = document.getElementById("echrDetails");
   $("#decisionDate1").on("change", function () {
+    console.log($(this));
     currentSelected = $(this).val();
+    // console.log(currentSelected);
+    a = moment(currentSelected, "DD-MM-YYYY").format("DD MMMM YYYY");
+    // console.log(a);
     if (moment(currentSelected, "DD-MM-YYYY")._isValid) {
       while (echrDiv.hasChildNodes()) {
         echrDiv.removeChild(echrDiv.lastChild);
@@ -42,11 +46,16 @@ var echrRat = function (baseUrl) {
         url: echrUrl,
       }).then(function (response) {
         data = response.data;
+        // console.log(currentSelected);
         currentSelected.forEach((countryName) => {
           for (var i = 0; i < data.length; i++) {
             if (data[i].country == countryName) {
               ratDate = data[i].ratDate;
               formattedDate = moment(ratDate).format("DD MMMM YYYY");
+              // end date from field
+
+              // end date
+              // console.log(formattedDate);
               var countryname = countryName.split("-");
               formattedCountryName = countryname[1].trim();
 

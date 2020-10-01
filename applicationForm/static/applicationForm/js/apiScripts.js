@@ -31,13 +31,14 @@ var echrRat = function (baseUrl) {
   var echrUrl = baseUrl + "api/echr/";
 
   var echrDiv = document.getElementById("echrDetails");
-  $("#decisionDate1").on("change", function () {
-    console.log($(this));
-    currentSelected = $(this).val();
-    // console.log(currentSelected);
-    a = moment(currentSelected, "DD-MM-YYYY").format("DD MMMM YYYY");
-    // console.log(a);
-    if (moment(currentSelected, "DD-MM-YYYY")._isValid) {
+  $("#decisionDate2").on("change", function () {
+    var currentSelectedDate = $(this).val();
+    var currentSelectedCountry1 = $("#involvedStates").val();
+    var formattedSelectedDate = moment(
+      currentSelectedDate,
+      "DD-MM-YYYY"
+    ).format("DD MMMM YYYY");
+    if (moment(currentSelectedDate, "DD-MM-YYYY")._isValid) {
       while (echrDiv.hasChildNodes()) {
         echrDiv.removeChild(echrDiv.lastChild);
       }
@@ -47,32 +48,37 @@ var echrRat = function (baseUrl) {
       }).then(function (response) {
         data = response.data;
         // console.log(currentSelected);
-        currentSelected.forEach((countryName) => {
+        currentSelectedCountry1.forEach((countryName) => {
           for (var i = 0; i < data.length; i++) {
             if (data[i].country == countryName) {
-              ratDate = data[i].ratDate;
-              formattedDate = moment(ratDate).format("DD MMMM YYYY");
-              // end date from field
+              ratDate = moment(data[i].ratDate).format("DD-MM-YYYY");
+              formattedRatDate = moment(ratDate, "DD-MM-YYYY").format(
+                "DD MMMM YYYY"
+              );
+              console.log(formattedSelectedDate);
+              console.log(formattedRatDate);
+              console.log(
+                moment(formattedSelectedDate).isBefore(formattedRatDate)
+              );
+              if (moment(formattedSelectedDate).isBefore(formattedRatDate)) {
+                var countryname = countryName.split("-");
+                var formattedCountryName = countryname[1].trim();
 
-              // end date
-              // console.log(formattedDate);
-              var countryname = countryName.split("-");
-              formattedCountryName = countryname[1].trim();
-
-              var pTag = document.createElement("p");
-              var p2Tag = document.createElement("p");
-              finalText =
-                "<b>" +
-                formattedCountryName +
-                "</b>" +
-                " ratified the European Convention on Human Rights and its Protocols on <b>" +
-                formattedDate +
-                "</b>. If the act, decision or omission take place before " +
-                formattedDate +
-                ", but the effects of the act, decision or omission still continue to the present day (eg: the act of a disappearance, where the person has not been found, even if the person can be presumed dead), please continue to the next field.<br>";
-              p2Tag.innerHTML += finalText;
-              textReady = pTag.appendChild(p2Tag);
-              appendedP = echrDiv.appendChild(textReady);
+                var pTag = document.createElement("p");
+                var p2Tag = document.createElement("p");
+                finalText =
+                  "<b>" +
+                  formattedCountryName +
+                  "</b>" +
+                  " ratified the European Convention on Human Rights and its Protocols on <b>" +
+                  formattedRatDate +
+                  "</b>. If the act, decision or omission take place before " +
+                  formattedRatDate +
+                  ", but the effects of the act, decision or omission still continue to the present day (eg: the act of a disappearance, where the person has not been found, even if the person can be presumed dead), please continue to the next field.<br>";
+                p2Tag.innerHTML += finalText;
+                textReady = pTag.appendChild(p2Tag);
+                appendedP = echrDiv.appendChild(textReady);
+              }
             }
           }
         });
@@ -83,8 +89,8 @@ var echrRat = function (baseUrl) {
 
 var courtCountry = function (baseUrl) {
   var courtUrl = baseUrl + "api/court/";
-  $("#decisionDate1").on("change", function () {
-    currentSelected = $("#involvedStates").val();
+  $("#decisionDate2").on("change", function () {
+    currentSelectedCountry = $("#involvedStates").val();
     while (courtData.hasChildNodes()) {
       courtData.removeChild(courtData.lastChild);
     }
@@ -95,7 +101,7 @@ var courtCountry = function (baseUrl) {
     }).then(function (response) {
       data = response.data;
       courtData = document.getElementById("courtData");
-      currentSelected.forEach((country) => {
+      currentSelectedCountry.forEach((country) => {
         for (var i = 0; i < data.length; i++) {
           countryArray = country.split("-");
           countryName = countryArray[1].trim();

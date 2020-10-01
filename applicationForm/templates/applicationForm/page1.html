@@ -48,7 +48,6 @@
                       name="page1[involvedStates]"
                       id="involvedStates"
                       data-parsley-group="page1"
-                      data-parsley-excluded="true"
                     >
                       <option value="ALB - Albania">Albania</option>
                       <option value="AND - Andorra">Andorra</option>
@@ -196,11 +195,34 @@
                   </h5>
                 </label>
                 <div class="row">
-                  <div class="col-sm-6 input-group input-daterange">
-                    <label for="decisionDate1"
+                  <div class="col-sm-6 input-group">
+                    <!-- <label for="decisionDate1"
                       >Start &nbsp; &nbsp;&nbsp;&nbsp;</label
-                    >
-                    <input
+                    > -->
+
+                    <div class="input-daterange input-group" id="datepicker">
+                      <input
+                        type="text"
+                        class="input-sm form-control"
+                        name="page1[decisionDate1]"
+                        data-date-end-date="0d"
+                        id="decisionDate1"
+                        placeholder="Start"
+                      />
+                      <div class="input-group-append input-group-prepend">
+                        <span class="input-group-text">To</span>
+                      </div>
+                      <input
+                        type="text"
+                        class="input-sm form-control"
+                        name="end"
+                        data-date-end-date="0d"
+                        id="decisionDate2"
+                        name="page1[decisionDate2]"
+                        placeholder="End"
+                      />
+                    </div>
+                    <!-- <input
                       type="text"
                       id="decisionDate1"
                       class="datepicker-range form-control btn-outline-dark"
@@ -213,12 +235,12 @@
                     >
                     <input
                       type="text"
-                      id="decisionDate2"
+                      
                       class="datepicker-range form-control btn-outline-dark"
-                      name="page1[decisionDate2]"
+                      
                       data-date-end-date="0d"
                       data-parsley-group="page1"
-                    />
+                    /> -->
                   </div>
                 </div>
                 <div class="col-sm-10">

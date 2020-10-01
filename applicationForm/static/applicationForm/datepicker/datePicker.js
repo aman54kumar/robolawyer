@@ -15,6 +15,7 @@ $(document).ready(function () {
 function set_parameters() {
   var date_start_input = $("#decisionDate1");
   var date_end_input = $("#decisionDate2");
+  var date_general = $(".datepicker");
   var container =
     $(".bootstrap-iso form").length > 0
       ? $(".bootstrap-iso form").parent()
@@ -45,27 +46,28 @@ function set_parameters() {
   date_end_input.datepicker(options).on("changeDate", function (e) {
     date_start_input.datepicker("setEndDate", e.date);
   });
+  date_general.datepicker(options);
 }
 // Todo - change all formats to this. remove dataprovider attribute from all date fields.
 
-var datePickOptions = {
-  displayFormat: "ymd",
-  monthFormat: "long",
-  minYear: 1900,
-  wrapperClass: "row",
-  dropdownClass: "form-control col-sm-4",
-  allowFuture: false,
-  daySuffixes: false,
-  dayLabel: "Date",
-  defaultDateFormat: "dd-mm-yyyy",
-  submitFormat: "dd-mm-yyyy",
-};
-// var optionGlobal = $.extend({}, datePickOptions);
+// var datePickOptions = {
+//   displayFormat: "ymd",
+//   monthFormat: "long",
+//   minYear: 1900,
+//   wrapperClass: "row",
+//   dropdownClass: "form-control col-sm-4",
+//   allowFuture: false,
+//   daySuffixes: false,
+//   dayLabel: "Date",
+//   defaultDateFormat: "dd-mm-yyyy",
+//   submitFormat: "dd-mm-yyyy",
+// };
+// // var optionGlobal = $.extend({}, datePickOptions);
 
-$(".datepicker").on("click", function (event) {
-  $(event.currentTarget).prop("disabled", true);
-  curId = $(event.currentTarget).attr("id");
-  $("#" + curId).dropdownDatepicker(datePickOptions);
-});
+// $(".datepicker").on("click", function (event) {
+//   $(event.currentTarget).prop("disabled", true);
+//   curId = $(event.currentTarget).attr("id");
+//   $("#" + curId).dropdownDatepicker(datePickOptions);
+// });
 
 // $(".input-daterange").datepicker({});

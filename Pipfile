@@ -30,6 +30,7 @@ awsebcli = "*"
 colorama = {version = "*", sys_platform="!='fake'"}
 django-robots-txt = "*"
 reportlab = "*"
+moment = "*"
 
 [requires]
 python_version = "3.7"

@@ -5,14 +5,15 @@ from reportlab.rl_config import defaultPageSize
 import os
 import os.path
 from PyPDF2 import PdfFileReader, PdfFileWriter, PdfFileMerger
+import moment
 import glob
 import re
 import shutil
 from .inputMethodforWM import (
-    firstPageInputs, formatTextWithoutDash, secondPageInputs, thirdPageInputs,
-    fourthPageInputs, fifthPageInputs, sixthPageInputs, seventhPageInputs,
-    eighthPageInputs, ninthPageInputs, tenthPageInputs, eleventhPageInputs,
-    twelvthPageInputs, thirteenthPageInputs, extractStringFromList)
+    firstPageInputs, secondPageInputs, thirdPageInputs, fourthPageInputs,
+    fifthPageInputs, sixthPageInputs, seventhPageInputs, eighthPageInputs,
+    ninthPageInputs, tenthPageInputs, eleventhPageInputs, twelvthPageInputs,
+    thirteenthPageInputs, extractStringFromList)
 from .inputMethodforWM import (
     modifyCountryNames,
     sortDocumentsDate,
@@ -56,7 +57,8 @@ class PrepareResult:
         if inDate == "":
             return inDate
         else:
-            inputDate = datetime.strptime(inDate, "%d-%m-%Y").date()
+            # inputDate = datetime.strptime(inDate, "%d-%m-%Y").date()
+            inputDate = moment.date(inDate, "%d-%m-%Y").strftime("%Y-%m-%d")
             # inputDate = datetime.strptime(str(inputDate), "%Y-%m-%d")
             return str(inputDate)
 
@@ -212,7 +214,6 @@ class PrepareResult:
                     "page3[orgRepresentativeType]",
             ]:
                 barCodeText += value + "|"
-
         barCodeText = barCodeText.replace("\r\n", "").replace("\n", "")
         barCodeList = barCodeText.split("|")
         if self.inputObj["page2"]["page2[applicantType]"] == "Organisation":
@@ -222,7 +223,6 @@ class PrepareResult:
 
         for indexes in [6, 21, 29, 36, 43]:
             barCodeList[indexes] = modifyCountryNames(barCodeList[indexes])
-
         barCodeList = self.swapPositions(barCodeList, 20,
                                          21)  # address-nationality
         barCodeList = self.swapPositions(barCodeList, 22,

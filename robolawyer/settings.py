@@ -273,8 +273,7 @@ LOGGING = {
     },
     'loggers': {
         'django': {
-            'handlers':
-            ['file', 'console', 'console_debug_false', 'mail_admins'],
+            'handlers': ['file', 'console_debug_false', 'mail_admins'],
             'level': 'INFO',
         },
         'django.server': {

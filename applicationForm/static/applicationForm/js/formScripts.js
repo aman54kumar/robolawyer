@@ -456,37 +456,28 @@ $("#page8Group").repeater({
   animationEasing: "swing",
   clearValues: true,
   afterAdd: function () {
-    $(".datepicker").on("focus", function () {
-      $(this).prop("disabled", true);
-      curId = $(this).attr("id");
-      $("#" + curId).dropdownDatepicker({
-        displayFormat: "ymd",
-        monthFormat: "long",
-        minYear: 1900,
-        wrapperClass: "row",
-        dropdownClass: "form-control col-sm-4",
-        allowFuture: false,
-        daySuffixes: false,
-        dayLabel: "Date",
-        defaultDateFormat: "dd-mm-yyyy",
-        submitFormat: "dd-mm-yyyy",
-      });
-
-      // .datepicker({
-      //   weekStart: 1,
-      //   daysOfWeekHighlighted: "0,6",
-      //   assumeNearbyYear: true,
-      //   autoclose: true,
-      //   todayHighlight: true,
-      //   clearBtn: true,
-      //   showOnFocus: true,
-      //   maxViewMode: "days",
-      //   format: "dd-mm-yyyy",
-      //   orientation: "top left",
-      //   templates: {
-      //     leftArrow: "&lt;",
-      //     rightArrow: "&gt;",
-      //   },
+    var container =
+      $(".bootstrap-iso form").length > 0
+        ? $(".bootstrap-iso form").parent()
+        : "body";
+    $(".datepicker").datepicker({
+      autoclose: true,
+      container: container,
+      startDate: "01-01-1900",
+      orientation: "auto",
+      format: "dd-mm-yyyy",
+      weekStart: 1,
+      language: "en",
+      daysOfWeekHighlighted: "0,6",
+      showOnFocus: true,
+      maxViewMode: "centuries",
+      templates: {
+        leftArrow: '<i class="fas fa-angle-double-left"></i>',
+        rightArrow: '<i class="fas fa-angle-double-right"></i>',
+      },
+      assumeNearbyYear: true,
+      calendarWeeks: false,
+      clearBtn: true,
     });
     cur_id = this.id;
     id_no = cur_id.split("_8_")[1];

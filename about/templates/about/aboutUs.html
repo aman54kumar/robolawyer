@@ -1,15 +1,10 @@
 {% extends 'home/base.html' %} {% load static %} {% block headContent %}
 
-<link
-  rel="stylesheet"
-  href="{% static 'applicationForm/css/formStyles.css' %}"
-/>
-<link rel="stylesheet" href="{% static 'css/aboutUs.css' %}" />
-{% endblock headContent %} {% block content %} 
+<link rel="stylesheet" href="{% static 'applicationForm/css/formStyles.css' %}" />
+<link rel="stylesheet" href="{{ STATIC_URL }}/static/css/aboutUs.css" type="text/css" />
+{% endblock headContent %} {% block content %}
 
- <div class="jumbotron" style='background: linear-gradient(to
-  bottom, rgba(212, 199, 199, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%),
-  url("{% static 'home/images/bg2.jpg' %}");background-size: cover;'>
+<div class="jumbotron jumbotron-core">
 
   <br />
   <h1 class="display-3" id="form-title">About Us</h1>
@@ -38,14 +33,13 @@
 
       <br />
       <div class="container-fluid">
-        <div class="row jumbotron">
+        <div class="row">
           <div class="col-md-4">
-            <div class="about-jumbotron">
+            <div class=" card about-jumbotron">
               <h4 class="font-weight-light ajustify">
                 <em>
                   <a href="https://www.tech-r.org/" target="_blank">
-                    Tech-R (Technology for Human Rights)</a
-                  >
+                    Tech-R (Technology for Human Rights)</a>
                   is dedicated to finding ways of using technology for the
                   protection and fulfilment of human rights, and this project is
                   an important step in fulfilling our mission. <br />
@@ -60,15 +54,13 @@
           </div>
           <!-- Dan Costin is the brilliant mind behind the Machine Learning algorithms  -->
           <div class="col-md-4">
-            <div class="about-jumbotron">
+            <div class="card about-jumbotron">
               <h4 class="font-weight-light ajustify">
-                <em
-                  >This project is a pilot for the new innovation lab at the
+                <em>This project is a pilot for the new innovation lab at the
                   Faculty of Law at the University of Oslo. The lab is hosted by
                   the
                   <a href="https://www.jus.uio.no/cell/" target="_blank">
-                    Centre for Experiential Legal Learning (CELL)</a
-                  >
+                    Centre for Experiential Legal Learning (CELL)</a>
                   (A centre of excellence in education) and the Norwegian
                   Research Center for Computers and Law (NRCCL). The project
                   team is led by Professor Malcolm Langford together with Ph.D
@@ -78,13 +70,11 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="about-jumbotron">
+            <div class="card about-jumbotron">
               <h4 class="font-weight-light ajustify">
-                <em
-                  >Andra Matei, the leader of Avant-Garde Lawyers and former
+                <em>Andra Matei, the leader of Avant-Garde Lawyers and former
                   lawyer at the European Court of Human Rights, undertook the
-                  legal quality assurance for our digital form.</em
-                >
+                  legal quality assurance for our digital form.</em>
               </h4>
             </div>
           </div>

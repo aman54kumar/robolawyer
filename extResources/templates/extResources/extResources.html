@@ -1,7 +1,8 @@
 {% extends 'home/base.html' %} {% load static %} {% block headContent %}
 
 <link rel="stylesheet" href="{% static 'applicationForm/css/formStyles.css' %}" />
-<link rel="stylesheet" href="{% static 'extResources/css/extRes.css' %}" />
+<link rel="stylesheet" href="{{ STATIC_URL }}/static/extResources/css/extRes.css" type="text/css"/>
+
 {% endblock headContent %} {% block content %}
 
 <div class="jumbotron">

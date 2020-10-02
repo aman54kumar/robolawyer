@@ -5,6 +5,6 @@
       rgba(22, 22, 22, 0.7) 75%,
       #161616 100%
     ),
-    url("../../../../static/home/images/bg2.jpg");
+    url("/static/home/images/bg2.jpg");
   background-size: cover;
 }

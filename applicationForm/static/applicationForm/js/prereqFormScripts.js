@@ -1,5 +1,3 @@
-
-
 $("#finalDecisionDate").on("change", function () {
   finalDecisionDate = moment($("#finalDecisionDate").val(), "DD/MM/YYYY");
   finalDecisionDate = moment(finalDecisionDate, "DD/MM/YYYY").format(

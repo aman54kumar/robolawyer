@@ -72,7 +72,7 @@ var echrRat = function (baseUrl) {
                   "</b>" +
                   " ratified the European Convention on Human Rights and its Protocols on <b>" +
                   formattedRatDate +
-                  "</b>. If the act, decision or omission take place before " +
+                  "</b>. If the act, decision or omission took place before " +
                   formattedRatDate +
                   ", but the effects of the act, decision or omission still continue to the present day (eg: the act of a disappearance, where the person has not been found, even if the person can be presumed dead), please continue to the next field.<br>";
                 p2Tag.innerHTML += finalText;
@@ -201,7 +201,11 @@ var articleDrop = function (baseUrl) {
           articleDropdown.append(
             $("<option></option>").prop("disabled", true).text(textValue)
           );
-        } else {
+        }
+        //   else if {
+        //   console.log("hide previous selected options");
+        // }
+        else {
           articleDropdown.append(
             $("<option></option>").attr("value", textValue).text(textValue)
           );

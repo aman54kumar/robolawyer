@@ -1,60 +1,200 @@
-{% extends 'home/base.html' %}
-{% load static %}
-{% block headContent %}
+{% extends 'home/base.html' %} {% load static %} {% block headContent %}
 
-<link rel="stylesheet" href="{% static 'applicationForm/stepper/bs-stepper.min.css' %}">
-<link rel="stylesheet" href="{% static 'applicationForm/css/formStyles.css' %}">
+<link rel="stylesheet" href="{% static 'applicationForm/css/formStyles.css' %}" />
+<link rel="stylesheet" href="{% static 'extResources/css/extRes.css' %}" />
+{% endblock headContent %} {% block content %}
 
-{% endblock headContent %}
-{% block content %}
-
-<div class="jumbotron"
-	style="margin-bottom: 0;background: linear-gradient(to bottom,  #1f549e 0%,#2989d8 100%); height:700px">
-	<br>
-	<h1 class="display-3" id="form-title">
-		External Resources
-	</h1>
+<div class="jumbotron">
+	<br />
+	<h1 class="display-3" id="form-title">External Resources</h1>
 	<div class="col-md-12 mx-auto form-section">
 		<div class="card-body">
-
-			<div class="container-fluid">
-				<h3 class="text-center">Here you can find links to relevant videos and documents of the European Court
-					of Human Rights.</h3>
-				<br>
+			<div class="container">
+				<h3 class="text-center">
+					Here you can find links to relevant videos and documents of the
+					European Court of Human Rights.
+				</h3>
+				<br />
 				<div class="row">
-					<div class="col-sm-4"> <img src="{% static 'extResources/images/extRess.svg' %}" width=80%;></div>
+					<div class="col-sm-4">
+						<img src="{% static 'extResources/images/extRess.svg' %}" width="80%;" />
+					</div>
 					<div class="col-sm-8">
+						<div>
+							<h3 class="lead"><a href="https://www.echr.coe.int/Documents/Convention_ENG.pdf"
+									target="_blank">
+									<i class="far fa-folder-open"></i> European Convention on Human
+									Rights</a></h3>
+							<p>Here you can download the full text of the European Convention on Human Rights. The
+								Convention contains the provisions that states members of the Council of Europe have
+								signed
+								and ratified, and binds the member states to protect, respect and fulfil the human
+								rights
+								mentioned in it.</p>
+						</div>
+						<div>
+							<h3 class="lead">
+								<a href="https://www.coe.int/en/web/conventions/search-on-treaties/-/conventions/treaty/results/subject/3"
+									target="_blank"><i class="far fa-folder-open"></i> ECHR and Protocols to the
+									Convention
+								</a>
+							</h3>
+							<p>Here you can find a list with all the additional protocols to the ECHR and links to their
+								respective text.</p>
+						</div>
 
-						<br>
-						<br>
-						<br>
-						<p class="lead"><i class="far fa-folder-open"></i> European Convention on Human Rights (English
-							Version): <a href="https://www.echr.coe.int/Documents/Convention_ENG.pdf">Click here</a></p>
-						<p class="lead"><i class="far fa-folder-open"></i> ECHR and Protocols to the Convention: <a
-								href="https://www.echr.coe.int/Pages/home.aspx?p=basictexts&c ">Click here</a></p>
-						<p class="lead"><i class="far fa-folder-open"></i> Find application forms in other languages: <a
-								href="https://www.echr.coe.int/Pages/home.aspx?p=applicants/ol&amp;c=">Click here</a>
+						<div>
+							<h3 class="lead">
+								<a href="https://www.echr.coe.int/Pages/home.aspx?p=applicants/ol&amp;c="
+									target="_blank"><i class="far fa-folder-open"></i> Application forms in other
+									languages
+								</a>
+							</h3>
+							<p>
+								You can apply to the European Court of Human Rights in any language of the countries who
+								have signed and ratified the European Convention on Human Rights. Here you can choose
+								the language you are most comfortable with.
+							</p>
+						</div>
+						<div>
+							<h3 class="lead">
+								<a href="https://www.echr.coe.int/Documents/Rules_Court_ENG.pdf" target="_blank"> <i
+										class="far fa-folder-open"></i> Rules of the Court
+								</a>
+							</h3>
+							<p>
+								The European Court of Human Rights functions according to a number of rules. In this
+								document you can find all the rules of the Court as of 1 st of January 2020.
+							</p>
+						</div>
+						<div>
+							<h3 class="lead">
+								<a href="https://www.echr.coe.int/Documents/Rule_47_ENG.pdf" target="_blank"><i
+										class="far fa-folder-open"></i>Rule 47 </a>
+							</h3>
+							<p>
+								This rule of the European Court of Human Rights contains the requirements as to what an
+								application must contain. In our digital form we try to guide you into filling in all
+								the required fields, and this is the primary source of information.
+							</p>
+						</div>
+						<div>
+							<h3 class="lead">
+								<a href="https://www.echr.coe.int/Documents/Application_Notes_ENG.pdf"
+									target="_blank"><i class="far fa-folder-open"></i>Notes for filling in the
+									application form </a>
+							</h3>
+							<p>
+								Here you ca find additional guidance for how to fill in an application to the European
+								Court of Human Rights. We are trying to make our explanations as comprehensive and clear
+								as
+								possible, but if you feel at a loos, the ECtHR notes for filling in the application form
+								might
+								prove useful.
+							</p>
+						</div>
+						<div>
+							<h3 class="lead">
+								<a href="https://www.echr.coe.int/Documents/Admissibility_guide_ENG.pdf"
+									target="_blank"><i class="far fa-folder-open"></i>Practical Guide on
+									Admissibility Criteria
+								</a>
+							</h3>
+							<p>
+								The large majority of applications sent to the ECtHR are not declared admissible and do
+								not
+								receive a judgement. In our digital application form we provide the general lines for
+								admissibility,
+								but sometimes even if an application seems not admissible, there are exceptions. If you
+								have
+								doubts regarding the admissibility of your application, you can always check this
+								document from
+								the Court.
+							</p>
+						</div>
+						<div>
+							<h3 class="lead">
+								<a href="https://youtu.be/mcbDDhs5ZVA" target="_blank"></a><i
+									class="far fa-folder-open"></i> ECHR - Video on the
+								admissibility conditions
+								</a>
+							</h3>
+							<p>
+								Here you can watch a video in English concerning the admissibility conditions.
+							</p>
+						</div>
+						<div>
+							<h3 class="lead">
+								<a href="https://www.echr.coe.int/Pages/home.aspx?p=caselaw/analysis/guides&amp;c="
+									target="_blank"><i class="far fa-folder-open"></i> Relevant case law for each
+									article of the European Convention on Human Rights
+									and its Protocols</a>
+							</h3>
+							<p>
+								If you are interested in the newest case law concerning particular articles, you can
+								find it here.
+								Each case brought before the European Court of Human Rights concerns articles of the
+								European Convention on Human Rights and its Protocols. Each year cases that are
+								considered
+								relevant for particular articles are added to a list of relevant cases. Sometimes these
+								cases bring
+								forth new issues or change to some extent the Court’s understanding of a case or
+								article.
+							</p>
+						</div>
+						<div>
+							<h3 class="lead">
+								<a href="https://www.echr.coe.int/Pages/home.aspx?p=caselaw/analysis/guides&c="
+									target="_blank"><i class="far fa-folder-open"></i> ECtHR Guides by theme and by
+									article</a>
+							</h3>
+							<p>
+								Here you can find ECtHR’s aggregated guides for clustered themes within human rights
+								(immigration, mass protests, prisoners’ rights, terrorism) as well as by articles of the
+								European
+								Convention on Human Rights and its Protocols.
+							</p>
+							<p>
+								The Guides by article includes:
+								<ul>
+									<li>Article 1 - Obligation to respect human rights</li>
+									<li>Article 2 - Right to life</li>
+									<li>Article 4 - Prohibition of slavery and forced labour</li>
+									<li>Article 5 - Right to liberty and security</li>
+									<li>Article 6 - Right to a fair (both civil and criminal limb)</li>
+									<li>Article 7 - No punishment without law</li>
+									<li>Article 8 - Right to respect for private and family life</li>
+									<li>Article 9 - Freedom of thought, conscience and religion</li>
+									<li>Article 10 - Freedom of expression</li>
+									<li>Article 11 - Freedom of assembly and association</li>
+									<li>Article 13 - Right to an effective remedy</li>
+									<li>Article 14 and Article 1 of Protocol No. 12 - Prohibition of discrimination</li>
+									<li>Article 15 - Derogation in time of emergency</li>
+									<li>Article 17 - Prohibition of abuse of rights</li>
+									<li>Article 18 - Limitation on use of restrictions on rights</li>
+									<li>Article 46 - Binding force and execution of judgments</li>
+									<li>Article 1 of Protocol No. 1 - Protection of property</li>
+									<li>Article 2 of Protocol No.1 - Right to Education</li>
+									<li>Article 3 of Protocol No.1 - Right to free elections</li>
+									<li>Article 4 of Protocol No.4 - Prohibition of collective expulsions of aliens</li>
+									<li>Article 4 of Protocol No.7 - Right not to be tried or punished twice</li>
+								</ul>
+							</p>
+						</div>
+						<p class="lead">
+							<i class="far fa-folder-open"></i> Presentation of the European
+							Court of Human Rights (English Version):
+							<a href="https://youtu.be/EPWGdhgQlgk" target="_blank">Click here</a>
 						</p>
-						<p class="lead"><i class="far fa-folder-open"></i> Notes for filling in the application form: <a
-								href="https://www.echr.coe.int/Documents/Application_Notes_ENG.pdf">Click here</a></p>
-						<p class="lead"><i class="far fa-folder-open"></i> Practical Guide on Admissibility Criteria: <a
-							href="https://www.echr.coe.int/Documents/Admissibility_guide_ENG.pdf">Click here</a></p>
-						<p class="lead"><i class="far fa-folder-open"></i> ECtHR documents related to court
-							applications: <a href="https://www.echr.coe.int/Pages/home.aspx?p=applicants&amp;c=#n1365511805813_pointer">Click here</a></p>
-						<p class="lead"><i class="far fa-folder-open"></i> ECHR - Video on the admissibility conditions
-							(English Version): <a href="https://youtu.be/mcbDDhs5ZVA">Click here</a></p class="lead">
-						<p class="lead"><i class="far fa-folder-open"></i> Presentation of the European Court of Human
-							Rights (English Version): <a href="https://youtu.be/EPWGdhgQlgk">Click here</a></p>
-						<p class="lead"><i class="far fa-folder-open"></i> The Human Rights Treaty Body system: <a
-								href="https://youtu.be/JP0fB-_X0l8">Click here</a></p>
-						<p class="lead"> <i class="far fa-folder-open"></i> Relevant cases for each article: <a
-								href="https://www.echr.coe.int/Pages/home.aspx?p=caselaw/reports&amp;c=">Click here</a>
+						<p class="lead">
+							<i class="far fa-folder-open"></i> The Human Rights Treaty Body
+							system:
+							<a href="https://youtu.be/JP0fB-_X0l8" target="_blank">Click here</a>
 						</p>
+
 					</div>
 				</div>
-				<hr>
-
-			</div> <!-- /container -->
+			</div>
 		</div>
 	</div>
 </div>

@@ -93,7 +93,20 @@
               <div class="s-group">
                 <table width="100%">
                   <tr>
-                    <td width="40%" style="vertical-align: top">
+                    <td width="20%" style="vertical-align: top">
+                      <label for=""><b>Selected Article</b></label>
+                      <textarea
+                        type="text"
+                        name="page6[0][preArticleSelect]"
+                        id="preArticle_0_select"
+                        class="form-control preArticleSelect"
+                        data-pattern-id="preArticle_++_select"
+                        data-pattern-name="page6[++][preArticleSelect]"
+                        rows="6"
+                        disabled
+                      ></textarea>
+                    </td>
+                    <td width="35%" style="vertical-align: top">
                       <label for="complainSelect_0_0"><b>Complaint</b></label>
                       <!-- width: 35ch;-->
                       <textarea
@@ -110,7 +123,7 @@
                         onpaste='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper(this, 26, true);'
                       ></textarea>
                     </td>
-                    <td width="60%">
+                    <td width="45%">
                       <label><b> Remedies Used</b></label>
                       <textarea
                         class="form-control remedies remediesTextCounter"

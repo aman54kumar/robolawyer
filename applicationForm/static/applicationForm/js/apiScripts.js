@@ -264,7 +264,7 @@ function callAPI(addButtonID) {
   }
 }
 
-function populateDiv(elId) {
+function populateDiv(elId) {  
   url = window.location.href.split("form/")[0];
   var http = new XMLHttpRequest();
   http.open("HEAD", url, false);

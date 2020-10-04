@@ -280,6 +280,16 @@ $("#page5Group").repeater({
         leftDeletedValue.split("\n").length,
         rightDeletedValue.split("\n").length
       );
+
+    // for removal of selected Element's value from page 6 on removal of input group on page 5
+    getDeletingElementIdNumber = element
+      .children()[1]
+      .children[0].children[0].children[0].children[1].id.split("_")[1];
+
+    getCorrespondingPage6SelectId =
+      "#preArticle_" + getDeletingElementIdNumber + "_select";
+
+    $(getCorrespondingPage6SelectId).val("");
   },
 });
 // Correspondent details
@@ -1449,22 +1459,26 @@ function insertCharAt(text, ch, pos) {
 function removeCharAt(text, pos) {
   return text.substring(0, pos) + text.substring(pos + 1);
 }
-// $(document).ready(function () {
 
-//   $('#indAddress').keydown(function (e) {
-//     con
-//       var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
-//       if (key == 13) {
-//           e.preventDefault();
+// function to add article value from page 5 to page 6.
+function addArticleToNextPage(e) {
+  currentElement = e.target;
+  currentValue = currentElement.value;
+  currentId = currentElement.id;
+  currentNumber = currentId.split("_")[1];
+  page6Id = "#preArticle_" + String(currentNumber) + "_select";
+  nextElementId = "article_" + String(parseInt(currentNumber) + 1) + "_select";
+  if ($(page6Id).val() && $(page6Id).val().length > 1) {
+    $(page6Id).val(currentValue);
+  } else {
+    if (currentNumber > 0) {
+      buttonElementId = "addButton_6_" + String(parseInt(currentNumber) - 1);
+      document.getElementById(buttonElementId).click();
+      $(page6Id).val(currentValue);
+    } else {
+      $(page6Id).val(currentValue);
+    }
+  }
+}
 
-//       }
-//   }).on("change", function () {
-//       // alert($(this).val());
-//   }).on("paste", function (e) {
-//       var _this = this;
-//       // Short pause to wait for paste to complete
-//       setTimeout(function () {
-//           console.log($(_this).val());
-//       }, 100);
-//   });
 // });

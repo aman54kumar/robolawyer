@@ -3,12 +3,35 @@ $(document).ready(function () {
   popUpText.style.textAlign = "justify";
   popUpText.innerHTML =
     "Attention: This is a beta version of the Just Bot's application form to the European Court of Human Rights. While it fulfils to the best of our knowledge the legal requirements of the Court for applications written in English, unknown bugs might appear during testing. Therefore, we advise that you do not currently use this form to apply to the Court; if you do so, it will be at your own risk. If you need to apply to the Court, you can fill in all the information in one of the forms provided directly by the Court <a href='https://www.echr.coe.int/Pages/home.aspx?p=applicants/ol&amp;c=' target='_blank'>here.</a> <br/><br/>The information you enter in the application form will be stored on our server until you generate the application form but will in any case be deleted each day at midnight. Your information will be automatically processed solely for the purpose of generating the application form. By proceeding to test you consent to the information you enter being stored and processed according to the conditions mentioned above.";
-  swal({
-    buttons: ["Go Back", "OK"],
-    content: popUpText,
-    closeOnClickOutside: false,
+  Swal.fire({
+    showConfirmButton: true,
+    showCancelButton: true,
+    cancelButtonText: "Go Back",
+    reverseButtons: true,
+    html: popUpText,
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    allowEnterKey: false,
+    customClass: {
+      cancelButton: "page1-swal-cancel",
+      confirmButton: "page1-swal-confirm",
+    },
+    padding: "4rem 1.5rem 3rem 1.5rem",
+    didOpen: function (el) {
+      cancelButton = el.children[2].children[0];
+      cancelButton.onclick = function () {
+        window.location.href = homeUrl;
+      };
+    },
+  }).then(function (result) {
+    if (result.isConfirmed) {
+      Swal.fire({
+        icon: "success",
+        timer: 1500,
+        showConfirmButton: false,
+      });
+    }
   });
-
   set_parameters();
 });
 
@@ -71,3 +94,7 @@ function set_parameters() {
 // });
 
 // $(".input-daterange").datepicker({});
+
+function setPageUrl() {
+  window.location.href = "https://justbot.org";
+}

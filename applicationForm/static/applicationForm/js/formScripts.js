@@ -590,7 +590,22 @@ jQuery(removedArea).each(function () {
               popUpStFactText.innerHTML =
                 "You have reached the page limit imposed by the Court. It is possible for you to add a supplementary statement expanding on the facts, complaints or remedies used. This extra statement should not be more than 20 pages. It should not add new complaints or violations but only develop what is already set out in the form. <br/>You can either go back and rephrase your Statement of the facts to comply with the page limit, or you can add extra pages on the Subject matter of the application. Before adding extra pages, make sure that all the central facts are already mentioned in the main Statement of Facts and that you are not adding any additional information, but merely expanding on the already mentioned facts, violations and complaints.";
               swal({
-                buttons: ["Go Back", "Add Supplementary Statement"],
+                buttons: {
+                  cancel: {
+                    text: "Go Back",
+                    value: null,
+                    className: "page4AlertCancel",
+                    visible: true,
+                    closeModal: true,
+                  },
+                  confirm: {
+                    text: "Add Supplementary Statement",
+                    value: null,
+                    className: "page4AlertConfirm",
+                    visible: true,
+                    closeModal: true,
+                  },
+                },
                 closeOnClickOutside: false,
                 content: popUpStFactText,
               });

@@ -1,0 +1,16 @@
+.jumbotron-core {
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.65) 0%,
+      rgba(0, 0, 0, 0.65) 100%
+    ),
+    url("/static/home/images/bg2.d64024c5b8cb.jpg");
+  background-size: cover;
+}
+
+.about-jumbotron {
+  background-color: #e9ecef;
+  padding: 30px;
+  min-height: 25rem;
+  height: auto;
+}

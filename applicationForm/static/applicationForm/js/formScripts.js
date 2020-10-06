@@ -325,33 +325,33 @@ $("input[name='page7[prevApplications]']").change(function () {
   }
 });
 
-function textCounter(field, field2, maxlimit) {
-  var countfield = document.getElementById(field2);
-  if (field.value.length > maxlimit) {
-    if (field.id === "stofFacts") {
-      var popUpStFactText = document.createElement("div");
-      popUpStFactText.style.textAlign = "justify";
-      popUpStFactText.innerHTML =
-        "You have reached the page limit imposed by the Court. It is possible for you to add a supplementary statement expanding on the facts, complaints or remedies used. This extra statement should not be more than 20 pages. It should not add new complaints or violations but only develop what is already set out in the form. <br/>You can either go back and rephrase your Statement of the facts to comply with the page limit, or you can add extra pages on the Subject matter of the application. Before adding extra pages, make sure that all the central facts are already mentioned in the main Statement of Facts and that you are not adding any additional information, but merely expanding on the already mentioned facts, violations and complaints.";
-      swal({
-        buttons: ["Go Back", "Add Supplementary Statement"],
-        closeOnClickOutside: false,
-        content: popUpStFactText,
-      });
-      $(".extraWritingArea").removeClass("is-hidden");
-    }
-    if (field.id === "stofFactsExtra") {
-      swal(
-        "Unfortunately there is no more space available to add extra content in statement of facts according to the guidelines provided by ECtHR. Please try to modify the existing text."
-      );
-    }
-    field.value = field.value.substring(0, maxlimit);
+// function textCounter(field, field2, maxlimit) {
+//   var countfield = document.getElementById(field2);
+//   if (field.value.length > maxlimit) {
+//     if (field.id === "stofFacts") {
+//       var popUpStFactText = document.createElement("div");
+//       popUpStFactText.style.textAlign = "justify";
+//       popUpStFactText.innerHTML =
+//         "You have reached the page limit imposed by the Court. It is possible for you to add a supplementary statement expanding on the facts, complaints or remedies used. This extra statement should not be more than 20 pages. It should not add new complaints or violations but only develop what is already set out in the form. <br/>You can either go back and rephrase your Statement of the facts to comply with the page limit, or you can add extra pages on the Subject matter of the application. Before adding extra pages, make sure that all the central facts are already mentioned in the main Statement of Facts and that you are not adding any additional information, but merely expanding on the already mentioned facts, violations and complaints.";
+//       Swal.fire({
+//         buttons: ["Go Back", "Add Supplementary Statement"],
+//         closeOnClickOutside: false,
+//         content: popUpStFactText,
+//       });
+//       $(".extraWritingArea").removeClass("is-hidden");
+//     }
+//     if (field.id === "stofFactsExtra") {
+//       Swal.fire(
+//         "Unfortunately there is no more space available to add extra content in statement of facts according to the guidelines provided by ECtHR. Please try to modify the existing text."
+//       );
+//     }
+//     field.value = field.value.substring(0, maxlimit);
 
-    return false;
-  } else {
-    countfield.value = maxlimit - field.value.length;
-  }
-}
+//     return false;
+//   } else {
+//     countfield.value = maxlimit - field.value.length;
+//   }
+// }
 
 $("input[name='page2[applicantAnon]']").change(function () {
   result = this.value;
@@ -535,112 +535,152 @@ $.fn.setSelection = function (selectionStart, selectionEnd) {
   //   return this;
 };
 
-var areaArray = $("textArea");
+// var areaArray = $("textArea");
 
-var removedArea = areaArray.splice(9, 6);
+// var removedArea = areaArray.splice(9, 6);
 
-jQuery(removedArea).each(function () {
-  if ($(this)[0].id === "stofFacts") {
-    stOfFactsElement = $(this)[0];
-    $(stOfFactsElement).textcounter({
-      type: "character",
-      max: $(this)[0].maxLength,
-      countSpaces: true,
-      countDown: true,
-      countDownText: "Characters Remaining: %d",
-      maxcount: function (el) {
-        el = jQuery(el);
-        el.off();
-        el.on("keydown paste", function (event) {
-          keyCodeList = [
-            8,
-            16,
-            17,
-            18,
-            19,
-            20,
-            27,
-            35,
-            36,
-            37,
-            38,
-            39,
-            40,
-            91,
-            92,
-            112,
-            113,
-            114,
-            115,
-            116,
-            117,
-            118,
-            119,
-            120,
-            121,
-            122,
-            123,
-            144,
-            145,
-          ];
-          if (el.attr("id") === "stofFacts") {
-            if (!keyCodeList.includes(event.keyCode)) {
-              var popUpStFactText = document.createElement("div");
-              popUpStFactText.style.textAlign = "justify";
-              popUpStFactText.innerHTML =
-                "You have reached the page limit imposed by the Court. It is possible for you to add a supplementary statement expanding on the facts, complaints or remedies used. This extra statement should not be more than 20 pages. It should not add new complaints or violations but only develop what is already set out in the form. <br/>You can either go back and rephrase your Statement of the facts to comply with the page limit, or you can add extra pages on the Subject matter of the application. Before adding extra pages, make sure that all the central facts are already mentioned in the main Statement of Facts and that you are not adding any additional information, but merely expanding on the already mentioned facts, violations and complaints.";
-              swal({
-                buttons: {
-                  cancel: {
-                    text: "Go Back",
-                    value: null,
-                    className: "page4AlertCancel",
-                    visible: true,
-                    closeModal: true,
-                  },
-                  confirm: {
-                    text: "Add Supplementary Statement",
-                    value: null,
-                    className: "page4AlertConfirm",
-                    visible: true,
-                    closeModal: true,
-                  },
-                },
-                closeOnClickOutside: false,
-                content: popUpStFactText,
-              });
+// jQuery(removedArea).each(function () {
+//   if ($(this)[0].id === "stofFacts") {
+//     stOfFactsElement = $(this)[0];
+//     $(stOfFactsElement).textcounter({
+//       type: "character",
+//       max: $(this)[0].maxLength,
+//       countSpaces: true,
+//       countDown: true,
+//       countDownText: "Characters Remaining: %d",
+//       maxcount: function (el) {
+//         el = jQuery(el);
+//         el.off();
+//         el.on("keydown paste", function (event) {
+//           keyCodeList = [
+//             8,
+//             16,
+//             17,
+//             18,
+//             19,
+//             20,
+//             27,
+//             35,
+//             36,
+//             37,
+//             38,
+//             39,
+//             40,
+//             91,
+//             92,
+//             112,
+//             113,
+//             114,
+//             115,
+//             116,
+//             117,
+//             118,
+//             119,
+//             120,
+//             121,
+//             122,
+//             123,
+//             144,
+//             145,
+//           ];
+//           if (el.attr("id") === "stofFacts") {
+//             if (!keyCodeList.includes(event.keyCode)) {
+//               var popUpStFactText = document.createElement("div");
+//               popUpStFactText.style.textAlign = "justify";
+//               popUpStFactText.innerHTML =
+//                 "You have reached the page limit imposed by the Court. It is possible for you to add a supplementary statement expanding on the facts, complaints or remedies used. This extra statement should not be more than 20 pages. It should not add new complaints or violations but only develop what is already set out in the form. <br/>You can either go back and rephrase your Statement of the facts to comply with the page limit, or you can add extra pages on the Subject matter of the application. Before adding extra pages, make sure that all the central facts are already mentioned in the main Statement of Facts and that you are not adding any additional information, but merely expanding on the already mentioned facts, violations and complaints.";
+//               Swal.fire({
+//                 buttons: {
+//                   cancel: {
+//                     text: "Go Back",
+//                     value: null,
+//                     className: "page4AlertCancel",
+//                     visible: true,
+//                     closeModal: true,
+//                   },
+//                   confirm: {
+//                     text: "Add Supplementary Statement",
+//                     value: null,
+//                     className: "page4AlertConfirm",
+//                     visible: true,
+//                     closeModal: true,
+//                   },
+//                 },
+//                 closeOnClickOutside: false,
+//                 content: popUpStFactText,
+//               });
 
-              $(".extraWritingArea").removeClass("is-hidden");
-            }
-          }
-        });
-      },
+//               $(".extraWritingArea").removeClass("is-hidden");
+//             }
+//           }
+//         });
+//       },
 
-      // mincount: function (el) {
-      // console.log(el);
-      // if (el.id === "stofFacts") {
-      //   var popUpStFactText = document.createElement("div");
-      //   popUpStFactText.style.textAlign = "justify";
-      //   popUpStFactText.innerHTML =
-      //     "You have reached the page limit imposed by the Court. It is possible for you to add a supplementary statement expanding on the facts, complaints or remedies used. This extra statement should not be more than 20 pages. It should not add new complaints or violations but only develop what is already set out in the form. <br/>You can either go back and rephrase your Statement of the facts to comply with the page limit, or you can add extra pages on the Subject matter of the application. Before adding extra pages, make sure that all the central facts are already mentioned in the main Statement of Facts and that you are not adding any additional information, but merely expanding on the already mentioned facts, violations and complaints.";
-      //   swal({
-      //     buttons: ["Go Back", "Add Supplementary Statement"],
-      //     closeOnClickOutside: false,
-      //     content: popUpStFactText,
-      //   });
-      //   $(".extraWritingArea").removeClass("is-hidden");
-      // }
-      // },
+// mincount: function (el) {
+// console.log(el);
+// if (el.id === "stofFacts") {
+//   var popUpStFactText = document.createElement("div");
+//   popUpStFactText.style.textAlign = "justify";
+//   popUpStFactText.innerHTML =
+//     "You have reached the page limit imposed by the Court. It is possible for you to add a supplementary statement expanding on the facts, complaints or remedies used. This extra statement should not be more than 20 pages. It should not add new complaints or violations but only develop what is already set out in the form. <br/>You can either go back and rephrase your Statement of the facts to comply with the page limit, or you can add extra pages on the Subject matter of the application. Before adding extra pages, make sure that all the central facts are already mentioned in the main Statement of Facts and that you are not adding any additional information, but merely expanding on the already mentioned facts, violations and complaints.";
+//   Swal.fire({
+//     buttons: ["Go Back", "Add Supplementary Statement"],
+//     closeOnClickOutside: false,
+//     content: popUpStFactText,
+//   });
+//   $(".extraWritingArea").removeClass("is-hidden");
+// }
+// },
+//     });
+//   }
+// });
+
+$("#stofFacts").textcounter({
+  type: "character",
+  max: "auto",
+  countSpaces: true,
+  countDown: true,
+  countDownText: "Characters Remaining: %d",
+  countExtendedCharacters: true,
+  // maxcount: function (el) {
+  //   console.log(el);
+  //   // Swal.fire("hello");
+  // },
+});
+
+$("#stofFacts").on("input", function () {
+  var popUpStFactText = document.createElement("div");
+  popUpStFactText.style.textAlign = "justify";
+  popUpStFactText.innerHTML =
+    "You have reached the page limit imposed by the Court. It is possible for you to add a supplementary statement expanding on the facts, complaints or remedies used. This extra statement should not be more than 20 pages. It should not add new complaints or violations but only develop what is already set out in the form. <br/>You can either cancel and rephrase your Statement of the facts to comply with the page limit, or you can add extra pages on the Subject matter of the application. Before adding extra pages, make sure that all the central facts are already mentioned in the main Statement of Facts and that you are not adding any additional information, but merely expanding on the already mentioned facts, violations and complaints.";
+  if ($(this).val().length >= $(this)[0].maxLength) {
+    Swal.fire({
+      showConfirmButton: true,
+      confirmButtonText: "Add Supplementary Statement",
+      showCancelButton: true,
+      cancelButtonText: "Cancel",
+      reverseButtons: true,
+      html: popUpStFactText,
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      allowEnterKey: false,
+      padding: "4rem 1.5rem 3rem 1.5rem",
+      width: "60rem",
+    }).then(function (result) {
+      if (result.isConfirmed) {
+        $("#extraWritingArea").removeClass("is-hidden");
+      }
     });
   }
 });
 
 $("#stofFactsExtra").textcounter({
   type: "character",
-  max: 300000,
+  max: "auto",
   countSpaces: true,
   countDown: true,
   countDownText: "Characters Remaining: %d",
+  countExtendedCharacters: true,
 });
 
 limitLines3 = function (textarea) {
@@ -787,7 +827,7 @@ $("input[name='page9[signatureDeclaration]']").change(function () {
           .replace(",,", ",")
           .replace(" ,", ",");
       } else {
-        swal("No representative entered in Page 3");
+        Swal.fire("", "No representative entered in Page 3");
       }
     } else {
       if (
@@ -811,13 +851,13 @@ $("input[name='page9[signatureDeclaration]']").change(function () {
           .replace(",,", ",")
           .replace(" ,", ",");
       } else {
-        swal("Problem in page 3 organisation representative");
+        Swal.fire("", "Problem in page 3 organisation representative");
       }
     }
     $("#confirmationRepresentativeName").val(nameValue);
     $("#confirmationRepresentativeAddress").val(addressValue);
   } else {
-    swal("check for error");
+    Swal.fire("", "check for error");
   }
 });
 
@@ -1082,7 +1122,7 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
 
   if (isArticleSelectElement) {
     if (limitLinesPage5 < 0) {
-      swal("Text exceeding line limit"); //popup that firstEt elemenxceeding page
+      Swal.fire("", "Text exceeding line limit"); //popup that firstEt elemenxceeding page
       element.selectedIndex = earlierSelected;
     }
 
@@ -1091,7 +1131,7 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
     earlierSelected = element.selectedIndex;
   } else {
     if (limitLinesPage5 < 0) {
-      swal("Text exceeding line limit");
+      Swal.fire("", "Text exceeding line limit");
       element.value = trimLastNthCharInString(
         resultString1,
         "\n",
@@ -1107,6 +1147,7 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
   if (!isArticleSelectElement) {
     counterElement =
       element.parentElement.parentElement.children[2].children[3];
+
     getCounterValue(counterElement);
     counterElement.classList.remove("is-hidden");
   }
@@ -1120,7 +1161,7 @@ function getCounterValue(element) {
   ) {
     limitLinesPage6 = limitLinesPage6 < 0 ? 0 : limitLinesPage6;
     counterElement =
-      element.parentElement.parentElement.children[1].children[3];
+      element.parentElement.parentElement.children[2].children[3];
     counterElement.innerHTML = "Lines Remaining: " + limitLinesPage6;
     counterElement.classList.remove("is-hidden");
   } else {
@@ -1139,7 +1180,7 @@ function hideCounterElement(element) {
     )
   ) {
     counterElement =
-      element.parentElement.parentElement.children[1].children[3];
+      element.parentElement.parentElement.children[2].children[3];
     counterElement.innerHTML = "Lines Remaining: " + limitLinesPage6;
     counterElement.classList.add("is-hidden");
   } else {
@@ -1201,10 +1242,10 @@ function complaintWrapper(element, columnLength, isComplaintInputElement) {
 
   for (var i = 0; i < repeaterParentElement.length; i++) {
     var leftFieldValue =
-      repeaterParentElement[i].children[0].children[0].children[0].children[0]
+      repeaterParentElement[i].children[0].children[0].children[0].children[1]
         .children[1].value;
     var rightFieldValue =
-      repeaterParentElement[i].children[0].children[0].children[0].children[1]
+      repeaterParentElement[i].children[0].children[0].children[0].children[2]
         .children[1].value;
     if (i == repeaterParentElement.length - 1)
       currentLineCount += Math.max(
@@ -1229,7 +1270,7 @@ function complaintWrapper(element, columnLength, isComplaintInputElement) {
 
   if (isComplaintInputElement) {
     if (limitLinesPage6 < 0) {
-      swal("Text  exceedingline limit"); //popup that firstEt elemenxceeding page
+      Swal.fire("", "Text  exceedingline limit"); //popup that firstEt elemenxceeding page
       element.value = trimLastNthCharInString(
         resultString1,
         "\n",
@@ -1243,7 +1284,7 @@ function complaintWrapper(element, columnLength, isComplaintInputElement) {
     // set the formatted value to invisible text area
   } else {
     if (limitLinesPage6 < 0) {
-      swal("Text exceeding line limit");
+      Swal.fire("", "Text exceeding line limit");
       element.value = trimLastNthCharInString(
         resultString1,
         "\n",
@@ -1258,7 +1299,7 @@ function complaintWrapper(element, columnLength, isComplaintInputElement) {
   }
   if (!isComplaintInputElement) {
     counterElement =
-      element.parentElement.parentElement.children[1].children[3];
+      element.parentElement.parentElement.children[2].children[3];
     getCounterValue(counterElement);
     counterElement.classList.remove("is-hidden");
   }
@@ -1345,10 +1386,8 @@ limitLinesOnPaste = function (textarea, e) {
 };
 
 // new
-var limitLines = function (textarea, e) {
-  e.preventDefault();
+var limitLines = function (textarea) {
   setTimeout(function () {
-    console.log("input started");
     idTextArea = "#" + String(textarea.id);
     var cursorPosition = $(idTextArea).prop("selectionStart");
     var overFlowInfo = null;

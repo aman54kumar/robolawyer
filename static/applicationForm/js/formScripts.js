@@ -61,12 +61,13 @@
 // //   countSpaces: true,
 // // });
 
-
-
 $(".btn-next-form").on("click", function () {
-  $("html, body").animate({
-    scrollTop: 0
-  }, "fast");
+  $("html, body").animate(
+    {
+      scrollTop: 0,
+    },
+    "fast"
+  );
 });
 
 var applicantTypeOption = function () {
@@ -322,7 +323,7 @@ function textCounter(field, field2, maxlimit) {
       popUpStFactText.style.textAlign = "justify";
       popUpStFactText.innerHTML =
         "You have reached the page limit imposed by the Court. It is possible for you to add a supplementary statement expanding on the facts, complaints or remedies used. This extra statement should not be more than 20 pages. It should not add new complaints or violations but only develop what is already set out in the form. <br/>You can either go back and rephrase your Statement of the facts to comply with the page limit, or you can add extra pages on the Subject matter of the application. Before adding extra pages, make sure that all the central facts are already mentioned in the main Statement of Facts and that you are not adding any additional information, but merely expanding on the already mentioned facts, violations and complaints.";
-      swal({
+      Swal.fire({
         buttons: ["Go Back", "Add Supplementary Statement"],
         closeOnClickOutside: false,
         content: popUpStFactText,
@@ -330,7 +331,7 @@ function textCounter(field, field2, maxlimit) {
       $(".extraWritingArea").removeClass("is-hidden");
     }
     if (field.id === "stofFactsExtra") {
-      swal(
+      Swal.fire(
         "Unfortunately there is no more space available to add extra content in statement of facts according to the guidelines provided by ECtHR. Please try to modify the existing text."
       );
     }
@@ -381,7 +382,8 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     anon = {
       date: moment().format("DD-MM-YYYY"),
       title: "Anonymity Request",
-      desc: "Documents requesting anonymity in the public documents of the court.",
+      desc:
+        "Documents requesting anonymity in the public documents of the court.",
       page: pageCountAnon("#anonReqText"),
     };
     docObject.push(anon);
@@ -570,7 +572,7 @@ jQuery(removedArea).each(function () {
               popUpStFactText.style.textAlign = "justify";
               popUpStFactText.innerHTML =
                 "You have reached the page limit imposed by the Court. It is possible for you to add a supplementary statement expanding on the facts, complaints or remedies used. This extra statement should not be more than 20 pages. It should not add new complaints or violations but only develop what is already set out in the form. <br/>You can either go back and rephrase your Statement of the facts to comply with the page limit, or you can add extra pages on the Subject matter of the application. Before adding extra pages, make sure that all the central facts are already mentioned in the main Statement of Facts and that you are not adding any additional information, but merely expanding on the already mentioned facts, violations and complaints.";
-              swal({
+              Swal.fire({
                 buttons: ["Go Back", "Add Supplementary Statement"],
                 closeOnClickOutside: false,
                 content: popUpStFactText,
@@ -589,7 +591,7 @@ jQuery(removedArea).each(function () {
       //   popUpStFactText.style.textAlign = "justify";
       //   popUpStFactText.innerHTML =
       //     "You have reached the page limit imposed by the Court. It is possible for you to add a supplementary statement expanding on the facts, complaints or remedies used. This extra statement should not be more than 20 pages. It should not add new complaints or violations but only develop what is already set out in the form. <br/>You can either go back and rephrase your Statement of the facts to comply with the page limit, or you can add extra pages on the Subject matter of the application. Before adding extra pages, make sure that all the central facts are already mentioned in the main Statement of Facts and that you are not adding any additional information, but merely expanding on the already mentioned facts, violations and complaints.";
-      //   swal({
+      //   Swal.fire({
       //     buttons: ["Go Back", "Add Supplementary Statement"],
       //     closeOnClickOutside: false,
       //     content: popUpStFactText,
@@ -663,7 +665,7 @@ limitLines3 = function (textarea) {
 function limitLines2(element, limitRow, onPaste) {
   setTimeout(function () {
     var cursorPosition = {
-      value: $(element).prop("selectionStart")
+      value: $(element).prop("selectionStart"),
     };
     limitCol = element.cols;
     rem = limitRow;
@@ -753,7 +755,7 @@ $("input[name='page9[signatureDeclaration]']").change(function () {
           .replace(",,", ",")
           .replace(" ,", ",");
       } else {
-        swal("No representative entered in Page 3");
+        Swal.fire("No representative entered in Page 3");
       }
     } else {
       if (
@@ -777,13 +779,13 @@ $("input[name='page9[signatureDeclaration]']").change(function () {
           .replace(",,", ",")
           .replace(" ,", ",");
       } else {
-        swal("Problem in page 3 organisation representative");
+        Swal.fire("Problem in page 3 organisation representative");
       }
     }
     $("#confirmationRepresentativeName").val(nameValue);
     $("#confirmationRepresentativeAddress").val(addressValue);
   } else {
-    swal("check for error");
+    Swal.fire("check for error");
   }
 });
 
@@ -993,7 +995,7 @@ earlierLinesCount = 0;
 function articleWrapper(element, columnLength, isArticleSelectElement) {
   repeaterParentElement =
     element.parentElement.parentElement.parentElement.parentElement
-    .parentElement.parentElement.children;
+      .parentElement.parentElement.children;
   otherElementIndex = 0;
   if (isArticleSelectElement) {
     otherElementIndex = 2;
@@ -1021,10 +1023,10 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
   for (var i = 0; i < repeaterParentElement.length; i++) {
     var leftFieldValue =
       repeaterParentElement[i].children[1].children[0].children[0].children[1]
-      .children[1].value;
+        .children[1].value;
     var rightFieldValue =
       repeaterParentElement[i].children[1].children[0].children[0].children[2]
-      .children[1].value;
+        .children[1].value;
 
     if (i == repeaterParentElement.length - 1)
       currentLineCount += Math.max(
@@ -1033,10 +1035,10 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
       );
     else
       currentLineCount +=
-      Math.max(
-        leftFieldValue.split("\n").length,
-        rightFieldValue.split("\n").length
-      ) + 1;
+        Math.max(
+          leftFieldValue.split("\n").length,
+          rightFieldValue.split("\n").length
+        ) + 1;
   }
   if (earlierLinesCount < currentLineCount) {
     limitLinesPage5 = limitLinesPage5 - (currentLineCount - earlierLinesCount);
@@ -1048,7 +1050,7 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
 
   if (isArticleSelectElement) {
     if (limitLinesPage5 < 0) {
-      swal("Text exceeding line limit"); //popup that firstEt elemenxceeding page
+      Swal.fire("Text exceeding line limit"); //popup that firstEt elemenxceeding page
       element.selectedIndex = earlierSelected;
     }
 
@@ -1057,7 +1059,7 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
     earlierSelected = element.selectedIndex;
   } else {
     if (limitLinesPage5 < 0) {
-      swal("Text exceeding line limit");
+      Swal.fire("Text exceeding line limit");
       element.value = trimLastNthCharInString(
         resultString1,
         "\n",
@@ -1132,7 +1134,7 @@ var trimLastNthCharInString = function (str, ch, n) {
 function toggleAddButton(element) {
   parentElement =
     element.parentElement.parentElement.parentElement.parentElement
-    .parentElement.children[3].children[0];
+      .parentElement.children[3].children[0];
   parentElement.disabled = false;
 }
 
@@ -1144,7 +1146,7 @@ earlierLinesCountPage6 = 0;
 function complaintWrapper(element, columnLength, isComplaintInputElement) {
   repeaterParentElement =
     element.parentElement.parentElement.parentElement.parentElement
-    .parentElement.parentElement.children;
+      .parentElement.parentElement.children;
   otherElementIndex = 0;
   if (isComplaintInputElement) {
     otherElementIndex = 1;
@@ -1168,10 +1170,10 @@ function complaintWrapper(element, columnLength, isComplaintInputElement) {
   for (var i = 0; i < repeaterParentElement.length; i++) {
     var leftFieldValue =
       repeaterParentElement[i].children[0].children[0].children[0].children[0]
-      .children[1].value;
+        .children[1].value;
     var rightFieldValue =
       repeaterParentElement[i].children[0].children[0].children[0].children[1]
-      .children[1].value;
+        .children[1].value;
     if (i == repeaterParentElement.length - 1)
       currentLineCount += Math.max(
         leftFieldValue.split("\n").length,
@@ -1179,10 +1181,10 @@ function complaintWrapper(element, columnLength, isComplaintInputElement) {
       );
     else
       currentLineCount +=
-      Math.max(
-        leftFieldValue.split("\n").length,
-        rightFieldValue.split("\n").length
-      ) + 1;
+        Math.max(
+          leftFieldValue.split("\n").length,
+          rightFieldValue.split("\n").length
+        ) + 1;
   }
   if (earlierLinesCountPage6 < currentLineCount) {
     limitLinesPage6 =
@@ -1195,7 +1197,7 @@ function complaintWrapper(element, columnLength, isComplaintInputElement) {
 
   if (isComplaintInputElement) {
     if (limitLinesPage6 < 0) {
-      swal("Text  exceedingline limit"); //popup that firstEt elemenxceeding page
+      Swal.fire("Text  exceedingline limit"); //popup that firstEt elemenxceeding page
       element.value = trimLastNthCharInString(
         resultString1,
         "\n",
@@ -1209,7 +1211,7 @@ function complaintWrapper(element, columnLength, isComplaintInputElement) {
     // set the formatted value to invisible text area
   } else {
     if (limitLinesPage6 < 0) {
-      swal("Text exceeding line limit");
+      Swal.fire("Text exceeding line limit");
       element.value = trimLastNthCharInString(
         resultString1,
         "\n",
@@ -1345,7 +1347,7 @@ function getPosInfo(text, pos, colLimit) {
   return {
     rel_pos: relPos,
     last_space: lastSpace,
-    lines: lines
+    lines: lines,
   };
 }
 
@@ -1358,7 +1360,7 @@ var checkOverflow = function (text, pos, posInfo, colLimit, rowLimit) {
     if (text[pos] == "\n" || pos >= text.length) {
       return {
         overflow: false,
-        formatted_text: text
+        formatted_text: text,
       };
     }
     if (text[pos] == " ") posInfo.last_space = pos;
@@ -1373,7 +1375,7 @@ var checkOverflow = function (text, pos, posInfo, colLimit, rowLimit) {
   if (posInfo.lines >= rowLimit) {
     return {
       overflow: true,
-      formatted_text: ""
+      formatted_text: "",
     };
   }
   //check for extra \n

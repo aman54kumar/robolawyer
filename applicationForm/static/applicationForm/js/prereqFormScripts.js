@@ -14,13 +14,15 @@ $("#finalDecisionDate").on("change", function () {
       sixFutureDate = moment(finalDecisionDate)
         .add(6, "months")
         .format("DD-MM-YYYY");
-      swal(
+      Swal.fire(
+        "",
         "Attention, according to the information entered in the date field, you must send your application in good time before " +
           sixFutureDate +
           "."
       );
     } else if (diffDate > 6) {
-      swal(
+      Swal.fire(
+        "",
         "You have missed the 6 months time limit imposed by the Court. It is very likely that your application is declared inadmissible."
       );
     } else {
@@ -58,7 +60,7 @@ function feedbackSubmit(e) {
       csrfmiddlewaretoken: csrftoken,
     },
     success: function () {
-      swal("Feedback Submitted");
+      Swal.fire("", "Feedback Submitted");
     },
   });
 }
@@ -88,7 +90,8 @@ $("input[name='page1[complySix]']").change(function () {
   result = this.value;
 
   if (result === "Yes") {
-    swal(
+    Swal.fire(
+      "",
       "If you have not exhausted the available legal remedies your application may be declared inadmissible."
     );
   }
@@ -98,7 +101,8 @@ $("input[name='page1[courtCase]']").change(function () {
   result = this.value;
 
   if (result == "No") {
-    swal(
+    Swal.fire(
+      "",
       "If you have not used all the available domestic legal remedies for your case, it is possible, but not necessary that your application may be declared inadmissible."
     );
   }

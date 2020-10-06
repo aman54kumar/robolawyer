@@ -63,21 +63,25 @@
               <table class="table-bordered">
                 <thead style="border: none">
                   <tr style="background-color: #2679c7; color: white">
-                    <th width="25%" scope="col">Complaint</th>
-                    <th width="45%" scope="col">Remedies Used</th>
+                    <th width="19%" rowspan="2">Complaint</th>
+                    <th width="35%" scope="col"></th>
+                    <th width="45%" scope="col">Domestic Remedies Used</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Art. 5 complaint about arrest by police</td>
+                    <td>Article 5 - Right to liberty and security</td>
+                    <td>Complaint about arrest by police</td>
                     <td>
                       High Court rejected claim on 05/12/13; leave to appeal
                       refused by Court of Appeal on 14/01/15 in the case with
                       the case file number XXXXXXX.
                     </td>
                   </tr>
+                  <tr></tr>
                   <tr>
-                    <td>Art. 6 complaint about neighbour dispute</td>
+                    <td>Article 6 - Right to a fair trial</td>
+                    <td>Complaint about neighbour dispute</td>
                     <td>
                       County Court rejected claim on 03/04/12; Court of Appeal
                       dismissed appeal on 04/12/14 in the case with the case
@@ -102,7 +106,7 @@
                         class="form-control preArticleSelect"
                         data-pattern-id="preArticle_++_select"
                         data-pattern-name="page6[++][preArticleSelect]"
-                        rows="6"
+                        rows="5"
                         disabled
                       ></textarea>
                     </td>
@@ -118,7 +122,7 @@
                         data-pattern-id="complain_++_select"
                         data-pattern-name="page6[++][complainSelect]"
                         cols="26"
-                        rows="3"
+                        rows="5"
                         oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper(this, 26, true);'
                         onpaste='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper(this, 26, true);'
                       ></textarea>
@@ -131,7 +135,7 @@
                         id="complain_0_remedy"
                         oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper(this, 69, false);'
                         cols="30"
-                        rows="10"
+                        rows="5"
                         data-parsley-group="page6"
                         data-pattern-id="complain_++_remedy"
                         data-pattern-name="page6[++][remediesUsed]"
@@ -210,12 +214,12 @@
             </div>
             <div class="row justify-content-center">
               <textarea
-                class="form-control col-sm-8 lastAreas"
+                class="form-control lastAreas"
                 name="page6[appealDescribe]"
                 id="appealDescribe"
                 cols="100"
-                rows="15"
-                maxlength="1500"
+                rows="16"
+                maxlength="1600"
                 oninput="limitLines(this)"
                 onpaste="limitLinesOnPaste(this)"
                 style="width: 110ch; padding: 10px"

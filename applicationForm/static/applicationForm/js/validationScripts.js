@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
   stepperForm = new Stepper(stepperFormEl, {
     animation: true,
     linear: false,
-    excluded: "input[type=button], input[type=submit], input[type=reset], input[type=hidden], :disabled",
+    excluded:
+      "input[type=button], input[type=submit], input[type=reset], input[type=hidden], :disabled",
   });
   var form = stepperFormEl.querySelector(".bs-stepper-content form");
   stepperFormEl.addEventListener("show.bs-stepper", function (event) {
@@ -15,21 +16,21 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!checkValidation(event.detail.from)) {
           currentStep = event.detail.from;
           // stepperForm.to(event.detail.from+1);
-          swal("Please answer the mandatory fields first.");
+          Swal.fire("", "Please answer the mandatory fields first.");
           event.preventDefault();
         }
       }
     } else if (stepDifference === 1) {
       // next from current page, validation required
       if (!checkValidation(currentStep)) {
-        swal("Please answer the mandatory fields first.");
+        Swal.fire("", "Please answer the mandatory fields first.");
         event.preventDefault();
       } else {
         currentStep = Math.max(currentStep, event.detail.to);
       }
     } else {
       stepperForm.to(currentStep + 1);
-      swal("Please answer the mandatory fields first.");
+      Swal.fire("", "Please answer the mandatory fields first.");
       event.preventDefault();
     }
   });
@@ -125,7 +126,8 @@ function checkValidation(cur) {
         if (onValidate("page2b")) {
           return true;
         }
-      } else {}
+      } else {
+      }
     }
   } else if (cur === 2) {
     appVal1 = document.querySelector(

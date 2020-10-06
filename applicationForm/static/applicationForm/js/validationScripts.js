@@ -181,29 +181,32 @@ function checkValidation(cur) {
     }
   } else if (cur === 6) {
     if (onValidate("page7a")) {
-      appVal = document.querySelector(
-        "input[name='page7[intInvestigation]']:checked"
-      ).value;
-      if (appVal === "Yes") {
-        if (onValidate("page7b")) {
-          return true;
-        }
-      } else {
-        return true;
-      }
+      return true;
     }
-    if (onValidate("page7c")) {
-      appVal = document.querySelector(
-        "input[name='page7[prevApplications]']:checked"
-      ).value;
-      if (appVal === "Yes") {
-        if (onValidate("page7d")) {
-          return true;
-        }
-      } else {
-        return true;
-      }
-    }
+    // if (onValidate("page7a")) {
+    //   appVal = document.querySelector(
+    //     "input[name='page7[intInvestigation]']:checked"
+    //   ).value;
+    //   if (appVal === "Yes") {
+    //     if (onValidate("page7b")) {
+    //       return true;
+    //     }
+    //   } else {
+    //     return true;
+    //   }
+    // }
+    // if (onValidate("page7c")) {
+    //   appVal = document.querySelector(
+    //     "input[name='page7[prevApplications]']:checked"
+    //   ).value;
+    //   if (appVal === "Yes") {
+    //     if (onValidate("page7d")) {
+    //       return true;
+    //     }
+    //   } else {
+    //     return true;
+    //   }
+    // }
   } else if (cur === 7) {
     if (onValidate("page8")) {
       return true;

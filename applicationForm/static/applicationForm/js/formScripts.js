@@ -1220,9 +1220,9 @@ function complaintWrapper(element, columnLength, isComplaintInputElement) {
   repeaterParentElement =
     element.parentElement.parentElement.parentElement.parentElement
       .parentElement.parentElement.children;
-  otherElementIndex = 0;
+  otherElementIndex = 1;
   if (isComplaintInputElement) {
-    otherElementIndex = 1;
+    otherElementIndex = 2;
   }
 
   otherElement =
@@ -1232,6 +1232,7 @@ function complaintWrapper(element, columnLength, isComplaintInputElement) {
   // }
 
   // format firstElement
+  
 
   resultString1 = onPasteformatTextWithoutDash(element.value, columnLength);
 

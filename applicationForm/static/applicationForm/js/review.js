@@ -448,16 +448,24 @@ $(document).ready(function () {
   });
   // End of Page 5
 
+  // to split article string for getting only number
+  function getArticleString(articleName) {
+    return articleName.split("-")[0];
+  }
+  // end of algorithm
   // Start of Page 6
   $("#complaintButton").on("click", function () {
-    var click = +$(this).data("clicks") || 0;
+    var click = $(this).data("clicks") || 0;
     if (click % 2 == 0) {
       complaintList = $(".complainSelect");
       remediesList = $(".remedies");
+      articlePassList = $(".preArticleSelect");
       complaintList.each(function (item) {
         $("#complaintBody").append(
           "<tr><td>" +
-            String(complaintList[item].value) +
+            (
+              String(getArticleString(articlePassList[item].value)) + "- "
+            ).concat(String(complaintList[item].value)) +
             "</td> <td>" +
             String(remediesList[item].value) +
             "</td> </tr>"

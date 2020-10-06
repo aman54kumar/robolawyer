@@ -213,18 +213,19 @@ function checkValidation(cur) {
     }
   } else if (cur === 8) {
     if (onValidate("page9a")) {
-      appVal = document.querySelector(
-        "input[name='page9[signatureDeclaration]']:checked"
-      ).value;
-      if (appVal === "Applicant") {
-        if (onValidate("page9b")) {
-          return true;
-        }
-      } else {
-        if (onValidate("page9c")) {
-          return true;
-        }
-      }
+      // appVal = document.querySelector(
+      //   "input[name='page9[signatureDeclaration]']:checked"
+      // ).value;
+      // if (appVal === "Applicant") {
+      //   if (onValidate("page9b")) {
+      //     return true;
+      //   }
+      // } else {
+      //   if (onValidate("page9c")) {
+      //     return true;
+      //   }
+      // }
+      return true;
     }
   } else if (cur === 9) {
     if (onValidate("page10")) {

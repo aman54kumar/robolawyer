@@ -9,5 +9,7 @@
 }
 
 .container-ext {
+  background-color: white;
   margin-bottom: 10rem;
+  padding: 5rem;
 }

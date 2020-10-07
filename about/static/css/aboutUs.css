@@ -11,6 +11,7 @@
 .about-jumbotron {
   background-color: #e9ecef;
   padding: 30px;
-  min-height: 25rem;
+  min-height: 22rem;
   height: auto;
+  margin-bottom: 5rem;
 }

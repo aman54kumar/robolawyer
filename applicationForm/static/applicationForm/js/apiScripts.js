@@ -233,6 +233,10 @@ function callAPI(addButtonID) {
     correspDropdownElement = $(
       "#article_" + String(elementNumber + 1) + "_select"
     );
+    var curValueArray = [];
+    for (i = 0; i < elementNumber + 1; i++) {
+      curValueArray.push($("#article_" + String(i) + "_select").val());
+    }
     axios({
       method: "get",
       url: articleUrl,
@@ -248,7 +252,10 @@ function callAPI(addButtonID) {
       );
       $.each(data, function (article) {
         textValue = data[article]["article"];
-        if (textValue === "Other articles") {
+        if (
+          textValue === "Other articles" ||
+          curValueArray.includes(textValue)
+        ) {
           correspDropdownElement.append(
             $("<option></option>").prop("disabled", true).text(textValue)
           );
@@ -264,7 +271,7 @@ function callAPI(addButtonID) {
   }
 }
 
-function populateDiv(elId) {  
+function populateDiv(elId) {
   url = window.location.href.split("form/")[0];
   var http = new XMLHttpRequest();
   http.open("HEAD", url, false);

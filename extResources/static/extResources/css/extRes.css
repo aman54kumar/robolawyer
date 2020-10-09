@@ -6,10 +6,20 @@
     ),
     url("/static/home/images/bg2.jpg");
   background-size: cover;
+  line-height: 1.5;
 }
 
 .container-ext {
   background-color: white !important;
   margin-bottom: 10rem;
   padding: 5rem;
+}
+
+#extResources a:hover {
+  color: #1aa6b7;
+  font-size: 110%;
+}
+
+#extResources li {
+  line-height: 2;
 }

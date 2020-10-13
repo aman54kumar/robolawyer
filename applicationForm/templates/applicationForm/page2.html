@@ -33,8 +33,8 @@
                   id="applicantTypeInd"
                   name="page2[applicantType]"
                   value="Individual"
-                  required
                   data-parsley-group="page2"
+                  data-parsley-errors-container="#IndOrgError"
                 />
                 <label class="custom-control-label" for="applicantTypeInd">
                   <h4>
@@ -45,7 +45,6 @@
                       data-content="This section applies to an applicant who is an individual person, as opposed to a legal entity such as a company or association. If there is more than one individual applicant, this information must be provided for each additional applicant, on a separate application form."
                       data-trigger="focus"
                       data-placement="bottom"
-                      required
                       ><span><i class="fas fa-question-circle"></i></span
                     ></a>
                   </h4>
@@ -61,6 +60,8 @@
                   name="page2[applicantType]"
                   value="Organisation"
                   data-parsley-group="page2"
+                  data-parsley-required
+
                 />
                 <label class="custom-control-label" for="applicantTypeOrg">
                   <h4>
@@ -78,6 +79,8 @@
               </div>
             </div>
           </div>
+          <div class="center-content-error" id="IndOrgError"></div>
+         
 
           <div class="is-hidden" id="generalPage-2">
             <div class="is-hidden" id="indBeginner">
@@ -155,7 +158,7 @@
                     </div>
                   </div>
                   <div class="row divSpacing">
-                    <div class="form-group col-sm-4">
+                    <div class="form-group col-sm-5">
                       <label
                         >Address
                         <a

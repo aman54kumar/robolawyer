@@ -274,11 +274,21 @@ label {
 }
 
 .flag.xx.xx.blank.blank {
-  background: url(data:image/gif;base64,R0lGODlhAQABAIABAP///wAAACwAAAAAAQABAAACAkQBADs=) round;
+  background: url(data:image/gif;base64,R0lGODlhAQABAIABAP///wAAACwAAAAAAQABAAACAkQBADs=)
+    round;
   background-size: cover;
 }
 
 .flag.xx.xx.blank.blank:hover {
-  background: url(data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==) round;
+  background: url(data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==)
+    round;
   background-size: cover;
+}
+
+.limit-me {
+  width: 53ch !important;
+}
+
+.center-content-error {
+  text-align: center;
 }

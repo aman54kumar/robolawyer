@@ -1232,8 +1232,6 @@ function complaintWrapper(element, columnLength, isComplaintInputElement) {
   // }
 
   // format firstElement
-  
-
   resultString1 = onPasteformatTextWithoutDash(element.value, columnLength);
 
   resultString2 = otherElement.value;

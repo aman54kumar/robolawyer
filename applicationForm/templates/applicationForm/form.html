@@ -216,7 +216,7 @@
                 </div>
             </div>
             <div class="bs-stepper-content">
-                <form id="appForm" class="needs-validation" onSubmit="return false" method="POST"
+                <form id="appForm" class="needs-validation" onSubmit="return false" method="POST"	
                     action="{% url 'formProcessing' %}" novalidate>
                     {% csrf_token %}
                     {% include 'applicationForm/page1.html' %}
@@ -240,13 +240,13 @@
 {% endblock content %}
 
 {% block scriptContent %}
-<script src="{% static 'applicationForm/autosize/autosize.min.js' %}"></script>
+<!-- <script src="{% static 'applicationForm/autosize/autosize.min.js' %}"></script>
 <script src="{% static 'applicationForm/hypher/jquery.hypher.js' %}"></script>
-<script src="{% static 'applicationForm/hypher/en-us.js' %}"></script>
+<script src="{% static 'applicationForm/hypher/en-us.js' %}"></script> -->
 <script src="{% static 'applicationForm/parsley/parsley.min.js' %}"></script>
 <script src="{% static 'applicationForm/tagsinput/tagsinput.js' %}"></script>
 <script src="{% static 'applicationForm/tagsinput/custom.js' %}"></script>
-<script src="{% static 'applicationForm/datepicker/jquery-dropdown-datepicker.min.js' %}"></script>
+<!-- <script src="{% static 'applicationForm/datepicker/jquery-dropdown-datepicker.min.js' %}"></script> -->
 <script src="{% static 'applicationForm/datepicker/bootstrap-datepicker.min.js' %}"></script>
 <script src="{% static 'applicationForm/datepicker/datePicker.js' %}"></script>
 <script src="{% static 'applicationForm/momentjs/moment.min.js' %}"></script>

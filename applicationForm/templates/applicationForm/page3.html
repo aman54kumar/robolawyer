@@ -44,6 +44,7 @@
                       value="non-lawyer"
                       required
                       data-parsley-group="page3a"
+                      data-parsley-errors-container="#indRepError"
                     />
                     <label class="custom-control-label" for="representativeNL">
                       <h4>
@@ -106,6 +107,7 @@
                   </div>
                 </div>
               </div>
+              <div class="center-content-error" id="indRepError"></div>
               <hr />
               <div class="is-hidden" id="nonLawyerRep">
                 <div class="row">
@@ -648,6 +650,7 @@
                   <p class="alert-heading">
                     Is the organisation going to be represented by a Lawyer?
                   </p>
+                  
                   <div
                     class="custom-control custom-radio custom-control-inline"
                   >
@@ -658,6 +661,8 @@
                       name="page3[orgRepresentativeType]"
                       value="orgYesLawyer"
                       data-parsley-group="page3e"
+                      data-parsley-required
+                      data-parsley-errors-container="#orgRepError"
                     />
                     <label
                       class="custom-control-label"
@@ -673,9 +678,9 @@
                       class="custom-control-input"
                       id="orgLNoRepresentative"
                       name="page3[orgRepresentativeType]"
-                      value="orgNoLawyer"
+                      value="orgNoLawyer" 
                       data-parsley-group="page3e"
-                      required
+                      
                     />
                     <label
                       class="custom-control-label"
@@ -683,9 +688,11 @@
                       >No</label
                     >
                   </div>
+                  <div id="orgRepError"></div>
                 </div>
+                
               </div>
-
+              
               <div class="is-hidden" id="orgLawyerRep">
                 <div class="row">
                   <div class="form-group col-sm-4">

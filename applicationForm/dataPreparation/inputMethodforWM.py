@@ -5,6 +5,7 @@ import operator
 from reportlab.lib.units import inch
 import textwrap
 from .countryCoordDict import coordinateDict
+from xml.sax.saxutils import escape
 
 _customFont = "Courier"
 _customFontSize = 9
@@ -719,7 +720,7 @@ def go(self, filename, textString, firstPage, laterPage=None):
     style.fontSize = 9
     textString = formatText(self, textString, 78)
     textString = textString.replace("\n", "<br/>")
-    p = Paragraph(textString, style)
+    p = Paragraph(escape(textString), style)
     Story.append(p)
     Story.append(Spacer(1, 0.2 * inch))
     doc.build(Story, onFirstPage=firstPage)

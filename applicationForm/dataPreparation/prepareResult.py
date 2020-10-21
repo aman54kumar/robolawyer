@@ -466,7 +466,9 @@ class PrepareResult:
     def create_New_Pdf(self, inputObj):
         totalBookmark = int((len(inputObj)) / 4)
         docs4List = sortDocumentsDate(self, inputObj)
-        initPages = self.checkDocsOrNot(docs4List)
+        print(docs4List)
+        # initPages = self.checkDocsOrNot(docs4List)
+        initPages = 100
         for single in range(totalBookmark):
             filename = ("applicationForm/dataPreparation/results/" +
                         self.sessionID + "/finalPage/Result_form_page_" +

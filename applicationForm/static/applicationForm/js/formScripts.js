@@ -901,7 +901,12 @@ function formatText(lines, limit, suffixLen = 3, prefixLen = 2) {
 limitLinesPage5 = 108;
 earlierLinesCount = 0;
 
-function articleWrapper(element, columnLength, isArticleSelectElement) {
+function articleWrapper(
+  element,
+  columnLength,
+  isArticleSelectElement,
+  isPaste
+) {
   repeaterParentElement =
     element.parentElement.parentElement.parentElement.parentElement
       .parentElement.parentElement.children;
@@ -915,18 +920,79 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
 
   otherElement =
     element.parentElement.parentElement.children[otherElementIndex].children[1];
+
+  idTextArea = "#" + String(element.id);
+  var cursorPosition = $(idTextArea).prop("selectionStart");
+
+  var text = element.value;
+  var colLimit = columnLength;
+  var rowLimit = text.split(/\r\n|\r|\n/).length + limitLinesPage5;
+  var posInfo = getPosInfo(text, cursorPosition - 1, colLimit);
+  var relPos = posInfo.rel_pos;
+  var overFlowInfo = null;
+  var isExceeded = false;
   // if (isArticleSelectElement) {
   //   otherElement.removeAttribute("disabled");
   // }
 
   // format firstElement
-  resultString1 = onPasteformatTextWithoutDash(element.value, columnLength);
+  if (isPaste || isArticleSelectElement) {
+    if (isArticleSelectElement) {
+      invisibleArticleArea.value = text;
+      rowLimit =
+        otherElement.value.split(/\r\n|\r|\n/).length + limitLinesPage5;
+      limitLinesOnPaste(invisibleArticleArea, rowLimit, colLimit);
+      resultString1 = invisibleArticleArea.value
+        .split("\n")
+        .slice(0, rowLimit)
+        .join("\n");
+    } else {
+      limitLinesOnPaste(element, rowLimit, colLimit);
+      resultString1 = element.value.split("\n").slice(0, rowLimit).join("\n");
+    }
+  } else {
+    if (limitLinesPage5 == 0 && text[cursorPosition - 1] == "\n") {
+      resultString1 =
+        text.substring(0, cursorPosition - 1) +
+        text.substring(cursorPosition, text.length);
+      isExceeded = true;
+    } else {
+      overFlowInfo = checkOverflow(
+        text,
+        cursorPosition - 1,
+        posInfo,
+        colLimit,
+        rowLimit
+      );
+
+      if (
+        overFlowInfo.overflow == false &&
+        overFlowInfo.formatted_text.split("\n").length <= rowLimit
+      ) {
+        if (checkIfNewLine(text, cursorPosition - 1, relPos, colLimit)) {
+          cursorPosition += 1;
+        }
+        resultString1 = overFlowInfo.formatted_text
+          .split("\n")
+          .slice(0, rowLimit)
+          .join("\n");
+      } else {
+        resultString1 = removeCharAt(text, cursorPosition - 1);
+        isExceeded = true;
+      }
+    }
+  }
   if (isArticleSelectElement) {
     resultString2 = otherElement.value;
     invisibleArticleArea.value = resultString1;
   } else {
     resultString2 = invisibleArticleArea.value;
     element.value = resultString1;
+    if (isExceeded) {
+      $(idTextArea).setCursorPosition(cursorPosition - 1);
+    } else {
+      $(idTextArea).setCursorPosition(cursorPosition);
+    }
   }
   var currentLineCount = 0;
   for (var i = 0; i < repeaterParentElement.length; i++) {
@@ -949,6 +1015,7 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
           rightFieldValue.split("\n").length
         ) + 1;
   }
+
   if (earlierLinesCount < currentLineCount) {
     limitLinesPage5 = limitLinesPage5 - (currentLineCount - earlierLinesCount);
     earlierLinesCount = currentLineCount;
@@ -959,7 +1026,7 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
 
   if (isArticleSelectElement) {
     if (limitLinesPage5 < 0) {
-      Swal.fire("", "Text exceeding line limit"); //popup that firstEt elemenxceeding page
+      Swal.fire("", "Text exceeding line limit"); //popup that first element exceeding page
       element.selectedIndex = earlierSelected;
     }
 
@@ -969,12 +1036,6 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
   } else {
     if (limitLinesPage5 < 0) {
       Swal.fire("", "Text exceeding line limit");
-      element.value = trimLastNthCharInString(
-        resultString1,
-        "\n",
-        Math.abs(limitLinesPage5) - 1
-      );
-
       element.style.color = "red";
       setTimeout(function () {
         element.style.color = "";
@@ -984,13 +1045,15 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
   if (!isArticleSelectElement) {
     counterElement =
       element.parentElement.parentElement.children[2].children[3];
-
-    getCounterValue(counterElement);
+    var p =
+      invisibleArticleArea.value.split("\n").length -
+      element.value.split("\n").length;
+    getCounterValue(counterElement, p);
     counterElement.classList.remove("is-hidden");
   }
 }
 
-function getCounterValue(element) {
+function getCounterValue(element, p) {
   if (
     element.parentElement.parentElement.parentElement.parentElement.parentElement.classList.contains(
       "s-group"
@@ -1003,9 +1066,15 @@ function getCounterValue(element) {
     counterElement.classList.remove("is-hidden");
   } else {
     limitLinesPage5 = limitLinesPage5 < 0 ? 0 : limitLinesPage5;
+    if (limitLinesPage5 > 4) {
+      toggleAddButton(element, false);
+    } else {
+      toggleAddButton(element, true);
+    }
+    var cnt = p >= 0 ? p + limitLinesPage5 : limitLinesPage5;
     counterElement =
       element.parentElement.parentElement.children[2].children[3];
-    counterElement.innerHTML = "Lines Remaining: " + limitLinesPage5;
+    counterElement.innerHTML = "Lines Remaining: " + cnt;
     counterElement.classList.remove("is-hidden");
   }
 }
@@ -1041,11 +1110,11 @@ var trimLastNthCharInString = function (str, ch, n) {
   return str;
 };
 
-function toggleAddButton(element) {
+function toggleAddButton(element, toggleValue) {
   parentElement =
     element.parentElement.parentElement.parentElement.parentElement
       .parentElement.children[3].children[0];
-  parentElement.disabled = false;
+  parentElement.disabled = toggleValue;
 }
 
 // Complaint Page processing
@@ -1142,57 +1211,30 @@ function complaintWrapper(element, columnLength, isComplaintInputElement) {
 }
 //
 
-limitLinesOnPaste1 = function (textarea) {
+limitLinesOnPaste = function (textarea, rows, cols) {
   setTimeout(function () {
+    var limit = rows == null ? textarea.rows : rows;
+
+    var spaces = cols == null ? textarea.cols : cols;
     idTextArea = "#" + String(textarea.id);
     var cursorPosition = $(idTextArea).prop("selectionStart");
-    var overFlowInfo = null;
-    var text = textarea.value;
-    var colLimit = textarea.cols;
-    var rowLimit = textarea.rows;
-    posInfo = getPosInfo(text, cursorPosition - 1, colLimit);
-    relPos = posInfo.rel_pos;
-
-    overFlowInfo = checkOverflow(
-      text,
-      cursorPosition - 1,
-      posInfo,
-      colLimit,
-      rowLimit
-    );
-    // if (lines.length > limit && (event.keyCode != 8 || event.keyCode != 46)) {
-    //   textarea.value = lines.slice(0, limit).join("\n");
-    //   return;
-    // }
-    idTextArea = "#" + String(textarea.id);
-    var cursorPosition = $(idTextArea).prop("selectionStart");
-    textarea.value = lines.slice(0, limit).join("\n");
-    $(idTextArea).setCursorPosition(cursorPosition);
-  }, 0);
-};
-
-limitLinesOnPaste = function (textarea, e) {
-  setTimeout(function () {
-    var limit = textarea.rows;
-    var spaces = textarea.cols;
     var lines = textarea.value.split("\n");
     var flag = false;
+
     for (var i = 0; i < lines.length && i < limit; i++) {
       if (lines[i].length <= spaces) continue;
       var j = 0;
 
       var space = spaces;
 
-      while (j <= spaces) {
+      while (j < spaces) {
         if (lines[i].charAt(j) === " ") space = j;
         j++;
       }
 
       lines[i + 1] = lines[i].substring(space + 1) + (lines[i + 1] || "");
       lines[i] = lines[i].substring(0, space + 1);
-      if (i == lines.length - 1) {
-        lines[i] = lines[i].substring(0, spaces);
-      }
+
       if (lines.length > limit) {
         flag = true;
         break;
@@ -1208,16 +1250,13 @@ limitLinesOnPaste = function (textarea, e) {
     //   textarea.value = lines.slice(0, limit).join("\n");
     //   return;
     // }
-    idTextArea = "#" + String(textarea.id);
-    var cursorPosition = $(idTextArea).prop("selectionStart");
+
     textarea.value = lines.slice(0, limit).join("\n");
     if (flag == true) {
       $(idTextArea).focus();
     } else {
-      $(idTextArea).setCursorPosition(cursorPosition);
+      $(idTextArea).setCursorPosition(cursorPosition + 2);
     }
-
-    console.log(JSON.stringify(textarea.value));
   }, 0);
 };
 
@@ -1257,7 +1296,6 @@ var limitLines = function (textarea) {
       textarea.value = removeCharAt(text, cursorPosition - 1);
     }
     currentTotalLine = (textarea.value.match(/\n/g) || []).length + 1;
-
     if (textarea.classList.contains("lastAreas")) {
       textarea.parentElement.parentElement.children[2].innerHTML =
         "Lines Remaining: " + String(rowLimit - currentTotalLine);
@@ -1265,7 +1303,6 @@ var limitLines = function (textarea) {
       textarea.nextElementSibling.innerHTML =
         "Lines Remaining: " + String(rowLimit - currentTotalLine);
     }
-    // console.log(rowLimit - a);
   }, 0);
 };
 
@@ -1308,7 +1345,7 @@ var checkOverflow = function (text, pos, posInfo, colLimit, rowLimit) {
   // : if there is \n before colLimit
   // : if pos>text.length
 
-  while (posInfo.rel_pos <= colLimit && posInfo.lines < rowLimit) {
+  while (posInfo.rel_pos < colLimit && posInfo.lines < rowLimit) {
     if (text[pos] == "\n" || pos >= text.length) {
       return {
         overflow: false,
@@ -1320,8 +1357,8 @@ var checkOverflow = function (text, pos, posInfo, colLimit, rowLimit) {
     posInfo.rel_pos++;
   }
   posInfo.rel_pos = pos - posInfo.last_space;
+  // check if \n leads to overflow
   text = insertCharAt(text, "\n", posInfo.last_space);
-
   posInfo.lines += 1;
 
   if (posInfo.lines >= rowLimit) {
@@ -1331,7 +1368,7 @@ var checkOverflow = function (text, pos, posInfo, colLimit, rowLimit) {
     };
   }
   //check for extra \n
-  j = pos;
+  j = pos + 1;
   while (j < text.length) {
     if (text[j] == "\n") {
       text = removeCharAt(text, j);
@@ -1343,7 +1380,7 @@ var checkOverflow = function (text, pos, posInfo, colLimit, rowLimit) {
 };
 
 function insertCharAt(text, ch, pos) {
-  return text.substring(0, pos) + ch + text.substring(pos);
+  return text.substring(0, pos + 1) + ch + text.substring(pos + 1);
 }
 
 function removeCharAt(text, pos) {

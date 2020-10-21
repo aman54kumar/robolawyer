@@ -646,7 +646,6 @@ def bookmarkPageInputs(self, can, inputObj):
     can.setFont("Courier", 18)
     can.drawString(120, 600, headingText)
     can.setFont("Times-Roman", 12)
-
     if len(inputObj[1]) > 60:
         extraHeight = 30
     else:
@@ -813,72 +812,6 @@ def formatText(self, lines, limit, suffixLen=3, prefixLen=2):
                 wordStartPos += 1
     if flag == 1:
         str = str[:wordStartPos] + "\n" + str[wordStartPos:]
-    return str
-
-
-def formatTextBR(self, lines, limit, suffixLen=3, prefixLen=2):
-    str = ""
-    itrPosition = 0
-
-    limitCount = limit
-    flag = 0
-    inWordPos = 0
-    wordPrefix = 0
-    wordSuffix = 0
-    wordStartPos = 0
-    for ch in lines:
-        itrPosition += 1
-        str += ch
-        limitCount -= 1
-
-        if ch == "<br/>":
-            if flag == 1:
-                wordSuffix = itrPosition - inWordPos
-                str = str[:wordStartPos] + "<br/>" + str[wordStartPos:]
-                limitCount = limit - (wordPrefix + wordSuffix)
-                flag = 0
-                continue
-            else:
-                limitCount = limit
-                flag = 0
-                wordStartPos = itrPosition
-        if flag == 1:
-            wordSuffix = itrPosition - inWordPos
-            if wordSuffix >= suffixLen and ch != " ":
-                flag = 0
-                str = str[:inWordPos] + "-<br/>" + str[inWordPos:]
-                itrPosition += len("-<br/>")
-                limitCount = limit - wordSuffix
-                wordStartPos = inWordPos + len("-<br/>")
-                continue
-            elif wordSuffix <= suffixLen and ch == " ":
-                str = str[:wordStartPos] + "<br/>" + str[wordStartPos:]
-                flag = 0
-                itrPosition += len("<br/>")
-                limitCount = limit - (wordSuffix + wordPrefix)
-                continue
-        if ch == " ":
-            wordStartPos = itrPosition
-
-        if limitCount == 0:
-            if ch != " ":
-                inWordPos = itrPosition
-                wordPrefix = inWordPos - wordStartPos
-                if wordPrefix <= prefixLen:
-                    str = str[:wordStartPos] + "<br/>" + str[wordStartPos:]
-                    limitCount = limit - wordPrefix
-                    itrPosition += 1
-                    wordStartPos += 1
-                else:
-                    flag = 1
-                    limitCount = limit
-            else:
-                str = str[:itrPosition] + "<br/>" + str[itrPosition:]
-                limitCount = limit
-                itrPosition += 1
-                wordStartPos += 1
-    if flag == 1:
-        str = str[:wordStartPos] + "<br/>" + str[wordStartPos:]
     return str
 
 

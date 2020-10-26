@@ -94,10 +94,10 @@
             <br /><br />
             <hr />
             <div id="page6Group">
-              <div class="s-group">
-                <table width="100%">
+              <div class="s-group" style="width: 85%; margin:auto">
+                <table>
                   <tr>
-                    <td width="20%" style="vertical-align: top">
+                    <td style="vertical-align: top" class="is-hidden">
                       <label for=""><b>Selected Article</b></label>
                       <textarea
                         name="page6[0][preArticleSelect]"
@@ -110,7 +110,7 @@
                         readonly
                       ></textarea>
                     </td>
-                    <td width="35%" style="vertical-align: top">
+                    <td width="30%" style="vertical-align: top;">
                       <label for="complainSelect_0_0"><b>Complaint</b></label>
                       <!-- width: 35ch;-->
                       <textarea
@@ -123,23 +123,23 @@
                         data-pattern-name="page6[++][complainSelect]"
                         cols="26"
                         rows="5"
-                        oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper(this, 26, true);'
-                        onpaste='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper(this, 26, true);'
+                        oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper( this, 26,true, false,);'
+                        onpaste='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper( this, 26,true, true);'
+                        onkeydown="complaintKeyDown(event,this)"
                       ></textarea>
                     </td>
-                    <td width="45%">
+                    <td>
                       <label><b> Domestic Remedies Used</b></label>
                       <textarea
                         class="form-control remedies remediesTextCounter"
                         name="page6[0][remediesUsed]"
                         id="complain_0_remedy"
-                        oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper(this, 69, false);'
-                        cols="30"
+                        oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper(this, 69, false,false);'
                         rows="5"
                         data-parsley-group="page6"
                         data-pattern-id="complain_++_remedy"
                         data-pattern-name="page6[++][remediesUsed]"
-                        onpaste='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper(this, 69, false);'
+                        onpaste='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper(this, 69, false,true);'
                         onfocus="getCounterValue(this);"
                         onblur="hideCounterElement(this);"
                         style="padding: 10px"
@@ -155,13 +155,13 @@
                 <div>
                   <button
                     type="button"
-                    class="s-btnAdd btn btn-primary"
+                    class="s-btnAdd btn btn-primary is-hidden"
                     id="addButton_6_0"
                     data-pattern-id="addButton_6_++"
                   >
                     Add +
                   </button>
-                  <button type="button" class="s-btnRemove btn btn-danger">
+                  <button type="button" class="s-btnRemove btn btn-danger is-hidden">
                     Remove -
                   </button>
                 </div>

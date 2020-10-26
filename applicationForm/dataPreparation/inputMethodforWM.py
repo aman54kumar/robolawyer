@@ -561,9 +561,9 @@ def blankPageInputs(self, can):
 
 def nextLineForPara(x, y, z):
     import math
-    textLength = x
-    writeLength = y
-    spacing = z
+    # textLength = x
+    # writeLength = y
+    # spacing = z
     totalSpacing = math.ceil(x / y) * z + 3.5 * z
     return totalSpacing
 
@@ -571,9 +571,9 @@ def nextLineForPara(x, y, z):
 def nextLineForPage12(x, y, z):
     import math
 
-    textLength = x
-    writeLength = y
-    spacing = z
+    # textLength = x
+    # writeLength = y
+    # spacing = z
     totalSpacing = math.ceil(x / y) * z + 2 * z
     return totalSpacing
 
@@ -719,7 +719,7 @@ def go(self, filename, textString, firstPage, laterPage=None):
     style.fontSize = 9
     textString = formatText(self, textString, 78)
     textString = textString.replace("\n", "<br/>")
-    p = Paragraph(escape(textString), style)
+    p = Paragraph(textString, style)
     Story.append(p)
     Story.append(Spacer(1, 0.2 * inch))
     doc.build(Story, onFirstPage=firstPage)

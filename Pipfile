@@ -37,6 +37,7 @@ numpy = "*"
 django-compressor = "*"
 django-compressor-js = "*"
 csscompressor = "*"
+django-compression-middleware = "*"
 
 [requires]
 python_version = "3.7"

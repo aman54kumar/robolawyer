@@ -240,6 +240,8 @@
 {% endblock content %}
 
 {% block scriptContent %}
+{% load compress %}
+{% compress js %}
 <!-- <script src="{% static 'applicationForm/autosize/autosize.min.js' %}"></script>
 <script src="{% static 'applicationForm/hypher/jquery.hypher.js' %}"></script>
 <script src="{% static 'applicationForm/hypher/en-us.js' %}"></script> -->
@@ -292,4 +294,7 @@
 <script>
     var homeUrl = "{% url 'home' %}"
 </script>
+
+
+{% endcompress %}
 {% endblock scriptContent %}

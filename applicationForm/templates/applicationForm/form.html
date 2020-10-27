@@ -248,7 +248,9 @@
 <script src="{% static 'applicationForm/tagsinput/custom.js' %}"></script>
 <!-- <script src="{% static 'applicationForm/datepicker/jquery-dropdown-datepicker.min.js' %}"></script> -->
 <script src="{% static 'applicationForm/datepicker/bootstrap-datepicker.min.js' %}"></script>
-<script src="{% static 'applicationForm/datepicker/datePicker.js' %}"></script>
+
+<script src="{% static 'applicationForm/datepicker/datePicker.js' %}" type="text/es6"></script>
+
 <script src="{% static 'applicationForm/momentjs/moment.min.js' %}"></script>
 <script src="{% static 'applicationForm/axios/axios.min.js' %}"></script>
 <script src="{% static 'applicationForm/js/apiScripts.js' %}"></script>
@@ -290,7 +292,4 @@
 <script>
     var homeUrl = "{% url 'home' %}"
 </script>
-
-
-
 {% endblock scriptContent %}

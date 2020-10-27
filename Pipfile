@@ -31,6 +31,12 @@ colorama = {version = "*", sys_platform="!='fake'"}
 django-robots-txt = "*"
 reportlab = "*"
 moment = "*"
+pandas = "*"
+django-pandas = "*"
+numpy = "*"
+django-compressor = "*"
+django-compressor-js = "*"
+csscompressor = "*"
 
 [requires]
 python_version = "3.7"

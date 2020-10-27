@@ -1,66 +1,3 @@
-// limitLines(6, document.getElementById("indAddress"));
-// limitLines(2, document.getElementById("orgName"));
-// limitLines(8, document.getElementById("orgAddress"));
-// limitLines(6, document.getElementById("indNLAddress"));
-// limitLines(6, document.getElementById("indLAddress"));
-// limitLines(8, document.getElementById("orgnlAddress"));
-// limitLines(8, document.getElementById("orglAddress"));
-// limitLines(16, document.getElementById("appealDescribe"));
-// limitLines(10, document.getElementById("intInvestigationDesc"));
-// limitLines(4, document.getElementById("prevAppDesc"));
-// limitLines(5, document.getElementById("formComments"));
-
-// $(".articleExpCounter").textcounter({
-//   type: "character",
-//   max: 590,
-//   countSpaces: true,
-//   countDown: true,
-//   countDownText: "Characters Remaining: %d",
-// });
-
-// $(".remediesTextCounter").textcounter({
-//   type: "character",
-//   max: 290,
-//   countSpaces: true,
-//   countDown: true,
-//   countDownText: "Characters Remaining: %d",
-// });
-
-// $(".appealDescribeTextCounter").textcounter({
-//   type: "character",
-//   max: 1550,
-//   countSpaces: true,
-//   countDown: true,
-//   countDownText: "Characters Remaining: %d",
-// });
-
-// $(".intInvestigationTextCounter").textcounter({
-//   type: "character",
-//   max: 1850,
-//   countSpaces: true,
-//   countDown: true,
-//   countDownText: "Characters Remaining: %d",
-// });
-// $(".prevApplicationTextCounter").textcounter({
-//   type: "character",
-//   max: 350,
-//   countSpaces: true,
-//   countDown: true,
-//   countDownText: "Characters Remaining: %d",
-// });
-// $(".commentTextCounter").textcounter({
-//   type: "character",
-//   max: 550,
-//   countSpaces: true,
-//   countDown: true,
-//   countDownText: "Characters Remaining: %d",
-// });
-// // $(".factsTextCounter").textcounter({
-// //   type: "character",
-// //   max: 15600,
-// //   countSpaces: true,
-// // });
-
 $(".btn-next-form").on("click", function () {
   $("html, body").animate(
     {
@@ -282,14 +219,13 @@ $("#page5Group").repeater({
       );
 
     // for removal of selected Element's value from page 6 on removal of input group on page 5
+
     getDeletingElementIdNumber = element
       .children()[1]
       .children[0].children[0].children[0].children[1].id.split("_")[1];
-
-    getCorrespondingPage6SelectId =
-      "#preArticle_" + getDeletingElementIdNumber + "_select";
-
-    $(getCorrespondingPage6SelectId).val("");
+    correspondingAddButton =
+      "#addButton_6_" + String(getDeletingElementIdNumber);
+    $(correspondingAddButton).siblings()[0].click();
   },
 });
 // Correspondent details
@@ -325,55 +261,6 @@ $("input[name='page7[prevApplications]']").change(function () {
   }
 });
 
-// function textCounter(field, field2, maxlimit) {
-//   var countfield = document.getElementById(field2);
-//   if (field.value.length > maxlimit) {
-//     if (field.id === "stofFacts") {
-//       var popUpStFactText = document.createElement("div");
-//       popUpStFactText.style.textAlign = "justify";
-//       popUpStFactText.innerHTML =
-//         "You have reached the page limit imposed by the Court. It is possible for you to add a supplementary statement expanding on the facts, complaints or remedies used. This extra statement should not be more than 20 pages. It should not add new complaints or violations but only develop what is already set out in the form. <br/>You can either go back and rephrase your Statement of the facts to comply with the page limit, or you can add extra pages on the Subject matter of the application. Before adding extra pages, make sure that all the central facts are already mentioned in the main Statement of Facts and that you are not adding any additional information, but merely expanding on the already mentioned facts, violations and complaints.";
-//       Swal.fire({
-//         buttons: ["Go Back", "Add Supplementary Statement"],
-//         closeOnClickOutside: false,
-//         content: popUpStFactText,
-//       });
-//       $(".extraWritingArea").removeClass("is-hidden");
-//     }
-//     if (field.id === "stofFactsExtra") {
-//       Swal.fire(
-//         "Unfortunately there is no more space available to add extra content in statement of facts according to the guidelines provided by ECtHR. Please try to modify the existing text."
-//       );
-//     }
-//     field.value = field.value.substring(0, maxlimit);
-
-//     return false;
-//   } else {
-//     countfield.value = maxlimit - field.value.length;
-//   }
-// }
-
-$("input[name='page2[applicantAnon]']").change(function () {
-  result = this.value;
-
-  // if (result === "Yes") {
-  //   $("input[name='page8[0][date]']").val(moment().format("DD-MM-YYYY"));
-  //   $("input[name='page8[0][title]']").val("Anonymity Request");
-  //   $("input[name='page8[0][desc]']").val(
-  //     "Documents requesting anonymity in the public documents of the court."
-  //   );
-  //   $("input[name='page8[0][page]']").val(2);
-  // } else if (result === "No") {
-  //   $("input[name='page8[0][date]']").val("");
-  //   $("input[name='page8[0][title]']").val("");
-  //   $("input[name='page8[0][desc]']").val("");
-  //   $("input[name='page8[0][page]']").val(null);
-  // } else {
-  //   console.log("no anonymity");
-  // }
-});
-
-// function detectDocuments() {}
 function pageCountAnon(id) {
   lines = $(id).val();
   pageCount = 0;
@@ -534,106 +421,6 @@ $.fn.setSelection = function (selectionStart, selectionEnd) {
 
   //   return this;
 };
-
-// var areaArray = $("textArea");
-
-// var removedArea = areaArray.splice(9, 6);
-
-// jQuery(removedArea).each(function () {
-//   if ($(this)[0].id === "stofFacts") {
-//     stOfFactsElement = $(this)[0];
-//     $(stOfFactsElement).textcounter({
-//       type: "character",
-//       max: $(this)[0].maxLength,
-//       countSpaces: true,
-//       countDown: true,
-//       countDownText: "Characters Remaining: %d",
-//       maxcount: function (el) {
-//         el = jQuery(el);
-//         el.off();
-//         el.on("keydown paste", function (event) {
-//           keyCodeList = [
-//             8,
-//             16,
-//             17,
-//             18,
-//             19,
-//             20,
-//             27,
-//             35,
-//             36,
-//             37,
-//             38,
-//             39,
-//             40,
-//             91,
-//             92,
-//             112,
-//             113,
-//             114,
-//             115,
-//             116,
-//             117,
-//             118,
-//             119,
-//             120,
-//             121,
-//             122,
-//             123,
-//             144,
-//             145,
-//           ];
-//           if (el.attr("id") === "stofFacts") {
-//             if (!keyCodeList.includes(event.keyCode)) {
-//               var popUpStFactText = document.createElement("div");
-//               popUpStFactText.style.textAlign = "justify";
-//               popUpStFactText.innerHTML =
-//                 "You have reached the page limit imposed by the Court. It is possible for you to add a supplementary statement expanding on the facts, complaints or remedies used. This extra statement should not be more than 20 pages. It should not add new complaints or violations but only develop what is already set out in the form. <br/>You can either go back and rephrase your Statement of the facts to comply with the page limit, or you can add extra pages on the Subject matter of the application. Before adding extra pages, make sure that all the central facts are already mentioned in the main Statement of Facts and that you are not adding any additional information, but merely expanding on the already mentioned facts, violations and complaints.";
-//               Swal.fire({
-//                 buttons: {
-//                   cancel: {
-//                     text: "Go Back",
-//                     value: null,
-//                     className: "page4AlertCancel",
-//                     visible: true,
-//                     closeModal: true,
-//                   },
-//                   confirm: {
-//                     text: "Add Supplementary Statement",
-//                     value: null,
-//                     className: "page4AlertConfirm",
-//                     visible: true,
-//                     closeModal: true,
-//                   },
-//                 },
-//                 closeOnClickOutside: false,
-//                 content: popUpStFactText,
-//               });
-
-//               $(".extraWritingArea").removeClass("is-hidden");
-//             }
-//           }
-//         });
-//       },
-
-// mincount: function (el) {
-// console.log(el);
-// if (el.id === "stofFacts") {
-//   var popUpStFactText = document.createElement("div");
-//   popUpStFactText.style.textAlign = "justify";
-//   popUpStFactText.innerHTML =
-//     "You have reached the page limit imposed by the Court. It is possible for you to add a supplementary statement expanding on the facts, complaints or remedies used. This extra statement should not be more than 20 pages. It should not add new complaints or violations but only develop what is already set out in the form. <br/>You can either go back and rephrase your Statement of the facts to comply with the page limit, or you can add extra pages on the Subject matter of the application. Before adding extra pages, make sure that all the central facts are already mentioned in the main Statement of Facts and that you are not adding any additional information, but merely expanding on the already mentioned facts, violations and complaints.";
-//   Swal.fire({
-//     buttons: ["Go Back", "Add Supplementary Statement"],
-//     closeOnClickOutside: false,
-//     content: popUpStFactText,
-//   });
-//   $(".extraWritingArea").removeClass("is-hidden");
-// }
-// },
-//     });
-//   }
-// });
 
 $("#stofFacts").textcounter({
   type: "character",
@@ -1064,7 +851,12 @@ function formatText(lines, limit, suffixLen = 3, prefixLen = 2) {
 limitLinesPage5 = 108;
 earlierLinesCount = 0;
 
-function articleWrapper(element, columnLength, isArticleSelectElement) {
+function articleWrapper(
+  element,
+  columnLength,
+  isArticleSelectElement,
+  isPaste
+) {
   repeaterParentElement =
     element.parentElement.parentElement.parentElement.parentElement
       .parentElement.parentElement.children;
@@ -1078,18 +870,83 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
 
   otherElement =
     element.parentElement.parentElement.children[otherElementIndex].children[1];
+
+  idTextArea = "#" + String(element.id);
+  var cursorPosition = $(idTextArea).prop("selectionStart");
+
+  var text = element.value;
+  var colLimit = columnLength;
+  var rowLimit =
+    Math.max(otherElement.value.split("\n").length, text.split("\n").length) +
+    limitLinesPage5;
+  var posInfo = getPosInfo(text, cursorPosition - 1, colLimit);
+  var relPos = posInfo.rel_pos;
+  var overFlowInfo = null;
+  var isExceeded = false;
   // if (isArticleSelectElement) {
   //   otherElement.removeAttribute("disabled");
   // }
 
   // format firstElement
-  resultString1 = onPasteformatTextWithoutDash(element.value, columnLength);
+  if (isPaste || isArticleSelectElement) {
+    if (isArticleSelectElement) {
+      invisibleArticleArea.value = text;
+      rowLimit = otherElement.value.split("\n").length + limitLinesPage5;
+      limitLinesOnPaste(invisibleArticleArea, rowLimit, colLimit);
+      resultString1 = invisibleArticleArea.value
+        .split("\n")
+        .slice(0, rowLimit)
+        .join("\n");
+    } else {
+      limitLinesOnPaste(element, rowLimit, colLimit);
+      resultString1 = element.value.split("\n").slice(0, rowLimit).join("\n");
+    }
+  } else {
+    if (
+      text.split("\n").length >= rowLimit &&
+      text[cursorPosition - 1] == "\n"
+    ) {
+      resultString1 =
+        text.substring(0, cursorPosition - 1) +
+        text.substring(cursorPosition, text.length);
+      isExceeded = true;
+    } else {
+      overFlowInfo = checkOverflow(
+        text,
+        cursorPosition - 1,
+        posInfo,
+        colLimit,
+        rowLimit
+      );
+
+      if (
+        overFlowInfo.overflow == false &&
+        overFlowInfo.formatted_text.split("\n").length <= rowLimit
+      ) {
+        if (checkIfNewLine(text, cursorPosition - 1, relPos, colLimit)) {
+          cursorPosition += 1;
+        }
+        resultString1 = overFlowInfo.formatted_text
+          .split("\n")
+          .slice(0, rowLimit)
+          .join("\n");
+      } else {
+        resultString1 = removeCharAt(text, cursorPosition - 1);
+        isExceeded = true;
+      }
+    }
+  }
   if (isArticleSelectElement) {
     resultString2 = otherElement.value;
     invisibleArticleArea.value = resultString1;
   } else {
     resultString2 = invisibleArticleArea.value;
     element.value = resultString1;
+    if (isExceeded) {
+      $(idTextArea).setCursorPosition(cursorPosition - 1);
+    } else {
+      $(idTextArea).setCursorPosition(cursorPosition);
+    }
   }
   var currentLineCount = 0;
   for (var i = 0; i < repeaterParentElement.length; i++) {
@@ -1112,6 +969,7 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
           rightFieldValue.split("\n").length
         ) + 1;
   }
+
   if (earlierLinesCount < currentLineCount) {
     limitLinesPage5 = limitLinesPage5 - (currentLineCount - earlierLinesCount);
     earlierLinesCount = currentLineCount;
@@ -1122,7 +980,7 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
 
   if (isArticleSelectElement) {
     if (limitLinesPage5 < 0) {
-      Swal.fire("", "Text exceeding line limit"); //popup that firstEt elemenxceeding page
+      Swal.fire("", "Text exceeding line limit"); //popup that first element exceeding page
       element.selectedIndex = earlierSelected;
     }
 
@@ -1132,12 +990,6 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
   } else {
     if (limitLinesPage5 < 0) {
       Swal.fire("", "Text exceeding line limit");
-      element.value = trimLastNthCharInString(
-        resultString1,
-        "\n",
-        Math.abs(limitLinesPage5) - 1
-      );
-
       element.style.color = "red";
       setTimeout(function () {
         element.style.color = "";
@@ -1147,28 +999,37 @@ function articleWrapper(element, columnLength, isArticleSelectElement) {
   if (!isArticleSelectElement) {
     counterElement =
       element.parentElement.parentElement.children[2].children[3];
-
-    getCounterValue(counterElement);
+    var p =
+      invisibleArticleArea.value.split("\n").length -
+      element.value.split("\n").length;
+    getCounterValue(counterElement, p);
     counterElement.classList.remove("is-hidden");
   }
 }
 
-function getCounterValue(element) {
+function getCounterValue(element, p) {
   if (
     element.parentElement.parentElement.parentElement.parentElement.parentElement.classList.contains(
       "s-group"
     )
   ) {
     limitLinesPage6 = limitLinesPage6 < 0 ? 0 : limitLinesPage6;
+    var cnt = p >= 0 ? p + limitLinesPage6 : limitLinesPage6;
     counterElement =
       element.parentElement.parentElement.children[2].children[3];
-    counterElement.innerHTML = "Lines Remaining: " + limitLinesPage6;
+    counterElement.innerHTML = "Lines Remaining: " + cnt;
     counterElement.classList.remove("is-hidden");
   } else {
     limitLinesPage5 = limitLinesPage5 < 0 ? 0 : limitLinesPage5;
+    if (limitLinesPage5 > 4) {
+      toggleAddButton(element, false);
+    } else {
+      toggleAddButton(element, true);
+    }
+    var cnt = p >= 0 ? p + limitLinesPage5 : limitLinesPage5;
     counterElement =
       element.parentElement.parentElement.children[2].children[3];
-    counterElement.innerHTML = "Lines Remaining: " + limitLinesPage5;
+    counterElement.innerHTML = "Lines Remaining: " + cnt;
     counterElement.classList.remove("is-hidden");
   }
 }
@@ -1204,19 +1065,80 @@ var trimLastNthCharInString = function (str, ch, n) {
   return str;
 };
 
-function toggleAddButton(element) {
+function toggleAddButton(element, toggleValue) {
   parentElement =
     element.parentElement.parentElement.parentElement.parentElement
       .parentElement.children[3].children[0];
-  parentElement.disabled = false;
+  parentElement.disabled = toggleValue;
 }
 
 // Complaint Page processing
 
 limitLinesPage6 = 51;
+// limitLinesPage6 = 5;
 earlierLinesCountPage6 = 0;
+function isArrowKey(e) {
+  var keyCode = e.keyCode;
+  if (keyCode == 37 || keyCode == 38 || keyCode == 39 || keyCode == 40)
+    return true;
+  return false;
+}
+function isSelected(element) {
+  var st = element.selectionStart;
+  var end = element.selectionEnd;
+  if (st != end && end > st) return true;
+  return false;
+}
+function complaintKeyDown(event, element) {
+  var getSelectedText =
+    element.parentElement.parentElement.children[0].children[1].value;
 
-function complaintWrapper(element, columnLength, isComplaintInputElement) {
+  var fixedText = getEditedArticleAsPrefix(getSelectedText);
+  idTextArea = "#" + String(element.id);
+  var cursorPosition = $(idTextArea).prop("selectionStart");
+
+  if (element.value.startsWith(fixedText)) {
+    if (cursorPosition == fixedText.length && event.keyCode == 8) {
+      if (!isSelected(element)) {
+        event.preventDefault();
+        $(idTextArea).setCursorPosition(cursorPosition);
+      }
+
+      return false;
+    }
+    if (cursorPosition < fixedText.length) {
+      if (isArrowKey(event)) return true;
+      event.preventDefault();
+      cursorPosition = fixedText.length;
+      $(idTextArea).setCursorPosition(cursorPosition);
+      return false;
+    }
+  }
+  return true;
+}
+
+function complaintWrapper(
+  element,
+  columnLength,
+  isComplaintInputElement,
+  isPaste
+) {
+  idTextArea = "#" + String(element.id);
+  var cursorPosition = $(idTextArea).prop("selectionStart");
+
+  // if (cursorPosition >= fixedText.length) {
+  var getSelectedText =
+    element.parentElement.parentElement.children[0].children[1].value;
+
+  var fixedText = getEditedArticleAsPrefix(getSelectedText);
+  if (isComplaintInputElement && !element.value.startsWith(fixedText)) {
+    getSelectedText =
+      element.parentElement.parentElement.children[0].children[1].value;
+
+    element.value = fixedText + element.value;
+    cursorPosition = fixedText.length + 1;
+  }
+
   repeaterParentElement =
     element.parentElement.parentElement.parentElement.parentElement
       .parentElement.parentElement.children;
@@ -1227,14 +1149,59 @@ function complaintWrapper(element, columnLength, isComplaintInputElement) {
 
   otherElement =
     element.parentElement.parentElement.children[otherElementIndex].children[1];
-  // if (isComplaintInputElement) {
-  //   otherElement.removeAttribute("disabled");
-  // }
 
-  // format firstElement
-  resultString1 = onPasteformatTextWithoutDash(element.value, columnLength);
+  var text = element.value;
+  var colLimit = columnLength;
+  var rowLimit =
+    Math.max(otherElement.value.split("\n").length, text.split("\n").length) +
+    limitLinesPage6;
+  var posInfo = getPosInfo(text, cursorPosition - 1, colLimit);
+  var relPos = posInfo.rel_pos;
+  var overFlowInfo = null;
+  var isExceeded = false;
+  if (isPaste) {
+    // console.log("GG");
+    limitLinesOnPaste(element, rowLimit, colLimit);
+    resultString1 = element.value.split("\n").slice(0, rowLimit).join("\n");
+  } else {
+    if (
+      text.split("\n").length >= rowLimit &&
+      text[cursorPosition - 1] == "\n"
+    ) {
+      resultString1 =
+        text.substring(0, cursorPosition - 1) + text.substring(cursorPosition);
+      isExceeded = true;
+    } else {
+      overFlowInfo = checkOverflow(
+        text,
+        cursorPosition - 1,
+        posInfo,
+        colLimit,
+        rowLimit
+      );
+
+      if (
+        overFlowInfo.overflow == false &&
+        overFlowInfo.formatted_text.split("\n").length <= rowLimit
+      ) {
+        if (checkIfNewLine(text, cursorPosition - 1, relPos, colLimit)) {
+          cursorPosition += 1;
+          // console.log("YES");
+        }
+        resultString1 = overFlowInfo.formatted_text
+          .split("\n")
+          .slice(0, rowLimit)
+          .join("\n");
+      } else {
+        resultString1 = removeCharAt(text, cursorPosition - 1);
+        isExceeded = true;
+      }
+    }
+  }
+  // console.log(cursorPosition);
 
   resultString2 = otherElement.value;
+
   element.value = resultString1;
 
   var currentLineCount = 0;
@@ -1299,63 +1266,45 @@ function complaintWrapper(element, columnLength, isComplaintInputElement) {
   if (!isComplaintInputElement) {
     counterElement =
       element.parentElement.parentElement.children[2].children[3];
-    getCounterValue(counterElement);
+    var p =
+      otherElement.value.split("\n").length - element.value.split("\n").length;
+    getCounterValue(counterElement, p);
     counterElement.classList.remove("is-hidden");
+  }
+
+  if (isExceeded) {
+    // console.log("OK");
+    $(idTextArea).setCursorPosition(cursorPosition - 1);
+  } else {
+    $(idTextArea).setCursorPosition(cursorPosition);
   }
 }
 //
 
-limitLinesOnPaste1 = function (textarea) {
+limitLinesOnPaste = function (textarea, rows, cols) {
   setTimeout(function () {
+    var limit = rows == null ? textarea.rows : rows;
+
+    var spaces = cols == null ? textarea.cols : cols;
     idTextArea = "#" + String(textarea.id);
     var cursorPosition = $(idTextArea).prop("selectionStart");
-    var overFlowInfo = null;
-    var text = textarea.value;
-    var colLimit = textarea.cols;
-    var rowLimit = textarea.rows;
-    posInfo = getPosInfo(text, cursorPosition - 1, colLimit);
-    relPos = posInfo.rel_pos;
-
-    overFlowInfo = checkOverflow(
-      text,
-      cursorPosition - 1,
-      posInfo,
-      colLimit,
-      rowLimit
-    );
-    // if (lines.length > limit && (event.keyCode != 8 || event.keyCode != 46)) {
-    //   textarea.value = lines.slice(0, limit).join("\n");
-    //   return;
-    // }
-    idTextArea = "#" + String(textarea.id);
-    var cursorPosition = $(idTextArea).prop("selectionStart");
-    textarea.value = lines.slice(0, limit).join("\n");
-    $(idTextArea).setCursorPosition(cursorPosition);
-  }, 0);
-};
-
-limitLinesOnPaste = function (textarea, e) {
-  setTimeout(function () {
-    var limit = textarea.rows;
-    var spaces = textarea.cols;
     var lines = textarea.value.split("\n");
     var flag = false;
+
     for (var i = 0; i < lines.length && i < limit; i++) {
       if (lines[i].length <= spaces) continue;
       var j = 0;
 
       var space = spaces;
 
-      while (j <= spaces) {
+      while (j < spaces) {
         if (lines[i].charAt(j) === " ") space = j;
         j++;
       }
 
       lines[i + 1] = lines[i].substring(space + 1) + (lines[i + 1] || "");
       lines[i] = lines[i].substring(0, space + 1);
-      if (i == lines.length - 1) {
-        lines[i] = lines[i].substring(0, spaces);
-      }
+
       if (lines.length > limit) {
         flag = true;
         break;
@@ -1371,16 +1320,14 @@ limitLinesOnPaste = function (textarea, e) {
     //   textarea.value = lines.slice(0, limit).join("\n");
     //   return;
     // }
-    idTextArea = "#" + String(textarea.id);
-    var cursorPosition = $(idTextArea).prop("selectionStart");
+
     textarea.value = lines.slice(0, limit).join("\n");
     if (flag == true) {
       $(idTextArea).focus();
     } else {
-      $(idTextArea).setCursorPosition(cursorPosition);
+      // console.log("LOL");
+      $(idTextArea).setCursorPosition(cursorPosition + 2);
     }
-
-    console.log(JSON.stringify(textarea.value));
   }, 0);
 };
 
@@ -1420,7 +1367,6 @@ var limitLines = function (textarea) {
       textarea.value = removeCharAt(text, cursorPosition - 1);
     }
     currentTotalLine = (textarea.value.match(/\n/g) || []).length + 1;
-
     if (textarea.classList.contains("lastAreas")) {
       textarea.parentElement.parentElement.children[2].innerHTML =
         "Lines Remaining: " + String(rowLimit - currentTotalLine);
@@ -1428,7 +1374,6 @@ var limitLines = function (textarea) {
       textarea.nextElementSibling.innerHTML =
         "Lines Remaining: " + String(rowLimit - currentTotalLine);
     }
-    // console.log(rowLimit - a);
   }, 0);
 };
 
@@ -1437,11 +1382,14 @@ function removeStringFromLine(text, startPos, pastedLength) {
 }
 
 function checkIfNewLine(text, pos, relPos, colLimit) {
-  while (relPos <= colLimit) {
+  // debugger;
+  while (relPos < colLimit) {
+    // console.log(text[pos]);
     if (text[pos] == " " || text[pos] == "\n") return false;
     relPos += 1;
     pos++;
   }
+
   return true;
 }
 
@@ -1471,7 +1419,7 @@ var checkOverflow = function (text, pos, posInfo, colLimit, rowLimit) {
   // : if there is \n before colLimit
   // : if pos>text.length
 
-  while (posInfo.rel_pos <= colLimit && posInfo.lines < rowLimit) {
+  while (posInfo.rel_pos < colLimit && posInfo.lines < rowLimit) {
     if (text[pos] == "\n" || pos >= text.length) {
       return {
         overflow: false,
@@ -1483,8 +1431,8 @@ var checkOverflow = function (text, pos, posInfo, colLimit, rowLimit) {
     posInfo.rel_pos++;
   }
   posInfo.rel_pos = pos - posInfo.last_space;
+  // check if \n leads to overflow
   text = insertCharAt(text, "\n", posInfo.last_space);
-
   posInfo.lines += 1;
 
   if (posInfo.lines >= rowLimit) {
@@ -1494,7 +1442,7 @@ var checkOverflow = function (text, pos, posInfo, colLimit, rowLimit) {
     };
   }
   //check for extra \n
-  j = pos;
+  j = pos + 1;
   while (j < text.length) {
     if (text[j] == "\n") {
       text = removeCharAt(text, j);
@@ -1506,7 +1454,7 @@ var checkOverflow = function (text, pos, posInfo, colLimit, rowLimit) {
 };
 
 function insertCharAt(text, ch, pos) {
-  return text.substring(0, pos) + ch + text.substring(pos);
+  return text.substring(0, pos + 1) + ch + text.substring(pos + 1);
 }
 
 function removeCharAt(text, pos) {
@@ -1534,4 +1482,63 @@ function addArticleToNextPage(e) {
   }
 }
 
-// });
+function addFieldTo6thPage(e) {
+  currentElement = e.target;
+  currentValue = currentElement.value;
+  currentId = currentElement.id;
+  currentNumber = currentId.split("_")[1];
+
+  // if (currentNumber > 0) {
+  //   page6Prev = document.getElementById(
+  //     "complain_" + String(parseInt(currentNumber) - 1) + "_select"
+  //   );
+  //   page6PrevAddButtonId =
+  //     page6Prev.parentElement.parentElement.parentElement.parentElement
+  //       .parentElement.children[1].children[0].id;
+  //   document.getElementById(page6PrevAddButtonId).click();
+  // }
+  page6First = "#preArticle_" + String(currentNumber) + "_select";
+  page6Second = "complain_" + String(parseInt(currentNumber)) + "_select";
+  if (currentNumber > "0") {
+    buttonElementId = "addButton_6_" + String(parseInt(currentNumber) - 1);
+    document.getElementById(buttonElementId).click();
+  }
+  $(page6First).val(currentValue);
+  var fixedText = getEditedArticleAsPrefix(currentValue);
+  $("#" + page6Second).val(fixedText);
+
+  // page6First = "#preArticle_" + String(currentNumber) + "_select";
+  // page6Second = "complain_" + String(parseInt(currentNumber)) + "_select";
+  // if ($(page6First).val() && $(page6First).val().length > 1) {
+  //   $(page6First).val(currentValue);
+  //   page6AreaElement = document.getElementById(page6Second);
+  //   var fixedText = getEditedArticleAsPrefix(currentValue);
+  //   selectedTextValue = $("#" + page6Second).val(fixedText);
+  // } else {
+  //   if (currentNumber > 0) {
+  //     buttonElementId = "addButton_6_" + String(parseInt(currentNumber) - 1);
+  //     document.getElementById(buttonElementId).click();
+  //     $(page6First).val(currentValue);
+  //   } else {
+  //     $(page6First).val(currentValue);
+  //   }
+  // }
+}
+
+function getEditedArticleAsPrefix(initialText) {
+  var initialArrayPart = initialText.split(" - ")[0];
+  var articleNameAsArray = initialArrayPart.split(" ");
+  editedArray = articleNameAsArray.map(changeLongWordToShortArticle);
+  editedString = editedArray.join(" ");
+  return editedString + " - ";
+}
+
+function changeLongWordToShortArticle(inputString) {
+  if (inputString === "Article") {
+    return "Art.";
+  } else if (inputString === "Protocol") {
+    return "Prot.";
+  } else {
+    return inputString;
+  }
+}

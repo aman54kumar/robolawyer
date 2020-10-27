@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'svglib',
+    'compressor',
     'home',
     'applicationForm',
     'about',
@@ -206,8 +207,18 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = '/static/'
-
+COMPRESS_ROOT = os.path.join(BASE_DIR, 'compressed_static')
+COMPRESS_ENABLED = True
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # other finders..
+    'compressor.finders.CompressorFinder',
+)
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+COMPRESS_PRECOMPILERS = (("text/es6",
+                          "django_compressor_js.precompilers.BabelCompiler"), )
 
 REST_FRAMEWORK = {
     "DATE_INPUT_FORMATS": ["%d-%m-%Y"],

@@ -1,3 +1,4 @@
+// 'esversion: 6'
 $(document).ready(function () {
   var popUpText = document.createElement("div");
   popUpText.style.textAlign = "justify";
@@ -69,28 +70,6 @@ function set_parameters() {
   date_general.datepicker(options);
 }
 // Todo - change all formats to this. remove dataprovider attribute from all date fields.
-
-// var datePickOptions = {
-//   displayFormat: "ymd",
-//   monthFormat: "long",
-//   minYear: 1900,
-//   wrapperClass: "row",
-//   dropdownClass: "form-control col-sm-4",
-//   allowFuture: false,
-//   daySuffixes: false,
-//   dayLabel: "Date",
-//   defaultDateFormat: "dd-mm-yyyy",
-//   submitFormat: "dd-mm-yyyy",
-// };
-// // var optionGlobal = $.extend({}, datePickOptions);
-
-// $(".datepicker").on("click", function (event) {
-//   $(event.currentTarget).prop("disabled", true);
-//   curId = $(event.currentTarget).attr("id");
-//   $("#" + curId).dropdownDatepicker(datePickOptions);
-// });
-
-// $(".input-daterange").datepicker({});
 
 function setPageUrl() {
   window.location.href = "https://justbot.org";

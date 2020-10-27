@@ -1,7 +1,7 @@
 html {
   /* zoom: 75%; */
   margin: 0;
-  -moz-transform: scale(0.75);
+  /* -moz-transform: scale(0.75); */
 }
 @-moz-document url-prefix() {
   html {
@@ -90,4 +90,70 @@ footer {
 
 .ajustify {
   text-align: justify;
+}
+
+/* down arrow homepage */
+.header-down-arrow {
+  animation: pulse 2s 3s ease-out infinite;
+  position: absolute;
+  bottom: 20vh;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 10;
+}
+
+.header-down-arrow img {
+  animation: fade-slide-up 1s 1s ease-out forwards;
+  opacity: 0;
+}
+
+/* Animations */
+
+@keyframes fade-slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-4rem) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: none;
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
 }

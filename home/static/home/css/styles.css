@@ -1,7 +1,5 @@
 html {
-  /* zoom: 75%; */
   margin: 0;
-  /* -moz-transform: scale(0.75); */
 }
 @-moz-document url-prefix() {
   html {

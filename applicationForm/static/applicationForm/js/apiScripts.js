@@ -27,6 +27,20 @@ function UrlExists2(url) {
   }
 }
 
+function UrlExists3(url) {
+  var http = new XMLHttpRequest();
+  http.open("HEAD", url, false);
+  http.withCredentials = true;
+  http.setRequestHeader("Content-Type", "application/json");
+  http.send();
+  try {
+    baseUrl = url;
+    countryArticle(baseUrl);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 var echrRat = function (baseUrl) {
   var echrUrl = baseUrl + "api/echr/";
 
@@ -215,9 +229,34 @@ var articleDrop = function (baseUrl) {
   });
 };
 
+var countryArticle = function (baseUrl) {
+  var countryUrl =
+    baseUrl + "static/applicationForm/apiFiles/countryArticle.json";
+  $(document).ready(function () {
+    axios({
+      method: "get",
+      url: countryUrl,
+    }).then(function (response) {
+      // countries = response.data.country;
+      // countryDropdownElement = document.getElementById("involvedStates");
+      // var opt = document.createElement("option");
+      // for (let key in countries) {
+      //   opt.value = key;
+      //   opt.innerHTML = key;
+      //   countryDropdownElement.appendChild(opt);
+      // }
+      // countries.forEach(function (country) {
+      //   console.log(country);
+      // });
+      // opt.value = console.log(data);
+    });
+  });
+};
+
 rootUrl = window.location.href.split("form/")[0];
 UrlExists(rootUrl);
 UrlExists2(rootUrl);
+UrlExists3(rootUrl);
 
 function callAPI(addButtonID) {
   elementNumber = parseInt(addButtonID.split("_")[2]);

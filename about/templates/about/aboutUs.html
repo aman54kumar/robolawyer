@@ -1,7 +1,7 @@
 {% extends 'home/base.html' %} {% load static %} {% block headContent %}
 
 <link rel="stylesheet" href="{% static 'applicationForm/css/formStyles.css' %}" />
-<link rel="stylesheet" href="{{ STATIC_URL }}/static/css/aboutUs.css" type="text/css" />
+ <link rel="stylesheet" href="{{ STATIC_URL }}/static/about/css/aboutUs.css" type="text/css" />
 {% endblock headContent %} {% block content %}
 
 <div class="jumbotron jumbotron-core">
@@ -12,7 +12,7 @@
   <div class="col-md-12 mx-auto form-section">
     <div class="card-body">
       <div class="text-center">
-        <img src="{% static 'images/team.png' %}" width="20%;" />
+        <img src="{% static 'about/images/team.png' %}" width="20%;" />
       </div>
       <p class="lead ajustify" style="padding: 60px">
         Just Bot aims to help complainants (and their lawyers) improve the

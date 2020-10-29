@@ -64,6 +64,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'svglib',
     'compressor',
+    'django_extensions',
+    "graphene_django",
     'home',
     'applicationForm',
     'about',
@@ -208,8 +210,12 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = '/static/'
+
+COMPRESS_ENABLED = config("COMPRESS_ENABLED", cast=bool)
+COMPRESS_OFFLINE = config("COMPRESS_OFFLINE", cast=bool)
+
 COMPRESS_ROOT = os.path.join(BASE_DIR, 'compressed_static')
-COMPRESS_ENABLED = True
+
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -218,8 +224,19 @@ STATICFILES_FINDERS = (
 )
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-COMPRESS_PRECOMPILERS = (("text/es6",
-                          "django_compressor_js.precompilers.BabelCompiler"), )
+COMPRESS_PRECOMPILERS = (
+    ("text/es6", "django_compressor_js.precompilers.BabelCompiler"),
+    # ("text/x-sass", "django_libsass.SassCompiler"),
+    # ("text/x-scss", "django_libsass.SassCompiler"),
+)
+
+COMPRESS_FILTERS = {
+    "css": [
+        "compressor.filters.css_default.CssAbsoluteFilter",
+        "compressor.filters.cssmin.rCSSMinFilter",
+    ],
+    "js": ["compressor.filters.jsmin.JSMinFilter"],
+}
 
 REST_FRAMEWORK = {
     "DATE_INPUT_FORMATS": ["%d-%m-%Y"],
@@ -295,3 +312,5 @@ LOGGING = {
         }
     }
 }
+
+# GRAPHENE = {"SCHEMA": "BASE_DIR.applicationForm.schema.schema"}

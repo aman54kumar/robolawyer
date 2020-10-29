@@ -38,6 +38,11 @@ django-compressor = "*"
 django-compressor-js = "*"
 csscompressor = "*"
 django-compression-middleware = "*"
+xlrd = "*"
+django-extensions = "*"
+werkzeug = "*"
+graphene-django = "*"
+jsons = "*"
 
 [requires]
 python_version = "3.7"

@@ -43,6 +43,7 @@ django-extensions = "*"
 werkzeug = "*"
 graphene-django = "*"
 jsons = "*"
+django-libsass = "*"
 
 [requires]
 python_version = "3.7"

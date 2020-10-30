@@ -226,8 +226,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 COMPRESS_PRECOMPILERS = (
     ("text/es6", "django_compressor_js.precompilers.BabelCompiler"),
-    # ("text/x-sass", "django_libsass.SassCompiler"),
-    # ("text/x-scss", "django_libsass.SassCompiler"),
+    ("text/x-sass", "django_libsass.SassCompiler"),
+    ("text/x-scss", "django_libsass.SassCompiler"),
 )
 
 COMPRESS_FILTERS = {

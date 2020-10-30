@@ -173,13 +173,6 @@
       "index": "pypi",
       "version": "==1.1.7"
     },
-    "csscompressor": {
-      "hashes": [
-        "sha256:afa22badbcf3120a4f392e4d22f9fff485c044a1feda4a950ecc5eba9dd31a05"
-      ],
-      "index": "pypi",
-      "version": "==0.9.5"
-    },
     "cssselect2": {
       "hashes": [
         "sha256:5c2716f06b5de93f701d5755a9666f2ee22cbcd8b4da8adddfc30095ffea3abc",
@@ -233,22 +226,6 @@
       ],
       "index": "pypi",
       "version": "==0.4.1"
-    },
-    "django-compressor": {
-      "hashes": [
-        "sha256:57ac0a696d061e5fc6fbc55381d2050f353b973fb97eee5593f39247bc0f30af",
-        "sha256:d2ed1c6137ddaac5536233ec0a819e14009553fee0a869bea65d03e5285ba74f"
-      ],
-      "index": "pypi",
-      "version": "==2.4"
-    },
-    "django-compressor-js": {
-      "hashes": [
-        "sha256:28f7d216e7c71a46d558fff4e89dd0808316844efad18fd5c158306841de3812",
-        "sha256:dcbc1747c9e318ffe04c2da452db1ad65c1626427c782e620081a94fbea1dadc"
-      ],
-      "index": "pypi",
-      "version": "==0.1.0"
     },
     "django-cors-headers": {
       "hashes": [

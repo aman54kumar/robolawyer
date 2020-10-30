@@ -2,8 +2,7 @@
 {% load static %}
 
 {% block headContent %}
-{% load compress %}
-{% compress css %}
+
 <link rel="stylesheet" href="{% static 'applicationForm/datepicker/bootstrap-datepicker.min.css' %}" type="text/css">
 <link rel="stylesheet" href="{% static 'applicationForm/intlTelInput/intlTelInput.min.css' %}">
 <link rel="stylesheet" href="{% static 'applicationForm/stepper/bs-stepper.min.css' %}">
@@ -14,14 +13,11 @@
 <link rel="stylesheet" href="{% static 'applicationForm/bootstrap-select/BsMultiSelect.min.css' %}">
 <link rel="stylesheet" href="{% static 'applicationForm/css/animate.min.css' %}" type="text/css" />
 <link rel="stylesheet" href="{% static 'applicationForm/rmodal/rmodal.css' %}" type="text/css" />
-<!-- fgdsg -->
 <style type="text/css">
     .modal .modal-dialog {
         width: 400px;
     }
 </style>
-{% endcompress %}
-{% compress js %}
 <script type="text/javascript">
     window.onload = function () {
         var modal = new RModal(document.getElementById('modal'), {
@@ -79,7 +75,6 @@
         window.modal = modal;
     }
 </script>
-{% endcompress %}
 {% endblock headContent %}
 
 {% block content %}
@@ -244,8 +239,7 @@
 {% endblock content %}
 
 {% block scriptContent %}
-{% load compress %}
-{% compress js %}
+
 <!-- <script src="{% static 'applicationForm/autosize/autosize.min.js' %}"></script>
 <script src="{% static 'applicationForm/hypher/jquery.hypher.js' %}"></script>
 <script src="{% static 'applicationForm/hypher/en-us.js' %}"></script> -->
@@ -300,5 +294,4 @@
 </script>
 
 
-{% endcompress %}
 {% endblock scriptContent %}

@@ -15,11 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-import home, applicationForm, about, extResources, countryArticles
+import home, applicationForm, about, extResources
 from django.conf.urls.static import static
 from django.conf import settings
 from robots_txt.views import RobotsTextView
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,7 +30,6 @@ urlpatterns = [
     path('api/echr/', include('echrAPI.urls', 'echr_api')),
     path('api/court/', include('courtAPI.urls', 'court_api')),
     path('api/article/', include('articleAPI.urls', 'article_api')),
-    path('api/country/', include('countryArticles.urls')),
 
     # robots.txt
     path('robots.txt', RobotsTextView.as_view())

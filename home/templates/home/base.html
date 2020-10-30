@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     {% load static %}
-    {% load compress %}
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -120,7 +119,6 @@
         ><br />
       </div>
     </footer>
-    {% compress js %}
     <script src="{% static 'home/js/jquery/jquery-3.4.1.min.js' %}"></script>
     <script src="{% static 'home/js/jquery-easing/jquery.js' %}"></script>
     <script src="{% static 'home/js/jquery-easing/jquery.easing.min.js' %}"></script>
@@ -132,6 +130,5 @@
     <!-- <script src="{% static 'home/js/promise-polyfill.js' %}"></script> -->
     
     {% block scriptContent %} {% endblock scriptContent %}
-    {% endcompress %}
   </body>
 </html>

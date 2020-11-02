@@ -3,238 +3,238 @@
 #     can.drawString(308, 737, "X")
 
 coordinateDict = {
-    'ALB - Albania': {
+    'Albania': {
         'x': 26,
         'y': 737,
         'n': 2**0,
     },
-    'ITA - Italy': {
+    'Italy': {
         'x': 308,
         'y': 737,
         'n': 2**24,
     },
-    'AND - Andorra': {
+    'Andorra': {
         'x': 26,
         'y': 709,
         'n': 2**1,
     },
-    'LIE - Liechtenstein':{
+    'Liechtenstein': {
         'x': 308,
         'y': 709,
         'n': 2**25,
     },
-    'ARM - Armenia': {
+    'Armenia': {
         'x': 26,
         'y': 680,
         'n': 2**2,
     },
-    'LTU - Lithuania': {
+    'Lithuania': {
         'x': 308,
         'y': 680,
         'n': 2**26
     },
-    'AUT - Austria': {
+    'Austria': {
         'x': 26,
         'y': 651,
         'n': 2**3,
     },
-    'LUX - Luxembourg': {
+    'Luxembourg': {
         'x': 308,
         'y': 651,
         'n': 2**27,
     },
-    'AZE - Azerbaijan': {
+    'Azerbaijan': {
         'x': 26,
         'y': 624,
         'n': 2**4,
     },
-    'LVA - Latvia': {
+    'Latvia': {
         'x': 308,
         'y': 624,
         'n': 2**28,
     },
-    'BEL - Belgium': {
+    'Belgium': {
         'x': 26,
         'y': 595,
         'n': 2**5
     },
-    'MCO - Monaco': {
+    'Monaco': {
         'x': 308,
         'y': 595,
         'n': 2**29,
     },
-    'BGR - Bulgaria': {
+    'Bulgaria': {
         'x': 26,
         'y': 566,
         'n': 2**6,
     },
-    'MDA - Republic of Moldova': {
+    'Republic of Moldova': {
         'x': 308,
         'y': 566,
         'n': 2**30,
     },
-    'BIH - Bosnia and Herzegovina': {
+    'Bosnia and Herzegovina': {
         'x': 26,
         'y': 538,
         'n': 2**7,
     },
-    'MKD - North Macedonia': {
+    'North Macedonia': {
         'x': 308,
         'y': 538,
         'n': 2**31,
     },
-    'CHE - Switzerland': {
+    'Switzerland': {
         'x': 26,
         'y': 510,
         'n': 2**8,
     },
-    'MLT - Malta': {
+    'Malta': {
         'x': 308,
         'y': 510,
         'n': 2**32,
     },
-    'CYP - Cyprus': {
+    'Cyprus': {
         'x': 26,
         'y': 482,
         'n': 2**9,
     },
-    'MNE - Montenegro': {
+    'Montenegro': {
         'x': 308,
         'y': 482,
         'n': 2**33,
     },
-    'CZE - Czech Republic': {
+    'Czech Republic': {
         'x': 26,
         'y': 454,
         'n': 2**10,
     },
-    'NLD - Netherlands': {
+    'Netherlands': {
         'x': 308,
         'y': 454,
         'n': 2**34,
     },
-    'DEU - Germany': {
+    'Germany': {
         'x': 26,
         'y': 425,
         'n': 2**11,
     },
-    'NOR - Norway': {
+    'Norway': {
         'x': 308,
         'y': 425,
         'n': 2**35,
     },
-    'DNK - Denmark': {
+    'Denmark': {
         'x': 26,
         'y': 397,
         'n': 2**12,
     },
-    'POL - Poland': {
+    'Poland': {
         'x': 308,
         'y': 397,
         'n': 2**36,
     },
-    'ESP - Spain': {
+    'Spain': {
         'x': 26,
         'y': 369,
         'n': 2**13,
     },
-    'PRT - Portugal': {
+    'Portugal': {
         'x': 308,
         'y': 369,
         'n': 2**37,
     },
-    'EST - Estonia': {
+    'Estonia': {
         'x': 26,
         'y': 340,
         'n': 2**14,
     },
-    'ROU - Romania': {
+    'Romania': {
         'x': 308,
         'y': 340,
         'n': 2**38,
     },
-    'FIN - Finland': {
+    'Finland': {
         'x': 26,
         'y': 312,
         'n': 2**15,
     },
-    'RUS - Russian Federation': {
+    'Russian Federation': {
         'x': 308,
         'y': 312,
         'n': 2**39,
     },
-    'FRA - France': {
+    'France': {
         'x': 26,
         'y': 284,
         'n': 2**16,
     },
-    'SMR - San Marino': {
+    'San Marino': {
         'x': 308,
         'y': 284,
         'n': 2**40,
     },
-    'GBR - United Kingdom': {
+    'United Kingdom': {
         'x': 26,
         'y': 256,
         'n': 2**17,
     },
-    'SRB - Serbia': {
+    'Serbia': {
         'x': 308,
         'y': 256,
         'n': 2**41,
     },
-    'GEO - Georgia': {
+    'Georgia': {
         'x': 26,
         'y': 227,
         'n': 2**18,
     },
-    'SVK - Slovak Republic': {
+    'Slovak Republic': {
         'x': 308,
         'y': 227,
         'n': 2**42,
     },
-    'GRC - Greece': {
+    'Greece': {
         'x': 26,
         'y': 199,
         'n': 2**19,
     },
-    'SVN - Slovenia': {
+    'Slovenia': {
         'x': 308,
         'y': 199,
         'n': 2**43,
     },
-    'HRV - Croatia': {
+    'Croatia': {
         'x': 26,
         'y': 171,
         'n': 2**20,
     },
-    'SWE - Sweden': {
+    'Sweden': {
         'x': 308,
         'y': 171,
         'n': 2**44,
     },
-    'HUN - Hungary': {
+    'Hungary': {
         'x': 26,
         'y': 143,
         'n': 2**21,
     },
-    'TUR - Turkey': {
+    'Turkey': {
         'x': 308,
         'y': 143,
         'n': 2**45,
     },
-    'IRL - Ireland': {
+    'Ireland': {
         'x': 26,
         'y': 114,
         'n': 2**22,
     },
-    'UKR - Ukraine': {
+    'Ukraine': {
         'x': 308,
         'y': 114,
         'n': 2**46,
     },
-    'ISL - Iceland': {
-        'x': 26, 
+    'Iceland': {
+        'x': 26,
         'y': 86,
         'n': 2**23,
     }

@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'svglib',
     'django_extensions',
+    'debug_toolbar',
     'home',
     'applicationForm',
     'about',
@@ -85,6 +86,7 @@ MIDDLEWARE = [
     'compression_middleware.middleware.CompressionMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'robolawyer.urls'
@@ -310,3 +312,11 @@ LOGGING = {
         }
     }
 }
+
+
+# django-debug-toolbar
+INTERNAL_IPS = [
+    # ...
+    '127.0.0.1',
+    # ...
+]

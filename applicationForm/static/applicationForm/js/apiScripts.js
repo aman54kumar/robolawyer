@@ -1,3 +1,86 @@
+function countrySelect() {
+  $("#involvedStates").bsMultiSelect2({
+    useCssPatch: true, // default, can be ommitted
+    cssPatch: {
+      choices: {
+        columnCount: "3",
+        listStyleType: "none",
+      },
+      choice: "px-md-2 px-1", // classes!
+      choice_hover: "text-primary bg-light",
+      choiceLabel_disabled: {
+        opacity: ".65",
+      },
+      choiceCheckBox: "countryChoice",
+      picks: {
+        listStyleType: "none",
+        display: "flex",
+        flexWrap: "wrap",
+        height: "auto",
+        marginBottom: "0",
+      },
+      picks_focus: {
+        borderColor: "#80bdff",
+        boxShadow: "0 0 0 0.2rem rgba(0, 123, 255, 0.25)",
+      },
+      picks_def: {
+        minHeight: "calc(2.25rem + 2px)",
+      },
+      picks_lg: {
+        minHeight: "calc(2.875rem + 2px)",
+      },
+      picks_sm: {
+        minHeight: "calc(1.8125rem + 2px)",
+      },
+      pick: {
+        styles: {
+          paddingLeft: "0.2em",
+          paddingRight: "0.2em",
+          margin: "0.3em",
+        },
+        classes: "badge badge-pill badge-warning",
+      },
+      pickContent: {
+        paddingRight: "10px",
+        paddingLeft: "10px",
+        fontSize: "1.2em",
+      },
+      pickButton: {
+        fontSize: "2em",
+        lineHeight: ".9em",
+        float: "none",
+      },
+      filterInput: {
+        border: "0px",
+        height: "auto",
+        boxShadow: "none",
+        padding: "0",
+        margin: "0",
+        outline: "none",
+        backgroundColor: "transparent",
+      },
+    },
+    placeholder: "Select Involved State(s)",
+    staticContentGenerator: null,
+    getLabelElement: null,
+    pickContentGenerator: null,
+    choiceContentGenerator: null,
+    buildConfiguration: null,
+    isRtl: null,
+    setSelected: null,
+    required: null,
+    optionsAdapter: null,
+    options: null,
+    getDisabled: null,
+    getSize: null,
+    getValidity: null,
+    labelElement: null,
+    valueMissingMessage: "",
+    getIsValueMissing: null,
+    // updateData:
+  });
+}
+
 function UrlExists(url) {
   var http = new XMLHttpRequest();
   http.open("HEAD", url, false);
@@ -6,7 +89,7 @@ function UrlExists(url) {
   http.send();
   try {
     baseUrl = url;
-    echrRat(baseUrl);
+    // echrRat(baseUrl);
     courtCountry(baseUrl);
   } catch (error) {
     console.error(error);
@@ -36,70 +119,69 @@ function UrlExists3(url) {
   try {
     baseUrl = url;
     countryArticle(baseUrl);
+    countrySelect();
   } catch (error) {
     console.error(error);
   }
 }
 
-var echrRat = function (baseUrl) {
-  var echrUrl = baseUrl + "api/echr/";
+function ratificationAPImethod(countryURL) {
+  startDateID = "#decisionDate1";
+  endDateID = "#decisionDate2";
+  selectCountryID = "#involvedStates";
 
   var echrDiv = document.getElementById("echrDetails");
-  $("#decisionDate2").on("change", function () {
-    var currentSelectedDate = $(this).val();
-    var currentSelectedCountry1 = $("#involvedStates").val();
-    var formattedSelectedDate = moment(
-      currentSelectedDate,
-      "DD-MM-YYYY"
-    ).format("DD MMMM YYYY");
-    if (moment(currentSelectedDate, "DD-MM-YYYY")._isValid) {
-      while (echrDiv.hasChildNodes()) {
-        echrDiv.removeChild(echrDiv.lastChild);
-      }
-      axios({
-        method: "get",
-        url: echrUrl,
-      }).then(function (response) {
-        data = response.data;
-        // console.log(currentSelected);
-        currentSelectedCountry1.forEach((countryName) => {
-          for (var i = 0; i < data.length; i++) {
-            if (data[i].country == countryName) {
-              ratDate = moment(data[i].ratDate).format("DD-MM-YYYY");
-              formattedRatDate = moment(ratDate, "DD-MM-YYYY").format(
-                "DD MMMM YYYY"
-              );
-              console.log(formattedSelectedDate);
-              console.log(formattedRatDate);
-              console.log(
-                moment(formattedSelectedDate).isBefore(formattedRatDate)
-              );
-              if (moment(formattedSelectedDate).isBefore(formattedRatDate)) {
-                var countryname = countryName.split("-");
-                var formattedCountryName = countryname[1].trim();
 
-                var pTag = document.createElement("p");
-                var p2Tag = document.createElement("p");
-                finalText =
-                  "<b>" +
-                  formattedCountryName +
-                  "</b>" +
-                  " ratified the European Convention on Human Rights and its Protocols on <b>" +
-                  formattedRatDate +
-                  "</b>. If the act, decision or omission took place before " +
-                  formattedRatDate +
-                  ", but the effects of the act, decision or omission still continue to the present day (eg: the act of a disappearance, where the person has not been found, even if the person can be presumed dead), please continue to the next field.<br>";
-                p2Tag.innerHTML += finalText;
-                textReady = pTag.appendChild(p2Tag);
-                appendedP = echrDiv.appendChild(textReady);
-              }
-            }
-          }
-        });
-      });
+  var selectedDate2 = moment($(endDateID).val(), "DD-MM-YYYY").format(
+    "DD MMMM YYYY"
+  );
+  var selectedDate1 = moment($(startDateID).val(), "DD-MM-YYYY").format(
+    "DD MMMM YYYY"
+  );
+  var currentSelectedCountry = $(selectCountryID).val();
+  if (moment(selectedDate2, "DD MMMM YYYY").isValid()) {
+    while (echrDiv.hasChildNodes()) {
+      echrDiv.removeChild(echrDiv.lastChild);
     }
-  });
-};
+    axios({
+      method: "get",
+      url: countryURL,
+    }).then(function (response) {
+      countryData = response.data.country;
+      currentSelectedCountry.forEach(function (countryName) {
+        if (countryName in countryData) {
+          ratDate = moment(
+            countryData[countryName].ratDate,
+            "DD-MM-YYYY"
+          ).format("DD MMMM YYYY");
+          if (
+            moment(selectedDate2, "DD MMMM YYYY").isBefore(
+              moment(ratDate, "DD MMMM YYYY")
+            ) ||
+            moment(selectedDate1, "DD MMMM YYYY").isBefore(
+              moment(ratDate, "DD MMMM YYYY")
+            )
+          ) {
+            var pTag = document.createElement("p");
+            var p2Tag = document.createElement("p");
+            finalText =
+              "<b>" +
+              countryName +
+              "</b>" +
+              " ratified the European Convention on Human Rights and its Protocols on <b>" +
+              ratDate +
+              "</b>. If the act, decision or omission took place before " +
+              ratDate +
+              ", but the effects of the act, decision or omission still continue to the present day (eg: the act of a disappearance, where the person has not been found, even if the person can be presumed dead), please continue to the next field.<br>";
+            p2Tag.innerHTML += finalText;
+            textReady = pTag.appendChild(p2Tag);
+            appendedP = echrDiv.appendChild(textReady);
+          }
+        }
+      });
+    });
+  }
+}
 
 var courtCountry = function (baseUrl) {
   var courtUrl = baseUrl + "api/court/";
@@ -117,8 +199,8 @@ var courtCountry = function (baseUrl) {
       courtData = document.getElementById("courtData");
       currentSelectedCountry.forEach((country) => {
         for (var i = 0; i < data.length; i++) {
-          countryArray = country.split("-");
-          countryName = countryArray[1].trim();
+          // countryArray = country.split("-");
+          countryName = country;
 
           if (data[i].country == countryName) {
             courtDetail1 = document.createElement("tr");
@@ -232,24 +314,44 @@ var articleDrop = function (baseUrl) {
 var countryArticle = function (baseUrl) {
   var countryUrl =
     baseUrl + "static/applicationForm/apiFiles/countryArticle.json";
-  $(document).ready(function () {
-    axios({
-      method: "get",
-      url: countryUrl,
-    }).then(function (response) {
-      // countries = response.data.country;
-      // countryDropdownElement = document.getElementById("involvedStates");
-      // var opt = document.createElement("option");
-      // for (let key in countries) {
-      //   opt.value = key;
-      //   opt.innerHTML = key;
-      //   countryDropdownElement.appendChild(opt);
-      // }
-      // countries.forEach(function (country) {
-      //   console.log(country);
-      // });
-      // opt.value = console.log(data);
+  startDateID = "#decisionDate1";
+  endDateID = "#decisionDate2";
+  countrySelectID = "#involvedStates";
+  +axios({
+    method: "get",
+    url: countryUrl,
+  }).then(function (response) {
+    countries = response.data.country;
+    countryDropdownElement = document.getElementById("involvedStates");
+    // ratification date
+
+    console.log("first");
+    $(endDateID).on("change", function () {
+      if (
+        $.trim($(startDateID).val()) != "" &&
+        $.trim($(countrySelectID).val()) != ""
+      ) {
+        ratificationAPImethod(countryUrl);
+      }
     });
+    $(countrySelectID).on("change", function () {
+      if (
+        $.trim($(startDateID).val()) != "" &&
+        $.trim($(endDateID).val()) != ""
+      ) {
+        ratificationAPImethod(countryUrl);
+      }
+    });
+    $(startDateID).on("change", function () {
+      if (
+        $.trim($(countrySelectID).val()) != "" &&
+        $.trim($(endDateID).val()) != ""
+      ) {
+        ratificationAPImethod(countryUrl);
+      }
+    });
+
+    // end ratification date
   });
 };
 

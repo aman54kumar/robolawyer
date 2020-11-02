@@ -5,6 +5,7 @@ verify_ssl = true
 
 [dev-packages]
 autopep8 = "*"
+django-debug-toolbar = "*"
 
 [packages]
 django = "*"
@@ -20,7 +21,6 @@ comtypes = "*"
 djangorestframework = "*"
 csvimporter = "*"
 django-cors-headers = "*"
-django-debug-toolbar = "*"
 python-decouple = "*"
 pdf417 = "*"
 svglib = "*"

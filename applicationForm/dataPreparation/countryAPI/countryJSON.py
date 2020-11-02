@@ -19,7 +19,7 @@ outputFile = os.path.join(
 final_list = {}
 country_json = {}
 article_json = {}
-fill_dt = datetime(1800, 1, 1)
+fill_dt = datetime(2100, 1, 1)
 fill_na = "N/A"
 
 sheet_name = [i for i in range(1, 46)]
@@ -40,10 +40,13 @@ for item in range(1, len(data)):
 for item in country_json:
     for record in data:
         if item == data[record]['Country'].any():
-            country_json[item]['Date'] = data[record]['Date']
+            country_json[item]['Date'] = pd.to_datetime(
+                data[record]['Date']).dt.strftime("%d-%m-%Y")
             country_json[item]['Active'] = data[record]['Active/not active']
             country_json[item]['Reservations'] = data[record][
                 'Reservations/Derogations/Declarations']
+            country_json[item]['ratDate'] = pd.to_datetime(
+                data[record]['Date'].min()).strftime("%d-%m-%Y")
         if item == data[record]['Country'].all():
             article_json['Article'] = data[record]['Article']
             article_json['Full text'] = data[record]['Full text']

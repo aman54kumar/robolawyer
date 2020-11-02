@@ -325,7 +325,6 @@ var countryArticle = function (baseUrl) {
     countryDropdownElement = document.getElementById("involvedStates");
     // ratification date
 
-    console.log("first");
     $(endDateID).on("change", function () {
       if (
         $.trim($(startDateID).val()) != "" &&

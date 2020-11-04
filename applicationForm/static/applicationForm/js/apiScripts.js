@@ -197,9 +197,8 @@ var courtCountry = function (baseUrl) {
     }).then(function (response) {
       data = response.data;
       courtData = document.getElementById("courtData");
-      currentSelectedCountry.forEach((country) => {
+      currentSelectedCountry.forEach(function (country) {
         for (var i = 0; i < data.length; i++) {
-          // countryArray = country.split("-");
           countryName = country;
 
           if (data[i].country == countryName) {

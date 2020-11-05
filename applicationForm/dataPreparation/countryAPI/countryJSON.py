@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
+# python manage.py shell
 # exec(open('.\\applicationForm\\dataPreparation\\countryAPI\\countryJSON.py').read())
 
 import pandas as pd
@@ -68,8 +69,9 @@ for item in country_json:
             if type(court['ProceedingType3'].iloc[myIndex]) == float and type(
                     court['ProceedingType2'].iloc[myIndex]) == float:
                 country_json[item]["Court"] = {
-                    str(court['ProceedingType1'].iloc[myIndex]):
-                    str(court['Court1'].iloc[myIndex])
+                    'ProceedingType1':
+                    str(court['ProceedingType1'].iloc[myIndex]),
+                    'Court1': str(court['Court1'].iloc[myIndex])
                 }
 
             elif type(
@@ -77,19 +79,24 @@ for item in country_json:
                         court['ProceedingType2'].iloc[myIndex]) == str:
 
                 country_json[item]["Court"] = {
-                    str(court['ProceedingType1'].iloc[myIndex]):
-                    str(court['Court1'].iloc[myIndex]),
-                    str(court['ProceedingType2'].iloc[myIndex]):
-                    str(court['Court2'].iloc[myIndex])
+                    'ProceedingType1':
+                    str(court['ProceedingType1'].iloc[myIndex]),
+                    'Court1': str(court['Court1'].iloc[myIndex]),
+                    'ProceedingType2':
+                    str(court['ProceedingType2'].iloc[myIndex]),
+                    'Court2': str(court['Court2'].iloc[myIndex])
                 }
             else:
                 country_json[item]["Court"] = {
-                    str(court['ProceedingType1'].iloc[myIndex]):
-                    str(court['Court1'].iloc[myIndex]),
-                    str(court['ProceedingType2'].iloc[myIndex]):
-                    str(court['Court2'].iloc[myIndex]),
-                    str(court['ProceedingType3'].iloc[myIndex]):
-                    str(court['Court3'].iloc[myIndex])
+                    'ProceedingType1':
+                    str(court['ProceedingType1'].iloc[myIndex]),
+                    'Court1': str(court['Court1'].iloc[myIndex]),
+                    'ProceedingType2':
+                    str(court['ProceedingType2'].iloc[myIndex]),
+                    'Court2': str(court['Court2'].iloc[myIndex]),
+                    'ProceedingType3':
+                    str(court['ProceedingType3'].iloc[myIndex]),
+                    'Court3': str(court['Court3'].iloc[myIndex])
                 }
 
 # final_list.append([1,2,3])

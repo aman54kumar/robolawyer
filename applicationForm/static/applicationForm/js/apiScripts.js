@@ -329,16 +329,15 @@ var countryArticle = function (baseUrl) {
         $.trim($(countrySelectID).val()) != ""
       ) {
         ratificationAPImethod(countryUrl);
-        courtAPImethod(countryUrl);
       }
     });
     $(countrySelectID).on("change", function () {
+      courtAPImethod(countryUrl);
       if (
         $.trim($(startDateID).val()) != "" &&
         $.trim($(endDateID).val()) != ""
       ) {
         ratificationAPImethod(countryUrl);
-        courtAPImethod(countryUrl);
       }
     });
     $(startDateID).on("change", function () {

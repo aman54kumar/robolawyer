@@ -199,7 +199,6 @@ function courtAPImethod(countryUrl) {
     currentSelectedCountry.forEach(function (countryName) {
       for (var prop in data) {
         if (prop === countryName) {
-          console.log("here");
           courtDetail1 = document.createElement("tr");
 
           countryRow = document.createElement("td");
@@ -272,7 +271,6 @@ function courtAPImethod(countryUrl) {
     });
   });
 }
-
 
 var articleDrop = function (baseUrl) {
   var articleUrl = baseUrl + "api/article/";

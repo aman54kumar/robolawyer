@@ -69,9 +69,6 @@ INSTALLED_APPS = [
     'applicationForm',
     'about',
     'extResources',
-    'echrAPI',
-    'courtAPI',
-    'articleAPI',
     'robots_txt',
 ]
 

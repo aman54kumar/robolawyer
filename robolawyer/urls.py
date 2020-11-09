@@ -26,10 +26,6 @@ urlpatterns = [
     path('form/', include('applicationForm.urls')),
     path('aboutUs/', include('about.urls')),
     path('externalResources/', include('extResources.urls')),
-    # Rest APIs
-    path('api/echr/', include('echrAPI.urls', 'echr_api')),
-    path('api/court/', include('courtAPI.urls', 'court_api')),
-    path('api/article/', include('articleAPI.urls', 'article_api')),
 
     # robots.txt
     path('robots.txt', RobotsTextView.as_view())

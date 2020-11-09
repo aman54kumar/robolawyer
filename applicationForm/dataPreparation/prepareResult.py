@@ -466,7 +466,6 @@ class PrepareResult:
     def create_New_Pdf(self, inputObj):
         totalBookmark = int((len(inputObj)) / 4)
         docs4List = sortDocumentsDate(self, inputObj)
-        print(docs4List)
         # initPages = self.checkDocsOrNot(docs4List)
         initPages = 100
         for single in range(totalBookmark):

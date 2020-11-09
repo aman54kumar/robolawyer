@@ -54,7 +54,6 @@ def feedback(request):
         pageNo = request.POST.get('pageNo')
         legalTrained = request.POST.get('legalExp')
         suggestion = request.POST.get('suggestion')
-        print(suggestion)
         subject = "suggestionEmail"
         message = "1. Page No. - " + str(pageNo) + "\n2. Legal Trained - " + \
             str(legalTrained) + "\n3. Suggestion - " + str(suggestion)
@@ -72,7 +71,6 @@ def download(request):
     file_path = os.path.join(
         settings.BASE_DIR, 'applicationForm/dataPreparation/results/' +
         sessionID + '/finalPage/Application form to the ECtHR.pdf')
-    print(file_path)
     if os.path.exists(file_path):
         with open(file_path, 'rb') as fh:
             response = HttpResponse(fh.read(), content_type="application/pdf")

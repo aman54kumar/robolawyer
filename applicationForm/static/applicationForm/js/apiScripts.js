@@ -80,23 +80,31 @@ function countrySelect() {
     // updateData:
   });
 }
+var articleDrop = function (finalArticleData) {
+  articleDropdown = $("#article_0_select");
+  data = finalArticleData;
+  articleDropdown.append(
+    $("<option></option>")
+      .attr("value", "")
+      .prop("disabled", true)
+      .prop("selected", true)
+      .prop("hidden", true)
+      .text("Select Relevant Article")
+  );
+  $.each(data, function (article) {
+    textValue = data[article];
+    articleDropdown.append(
+      $("<option></option>").attr("value", textValue).text(textValue)
+    );
+  });
+};
 
-// function UrlExists(url) {
-//   var http = new XMLHttpRequest();
-//   http.open("HEAD", url, false);
-//   http.withCredentials = true;
-//   http.setRequestHeader("Content-Type", "application/json");
-//   http.send();
-//   try {
-//     baseUrl = url;
-//     // echrRat(baseUrl);
-//     courtCountry(baseUrl);
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
-function UrlExists2(url) {
+function callAPI(addButtonID) {
+  elementNumber = parseInt(addButtonID.split("_")[2]);
+  startDateID = "#decisionDate1";
+  endDateID = "#decisionDate2";
+  selectCountryID = "#involvedStates";
+  url = window.location.href.split("form/")[0];
   var http = new XMLHttpRequest();
   http.open("HEAD", url, false);
   http.withCredentials = true;
@@ -104,11 +112,49 @@ function UrlExists2(url) {
   http.send();
   try {
     baseUrl = url;
-    articleDrop(baseUrl);
+    articleUrl = baseUrl + "static/applicationForm/apiFiles/countryArticle.json";
+    correspDropdownElement = $(
+      "#article_" + String(elementNumber + 1) + "_select"
+    );
+    var curValueArray = [];
+    for (i = 0; i < elementNumber + 1; i++) {
+      curValueArray.push($("#article_" + String(i) + "_select").val());
+    }
+    axios({
+      method: "get",
+      url: articleUrl,
+    }).then(function (response) {
+      data = response.data;
+      correspDropdownElement.append(
+        $("<option></option>")
+          .attr("value", "")
+          .prop("disabled", true)
+          .prop("selected", true)
+          .prop("hidden", true)
+          .text("Select Relevant Article")
+      );
+      $.each(data, function (article) {
+        textValue = data[article]["article"];
+        if (
+          textValue === "Other articles" ||
+          curValueArray.includes(textValue)
+        ) {
+          correspDropdownElement.append(
+            $("<option></option>").prop("disabled", true).text(textValue)
+          );
+        } else {
+          correspDropdownElement.append(
+            $("<option></option>").attr("value", textValue).text(textValue)
+          );
+        }
+      });
+    });
   } catch (error) {
     console.error(error);
   }
 }
+
+
 
 function UrlExists3(url) {
   var http = new XMLHttpRequest();
@@ -125,7 +171,7 @@ function UrlExists3(url) {
   }
 }
 
-function ratificationAPImethod(countryURL) {
+var ratificationAPImethod = async function ratificationAPImethod(countryURL) {
   startDateID = "#decisionDate1";
   endDateID = "#decisionDate2";
   selectCountryID = "#involvedStates";
@@ -139,6 +185,7 @@ function ratificationAPImethod(countryURL) {
     "DD MMMM YYYY"
   );
   var currentSelectedCountry = $(selectCountryID).val();
+  var finalCountryList = [];
   if (moment(selectedDate2, "DD MMMM YYYY").isValid()) {
     while (echrDiv.hasChildNodes()) {
       echrDiv.removeChild(echrDiv.lastChild);
@@ -162,6 +209,7 @@ function ratificationAPImethod(countryURL) {
               moment(ratDate, "DD MMMM YYYY")
             )
           ) {
+            finalCountryList.push(countryName);
             var pTag = document.createElement("p");
             var p2Tag = document.createElement("p");
             finalText =
@@ -181,7 +229,8 @@ function ratificationAPImethod(countryURL) {
       });
     });
   }
-}
+  return finalCountryList;
+};
 
 function courtAPImethod(countryUrl) {
   var courtData = document.getElementById("courtData");
@@ -272,40 +321,39 @@ function courtAPImethod(countryUrl) {
   });
 }
 
-var articleDrop = function (baseUrl) {
-  var articleUrl = baseUrl + "api/article/";
-  $(document).ready(function () {
-    articleDropdown = $("#article_0_select");
-    axios({
-      method: "get",
-      url: articleUrl,
-    }).then(function (response) {
-      data = response.data;
-      articleDropdown.append(
-        $("<option></option>")
-          .attr("value", "")
-          .prop("disabled", true)
-          .prop("selected", true)
-          .prop("hidden", true)
-          .text("Select Relevant Article")
-      );
-      $.each(data, function (article) {
-        textValue = data[article]["article"];
-        if (textValue === "Other articles") {
-          articleDropdown.append(
-            $("<option></option>").prop("disabled", true).text(textValue)
-          );
-        }
-        //   else if {
-        //   console.log("hide previous selected options");
-        // }
-        else {
-          articleDropdown.append(
-            $("<option></option>").attr("value", textValue).text(textValue)
-          );
-        }
-      });
-    });
+var articleGenerateMethod = function (baseUrl, countryList) {
+  articleUrl = baseUrl + "static/applicationForm/apiFiles/countryArticle.json";
+  axios({
+    method: "get",
+    url: articleUrl,
+    crossorigin: true,
+  }).then(function (response) {
+    country = response.data.country;
+    articleData = response.data.article;
+    var activeTotalArray = [];
+    finalActiveArray = [];
+    finalArticleArray = [];
+    for (let item = 0; item < countryList.length; item++) {
+      if (Object.keys(country).includes(countryList[item])) {
+        var countryData = country[countryList[item]];
+        activeTotalArray.push(countryData.Active);
+      }
+    }
+
+    temp = _.zip(...activeTotalArray);
+    for (var i = 0; i < temp.length; i++) {
+      if (temp[i].includes("y")) {
+        finalActiveArray.push(true);
+      } else {
+        finalActiveArray.push(false);
+      }
+    }
+    for (var j = 0; j < finalActiveArray.length; j++) {
+      if (finalActiveArray[j] === true) {
+        finalArticleArray.push(articleData.Article[j]);
+      }
+    }
+    articleDrop(finalArticleArray);
   });
 };
 
@@ -315,99 +363,97 @@ var countryArticle = function (baseUrl) {
   startDateID = "#decisionDate1";
   endDateID = "#decisionDate2";
   countrySelectID = "#involvedStates";
-  +axios({
-    method: "get",
-    url: countryUrl,
-  }).then(function (response) {
-    countries = response.data.country;
-    countryDropdownElement = document.getElementById("involvedStates");
-    // ratification date
+  // ratification date
 
-    $(endDateID).on("change", function () {
-      if (
-        $.trim($(startDateID).val()) != "" &&
-        $.trim($(countrySelectID).val()) != ""
-      ) {
-        ratificationAPImethod(countryUrl);
-      }
-    });
-    $(countrySelectID).on("change", function () {
-      courtAPImethod(countryUrl);
-      if (
-        $.trim($(startDateID).val()) != "" &&
-        $.trim($(endDateID).val()) != ""
-      ) {
-        ratificationAPImethod(countryUrl);
-      }
-    });
-    $(startDateID).on("change", function () {
-      if (
-        $.trim($(countrySelectID).val()) != "" &&
-        $.trim($(endDateID).val()) != ""
-      ) {
-        ratificationAPImethod(countryUrl);
-      }
-    });
-
-    // end ratification date
+  $(endDateID).on("change", function () {
+    if (
+      $.trim($(startDateID).val()) != "" &&
+      $.trim($(countrySelectID).val()) != ""
+    ) {
+      ratificationAPImethod(countryUrl).then(function (response) {
+        articleGenerateMethod(baseUrl, response);
+      });
+    }
   });
+  $(countrySelectID).on("change", function () {
+    courtAPImethod(countryUrl);
+    if (
+      $.trim($(startDateID).val()) != "" &&
+      $.trim($(endDateID).val()) != ""
+    ) {
+      ratificationAPImethod(countryUrl).then(function (response) {
+        articleGenerateMethod(baseUrl, response);
+      });
+    }
+  });
+  $(startDateID).on("change", function () {
+    if (
+      $.trim($(countrySelectID).val()) != "" &&
+      $.trim($(endDateID).val()) != ""
+    ) {
+      ratificationAPImethod(countryUrl).then(function (response) {
+        articleGenerateMethod(baseUrl, response);
+      });
+    }
+  });
+  // end ratification date
 };
 
 rootUrl = window.location.href.split("form/")[0];
-UrlExists2(rootUrl);
+// UrlExists2(rootUrl);
 UrlExists3(rootUrl);
 
-function callAPI(addButtonID) {
-  elementNumber = parseInt(addButtonID.split("_")[2]);
-  url = window.location.href.split("form/")[0];
-  var http = new XMLHttpRequest();
-  http.open("HEAD", url, false);
-  http.withCredentials = true;
-  http.setRequestHeader("Content-Type", "application/json");
-  http.send();
-  try {
-    baseUrl = url;
-    articleUrl = baseUrl + "api/article/";
-    correspDropdownElement = $(
-      "#article_" + String(elementNumber + 1) + "_select"
-    );
-    var curValueArray = [];
-    for (i = 0; i < elementNumber + 1; i++) {
-      curValueArray.push($("#article_" + String(i) + "_select").val());
-    }
-    axios({
-      method: "get",
-      url: articleUrl,
-    }).then(function (response) {
-      data = response.data;
-      correspDropdownElement.append(
-        $("<option></option>")
-          .attr("value", "")
-          .prop("disabled", true)
-          .prop("selected", true)
-          .prop("hidden", true)
-          .text("Select Relevant Article")
-      );
-      $.each(data, function (article) {
-        textValue = data[article]["article"];
-        if (
-          textValue === "Other articles" ||
-          curValueArray.includes(textValue)
-        ) {
-          correspDropdownElement.append(
-            $("<option></option>").prop("disabled", true).text(textValue)
-          );
-        } else {
-          correspDropdownElement.append(
-            $("<option></option>").attr("value", textValue).text(textValue)
-          );
-        }
-      });
-    });
-  } catch (error) {
-    console.error(error);
-  }
-}
+// function callAPI(addButtonID) {
+//   elementNumber = parseInt(addButtonID.split("_")[2]);
+//   url = window.location.href.split("form/")[0];
+//   var http = new XMLHttpRequest();
+//   http.open("HEAD", url, false);
+//   http.withCredentials = true;
+//   http.setRequestHeader("Content-Type", "application/json");
+//   http.send();
+//   try {
+//     baseUrl = url;
+//     articleUrl = baseUrl + "api/article/";
+//     correspDropdownElement = $(
+//       "#article_" + String(elementNumber + 1) + "_select"
+//     );
+//     var curValueArray = [];
+//     for (i = 0; i < elementNumber + 1; i++) {
+//       curValueArray.push($("#article_" + String(i) + "_select").val());
+//     }
+//     axios({
+//       method: "get",
+//       url: articleUrl,
+//     }).then(function (response) {
+//       data = response.data;
+//       correspDropdownElement.append(
+//         $("<option></option>")
+//           .attr("value", "")
+//           .prop("disabled", true)
+//           .prop("selected", true)
+//           .prop("hidden", true)
+//           .text("Select Relevant Article")
+//       );
+//       $.each(data, function (article) {
+//         textValue = data[article]["article"];
+//         if (
+//           textValue === "Other articles" ||
+//           curValueArray.includes(textValue)
+//         ) {
+//           correspDropdownElement.append(
+//             $("<option></option>").prop("disabled", true).text(textValue)
+//           );
+//         } else {
+//           correspDropdownElement.append(
+//             $("<option></option>").attr("value", textValue).text(textValue)
+//           );
+//         }
+//       });
+//     });
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
 
 function populateDiv(elId) {
   url = window.location.href.split("form/")[0];

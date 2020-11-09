@@ -1,7 +1,3 @@
-* {
-  font-display: block; /* to make chrome bug warning about slow network detected for loading fonts disappear */
-}
-
 html {
   margin: 0;
 }

@@ -88,7 +88,7 @@ var articleDrop = function (finalArticleData) {
   data = finalArticleData;
   articleDropdown.append(
     $("<option></option>")
-      .attr("value", "")
+      .prop("value", "")
       .prop("disabled", true)
       .prop("selected", true)
       .prop("hidden", true)
@@ -98,11 +98,17 @@ var articleDrop = function (finalArticleData) {
     textValue = data[article];
     if (textValue === "Other articles") {
       articleDropdown.append(
-        $("<option></option>").prop("disabled", true).text(textValue)
+        $("<option></option>")
+          .prop("disabled", true)
+          .addClass("dropdown-item")
+          .text(textValue)
       );
     } else {
       articleDropdown.append(
-        $("<option></option>").attr("value", textValue).text(textValue)
+        $("<option></option>")
+          .prop("value", textValue)
+          .addClass("dropdown-item")
+          .text(textValue)
       );
     }
   });
@@ -337,9 +343,7 @@ var countryArticle = function (baseUrl) {
 };
 
 function callAPI(addButtonID) {
-  // console.log(finalArticleArray);
   elementNumber = parseInt(addButtonID.split("_")[2]);
-
   correspDropdownElement = $(
     "#article_" + String(elementNumber + 1) + "_select"
   );
@@ -351,7 +355,7 @@ function callAPI(addButtonID) {
   data = finalArticleArray;
   correspDropdownElement.append(
     $("<option></option>")
-      .attr("value", "")
+      .prop("value", "")
       .prop("disabled", true)
       .prop("selected", true)
       .prop("hidden", true)
@@ -361,11 +365,17 @@ function callAPI(addButtonID) {
     textValue = data[article];
     if (textValue === "Other articles" || curValueArray.includes(textValue)) {
       correspDropdownElement.append(
-        $("<option></option>").prop("disabled", true).text(textValue)
+        $("<option></option>")
+          .prop("disabled", true)
+          .addClass("dropdown-item")
+          .text(textValue)
       );
     } else {
       correspDropdownElement.append(
-        $("<option></option>").attr("value", textValue).text(textValue)
+        $("<option></option>")
+          .prop("value", textValue)
+          .addClass("dropdown-item")
+          .text(textValue)
       );
     }
   });

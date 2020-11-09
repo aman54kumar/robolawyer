@@ -1,3 +1,6 @@
+finalArticleArray = [];
+finalFullTextArray = [];
+
 function countrySelect() {
   $("#involvedStates").bsMultiSelect2({
     useCssPatch: true, // default, can be ommitted
@@ -93,28 +96,19 @@ var articleDrop = function (finalArticleData) {
   );
   $.each(data, function (article) {
     textValue = data[article];
-    articleDropdown.append(
-      $("<option></option>").attr("value", textValue).text(textValue)
-    );
+    if (textValue === "Other articles") {
+      articleDropdown.append(
+        $("<option></option>").prop("disabled", true).text(textValue)
+      );
+    } else {
+      articleDropdown.append(
+        $("<option></option>").attr("value", textValue).text(textValue)
+      );
+    }
   });
 };
 
-function UrlExists3(url) {
-  var http = new XMLHttpRequest();
-  http.open("HEAD", url, false);
-  http.withCredentials = true;
-  http.setRequestHeader("Content-Type", "application/json");
-  http.send();
-  try {
-    baseUrl = url;
-    countryArticle(baseUrl);
-    countrySelect();
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-var ratificationAPImethod = async function ratificationAPImethod(countryURL) {
+var ratificationAPImethod = async function (countryURL) {
   startDateID = "#decisionDate1";
   endDateID = "#decisionDate2";
   selectCountryID = "#involvedStates";
@@ -144,6 +138,7 @@ var ratificationAPImethod = async function ratificationAPImethod(countryURL) {
             countryData[countryName].ratDate,
             "DD-MM-YYYY"
           ).format("DD MMMM YYYY");
+          finalCountryList.push(countryName);
           if (
             moment(selectedDate2, "DD MMMM YYYY").isBefore(
               moment(ratDate, "DD MMMM YYYY")
@@ -152,7 +147,6 @@ var ratificationAPImethod = async function ratificationAPImethod(countryURL) {
               moment(ratDate, "DD MMMM YYYY")
             )
           ) {
-            finalCountryList.push(countryName);
             var pTag = document.createElement("p");
             var p2Tag = document.createElement("p");
             finalText =
@@ -263,7 +257,7 @@ function courtAPImethod(countryUrl) {
     });
   });
 }
-finalArticleArray = [];
+
 var articleGenerateMethod = function (baseUrl, countryList) {
   articleUrl = baseUrl + "static/applicationForm/apiFiles/countryArticle.json";
   axios({
@@ -285,7 +279,7 @@ var articleGenerateMethod = function (baseUrl, countryList) {
 
     temp = _.zip(...activeTotalArray);
     for (var i = 0; i < temp.length; i++) {
-      if (temp[i].includes("y")) {
+      if (temp[i].includes("y") || temp[i].includes("N/A")) {
         finalActiveArray.push(true);
       } else {
         finalActiveArray.push(false);
@@ -294,6 +288,7 @@ var articleGenerateMethod = function (baseUrl, countryList) {
     for (var j = 0; j < finalActiveArray.length; j++) {
       if (finalActiveArray[j] === true) {
         finalArticleArray.push(articleData.Article[j]);
+        finalFullTextArray.push(articleData["Full text"][j]);
       }
     }
     articleDrop(finalArticleArray);
@@ -306,7 +301,6 @@ var countryArticle = function (baseUrl) {
   startDateID = "#decisionDate1";
   endDateID = "#decisionDate2";
   countrySelectID = "#involvedStates";
-  // ratification date
 
   $(endDateID).on("change", function () {
     if (
@@ -377,19 +371,7 @@ function callAPI(addButtonID) {
   });
 }
 
-rootUrl = window.location.href.split("form/")[0];
-UrlExists3(rootUrl);
-
 function populateDiv(elId) {
-  url = window.location.href.split("form/")[0];
-  var http = new XMLHttpRequest();
-  http.open("HEAD", url, false);
-  http.withCredentials = true;
-  http.setRequestHeader("Content-Type", "application/json");
-  http.send();
-
-  baseUrl = url;
-  var articleUrl = baseUrl + "api/article/";
   containerElement = document.getElementById(elId).parentElement.parentElement
     .parentElement.parentElement.parentElement.children[2].parentElement
     .children[2];
@@ -405,24 +387,39 @@ function populateDiv(elId) {
 
   articleElement = containerElement.children[0].children[0];
   descriptionElement = containerElement.children[0].children[1];
-  if (articleElement)
-    axios({
-      method: "get",
-      url: articleUrl,
-    }).then(function (response) {
-      data = response.data;
-      $.each(data, function (article) {
-        textValue = data.article.article;
-        if (data.article.article === selectedElement) {
-          if (articleElement.lastChild) {
-            articleElement.lastChild.remove();
-            descriptionElement.lastChild.remove();
-          }
-          pElement.innerHTML = data.article.article;
-          articleElement.append(pElement);
-          p2Element.innerHTML = data.article.fullText;
-          descriptionElement.append(p2Element);
+  if (articleElement) {
+    $.each(finalArticleArray, function (article) {
+      textValue = finalArticleArray[article];
+      if (finalArticleArray[article] === selectedElement) {
+        if (articleElement.lastChild) {
+          articleElement.lastChild.remove();
+          descriptionElement.lastChild.remove();
         }
-      });
+        pElement.innerHTML = finalArticleArray[article];
+        articleElement.append(pElement);
+        p2Element.innerHTML = finalFullTextArray[article];
+        descriptionElement.append(p2Element);
+      }
     });
+  }
 }
+
+function checkUrlAndLoadAPI() {
+  var request = new XMLHttpRequest();
+  rootUrl = window.location.href.split("form/")[0];
+  request.open("GET", rootUrl, true);
+  request.onreadystatechange = function () {
+    if (request.readyState === 4) {
+      if (request.status === 404) {
+        alert(
+          "There is something wrong with the server. Please try again later!!"
+        );
+      }
+    }
+  };
+  request.send();
+  countryArticle(rootUrl);
+  countrySelect();
+}
+
+checkUrlAndLoadAPI();

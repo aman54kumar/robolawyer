@@ -99,63 +99,6 @@ var articleDrop = function (finalArticleData) {
   });
 };
 
-function callAPI(addButtonID) {
-  elementNumber = parseInt(addButtonID.split("_")[2]);
-  startDateID = "#decisionDate1";
-  endDateID = "#decisionDate2";
-  selectCountryID = "#involvedStates";
-  url = window.location.href.split("form/")[0];
-  var http = new XMLHttpRequest();
-  http.open("HEAD", url, false);
-  http.withCredentials = true;
-  http.setRequestHeader("Content-Type", "application/json");
-  http.send();
-  try {
-    baseUrl = url;
-    articleUrl = baseUrl + "static/applicationForm/apiFiles/countryArticle.json";
-    correspDropdownElement = $(
-      "#article_" + String(elementNumber + 1) + "_select"
-    );
-    var curValueArray = [];
-    for (i = 0; i < elementNumber + 1; i++) {
-      curValueArray.push($("#article_" + String(i) + "_select").val());
-    }
-    axios({
-      method: "get",
-      url: articleUrl,
-    }).then(function (response) {
-      data = response.data;
-      correspDropdownElement.append(
-        $("<option></option>")
-          .attr("value", "")
-          .prop("disabled", true)
-          .prop("selected", true)
-          .prop("hidden", true)
-          .text("Select Relevant Article")
-      );
-      $.each(data, function (article) {
-        textValue = data[article]["article"];
-        if (
-          textValue === "Other articles" ||
-          curValueArray.includes(textValue)
-        ) {
-          correspDropdownElement.append(
-            $("<option></option>").prop("disabled", true).text(textValue)
-          );
-        } else {
-          correspDropdownElement.append(
-            $("<option></option>").attr("value", textValue).text(textValue)
-          );
-        }
-      });
-    });
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-
-
 function UrlExists3(url) {
   var http = new XMLHttpRequest();
   http.open("HEAD", url, false);
@@ -320,7 +263,7 @@ function courtAPImethod(countryUrl) {
     });
   });
 }
-
+finalArticleArray = [];
 var articleGenerateMethod = function (baseUrl, countryList) {
   articleUrl = baseUrl + "static/applicationForm/apiFiles/countryArticle.json";
   axios({
@@ -332,7 +275,7 @@ var articleGenerateMethod = function (baseUrl, countryList) {
     articleData = response.data.article;
     var activeTotalArray = [];
     finalActiveArray = [];
-    finalArticleArray = [];
+
     for (let item = 0; item < countryList.length; item++) {
       if (Object.keys(country).includes(countryList[item])) {
         var countryData = country[countryList[item]];
@@ -399,61 +342,43 @@ var countryArticle = function (baseUrl) {
   // end ratification date
 };
 
-rootUrl = window.location.href.split("form/")[0];
-// UrlExists2(rootUrl);
-UrlExists3(rootUrl);
+function callAPI(addButtonID) {
+  // console.log(finalArticleArray);
+  elementNumber = parseInt(addButtonID.split("_")[2]);
 
-// function callAPI(addButtonID) {
-//   elementNumber = parseInt(addButtonID.split("_")[2]);
-//   url = window.location.href.split("form/")[0];
-//   var http = new XMLHttpRequest();
-//   http.open("HEAD", url, false);
-//   http.withCredentials = true;
-//   http.setRequestHeader("Content-Type", "application/json");
-//   http.send();
-//   try {
-//     baseUrl = url;
-//     articleUrl = baseUrl + "api/article/";
-//     correspDropdownElement = $(
-//       "#article_" + String(elementNumber + 1) + "_select"
-//     );
-//     var curValueArray = [];
-//     for (i = 0; i < elementNumber + 1; i++) {
-//       curValueArray.push($("#article_" + String(i) + "_select").val());
-//     }
-//     axios({
-//       method: "get",
-//       url: articleUrl,
-//     }).then(function (response) {
-//       data = response.data;
-//       correspDropdownElement.append(
-//         $("<option></option>")
-//           .attr("value", "")
-//           .prop("disabled", true)
-//           .prop("selected", true)
-//           .prop("hidden", true)
-//           .text("Select Relevant Article")
-//       );
-//       $.each(data, function (article) {
-//         textValue = data[article]["article"];
-//         if (
-//           textValue === "Other articles" ||
-//           curValueArray.includes(textValue)
-//         ) {
-//           correspDropdownElement.append(
-//             $("<option></option>").prop("disabled", true).text(textValue)
-//           );
-//         } else {
-//           correspDropdownElement.append(
-//             $("<option></option>").attr("value", textValue).text(textValue)
-//           );
-//         }
-//       });
-//     });
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
+  correspDropdownElement = $(
+    "#article_" + String(elementNumber + 1) + "_select"
+  );
+  var curValueArray = [];
+  for (i = 0; i < elementNumber + 1; i++) {
+    curValueArray.push($("#article_" + String(i) + "_select").val());
+  }
+
+  data = finalArticleArray;
+  correspDropdownElement.append(
+    $("<option></option>")
+      .attr("value", "")
+      .prop("disabled", true)
+      .prop("selected", true)
+      .prop("hidden", true)
+      .text("Select Relevant Article")
+  );
+  $.each(data, function (article) {
+    textValue = data[article];
+    if (textValue === "Other articles" || curValueArray.includes(textValue)) {
+      correspDropdownElement.append(
+        $("<option></option>").prop("disabled", true).text(textValue)
+      );
+    } else {
+      correspDropdownElement.append(
+        $("<option></option>").attr("value", textValue).text(textValue)
+      );
+    }
+  });
+}
+
+rootUrl = window.location.href.split("form/")[0];
+UrlExists3(rootUrl);
 
 function populateDiv(elId) {
   url = window.location.href.split("form/")[0];
@@ -487,15 +412,15 @@ function populateDiv(elId) {
     }).then(function (response) {
       data = response.data;
       $.each(data, function (article) {
-        textValue = data[article]["article"];
-        if (data[article]["article"] === selectedElement) {
+        textValue = data.article.article;
+        if (data.article.article === selectedElement) {
           if (articleElement.lastChild) {
             articleElement.lastChild.remove();
             descriptionElement.lastChild.remove();
           }
-          pElement.innerHTML = data[article]["article"];
+          pElement.innerHTML = data.article.article;
           articleElement.append(pElement);
-          p2Element.innerHTML = data[article]["fullText"];
+          p2Element.innerHTML = data.article.fullText;
           descriptionElement.append(p2Element);
         }
       });

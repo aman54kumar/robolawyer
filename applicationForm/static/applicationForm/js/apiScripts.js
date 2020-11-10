@@ -1,5 +1,5 @@
-finalArticleArray = [];
-finalFullTextArray = [];
+var finalArticleArray = [];
+var finalFullTextArray = [];
 
 function countrySelect() {
   $("#involvedStates").bsMultiSelect2({
@@ -86,14 +86,16 @@ function countrySelect() {
 var articleDrop = function (finalArticleData) {
   articleDropdown = $("#article_0_select");
   data = finalArticleData;
-  articleDropdown.append(
-    $("<option></option>")
-      .prop("value", "")
-      .prop("disabled", true)
-      .prop("selected", true)
-      .prop("hidden", true)
-      .text("Select Relevant Article")
-  );
+  articleDropdown
+    .empty()
+    .append(
+      $("<option></option>")
+        .prop("value", "")
+        .prop("disabled", true)
+        .prop("selected", true)
+        .prop("hidden", true)
+        .text("Select Relevant Article")
+    );
   $.each(data, function (article) {
     textValue = data[article];
     if (textValue === "Other articles") {
@@ -273,16 +275,17 @@ var articleGenerateMethod = function (baseUrl, countryList) {
   }).then(function (response) {
     country = response.data.country;
     articleData = response.data.article;
-    var activeTotalArray = [];
-    finalActiveArray = [];
 
+    var activeTotalArray = [];
+    var finalActiveArray = [];
+    finalArticleArray = [];
+    finalFullTextArray = [];
     for (let item = 0; item < countryList.length; item++) {
       if (Object.keys(country).includes(countryList[item])) {
         var countryData = country[countryList[item]];
         activeTotalArray.push(countryData.Active);
       }
     }
-
     temp = _.zip(...activeTotalArray);
     for (var i = 0; i < temp.length; i++) {
       if (temp[i].includes("y") || temp[i].includes("N/A")) {
@@ -353,14 +356,16 @@ function callAPI(addButtonID) {
   }
 
   data = finalArticleArray;
-  correspDropdownElement.append(
-    $("<option></option>")
-      .prop("value", "")
-      .prop("disabled", true)
-      .prop("selected", true)
-      .prop("hidden", true)
-      .text("Select Relevant Article")
-  );
+  correspDropdownElement
+    .empty()
+    .append(
+      $("<option></option>")
+        .prop("value", "")
+        .prop("disabled", true)
+        .prop("selected", true)
+        .prop("hidden", true)
+        .text("Select Relevant Article")
+    );
   $.each(data, function (article) {
     textValue = data[article];
     if (textValue === "Other articles" || curValueArray.includes(textValue)) {

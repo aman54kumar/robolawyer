@@ -386,10 +386,69 @@ function callAPI(addButtonID) {
   });
 }
 
+function getDerogationText(selectedArticle, tableElement) {
+  selectedCountryList = $("#involvedStates").val();
+  curIndex = finalArticleArray.indexOf(selectedArticle);
+  baseUrl = window.location.href.split("form/")[0];
+  articleUrl = baseUrl + "static/applicationForm/apiFiles/countryArticle.json";
+
+  /* <tr>
+                        <td><div class="countryDiv"></div></td>
+                        <td ><div class="reservationDiv"></div></td>
+                      </tr> */
+  axios({
+    method: "get",
+    url: articleUrl,
+    crossorigin: true,
+  }).then(function (response) {
+    countryData = response.data.country;
+    selectedCountryList.forEach(function (country) {
+      var newTRelement = document.createElement("tr");
+      newTRelement.style =
+        "border: solid; border-color: #eeeded; border-width: medium; margin: 10px;";
+      currentCountry = country;
+
+      h6Element = document.createElement("h6");
+      h6Element.setAttribute(
+        "style",
+        "padding-left:30px; padding-right:30px; font-family:lato_thin"
+      );
+      pElement = document.createElement("p");
+      pElement.setAttribute(
+        "style",
+        "padding-left:30px; padding-right:30px; font_family:lato_thin"
+      );
+      h6Element.innerHTML = currentCountry;
+      pElement.innerHTML =
+        countryData[currentCountry]["Reservations"][curIndex];
+      if (
+        countryData.hasOwnProperty(currentCountry) &&
+        countryData[currentCountry]["Reservations"][curIndex] != "N/A"
+      ) {
+        var newTDelement1 = document.createElement("td");
+        var newTDelement2 = document.createElement("td");
+        newTDelement2.style = "word-break: break-word;";
+        newTDelement1.append(h6Element);
+        newTRelement.append(newTDelement1);
+        newTDelement2.append(pElement);
+        newTRelement.append(newTDelement2);
+        tableElement.append(newTRelement);
+      }
+    });
+  });
+}
+
 function populateDiv(elId) {
   containerElement = document.getElementById(elId).parentElement.parentElement
     .parentElement.parentElement.parentElement.children[2].parentElement
     .children[2];
+  // countryDiv =
+  //   containerElement.children[2].children[0].children[0].children[0].children[0]
+  //     .children[0];
+  // reservationDiv =
+  //   containerElement.children[2].children[0].children[0].children[0].children[1]
+  //     .children[0];
+  tableElement = document.getElementById("reservationDiv");
   containerElement.classList.remove("is-hidden");
   selectedElement = document.getElementById(elId).value;
   pElement = document.createElement("p");
@@ -406,6 +465,10 @@ function populateDiv(elId) {
     $.each(finalArticleArray, function (article) {
       textValue = finalArticleArray[article];
       if (finalArticleArray[article] === selectedElement) {
+        if (tableElement.lastChild) {
+          $(tableElement).empty();
+        }
+        getDerogationText(finalArticleArray[article], tableElement);
         if (articleElement.lastChild) {
           articleElement.lastChild.remove();
           descriptionElement.lastChild.remove();

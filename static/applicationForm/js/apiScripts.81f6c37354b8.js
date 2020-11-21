@@ -1,3 +1,6 @@
+var finalArticleArray = [];
+var finalFullTextArray = [];
+
 function countrySelect() {
   $("#involvedStates").bsMultiSelect2({
     useCssPatch: true, // default, can be ommitted
@@ -80,52 +83,40 @@ function countrySelect() {
     // updateData:
   });
 }
+var articleDrop = function (finalArticleData) {
+  articleDropdown = $("#article_0_select");
+  data = finalArticleData;
+  articleDropdown
+    .empty()
+    .append(
+      $("<option></option>")
+        .prop("value", "")
+        .prop("disabled", true)
+        .prop("selected", true)
+        .prop("hidden", true)
+        .text("Select Relevant Article")
+    );
+  $.each(data, function (article) {
+    textValue = data[article];
+    if (textValue === "Other articles") {
+      articleDropdown.append(
+        $("<option></option>")
+          .prop("disabled", true)
+          .addClass("dropdown-item")
+          .text(textValue)
+      );
+    } else {
+      articleDropdown.append(
+        $("<option></option>")
+          .prop("value", textValue)
+          .addClass("dropdown-item")
+          .text(textValue)
+      );
+    }
+  });
+};
 
-// function UrlExists(url) {
-//   var http = new XMLHttpRequest();
-//   http.open("HEAD", url, false);
-//   http.withCredentials = true;
-//   http.setRequestHeader("Content-Type", "application/json");
-//   http.send();
-//   try {
-//     baseUrl = url;
-//     // echrRat(baseUrl);
-//     courtCountry(baseUrl);
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
-function UrlExists2(url) {
-  var http = new XMLHttpRequest();
-  http.open("HEAD", url, false);
-  http.withCredentials = true;
-  http.setRequestHeader("Content-Type", "application/json");
-  http.send();
-  try {
-    baseUrl = url;
-    articleDrop(baseUrl);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-function UrlExists3(url) {
-  var http = new XMLHttpRequest();
-  http.open("HEAD", url, false);
-  http.withCredentials = true;
-  http.setRequestHeader("Content-Type", "application/json");
-  http.send();
-  try {
-    baseUrl = url;
-    countryArticle(baseUrl);
-    countrySelect();
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-function ratificationAPImethod(countryURL) {
+var ratificationAPImethod = async function (countryURL) {
   startDateID = "#decisionDate1";
   endDateID = "#decisionDate2";
   selectCountryID = "#involvedStates";
@@ -139,6 +130,7 @@ function ratificationAPImethod(countryURL) {
     "DD MMMM YYYY"
   );
   var currentSelectedCountry = $(selectCountryID).val();
+  var finalCountryList = [];
   if (moment(selectedDate2, "DD MMMM YYYY").isValid()) {
     while (echrDiv.hasChildNodes()) {
       echrDiv.removeChild(echrDiv.lastChild);
@@ -154,6 +146,7 @@ function ratificationAPImethod(countryURL) {
             countryData[countryName].ratDate,
             "DD-MM-YYYY"
           ).format("DD MMMM YYYY");
+          finalCountryList.push(countryName);
           if (
             moment(selectedDate2, "DD MMMM YYYY").isBefore(
               moment(ratDate, "DD MMMM YYYY")
@@ -181,7 +174,8 @@ function ratificationAPImethod(countryURL) {
       });
     });
   }
-}
+  return finalCountryList;
+};
 
 function courtAPImethod(countryUrl) {
   var courtData = document.getElementById("courtData");
@@ -272,40 +266,41 @@ function courtAPImethod(countryUrl) {
   });
 }
 
-var articleDrop = function (baseUrl) {
-  var articleUrl = baseUrl + "api/article/";
-  $(document).ready(function () {
-    articleDropdown = $("#article_0_select");
-    axios({
-      method: "get",
-      url: articleUrl,
-    }).then(function (response) {
-      data = response.data;
-      articleDropdown.append(
-        $("<option></option>")
-          .attr("value", "")
-          .prop("disabled", true)
-          .prop("selected", true)
-          .prop("hidden", true)
-          .text("Select Relevant Article")
-      );
-      $.each(data, function (article) {
-        textValue = data[article]["article"];
-        if (textValue === "Other articles") {
-          articleDropdown.append(
-            $("<option></option>").prop("disabled", true).text(textValue)
-          );
-        }
-        //   else if {
-        //   console.log("hide previous selected options");
-        // }
-        else {
-          articleDropdown.append(
-            $("<option></option>").attr("value", textValue).text(textValue)
-          );
-        }
-      });
-    });
+var articleGenerateMethod = function (baseUrl, countryList) {
+  articleUrl = baseUrl + "static/applicationForm/apiFiles/countryArticle.json";
+  axios({
+    method: "get",
+    url: articleUrl,
+    crossorigin: true,
+  }).then(function (response) {
+    country = response.data.country;
+    articleData = response.data.article;
+
+    var activeTotalArray = [];
+    var finalActiveArray = [];
+    finalArticleArray = [];
+    finalFullTextArray = [];
+    for (let item = 0; item < countryList.length; item++) {
+      if (Object.keys(country).includes(countryList[item])) {
+        var countryData = country[countryList[item]];
+        activeTotalArray.push(countryData.Active);
+      }
+    }
+    temp = _.zip(...activeTotalArray);
+    for (var i = 0; i < temp.length; i++) {
+      if (temp[i].includes("y") || temp[i].includes("N/A")) {
+        finalActiveArray.push(true);
+      } else {
+        finalActiveArray.push(false);
+      }
+    }
+    for (var j = 0; j < finalActiveArray.length; j++) {
+      if (finalActiveArray[j] === true) {
+        finalArticleArray.push(articleData.Article[j]);
+        finalFullTextArray.push(articleData["Full text"][j]);
+      }
+    }
+    articleDrop(finalArticleArray);
   });
 };
 
@@ -315,114 +310,135 @@ var countryArticle = function (baseUrl) {
   startDateID = "#decisionDate1";
   endDateID = "#decisionDate2";
   countrySelectID = "#involvedStates";
-  +axios({
-    method: "get",
-    url: countryUrl,
-  }).then(function (response) {
-    countries = response.data.country;
-    countryDropdownElement = document.getElementById("involvedStates");
-    // ratification date
 
-    $(endDateID).on("change", function () {
-      if (
-        $.trim($(startDateID).val()) != "" &&
-        $.trim($(countrySelectID).val()) != ""
-      ) {
-        ratificationAPImethod(countryUrl);
-        courtAPImethod(countryUrl);
-      }
-    });
-    $(countrySelectID).on("change", function () {
-      if (
-        $.trim($(startDateID).val()) != "" &&
-        $.trim($(endDateID).val()) != ""
-      ) {
-        ratificationAPImethod(countryUrl);
-        courtAPImethod(countryUrl);
-      }
-    });
-    $(startDateID).on("change", function () {
-      if (
-        $.trim($(countrySelectID).val()) != "" &&
-        $.trim($(endDateID).val()) != ""
-      ) {
-        ratificationAPImethod(countryUrl);
-      }
-    });
-
-    // end ratification date
+  $(endDateID).on("change", function () {
+    if (
+      $.trim($(startDateID).val()) != "" &&
+      $.trim($(countrySelectID).val()) != ""
+    ) {
+      ratificationAPImethod(countryUrl).then(function (response) {
+        articleGenerateMethod(baseUrl, response);
+      });
+    }
   });
+  $(countrySelectID).on("change", function () {
+    courtAPImethod(countryUrl);
+    if (
+      $.trim($(startDateID).val()) != "" &&
+      $.trim($(endDateID).val()) != ""
+    ) {
+      ratificationAPImethod(countryUrl).then(function (response) {
+        articleGenerateMethod(baseUrl, response);
+      });
+    }
+  });
+  $(startDateID).on("change", function () {
+    if (
+      $.trim($(countrySelectID).val()) != "" &&
+      $.trim($(endDateID).val()) != ""
+    ) {
+      ratificationAPImethod(countryUrl).then(function (response) {
+        articleGenerateMethod(baseUrl, response);
+      });
+    }
+  });
+  // end ratification date
 };
-
-rootUrl = window.location.href.split("form/")[0];
-UrlExists2(rootUrl);
-UrlExists3(rootUrl);
 
 function callAPI(addButtonID) {
   elementNumber = parseInt(addButtonID.split("_")[2]);
-  url = window.location.href.split("form/")[0];
-  var http = new XMLHttpRequest();
-  http.open("HEAD", url, false);
-  http.withCredentials = true;
-  http.setRequestHeader("Content-Type", "application/json");
-  http.send();
-  try {
-    baseUrl = url;
-    articleUrl = baseUrl + "api/article/";
-    correspDropdownElement = $(
-      "#article_" + String(elementNumber + 1) + "_select"
+  correspDropdownElement = $(
+    "#article_" + String(elementNumber + 1) + "_select"
+  );
+  var curValueArray = [];
+  for (i = 0; i < elementNumber + 1; i++) {
+    curValueArray.push($("#article_" + String(i) + "_select").val());
+  }
+
+  data = finalArticleArray;
+  correspDropdownElement
+    .empty()
+    .append(
+      $("<option></option>")
+        .prop("value", "")
+        .prop("disabled", true)
+        .prop("selected", true)
+        .prop("hidden", true)
+        .text("Select Relevant Article")
     );
-    var curValueArray = [];
-    for (i = 0; i < elementNumber + 1; i++) {
-      curValueArray.push($("#article_" + String(i) + "_select").val());
-    }
-    axios({
-      method: "get",
-      url: articleUrl,
-    }).then(function (response) {
-      data = response.data;
+  $.each(data, function (article) {
+    textValue = data[article];
+    if (textValue === "Other articles" || curValueArray.includes(textValue)) {
       correspDropdownElement.append(
         $("<option></option>")
-          .attr("value", "")
           .prop("disabled", true)
-          .prop("selected", true)
-          .prop("hidden", true)
-          .text("Select Relevant Article")
+          .addClass("dropdown-item")
+          .text(textValue)
       );
-      $.each(data, function (article) {
-        textValue = data[article]["article"];
-        if (
-          textValue === "Other articles" ||
-          curValueArray.includes(textValue)
-        ) {
-          correspDropdownElement.append(
-            $("<option></option>").prop("disabled", true).text(textValue)
-          );
-        } else {
-          correspDropdownElement.append(
-            $("<option></option>").attr("value", textValue).text(textValue)
-          );
-        }
-      });
+    } else {
+      correspDropdownElement.append(
+        $("<option></option>")
+          .prop("value", textValue)
+          .addClass("dropdown-item")
+          .text(textValue)
+      );
+    }
+  });
+}
+
+function getDerogationText(selectedArticle, countryDiv, reservationDiv) {
+  selectedCountryList = $("#involvedStates").val();
+  curIndex = finalArticleArray.indexOf(selectedArticle);
+  baseUrl = window.location.href.split("form/")[0];
+  articleUrl = baseUrl + "static/applicationForm/apiFiles/countryArticle.json";
+
+  axios({
+    method: "get",
+    url: articleUrl,
+    crossorigin: true,
+  }).then(function (response) {
+    countryData = response.data.country;
+    selectedCountryList.forEach(function (country) {
+      currentCountry = country;
+      console.log(
+        currentCountry +
+          " , " +
+          countryData[currentCountry]["Reservations"][curIndex]
+      );
+      h6Element = document.createElement("h6");
+      h6Element.setAttribute(
+        "style",
+        "padding-left:30px; padding-right:30px; font-family:lato_thin"
+      );
+      pElement = document.createElement("p");
+      pElement.setAttribute(
+        "style",
+        "padding-left:30px; padding-right:30px; font_family:lato_thin"
+      );
+      h6Element.innerHTML = currentCountry;
+      pElement.innerHTML =
+        countryData[currentCountry]["Reservations"][curIndex];
+      if (
+        countryData.hasOwnProperty(currentCountry) &&
+        countryData[currentCountry]["Reservations"][curIndex] != "N/A"
+      ) {
+        countryDiv.append(h6Element);
+        reservationDiv.append(pElement);
+      }
     });
-  } catch (error) {
-    console.error(error);
-  }
+  });
 }
 
 function populateDiv(elId) {
-  url = window.location.href.split("form/")[0];
-  var http = new XMLHttpRequest();
-  http.open("HEAD", url, false);
-  http.withCredentials = true;
-  http.setRequestHeader("Content-Type", "application/json");
-  http.send();
-
-  baseUrl = url;
-  var articleUrl = baseUrl + "api/article/";
   containerElement = document.getElementById(elId).parentElement.parentElement
     .parentElement.parentElement.parentElement.children[2].parentElement
     .children[2];
+  countryDiv =
+    containerElement.children[2].children[0].children[0].children[0].children[0]
+      .children[0];
+  reservationDiv =
+    containerElement.children[2].children[0].children[0].children[0].children[1]
+      .children[0];
   containerElement.classList.remove("is-hidden");
   selectedElement = document.getElementById(elId).value;
   pElement = document.createElement("p");
@@ -435,24 +451,48 @@ function populateDiv(elId) {
 
   articleElement = containerElement.children[0].children[0];
   descriptionElement = containerElement.children[0].children[1];
-  if (articleElement)
-    axios({
-      method: "get",
-      url: articleUrl,
-    }).then(function (response) {
-      data = response.data;
-      $.each(data, function (article) {
-        textValue = data[article]["article"];
-        if (data[article]["article"] === selectedElement) {
-          if (articleElement.lastChild) {
-            articleElement.lastChild.remove();
-            descriptionElement.lastChild.remove();
-          }
-          pElement.innerHTML = data[article]["article"];
-          articleElement.append(pElement);
-          p2Element.innerHTML = data[article]["fullText"];
-          descriptionElement.append(p2Element);
+  if (articleElement) {
+    $.each(finalArticleArray, function (article) {
+      textValue = finalArticleArray[article];
+      if (finalArticleArray[article] === selectedElement) {
+        if (countryDiv.lastChild) {
+          countryDiv.lastChild.remove();
+          reservationDiv.lastChild.remove();
         }
-      });
+        getDerogationText(
+          finalArticleArray[article],
+          countryDiv,
+          reservationDiv
+        );
+        if (articleElement.lastChild) {
+          articleElement.lastChild.remove();
+          descriptionElement.lastChild.remove();
+        }
+        pElement.innerHTML = finalArticleArray[article];
+        articleElement.append(pElement);
+        p2Element.innerHTML = finalFullTextArray[article];
+        descriptionElement.append(p2Element);
+      }
     });
+  }
 }
+
+function checkUrlAndLoadAPI() {
+  var request = new XMLHttpRequest();
+  rootUrl = window.location.href.split("form/")[0];
+  request.open("GET", rootUrl, true);
+  request.onreadystatechange = function () {
+    if (request.readyState === 4) {
+      if (request.status === 404) {
+        alert(
+          "There is something wrong with the server. Please try again later!!"
+        );
+      }
+    }
+  };
+  request.send();
+  countryArticle(rootUrl);
+  countrySelect();
+}
+
+checkUrlAndLoadAPI();

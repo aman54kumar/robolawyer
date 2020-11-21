@@ -6,6 +6,7 @@ verify_ssl = true
 [dev-packages]
 autopep8 = "*"
 django-debug-toolbar = "*"
+pylama = "*"
 
 [packages]
 django = "*"
@@ -32,13 +33,13 @@ django-robots-txt = "*"
 reportlab = "*"
 moment = "*"
 pandas = "*"
-django-pandas = "*"
-numpy = "*"
 django-compression-middleware = "*"
 xlrd = "*"
 django-extensions = "*"
 werkzeug = "*"
 jsons = "*"
+django-debug-toolbar = "*"
+numpy = "==1.19.3"
 
 [requires]
-python_version = "3.7"
+python_version = "3.8"

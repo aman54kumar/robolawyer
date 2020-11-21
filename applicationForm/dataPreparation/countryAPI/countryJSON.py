@@ -8,7 +8,6 @@ from datetime import datetime
 from django.conf import settings
 import os
 import jsons
-import numpy as np
 jsons.suppress_warnings()
 
 articleFile = os.path.join(

@@ -448,7 +448,7 @@ function populateDiv(elId) {
   // reservationDiv =
   //   containerElement.children[2].children[0].children[0].children[0].children[1]
   //     .children[0];
-  tableElement = document.getElementById("reservationDiv");
+  tableElement = containerElement.children[2].children[0];
   containerElement.classList.remove("is-hidden");
   selectedElement = document.getElementById(elId).value;
   pElement = document.createElement("p");

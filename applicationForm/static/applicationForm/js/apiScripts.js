@@ -419,11 +419,10 @@ function getDerogationText(selectedArticle, tableElement) {
         "padding-left:30px; padding-right:30px; font_family:lato_thin"
       );
       h6Element.innerHTML = currentCountry;
-      pElement.innerHTML =
-        countryData[currentCountry]["Reservations"][curIndex];
+      pElement.innerHTML = countryData[currentCountry].Reservations[curIndex];
       if (
         countryData.hasOwnProperty(currentCountry) &&
-        countryData[currentCountry]["Reservations"][curIndex] != "N/A"
+        countryData[currentCountry].Reservations.curIndex != "N/A"
       ) {
         var newTDelement1 = document.createElement("td");
         var newTDelement2 = document.createElement("td");

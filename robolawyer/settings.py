@@ -119,16 +119,17 @@ if 'RDS_DB_NAME' in os.environ:
     }
 else:
     if os.path.isfile(dotenv_file):
-        DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.postgresql',
-                'NAME': config('DB_NAME'),
-                'USER': config('DB_USER'),
-                'PASSWORD': config('DB_PASSWORD'),
-                'HOST': config('DB_HOST'),
-                'PORT': config('DB_PORT'),
-            }
-        }
+        # DATABASES = {
+        #     'default': {
+        #         'ENGINE': 'django.db.backends.postgresql',
+        #         'NAME': config('DB_NAME'),
+        #         'USER': config('DB_USER'),
+        #         'PASSWORD': config('DB_PASSWORD'),
+        #         'HOST': config('DB_HOST'),
+        #         'PORT': config('DB_PORT'),
+        #     }
+        # }
+        pass
     else:
         DATABASES = {'default': dj_database_url.config()}
 

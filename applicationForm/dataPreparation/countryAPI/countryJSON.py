@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 # coding: utf-8
+# delete countryArticle.json
 # python manage.py shell
 # exec(open('.\\applicationForm\\dataPreparation\\countryAPI\\countryJSON.py').read())
-
+# linux
+# exec(open('./applicationForm/dataPreparation/countryAPI/countryJSON.py').read())
 import pandas as pd
 from datetime import datetime
 from django.conf import settings
@@ -12,17 +14,18 @@ jsons.suppress_warnings()
 
 articleFile = os.path.join(
     settings.BASE_DIR,
-    'applicationForm\\dataPreparation\\countryAPI\\API articles with ratification dates and reservations.xlsx'
+    # 'applicationForm\\dataPreparation\\countryAPI\\API articles with ratification dates and reservations.xlsx'
+    'applicationForm/dataPreparation/countryAPI/API articles with ratification dates and reservations.xlsx'
 )
 
 courtFile = os.path.join(
     settings.BASE_DIR,
-    'applicationForm\\dataPreparation\\countryAPI\\Countries_and_national_courts.csv'
+    'applicationForm/dataPreparation/countryAPI/Countries_and_national_courts.csv'
 )
 
 outputFile = os.path.join(
     settings.BASE_DIR,
-    'applicationForm\\static\\applicationForm\\apiFiles\\countryArticle.json')
+    'applicationForm/static/applicationForm/apiFiles/countryArticle.json')
 
 final_list = {}
 country_json = {}

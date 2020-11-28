@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
-# delete countryArticle.json
+# delete countryArticle.json and global static folder
 # python manage.py shell
 # exec(open('.\\applicationForm\\dataPreparation\\countryAPI\\countryJSON.py').read())
-# linux
+# for linux
 # exec(open('./applicationForm/dataPreparation/countryAPI/countryJSON.py').read())
 import pandas as pd
 from datetime import datetime

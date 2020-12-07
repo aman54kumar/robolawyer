@@ -48,6 +48,37 @@ for element in data:
     data[element]['Article'] = data[element]['Article'].fillna(fill_na)
     data[element]['Full text'] = data[element]['Full text'].fillna(fill_na)
 
+
+def getFormattedArticleText(text):
+    text = text.split('<br/>\n')
+    if len(text) == 1:
+        return [{'mainText': text, 'points': []}]
+    res = []
+    flag = 0
+    temp = {'mainText': '', 'points': []}
+    for i in text:
+        if i[0] != '(':
+            # main text
+            if flag == 1 or flag == 2:
+                res.append(temp)
+                temp = {'mainText': '', 'points': []}
+            flag = 1
+            temp['mainText'] = i
+        else:
+            # points
+            flag = 2
+            temp['points'].append(i)
+    if flag == 2:
+        res.append(temp)
+    return res
+
+
+import json
+textArray = data[element]['Full text']
+resultList = []
+for text in textArray:
+    resultList.append(getFormattedArticleText(text))
+
 court_country = court['Country']
 for item in range(1, len(data)):
     country_json[data[item]['Country'][1]] = {}
@@ -64,7 +95,7 @@ for item in country_json:
                 data[record]['Date'].min()).strftime("%d-%m-%Y")
         if item == data[record]['Country'].all():
             article_json['Article'] = data[record]['Article']
-            article_json['Full text'] = data[record]['Full text']
+            article_json['Full text'] = resultList
 
         if item in court['Country'].tolist():
             myIndex = court_country[court_country == item].index[0]

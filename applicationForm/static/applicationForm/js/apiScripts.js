@@ -441,12 +441,6 @@ function populateDiv(elId) {
   containerElement = document.getElementById(elId).parentElement.parentElement
     .parentElement.parentElement.parentElement.children[2].parentElement
     .children[2];
-  // countryDiv =
-  //   containerElement.children[2].children[0].children[0].children[0].children[0]
-  //     .children[0];
-  // reservationDiv =
-  //   containerElement.children[2].children[0].children[0].children[0].children[1]
-  //     .children[0];
   tableElement = containerElement.children[2].children[0];
   containerElement.classList.remove("is-hidden");
   selectedElement = document.getElementById(elId).value;
@@ -472,10 +466,25 @@ function populateDiv(elId) {
           articleElement.lastChild.remove();
           descriptionElement.lastChild.remove();
         }
+        // full text
+        console.log(finalFullTextArray);
+
+        // finalArticleArray[article];
         pElement.innerHTML = finalArticleArray[article];
         articleElement.append(pElement);
-        p2Element.innerHTML = finalFullTextArray[article];
-        descriptionElement.append(p2Element);
+        // p2Element.innerHTML = finalFullTextArray[article];
+        // descriptionElement.append(p2Element);
+        for (i = 0; i < finalFullTextArray[article].length; i++) {
+          // ulElement = document.createElement("ul");
+          temp = finalFullTextArray[article][i];
+          if (!temp.points) console.log(temp.mainText);
+          else {
+            console.log(temp.mainText + "\n");
+            temp.points.forEach((point) => {
+              console.log(point);
+            });
+          }
+        }
       }
     });
   }

@@ -444,6 +444,7 @@ function populateDiv(elId) {
   tableElement = containerElement.children[2].children[0];
   containerElement.classList.remove("is-hidden");
   selectedElement = document.getElementById(elId).value;
+
   pElement = document.createElement("p");
   pElement.setAttribute(
     "style",
@@ -463,8 +464,8 @@ function populateDiv(elId) {
         }
         getDerogationText(finalArticleArray[article], tableElement);
         if (articleElement.lastChild) {
-          articleElement.lastChild.remove();
-          descriptionElement.lastChild.remove();
+          $(articleElement).empty();
+          $(descriptionElement).empty();
         }
         // full text
         console.log(finalFullTextArray);
@@ -475,15 +476,55 @@ function populateDiv(elId) {
         // p2Element.innerHTML = finalFullTextArray[article];
         // descriptionElement.append(p2Element);
         for (i = 0; i < finalFullTextArray[article].length; i++) {
-          // ulElement = document.createElement("ul");
-          temp = finalFullTextArray[article][i];
-          if (!temp.points) console.log(temp.mainText);
-          else {
-            console.log(temp.mainText + "\n");
+          let ulOuterElement = document.createElement("ul");
+          let liOuterElement = document.createElement("li");
+          let temp = finalFullTextArray[article][i];
+
+          let inputOuterElement = document.createElement("input");
+          var labelOuterElement = document.createElement("label");
+          inputOuterElement.type = "checkbox";
+          inputOuterElement.name = "outerInputList";
+          inputOuterElement.id = "outerInputList_" + String(i);
+          inputOuterElement.classList.add("inputOuter");
+          inputOuterElement.style.cssText = "margin-right: 20px";
+          labelOuterElement.htmlFor = "id";
+          labelOuterElement.append(document.createTextNode(temp.mainText));
+          labelOuterElement.style.cssText = "display: inline";
+          liOuterElement.append(inputOuterElement);
+          liOuterElement.append(labelOuterElement);
+          liOuterElement.style.cssText = "margin: 10px 0;";
+
+          if (temp.points.length === 0) {
+            // liElement.innerHTML = temp.mainText;
+            // console.log(temp.mainText);
+          } else {
             temp.points.forEach((point) => {
-              console.log(point);
+              let ulInnerElement = document.createElement("ul");
+              let liInnerElement = document.createElement("li");
+              let inputInnerElement = document.createElement("input");
+              let labelInnerElement = document.createElement("label");
+              inputInnerElement.type = "checkbox";
+              inputInnerElement.name = "innerInputList";
+              inputInnerElement.id =
+                "innerInputList_" + String(temp.points.indexOf(point));
+              inputOuterElement.classList.add("inputInner");
+              inputInnerElement.style.cssText = "margin-right: 20px";
+
+              labelInnerElement.htmlFor = "id";
+              labelInnerElement.append(document.createTextNode(point));
+              labelInnerElement.style.cssText = "display: inline";
+              liInnerElement.append(inputInnerElement);
+              liInnerElement.append(labelInnerElement);
+              liInnerElement.style.cssText = "margin: 10px 0; displa";
+              ulInnerElement.append(liInnerElement);
+              liOuterElement.append(ulInnerElement);
+              ulInnerElement.style.cssText =
+                "list-style: none; margin: 5px 20px;";
             });
           }
+          ulOuterElement.append(liOuterElement);
+          ulOuterElement.style.cssText = "list-style: none; margin: 5px 20px;";
+          descriptionElement.append(ulOuterElement);
         }
       }
     });

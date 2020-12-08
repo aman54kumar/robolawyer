@@ -15,7 +15,7 @@ jsons.suppress_warnings()
 articleFile = os.path.join(
     settings.BASE_DIR,
     # 'applicationForm\\dataPreparation\\countryAPI\\API articles with ratification dates and reservations.xlsx'
-    'applicationForm/dataPreparation/countryAPI/API articles with ratification dates and reservations.xlsx'
+    'applicationForm/dataPreparation/countryAPI/9.dec.2020 - API articles with ratification dates and reservations.xlsx'
 )
 
 courtFile = os.path.join(
@@ -73,12 +73,12 @@ def getFormattedArticleText(text):
     return res
 
 
-import json
-textArray = data[element]['Full text']
+textArray = data[1]['Full text']
+print(repr(textArray[1]))
 resultList = []
 for text in textArray:
     resultList.append(getFormattedArticleText(text))
-
+# print(resultList)
 court_country = court['Country']
 for item in range(1, len(data)):
     country_json[data[item]['Country'][1]] = {}
@@ -132,7 +132,6 @@ for item in country_json:
                     'Court3': str(court['Court3'].iloc[myIndex])
                 }
 
-# final_list.append([1,2,3])
 final_list["country"] = country_json
 final_list["article"] = article_json
 

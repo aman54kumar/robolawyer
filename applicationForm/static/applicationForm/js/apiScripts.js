@@ -1,3 +1,61 @@
+// selects all child input checkboxes and applies the checked
+// item of the one that has been clicked on
+
+var descDiv = document.querySelector(".descDiv1");
+descDiv.addEventListener("change", function (event) {
+  // console.log(event);
+  if (event.target.classList.value.includes("articleCheck")) {
+    let checkboxes = document.querySelectorAll(".articleCheck");
+
+    for (let x = 0; x < checkboxes.length; x++) {
+      checkboxes[x].addEventListener("change", function (e) {
+        let parentNode = this.parentNode;
+
+        const cbDescendants = parentNode.querySelectorAll("input.articleCheck");
+        for (let y = 0; y < cbDescendants.length; y++) {
+          cbDescendants[y].checked = this.checked;
+          cbDescendants[y].indeterminate = false;
+        }
+
+        while (["ul", "li"].indexOf(parentNode.nodeName.toLowerCase()) >= 0) {
+          const mainCb = parentNode.querySelector(
+            ":scope > input.articleCheck"
+          );
+
+          if (mainCb && mainCb != this) {
+            mainCb.checked = this.checked;
+
+            const mainCbChildren = mainCb.parentNode.querySelectorAll(
+              ".articleCheck"
+            );
+            const numTotal = mainCbChildren.length;
+
+            let numChecked = 0;
+            for (let z = 0; z < mainCbChildren.length; z++) {
+              numChecked += mainCbChildren[z].checked;
+            }
+
+            if (numTotal === numChecked) {
+              mainCb.indeterminate = false;
+              mainCb.checked = true;
+            } else {
+              if (numChecked === 0) {
+                mainCb.indeterminate = false;
+                mainCb.checked = false;
+              } else {
+                mainCb.indeterminate = true;
+                mainCb.checked = false;
+              }
+            }
+          }
+
+          parentNode = parentNode.parentNode;
+        }
+      });
+    }
+  }
+});
+
 var finalArticleArray = [];
 var finalFullTextArray = [];
 
@@ -453,9 +511,10 @@ function populateDiv(elId) {
   p2Element = document.createElement("p");
   p2Element.setAttribute("style", "text-align:justify");
 
-  articleElement = containerElement.children[0].children[0];
-  descriptionElement = containerElement.children[0].children[1];
-  if (articleElement) {
+  // articleElement = containerElement.children[0].children[0];
+  // descriptionElement = containerElement.children[0].children[1];
+  descriptionElement = document.querySelector(".descDiv1");
+  if (descriptionElement) {
     $.each(finalArticleArray, function (article) {
       textValue = finalArticleArray[article];
       if (finalArticleArray[article] === selectedElement) {
@@ -463,41 +522,41 @@ function populateDiv(elId) {
           $(tableElement).empty();
         }
         getDerogationText(finalArticleArray[article], tableElement);
-        if (articleElement.lastChild) {
-          $(articleElement).empty();
+        if (descriptionElement.lastChild) {
           $(descriptionElement).empty();
         }
         // full text
-        console.log(finalFullTextArray);
+        // console.log(finalFullTextArray);
 
         // finalArticleArray[article];
-        pElement.innerHTML = finalArticleArray[article];
-        articleElement.append(pElement);
+        // pElement.innerHTML = finalArticleArray[article];
+        // articleElement.append(pElement);
         // p2Element.innerHTML = finalFullTextArray[article];
         // descriptionElement.append(p2Element);
         for (i = 0; i < finalFullTextArray[article].length; i++) {
           let ulOuterElement = document.createElement("ul");
           let liOuterElement = document.createElement("li");
           let temp = finalFullTextArray[article][i];
-
           let inputOuterElement = document.createElement("input");
           var labelOuterElement = document.createElement("label");
           inputOuterElement.type = "checkbox";
           inputOuterElement.name = "outerInputList";
           inputOuterElement.id = "outerInputList_" + String(i);
-          inputOuterElement.classList.add("inputOuter");
-          inputOuterElement.style.cssText = "margin-right: 20px";
+          inputOuterElement.classList.add("inputOuter", "articleCheck");
+          inputOuterElement.style.cssText =
+            "margin-right: 10px; transform: scale(0.80);";
+          if (!Array.isArray(temp.mainText)) {
+            inputOuterElement.value = temp.mainText.substr(0, 2);
+          }
           labelOuterElement.htmlFor = "id";
           labelOuterElement.append(document.createTextNode(temp.mainText));
-          labelOuterElement.style.cssText = "display: inline";
+          labelOuterElement.style.cssText =
+            "display: inline; font-size: 80% !important;";
           liOuterElement.append(inputOuterElement);
           liOuterElement.append(labelOuterElement);
-          liOuterElement.style.cssText = "margin: 10px 0;";
+          liOuterElement.style.cssText = "margin: 0px;";
 
-          if (temp.points.length === 0) {
-            // liElement.innerHTML = temp.mainText;
-            // console.log(temp.mainText);
-          } else {
+          if (temp.points.length != 0) {
             temp.points.forEach((point) => {
               let ulInnerElement = document.createElement("ul");
               let liInnerElement = document.createElement("li");
@@ -507,23 +566,26 @@ function populateDiv(elId) {
               inputInnerElement.name = "innerInputList";
               inputInnerElement.id =
                 "innerInputList_" + String(temp.points.indexOf(point));
-              inputOuterElement.classList.add("inputInner");
-              inputInnerElement.style.cssText = "margin-right: 20px";
-
+              inputInnerElement.classList.add("inputInner", "articleCheck");
+              inputInnerElement.style.cssText =
+                "margin-right: 10px; transform: scale(0.80);";
+              inputInnerElement.value = point.substr(0, 3);
               labelInnerElement.htmlFor = "id";
               labelInnerElement.append(document.createTextNode(point));
-              labelInnerElement.style.cssText = "display: inline";
+              labelInnerElement.style.cssText =
+                "display: inline; font-size: 75% !important;";
               liInnerElement.append(inputInnerElement);
               liInnerElement.append(labelInnerElement);
-              liInnerElement.style.cssText = "margin: 10px 0; displa";
+              liInnerElement.style.cssText = "margin: 0px;";
               ulInnerElement.append(liInnerElement);
               liOuterElement.append(ulInnerElement);
               ulInnerElement.style.cssText =
-                "list-style: none; margin: 5px 20px;";
+                "list-style: none; margin: 0px; padding-left: 20px;";
             });
           }
           ulOuterElement.append(liOuterElement);
-          ulOuterElement.style.cssText = "list-style: none; margin: 5px 20px;";
+          ulOuterElement.style.cssText =
+            "list-style: none; margin: 0px; padding: 0px;";
           descriptionElement.append(ulOuterElement);
         }
       }

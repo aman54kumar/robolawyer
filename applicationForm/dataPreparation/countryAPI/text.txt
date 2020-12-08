@@ -1,20 +1,3 @@
-abcdefghijklmnopqrstuvwxyz
-
-abcdefghijklmnopqrstuvwxyz
-
-1234567890
-
-Ha HaHa
-
-MetaCharacters (Need to be escaped):
-.[{()\^$|?*+
-
-aman54kumar@gmail.com
-
-321-555-4321
-123.555.1234
-
-Mr. Schafer
-Mr Smith
-
-Ms Davis
+1. Everyone has the right to freedom of thought, conscience and religion; 
+this right includes freedom to change his religion or belief and freedom, either alone or in 
+community with others and in public or private, to manifest his religion or belief, in worship, teaching, practice and observance.

@@ -59,7 +59,8 @@ def getFormattedArticleText(text):
     for i in text:
         if i[0] != '(':
             # main text
-            if flag == 1 or flag == 2:
+
+            if flag == 1:
                 res.append(temp)
                 temp = {'mainText': '', 'points': []}
             flag = 1
@@ -68,17 +69,15 @@ def getFormattedArticleText(text):
             # points
             flag = 2
             temp['points'].append(i)
-    if flag == 2:
+    if flag == 2 or flag == 1:
         res.append(temp)
     return res
 
 
 textArray = data[1]['Full text']
-print(repr(textArray[1]))
 resultList = []
 for text in textArray:
     resultList.append(getFormattedArticleText(text))
-# print(resultList)
 court_country = court['Country']
 for item in range(1, len(data)):
     country_json[data[item]['Country'][1]] = {}

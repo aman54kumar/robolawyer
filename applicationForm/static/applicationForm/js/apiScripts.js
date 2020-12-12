@@ -1,60 +1,182 @@
 // selects all child input checkboxes and applies the checked
 // item of the one that has been clicked on
 
-var descDiv = document.querySelector(".descDiv1");
-descDiv.addEventListener("change", function (event) {
-  // console.log(event);
-  if (event.target.classList.value.includes("articleCheck")) {
-    let checkboxes = document.querySelectorAll(".articleCheck");
+function changeLongWordToShortArticle(inputString) {
+  if (inputString === "Article") {
+    return "Art.";
+  } else if (inputString === "Protocol") {
+    return "Prot.";
+  } else {
+    return inputString;
+  }
+}
 
-    for (let x = 0; x < checkboxes.length; x++) {
-      checkboxes[x].addEventListener("change", function (e) {
-        let parentNode = this.parentNode;
+function getEditedArticleAsPrefix(initialText) {
+  var initialArrayPart = initialText.split(" - ")[0];
+  var articleNameAsArray = initialArrayPart.split(" ");
+  editedArray = articleNameAsArray.map(changeLongWordToShortArticle);
+  editedString = editedArray.join("");
+  // finalString = getCheckedArticleAttachedToNumber(editedString);
+  return editedString;
+}
+function addFieldTo6thPage(cbParent, currentArticleID) {
+  currentElement = document.getElementById(currentArticleID);
+  currentValue = currentElement.value;
+  currentId = currentElement.id;
+  currentNumber = currentId.split("_")[1];
+  page6First = "#preArticle_" + String(currentNumber) + "_select";
+  page6Second = "complain_" + String(parseInt(currentNumber)) + "_select";
+  if (currentNumber > "0") {
+    buttonElementId = "addButton_6_" + String(parseInt(currentNumber) - 1);
+    document.getElementById(buttonElementId).click();
+  }
 
-        const cbDescendants = parentNode.querySelectorAll("input.articleCheck");
-        for (let y = 0; y < cbDescendants.length; y++) {
-          cbDescendants[y].checked = this.checked;
-          cbDescendants[y].indeterminate = false;
-        }
+  console.log(cbParent);
+  var mainCheckBoxes = Array.from(cbParent.children);
+  var resultList = [];
+  mainCheckBoxes.forEach((mainElement) => {
+    if (mainElement.children[0].checked) {
+      // main checkbox is checked
 
-        while (["ul", "li"].indexOf(parentNode.nodeName.toLowerCase()) >= 0) {
-          const mainCb = parentNode.querySelector(
-            ":scope > input.articleCheck"
-          );
-
-          if (mainCb && mainCb != this) {
-            mainCb.checked = this.checked;
-
-            const mainCbChildren = mainCb.parentNode.querySelectorAll(
-              ".articleCheck"
-            );
-            const numTotal = mainCbChildren.length;
-
-            let numChecked = 0;
-            for (let z = 0; z < mainCbChildren.length; z++) {
-              numChecked += mainCbChildren[z].checked;
-            }
-
-            if (numTotal === numChecked) {
-              mainCb.indeterminate = false;
-              mainCb.checked = true;
-            } else {
-              if (numChecked === 0) {
-                mainCb.indeterminate = false;
-                mainCb.checked = false;
-              } else {
-                mainCb.indeterminate = true;
-                mainCb.checked = false;
-              }
-            }
-          }
-
-          parentNode = parentNode.parentNode;
+      resultList.push(mainElement.children[0].value);
+    } else if (mainElement.children[0].indeterminate) {
+      // indeterminate -> check children
+      var resultSubList = [];
+      var subCheckBoxes = Array.from(mainElement.children[2].children);
+      subCheckBoxes.forEach((subElement) => {
+        if (subElement.children[0].checked) {
+          // art1-1,2(a,b)
+          resultSubList.push(subElement.children[0].value);
         }
       });
+      var resultString = mainElement.children[0].value + "(";
+      resultString += resultSubList.join(",");
+      resultString += ")";
+      resultList.push(resultString);
     }
+  });
+
+  var fixedText = getEditedArticleAsPrefix(currentValue);
+  fixedText += "[" + resultList.join(",") + "]";
+  fixedText += "-";
+  fixedLen = 26;
+  if (fixedText.length > fixedLen) {
+    fixedText =
+      fixedText.substring(0, fixedLen) +
+      "\n" +
+      fixedText.substring(fixedLen, fixedText.length);
   }
-});
+  $("#" + page6Second).val(fixedText);
+  $(page6First).val(fixedText);
+}
+
+function onCheckArticleDesc(checkBox, cbParent, articleSelectID) {
+  console.log(cbParent);
+  let parentNode = checkBox.parentNode;
+  const cbDescendants = parentNode.querySelectorAll("input.articleCheck");
+  for (let y = 0; y < cbDescendants.length; y++) {
+    cbDescendants[y].checked = checkBox.checked;
+    cbDescendants[y].indeterminate = false;
+  }
+
+  while (["ul", "li"].indexOf(parentNode.nodeName.toLowerCase()) >= 0) {
+    const mainCb = parentNode.querySelector(":scope > input.articleCheck");
+
+    if (mainCb && mainCb != checkBox) {
+      mainCb.checked = checkBox.checked;
+
+      const mainCbChildren = mainCb.parentNode.querySelectorAll(
+        ".articleCheck"
+      );
+      const numTotal = mainCbChildren.length;
+
+      let numChecked = 0;
+      for (let z = 0; z < mainCbChildren.length; z++) {
+        numChecked += mainCbChildren[z].checked;
+      }
+
+      if (numTotal === numChecked) {
+        mainCb.indeterminate = false;
+        mainCb.checked = true;
+      } else {
+        if (numChecked === 0) {
+          mainCb.indeterminate = false;
+          mainCb.checked = false;
+        } else {
+          mainCb.indeterminate = true;
+          mainCb.checked = false;
+        }
+      }
+    }
+
+    parentNode = parentNode.parentNode;
+  }
+  addFieldTo6thPage(cbParent, articleSelectID);
+}
+
+function getSelectedCheckboxes() {
+  $(".articleCheck:checked");
+}
+
+// var descDiv = document.querySelector(".descDiv1");
+// descDiv.addEventListener("change", function (event) {
+//   // console.log(event);
+//   if (event.target.classList.value.includes("articleCheck")) {
+//     let checkboxes = document.querySelectorAll(".articleCheck");
+
+//     for (let x = 0; x < checkboxes.length; x++) {
+//       // checkboxes[x].addEventListener("change", function (e) {
+//       //   console.log(e.target.value);
+//       // });
+
+//       checkboxes[x].addEventListener("change", function (e) {
+//         let parentNode = this.parentNode;
+//         console.log(parentNode);
+//         console.log("lol");
+//         const cbDescendants = parentNode.querySelectorAll("input.articleCheck");
+//         for (let y = 0; y < cbDescendants.length; y++) {
+//           cbDescendants[y].checked = this.checked;
+//           cbDescendants[y].indeterminate = false;
+//         }
+
+//         while (["ul", "li"].indexOf(parentNode.nodeName.toLowerCase()) >= 0) {
+//           const mainCb = parentNode.querySelector(
+//             ":scope > input.articleCheck"
+//           );
+
+//           if (mainCb && mainCb != this) {
+//             mainCb.checked = this.checked;
+
+//             const mainCbChildren = mainCb.parentNode.querySelectorAll(
+//               ".articleCheck"
+//             );
+//             const numTotal = mainCbChildren.length;
+
+//             let numChecked = 0;
+//             for (let z = 0; z < mainCbChildren.length; z++) {
+//               numChecked += mainCbChildren[z].checked;
+//             }
+
+//             if (numTotal === numChecked) {
+//               mainCb.indeterminate = false;
+//               mainCb.checked = true;
+//             } else {
+//               if (numChecked === 0) {
+//                 mainCb.indeterminate = false;
+//                 mainCb.checked = false;
+//               } else {
+//                 mainCb.indeterminate = true;
+//                 mainCb.checked = false;
+//               }
+//             }
+//           }
+
+//           parentNode = parentNode.parentNode;
+//         }
+//       });
+//     }
+//   }
+// });
 
 var finalArticleArray = [];
 var finalFullTextArray = [];
@@ -449,11 +571,6 @@ function getDerogationText(selectedArticle, tableElement) {
   curIndex = finalArticleArray.indexOf(selectedArticle);
   baseUrl = window.location.href.split("form/")[0];
   articleUrl = baseUrl + "static/applicationForm/apiFiles/countryArticle.json";
-
-  /* <tr>
-                        <td><div class="countryDiv"></div></td>
-                        <td ><div class="reservationDiv"></div></td>
-                      </tr> */
   axios({
     method: "get",
     url: articleUrl,
@@ -480,7 +597,7 @@ function getDerogationText(selectedArticle, tableElement) {
       pElement.innerHTML = countryData[currentCountry].Reservations[curIndex];
       if (
         countryData.hasOwnProperty(currentCountry) &&
-        countryData[currentCountry].Reservations.curIndex != "N/A"
+        countryData[currentCountry].Reservations[curIndex] != "N/A"
       ) {
         var newTDelement1 = document.createElement("td");
         var newTDelement2 = document.createElement("td");
@@ -511,8 +628,6 @@ function populateDiv(elId) {
   p2Element = document.createElement("p");
   p2Element.setAttribute("style", "text-align:justify");
 
-  // articleElement = containerElement.children[0].children[0];
-  // descriptionElement = containerElement.children[0].children[1];
   descriptionElement = document.querySelector(".descDiv1");
   if (descriptionElement) {
     $.each(finalArticleArray, function (article) {
@@ -526,39 +641,36 @@ function populateDiv(elId) {
           $(descriptionElement).empty();
         }
         // full text
-        // console.log(finalFullTextArray);
-
-        // finalArticleArray[article];
-        // pElement.innerHTML = finalArticleArray[article];
-        // articleElement.append(pElement);
-        // p2Element.innerHTML = finalFullTextArray[article];
-        // descriptionElement.append(p2Element);
+        let ulOuterElement = document.createElement("ul");
         for (i = 0; i < finalFullTextArray[article].length; i++) {
-          let ulOuterElement = document.createElement("ul");
           let liOuterElement = document.createElement("li");
           let temp = finalFullTextArray[article][i];
           let inputOuterElement = document.createElement("input");
           var labelOuterElement = document.createElement("label");
           inputOuterElement.type = "checkbox";
-          inputOuterElement.name = "outerInputList";
           inputOuterElement.id = "outerInputList_" + String(i);
           inputOuterElement.classList.add("inputOuter", "articleCheck");
           inputOuterElement.style.cssText =
             "margin-right: 10px; transform: scale(0.80);";
           if (!Array.isArray(temp.mainText)) {
-            inputOuterElement.value = temp.mainText.substr(0, 2);
+            inputOuterElement.value = temp.mainText.substring(0, 1);
           }
+          inputOuterElement.addEventListener("change", () =>
+            onCheckArticleDesc(inputOuterElement, ulOuterElement, elId)
+          );
+
           labelOuterElement.htmlFor = "id";
           labelOuterElement.append(document.createTextNode(temp.mainText));
           labelOuterElement.style.cssText =
             "display: inline; font-size: 80% !important;";
+
           liOuterElement.append(inputOuterElement);
           liOuterElement.append(labelOuterElement);
           liOuterElement.style.cssText = "margin: 0px;";
 
           if (temp.points.length != 0) {
+            let ulInnerElement = document.createElement("ul");
             temp.points.forEach((point) => {
-              let ulInnerElement = document.createElement("ul");
               let liInnerElement = document.createElement("li");
               let inputInnerElement = document.createElement("input");
               let labelInnerElement = document.createElement("label");
@@ -569,7 +681,12 @@ function populateDiv(elId) {
               inputInnerElement.classList.add("inputInner", "articleCheck");
               inputInnerElement.style.cssText =
                 "margin-right: 10px; transform: scale(0.80);";
-              inputInnerElement.value = point.substr(0, 3);
+              inputInnerElement.value = point.substring(1, 2);
+
+              inputInnerElement.addEventListener("change", () =>
+                onCheckArticleDesc(inputInnerElement, ulOuterElement, elId)
+              );
+
               labelInnerElement.htmlFor = "id";
               labelInnerElement.append(document.createTextNode(point));
               labelInnerElement.style.cssText =
@@ -578,16 +695,17 @@ function populateDiv(elId) {
               liInnerElement.append(labelInnerElement);
               liInnerElement.style.cssText = "margin: 0px;";
               ulInnerElement.append(liInnerElement);
-              liOuterElement.append(ulInnerElement);
+
               ulInnerElement.style.cssText =
                 "list-style: none; margin: 0px; padding-left: 20px;";
             });
+            liOuterElement.append(ulInnerElement);
           }
-          ulOuterElement.append(liOuterElement);
           ulOuterElement.style.cssText =
             "list-style: none; margin: 0px; padding: 0px;";
-          descriptionElement.append(ulOuterElement);
+          ulOuterElement.append(liOuterElement);
         }
+        descriptionElement.append(ulOuterElement);
       }
     });
   }

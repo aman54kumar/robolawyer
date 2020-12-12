@@ -59,12 +59,12 @@ def getFormattedArticleText(text):
     for i in text:
         if i[0] != '(':
             # main text
-
-            if flag == 1:
+            if flag == 1 or flag == 2:
                 res.append(temp)
                 temp = {'mainText': '', 'points': []}
             flag = 1
             temp['mainText'] = i
+
         else:
             # points
             flag = 2
@@ -134,5 +134,6 @@ for item in country_json:
 final_list["country"] = country_json
 final_list["article"] = article_json
 
+# print(final_list["article"]["Full text"][3])
 with open(outputFile, 'w', encoding="UTF-8") as ps:
     ps.write(jsons.dumps(final_list))

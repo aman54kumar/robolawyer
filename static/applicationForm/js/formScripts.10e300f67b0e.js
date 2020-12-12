@@ -178,7 +178,7 @@ $("#page5Group").repeater({
   animationEasing: "swing",
   clearValues: true,
   afterAdd: function () {
-    callAPI(this.id); 
+    callAPI(this.id);
     cur_id = this.id;
     id_no = cur_id.split("_5_")[1];
     for (i = id_no; i >= 0; i--) {
@@ -1487,16 +1487,6 @@ function addFieldTo6thPage(e) {
   currentValue = currentElement.value;
   currentId = currentElement.id;
   currentNumber = currentId.split("_")[1];
-
-  // if (currentNumber > 0) {
-  //   page6Prev = document.getElementById(
-  //     "complain_" + String(parseInt(currentNumber) - 1) + "_select"
-  //   );
-  //   page6PrevAddButtonId =
-  //     page6Prev.parentElement.parentElement.parentElement.parentElement
-  //       .parentElement.children[1].children[0].id;
-  //   document.getElementById(page6PrevAddButtonId).click();
-  // }
   page6First = "#preArticle_" + String(currentNumber) + "_select";
   page6Second = "complain_" + String(parseInt(currentNumber)) + "_select";
   if (currentNumber > "0") {
@@ -1506,31 +1496,6 @@ function addFieldTo6thPage(e) {
   $(page6First).val(currentValue);
   var fixedText = getEditedArticleAsPrefix(currentValue);
   $("#" + page6Second).val(fixedText);
-
-  // page6First = "#preArticle_" + String(currentNumber) + "_select";
-  // page6Second = "complain_" + String(parseInt(currentNumber)) + "_select";
-  // if ($(page6First).val() && $(page6First).val().length > 1) {
-  //   $(page6First).val(currentValue);
-  //   page6AreaElement = document.getElementById(page6Second);
-  //   var fixedText = getEditedArticleAsPrefix(currentValue);
-  //   selectedTextValue = $("#" + page6Second).val(fixedText);
-  // } else {
-  //   if (currentNumber > 0) {
-  //     buttonElementId = "addButton_6_" + String(parseInt(currentNumber) - 1);
-  //     document.getElementById(buttonElementId).click();
-  //     $(page6First).val(currentValue);
-  //   } else {
-  //     $(page6First).val(currentValue);
-  //   }
-  // }
-}
-
-function getEditedArticleAsPrefix(initialText) {
-  var initialArrayPart = initialText.split(" - ")[0];
-  var articleNameAsArray = initialArrayPart.split(" ");
-  editedArray = articleNameAsArray.map(changeLongWordToShortArticle);
-  editedString = editedArray.join(" ");
-  return editedString + " - ";
 }
 
 function changeLongWordToShortArticle(inputString) {
@@ -1541,4 +1506,19 @@ function changeLongWordToShortArticle(inputString) {
   } else {
     return inputString;
   }
+}
+
+function getEditedArticleAsPrefix(initialText) {
+  var initialArrayPart = initialText.split(" - ")[0];
+  var articleNameAsArray = initialArrayPart.split(" ");
+  editedArray = articleNameAsArray.map(changeLongWordToShortArticle);
+  editedString = editedArray.join(" ");
+  finalString = getCheckedArticleAttachedToNumber(editedString);
+  return finalString;
+}
+
+function getCheckedArticleAttachedToNumber(initialArticleString) {
+  home = $(".inputOuter:checked").val();
+  console.log(home);
+  return initialArticleString + " * ";
 }

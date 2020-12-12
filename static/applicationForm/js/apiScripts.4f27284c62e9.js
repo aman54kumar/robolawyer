@@ -449,11 +449,6 @@ function getDerogationText(selectedArticle, tableElement) {
   curIndex = finalArticleArray.indexOf(selectedArticle);
   baseUrl = window.location.href.split("form/")[0];
   articleUrl = baseUrl + "static/applicationForm/apiFiles/countryArticle.json";
-
-  /* <tr>
-                        <td><div class="countryDiv"></div></td>
-                        <td ><div class="reservationDiv"></div></td>
-                      </tr> */
   axios({
     method: "get",
     url: articleUrl,
@@ -478,6 +473,7 @@ function getDerogationText(selectedArticle, tableElement) {
       );
       h6Element.innerHTML = currentCountry;
       pElement.innerHTML = countryData[currentCountry].Reservations[curIndex];
+      
       if (
         countryData.hasOwnProperty(currentCountry) &&
         countryData[currentCountry].Reservations.curIndex != "N/A"

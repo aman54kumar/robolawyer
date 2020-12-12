@@ -178,7 +178,7 @@ $("#page5Group").repeater({
   animationEasing: "swing",
   clearValues: true,
   afterAdd: function () {
-    callAPI(this.id); 
+    callAPI(this.id);
     cur_id = this.id;
     id_no = cur_id.split("_5_")[1];
     for (i = id_no; i >= 0; i--) {
@@ -1093,7 +1093,8 @@ function complaintKeyDown(event, element) {
   var getSelectedText =
     element.parentElement.parentElement.children[0].children[1].value;
 
-  var fixedText = getEditedArticleAsPrefix(getSelectedText);
+  var fixedText = getSelectedText;
+
   idTextArea = "#" + String(element.id);
   var cursorPosition = $(idTextArea).prop("selectionStart");
 
@@ -1130,11 +1131,10 @@ function complaintWrapper(
   var getSelectedText =
     element.parentElement.parentElement.children[0].children[1].value;
 
-  var fixedText = getEditedArticleAsPrefix(getSelectedText);
-  if (isComplaintInputElement && !element.value.startsWith(fixedText)) {
-    getSelectedText =
-      element.parentElement.parentElement.children[0].children[1].value;
+  // format fixed text
+  var fixedText = getSelectedText;
 
+  if (isComplaintInputElement && !element.value.startsWith(fixedText)) {
     element.value = fixedText + element.value;
     cursorPosition = fixedText.length + 1;
   }
@@ -1462,83 +1462,28 @@ function removeCharAt(text, pos) {
 }
 
 // function to add article value from page 5 to page 6.
-function addArticleToNextPage(e) {
-  currentElement = e.target;
-  currentValue = currentElement.value;
-  currentId = currentElement.id;
-  currentNumber = currentId.split("_")[1];
-  page6Id = "#preArticle_" + String(currentNumber) + "_select";
-  nextElementId = "article_" + String(parseInt(currentNumber) + 1) + "_select";
-  if ($(page6Id).val() && $(page6Id).val().length > 1) {
-    $(page6Id).val(currentValue);
-  } else {
-    if (currentNumber > 0) {
-      buttonElementId = "addButton_6_" + String(parseInt(currentNumber) - 1);
-      document.getElementById(buttonElementId).click();
-      $(page6Id).val(currentValue);
-    } else {
-      $(page6Id).val(currentValue);
-    }
-  }
-}
+// function addArticleToNextPage(e) {
+//   currentElement = e.target;
+//   currentValue = currentElement.value;
+//   currentId = currentElement.id;
+//   currentNumber = currentId.split("_")[1];
+//   page6Id = "#preArticle_" + String(currentNumber) + "_select";
+//   nextElementId = "article_" + String(parseInt(currentNumber) + 1) + "_select";
+//   if ($(page6Id).val() && $(page6Id).val().length > 1) {
+//     $(page6Id).val(currentValue);
+//   } else {
+//     if (currentNumber > 0) {
+//       buttonElementId = "addButton_6_" + String(parseInt(currentNumber) - 1);
+//       document.getElementById(buttonElementId).click();
+//       $(page6Id).val(currentValue);
+//     } else {
+//       $(page6Id).val(currentValue);
+//     }
+//   }
+// }
 
-function addFieldTo6thPage(e) {
-  currentElement = e.target;
-  currentValue = currentElement.value;
-  currentId = currentElement.id;
-  currentNumber = currentId.split("_")[1];
-
-  // if (currentNumber > 0) {
-  //   page6Prev = document.getElementById(
-  //     "complain_" + String(parseInt(currentNumber) - 1) + "_select"
-  //   );
-  //   page6PrevAddButtonId =
-  //     page6Prev.parentElement.parentElement.parentElement.parentElement
-  //       .parentElement.children[1].children[0].id;
-  //   document.getElementById(page6PrevAddButtonId).click();
-  // }
-  page6First = "#preArticle_" + String(currentNumber) + "_select";
-  page6Second = "complain_" + String(parseInt(currentNumber)) + "_select";
-  if (currentNumber > "0") {
-    buttonElementId = "addButton_6_" + String(parseInt(currentNumber) - 1);
-    document.getElementById(buttonElementId).click();
-  }
-  $(page6First).val(currentValue);
-  var fixedText = getEditedArticleAsPrefix(currentValue);
-  $("#" + page6Second).val(fixedText);
-
-  // page6First = "#preArticle_" + String(currentNumber) + "_select";
-  // page6Second = "complain_" + String(parseInt(currentNumber)) + "_select";
-  // if ($(page6First).val() && $(page6First).val().length > 1) {
-  //   $(page6First).val(currentValue);
-  //   page6AreaElement = document.getElementById(page6Second);
-  //   var fixedText = getEditedArticleAsPrefix(currentValue);
-  //   selectedTextValue = $("#" + page6Second).val(fixedText);
-  // } else {
-  //   if (currentNumber > 0) {
-  //     buttonElementId = "addButton_6_" + String(parseInt(currentNumber) - 1);
-  //     document.getElementById(buttonElementId).click();
-  //     $(page6First).val(currentValue);
-  //   } else {
-  //     $(page6First).val(currentValue);
-  //   }
-  // }
-}
-
-function getEditedArticleAsPrefix(initialText) {
-  var initialArrayPart = initialText.split(" - ")[0];
-  var articleNameAsArray = initialArrayPart.split(" ");
-  editedArray = articleNameAsArray.map(changeLongWordToShortArticle);
-  editedString = editedArray.join(" ");
-  return editedString + " - ";
-}
-
-function changeLongWordToShortArticle(inputString) {
-  if (inputString === "Article") {
-    return "Art.";
-  } else if (inputString === "Protocol") {
-    return "Prot.";
-  } else {
-    return inputString;
-  }
+function getCheckedArticleAttachedToNumber() {
+  home = $(".inputOuter:checked").val();
+  console.log(home);
+  // return initialArticleString + " * ";
 }

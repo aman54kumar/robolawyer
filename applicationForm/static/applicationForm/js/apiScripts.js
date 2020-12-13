@@ -15,23 +15,13 @@ function getEditedArticleAsPrefix(initialText) {
   var initialArrayPart = initialText.split(" - ")[0];
   var articleNameAsArray = initialArrayPart.split(" ");
   editedArray = articleNameAsArray.map(changeLongWordToShortArticle);
-  editedString = editedArray.join("");
+  editedString = editedArray.join(" ");
   // finalString = getCheckedArticleAttachedToNumber(editedString);
   return editedString;
 }
-function addFieldTo6thPage(cbParent, currentArticleID) {
-  currentElement = document.getElementById(currentArticleID);
-  currentValue = currentElement.value;
-  currentId = currentElement.id;
-  currentNumber = currentId.split("_")[1];
-  page6First = "#preArticle_" + String(currentNumber) + "_select";
-  page6Second = "complain_" + String(parseInt(currentNumber)) + "_select";
-  if (currentNumber > "0") {
-    buttonElementId = "addButton_6_" + String(parseInt(currentNumber) - 1);
-    document.getElementById(buttonElementId).click();
-  }
 
-  console.log(cbParent);
+function getCheckedArticlesList(cbParent) {
+  cbTDParent = cbParent.parentElement.parentElement;
   var mainCheckBoxes = Array.from(cbParent.children);
   var resultList = [];
   mainCheckBoxes.forEach((mainElement) => {
@@ -55,23 +45,50 @@ function addFieldTo6thPage(cbParent, currentArticleID) {
       resultList.push(resultString);
     }
   });
+  var alertText = cbTDParent.querySelector(".page5AlertText");
+  if (resultList.length == 0) {
+    alertText.classList.remove("is-hidden");
+  } else {
+    alertText.classList.add("is-hidden");
+  }
 
+  return resultList;
+}
+function addFieldTo6thPage(cbParent, currentArticleID) {
+  var mainCheckBoxes = Array.from(cbParent.children);
+  currentElement = document.getElementById(currentArticleID);
+  currentValue = currentElement.value;
+  currentId = currentElement.id;
+  currentNumber = currentId.split("_")[1];
+  page6First = "#preArticle_" + String(currentNumber) + "_select";
+  page6Second = "complain_" + String(parseInt(currentNumber)) + "_select";
+  if (currentNumber > "0") {
+    buttonElementId = "addButton_6_" + String(parseInt(currentNumber) - 1);
+    document.getElementById(buttonElementId).click();
+  }
+  resultList = getCheckedArticlesList(cbParent);
   var fixedText = getEditedArticleAsPrefix(currentValue);
-  fixedText += "[" + resultList.join(",") + "]";
-  fixedText += "-";
-  fixedLen = 26;
-  if (fixedText.length > fixedLen) {
-    fixedText =
-      fixedText.substring(0, fixedLen) +
-      "\n" +
-      fixedText.substring(fixedLen, fixedText.length);
+  if (mainCheckBoxes.length > 1) {
+    fixedText += "[" + resultList.join(",") + "]";
+    fixedText += "- ";
+    fixedLen = 26;
+    if (fixedText.length > fixedLen) {
+      fixedText =
+        fixedText.substring(0, fixedLen) +
+        "\n" +
+        fixedText.substring(fixedLen, fixedText.length);
+    }
+  } else {
+    fixedText += "- ";
   }
   $("#" + page6Second).val(fixedText);
   $(page6First).val(fixedText);
 }
 
-function onCheckArticleDesc(checkBox, cbParent, articleSelectID) {
-  console.log(cbParent);
+function onCheckArticleDesc(checkBox, cbParent, articleSelectID, isLabel) {
+  if (isLabel) {
+    checkBox.checked = !checkBox.checked;
+  }
   let parentNode = checkBox.parentNode;
   const cbDescendants = parentNode.querySelectorAll("input.articleCheck");
   for (let y = 0; y < cbDescendants.length; y++) {
@@ -616,9 +633,13 @@ function populateDiv(elId) {
   containerElement = document.getElementById(elId).parentElement.parentElement
     .parentElement.parentElement.parentElement.children[2].parentElement
     .children[2];
+
   tableElement = containerElement.children[2].children[0];
+
   containerElement.classList.remove("is-hidden");
-  selectedElement = document.getElementById(elId).value;
+  selectedElement = document.getElementById(elId);
+  selectTDElement = selectedElement.parentElement;
+  selectedElementValue = selectedElement.value;
 
   pElement = document.createElement("p");
   pElement.setAttribute(
@@ -628,11 +649,13 @@ function populateDiv(elId) {
   p2Element = document.createElement("p");
   p2Element.setAttribute("style", "text-align:justify");
 
-  descriptionElement = document.querySelector(".descDiv1");
+  descriptionElement = selectTDElement.querySelector(".descDiv1");
+  var alertText = selectTDElement.querySelector(".page5AlertText");
+  alertText.classList.remove("is-hidden");
   if (descriptionElement) {
     $.each(finalArticleArray, function (article) {
       textValue = finalArticleArray[article];
-      if (finalArticleArray[article] === selectedElement) {
+      if (finalArticleArray[article] === selectedElementValue) {
         if (tableElement.lastChild) {
           $(tableElement).empty();
         }
@@ -642,6 +665,7 @@ function populateDiv(elId) {
         }
         // full text
         let ulOuterElement = document.createElement("ul");
+        ulOuterElement.id = "ulOuterElement";
         for (i = 0; i < finalFullTextArray[article].length; i++) {
           let liOuterElement = document.createElement("li");
           let temp = finalFullTextArray[article][i];
@@ -652,17 +676,22 @@ function populateDiv(elId) {
           inputOuterElement.classList.add("inputOuter", "articleCheck");
           inputOuterElement.style.cssText =
             "margin-right: 10px; transform: scale(0.80);";
+
           if (!Array.isArray(temp.mainText)) {
             inputOuterElement.value = temp.mainText.substring(0, 1);
           }
-          inputOuterElement.addEventListener("change", () =>
-            onCheckArticleDesc(inputOuterElement, ulOuterElement, elId)
-          );
 
           labelOuterElement.htmlFor = "id";
           labelOuterElement.append(document.createTextNode(temp.mainText));
           labelOuterElement.style.cssText =
             "display: inline; font-size: 80% !important;";
+
+          inputOuterElement.addEventListener("change", (event) => {
+            onCheckArticleDesc(inputOuterElement, ulOuterElement, elId, false);
+          });
+          labelOuterElement.addEventListener("click", (event) => {
+            onCheckArticleDesc(inputOuterElement, ulOuterElement, elId, true);
+          });
 
           liOuterElement.append(inputOuterElement);
           liOuterElement.append(labelOuterElement);
@@ -678,14 +707,33 @@ function populateDiv(elId) {
               inputInnerElement.name = "innerInputList";
               inputInnerElement.id =
                 "innerInputList_" + String(temp.points.indexOf(point));
+
               inputInnerElement.classList.add("inputInner", "articleCheck");
               inputInnerElement.style.cssText =
                 "margin-right: 10px; transform: scale(0.80);";
               inputInnerElement.value = point.substring(1, 2);
 
-              inputInnerElement.addEventListener("change", () =>
-                onCheckArticleDesc(inputInnerElement, ulOuterElement, elId)
+              inputInnerElement.addEventListener("change", (event) =>
+                event.preventDefault()
               );
+              liInnerElement.addEventListener("click", (event) => {
+                event.stopPropagation();
+                onCheckArticleDesc(
+                  inputInnerElement,
+                  ulOuterElement,
+                  elId,
+                  false
+                );
+              });
+              labelInnerElement.addEventListener("click", (event) => {
+                event.stopPropagation();
+                onCheckArticleDesc(
+                  inputInnerElement,
+                  ulOuterElement,
+                  elId,
+                  true
+                );
+              });
 
               labelInnerElement.htmlFor = "id";
               labelInnerElement.append(document.createTextNode(point));

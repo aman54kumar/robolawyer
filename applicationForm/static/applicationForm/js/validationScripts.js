@@ -71,10 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
       //       $("input[name='page8[1][desc]']").val(
       //         "Document to supplement further details on the facts."
       //       );
-      //       $("input[name='page8[1][page]']").val(pageCount);
-      //     } else {
-      //       $("input[name='page8[0][date]']").val(
-      //         moment().format("DD-MM-YYYY")
+      //      eturn true;    moment().format("DD-MM-YYYY")
       //       );
       //       $("input[name='page8[0][title]']").val(
       //         "Extra pages for the Statement of Facts"
@@ -173,6 +170,9 @@ function checkValidation(cur) {
     }
   } else if (cur === 4) {
     if (onValidate("page5")) {
+      //
+      var outerElement = document.getElementById("ulOuterElement");
+      if (getCheckedArticlesList(outerElement).length == 0) return false;
       return true;
     }
   } else if (cur === 5) {

@@ -219,7 +219,6 @@ $("#page5Group").repeater({
       );
 
     // for removal of selected Element's value from page 6 on removal of input group on page 5
-
     getDeletingElementIdNumber = element
       .children()[1]
       .children[0].children[0].children[0].children[1].id.split("_")[1];
@@ -429,10 +428,6 @@ $("#stofFacts").textcounter({
   countDown: true,
   countDownText: "Characters Remaining: %d",
   countExtendedCharacters: true,
-  // maxcount: function (el) {
-  //   console.log(el);
-  //   // Swal.fire("hello");
-  // },
 });
 
 $("#stofFacts").on("input", function () {
@@ -1461,26 +1456,6 @@ function removeCharAt(text, pos) {
   return text.substring(0, pos) + text.substring(pos + 1);
 }
 
-// function to add article value from page 5 to page 6.
-// function addArticleToNextPage(e) {
-//   currentElement = e.target;
-//   currentValue = currentElement.value;
-//   currentId = currentElement.id;
-//   currentNumber = currentId.split("_")[1];
-//   page6Id = "#preArticle_" + String(currentNumber) + "_select";
-//   nextElementId = "article_" + String(parseInt(currentNumber) + 1) + "_select";
-//   if ($(page6Id).val() && $(page6Id).val().length > 1) {
-//     $(page6Id).val(currentValue);
-//   } else {
-//     if (currentNumber > 0) {
-//       buttonElementId = "addButton_6_" + String(parseInt(currentNumber) - 1);
-//       document.getElementById(buttonElementId).click();
-//       $(page6Id).val(currentValue);
-//     } else {
-//       $(page6Id).val(currentValue);
-//     }
-//   }
-// }
 
 function getCheckedArticleAttachedToNumber() {
   home = $(".inputOuter:checked").val();

@@ -64,7 +64,11 @@ function addFieldTo6thPage(cbParent, currentArticleID) {
   page6Second = "complain_" + String(parseInt(currentNumber)) + "_select";
   if (currentNumber > "0") {
     buttonElementId = "addButton_6_" + String(parseInt(currentNumber) - 1);
-    document.getElementById(buttonElementId).click();
+    buttonElement = document.getElementById(buttonElementId);
+    nextElementButtonId = "addButton_6_" + String(parseInt(currentNumber));
+    if (!document.body.contains(document.getElementById(nextElementButtonId))) {
+      document.getElementById(buttonElementId).click();
+    }
   }
   resultList = getCheckedArticlesList(cbParent);
   var fixedText = getEditedArticleAsPrefix(currentValue);
@@ -134,66 +138,6 @@ function onCheckArticleDesc(checkBox, cbParent, articleSelectID, isLabel) {
 function getSelectedCheckboxes() {
   $(".articleCheck:checked");
 }
-
-// var descDiv = document.querySelector(".descDiv1");
-// descDiv.addEventListener("change", function (event) {
-//   // console.log(event);
-//   if (event.target.classList.value.includes("articleCheck")) {
-//     let checkboxes = document.querySelectorAll(".articleCheck");
-
-//     for (let x = 0; x < checkboxes.length; x++) {
-//       // checkboxes[x].addEventListener("change", function (e) {
-//       //   console.log(e.target.value);
-//       // });
-
-//       checkboxes[x].addEventListener("change", function (e) {
-//         let parentNode = this.parentNode;
-//         console.log(parentNode);
-//         console.log("lol");
-//         const cbDescendants = parentNode.querySelectorAll("input.articleCheck");
-//         for (let y = 0; y < cbDescendants.length; y++) {
-//           cbDescendants[y].checked = this.checked;
-//           cbDescendants[y].indeterminate = false;
-//         }
-
-//         while (["ul", "li"].indexOf(parentNode.nodeName.toLowerCase()) >= 0) {
-//           const mainCb = parentNode.querySelector(
-//             ":scope > input.articleCheck"
-//           );
-
-//           if (mainCb && mainCb != this) {
-//             mainCb.checked = this.checked;
-
-//             const mainCbChildren = mainCb.parentNode.querySelectorAll(
-//               ".articleCheck"
-//             );
-//             const numTotal = mainCbChildren.length;
-
-//             let numChecked = 0;
-//             for (let z = 0; z < mainCbChildren.length; z++) {
-//               numChecked += mainCbChildren[z].checked;
-//             }
-
-//             if (numTotal === numChecked) {
-//               mainCb.indeterminate = false;
-//               mainCb.checked = true;
-//             } else {
-//               if (numChecked === 0) {
-//                 mainCb.indeterminate = false;
-//                 mainCb.checked = false;
-//               } else {
-//                 mainCb.indeterminate = true;
-//                 mainCb.checked = false;
-//               }
-//             }
-//           }
-
-//           parentNode = parentNode.parentNode;
-//         }
-//       });
-//     }
-//   }
-// });
 
 var finalArticleArray = [];
 var finalFullTextArray = [];

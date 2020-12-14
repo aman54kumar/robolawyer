@@ -147,7 +147,6 @@ class PrepareResult:
 
         # input for complaints page
         complains = self.inputObj["page6"]
-        print(complains)
         # processing of page 6
         complainSelectList = []
         remediesUsedList = []
@@ -159,11 +158,11 @@ class PrepareResult:
                 remediesUsedList.append(value)
 
         # test
-        for i in range(2):
-            complainSelectList.append(complainSelectList[0])
-            remediesUsedList.append(remediesUsedList[0])
+        # for i in range(2):
+        #     complainSelectList.append(complainSelectList[0])
+        #     remediesUsedList.append(remediesUsedList[0])
         # close test
-
+        print(complainSelectList)
         finalStringPage10 = extractStringFromList(complainSelectList,
                                                   remediesUsedList, tabEscape,
                                                   lineEscape)

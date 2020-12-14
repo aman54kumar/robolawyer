@@ -115,9 +115,8 @@ class PrepareResult:
                                             articleExplanationList, tabEscape,
                                             lineEscape)
 
-        # print(repr(finalString))
         articleLineList = finalString.split(lineEscape)
-        # print(articleLineList)
+
         no_of_lines_first_page = 54
         no_of_lines_second_page = 54
         articleFirstPage = []
@@ -148,6 +147,7 @@ class PrepareResult:
 
         # input for complaints page
         complains = self.inputObj["page6"]
+        print(complains)
         # processing of page 6
         complainSelectList = []
         remediesUsedList = []

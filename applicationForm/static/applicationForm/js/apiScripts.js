@@ -1,23 +1,33 @@
 // selects all child input checkboxes and applies the checked
 // item of the one that has been clicked on
 
-function changeLongWordToShortArticle(inputString) {
-  if (inputString === "Article") {
-    return "Art.";
-  } else if (inputString === "Protocol") {
-    return "Prot.";
-  } else {
-    return inputString;
-  }
-}
+// function changeLongWordToShortArticle(inputString) {
+//   if (inputString === "Article") {
+//     return "Art.";
+//   } else if (inputString === "Protocol") {
+//     return "Prot.";
+//   } else {
+//     return inputString;
+//   }
+// }
 
 function getEditedArticleAsPrefix(initialText) {
   var initialArrayPart = initialText.split(" - ")[0];
   var articleNameAsArray = initialArrayPart.split(" ");
-  editedArray = articleNameAsArray.map(changeLongWordToShortArticle);
-  editedString = editedArray.join(" ");
-  // finalString = getCheckedArticleAttachedToNumber(editedString);
-  return editedString;
+  if (articleNameAsArray.includes("Protocol")) {
+    return (
+      articleNameAsArray[3] +
+      " " +
+      articleNameAsArray[5] +
+      " " +
+      articleNameAsArray[0] +
+      " " +
+      articleNameAsArray[1] +
+      "."
+    );
+  } else {
+    return articleNameAsArray[0] + " " + articleNameAsArray[1] + ".";
+  }
 }
 
 function getCheckedArticlesList(cbParent) {
@@ -73,7 +83,7 @@ function addFieldTo6thPage(cbParent, currentArticleID) {
   resultList = getCheckedArticlesList(cbParent);
   var fixedText = getEditedArticleAsPrefix(currentValue);
   if (mainCheckBoxes.length > 1) {
-    fixedText += "[" + resultList.join(",") + "]";
+    fixedText += resultList.join(",");
     fixedText += "- ";
     fixedLen = 26;
     if (fixedText.length > fixedLen) {
@@ -622,7 +632,7 @@ function populateDiv(elId) {
             "margin-right: 10px; transform: scale(0.80);";
 
           if (!Array.isArray(temp.mainText)) {
-            inputOuterElement.value = temp.mainText.substring(0, 1);
+            inputOuterElement.value = temp.mainText.substring(0, 2);
           }
 
           labelOuterElement.htmlFor = "id";

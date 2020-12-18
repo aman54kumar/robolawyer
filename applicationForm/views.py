@@ -106,15 +106,26 @@ def pdf_email(request):
         )
 
 
-def server_error(request):
-    response = render('applicationForm/templates/errors/500.html',
-                      context_instance=RequestContext(request))
-    response.status_code = 500
-    return response
-    # return render(request,
-    #               'applicationForm/templates/errors/404.html',
-    #               status=404)
+# def error_500(request):
+#     data = {}
+#     return render(request, 'applicationForm/errors/500.html', data)
 
+
+def error_500(request):
+    response = render(request, 'errors/500.html')
+    response.status_code = 500
+
+    return response
+
+
+# def server_error(request):
+#     response = render('errors/500.html',
+#                       context_instance=RequestContext(request))
+#     response.status_code = 500
+#     return response
+# return render(request,
+#               'applicationForm/templates/errors/404.html',
+#               status=404)
 
 # def handler500(request):
 #     return render(request,

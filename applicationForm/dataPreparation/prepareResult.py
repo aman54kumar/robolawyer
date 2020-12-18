@@ -162,7 +162,6 @@ class PrepareResult:
         #     complainSelectList.append(complainSelectList[0])
         #     remediesUsedList.append(remediesUsedList[0])
         # close test
-        print(complainSelectList)
         finalStringPage10 = extractStringFromList(complainSelectList,
                                                   remediesUsedList, tabEscape,
                                                   lineEscape)

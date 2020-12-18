@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import FormPageView, formProcessing, feedback, download, server_error, pdf_email
+from .views import FormPageView, formProcessing, feedback, download, error_500, pdf_email
 from django.conf.urls import handler400, handler500
 
 urlpatterns = [
@@ -10,5 +10,5 @@ urlpatterns = [
     path('email', pdf_email, name="pdf_email")
 ]
 
-# handler404 = handler404
-handler500 = server_error
+# handler404 =
+# handler500 = 'applicationForm.views.error_500'

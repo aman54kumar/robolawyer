@@ -9,7 +9,14 @@
         width: 400px;
     }
 </style>
+<script type="text/javascript">
+    if (!!window.performance && window.performance.navigation.type === 2) {
+        // value 2 means "The page was accessed by navigating into the history"
+        alert('Reloading');
+        window.location.reload(); // reload whole page
 
+    }
+</script>
 <script type="text/javascript">
     window.onload = function () {
         var modal = new RModal(document.getElementById('modal_finalPage'), {

@@ -15,18 +15,9 @@ function getEditedArticleAsPrefix(initialText) {
   var initialArrayPart = initialText.split(" - ")[0];
   var articleNameAsArray = initialArrayPart.split(" ");
   if (articleNameAsArray.includes("Protocol")) {
-    return (
-      articleNameAsArray[3] +
-      " " +
-      articleNameAsArray[5] +
-      " " +
-      articleNameAsArray[0] +
-      " " +
-      articleNameAsArray[1] +
-      "."
-    );
+    return "P" + articleNameAsArray[5] + "-" + articleNameAsArray[1] + "-";
   } else {
-    return articleNameAsArray[0] + " " + articleNameAsArray[1] + ".";
+    return articleNameAsArray[1] + "-";
   }
 }
 
@@ -45,13 +36,12 @@ function getCheckedArticlesList(cbParent) {
       var subCheckBoxes = Array.from(mainElement.children[2].children);
       subCheckBoxes.forEach((subElement) => {
         if (subElement.children[0].checked) {
-          // art1-1,2(a,b)
+          // Article 6-2-b and 6-3
           resultSubList.push(subElement.children[0].value);
         }
       });
-      var resultString = mainElement.children[0].value + "(";
+      var resultString = mainElement.children[0].value + "-";
       resultString += resultSubList.join(",");
-      resultString += ")";
       resultList.push(resultString);
     }
   });
@@ -83,8 +73,13 @@ function addFieldTo6thPage(cbParent, currentArticleID) {
   resultList = getCheckedArticlesList(cbParent);
   var fixedText = getEditedArticleAsPrefix(currentValue);
   if (mainCheckBoxes.length > 1) {
-    fixedText += resultList.join(",");
-    fixedText += "- ";
+    resultList = resultList.map((item) => fixedText + item);
+    if (fixedText[0] === "P") {
+      fixedText = resultList.join(" and ");
+    } else {
+      fixedText = "Article " + resultList.join(" and ");
+    }
+    fixedText += " : ";
     fixedLen = 26;
     if (fixedText.length > fixedLen) {
       fixedText =
@@ -632,7 +627,7 @@ function populateDiv(elId) {
             "margin-right: 10px; transform: scale(0.80);";
 
           if (!Array.isArray(temp.mainText)) {
-            inputOuterElement.value = temp.mainText.substring(0, 2);
+            inputOuterElement.value = temp.mainText.substring(0, 1);
           }
 
           labelOuterElement.htmlFor = "id";

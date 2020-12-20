@@ -91,15 +91,23 @@
                         data-parsley-group="page5"
                         data-pattern-name="page5[++][articleSelect]"
                         data-pattern-id="article_++_select"
-                        onchange="populateDiv(this.id); articleWrapper(this, 26, true); toggleAddButton(this);"
+                        onchange="populateDiv(this.id, '.descDiv1'); articleWrapper(this, 26, true); toggleAddButton(this);"
                       ></select> <br>
                       <div
                       class="descDiv1"
-                    >
+                        >
                     
-                  </div>
+                    </div>
+                  
                   <div class="is-hidden page5AlertText">
                     <p class="alert alert-danger">Please choose atleast 1 option</p>
+                  </div>
+                  <div class="conjArticle">
+                    <div class="secondSelectDiv">
+                    </div>
+                    <div class="is-hidden page5SecondAlertText">
+                      <p class="alert alert-danger">Please choose atleast 1 option</p>
+                    </div>
                   </div>
                     </td>
                     <td

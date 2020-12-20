@@ -1,16 +1,5 @@
 // selects all child input checkboxes and applies the checked
 // item of the one that has been clicked on
-
-// function changeLongWordToShortArticle(inputString) {
-//   if (inputString === "Article") {
-//     return "Art.";
-//   } else if (inputString === "Protocol") {
-//     return "Prot.";
-//   } else {
-//     return inputString;
-//   }
-// }
-
 function getEditedArticleAsPrefix(initialText) {
   var initialArrayPart = initialText.split(" - ")[0];
   var articleNameAsArray = initialArrayPart.split(" ");
@@ -45,16 +34,17 @@ function getCheckedArticlesList(cbParent) {
       resultList.push(resultString);
     }
   });
-  var alertText = cbTDParent.querySelector(".page5AlertText");
-  if (resultList.length == 0) {
-    alertText.classList.remove("is-hidden");
-  } else {
-    alertText.classList.add("is-hidden");
-  }
+  // var alertText = cbTDParent.querySelector(".page5AlertText");
+  // if (resultList.length == 0) {
+  //   alertText.classList.remove("is-hidden");
+  // } else {
+  //   alertText.classList.add("is-hidden");
+  // }
 
   return resultList;
 }
-function addFieldTo6thPage(cbParent, currentArticleID) {
+
+function addFieldTo6thPage(cbParent, currentArticleID, descDivClass) {
   var mainCheckBoxes = Array.from(cbParent.children);
   currentElement = document.getElementById(currentArticleID);
   currentValue = currentElement.value;
@@ -62,39 +52,79 @@ function addFieldTo6thPage(cbParent, currentArticleID) {
   currentNumber = currentId.split("_")[1];
   page6First = "#preArticle_" + String(currentNumber) + "_select";
   page6Second = "complain_" + String(parseInt(currentNumber)) + "_select";
-  if (currentNumber > "0") {
+  if (Number(currentNumber) > 0) {
     buttonElementId = "addButton_6_" + String(parseInt(currentNumber) - 1);
     buttonElement = document.getElementById(buttonElementId);
-    nextElementButtonId = "addButton_6_" + String(parseInt(currentNumber));
+    nextElementButtonId = "a ddButton_6_" + String(parseInt(currentNumber));
     if (!document.body.contains(document.getElementById(nextElementButtonId))) {
       document.getElementById(buttonElementId).click();
     }
   }
-  resultList = getCheckedArticlesList(cbParent);
+  var resultList = getCheckedArticlesList(cbParent);
   var fixedText = getEditedArticleAsPrefix(currentValue);
+  var preVal = "";
+
+  preVal = document.getElementById(page6Second).value.split("\n").join("");
+  preVal = preVal.substr(0, preVal.length - 3);
+  preValArray = preVal.split(" in Conjugation with ");
+  articleValue = preValArray[0];
+  conjugateValue = "";
+  if (preValArray.length == 2) conjugateValue = preValArray[1];
+  console.log(preVal);
+  console.log(preValArray);
+  // var conjText =
   if (mainCheckBoxes.length > 1) {
     resultList = resultList.map((item) => fixedText + item);
+
     if (fixedText[0] === "P") {
       fixedText = resultList.join(" and ");
     } else {
       fixedText = "Article " + resultList.join(" and ");
     }
+
+    if (descDivClass === ".descDiv1") {
+      fixedText =
+        fixedText +
+        (conjugateValue === "" ? "" : " in Conjugation with " + conjugateValue);
+    } else {
+      fixedText =
+        articleValue +
+        (fixedText === "" ? "" : " in Conjugation with " + fixedText);
+    }
+
     fixedText += " : ";
     fixedLen = 26;
-    if (fixedText.length > fixedLen) {
-      fixedText =
-        fixedText.substring(0, fixedLen) +
-        "\n" +
-        fixedText.substring(fixedLen, fixedText.length);
+    charCount = 0;
+
+    for (var i = 0; i < fixedText.length; i++) {
+      if (charCount == fixedLen) {
+        console.log("LOL");
+        fixedText =
+          fixedText.substring(0, i) +
+          "\n" +
+          fixedText.substring(i, fixedText.length);
+        charCount = 0;
+        i += 1;
+      } else {
+        charCount++;
+      }
     }
+    console.log(JSON.stringify(fixedText));
   } else {
     fixedText += "- ";
   }
+
   $("#" + page6Second).val(fixedText);
   $(page6First).val(fixedText);
 }
 
-function onCheckArticleDesc(checkBox, cbParent, articleSelectID, isLabel) {
+function onCheckArticleDesc(
+  checkBox,
+  cbParent,
+  articleSelectID,
+  descDivClass,
+  isLabel
+) {
   if (isLabel) {
     checkBox.checked = !checkBox.checked;
   }
@@ -137,7 +167,7 @@ function onCheckArticleDesc(checkBox, cbParent, articleSelectID, isLabel) {
 
     parentNode = parentNode.parentNode;
   }
-  addFieldTo6thPage(cbParent, articleSelectID);
+  addFieldTo6thPage(cbParent, articleSelectID, descDivClass);
 }
 
 function getSelectedCheckboxes() {
@@ -491,20 +521,68 @@ var countryArticle = function (baseUrl) {
   // end ratification date
 };
 
-function callAPI(addButtonID) {
-  elementNumber = parseInt(addButtonID.split("_")[2]);
-  correspDropdownElement = $(
-    "#article_" + String(elementNumber + 1) + "_select"
-  );
-  var curValueArray = [];
-  for (i = 0; i < elementNumber + 1; i++) {
-    curValueArray.push($("#article_" + String(i) + "_select").val());
-  }
-
+function callAPI(addButtonIDornewDiv) {
   data = finalArticleArray;
-  correspDropdownElement
-    .empty()
-    .append(
+  if (
+    document.getElementById(addButtonIDornewDiv) &&
+    document.getElementById(addButtonIDornewDiv).classList.contains("a-btnAdd")
+  ) {
+    elementNumber = parseInt(addButtonIDornewDiv.split("_")[2]);
+    correspDropdownElement = $(
+      "#article_" + String(elementNumber + 1) + "_select"
+    );
+    var curValueArray = [];
+    for (i = 0; i < elementNumber + 1; i++) {
+      curValueArray.push($("#article_" + String(i) + "_select").val());
+    }
+    correspDropdownElement
+      .empty()
+      .append(
+        $("<option></option>")
+          .prop("value", "")
+          .prop("disabled", true)
+          .prop("selected", true)
+          .prop("hidden", true)
+          .text("Select Relevant Article")
+      );
+    $.each(data, function (article) {
+      textValue = data[article];
+      if (textValue === "Other articles" || curValueArray.includes(textValue)) {
+        correspDropdownElement.append(
+          $("<option></option>")
+            .prop("disabled", true)
+            .addClass("dropdown-item")
+            .text(textValue)
+        );
+      } else {
+        correspDropdownElement.append(
+          $("<option></option>")
+            .prop("value", textValue)
+            .addClass("dropdown-item")
+            .text(textValue)
+        );
+      }
+    });
+  } else {
+    // TODO - ensure select is used once only, make condition.
+    newDropdownElement = document.createElement("select");
+    // console.log(addButt);
+    parentSelectId =
+      addButtonIDornewDiv.parentElement.parentElement.children[1].id;
+    childSelectId = parentSelectId + "_conj";
+    newDropdownElement.id = childSelectId;
+    console.log(addButtonIDornewDiv);
+    correspDropdownElement = addButtonIDornewDiv.insertBefore(
+      newDropdownElement,
+      addButtonIDornewDiv.children[1]
+    );
+    newDropdownElement.addEventListener("change", () => {
+      console.log("fds");
+      populateDiv(childSelectId, ".descDiv2");
+    });
+
+    correspDropdownElement = $(correspDropdownElement);
+    correspDropdownElement.append(
       $("<option></option>")
         .prop("value", "")
         .prop("disabled", true)
@@ -512,24 +590,25 @@ function callAPI(addButtonID) {
         .prop("hidden", true)
         .text("Select Relevant Article")
     );
-  $.each(data, function (article) {
-    textValue = data[article];
-    if (textValue === "Other articles" || curValueArray.includes(textValue)) {
-      correspDropdownElement.append(
-        $("<option></option>")
-          .prop("disabled", true)
-          .addClass("dropdown-item")
-          .text(textValue)
-      );
-    } else {
-      correspDropdownElement.append(
-        $("<option></option>")
-          .prop("value", textValue)
-          .addClass("dropdown-item")
-          .text(textValue)
-      );
-    }
-  });
+    $.each(data, function (article) {
+      textValue = data[article];
+      if (textValue === "Other articles") {
+        correspDropdownElement.append(
+          $("<option></option>")
+            .prop("disabled", true)
+            .addClass("dropdown-item")
+            .text(textValue)
+        );
+      } else {
+        correspDropdownElement.append(
+          $("<option></option>")
+            .prop("value", textValue)
+            .addClass("dropdown-item")
+            .text(textValue)
+        );
+      }
+    });
+  }
 }
 
 function getDerogationText(selectedArticle, tableElement) {
@@ -578,17 +657,46 @@ function getDerogationText(selectedArticle, tableElement) {
   });
 }
 
-function populateDiv(elId) {
-  containerElement = document.getElementById(elId).parentElement.parentElement
-    .parentElement.parentElement.parentElement.children[2].parentElement
-    .children[2];
+function populateDiv(elId, descDivClass) {
+  selectedElement = document.getElementById(elId);
+  selectTDElement = selectedElement.parentElement;
+  selectedElementValue = selectedElement.value;
+  conjDivElement = selectTDElement.parentElement.querySelector(
+    ".secondSelectDiv"
+  );
+  if (descDivClass === ".descDiv1") {
+    alertText = selectTDElement.querySelector(".page5AlertText");
+
+    containerElement = document.getElementById(elId).parentElement.parentElement
+      .parentElement.parentElement.parentElement.children[2].parentElement
+      .children[2];
+    $(conjDivElement).empty();
+    var descDiv2 = document.createElement("div");
+    descDiv2.classList.add("descDiv2");
+    conjDivElement.append(descDiv2);
+    // hide conj alert
+    conjDivElement.parentElement
+      .querySelector(".page5SecondAlertText")
+      .classList.add("is-hidden");
+  } else {
+    alertText = conjDivElement.parentElement.querySelector(
+      ".page5SecondAlertText"
+    );
+    containerElement = document.getElementById(elId).parentElement.parentElement
+      .parentElement.parentElement.parentElement.parentElement.parentElement
+      .children[2].parentElement.children[2];
+  }
 
   tableElement = containerElement.children[2].children[0];
 
   containerElement.classList.remove("is-hidden");
-  selectedElement = document.getElementById(elId);
-  selectTDElement = selectedElement.parentElement;
-  selectedElementValue = selectedElement.value;
+
+  // console.log(selectTDElement);
+
+  console.log(conjDivElement.parentElement);
+  if (conjDivElement.childElementCount === 1) {
+    conjunctionArticle(conjDivElement);
+  }
 
   pElement = document.createElement("p");
   pElement.setAttribute(
@@ -598,20 +706,32 @@ function populateDiv(elId) {
   p2Element = document.createElement("p");
   p2Element.setAttribute("style", "text-align:justify");
 
-  descriptionElement = selectTDElement.querySelector(".descDiv1");
-  var alertText = selectTDElement.querySelector(".page5AlertText");
+  descriptionElement = selectTDElement.querySelector(descDivClass);
+  var alertText;
+
   alertText.classList.remove("is-hidden");
   if (descriptionElement) {
     $.each(finalArticleArray, function (article) {
       textValue = finalArticleArray[article];
+
       if (finalArticleArray[article] === selectedElementValue) {
+        // if (descDivClass === ".descDiv1") {
+        //   if (descriptionElement.childElementCount != 0) {
+        //     $(descriptionElement).empty();
+        //   }
+        // } else {
+        //   if (descriptionElement.get.childElementCount != 0) {
+        //     $(descriptionElement).empty();
+        //   }
+        // }
         if (tableElement.lastChild) {
           $(tableElement).empty();
         }
-        getDerogationText(finalArticleArray[article], tableElement);
-        if (descriptionElement.lastChild) {
+        if (descriptionElement.childElementCount != 0) {
           $(descriptionElement).empty();
         }
+        getDerogationText(finalArticleArray[article], tableElement);
+
         // full text
         let ulOuterElement = document.createElement("ul");
         ulOuterElement.id = "ulOuterElement";
@@ -636,10 +756,22 @@ function populateDiv(elId) {
             "display: inline; font-size: 80% !important;";
 
           inputOuterElement.addEventListener("change", (event) => {
-            onCheckArticleDesc(inputOuterElement, ulOuterElement, elId, false);
+            onCheckArticleDesc(
+              inputOuterElement,
+              ulOuterElement,
+              elId,
+              descDivClass,
+              false
+            );
           });
           labelOuterElement.addEventListener("click", (event) => {
-            onCheckArticleDesc(inputOuterElement, ulOuterElement, elId, true);
+            onCheckArticleDesc(
+              inputOuterElement,
+              ulOuterElement,
+              elId,
+              descDivClass,
+              true
+            );
           });
 
           liOuterElement.append(inputOuterElement);
@@ -671,6 +803,7 @@ function populateDiv(elId) {
                   inputInnerElement,
                   ulOuterElement,
                   elId,
+                  descDivClass,
                   false
                 );
               });
@@ -680,6 +813,7 @@ function populateDiv(elId) {
                   inputInnerElement,
                   ulOuterElement,
                   elId,
+                  descDivClass,
                   true
                 );
               });
@@ -706,6 +840,20 @@ function populateDiv(elId) {
       }
     });
   }
+}
+
+function conjunctionArticle(parentDivElement) {
+  buttonElement = document.createElement("button");
+  buttonElement.innerHTML = "Add Conjunction Article";
+  buttonElement.style = "form-control";
+  console.log(parentDivElement);
+  parentDivElement.insertBefore(buttonElement, parentDivElement.children[0]);
+  buttonElement.addEventListener("click", () => {
+    callAPI(parentDivElement);
+    buttonElement.classList.add("is-hidden");
+
+    // TODO - get remove button
+  });
 }
 
 function checkUrlAndLoadAPI() {

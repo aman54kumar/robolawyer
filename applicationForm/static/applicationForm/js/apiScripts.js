@@ -573,6 +573,7 @@ function callAPI(addButtonIDornewDiv) {
       addButtonIDornewDiv.parentElement.parentElement.children[1].id;
     childSelectId = parentSelectId + "_conj";
     newDropdownElement.id = childSelectId;
+    newDropdownElement.classList += "form-control";
     correspDropdownElement = addButtonIDornewDiv.insertBefore(
       newDropdownElement,
       addButtonIDornewDiv.children[1]
@@ -842,7 +843,7 @@ function populateDiv(elId, descDivClass) {
 function conjunctionArticle(parentDivElement) {
   buttonElement = document.createElement("button");
   buttonElement.innerHTML = "Add Conjunction Article";
-  buttonElement.style = "form-control";
+  buttonElement.className += "btn btn-secondary";
   parentDivElement.insertBefore(buttonElement, parentDivElement.children[0]);
   buttonElement.addEventListener("click", () => {
     callAPI(parentDivElement);

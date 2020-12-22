@@ -34,12 +34,19 @@ function getCheckedArticlesList(cbParent) {
       resultList.push(resultString);
     }
   });
-  // var alertText = cbTDParent.querySelector(".page5AlertText");
-  // if (resultList.length == 0) {
-  //   alertText.classList.remove("is-hidden");
-  // } else {
-  //   alertText.classList.add("is-hidden");
-  // }
+
+  var alertText = "";
+  if (cbTDParent.tagName == "TD") {
+    alertText = cbTDParent.querySelector(".page5AlertText");
+  } else {
+    alertText = cbTDParent.parentElement.querySelector(".page5SecondAlertText");
+  }
+
+  if (resultList.length == 0) {
+    alertText.classList.remove("is-hidden");
+  } else {
+    alertText.classList.add("is-hidden");
+  }
 
   return resultList;
 }
@@ -70,8 +77,6 @@ function addFieldTo6thPage(cbParent, currentArticleID, descDivClass) {
   articleValue = preValArray[0];
   conjugateValue = "";
   if (preValArray.length == 2) conjugateValue = preValArray[1];
-  console.log(preVal);
-  console.log(preValArray);
   // var conjText =
   if (mainCheckBoxes.length > 1) {
     resultList = resultList.map((item) => fixedText + item);
@@ -98,7 +103,6 @@ function addFieldTo6thPage(cbParent, currentArticleID, descDivClass) {
 
     for (var i = 0; i < fixedText.length; i++) {
       if (charCount == fixedLen) {
-        console.log("LOL");
         fixedText =
           fixedText.substring(0, i) +
           "\n" +
@@ -109,7 +113,6 @@ function addFieldTo6thPage(cbParent, currentArticleID, descDivClass) {
         charCount++;
       }
     }
-    console.log(JSON.stringify(fixedText));
   } else {
     fixedText += "- ";
   }
@@ -566,18 +569,15 @@ function callAPI(addButtonIDornewDiv) {
   } else {
     // TODO - ensure select is used once only, make condition.
     newDropdownElement = document.createElement("select");
-    // console.log(addButt);
     parentSelectId =
       addButtonIDornewDiv.parentElement.parentElement.children[1].id;
     childSelectId = parentSelectId + "_conj";
     newDropdownElement.id = childSelectId;
-    console.log(addButtonIDornewDiv);
     correspDropdownElement = addButtonIDornewDiv.insertBefore(
       newDropdownElement,
       addButtonIDornewDiv.children[1]
     );
     newDropdownElement.addEventListener("change", () => {
-      console.log("fds");
       populateDiv(childSelectId, ".descDiv2");
     });
 
@@ -691,9 +691,6 @@ function populateDiv(elId, descDivClass) {
 
   containerElement.classList.remove("is-hidden");
 
-  // console.log(selectTDElement);
-
-  console.log(conjDivElement.parentElement);
   if (conjDivElement.childElementCount === 1) {
     conjunctionArticle(conjDivElement);
   }
@@ -846,7 +843,6 @@ function conjunctionArticle(parentDivElement) {
   buttonElement = document.createElement("button");
   buttonElement.innerHTML = "Add Conjunction Article";
   buttonElement.style = "form-control";
-  console.log(parentDivElement);
   parentDivElement.insertBefore(buttonElement, parentDivElement.children[0]);
   buttonElement.addEventListener("click", () => {
     callAPI(parentDivElement);

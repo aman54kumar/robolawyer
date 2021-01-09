@@ -62,7 +62,7 @@ function addFieldTo6thPage(cbParent, currentArticleID, descDivClass) {
   if (Number(currentNumber) > 0) {
     buttonElementId = "addButton_6_" + String(parseInt(currentNumber) - 1);
     buttonElement = document.getElementById(buttonElementId);
-    nextElementButtonId = "a ddButton_6_" + String(parseInt(currentNumber));
+    nextElementButtonId = "addButton_6_" + String(parseInt(currentNumber));
     if (!document.body.contains(document.getElementById(nextElementButtonId))) {
       document.getElementById(buttonElementId).click();
     }
@@ -80,7 +80,6 @@ function addFieldTo6thPage(cbParent, currentArticleID, descDivClass) {
   // var conjText =
   if (mainCheckBoxes.length > 1) {
     resultList = resultList.map((item) => fixedText + item);
-
     if (fixedText[0] === "P") {
       fixedText = resultList.join(" and ");
     } else {
@@ -114,7 +113,41 @@ function addFieldTo6thPage(cbParent, currentArticleID, descDivClass) {
       }
     }
   } else {
-    fixedText += "- ";
+    // resultList = resultList.map((item) => fixedText + item);
+    // console.log(resultList);
+    // console.log(fixedText);
+    if (fixedText[0] === "P") {
+      fixedText = fixedText;
+    } else {
+      fixedText = "Article " + fixedText.substring(0, fixedText.length - 1);
+    }
+    if (descDivClass === ".descDiv1") {
+      fixedText =
+        fixedText +
+        (conjugateValue === "" ? "" : " in Conjugation with " + conjugateValue);
+    } else {
+      fixedText =
+        articleValue +
+        (fixedText === "" ? "" : " in Conjugation with " + fixedText);
+    }
+
+    fixedText += " : ";
+    fixedLen = 26;
+    charCount = 0;
+
+    for (var i = 0; i < fixedText.length; i++) {
+      if (charCount == fixedLen) {
+        fixedText =
+          fixedText.substring(0, i) +
+          "\n" +
+          fixedText.substring(i, fixedText.length);
+        charCount = 0;
+        i += 1;
+      } else {
+        charCount++;
+      }
+    }
+    // fixedText += " ";
   }
 
   $("#" + page6Second).val(fixedText);

@@ -1,11 +1,17 @@
 {% extends 'home/base.html' %} {% load static %} {% block headContent %}
 
-<link rel="stylesheet" href="{% static 'applicationForm/css/formStyles.css' %}" />
- <link rel="stylesheet" href="{{ STATIC_URL }}/static/about/css/aboutUs.css" type="text/css" />
+<link
+  rel="stylesheet"
+  href="{% static 'applicationForm/css/formStyles.css' %}"
+/>
+<link
+  rel="stylesheet"
+  href="{{ STATIC_URL }}/static/about/css/aboutUs.css"
+  type="text/css"
+/>
 {% endblock headContent %} {% block content %}
 
 <div class="jumbotron jumbotron-core">
-
   <br />
   <h1 class="display-3" id="form-title">About Us</h1>
 
@@ -15,56 +21,58 @@
         <img src="{% static 'about/images/team.png' %}" width="20%;" />
       </div>
       <p class="lead ajustify" style="padding: 60px">
-        Just Bot aims to help complainants (and their lawyers) improve the
-        quality of their applications to the European Court of Human Rights;
-        currently many claims are rejected immediately, often for simple
-        mistakes, and only 5% reach the stage of receiving a judgement. In the
-        first phase, the project provides a digital tool in English that
-        automates the standard procedure and provides help along the way. In the
-        second phase, we aim to integrate different languages and algorithms to
-        automate the writing process.
-        <br />
-
-        Just Bot is based on a partnership between Tech-R and CELL/NRCCL
-        (Faculty of Law, University of Oslo). We would like to especially thank
-        Lovdata for financial support in the first phase and we are open to new
-        partners joining as the project moves forward.
+        Justbot aims to help applicants and their lawyers improve the quality of
+        their applications to the European Court of Human Rights. Since 2014,
+        over 30% of the applications processed by the Court were rejected as
+        incomplete in the pre-judicial phase, and of those entering the judicial
+        phase, only 5% reached the stage of receiving a judgement, while the
+        large majority was declared inadmissible or struck out of the list. The
+        development of Justbot is planned over several years and in several
+        phases. In the first phase, this project provides a digital tool in
+        English that automates the standard procedure and provides help along
+        the way. In later phases, we aim to integrate different language
+        versions and algorithms to automate the writing process. <br /><br />
+        Justbot is based on a partnership between Technology for Human Rights
+        (Tech-R) and the Center for Experiential Legal Learning (Faculty of Law,
+        University of Oslo).<br /><br />
+        Technology for Human Rights (Tech-R) is a non-profit organisation
+        founded by graduates of the Norwegian Centre for Human Rights (UiO) and
+        Informatics Institute (UiO). Tech-R is dedicated to finding ways of
+        using technology for the protection and fulfilment of human rights, and
+        this project is an important step in fulfilling our mission.
+        <br /><br />
+        The Center for Experiential Legal Learning (CELL) is a centre of
+        excellence in education at the Faculty of Law (UiO) and it supports
+        projects that combine law and technology. <br />
+        We would like to thank Lovdata/SERI for financial support and to the
+        staff and students at the Norwegian Center for Human Rights for their
+        cooperation in testing the digital form and providing their feedback. We
+        would like to extend our gratitude to Erik Møse, former judge at the
+        European Court of Human Rights, Kjetil Mujezinovic Larsen, professor of
+        human rights at the Faculty of Law and Luca Tosoni, Phd. fellow in
+        cybersecurity law at SERI for their contribution to the improvement of
+        Justbots digital form. <br /><br />
+        We are open to new partners joining as the project moves forward. If you
+        are interested in collaborating with us, you can reach us by email at
+        <a href="mailto:contact@justbot.org">contact@justbot.org .</a><br />
       </p>
 
       <br />
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-4">
-            <div class=" card about-jumbotron">
+            <div class="card about-jumbotron">
               <h4 class="font-weight-light ajustify">
                 <em>
-                  <a href="https://www.tech-r.org/" target="_blank">
-                    Tech-R (Technology for Human Rights)</a>
-                  is dedicated to finding ways of using technology for the
-                  protection and fulfilment of human rights, and this project is
-                  an important step in fulfilling our mission. <br />
-                  The team working on this project is led by Lelia Marcau, and
-                  Kumar Aman developed the website, Nabil Ouhi designed our logo
-                  and the entire graphics of the website, and Dan Costin is
-                  working on developing NLP algorithms that will help improve
-                  the quality of the applications to the ECtHR.
-                </em>
-              </h4>
-            </div>
-          </div>
-          <!-- Dan Costin is the brilliant mind behind the Machine Learning algorithms  -->
-          <div class="col-md-4">
-            <div class="card about-jumbotron">
-              <h4 class="font-weight-light ajustify">
-                <em>This project is a pilot for the new innovation lab at the
-                  Faculty of Law at the University of Oslo. The lab is hosted by
-                  the
-                  <a href="https://www.jus.uio.no/cell/" target="_blank">
-                    Centre for Experiential Legal Learning (CELL)</a>
-                  (A centre of excellence in education) and the Norwegian
-                  Research Center for Computers and Law (NRCCL). The project
-                  team is led by Professor Malcolm Langford together with Ph.D
-                  fellow Runar Lie.
+                  The Tech-R team working on this project is led by Lelia
+                  Marcau, who designed Justbot’s architecture and content. Kumar
+                  Aman developed the website and created the algorithms which
+                  generate the printable application form and Nina Pupalova
+                  carried out a full legal text review. Nabil Ouhi designed our
+                  logo and the graphics of the website, and Dan Costin is
+                  working on developing natural language processing algorithms
+                  that will help improve the quality of the applications to the
+                  ECtHR.
                 </em>
               </h4>
             </div>
@@ -72,9 +80,27 @@
           <div class="col-md-4">
             <div class="card about-jumbotron">
               <h4 class="font-weight-light ajustify">
-                <em>Andra Matei, the leader of Avant-Garde Lawyers and former
+                <em
+                  >The CELL team is led by Professor Malcolm Langford, who
+                  fundraised for the project and provided guidance throughout
+                  Justbot’s development. Ph.D. Runar Lie provided legal,
+                  technical and graphic design advice, and Professor Tobias
+                  Mahler provided advice on privacy and data protection. <br />
+                  Andra Matei, former lawyer at the European Court of Human
+                  Rights and current manager of Avant-Garde Lawyers undertook
+                  the legal quality assurance for our digital form.
+                </em>
+              </h4>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card about-jumbotron">
+              <h4 class="font-weight-light ajustify">
+                <em
+                  >Andra Matei, the leader of Avant-Garde Lawyers and former
                   lawyer at the European Court of Human Rights, undertook the
-                  legal quality assurance for our digital form.</em>
+                  legal quality assurance for our digital form.</em
+                >
               </h4>
             </div>
           </div>

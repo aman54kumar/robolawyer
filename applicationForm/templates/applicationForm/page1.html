@@ -14,13 +14,13 @@
         <div class="card-body">
           <div class="container">
             <p class="lead">
-              Please fill in this application form with utmost care. If you miss
-              something out or omit a relevant document, your application form
-              is likely to be rejected as incomplete. Sending an incomplete
-              application form does not interrupt the 6-month term required by
-              the Court which starts to run from the moment you or your
-              representative had sufficient knowledge of the final domestic
-              decision.
+              Please fill in this application form with utmost care. If you
+              leave something out or omit a relevant document, your application
+              form is likely to be rejected as incomplete. The European Court of
+              Human Rights assesses, in principle, only complete applications
+              sent within 6 months of receiving a final judgement from the
+              domestic courts. Sending an incomplete application form does not
+              interrupt the 6 months term required by the Court.
             </p>
             <br /><br />
           </div>
@@ -61,9 +61,7 @@
                       </option>
                       <option value="Croatia">Croatia</option>
                       <option value="Cyprus">Cyprus</option>
-                      <option value="Czech Republic">
-                        Czech Republic
-                      </option>
+                      <option value="Czech Republic">Czech Republic</option>
 
                       <option value="Denmark">Denmark</option>
 
@@ -88,9 +86,7 @@
                       <option value="Republic of Moldova">
                         Republic of Moldova
                       </option>
-                      <option value="North Macedonia">
-                        North Macedonia
-                      </option>
+                      <option value="North Macedonia">North Macedonia</option>
 
                       <option value="Montenegro">Montenegro</option>
                       <option value="Netherlands">Netherlands</option>
@@ -103,18 +99,14 @@
                       </option>
                       <option value="San Marino">San Marino</option>
                       <option value="Serbia">Serbia</option>
-                      <option value="Slovak Republic">
-                        Slovak Republic
-                      </option>
+                      <option value="Slovak Republic">Slovak Republic</option>
                       <option value="Slovenia">Slovenia</option>
                       <option value="Spain">Spain</option>
                       <option value="Sweden">Sweden</option>
                       <option value="Switzerland">Switzerland</option>
                       <option value="Turkey">Turkey</option>
                       <option value="Ukraine">Ukraine</option>
-                      <option value="United Kingdom">
-                        United Kingdom
-                      </option>
+                      <option value="United Kingdom">United Kingdom</option>
                     </select>
                   </div>
                 </div>
@@ -181,6 +173,42 @@
                       ></a>
                     </label>
                   </div>
+                  <div
+                    class="custom-control custom-radio custom-control-inline"
+                  >
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="concernYouIndividual"
+                      name="page1[concernYou]"
+                      value="Individual"
+                      data-parsley-errors-container="#error-container-concern"
+                      data-parsley-group="page1"
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="concernYouIndividual"
+                      >My client who is an individual person.
+                    </label>
+                  </div>
+                  <div
+                    class="custom-control custom-radio custom-control-inline"
+                  >
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="concernYouJuridical"
+                      name="page1[concernYou]"
+                      value="Juridical"
+                      data-parsley-errors-container="#error-container-concern"
+                      data-parsley-group="page1"
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="concernYouJuridical"
+                      >My client who is a juridical person.
+                    </label>
+                  </div>
                 </div>
               </div>
             </li>
@@ -188,18 +216,15 @@
               <div class="form-group">
                 <label class="lead">
                   <h5>
-                    When did the facts that you are complaining about start and
-                    when did they stop? <br />
-                    If they are still continuing, please select the current date
-                    in the second field.
+                    When did the alleged breach of European Convention on Human
+                    Rights that you are complaining about start and when did it
+                    stop? <br />If you are not sure whether or when the
+                    violation stopped, please select today’s date in the second
+                    field.
                   </h5>
                 </label>
                 <div class="row">
                   <div class="col-sm-6 input-group">
-                    <!-- <label for="decisionDate1"
-                      >Start &nbsp; &nbsp;&nbsp;&nbsp;</label
-                    > -->
-
                     <div class="input-daterange input-group" id="datepicker">
                       <input
                         type="text"
@@ -277,8 +302,8 @@
             </li>
             <li class="ordLists">
               <h5>
-                Were there available legal or administrative remedies capable of
-                remedying your situation that you have not used?
+                Were there available legal remedies capable of remedying your
+                situation that you have not used?
                 <a
                   href="javascript://"
                   data-toggle="popover"
@@ -385,6 +410,7 @@
                     id="referenceText"
                     maxlength="10"
                     data-parsley-group="page1"
+                    placeholder="Example: 123456/19"
                   />
                 </div>
               </div>

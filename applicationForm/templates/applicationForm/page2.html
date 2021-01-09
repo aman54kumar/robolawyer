@@ -18,7 +18,7 @@
               <label>
                 <br />
                 <p class="lead">
-                  Select the option appropriate for your situation and fill in
+                  Select the appropriate option for your situation and fill in
                   the requested details.
                 </p>
               </label>
@@ -61,7 +61,6 @@
                   value="Organisation"
                   data-parsley-group="page2"
                   data-parsley-required
-
                 />
                 <label class="custom-control-label" for="applicantTypeOrg">
                   <h4>
@@ -80,7 +79,6 @@
             </div>
           </div>
           <div class="center-content-error" id="IndOrgError"></div>
-         
 
           <div class="is-hidden" id="generalPage-2">
             <div class="is-hidden" id="indBeginner">
@@ -252,9 +250,11 @@
                 <div class="card-header">
                   <h4 class="card-header-title acenter">Organisation</h4>
                   <p class="lead">
-                    Fill in this part only if you’re a company, association, NGO
-                    or other legal entity. If you’re an individual, select
-                    "Individual" above.
+                    Fill in this part only if you are writing the application on
+                    behalf of a company, association, NGO or other legal entity.
+                    If you are complaining about breaches against an individual
+                    person, please select "Individual" above. In exceptional
+                    cases, the European Court of Human Rights might grant the
                   </p>
                 </div>
                 <div class="card-body">
@@ -334,6 +334,13 @@
                           placeholder="Date of registration or incorporation"
                         />
                       </div>
+                      <div>
+                        <textarea
+                          class="form-control is-hidden orgDateNoArea col-sm-10"
+                          name="page2[orgDateNoArea]"
+                          id="orgDateNoArea"
+                        ></textarea>
+                      </div>
                     </div>
                     <div class="col-sm-6 form-group">
                       Do you have an Identification Number?
@@ -364,10 +371,7 @@
                         >
                       </div>
                       <div class="form-group is-hidden orgIdentityDiv">
-                        <label
-                          >Please provide the Identification number (if
-                          any)</label
-                        >
+                        <label>Please provide the Identification number </label>
                         <input
                           class="form-control col-sm-6"
                           type="text"
@@ -376,6 +380,13 @@
                           maxlength="49"
                           id="orgID"
                         />
+                      </div>
+                      <div>
+                        <textarea
+                          class="form-control is-hidden orgIdentityNoArea col-sm-10"
+                          name="page2[orgIdentityNoArea]"
+                          id="orgIdentityNoArea"
+                        ></textarea>
                       </div>
                     </div>
                   </div>
@@ -441,9 +452,7 @@
                   name will appear on the documents related to your case that
                   are published by the Court. These documents are publicly
                   available. You can request not to disclose your identity to
-                  the public. The request has to be sent as an attachment to the
-                  Court and has to present reasons why making your identity
-                  public will affect/cause harm to you or another.
+                  the public.
                 </p>
               </label>
 
@@ -474,14 +483,25 @@
                 >
               </div>
               <div class="form-group applicantAnonReq is-hidden">
-                <label for=""
-                  >If you do not wish to disclose your identity, you need to
-                  explain the reasons that justify your request for anonymity.
-                  The Court decides whether you are granted anonymity or not.
-                  You should state in the request whether, in the event of
-                  anonymity being authorised by the President of the Chamber,
-                  you wish to be designated by your initials or by a single
-                  letter (e.g. “X”, “Y” or “Z”).
+                <label for="">
+                  <br />
+                  You need to explain the reasons that justify your request for
+                  anonymity, meaning that you must explain why publicising your
+                  identity may negatively affect or harm you or another. The
+                  Court decides whether you are granted anonymity or not. You
+                  should state in the request whether, in the event of anonymity
+                  being authorised by the President of the Chamber, you wish to
+                  be designated by your initials or by a single letter (e.g.
+                  “X”, “Y” or “Z”). <br />
+                  The Court expects to receive this document as an accompanying
+                  document to your application. We will generate this text as an
+                  additional document when you generate the application form and
+                  will automatically add the title and description of this
+                  document to the Supporting Document list on page 8. You may
+                  add any other documents supporting your request – medical
+                  records, witness testimonies, official records – both to the
+                  Supporting Documents list on page 8, and as a copy in the
+                  attachments to the application.
                 </label>
                 <textarea
                   class="form-control"

@@ -51,8 +51,25 @@ $("input[name='page2[orgDateOption]']").change(function () {
   result = this.value;
   if (result === "Yes") {
     $(".orgDateDiv").removeClass("is-hidden");
+    $(".orgDateNoArea").addClass("is-hidden");
   } else {
     $(".orgDateDiv").addClass("is-hidden");
+    $(".orgDateNoArea").removeClass("is-hidden");
+    var popUpText = document.createElement("div");
+    popUpText.style.textAlign = "justify";
+    popUpText.innerHTML =
+      "If you do not have a registration/incorporation date of your organisation, you must provide an explanation as to why this information is missing and send the document containing this explanation as an accompanying document to your application. <br/>       We will generate the text you enter in the below field as  an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You may add any other documents supporting your explanation both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.";
+    Swal.fire({
+      showConfirmButton: true,
+      confirmButtonText: "OK",
+      showCancelButton: false,
+      html: popUpText,
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      allowEnterKey: false,
+      padding: "4rem 1.5rem 3rem 1.5rem",
+      width: "60rem",
+    });
   }
 });
 
@@ -62,6 +79,22 @@ $("input[name='page2[orgIdentityOption]']").change(function () {
     $(".orgIdentityDiv").removeClass("is-hidden");
   } else {
     $(".orgIdentityDiv").addClass("is-hidden");
+    $(".orgIdentityNoArea").removeClass("is-hidden");
+    var popUpText = document.createElement("div");
+    popUpText.style.textAlign = "justify";
+    popUpText.innerHTML =
+      "If you do not have the identification number of your organisation, you must provide an explanation as to why this information is missing and send the document containing this explanation as an accompanying document to your application. <br/>       We will generate the text you enter in the below field as  an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You may add any other documents supporting your explanation both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.";
+    Swal.fire({
+      showConfirmButton: true,
+      confirmButtonText: "OK",
+      showCancelButton: false,
+      html: popUpText,
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      allowEnterKey: false,
+      padding: "4rem 1.5rem 3rem 1.5rem",
+      width: "60rem",
+    });
   }
 });
 
@@ -302,38 +335,34 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     };
     docObject.push(official);
   }
-  if (docObject.length === 1) {
-    $("input[name='page8[0][date]']").val(docObject[0].date);
-    $("input[name='page8[0][title]']").val(docObject[0].title);
-    $("input[name='page8[0][desc]']").val(docObject[0].desc);
-    $("input[name='page8[0][page]']").val(docObject[0].page);
-  } else if (docObject.length === 2) {
-    document.getElementById("addButton_8_0").click();
-    $("input[name='page8[0][date]']").val(docObject[0].date);
-    $("input[name='page8[0][title]']").val(docObject[0].title);
-    $("input[name='page8[0][desc]']").val(docObject[0].desc);
-    $("input[name='page8[0][page]']").val(docObject[0].page);
-    //
-    $("input[name='page8[1][date]']").val(docObject[1].date);
-    $("input[name='page8[1][title]']").val(docObject[1].title);
-    $("input[name='page8[1][desc]']").val(docObject[1].desc);
-    $("input[name='page8[1][page]']").val(docObject[1].page);
-  } else if (docObject.length === 3) {
-    document.getElementById("addButton_8_0").click();
-    $("input[name='page8[0][date]']").val(docObject[0].date);
-    $("input[name='page8[0][title]']").val(docObject[0].title);
-    $("input[name='page8[0][desc]']").val(docObject[0].desc);
-    $("input[name='page8[0][page]']").val(docObject[0].page);
-    document.getElementById("addButton_8_1").click();
-    $("input[name='page8[1][date]']").val(docObject[1].date);
-    $("input[name='page8[1][title]']").val(docObject[1].title);
-    $("input[name='page8[1][desc]']").val(docObject[1].desc);
-    $("input[name='page8[1][page]']").val(docObject[1].page);
-
-    $("input[name='page8[2][date]']").val(docObject[2].date);
-    $("input[name='page8[2][title]']").val(docObject[2].title);
-    $("input[name='page8[2][desc]']").val(docObject[2].desc);
-    $("input[name='page8[2][page]']").val(docObject[2].page);
+  if (!!$("#orgDateNoArea").val()) {
+    orgRegText = {
+      date: moment().format("DD-MM-YYYY"),
+      title: "Explanation for missing registration/incorporation no.",
+      desc:
+        "Organisation does not possess a registration/incorporation number.",
+      page: 1,
+    };
+    docObject.push(orgRegText);
+  }
+  if (!!$("#orgIdentityNoArea").val()) {
+    orgRegText = {
+      date: moment().format("DD-MM-YYYY"),
+      title: "Explanation for missing identification number.",
+      desc: "Organisation does not possess an identification number.",
+      page: 1,
+    };
+    docObject.push(orgRegText);
+  }
+  var docObjectLength = docObject.length;
+  for (var i = 0; i < docObjectLength; i++) {
+    if ($(`#addButton_8_${i - 1}`).length) {
+      $(`#addButton_8_${i - 1}`).click();
+    }
+    $(`input[name='page8[${i}][date]']`).val(docObject[i].date);
+    $(`input[name='page8[${i}][title]']`).val(docObject[i].title);
+    $(`input[name='page8[${i}][desc]']`).val(docObject[i].desc);
+    $(`input[name='page8[${i}][page]']`).val(docObject[i].page);
   }
 });
 
@@ -1455,7 +1484,6 @@ function insertCharAt(text, ch, pos) {
 function removeCharAt(text, pos) {
   return text.substring(0, pos) + text.substring(pos + 1);
 }
-
 
 function getCheckedArticleAttachedToNumber() {
   home = $(".inputOuter:checked").val();

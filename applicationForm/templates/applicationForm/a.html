@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-sm-12">
+    <label>
+      <br />
+      <p class="lead">
+        Are both the applicant and the representative able to sign the Authority
+        form (power of attorney)? <br />
+        If the applicant is a child or otherwise legally or physically unable to
+        sign the authority, then the authority form may be left unsigned,
+        however you must explain that this is the case - choose NO below and we
+        will help you with the additional steps.
+      </p>
+    </label>
+    <br />
+    <br />
+  </div>
+  <div class="col-sm-6 d-flex justify-content-center">
+    <div class="custom-control custom-radio custom-control-inline">
+      <input
+        type="radio"
+        class="custom-control-input"
+        id="indNLAuthorityQn1"
+        name="page3[indNLAuthorityQn]"
+        value="yes"
+        data-parsley-group="page3"
+        data-parsley-errors-container="indNLAuthorityError"
+      />
+      <label class="custom-control-label" for="indNLAuthorityQn1">
+        <h4>Yes</h4>
+      </label>
+    </div>
+  </div>
+  <div class="col-sm-6 d-flex justify-content-center">
+    <div class="custom-control custom-radio custom-control-inline">
+      <input
+        type="radio"
+        class="custom-control-input"
+        id="indNLAuthorityQn2"
+        name="page3[indNLAuthorityQn]"
+        value="no"
+        data-parsley-group="page3"
+        data-parsley-required
+      />
+      <label class="custom-control-label" for="indNLAuthorityQn2">
+        <h4>No</h4>
+      </label>
+    </div>
+  </div>
+  <div id="indNLAuthorityError"></div>
+</div>

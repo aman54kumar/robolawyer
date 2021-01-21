@@ -860,6 +860,14 @@ $("input[name='page9[signatureDeclaration]']").change(function () {
   }
 });
 
+// Review page
+$(".reviewButton").on("click", function () {
+  $(this).children("i").toggleClass("fa-angle-down");
+  $(this).children("i").toggleClass("fa-angle-right");
+  $(this).children("p").toggleClass("is-hidden");
+});
+// Review page end
+
 //  text format
 
 function formatTextWithoutDash(

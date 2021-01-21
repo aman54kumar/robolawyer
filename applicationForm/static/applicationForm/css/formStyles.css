@@ -292,3 +292,20 @@ label {
 .center-content-error {
   text-align: center;
 }
+
+.reviewButton {
+  width: 100%;
+}
+.reviewHeadPara {
+  text-align: left;
+}
+
+.reviewButtonNoChange {
+  font-weight: 400;
+  color: #007bff;
+  cursor: pointer;
+}
+
+.disabled-card {
+  pointer-events: none;
+}

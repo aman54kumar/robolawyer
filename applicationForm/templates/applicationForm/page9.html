@@ -9,12 +9,13 @@
     <div class="row">
       <div class="card-master col-sm-11">
         <div class="card-master-header">
-          <h4 class="card-header-title">Declaration and Signature</h4>
+          <h4 class="card-header-title">Other Comments and Declaration</h4>
         </div>
         <div class="card-body">
-          <label for="#formComments" class="lead">Any Other Comments</label>
           <div class="form-group aleft">
-            <p>Do you have any other comments about your application?</p>
+            <label class="lead"
+              >Do you have any other comments about your application?</label
+            >
             <div class="row justify-content-center">
               <textarea
                 class="limitedArea form-control lastAreas"
@@ -27,18 +28,30 @@
                 onpaste="limitLinesOnPaste(this);"
                 style="width: 100ch; padding: 10px"
               ></textarea>
+              <br />
             </div>
             <div class="row justify-content-center"></div>
           </div>
-          <label class="lead">Declaration and Signature</label>
+
           <div class="aleft">
-            <label
+            <label class="lead"
               >You must declare that, to the best of your knowledge and belief,
               the information you have given in the present application form is
               correct.</label
             >
             <div class="form-group">
-              <p>Who will correspond with the court?</p>
+              <label class="lead">Who will correspond with the court?</label>
+              <label class="lead">
+                The European Court of Human Rights will need to contact you in
+                order to inform you about the status of your application. The
+                Court may also need additional information from you in order to
+                process your application. For this reason it is very important
+                that you choose the preferred contact person with the Court in
+                such a manner that the communication is not delayed unnecessary.
+                Please keep in mind that failing to reply to the communications
+                from the Court may render your application incomplete or struck
+                out of the list of applications.
+              </label>
               <div class="custom-control custom-radio custom-control-inline">
                 <input
                   type="radio"
@@ -143,6 +156,11 @@
                     data-parsley-group="page9c"
                   />
                 </div>
+              </div>
+              <div class="text-center">
+                <br />
+                <br />
+                <label class="lead"><b>Signature</b></label>
               </div>
               <div class="alert alert-danger">
                 <h5 class="lead">

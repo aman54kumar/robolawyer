@@ -104,6 +104,38 @@ $("input[name='page2[orgIdentityOption]']").change(function () {
   }
 });
 
+$("#orgLFaxOption").on("change", (event) => {
+  var extraFaxDiv = document.getElementById("extraFaxDiv");
+  if ($(event.target).prop("checked")) {
+    $("#indLFax").prop("disabled", true);
+    indLFaxTextArea = document.createElement("textarea");
+    indLFaxTextArea.classList += "form-control";
+    indLFaxTextArea.id = "indLFaxTextArea";
+    indLFaxTextArea.placeholder =
+      "Please provide an explanation for unavailability of Fax number";
+    if (extraFaxDiv.children.length === 0) extraFaxDiv.append(indLFaxTextArea);
+    else extraFaxDiv.classList.remove("is-hidden");
+    var popUpText = document.createElement("div");
+    popUpText.style.textAlign = "justify";
+    popUpText.innerHTML =
+      "If you do not have a fax number, you must provide an explanation as to why this information is missing and send the document containing this explanation as an accompanying document to your application. <br/> We will generate the text you enter in the below field as  an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You may add any other documents supporting your explanation both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.";
+    Swal.fire({
+      showConfirmButton: true,
+      confirmButtonText: "OK",
+      showCancelButton: false,
+      html: popUpText,
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      allowEnterKey: false,
+      padding: "4rem 1.5rem 3rem 1.5rem",
+      width: "60rem",
+    });
+  } else {
+    extraFaxDiv.classList.add("is-hidden");
+    $("#indLFax").prop("disabled", false);
+  }
+});
+
 // ___________________Page4
 
 $("input[name='page3[indRepresentativeType]']").change(function () {
@@ -144,6 +176,7 @@ $("input[name='page3[indNLAuthorityQn]']").change(function () {
   noArea = document.getElementById("indNLAuthorityNo");
   var popUpText = document.createElement("div");
   if (result === "yes") {
+    $(noArea).empty();
     popUpText.style.textAlign = "justify";
     popUpText.innerHTML =
       "Please confirm you have read and understood that both you and your representative have to sign page 3 in the printed application form.";
@@ -163,7 +196,7 @@ $("input[name='page3[indNLAuthorityQn]']").change(function () {
       "Please explain in this textbox below why the applicant cannot sign the authority form. Please provide any additional documents that you deem necessary to support your case. <br/> We will generate this text as an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You must remember to add any other documents supporting your explanation – medical records, official documents – both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.";
     popUpText.append(document.createElement("br"));
     indNLAuthTextArea = document.createElement("textarea");
-    indNLAuthTextArea.classList.add("form-control");
+    indNLAuthTextArea.classList.add("form-control newPageTextArea");
     indNLAuthTextArea.id = "indNLAuthArea";
     popUpText.append(indNLAuthTextArea);
     popUpText.append(document.createElement("br"));
@@ -193,6 +226,47 @@ $("input[name='page3[indNLEmployedL]']").change(function () {
       allowEnterKey: false,
       padding: "4rem 1.5rem 3rem 1.5rem",
       width: "60rem",
+    });
+  }
+});
+
+$("input[name='page3[indLAuthorityPower]']").change(function () {
+  result = this.value;
+  if (result === "Yes") {
+    var popUpText = document.createElement("div");
+    popUpText.style.textAlign = "justify";
+    popUpText.innerHTML =
+      "Please confirm you have read and understood that both you and your representative have to sign page 3 in the printed application form.";
+    Swal.fire({
+      showConfirmButton: true,
+      confirmButtonText: "I CONFIRM",
+      showCancelButton: false,
+      html: popUpText,
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      allowEnterKey: false,
+      padding: "4rem 1.5rem 3rem 1.5rem",
+      width: "60rem",
+    });
+  } else {
+    var popUpText = document.createElement("div");
+    popUpText.style.textAlign = "justify";
+    popUpText.innerHTML =
+      "Is there another person (parent, close relative, guardian) sufficiently linked to the applicant who can act in the name of the applicant and authorise the representative? Preferably this is the same person as the non-lawyer representative of the applicant.";
+    Swal.fire({
+      showConfirmButton: true,
+      confirmButtonText: "Yes",
+      showDenyButton: true,
+      html: popUpText,
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      allowEnterKey: false,
+      padding: "4rem 1.5rem 3rem 1.5rem",
+      width: "60rem",
+    }).then((result) => {
+      if (result.isConfirmed) {
+      } else if (result.isDenied) {
+      }
     });
   }
 });
@@ -407,32 +481,42 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     docObject.push(official);
   }
   if (!!$("#orgDateNoArea").val()) {
-    orgRegText = {
+    orgDateText = {
       date: moment().format("DD-MM-YYYY"),
       title: "Explanation for missing registration/incorporation no.",
       desc:
         "Organisation does not possess a registration/incorporation number.",
       page: 1,
     };
-    docObject.push(orgRegText);
+    docObject.push(orgDateText);
   }
   if (!!$("#orgIdentityNoArea").val()) {
-    orgRegText = {
+    orgIdentityText = {
       date: moment().format("DD-MM-YYYY"),
       title: "Explanation for missing identification number.",
       desc: "Organisation does not possess an identification number.",
       page: 1,
     };
-    docObject.push(orgRegText);
+    docObject.push(orgIdentityText);
   }
   if (!!$("#indNLAuthArea").val()) {
-    orgRegText = {
+    orgNLAuthText = {
       date: moment().format("DD-MM-YYYY"),
       title: "Explanation for lack of authority form",
       desc: "applicant authorising the representative to represent him/her.",
       page: 1,
     };
-    docObject.push(orgRegText);
+    docObject.push(orgNLAuthText);
+  }
+  if (!!$("#indLFaxTextArea").val()) {
+    orgLFaxText = {
+      date: moment().format("DD-MM-YYYY"),
+      title: "Explanation for missing fax number",
+      desc:
+        "Document explaining why the lawyer cannot provide a fax number to the Court.",
+      page: 1,
+    };
+    docObject.push(orgLFaxText);
   }
   var docObjectLength = docObject.length;
   for (var i = 0; i < docObjectLength; i++) {
@@ -563,6 +647,30 @@ $("#stofFacts").on("input", function () {
       }
     });
   }
+});
+
+$("#deleteSupButton").on("click", function () {
+  var popUpDelSupplementary = document.createElement("div");
+  popUpDelSupplementary.style.textAlign = "justify";
+  popUpDelSupplementary.innerHTML =
+    "Are you sure you want to delete the Supplementary statement?";
+  Swal.fire({
+    showConfirmButton: true,
+    confirmButtonText: "Yes",
+    showCancelButton: true,
+    cancelButtonText: "No",
+    html: popUpDelSupplementary,
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    allowEnterKey: false,
+    padding: "4rem 1.5rem 3rem 1.5rem",
+    width: "60rem",
+  }).then(function (result) {
+    if (result.isConfirmed) {
+      $("#extraWritingArea").addClass("is-hidden");
+      $("#stofFactsExtra").val("");
+    }
+  });
 });
 
 $("#stofFactsExtra").textcounter({

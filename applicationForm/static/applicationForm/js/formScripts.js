@@ -150,6 +150,9 @@ $("input[name='page3[indRepresentativeType]']").change(function () {
     $(".indAuthority").removeClass("is-hidden");
     $("#indNLNationality").val("");
   } else if (result === "non-lawyer") {
+    if (!$("#nonLawyerRep").children()[0]) {
+      $("#containerDivForNonLawyer").appendTo("#nonLawyerRep");
+    }
     if ($("#indNLEmployedLYes").prop("checked", true)) {
       $("#indNLEmployedLYes").prop("checked", false);
     }
@@ -160,6 +163,7 @@ $("input[name='page3[indRepresentativeType]']").change(function () {
     $(".indAuthority").removeClass("is-hidden");
     $("#indLNationality").val("");
   } else if (result === "selfRepresented") {
+    $("#selfRep").removeClass("is-hidden");
     $("#reviewRepSelf").removeClass("is-hidden");
     $("#nonLawyerRep").addClass("is-hidden");
     $("#lawyerRep").addClass("is-hidden");
@@ -182,7 +186,7 @@ $("input[name='page3[indNLAuthorityQn]']").change(function () {
       "Please confirm you have read and understood that both you and your representative have to sign page 3 in the printed application form.";
     Swal.fire({
       showConfirmButton: true,
-      confirmButtonText: "I CONFIRM",
+      confirmButtonText: "I UNDERSTAND",
       showCancelButton: false,
       html: popUpText,
       allowOutsideClick: false,
@@ -196,7 +200,7 @@ $("input[name='page3[indNLAuthorityQn]']").change(function () {
       "Please explain in this textbox below why the applicant cannot sign the authority form. Please provide any additional documents that you deem necessary to support your case. <br/> We will generate this text as an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You must remember to add any other documents supporting your explanation – medical records, official documents – both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.";
     popUpText.append(document.createElement("br"));
     indNLAuthTextArea = document.createElement("textarea");
-    indNLAuthTextArea.classList.add("form-control newPageTextArea");
+    indNLAuthTextArea.classList.add("form-control", "newPageTextArea");
     indNLAuthTextArea.id = "indNLAuthArea";
     popUpText.append(indNLAuthTextArea);
     popUpText.append(document.createElement("br"));
@@ -212,27 +216,37 @@ $("input[name='page3[indNLEmployedL]']").change(function () {
   } else {
     $("#NLAuthorityAlertImage").removeClass("is-hidden");
     $("#containerDivForLawyer").appendTo("#lawyerRep");
-    var popUpText = document.createElement("div");
+    var NLEmployedLNoTextDiv = $("#NLEmployedLNoTextDiv");
+    NLEmployedLNoTextDiv.append(document.createElement("br"));
+    var popUpText = document.createElement("label");
+    popUpText.classList.add("lead");
     popUpText.style.textAlign = "justify";
+
     popUpText.innerHTML =
       "Even though you do not need a lawyer at this stage, if/when the application enters a judicial stage and hearings of the case are scheduled, the Court will expect the applicant to be represented by a lawyer. Depending on the particularities of the application, it might take up to several years until the application enters the judicial phase and hearings are scheduled. The Court will inform you if this is the case and if you need to contract a lawyer. If you wish to represent yourself in the Chamber hearings or you do not afford a lawyer, the President of the Chamber may offer special dispensation for you to present your own case in accordance to Rule 36, or you may be granted free legal aid in the conditions specified by Rule 105 (former Rule 100).";
-    Swal.fire({
-      showConfirmButton: true,
-      confirmButtonText: "I CONFIRM",
-      showCancelButton: false,
-      html: popUpText,
-      allowOutsideClick: false,
-      allowEscapeKey: false,
-      allowEnterKey: false,
-      padding: "4rem 1.5rem 3rem 1.5rem",
-      width: "60rem",
-    });
+    NLEmployedLNoTextDiv.append(popUpText);
+    NLEmployedLNoTextDiv.append(document.createElement("br"));
+    NLEmployedLNoDivDiv = document.createElement("div");
+    NLEmployedLNoCheckbox = document.createElement("input");
+    NLEmployedLNoCheckbox.type = "checkbox";
+    NLEmployedLNoCheckbox.classList.add("custom-control", "custom-checkbox");
+    NLEmployedLNoCheckbox.id = "NLEmployedLNoCheckbox";
+    NLEmployedLNoCheckbox.style = "margin-right: 20px";
+    var NLEmployedLNoCheckboxLabel = document.createElement("label");
+    NLEmployedLNoCheckboxLabel.setAttribute("for", "#NLEmployedLNoCheckbox");
+    NLEmployedLNoCheckboxLabel.innerHTML = "I CONFIRM";
+    NLEmployedLNoDivDiv.classList.add("d-flex", "flex-row");
+    NLEmployedLNoDivDiv.append(NLEmployedLNoCheckbox);
+    NLEmployedLNoDivDiv.append(NLEmployedLNoCheckboxLabel);
+    NLEmployedLNoTextDiv.append(NLEmployedLNoDivDiv);
+    NLEmployedLNoTextDiv.append(document.createElement("br"));
   }
 });
 
 $("input[name='page3[indLAuthorityPower]']").change(function () {
   result = this.value;
   if (result === "Yes") {
+    $("#LotherNL").addClass("is-hidden");
     var popUpText = document.createElement("div");
     popUpText.style.textAlign = "justify";
     popUpText.innerHTML =
@@ -249,26 +263,53 @@ $("input[name='page3[indLAuthorityPower]']").change(function () {
       width: "60rem",
     });
   } else {
-    var popUpText = document.createElement("div");
-    popUpText.style.textAlign = "justify";
-    popUpText.innerHTML =
-      "Is there another person (parent, close relative, guardian) sufficiently linked to the applicant who can act in the name of the applicant and authorise the representative? Preferably this is the same person as the non-lawyer representative of the applicant.";
-    Swal.fire({
-      showConfirmButton: true,
-      confirmButtonText: "Yes",
-      showDenyButton: true,
-      html: popUpText,
-      allowOutsideClick: false,
-      allowEscapeKey: false,
-      allowEnterKey: false,
-      padding: "4rem 1.5rem 3rem 1.5rem",
-      width: "60rem",
-    }).then((result) => {
-      if (result.isConfirmed) {
-      } else if (result.isDenied) {
-      }
-    });
+    $("#LotherNL").removeClass("is-hidden");
   }
+
+  $("input[name='page3[LotherNL]']").change(function () {
+    var result = this.value;
+    var noArea = document.getElementById("indLOtherNo");
+    var yesArea = document.getElementById("indLOtherYes");
+    var popUpText = document.createElement("div");
+    if (result === "yes") {
+      $("#containerDivForNonLawyer").appendTo("#LdivForAppendNL");
+      $("#LAuthorityAlertImage").addClass("is-hidden");
+      $(noArea).empty();
+      $("#indLOtherYes").removeClass("is-hidden");
+      $("#indLOtherNo").addClass("is-hidden");
+      if (yesArea.children.length < 1) {
+        popUpText.style.textAlign = "justify";
+        popUpText.innerHTML =
+          "Please explain in the textbox below why the applicant cannot sign the authority form. We will generate this text as an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You must remember to add any other documents supporting your explanation – medical records, official documents – both to the Supporting Documents list, and as a copy in the attachments to the application.";
+        popUpText.append(document.createElement("br"));
+        indLOtherTextArea = document.createElement("textarea");
+        indLOtherTextArea.classList.add("form-control", "newPageTextArea");
+        indLOtherTextArea.id = "indLAuthAreaYes";
+        popUpText.append(indLOtherTextArea);
+        popUpText.append(document.createElement("br"));
+        yesArea.append(popUpText);
+      }
+    } else {
+      $("#LAuthorityAlertImage").removeClass("is-hidden");
+      $("#containerDivForNonLawyer").appendTo("#nonLawyerRep");
+      $(yesArea).empty();
+      $("#indLOtherNo").removeClass("is-hidden");
+      $("#indLOtherYes").addClass("is-hidden");
+      if (noArea.children.length < 1) {
+        popUpText.style.textAlign = "justify";
+        popUpText.innerHTML =
+          "Please explain in this textbox below why the applicant cannot sing the authority form. Please provide any additional documents that you deem necessary to support your case. <br/> We will generate this text as an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You must remember to add any other documents supporting your explanation – medical records, official documents – both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.";
+
+        popUpText.append(document.createElement("br"));
+        indLOtherTextArea = document.createElement("textarea");
+        indLOtherTextArea.classList.add("form-control", "newPageTextArea");
+        indLOtherTextArea.id = "indLAuthAreaNo";
+        popUpText.append(indLOtherTextArea);
+        popUpText.append(document.createElement("br"));
+        noArea.append(popUpText);
+      }
+    }
+  });
 });
 
 $("input[name='page3[orgRepresentativeType]']").change(function () {
@@ -518,6 +559,26 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     };
     docObject.push(orgLFaxText);
   }
+
+  if (!!$("#indLAuthAreaYes").val()) {
+    orgLOtherYesText = {
+      date: moment().format("DD-MM-YYYY"),
+      title: "Explanation for lack of signature on the authority form",
+      desc: "applicant authorising the representative to represent him/her.",
+      page: 1,
+    };
+    docObject.push(orgLOtherYesText);
+  }
+  if (!!$("#indLAuthAreaNo").val()) {
+    orgLOtherNoText = {
+      date: moment().format("DD-MM-YYYY"),
+      title: "Explanation for lack of signature on the authority form",
+      desc: "applicant authorising the representative to represent him/her.",
+      page: 1,
+    };
+    docObject.push(orgLOtherNoText);
+  }
+
   var docObjectLength = docObject.length;
   for (var i = 0; i < docObjectLength; i++) {
     if ($(`#addButton_8_${i - 1}`).length) {

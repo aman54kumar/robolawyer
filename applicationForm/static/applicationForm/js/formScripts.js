@@ -174,8 +174,7 @@ $("input[name='page3[indNLAuthorityQn]']").change(function () {
       "<h5>Please explain in this textbox below why the applicant cannot sign the authority form. Please provide any additional documents that you deem necessary to support your case. <br/> We will generate this text as an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You must remember to add any other documents supporting your explanation – medical records, official documents – both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.</h5>";
     popUpText.append(document.createElement("br"));
     indNLAuthTextArea = document.createElement("textarea");
-
-    indNLAuthTextArea.addEventListener("input", () => {
+    indNLAuthTextArea.addEventListener("input", function () {
       this.style.height = "";
       this.style.height = this.scrollHeight + "px";
     });
@@ -219,7 +218,7 @@ $("input[name='page3[indNLEmployedL]']").change(function () {
     NLEmployedLNoCheckbox.style = "margin-right: 20px";
     var NLEmployedLNoCheckboxLabel = document.createElement("label");
     NLEmployedLNoCheckboxLabel.setAttribute("for", "#NLEmployedLNoCheckbox");
-    NLEmployedLNoCheckboxLabel.innerHTML = "I CONFIRM";
+    NLEmployedLNoCheckboxLabel.innerHTML = "I UNDERSTAND";
     NLEmployedLNoDivDiv.classList.add("d-flex", "flex-row");
     NLEmployedLNoDivDiv.append(NLEmployedLNoCheckbox);
     NLEmployedLNoDivDiv.append(NLEmployedLNoCheckboxLabel);
@@ -270,6 +269,10 @@ $("input[name='page3[LotherNL]']").change(function () {
       popUpText.append(document.createElement("br"));
       indLOtherTextArea = document.createElement("textarea");
       indLOtherTextArea.classList.add("form-control", "newPageTextArea");
+      indLOtherTextArea.addEventListener("input", function () {
+        this.style.height = "";
+        this.style.height = this.scrollHeight + "px";
+      });
       indLOtherTextArea.id = "indLAuthAreaYes";
       popUpText.append(indLOtherTextArea);
       popUpText.append(document.createElement("br"));
@@ -290,6 +293,10 @@ $("input[name='page3[LotherNL]']").change(function () {
       popUpText.append(document.createElement("br"));
       indLOtherTextArea = document.createElement("textarea");
       indLOtherTextArea.classList.add("form-control", "newPageTextArea");
+      indLOtherTextArea.addEventListener("input", function () {
+        this.style.height = "";
+        this.style.height = this.scrollHeight + "px";
+      });
       indLOtherTextArea.id = "indLAuthAreaNo";
       popUpText.append(indLOtherTextArea);
       popUpText.append(document.createElement("br"));
@@ -336,6 +343,10 @@ $("input[name='page3[orgOffEntitled]']").change(function () {
     orgNLoffTextarea = document.createElement("textarea");
     orgNLoffTextarea.classList.add("form-control", "newPageTextArea");
     orgNLoffTextarea.id = "orgNLOfficialAreaYes";
+    orgNLoffTextarea.addEventListener("input", function () {
+      this.style.height = "";
+      this.style.height = this.scrollHeight + "px";
+    });
     popUpText.append(orgNLoffTextarea);
     popUpText.append(document.createElement("br"));
     answerArea.append(popUpText);
@@ -349,6 +360,10 @@ $("input[name='page3[orgOffEntitled]']").change(function () {
     orgNLoffTextarea = document.createElement("textarea");
     orgNLoffTextarea.classList.add("form-control", "newPageTextArea");
     orgNLoffTextarea.id = "orgNLOfficialAreaNo";
+    orgNLoffTextarea.addEventListener("input", function () {
+      this.style.height = "";
+      this.style.height = this.scrollHeight + "px";
+    });
     popUpText.append(orgNLoffTextarea);
     popUpText.append(document.createElement("br"));
     answerArea.append(popUpText);
@@ -388,6 +403,10 @@ $("input[name='page3[orgAttorney]']").change(function () {
     orgAutorityTextarea = document.createElement("textarea");
     orgAutorityTextarea.classList.add("form-control", "newPageTextArea");
     orgAutorityTextarea.id = "orgAutorityAreaNo";
+    orgAutorityTextarea.addEventListener("input", function () {
+      this.style.height = "";
+      this.style.height = this.scrollHeight + "px";
+    });
     popUpText.append(orgAutorityTextarea);
     popUpText.append(document.createElement("br"));
     answerArea.append(popUpText);

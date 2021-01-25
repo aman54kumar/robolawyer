@@ -19,7 +19,7 @@ var applicantTypeOption = function () {
       $("#orgnlNationality").val("");
       $("#orglNationality").val("");
       $("#anonLabelForYes").html(
-        "You need to explain the reasons that justify your request for anonymity, meaning that you must explain why publicising your identity may negatively affect or harm you or another. The Court decides whether you are granted anonymity or not. You should state in the request whether, in the event of anonymity being authorised by the President of the Chamber, you wish to be designated by your initials or by a single letter (e.g. “X”, “Y” or “Z”). <br/> The Court expects to receive this document as an accompanying document to your application. We will generate this text as an additional document when you generate the application form and will automatically add the title and description of this document to the Supporting Document list on page 8. You may add any other documents supporting your request – medical records, witness testimonies, official records – both to the Supporting Documents list on page 8, and as a copy in the attachments to the application."
+        "<br/>You need to explain the reasons that justify your request for anonymity, meaning that you must explain why publicising your identity may negatively affect or harm you or another. The Court decides whether you are granted anonymity or not. You should state in the request whether, in the event of anonymity being authorised by the President of the Chamber, you wish to be designated by your initials or by a single letter (e.g. “X”, “Y” or “Z”). <br/> The Court expects to receive this document as an accompanying document to your application. We will generate this text as an additional document when you generate the application form and will automatically add the title and description of this document to the Supporting Document list on page 8. You may add any other documents supporting your request – medical records, witness testimonies, official records – both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.<br />"
       );
     } else if (result === "Organisation") {
       $("#generalPage-2").removeClass("is-hidden");
@@ -31,7 +31,7 @@ var applicantTypeOption = function () {
       $("#indNLNationality").val("");
       $("#indLNationality").val("");
       $("#anonLabelForYes").html(
-        "You need to explain the reasons that justify your request for anonymity, meaning that you must explain why publicising the identity of the organisation may negatively affect or harm the organisation or another. The Court decides whether anonymity is granted or not. You should state in the request whether, in the event of anonymity being authorised by the President of the Chamber, you wish to be designated by your initials or by a single letter (e.g. “X”, “Y” or “Z”). <br/> The Court expects to receive this document as an accompanying document to your application. We will generate this text as an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You may add any other documents supporting your request – medical records, official documents – both to the Supporting Documents list on page 8, and as a copy in the attachments to the application."
+        "<br/>You need to explain the reasons that justify your request for anonymity, meaning that you must explain why publicising the identity of the organisation may negatively affect or harm the organisation or another. The Court decides whether anonymity is granted or not. You should state in the request whether, in the event of anonymity being authorised by the President of the Chamber, you wish to be designated by your initials or by a single letter (e.g. “X”, “Y” or “Z”). <br/> The Court expects to receive this document as an accompanying document to your application. We will generate this text as an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You may add any other documents supporting your request – medical records, official documents – both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.<br/>"
       );
     } else {
       console.log("check for bug");
@@ -197,7 +197,7 @@ $("input[name='page3[indNLAuthorityQn]']").change(function () {
     });
   } else {
     popUpText.innerHTML =
-      "Please explain in this textbox below why the applicant cannot sign the authority form. Please provide any additional documents that you deem necessary to support your case. <br/> We will generate this text as an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You must remember to add any other documents supporting your explanation – medical records, official documents – both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.";
+      "<h5>Please explain in this textbox below why the applicant cannot sign the authority form. Please provide any additional documents that you deem necessary to support your case. <br/> We will generate this text as an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You must remember to add any other documents supporting your explanation – medical records, official documents – both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.</h5>";
     popUpText.append(document.createElement("br"));
     indNLAuthTextArea = document.createElement("textarea");
     indNLAuthTextArea.classList.add("form-control", "newPageTextArea");
@@ -213,17 +213,23 @@ $("input[name='page3[indNLEmployedL]']").change(function () {
   if (result === "yes") {
     $("#containerDivForLawyer").appendTo("#NLdivForAppendL");
     $("#NLAuthorityAlertImage").addClass("is-hidden");
+    $("#NLEmployedLNoTextDiv").addClass("is-hidden");
   } else {
+    $("#NLEmployedLNoTextDiv").removeClass("is-hidden");
+    if ($("#NLEmployedLNoTextDiv").children.length != 0) {
+      $("#NLEmployedLNoTextDiv").empty();
+    }
     $("#NLAuthorityAlertImage").removeClass("is-hidden");
     $("#containerDivForLawyer").appendTo("#lawyerRep");
     var NLEmployedLNoTextDiv = $("#NLEmployedLNoTextDiv");
+
     NLEmployedLNoTextDiv.append(document.createElement("br"));
     var popUpText = document.createElement("label");
     popUpText.classList.add("lead");
     popUpText.style.textAlign = "justify";
 
     popUpText.innerHTML =
-      "Even though you do not need a lawyer at this stage, if/when the application enters a judicial stage and hearings of the case are scheduled, the Court will expect the applicant to be represented by a lawyer. Depending on the particularities of the application, it might take up to several years until the application enters the judicial phase and hearings are scheduled. The Court will inform you if this is the case and if you need to contract a lawyer. If you wish to represent yourself in the Chamber hearings or you do not afford a lawyer, the President of the Chamber may offer special dispensation for you to present your own case in accordance to Rule 36, or you may be granted free legal aid in the conditions specified by Rule 105 (former Rule 100).";
+      "<h5>Even though you do not need a lawyer at this stage, if/when the application enters a judicial stage and hearings of the case are scheduled, the Court will expect the applicant to be represented by a lawyer. Depending on the particularities of the application, it might take up to several years until the application enters the judicial phase and hearings are scheduled. The Court will inform you if this is the case and if you need to contract a lawyer. If you wish to represent yourself in the Chamber hearings or you do not afford a lawyer, the President of the Chamber may offer special dispensation for you to present your own case in accordance to Rule 36, or you may be granted free legal aid in the conditions specified by Rule 105 (former Rule 100).</h5>";
     NLEmployedLNoTextDiv.append(popUpText);
     NLEmployedLNoTextDiv.append(document.createElement("br"));
     NLEmployedLNoDivDiv = document.createElement("div");
@@ -281,7 +287,7 @@ $("input[name='page3[LotherNL]']").change(function () {
     if (yesArea.children.length < 1) {
       popUpText.style.textAlign = "justify";
       popUpText.innerHTML =
-        "Please explain in the textbox below why the applicant cannot sign the authority form. We will generate this text as an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You must remember to add any other documents supporting your explanation – medical records, official documents – both to the Supporting Documents list, and as a copy in the attachments to the application.";
+        "<h5>Please explain in the textbox below why the applicant cannot sign the authority form. We will generate this text as an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You must remember to add any other documents supporting your explanation – medical records, official documents – both to the Supporting Documents list, and as a copy in the attachments to the application.</h5>";
       popUpText.append(document.createElement("br"));
       indLOtherTextArea = document.createElement("textarea");
       indLOtherTextArea.classList.add("form-control", "newPageTextArea");
@@ -300,7 +306,7 @@ $("input[name='page3[LotherNL]']").change(function () {
     if (noArea.children.length < 1) {
       popUpText.style.textAlign = "justify";
       popUpText.innerHTML =
-        "Please explain in this textbox below why the applicant cannot sing the authority form. Please provide any additional documents that you deem necessary to support your case. <br/> We will generate this text as an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You must remember to add any other documents supporting your explanation – medical records, official documents – both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.";
+        "<h5>Please explain in this textbox below why the applicant cannot sing the authority form. Please provide any additional documents that you deem necessary to support your case. <br/> We will generate this text as an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You must remember to add any other documents supporting your explanation – medical records, official documents – both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.</h5>";
 
       popUpText.append(document.createElement("br"));
       indLOtherTextArea = document.createElement("textarea");
@@ -327,7 +333,7 @@ $("input[name='page3[orgRepresentativeType]']").change(function () {
     $("#ifOrgLawyerYes").addClass("is-hidden");
     $("#orglNationality").val("");
     messageText.innerHTML =
-      "Even though you do not need a lawyer at this stage, if/when the application enters a judicial stage and hearings of the case are scheduled, the Court will expect you to be represented by a trained lawyer. Depending on the particularities of the application, it might take up to several years until the application enters the judicial phase and hearings are scheduled. The Court will inform you if this is the case and if you need to contract a lawyer. If you wish to represent yourself in the Chamber hearings or you do not afford a lawyer, the President of the Chamber may offer special dispensation for you to present your own case in accordance to Rule 36, or you may be granted free legal aid in the conditions specified by Rule 105 (former Rule 100).";
+      "<h5>Even though you do not need a lawyer at this stage, if/when the application enters a judicial stage and hearings of the case are scheduled, the Court will expect you to be represented by a trained lawyer. Depending on the particularities of the application, it might take up to several years until the application enters the judicial phase and hearings are scheduled. The Court will inform you if this is the case and if you need to contract a lawyer. If you wish to represent yourself in the Chamber hearings or you do not afford a lawyer, the President of the Chamber may offer special dispensation for you to present your own case in accordance to Rule 36, or you may be granted free legal aid in the conditions specified by Rule 105 (former Rule 100).</h5>";
     messageText.style.textAlign = "justify";
 
     $("#orgRepresentNoLawyer");
@@ -346,7 +352,7 @@ $("input[name='page3[orgOffEntitled]']").change(function () {
       $(answerArea).empty();
     }
     popUpText.innerHTML =
-      "Thank you, we have added the title of this document to the list of supporting documents on page 8. Please make sure to fill in the number of pages and the release date of this document on Page 8 (Supporting Documents) of this application form and to add a copy of the document as an attachment to the application form before you mail it to the Court.";
+      "<h5>Thank you, we have added the title of this document to the list of supporting documents on page 8. Please make sure to fill in the number of pages and the release date of this document on Page 8 (Supporting Documents) of this application form and to add a copy of the document as an attachment to the application form before you mail it to the Court.</h5>";
     popUpText.append(document.createElement("br"));
     orgNLoffTextarea = document.createElement("textarea");
     orgNLoffTextarea.classList.add("form-control", "newPageTextArea");
@@ -359,7 +365,7 @@ $("input[name='page3[orgOffEntitled]']").change(function () {
       $(answerArea).empty();
     }
     popUpText.innerHTML =
-      "If you do not have a document proving the organisation official is legally entitled to represent the organisation, you must provide an explanation as to why this document is missing. <br/> Write your explanation in the field below. You should support your explanation by adding any other relevant document(s). When you complete filling in the digital application, we will generate an annex with this document containing your explanation as to why you cannot provide a document verifying the capacity/function of the organisation official. This document will be automatically listed on Page 8 (Supporting Documents) of this form. When you print out the application and the attachment, please remember to include this document as an attachment, together with any other documents that support your explanation as to why an official document proving the capacity/function of the organisation official is missing.";
+      "<h5>If you do not have a document proving the organisation official is legally entitled to represent the organisation, you must provide an explanation as to why this document is missing. <br/> Write your explanation in the field below. You should support your explanation by adding any other relevant document(s). When you complete filling in the digital application, we will generate an annex with this document containing your explanation as to why you cannot provide a document verifying the capacity/function of the organisation official. This document will be automatically listed on Page 8 (Supporting Documents) of this form. When you print out the application and the attachment, please remember to include this document as an attachment, together with any other documents that support your explanation as to why an official document proving the capacity/function of the organisation official is missing.</h5>";
     popUpText.append(document.createElement("br"));
     orgNLoffTextarea = document.createElement("textarea");
     orgNLoffTextarea.classList.add("form-control", "newPageTextArea");
@@ -398,7 +404,7 @@ $("input[name='page3[orgAttorney]']").change(function () {
       $(answerArea).empty();
     }
     popUpText.innerHTML =
-      "Please explain in this textbox below why the applicant cannot sing the authority form. Please provide any additional documents that you deem necessary to support your case. <br/> We will generate this text as an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You must remember to add any other documents supporting your explanation – medical records, official documents – both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.";
+      "<h5>Please explain in this textbox below why the applicant cannot sing the authority form. Please provide any additional documents that you deem necessary to support your case. <br/> We will generate this text as an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You must remember to add any other documents supporting your explanation – medical records, official documents – both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.</h5>";
     popUpText.append(document.createElement("br"));
     orgAutorityTextarea = document.createElement("textarea");
     orgAutorityTextarea.classList.add("form-control", "newPageTextArea");

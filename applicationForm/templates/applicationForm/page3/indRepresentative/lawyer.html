@@ -1,10 +1,10 @@
 {% load static %}
 <div class="is-hidden" id="lawyerRep">
     <div id="containerDivForLawyer">
-      <label>Details of the Lawyer Representative</label>
+      <h4>Details of the Lawyer Representative</h4>
       <div class="row">
         <div class="form-group col-sm-6">
-          <label>Surname</label>
+          <h4>Surname</h4>
           <input
             class="form-control"
             type="text"
@@ -16,7 +16,7 @@
           />
         </div>
         <div class="form-group col-sm-6">
-          <label>First Name(s)</label>
+          <h4>First Name(s)</h4>
           <input
             class="form-control"
             type="text"
@@ -30,7 +30,7 @@
       </div>
       <div class="row">
         <div class="form-group col-sm-4">
-          <label>Address</label>
+          <h4>Address</h4>
           <textarea
             class="form-control longAddress"
             cols="49"
@@ -47,7 +47,7 @@
         <div class="col-sm-8 row">
           <div class="row col-sm-12">
             <div class="form-group col-sm-6">
-              <label>Nationality</label>
+              <h4>Nationality</h4>
               <input
                 class="form-control"
                 name="page3[indLNationality]"
@@ -58,7 +58,7 @@
               <input type="hidden" id="indphoneLNationality" />
             </div>
             <div class="form-group col-sm-6">
-              <label>Telephone Number (select country code)</label>
+              <h4>Telephone Number (select country code)</h4>
               <input
                 class="form-control"
                 type="tel"
@@ -70,7 +70,7 @@
           </div>
           <div class="row col-sm-12">
             <div class="form-group col-sm-6">
-              <label>Fax</label>
+              <h4>Fax</h4>
               <input
                 class="form-control"
                 type="tel"
@@ -90,6 +90,7 @@
                   value="noFax"
                   data-parsley-group="page2b"
                 />
+                <br/>
                 <label
                   class="custom-control-label"
                   for="orgLFaxOption"
@@ -98,7 +99,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label>Email</label>
+              <h4>Email</h4>
               <input
                 class="form-control"
                 type="email"
@@ -117,10 +118,10 @@
           <div class="card-header">
             <hr />
             <div class="form-group">
-              <label for="indLIndeComms" class="lead"
+              <h4 for="indLIndeComms" class="lead"
                 >Electronic communication between the representative
                 and the Court
-              </label>
+              </h4>
               <div class="text-center">
                 <button
                   class="btn more-info-button"
@@ -133,8 +134,7 @@
 
               <br />
               <div id="info-ecomm" class="collapse">
-                <label for=""></label>
-                <p class="ajustify">
+                <h5 class="ajustify">
                   eComms is a service initiated by the Court for
                   communicating electronically with an applicant’s
                   representative. The service is only activated if
@@ -154,10 +154,10 @@
                   Practice Direction on electronic filing by
                   applicants (www.echr.coe.int/practicedirections)
                   (available in English and French only).
-                </p>
+                </h5>
               </div>
               <div>
-                <label>
+                <h5>
                   Please provide an email address for ECtHR
                   communication system, eComms. You can read more
                   about the eComms terms and conditions
@@ -167,7 +167,7 @@
                     target="_blank"
                     >here</a
                   >
-                </label>
+                </h5>
                 <input
                   class="form-control col-sm-4"
                   type="email"
@@ -181,7 +181,7 @@
               <br /><br />
             </div>
             <h4 class="alert-heading">Authority</h4>
-            <p class="lead ajustify">
+            <h5 class="ajustify">
               An applicant must sign the authority empowering the
               representative to act on his or her behalf, unless,
               for example, the applicant is a child or lacks legal
@@ -196,7 +196,7 @@
               or it is used at a later stage to appoint a
               lawyer/representative after the application has been
               lodged with the Court.
-            </p>
+            </h5>
 
             <div class="text-center">
               <button
@@ -209,7 +209,7 @@
             </div>
             <br />
             <div id="info-authorityL" class="collapse">
-              <p class="ajustify">
+              <h5 class="ajustify">
                 If an applicant is represented by a lawyer or other
                 person, both the applicant and the designated
                 representative – whose identifying details must be
@@ -227,16 +227,18 @@
                 may continue to correspond only with the applicant
                 due to lack of proof that the representative is in
                 fact involved in the case.
-              </p>
+              </h5>
             </div>
             <br />
             <br />
             <div id="indLAuthorityExtra">
               <div class="form-group col-sm-6">
+                <h4>
                 Are both the applicant and the representative able
-                to sign the Authority form (power of attorney)?
+                to sgn the Authority form (power of attorney)?
+              </h4>
                 <div
-                  class="custom-control custom-radio custom-control"
+                  class="custom-control custom-radio custom-control-inline"
                 >
                   <input
                     type="radio"
@@ -253,7 +255,7 @@
                   >
                 </div>
                 <div
-                  class="custom-control custom-radio custom-control"
+                  class="custom-control custom-radio custom-control-inline"
                 >
                   <input
                     type="radio"

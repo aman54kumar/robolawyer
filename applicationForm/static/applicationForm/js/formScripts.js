@@ -265,67 +265,150 @@ $("input[name='page3[indLAuthorityPower]']").change(function () {
   } else {
     $("#LotherNL").removeClass("is-hidden");
   }
+});
 
-  $("input[name='page3[LotherNL]']").change(function () {
-    var result = this.value;
-    var noArea = document.getElementById("indLOtherNo");
-    var yesArea = document.getElementById("indLOtherYes");
-    var popUpText = document.createElement("div");
-    if (result === "yes") {
-      $("#containerDivForNonLawyer").appendTo("#LdivForAppendNL");
-      $("#LAuthorityAlertImage").addClass("is-hidden");
-      $(noArea).empty();
-      $("#indLOtherYes").removeClass("is-hidden");
-      $("#indLOtherNo").addClass("is-hidden");
-      if (yesArea.children.length < 1) {
-        popUpText.style.textAlign = "justify";
-        popUpText.innerHTML =
-          "Please explain in the textbox below why the applicant cannot sign the authority form. We will generate this text as an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You must remember to add any other documents supporting your explanation – medical records, official documents – both to the Supporting Documents list, and as a copy in the attachments to the application.";
-        popUpText.append(document.createElement("br"));
-        indLOtherTextArea = document.createElement("textarea");
-        indLOtherTextArea.classList.add("form-control", "newPageTextArea");
-        indLOtherTextArea.id = "indLAuthAreaYes";
-        popUpText.append(indLOtherTextArea);
-        popUpText.append(document.createElement("br"));
-        yesArea.append(popUpText);
-      }
-    } else {
-      $("#LAuthorityAlertImage").removeClass("is-hidden");
-      $("#containerDivForNonLawyer").appendTo("#nonLawyerRep");
-      $(yesArea).empty();
-      $("#indLOtherNo").removeClass("is-hidden");
-      $("#indLOtherYes").addClass("is-hidden");
-      if (noArea.children.length < 1) {
-        popUpText.style.textAlign = "justify";
-        popUpText.innerHTML =
-          "Please explain in this textbox below why the applicant cannot sing the authority form. Please provide any additional documents that you deem necessary to support your case. <br/> We will generate this text as an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You must remember to add any other documents supporting your explanation – medical records, official documents – both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.";
+$("input[name='page3[LotherNL]']").change(function () {
+  var result = this.value;
+  var noArea = document.getElementById("indLOtherNo");
+  var yesArea = document.getElementById("indLOtherYes");
+  var popUpText = document.createElement("div");
+  if (result === "yes") {
+    $("#containerDivForNonLawyer").appendTo("#LdivForAppendNL");
+    $("#LAuthorityAlertImage").addClass("is-hidden");
+    $(noArea).empty();
+    $("#indLOtherYes").removeClass("is-hidden");
+    $("#indLOtherNo").addClass("is-hidden");
+    if (yesArea.children.length < 1) {
+      popUpText.style.textAlign = "justify";
+      popUpText.innerHTML =
+        "Please explain in the textbox below why the applicant cannot sign the authority form. We will generate this text as an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You must remember to add any other documents supporting your explanation – medical records, official documents – both to the Supporting Documents list, and as a copy in the attachments to the application.";
+      popUpText.append(document.createElement("br"));
+      indLOtherTextArea = document.createElement("textarea");
+      indLOtherTextArea.classList.add("form-control", "newPageTextArea");
+      indLOtherTextArea.id = "indLAuthAreaYes";
+      popUpText.append(indLOtherTextArea);
+      popUpText.append(document.createElement("br"));
 
-        popUpText.append(document.createElement("br"));
-        indLOtherTextArea = document.createElement("textarea");
-        indLOtherTextArea.classList.add("form-control", "newPageTextArea");
-        indLOtherTextArea.id = "indLAuthAreaNo";
-        popUpText.append(indLOtherTextArea);
-        popUpText.append(document.createElement("br"));
-        noArea.append(popUpText);
-      }
+      yesArea.append(popUpText);
     }
-  });
+  } else {
+    $("#LAuthorityAlertImage").removeClass("is-hidden");
+    $("#containerDivForNonLawyer").appendTo("#nonLawyerRep");
+    $(yesArea).empty();
+    $("#indLOtherNo").removeClass("is-hidden");
+    $("#indLOtherYes").addClass("is-hidden");
+    if (noArea.children.length < 1) {
+      popUpText.style.textAlign = "justify";
+      popUpText.innerHTML =
+        "Please explain in this textbox below why the applicant cannot sing the authority form. Please provide any additional documents that you deem necessary to support your case. <br/> We will generate this text as an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You must remember to add any other documents supporting your explanation – medical records, official documents – both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.";
+
+      popUpText.append(document.createElement("br"));
+      indLOtherTextArea = document.createElement("textarea");
+      indLOtherTextArea.classList.add("form-control", "newPageTextArea");
+      indLOtherTextArea.id = "indLAuthAreaNo";
+      popUpText.append(indLOtherTextArea);
+      popUpText.append(document.createElement("br"));
+      noArea.append(popUpText);
+    }
+  }
 });
 
 $("input[name='page3[orgRepresentativeType]']").change(function () {
   result = this.value;
+  var messageText = document.getElementById("orgRepresentNoLawyer");
   if (result === "orgYesLawyer") {
+    $("#orgRepresentNoLawyer").empty();
     $("#orgLawyerRep").removeClass("is-hidden");
     $(".orgAuthority").removeClass("is-hidden");
+    $("#ifOrgLawyerYes").removeClass("is-hidden");
   } else if (result === "orgNoLawyer") {
     $("#orgLawyerRep").addClass("is-hidden");
     $(".orgAuthority").addClass("is-hidden");
+    $("#ifOrgLawyerYes").addClass("is-hidden");
     $("#orglNationality").val("");
+    messageText.innerHTML =
+      "Even though you do not need a lawyer at this stage, if/when the application enters a judicial stage and hearings of the case are scheduled, the Court will expect you to be represented by a trained lawyer. Depending on the particularities of the application, it might take up to several years until the application enters the judicial phase and hearings are scheduled. The Court will inform you if this is the case and if you need to contract a lawyer. If you wish to represent yourself in the Chamber hearings or you do not afford a lawyer, the President of the Chamber may offer special dispensation for you to present your own case in accordance to Rule 36, or you may be granted free legal aid in the conditions specified by Rule 105 (former Rule 100).";
+    messageText.style.textAlign = "justify";
+
+    $("#orgRepresentNoLawyer");
   } else {
     console.log("check for bugs");
   }
 });
 
+$("input[name='page3[orgOffEntitled]']").change(function () {
+  var result = this.value;
+  var answerArea = document.getElementById("orgOfficialAreaDiv");
+  var popUpText = document.createElement("div");
+  popUpText.style.textAlign = "justify";
+  if (result === "yes") {
+    if (answerArea.children.length != 0) {
+      $(answerArea).empty();
+    }
+    popUpText.innerHTML =
+      "Thank you, we have added the title of this document to the list of supporting documents on page 8. Please make sure to fill in the number of pages and the release date of this document on Page 8 (Supporting Documents) of this application form and to add a copy of the document as an attachment to the application form before you mail it to the Court.";
+    popUpText.append(document.createElement("br"));
+    orgNLoffTextarea = document.createElement("textarea");
+    orgNLoffTextarea.classList.add("form-control", "newPageTextArea");
+    orgNLoffTextarea.id = "orgNLOfficialAreaYes";
+    popUpText.append(orgNLoffTextarea);
+    popUpText.append(document.createElement("br"));
+    answerArea.append(popUpText);
+  } else {
+    if (answerArea.children.length != 0) {
+      $(answerArea).empty();
+    }
+    popUpText.innerHTML =
+      "If you do not have a document proving the organisation official is legally entitled to represent the organisation, you must provide an explanation as to why this document is missing. <br/> Write your explanation in the field below. You should support your explanation by adding any other relevant document(s). When you complete filling in the digital application, we will generate an annex with this document containing your explanation as to why you cannot provide a document verifying the capacity/function of the organisation official. This document will be automatically listed on Page 8 (Supporting Documents) of this form. When you print out the application and the attachment, please remember to include this document as an attachment, together with any other documents that support your explanation as to why an official document proving the capacity/function of the organisation official is missing.";
+    popUpText.append(document.createElement("br"));
+    orgNLoffTextarea = document.createElement("textarea");
+    orgNLoffTextarea.classList.add("form-control", "newPageTextArea");
+    orgNLoffTextarea.id = "orgNLOfficialAreaNo";
+    popUpText.append(orgNLoffTextarea);
+    popUpText.append(document.createElement("br"));
+    answerArea.append(popUpText);
+  }
+});
+
+//
+$("input[name='page3[orgAttorney]']").change(function () {
+  var result = this.value;
+  var answerArea = document.getElementById("orgAttorneyAreaDiv");
+  var popUpText = document.createElement("div");
+  popUpText.style.textAlign = "justify";
+  if (result === "yes") {
+    if (answerArea.children.length != 0) {
+      $(answerArea).empty();
+    }
+    popUpText.innerHTML =
+      "Please confirm you have read and understood that both you and your lawyer have to sign page 3 in the printed application form. If the organisation official is, in addition, the lawyer representing the organisation, you must sign the authority form on both fields.";
+    Swal.fire({
+      showConfirmButton: true,
+      confirmButtonText: "I CONFIRM",
+      showCancelButton: false,
+      html: popUpText,
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      allowEnterKey: false,
+      padding: "4rem 1.5rem 3rem 1.5rem",
+      width: "60rem",
+    });
+  } else {
+    if (answerArea.children.length != 0) {
+      $(answerArea).empty();
+    }
+    popUpText.innerHTML =
+      "Please explain in this textbox below why the applicant cannot sing the authority form. Please provide any additional documents that you deem necessary to support your case. <br/> We will generate this text as an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You must remember to add any other documents supporting your explanation – medical records, official documents – both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.";
+    popUpText.append(document.createElement("br"));
+    orgAutorityTextarea = document.createElement("textarea");
+    orgAutorityTextarea.classList.add("form-control", "newPageTextArea");
+    orgAutorityTextarea.id = "orgAutorityAreaNo";
+    popUpText.append(orgAutorityTextarea);
+    popUpText.append(document.createElement("br"));
+    answerArea.append(popUpText);
+  }
+});
+//
 $("#page6Group").repeater({
   btnAddClass: "s-btnAdd",
   btnRemoveClass: "s-btnRemove",
@@ -578,6 +661,37 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     };
     docObject.push(orgLOtherNoText);
   }
+  if (!!$("#orgNLOfficialAreaYes").val()) {
+    orgNLOfficial = {
+      date: moment().format("DD-MM-YYYY"),
+      title: "Proof of organisation official",
+      desc:
+        "organisation official is legally entitled to represent the organisation",
+      page: 1,
+    };
+    docObject.push(orgNLOfficial);
+  }
+  if (!!$("#orgNLOfficialAreaNo").val()) {
+    orgNLOfficial = {
+      date: moment().format("DD-MM-YYYY"),
+      title: "Organisation official document",
+      desc: "organisation official cannot provide proof for its position",
+      page: 1,
+    };
+    docObject.push(orgNLOfficial);
+  }
+
+  if (!!$("#orgAutorityAreaNo").val()) {
+    orgAutorityAreaNo = {
+      date: moment().format("DD-MM-YYYY"),
+      title: "Explanation for lack of authority form",
+      desc:
+        "organisation cannot sign the form authorising the representative to represent",
+      page: 1,
+    };
+    docObject.push(orgAutorityAreaNo);
+  }
+  // orgAutorityAreaNo
 
   var docObjectLength = docObject.length;
   for (var i = 0; i < docObjectLength; i++) {

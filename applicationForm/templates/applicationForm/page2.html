@@ -254,12 +254,15 @@
                     behalf of a company, association, NGO or other legal entity.
                     If you are complaining about breaches against an individual
                     person, please select "Individual" above. In exceptional
-                    cases, the European Court of Human Rights might grant the
+                    cases, the European Court of Human Rights might grant to
+                    legal entities the right to lodge an application on behalf
+                    of individuals, however this is not common practice (see CLR
+                    on behalf of Valentin Campeanu v. Romania).
                   </p>
                 </div>
                 <div class="card-body">
                   <div class="row divSpacing">
-                    <div class="col-sm-5 form-group">
+                    <div class="col-sm-6 form-group">
                       <h4>Name</h4>
                       <textarea
                         class="form-control orgNameField"
@@ -337,10 +340,28 @@
                         />
                       </div>
                       <div>
+                        <div class="is-hidden" id="regDateNoDiv">
+                          <h5>
+                            If you do not have a registration/incorporation date
+                            of your organisation, you must provide an
+                            explanation as to why this information is missing
+                            and send the document containing this explanation as
+                            an accompanying document to your application. <br />
+                            We will generate the text you enter in the below
+                            field as an additional document when you generate
+                            the application form and we will automatically add
+                            the title and description of this document to the
+                            Supporting Document list on page 8. You may add any
+                            other documents supporting your explanation both to
+                            the Supporting Documents list on page 8, and as a
+                            copy in the attachments to the application.
+                          </h5>
+                        </div>
                         <textarea
-                          class="form-control is-hidden orgDateNoArea col-sm-10"
+                          class="form-control is-hidden orgDateNoArea col-sm-12"
                           name="page2[orgDateNoArea]"
                           id="orgDateNoArea"
+                          oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px";'
                         ></textarea>
                       </div>
                     </div>
@@ -384,17 +405,35 @@
                         />
                       </div>
                       <div>
+                        <div class="is-hidden" id="orgIDNoDiv">
+                          <h5>
+                            If you do not have the identification number of your
+                            organisation, you must provide an explanation as to
+                            why this information is missing and send the
+                            document containing this explanation as an
+                            accompanying document to your application. <br />
+                            We will generate the text you enter in the below
+                            field as an additional document when you generate
+                            the application form and we will automatically add
+                            the title and description of this document to the
+                            Supporting Document list on page 8. You may add any
+                            other documents supporting your explanation both to
+                            the Supporting Documents list on page 8, and as a
+                            copy in the attachments to the application.
+                          </h5>
+                        </div>
                         <textarea
-                          class="form-control is-hidden orgIdentityNoArea col-sm-10"
+                          class="form-control is-hidden orgIdentityNoArea col-sm-12"
                           name="page2[orgIdentityNoArea]"
                           id="orgIdentityNoArea"
+                          oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px";'
                         ></textarea>
                       </div>
                     </div>
                   </div>
 
                   <div class="row divSpacing">
-                    <div class="col-sm-5 form-group">
+                    <div class="col-sm-6 form-group">
                       <h4>Registered Address</h4>
 
                       <textarea

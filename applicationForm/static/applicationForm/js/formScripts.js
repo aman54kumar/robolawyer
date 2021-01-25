@@ -58,24 +58,11 @@ $("input[name='page2[orgDateOption]']").change(function () {
   if (result === "Yes") {
     $(".orgDateDiv").removeClass("is-hidden");
     $(".orgDateNoArea").addClass("is-hidden");
+    $("#regDateNoDiv").addClass("is-hidden");
   } else {
     $(".orgDateDiv").addClass("is-hidden");
     $(".orgDateNoArea").removeClass("is-hidden");
-    var popUpText = document.createElement("div");
-    popUpText.style.textAlign = "justify";
-    popUpText.innerHTML =
-      "If you do not have a registration/incorporation date of your organisation, you must provide an explanation as to why this information is missing and send the document containing this explanation as an accompanying document to your application. <br/>       We will generate the text you enter in the below field as  an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You may add any other documents supporting your explanation both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.";
-    Swal.fire({
-      showConfirmButton: true,
-      confirmButtonText: "OK",
-      showCancelButton: false,
-      html: popUpText,
-      allowOutsideClick: false,
-      allowEscapeKey: false,
-      allowEnterKey: false,
-      padding: "4rem 1.5rem 3rem 1.5rem",
-      width: "60rem",
-    });
+    $("#regDateNoDiv").removeClass("is-hidden");
   }
 });
 
@@ -83,24 +70,11 @@ $("input[name='page2[orgIdentityOption]']").change(function () {
   result = this.value;
   if (result === "Yes") {
     $(".orgIdentityDiv").removeClass("is-hidden");
+    $("#orgIDNoDiv").addClass("is-hidden");
   } else {
     $(".orgIdentityDiv").addClass("is-hidden");
     $(".orgIdentityNoArea").removeClass("is-hidden");
-    var popUpText = document.createElement("div");
-    popUpText.style.textAlign = "justify";
-    popUpText.innerHTML =
-      "If you do not have the identification number of your organisation, you must provide an explanation as to why this information is missing and send the document containing this explanation as an accompanying document to your application. <br/>       We will generate the text you enter in the below field as  an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You may add any other documents supporting your explanation both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.";
-    Swal.fire({
-      showConfirmButton: true,
-      confirmButtonText: "OK",
-      showCancelButton: false,
-      html: popUpText,
-      allowOutsideClick: false,
-      allowEscapeKey: false,
-      allowEnterKey: false,
-      padding: "4rem 1.5rem 3rem 1.5rem",
-      width: "60rem",
-    });
+    $("#orgIDNoDiv").removeClass("is-hidden");
   }
 });
 
@@ -200,6 +174,11 @@ $("input[name='page3[indNLAuthorityQn]']").change(function () {
       "<h5>Please explain in this textbox below why the applicant cannot sign the authority form. Please provide any additional documents that you deem necessary to support your case. <br/> We will generate this text as an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You must remember to add any other documents supporting your explanation – medical records, official documents – both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.</h5>";
     popUpText.append(document.createElement("br"));
     indNLAuthTextArea = document.createElement("textarea");
+
+    indNLAuthTextArea.addEventListener("input", () => {
+      this.style.height = "";
+      this.style.height = this.scrollHeight + "px";
+    });
     indNLAuthTextArea.classList.add("form-control", "newPageTextArea");
     indNLAuthTextArea.id = "indNLAuthArea";
     popUpText.append(indNLAuthTextArea);

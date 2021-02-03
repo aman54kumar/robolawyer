@@ -298,6 +298,7 @@ label {
 }
 .reviewHeadPara {
   text-align: left;
+  text-transform: none;
 }
 
 .reviewButtonNoChange {
@@ -308,4 +309,12 @@ label {
 
 .disabled-card {
   pointer-events: none;
+}
+
+.popUpScroll {
+  width: auto;
+  height: 50rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin-right: 3% !important;
 }

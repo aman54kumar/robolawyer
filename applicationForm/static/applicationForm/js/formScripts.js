@@ -85,6 +85,7 @@ $("#orgLFaxOption").on("change", (event) => {
     indLFaxTextArea = document.createElement("textarea");
     indLFaxTextArea.classList += "form-control";
     indLFaxTextArea.id = "indLFaxTextArea";
+    indLFaxTextArea.name = "page3[indLFaxTextArea]";
     indLFaxTextArea.placeholder =
       "Please provide an explanation for unavailability of Fax number";
     if (extraFaxDiv.children.length === 0) extraFaxDiv.append(indLFaxTextArea);
@@ -180,6 +181,7 @@ $("input[name='page3[indNLAuthorityQn]']").change(function () {
     });
     indNLAuthTextArea.classList.add("form-control", "newPageTextArea");
     indNLAuthTextArea.id = "indNLAuthArea";
+    indNLAuthTextArea.name = "page3[indNLAuthArea]";
     popUpText.append(indNLAuthTextArea);
     popUpText.append(document.createElement("br"));
     noArea.append(popUpText);
@@ -255,6 +257,7 @@ $("input[name='page3[LotherNL]']").change(function () {
   var result = this.value;
   var noArea = document.getElementById("indLOtherNo");
   var yesArea = document.getElementById("indLOtherYes");
+  var resultArea = document.getElementById("indLOtherResult");
   var popUpText = document.createElement("div");
   if (result === "yes") {
     $("#containerDivForNonLawyer").appendTo("#LdivForAppendNL");
@@ -274,6 +277,7 @@ $("input[name='page3[LotherNL]']").change(function () {
         this.style.height = this.scrollHeight + "px";
       });
       indLOtherTextArea.id = "indLAuthAreaYes";
+      indLOtherTextArea.name = "page3[indLAuthAreaYes]";
       popUpText.append(indLOtherTextArea);
       popUpText.append(document.createElement("br"));
 
@@ -1041,6 +1045,7 @@ $("input[name='page9[signatureDeclaration]']").change(function () {
 
 // Review page
 $(".reviewButton").on("click", function () {
+  console.log(this);
   $(this).children("i").toggleClass("fa-angle-down");
   $(this).children("i").toggleClass("fa-angle-right");
   $(this).children("p").toggleClass("is-hidden");

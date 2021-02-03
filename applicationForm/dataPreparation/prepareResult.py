@@ -275,32 +275,38 @@ class PrepareResult:
                                              tempInput=codeList)
 
         self.create_New_Pdf(docs)
-        anonValue = self.inputObj["page2"]["page2[applicantAnonExp]"]
-        anonValue = anonValue.replace(" ", "")
-        if anonValue != "":
-            filenameAnon = ("applicationForm/dataPreparation/results/" +
-                            self.sessionID +
-                            "/finalPage/Result_form_page_14.pdf")
-            go(
-                self,
-                filenameAnon,
-                self.inputObj["page2"]["page2[applicantAnonExp]"],
-                anonymityPage,
-            )
+        # anonValue = self.inputObj["page2"]["page2[applicantAnonExp]"]
+        # anonValue = anonValue.replace(" ", "")
+        print(self.sessionID)
 
-        sofValue = self.inputObj["page4"]["page4[stOfFactsExtra]"]
-        sofValue = sofValue.replace(" ", "")
-        if sofValue != "":
-            filenameStOfFacts = ("applicationForm/dataPreparation/results/" +
-                                 self.sessionID +
-                                 "/finalPage/Result_form_page_15.pdf")
-            go(
-                self,
-                filenameStOfFacts,
-                self.inputObj["page4"]["page4[stOfFactsExtra]"],
-                extraStOfFactsFirstPage,
-                extraStOfFactsLaterPage,
-            )
+        totalDocs = len(self.inputObj['page8']) / 4
+        print(self.inputObj['page3'])
+        # allDocuments =
+
+        # if anonValue != "":
+        #     filenameAnon = ("applicationForm/dataPreparation/results/" +
+        #                     self.sessionID +
+        #                     "/finalPage/Result_form_page_14.pdf")
+        #     go(
+        #         self,
+        #         filenameAnon,
+        #         self.inputObj["page2"]["page2[applicantAnonExp]"],
+        #         anonymityPage,
+        #     )
+
+        # sofValue = self.inputObj["page4"]["page4[stOfFactsExtra]"]
+        # sofValue = sofValue.replace(" ", "")
+        # if sofValue != "":
+        #     filenameStOfFacts = ("applicationForm/dataPreparation/results/" +
+        #                          self.sessionID +
+        #                          "/finalPage/Result_form_page_15.pdf")
+        #     go(
+        #         self,
+        #         filenameStOfFacts,
+        #         self.inputObj["page4"]["page4[stOfFactsExtra]"],
+        #         extraStOfFactsFirstPage,
+        #         extraStOfFactsLaterPage,
+        #     )
 
         logger.warning("Your log message is here")
 
@@ -547,3 +553,47 @@ def changeCountryToCode(countryList):
         if country in coordinateDict:
             sumValue += coordinateDict[country]["n"]
     return str(sumValue) + ".00000000"
+
+
+def documentFirstPage(titleText):
+    PAGE_HEIGHT = defaultPageSize[1]
+    PAGE_WIDTH = defaultPageSize[0]
+    pageinfo = titleText
+    Title = titleText
+    canvas.saveState()
+    canvas.setFont("Times-Bold", 16)
+    canvas.drawCentredString(PAGE_WIDTH / 2.0, PAGE_HEIGHT - 108, Title)
+    canvas.setFont("Times-Roman", 9)
+    canvas.drawString(inch, 0.75 * inch, "Page %s" % pageinfo)
+    canvas.restoreState()
+
+
+def documentRestPages(titleText):
+    pageinfo = titleText
+    canvas.saveState()
+    canvas.setFont("Times-Roman", 9)
+    canvas.drawString(inch, 0.75 * inch, "Page %d %s" % (doc.page, pageinfo))
+    canvas.restoreState()
+
+
+def makeDictofTextDocuments(data):
+    finalDocumentDict = {}
+    finalDocumentDict[
+        'Explanation for missing registration/incorporation no.'] = data[
+            'page2']['page2[orgDateNoArea]']
+    finalDocumentDict['Explanation for missing identification number.'] = data[
+        'page2']['page2[orgIdentityNoArea]']
+    finalDocumentDict['Anonymity Request'] = data['page2'][
+        'page2[applicantAnonExp]']
+    finalDocumentDict['Explanation for missing identification number.'] = data[
+        'page3']['page3[indLFaxTextArea]']
+    finalDocumentDict['Explanation for lack of authority form'] = data[
+        'page3']['page3[indNLAuthArea]']
+    finalDocumentDict[
+        'Explanation for lack of signature on the authority form'] = data[
+            'page3']['page3[indLAuthAreaYes]']
+    finalDocumentDict[''] = data['page3']['']
+    finalDocumentDict[''] = data['page3']['']
+    finalDocumentDict[''] = data['page3']['']
+    finalDocumentDict[''] = data['page3']['']
+    return finalDocumentDict

@@ -299,6 +299,7 @@ label {
 .reviewHeadPara {
   text-align: left;
   text-transform: none;
+  font-family: "lato-thin";
 }
 
 .reviewButtonNoChange {

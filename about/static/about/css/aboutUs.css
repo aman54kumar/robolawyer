@@ -9,9 +9,15 @@
 }
 
 .about-jumbotron {
-  background-color: #e9ecef;
+  background-color: white;
   padding: 30px;
   min-height: 22rem;
   height: auto;
   margin-bottom: 5rem;
+  align-items: center;
 }
+
+.about-logo-jumbotron {
+  /* background-color: #e9ecef; */
+  /* text-align: center;
+} */

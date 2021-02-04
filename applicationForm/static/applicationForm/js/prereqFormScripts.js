@@ -2,19 +2,19 @@ $("#checkOverview").on("click", function () {
   overviewDivContent = document.getElementById("reviewSection");
   var popUpView = document.createElement("div");
   popUpView.id = "reviewPopupContainer";
-  allCardOverview =
-    overviewDivContent.children[0].children[0].children[1].children[0]
-      .children[0].children;
-  console.log(allCardOverview);
-  allCardOverview.forEach(function (overviewCard) {
-    overviewCard.classList.add("popUpCard");
-  });
+  // allCardOverview =
+  //   overviewDivContent.children[0].children[0].children[1].children[0]
+  //     .children[0].children;
+  // console.log(allCardOverview);
+  // allCardOverview.forEach(function (overviewCard) {
+  //   overviewCard.classList.add("popUpCard");
+  // });
 
   overviewDivContent.children[0].children[0].children[2].hidden = true;
   overviewDivContent.children[0].children[0].children[1].children[0].children[1].hidden = true;
   Swal.fire({
     showConfirmButton: true,
-    confirmButtonText: "CLOSE",
+    confirmButtonText: "Close and start filling in the application form",
     showCancelButton: false,
     showCloseButton: true,
     // html: popUpView,

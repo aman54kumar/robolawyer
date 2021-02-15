@@ -1045,7 +1045,6 @@ $("input[name='page9[signatureDeclaration]']").change(function () {
 
 // Review page
 $(".reviewButton").on("click", function () {
-  console.log(this);
   $(this).children("i").toggleClass("fa-angle-down");
   $(this).children("i").toggleClass("fa-angle-right");
   $(this).children("p").toggleClass("is-hidden");

@@ -1,44 +1,4 @@
-$("#checkOverview").on("click", function () {
-  overviewDivContent = document.getElementById("reviewSection");
-  var popUpView = document.createElement("div");
-  popUpView.id = "reviewPopupContainer";
-  // allCardOverview =
-  //   overviewDivContent.children[0].children[0].children[1].children[0]
-  //     .children[0].children;
-  // console.log(allCardOverview);
-  // allCardOverview.forEach(function (overviewCard) {
-  //   overviewCard.classList.add("popUpCard");
-  // });
-
-  overviewDivContent.children[0].children[0].children[2].hidden = true;
-  overviewDivContent.children[0].children[0].children[1].children[0].children[1].hidden = true;
-  Swal.fire({
-    showConfirmButton: true,
-    confirmButtonText: "Close and start filling in the application form",
-    showCancelButton: false,
-    showCloseButton: true,
-    // html: popUpView,
-    allowOutsideClick: false,
-    allowEscapeKey: true,
-    allowEnterKey: false,
-    // padding: "4rem 1.5rem 3rem 1.5rem",
-    width: "80%",
-    heightAuto: false,
-    showClass: { popup: "swal2-noanimation", backdrop: "swal2-noanimation" },
-    didOpen: function (el) {
-      // console.log(overviewDivContent);
-      contentDiv = el.children[1];
-      contentDiv.innerHTML = overviewDivContent.innerHTML;
-      contentDiv.classList.add("popUpScroll");
-      $(".popUpCard").on("click", function () {
-        console.log(this);
-        $(this).children("i").toggleClass("fa-angle-down");
-        $(this).children("i").toggleClass("fa-angle-right");
-        $(this).children("p").toggleClass("is-hidden");
-      });
-    },
-  });
-});
+$("#checkOverview").on("click", function () {});
 
 $("#finalDecisionDate").on("change", function () {
   finalDecisionDate = moment($("#finalDecisionDate").val(), "DD/MM/YYYY");

@@ -373,7 +373,7 @@ var ratificationAPImethod = async function (countryURL) {
               "<b>" +
               countryName +
               "</b>" +
-              " ratified the European Convention on Human Rights and its Protocols on <b>" +
+              " ratified the European Convention on Human Rights on <b>" +
               ratDate +
               "</b>. If the act, decision or omission took place before " +
               ratDate +

@@ -25,7 +25,7 @@
 }
 
 .extPButton {
-  float: right;
-  margin-right: 30px;
+  float: center;
+  margin-left: 30px;
   padding: 3px 8px;
 }

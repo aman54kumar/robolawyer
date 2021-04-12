@@ -19,9 +19,9 @@
       rel="stylesheet"
     />
     <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-    rel="stylesheet"
-  />
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
     <link rel="shortcut icon" href="{% static 'home/images/favicon.ico' %}" />
     <title>JustBot</title>
 
@@ -41,8 +41,7 @@
       href="{% static 'home/css/font/fontawesome-free/css/all.min.css' %}"
       rel="stylesheet"
     />
-    
-   
+
     <!-- <link
       rel="stylesheet"
       href="{% static 'home/sweetalert2/sweetalert2.min.css' %}"
@@ -60,20 +59,19 @@
     <link href="{% static 'home/css/grayscale.css' %}" rel="stylesheet" />
     {% block headContent %} {% endblock headContent %} {% block spHeadContent %}
     {% endblock spHeadContent %}
-    
   </head>
 
   <body id="page-top">
     <!--<p class="bubble">by <a style="text-decoration:none;color:#000000;" href="https://www.tech-r.org/"><b> Tech-R|Technology for Human Rights <br> & the University of Oslo.</b></a></p> -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-      <div class="container">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <a class="navbar-brand js-scroll-trigger" href="{% url 'home' %}"
           ><img
             src="{% static 'home/images/logo.png' %}"
             height="80px"
             alt="JUST BOT"
         /></a>
-        
+
         <button
           class="navbar-toggler navbar-toggler-right"
           type="button"
@@ -110,8 +108,8 @@
             </li>
           </ul>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
 
     <main role="main" class="Content">
       {% block content %} {% endblock content %}
@@ -133,7 +131,7 @@
     <script src="{% static 'home/sweetalert2/sweetalert2.all.min.js'%}"></script>
     <script src="{% static 'home/js/home.js' %}"></script>
     <!-- <script src="{% static 'home/js/promise-polyfill.js' %}"></script> -->
-    
+
     {% block scriptContent %} {% endblock scriptContent %}
   </body>
 </html>

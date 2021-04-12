@@ -93,7 +93,7 @@ footer {
 /* down arrow homepage */
 .header-down-arrow {
   animation: pulse 2s 3s ease-out infinite;
-  position: absolute;
+  position: static;
   bottom: 20vh;
   left: 0;
   right: 0;

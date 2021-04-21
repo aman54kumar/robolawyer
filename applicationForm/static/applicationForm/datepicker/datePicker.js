@@ -52,6 +52,7 @@ $(document).ready(function () {
     allowEnterKey: false,
     padding: "4rem 1.5rem 3rem 1.5rem",
     width: "60rem",
+    customClass: { actions: "popButtonLeftAlign" },
     didOpen: function (el) {
       cancelButton = el.children[2].children[3];
       cancelButton.onclick = function () {
@@ -76,6 +77,7 @@ $(document).ready(function () {
         allowEnterKey: false,
         padding: "4rem 1.5rem 3rem 1.5rem",
         width: "60rem",
+        customClass: { actions: "popButtonLeftAlign" },
         didOpen: function (el) {
           cancelButton = el.children[2].children[1];
           cancelButton.onclick = function () {
@@ -102,6 +104,8 @@ $(document).ready(function () {
               didOpen: function (el) {
                 contentDiv = el.children[1];
                 contentDiv.innerHTML = overviewDivContent.innerHTML;
+                contentDiv.children[0].children[0].children[0].children[0].innerText =
+                  "Overview";
                 contentDiv.classList.add("popUpScroll");
                 $(".popUpCard").on("click", function () {
                   console.log(this);

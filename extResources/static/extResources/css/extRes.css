@@ -15,8 +15,12 @@
   padding: 5rem;
 }
 
+#extResources a {
+  color: #17a2b8;
+}
+
 #extResources a:hover {
-  color: #1aa6b7;
+  color: #138496;
   font-size: 110%;
 }
 
@@ -25,6 +29,7 @@
 }
 
 .extPButton {
+  background-color: #fbcd33;
   float: center;
   margin-left: 30px;
   padding: 3px 8px;

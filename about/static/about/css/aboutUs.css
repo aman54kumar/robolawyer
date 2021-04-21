@@ -17,7 +17,6 @@
   align-items: center;
 }
 
-.about-logo-jumbotron {
-  /* background-color: #e9ecef; */
-  /* text-align: center;
-} */
+.acenter {
+  text-align: center;
+}

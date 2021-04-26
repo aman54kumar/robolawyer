@@ -293,7 +293,7 @@ label {
   text-align: center;
 }
 
-.reviewButton {
+/* .reviewButton {
   width: 100%;
 }
 .reviewHeadPara {
@@ -306,6 +306,15 @@ label {
   font-weight: 400;
   color: #007bff;
   cursor: pointer;
+} */
+
+.reviewTitle {
+}
+
+.reviewDescription {
+}
+
+.reviewQuestions {
 }
 
 .disabled-card {

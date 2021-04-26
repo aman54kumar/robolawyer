@@ -9,83 +9,54 @@ document.addEventListener("DOMContentLoaded", function () {
       "input[type=button], input[type=submit], input[type=reset], input[type=hidden], :disabled",
   });
   var form = stepperFormEl.querySelector(".bs-stepper-content form");
-  stepperFormEl.addEventListener("show.bs-stepper", function (event) {
-    stepDifference = event.detail.to - currentStep;
-    if (event.detail.to <= currentStep) {
-      if (event.detail.from != currentStep) {
-        if (!checkValidation(event.detail.from)) {
-          currentStep = event.detail.from;
-          // stepperForm.to(event.detail.from+1);
-          Swal.fire("", "Please answer the mandatory fields first.");
-          event.preventDefault();
-        }
-      }
-    } else if (stepDifference === 1) {
-      // next from current page, validation required
-      if (!checkValidation(currentStep)) {
-        Swal.fire("", "Please answer the mandatory fields first.");
-        event.preventDefault();
-      } else {
-        currentStep = Math.max(currentStep, event.detail.to);
-      }
-    } else {
-      stepperForm.to(currentStep + 1);
-      Swal.fire("", "Please answer the mandatory fields first.");
-      event.preventDefault();
-    }
-  });
 
-  stepperFormEl.addEventListener("shown.bs-stepper", function (event) {
-    currentStep = Math.max(currentStep, event.detail.to);
-  });
+  // below code is for stepwise form page
 
-  var btnNextList = [].slice.call(document.querySelectorAll(".btn-next-form"));
-  var stepperPanList = [].slice.call(
-    stepperFormEl.querySelectorAll(".bs-stepper-pane")
-  );
+  // stepperFormEl.addEventListener("show.bs-stepper", function (event) {
+  //   stepDifference = event.detail.to - currentStep;
+  //   if (event.detail.to <= currentStep) {
+  //     if (event.detail.from != currentStep) {
+  //       if (!checkValidation(event.detail.from)) {
+  //         currentStep = event.detail.from;
+  //         // stepperForm.to(event.detail.from+1);
+  //         Swal.fire("", "Please answer the mandatory fields first.");
+  //         event.preventDefault();
+  //       }
+  //     }
+  //   } else if (stepDifference === 1) {
+  //     // next from current page, validation required
+  //     if (!checkValidation(currentStep)) {
+  //       Swal.fire("", "Please answer the mandatory fields first.");
+  //       event.preventDefault();
+  //     } else {
+  //       currentStep = Math.max(currentStep, event.detail.to);
+  //     }
+  //   } else {
+  //     stepperForm.to(currentStep + 1);
+  //     Swal.fire("", "Please answer the mandatory fields first.");
+  //     event.preventDefault();
+  //   }
+  // });
 
-  btnNextList.forEach(function (btn) {
-    clickcount = 0;
-    btn.addEventListener("click", function () {
-      clickcount++;
-      // if (currentStep === 4) {
-      //   if ($("#stofFactsExtra").val().trim()) {
-      //     inputValue = $("#stofFactsExtra").val();
-      //     lines = formatText(inputValue, 78);
-      //     pageCount = 0;
+  // stepperFormEl.addEventListener("shown.bs-stepper", function (event) {
+  //   currentStep = Math.max(currentStep, event.detail.to);
+  // });
 
-      //     numOfLines = lines.split("\n").length - 1;
-      //     if (numOfLines <= 45) {
-      //       pageCount = 1;
-      //     } else {
-      //       pageCount = 1 + Math.ceil((numOfLines - 45) / 56);
-      //     }
-      //     anonSelection = $("input[name='page2[applicantAnon]']:checked").val();
-      //     if ($("input[name='page2[applicantAnon]']:checked").val() === "Yes") {
-      //       $("input[name='page8[1][date]']").val(
-      //         moment().format("DD-MM-YYYY")
-      //       );
-      //       $("input[name='page8[1][title]']").val(
-      //         "Extra pages for the Statement of Facts"
-      //       );
-      //       $("input[name='page8[1][desc]']").val(
-      //         "Document to supplement further details on the facts."
-      //       );
-      //      eturn true;    moment().format("DD-MM-YYYY")
-      //       );
-      //       $("input[name='page8[0][title]']").val(
-      //         "Extra pages for the Statement of Facts"
-      //       );
-      //       $("input[name='page8[0][desc]']").val(
-      //         "Document to supplement further details on the facts."
-      //       );
-      //       $("input[name='page8[0][page]']").val(pageCount);
-      //     }
-      //   }
-      // }
-      stepperForm.next();
-    });
-  });
+  // var btnNextList = [].slice.call(document.querySelectorAll(".btn-next-form"));
+  // var stepperPanList = [].slice.call(
+  //   stepperFormEl.querySelectorAll(".bs-stepper-pane")
+  // );
+
+  // btnNextList.forEach(function (btn) {
+  //   clickcount = 0;
+  //   btn.addEventListener("click", function () {
+  //     clickcount++;
+
+  //     stepperForm.next();
+  //   });
+  // });
+
+  //  stepwise form page code ends
 
   submitBtn = document.getElementById("form-submit-btn");
   submitBtn.addEventListener("click", function () {

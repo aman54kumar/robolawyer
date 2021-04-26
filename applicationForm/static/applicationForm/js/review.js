@@ -1,4 +1,10 @@
 $(document).ready(function () {
+  // adding two buttons
+  buttonHTML =
+    '<button class="btn btn-dark descButton" onclick="showHideSectionToggle(this)">Show Description</button><button class="btn btn-light questionButton" onclick="showHideSectionToggle(this)">Show Questions</button>';
+
+  $(".reviewTitle").append(buttonHTML);
+
   // Start of page 1
   $("#involvedStates").on("change", function (e) {
     curValue = $("#involvedStates").val();
@@ -547,3 +553,32 @@ $(document).ready(function () {
   });
   // End of Page 9
 });
+
+function showHideSectionToggle(element) {
+  descriptionSection = element.parentElement.parentElement.children[1];
+  questionSection = element.parentElement.parentElement.children[2];
+
+  if (element.classList.contains("descButton")) {
+    toggleText(element, "Description");
+    descriptionSection.classList.toggle("is-hidden");
+  } else if (element.classList.contains("questionButton")) {
+    toggleText(element, "Questions");
+    questionSection.classList.toggle("is-hidden");
+  }
+}
+
+function toggleText(targetElement, textString) {
+  $(targetElement).text(
+    $(targetElement).text() === "Show " + textString
+      ? "Hide " + textString
+      : "Show " + textString
+  );
+}
+
+// function otherButtonToggle(otherTargetSection, otherButton, textString) {
+//   console.log(otherButton);
+//   if (!$(otherTargetSection).hasClass("is-hidden")) {
+//     $(otherTargetSection).addClass("is-hidden");
+//     toggleText(otherButton, textString);
+//   }
+// }

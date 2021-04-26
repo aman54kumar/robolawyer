@@ -25,16 +25,17 @@
             beforeOpen: function (next) {
                 console.log('beforeOpen');
                 next();
-            }
-            , afterOpen: function () {
-                console.log('opened');
-            }
+            },
+            afterOpen: function () {
+                    console.log('opened');
+                }
 
-            , beforeClose: function (next) {
+                ,
+            beforeClose: function (next) {
                 console.log('beforeClose');
                 next();
-            }
-            , afterClose: function () {
+            },
+            afterClose: function () {
                 console.log('closed');
             }
             /*  , bodyClass: 'modal-open'
@@ -217,7 +218,7 @@
                 </div>
             </div>
             <div class="bs-stepper-content">
-                <form id="appForm" class="needs-validation" onSubmit="return false" method="POST"	
+                <form id="appForm" class="needs-validation" onSubmit="return false" method="POST"
                     action="{% url 'formProcessing' %}" novalidate>
                     {% csrf_token %}
                     {% include 'applicationForm/page1.html' %}
@@ -249,7 +250,8 @@
 <script type="text/javascript" src="{% static 'applicationForm/parsley/parsley.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'applicationForm/tagsinput/tagsinput.js' %}"></script>
 <script type="text/javascript" src="{% static 'applicationForm/tagsinput/custom.js' %}"></script>
-<script type="text/javascript" src="{% static 'applicationForm/datepicker/jquery-dropdown-datepicker.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'applicationForm/datepicker/jquery-dropdown-datepicker.min.js' %}">
+</script>
 <script type="text/javascript" src="{% static 'applicationForm/datepicker/bootstrap-datepicker.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'applicationForm/datepicker/datePicker.js' %}"></script>
 <script type="text/javascript" src="{% static 'applicationForm/popperjs/popper.min.js' %}"></script>

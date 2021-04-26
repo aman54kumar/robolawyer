@@ -14,14 +14,18 @@
         <div class="card-body">
           <div class="accordion" id="accordionParent">
             <div class="card">
-              <!--  page 1 -->
               <div class="card">
                 <div class="card-header" id="headingOne">
                   <div class="mb-0">
-                    <div class="reviewTitle">
+                    <button
+                      class="btn reviewButton"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#collapseOne"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
+                    >
                       <h2 class="btn-link">Page 1 - PREREQUISITES</h2>
-                    </div>
-                    <div class="reviewDescription is-hidden">
                       <p class="reviewHeadPara lead">
                         This page contains some of the most general conditions
                         that you have to fulfill in order for your application
@@ -48,83 +52,92 @@
                         your application will most probably be considered
                         inadmissible.
                       </p>
-                    </div>
+                      <i class="fa fa-3x fa-angle-right"></i>
+                    </button>
+                  </div>
 
-                    <div class="reviewQuestions is-hidden">
-                      <div class="card-body">
-                        <table class="reviewTable">
-                          <tbody>
-                            <tr>
-                              <td>
-                                Which state(s) is/are concerned by your
-                                application?
-                              </td>
-                              <td id="page1-1"></td>
-                            </tr>
+                  <div
+                    id="collapseOne"
+                    class="collapse"
+                    aria-labelledby="headingOne"
+                    data-parent="#accordionParent"
+                  >
+                    <div class="card-body">
+                      <table class="reviewTable">
+                        <tbody>
+                          <tr>
+                            <td>
+                              Which state(s) is/are concerned by your
+                              application?
+                            </td>
+                            <td id="page1-1"></td>
+                          </tr>
 
-                            <tr>
-                              <td>
-                                The facts you are complaining about concern:
-                              </td>
-                              <td id="page1-2"></td>
-                            </tr>
-                            <tr>
-                              <td>
-                                When did the facts that you are complaining
-                                about start and when did they stop?
-                              </td>
-                              <td id="page1-3">
-                                <div id="page1-3-1"></div>
-                                <div id="page1-3-2"></div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                Have you brought your case before the highest
-                                court competent to deal with the subject matter
-                                of your dispute?
-                              </td>
-                              <td id="page1-4"></td>
-                            </tr>
-                            <tr>
-                              <td>
-                                Were there available legal or administrative
-                                remedies capable of remedying your situation
-                                that you have not used?
-                              </td>
-                              <td id="page1-5"></td>
-                            </tr>
-                            <tr>
-                              <td>
-                                When was the final decision in your case
-                                delivered or served on you?
-                              </td>
-                              <td id="page1-6"></td>
-                            </tr>
-                            <tr>
-                              <td>
-                                Reference number (Application number) from the
-                                Court in relation to these complaints, if
-                                available.
-                              </td>
-                              <td id="page1-7"></td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
+                          <tr>
+                            <td>
+                              The facts you are complaining about concern:
+                            </td>
+                            <td id="page1-2"></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              When did the facts that you are complaining about
+                              start and when did they stop?
+                            </td>
+                            <td id="page1-3">
+                              <div id="page1-3-1"></div>
+                              <div id="page1-3-2"></div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              Have you brought your case before the highest
+                              court competent to deal with the subject matter of
+                              your dispute?
+                            </td>
+                            <td id="page1-4"></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              Were there available legal or administrative
+                              remedies capable of remedying your situation that
+                              you have not used?
+                            </td>
+                            <td id="page1-5"></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              When was the final decision in your case delivered
+                              or served on you?
+                            </td>
+                            <td id="page1-6"></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              Reference number (Application number) from the
+                              Court in relation to these complaints, if
+                              available.
+                            </td>
+                            <td id="page1-7"></td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>
               </div>
-
-              <!--  page 2  -->
               <div class="card">
                 <div class="card-header aleft" id="headingTwo">
                   <div class="mb-0">
-                    <div class="reviewTitle">
+                    <button
+                      class="btn collapsed reviewButton"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#collapseTwo"
+                      aria-expanded="false"
+                      aria-controls="collapseTwo"
+                    >
                       <h2 class="btn-link">Page 2 - APPLICANT DETAILS</h2>
-                    </div>
-                    <div class="reviewDescription is-hidden">
                       <p class="reviewHeadPara lead">
                         In this page you must provide the details of the
                         applicant, including the full name, address, telephone
@@ -135,107 +148,112 @@
                         email address, you must also provide the activity field,
                         identification number and date of registration.
                       </p>
-                    </div>
-
-                    <div class="reviewQuestions is-hidden">
-                      <div class="card-body">
-                        <div id="reviewTable2">
-                          <table>
-                            <tbody>
-                              <tr>
-                                <td>
-                                  Select the option appropriate for your
-                                  situation and fill in the requested details.
-                                </td>
-                                <td id="page2-1"></td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        <div id="indReview" class="is-hidden">
-                          <table>
-                            <tbody>
-                              <tr>
-                                <td>Surname</td>
-                                <td id="page2-ind-1"></td>
-                              </tr>
-                              <tr>
-                                <td>First Name(s)</td>
-                                <td id="page2-ind-2"></td>
-                              </tr>
-                              <tr>
-                                <td>Date of Birth</td>
-                                <td id="page2-ind-3"></td>
-                              </tr>
-                              <tr>
-                                <td>Place of Birth</td>
-                                <td id="page2-ind-4"></td>
-                              </tr>
-                              <tr>
-                                <td>Nationality</td>
-                                <td id="page2-ind-5"></td>
-                              </tr>
-                              <tr>
-                                <td>Address</td>
-                                <td id="page2-ind-6"></td>
-                              </tr>
-                              <tr>
-                                <td>Telephone Number</td>
-                                <td id="page2-ind-7"></td>
-                              </tr>
-                              <tr>
-                                <td>Email</td>
-                                <td id="page2-ind-8"></td>
-                              </tr>
-                              <tr>
-                                <td>Sex</td>
-                                <td id="page2-ind-9"></td>
-                              </tr>
-                              <tr>
-                                <td>Anonymity Request</td>
-                                <td id="page2-ind-10"></td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        <div id="orgReview" class="is-hidden">
-                          <table>
-                            <tbody>
-                              <tr>
-                                <td>Name</td>
-                                <td id="page2-org-1"></td>
-                              </tr>
-                              <tr>
-                                <td>Activity</td>
-                                <td id="page2-org-2"></td>
-                              </tr>
-                              <tr>
-                                <td>Date of Registration or incorporation</td>
-                                <td id="page2-org-3"></td>
-                              </tr>
-                              <tr>
-                                <td>Identification Number</td>
-                                <td id="page2-org-4"></td>
-                              </tr>
-                              <tr>
-                                <td>Registered Address</td>
-                                <td id="page2-org-5"></td>
-                              </tr>
-                              <tr>
-                                <td>Telephone</td>
-                                <td id="page2-org-6"></td>
-                              </tr>
-                              <tr>
-                                <td>Email</td>
-                                <td id="page2-org-7"></td>
-                              </tr>
-                              <tr>
-                                <td>Anonymity Request</td>
-                                <td id="page2-org-8"></td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
+                      <i class="fa fa-3x fa-angle-right"></i>
+                    </button>
+                  </div>
+                  <div
+                    id="collapseTwo"
+                    class="collapse"
+                    aria-labelledby="headingTwo"
+                    data-parent="#accordionParent"
+                  >
+                    <div class="card-body">
+                      <div id="reviewTable2">
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>
+                                Select the option appropriate for your situation
+                                and fill in the requested details.
+                              </td>
+                              <td id="page2-1"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div id="indReview" class="is-hidden">
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>Surname</td>
+                              <td id="page2-ind-1"></td>
+                            </tr>
+                            <tr>
+                              <td>First Name(s)</td>
+                              <td id="page2-ind-2"></td>
+                            </tr>
+                            <tr>
+                              <td>Date of Birth</td>
+                              <td id="page2-ind-3"></td>
+                            </tr>
+                            <tr>
+                              <td>Place of Birth</td>
+                              <td id="page2-ind-4"></td>
+                            </tr>
+                            <tr>
+                              <td>Nationality</td>
+                              <td id="page2-ind-5"></td>
+                            </tr>
+                            <tr>
+                              <td>Address</td>
+                              <td id="page2-ind-6"></td>
+                            </tr>
+                            <tr>
+                              <td>Telephone Number</td>
+                              <td id="page2-ind-7"></td>
+                            </tr>
+                            <tr>
+                              <td>Email</td>
+                              <td id="page2-ind-8"></td>
+                            </tr>
+                            <tr>
+                              <td>Sex</td>
+                              <td id="page2-ind-9"></td>
+                            </tr>
+                            <tr>
+                              <td>Anonymity Request</td>
+                              <td id="page2-ind-10"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div id="orgReview" class="is-hidden">
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>Name</td>
+                              <td id="page2-org-1"></td>
+                            </tr>
+                            <tr>
+                              <td>Activity</td>
+                              <td id="page2-org-2"></td>
+                            </tr>
+                            <tr>
+                              <td>Date of Registration or incorporation</td>
+                              <td id="page2-org-3"></td>
+                            </tr>
+                            <tr>
+                              <td>Identification Number</td>
+                              <td id="page2-org-4"></td>
+                            </tr>
+                            <tr>
+                              <td>Registered Address</td>
+                              <td id="page2-org-5"></td>
+                            </tr>
+                            <tr>
+                              <td>Telephone</td>
+                              <td id="page2-org-6"></td>
+                            </tr>
+                            <tr>
+                              <td>Email</td>
+                              <td id="page2-org-7"></td>
+                            </tr>
+                            <tr>
+                              <td>Anonymity Request</td>
+                              <td id="page2-org-8"></td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </div>
                   </div>

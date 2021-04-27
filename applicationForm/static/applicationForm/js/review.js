@@ -1,10 +1,6 @@
 $(document).ready(function () {
   // adding two buttons
-  buttonHTML =
-    '<button class="btn btn-dark descButton" onclick="showHideSectionToggle(this)">Show Description</button><button class="btn btn-light questionButton" onclick="showHideSectionToggle(this)">Show Questions</button>';
-
-  $(".reviewTitle").append(buttonHTML);
-
+  addButtonsToReview();
   // Start of page 1
   $("#involvedStates").on("change", function (e) {
     curValue = $("#involvedStates").val();
@@ -554,6 +550,15 @@ $(document).ready(function () {
   // End of Page 9
 });
 
+function addButtonsToReview() {
+  buttonHTML =
+    '<button class="reviewButton descButton" onclick="showHideSectionToggle(this)">Show Description <i class="fas fa-eye"></i></button><button class="reviewButton questionButton" onclick="showHideSectionToggle(this)">Show Questions <i class="fas fa-eye"></i></button>';
+  buttonHTMLforDisabled =
+    '<button class="reviewButton descButton" onclick="showHideSectionToggleSingleButton(this)">Show Description <i class="fas fa-eye"></i></button>';
+  $(".reviewTitle").append(buttonHTML);
+  $(".reviewTitleDisabled").append(buttonHTMLforDisabled);
+}
+
 function showHideSectionToggle(element) {
   descriptionSection = element.parentElement.parentElement.children[1];
   questionSection = element.parentElement.parentElement.children[2];
@@ -567,11 +572,20 @@ function showHideSectionToggle(element) {
   }
 }
 
+function showHideSectionToggleSingleButton(element) {
+  descriptionSection = element.parentElement.parentElement.children[1];
+  if (element.classList.contains("descButton")) {
+    toggleText(element, "Description");
+    descriptionSection.classList.toggle("is-hidden");
+  }
+}
+
 function toggleText(targetElement, textString) {
-  $(targetElement).text(
-    $(targetElement).text() === "Show " + textString
-      ? "Hide " + textString
-      : "Show " + textString
+  $(targetElement).html(
+    $(targetElement).html() ===
+      "Show " + textString + ' <i class="fas fa-eye"></i>'
+      ? "Hide " + textString + ' <i class="fas fa-eye-slash"></i>'
+      : "Show " + textString + ' <i class="fas fa-eye"></i>'
   );
 }
 

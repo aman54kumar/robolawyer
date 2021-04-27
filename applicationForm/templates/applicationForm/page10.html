@@ -7,7 +7,7 @@
   <div class="col-md-12 mx-auto form-section" id="reviewSection">
     {% load static %}
     <div class="row">
-      <div class="card-master col-sm-11">
+      <div class="card-master col-sm-12">
         <div class="card-master-header">
           <h4 class="card-header-title">Review</h4>
         </div>
@@ -16,10 +16,10 @@
             <div class="card">
               <!--  page 1 -->
               <div class="card">
-                <div class="card-header" id="headingOne">
+                <div class="card-header aleft" id="headingOne">
                   <div class="mb-0">
                     <div class="reviewTitle">
-                      <h2 class="btn-link">Page 1 - PREREQUISITES</h2>
+                      <h3>Page 1 - PREREQUISITES</h3>
                     </div>
                     <div class="reviewDescription is-hidden">
                       <p class="reviewHeadPara lead">
@@ -51,7 +51,7 @@
                     </div>
 
                     <div class="reviewQuestions is-hidden">
-                      <div class="card-body">
+                      <div class="container-fluid">
                         <table class="reviewTable">
                           <tbody>
                             <tr>
@@ -122,7 +122,7 @@
                 <div class="card-header aleft" id="headingTwo">
                   <div class="mb-0">
                     <div class="reviewTitle">
-                      <h2 class="btn-link">Page 2 - APPLICANT DETAILS</h2>
+                      <h3>Page 2 - APPLICANT DETAILS</h3>
                     </div>
                     <div class="reviewDescription is-hidden">
                       <p class="reviewHeadPara lead">
@@ -138,7 +138,7 @@
                     </div>
 
                     <div class="reviewQuestions is-hidden">
-                      <div class="card-body">
+                      <div class="container-fluid">
                         <div id="reviewTable2">
                           <table>
                             <tbody>
@@ -241,18 +241,15 @@
                   </div>
                 </div>
               </div>
+
+              <!-- page 3  -->
               <div class="card">
                 <div class="card-header aleft" id="headingThree">
                   <div class="mb-0">
-                    <button
-                      class="btn reviewButton collapsed"
-                      type="button"
-                      data-toggle="collapse"
-                      data-target="#collapseThree"
-                      aria-expanded="false"
-                      aria-controls="collapseThree"
-                    >
-                      <h2 class="btn-link">Page 3 - REPRESENTATION</h2>
+                    <div class="reviewTitle">
+                      <h3>Page 3 - REPRESENTATION</h3>
+                    </div>
+                    <div class="reviewDescription is-hidden">
                       <p class="reviewHeadPara lead">
                         In this page you must inform the case on whether you
                         have a representative or not. At this point in the
@@ -273,270 +270,250 @@
                         representative must sign the authority form giving the
                         representative the power to represent the applicant.
                       </p>
-                      <i class="fa fa-3x fa-angle-right"></i>
-                    </button>
-                  </div>
-                </div>
-                <div
-                  id="collapseThree"
-                  class="collapse"
-                  aria-labelledby="headingThree"
-                  data-parent="#accordionParent"
-                >
-                  <div class="card-body">
-                    <div id="reviewTable3" class="is-hidden">
-                      <div class="reviewRepIndividual is-hidden">
-                        <div class="reviewRepIndNL is-hidden">
-                          <table>
-                            <tbody>
-                              <tr>
-                                <td>Representative Type</td>
-                                <td id="page3-ind-rep-NL"></td>
-                              </tr>
-                              <tr>
-                                <td>Capacity/relationship/function</td>
-                                <td id="page3-ind-rep-NL-1"></td>
-                              </tr>
-                              <tr>
-                                <td>Surname</td>
-                                <td id="page3-ind-rep-NL-2"></td>
-                              </tr>
-                              <tr>
-                                <td>First Name(s)</td>
-                                <td id="page3-ind-rep-NL-3"></td>
-                              </tr>
-                              <tr>
-                                <td>Address</td>
-                                <td id="page3-ind-rep-NL-4"></td>
-                              </tr>
-                              <tr>
-                                <td>Nationality</td>
-                                <td id="page3-ind-rep-NL-5"></td>
-                              </tr>
-                              <tr>
-                                <td>Email</td>
-                                <td id="page3-ind-rep-NL-6"></td>
-                              </tr>
-                              <tr>
-                                <td>Telephone Number</td>
-                                <td id="page3-ind-rep-NL-7"></td>
-                              </tr>
-                              <tr>
-                                <td>Fax</td>
-                                <td id="page3-ind-rep-NL-8"></td>
-                              </tr>
+                    </div>
 
-                              <tr>
-                                <td>Ecomms email</td>
-                                <td id="page3-ind-rep-NL-9"></td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        <div class="reviewRepIndL is-hidden">
-                          <table>
-                            <tbody>
-                              <tr>
-                                <td>Representative Type</td>
-                                <td id="page3-ind-rep-L"></td>
-                              </tr>
-                              <tr>
-                                <td>Surname</td>
-                                <td id="page3-ind-rep-L-1"></td>
-                              </tr>
-                              <tr>
-                                <td>First Name(s)</td>
-                                <td id="page3-ind-rep-L-2"></td>
-                              </tr>
-                              <tr>
-                                <td>Address</td>
-                                <td id="page3-ind-rep-L-3"></td>
-                              </tr>
-                              <tr>
-                                <td>Nationality</td>
-                                <td id="page3-ind-rep-L-4"></td>
-                              </tr>
-                              <tr>
-                                <td>Email</td>
-                                <td id="page3-ind-rep-L-5"></td>
-                              </tr>
-                              <tr>
-                                <td>Telephone Number</td>
-                                <td id="page3-ind-rep-L-6"></td>
-                              </tr>
-                              <tr>
-                                <td>Fax</td>
-                                <td id="page3-ind-rep-L-7"></td>
-                              </tr>
-                              <tr>
-                                <td>Ecomms Email</td>
-                                <td id="page3-ind-rep-L-8"></td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        <div class="reviewRepSelf is-hidden">
-                          <table>
-                            <tbody>
-                              <tr>
-                                <td>Representative Type</td>
-                                <td id="page3-ind-rep-self"></td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                      <div class="reviewRepOrganisation is-hidden">
-                        <div class="reviewRepOrgNL is-hidden">
-                          <table>
-                            <tbody>
-                              <tr>
-                                <td>Capacity/relationship/function</td>
-                                <td id="page3-org-rep-NL-1"></td>
-                              </tr>
-                              <tr>
-                                <td>Surname</td>
-                                <td id="page3-org-rep-NL-2"></td>
-                              </tr>
-                              <tr>
-                                <td>First Name(s)</td>
-                                <td id="page3-org-rep-NL-3"></td>
-                              </tr>
-                              <tr>
-                                <td>Address</td>
-                                <td id="page3-org-rep-NL-4"></td>
-                              </tr>
-                              <tr>
-                                <td>Nationality</td>
-                                <td id="page3-org-rep-NL-5"></td>
-                              </tr>
-                              <tr>
-                                <td>Email</td>
-                                <td id="page3-org-rep-NL-6"></td>
-                              </tr>
-                              <tr>
-                                <td>Telephone Number</td>
-                                <td id="page3-org-rep-NL-7"></td>
-                              </tr>
-                              <tr>
-                                <td>Fax</td>
-                                <td id="page3-org-rep-NL-8"></td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  Is the organisation going to be represented by
-                                  a Lawyer?
-                                </td>
-                                <td id="page3-org-rep-NL-9"></td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        <div class="reviewRepOrgL is-hidden">
-                          <table>
-                            <tbody>
-                              <tr>
-                                <td>Surname</td>
-                                <td id="page3-org-rep-L-1"></td>
-                              </tr>
-                              <tr>
-                                <td>First Name(s)</td>
-                                <td id="page3-org-rep-L-2"></td>
-                              </tr>
-                              <tr>
-                                <td>Address</td>
-                                <td id="page3-org-rep-L-3"></td>
-                              </tr>
-                              <tr>
-                                <td>Nationality</td>
-                                <td id="page3-org-rep-L-4"></td>
-                              </tr>
-                              <tr>
-                                <td>Email</td>
-                                <td id="page3-org-rep-L-5"></td>
-                              </tr>
-                              <tr>
-                                <td>Telephone Number</td>
-                                <td id="page3-org-rep-L-6"></td>
-                              </tr>
-                              <tr>
-                                <td>Fax</td>
-                                <td id="page3-org-rep-L-7"></td>
-                              </tr>
-                              <tr>
-                                <td>Email address for eComms account</td>
-                                <td id="page3-org-rep-L-8"></td>
-                              </tr>
-                            </tbody>
-                          </table>
+                    <div class="reviewQuestions is-hidden">
+                      <div class="container-fluid">
+                        <div id="reviewTable3" class="is-hidden">
+                          <div class="reviewRepIndividual is-hidden">
+                            <div class="reviewRepIndNL is-hidden">
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td>Representative Type</td>
+                                    <td id="page3-ind-rep-NL"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Capacity/relationship/function</td>
+                                    <td id="page3-ind-rep-NL-1"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Surname</td>
+                                    <td id="page3-ind-rep-NL-2"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>First Name(s)</td>
+                                    <td id="page3-ind-rep-NL-3"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Address</td>
+                                    <td id="page3-ind-rep-NL-4"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Nationality</td>
+                                    <td id="page3-ind-rep-NL-5"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Email</td>
+                                    <td id="page3-ind-rep-NL-6"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Telephone Number</td>
+                                    <td id="page3-ind-rep-NL-7"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Fax</td>
+                                    <td id="page3-ind-rep-NL-8"></td>
+                                  </tr>
+
+                                  <tr>
+                                    <td>Ecomms email</td>
+                                    <td id="page3-ind-rep-NL-9"></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <div class="reviewRepIndL is-hidden">
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td>Representative Type</td>
+                                    <td id="page3-ind-rep-L"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Surname</td>
+                                    <td id="page3-ind-rep-L-1"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>First Name(s)</td>
+                                    <td id="page3-ind-rep-L-2"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Address</td>
+                                    <td id="page3-ind-rep-L-3"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Nationality</td>
+                                    <td id="page3-ind-rep-L-4"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Email</td>
+                                    <td id="page3-ind-rep-L-5"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Telephone Number</td>
+                                    <td id="page3-ind-rep-L-6"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Fax</td>
+                                    <td id="page3-ind-rep-L-7"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Ecomms Email</td>
+                                    <td id="page3-ind-rep-L-8"></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <div class="reviewRepSelf is-hidden">
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td>Representative Type</td>
+                                    <td id="page3-ind-rep-self"></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                          <div class="reviewRepOrganisation is-hidden">
+                            <div class="reviewRepOrgNL is-hidden">
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td>Capacity/relationship/function</td>
+                                    <td id="page3-org-rep-NL-1"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Surname</td>
+                                    <td id="page3-org-rep-NL-2"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>First Name(s)</td>
+                                    <td id="page3-org-rep-NL-3"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Address</td>
+                                    <td id="page3-org-rep-NL-4"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Nationality</td>
+                                    <td id="page3-org-rep-NL-5"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Email</td>
+                                    <td id="page3-org-rep-NL-6"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Telephone Number</td>
+                                    <td id="page3-org-rep-NL-7"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Fax</td>
+                                    <td id="page3-org-rep-NL-8"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      Is the organisation going to be
+                                      represented by a Lawyer?
+                                    </td>
+                                    <td id="page3-org-rep-NL-9"></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <div class="reviewRepOrgL is-hidden">
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td>Surname</td>
+                                    <td id="page3-org-rep-L-1"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>First Name(s)</td>
+                                    <td id="page3-org-rep-L-2"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Address</td>
+                                    <td id="page3-org-rep-L-3"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Nationality</td>
+                                    <td id="page3-org-rep-L-4"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Email</td>
+                                    <td id="page3-org-rep-L-5"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Telephone Number</td>
+                                    <td id="page3-org-rep-L-6"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Fax</td>
+                                    <td id="page3-org-rep-L-7"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Email address for eComms account</td>
+                                    <td id="page3-org-rep-L-8"></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <!-- page 4 -->
               <div class="card">
                 <div class="card-header aleft" id="headingFour">
                   <div class="mb-0">
-                    <button
-                      class="btn reviewButton collapsed"
-                      type="button"
-                      data-toggle="collapse"
-                      data-target="#collapseFour"
-                      aria-expanded="false"
-                      aria-controls="collapseFour"
-                    >
-                      <h2 class="btn-link">Page 4 - FACTS</h2>
+                    <div class="reviewTitle">
+                      <h3>Page 4 - FACTS</h3>
+                    </div>
+                    <div class="reviewDescription is-hidden">
                       <p class="reviewHeadPara lead">
                         In this page you must state the matter of your facts.
                         You must present clearly and concisely the key events of
                         your case and the administrative and judicial decisions
                         that you consider led to the violation of your rights.
                       </p>
-                      <i class="fa fa-3x fa-angle-right"></i>
-                    </button>
-                  </div>
-                </div>
-                <div
-                  id="collapseFour"
-                  class="collapse"
-                  aria-labelledby="headingFour"
-                  data-parent="#accordionParent"
-                >
-                  <div class="card-body">
-                    <table id="reviewTable4">
-                      <tbody>
-                        <tr>
-                          <td>Statement of Facts</td>
-                          <td id="page4-1"></td>
-                        </tr>
-                        <tr>
-                          <td>
-                            Supplementary Statement on the Subject matter of the
-                            application
-                          </td>
-                          <td name="" id="page4-2"></td>
-                        </tr>
-                      </tbody>
-                    </table>
+                    </div>
+                    <div class="reviewQuestions is-hidden">
+                      <div class="container-fluid">
+                        <table id="reviewTable4">
+                          <tbody>
+                            <tr>
+                              <td>Statement of Facts</td>
+                              <td id="page4-1"></td>
+                            </tr>
+                            <tr>
+                              <td>
+                                Supplementary Statement on the Subject matter of
+                                the application
+                              </td>
+                              <td name="" id="page4-2"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+              <!-- page 5 -->
               <div class="card">
                 <div class="card-header aleft" id="headingFive">
                   <div class="mb-0">
-                    <button
-                      class="btn reviewButton collapsed"
-                      type="button"
-                      data-toggle="collapse"
-                      data-target="#collapseFive"
-                      aria-expanded="false"
-                      aria-controls="collapseFive"
-                      id="articleButton"
-                    >
-                      <h2 class="btn-link">
+                    <div class="reviewTitle">
+                      <h3>
                         Page 5 - ALLEGED VIOLATIONS OF THE CONVENTION/PROTOCOLS
-                      </h2>
+                      </h3>
+                    </div>
+                    <div class="reviewDescription is-hidden">
                       <p class="reviewHeadPara lead">
                         In this page you must choose the articles of the
                         European Convention of Human Rights and/or its Protocols
@@ -554,42 +531,34 @@
                         that the country you are complaining about might have
                         made to the article(s) chosen.
                       </p>
-                      <i class="fa fa-3x fa-angle-right"></i>
-                    </button>
-                  </div>
-                </div>
-                <div
-                  id="collapseFive"
-                  class="collapse"
-                  aria-labelledby="headingFive"
-                  data-parent="#accordionParent"
-                >
-                  <div class="card-body">
-                    <table id="reviewTable5">
-                      <thead>
-                        <tr>
-                          <td><b>Article Invoked</b></td>
-                          <td><b>Explanation</b></td>
-                        </tr>
-                      </thead>
-                      <tbody id="articleBody" style="border: outset"></tbody>
-                    </table>
+                    </div>
+                    <div class="reviewQuestions is-hidden">
+                      <div class="container-fluid">
+                        <table id="reviewTable5">
+                          <thead>
+                            <tr>
+                              <td><b>Article Invoked</b></td>
+                              <td><b>Explanation</b></td>
+                            </tr>
+                          </thead>
+                          <tbody
+                            id="articleBody"
+                            style="border: outset"
+                          ></tbody>
+                        </table>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+              <!-- page 6 -->
               <div class="card">
                 <div class="card-header aleft" id="headingSix">
                   <div class="mb-0">
-                    <button
-                      class="btn reviewButton collapsed"
-                      type="button"
-                      data-toggle="collapse"
-                      data-target="#collapseSix"
-                      aria-expanded="false"
-                      aria-controls="collapseSix"
-                      id="complaintButton"
-                    >
-                      <h2 class="btn-link">Page 6 - DOMESTIC PROCEEDINGS</h2>
+                    <div class="reviewTitle">
+                      <h3>Page 6 - DOMESTIC PROCEEDINGS</h3>
+                    </div>
+                    <div class="reviewDescription is-hidden">
                       <p class="reviewHeadPara lead">
                         In this page you must list all the domestic remedies you
                         have appealed to in relation to the articles of the
@@ -603,52 +572,43 @@
                         courts and appealed up to the highest level in order to
                         seek remedy for your complaints.
                       </p>
-                      <i class="fa fa-3x fa-angle-right"></i>
-                    </button>
-                  </div>
-                </div>
-                <div
-                  id="collapseSix"
-                  class="collapse"
-                  aria-labelledby="headingSix"
-                  data-parent="#accordionParent"
-                >
-                  <div class="card-body">
-                    <table id="reviewTable6">
-                      <thead>
-                        <tr>
-                          <td><b>Complaint</b></td>
-                          <td><b>Remedies Used</b></td>
-                        </tr>
-                      </thead>
-                      <tbody id="complaintBody" style="border: outset"></tbody>
-                      <tbody>
-                        <tr>
-                          <td>
-                            Please state which appeal or remedy you have not
-                            used and explain why not.
-                          </td>
-                          <td id="page6-1"></td>
-                        </tr>
-                      </tbody>
-                    </table>
+                    </div>
+                    <div class="reviewQuestions is-hidden">
+                      <div class="container-fluid">
+                        <table id="reviewTable6">
+                          <thead>
+                            <tr>
+                              <td><b>Complaint</b></td>
+                              <td><b>Remedies Used</b></td>
+                            </tr>
+                          </thead>
+                          <tbody
+                            id="complaintBody"
+                            style="border: outset"
+                          ></tbody>
+                          <tbody>
+                            <tr>
+                              <td>
+                                Please state which appeal or remedy you have not
+                                used and explain why not.
+                              </td>
+                              <td id="page6-1"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+              <!-- page 7 -->
               <div class="card">
                 <div class="card-header aleft" id="headingSeven">
                   <div class="mb-0">
-                    <button
-                      class="btn reviewButton collapsed"
-                      type="button"
-                      data-toggle="collapse"
-                      data-target="#collapseSeven"
-                      aria-expanded="false"
-                      aria-controls="collapseSeven"
-                    >
-                      <h2 class="btn-link">
-                        Page 7 - INTERNATIONAL PROCEEDINGS
-                      </h2>
+                    <div class="reviewTitle">
+                      <h3>Page 7 - INTERNATIONAL PROCEEDINGS</h3>
+                    </div>
+                    <div class="reviewDescription is-hidden">
                       <p class="reviewHeadPara lead">
                         In this page you must list any international bodies that
                         you have resorted to in order to address your
@@ -664,53 +624,43 @@
                         Rights. This is especially important if you have prior
                         applications on the same matter.
                       </p>
-                      <i class="fa fa-3x fa-angle-right"></i>
-                    </button>
-                  </div>
-                </div>
-                <div
-                  id="collapseSeven"
-                  class="collapse"
-                  aria-labelledby="headingSeven"
-                  data-parent="#accordionParent"
-                >
-                  <div class="card-body">
-                    <table id="reviewTable7">
-                      <tbody id="page7-body">
-                        <tr>
-                          <td>
-                            Please give a concise summary of the procedure
-                            (complaints submitted, name of the international
-                            body and date and nature of any decisions given).
-                          </td>
-                          <td id="page7-1"></td>
-                        </tr>
-                        <tr>
-                          <td>
-                            Application Number(s) if you (the applicant)
-                            currently have, or have you previously had, any
-                            other applications before the Court?
-                          </td>
-                          <td id="page7-2"></td>
-                        </tr>
-                      </tbody>
-                    </table>
+                    </div>
+                    <div class="reviewQuestions is-hidden">
+                      <div class="container-fluid">
+                        <table id="reviewTable7">
+                          <tbody id="page7-body">
+                            <tr>
+                              <td>
+                                Please give a concise summary of the procedure
+                                (complaints submitted, name of the international
+                                body and date and nature of any decisions
+                                given).
+                              </td>
+                              <td id="page7-1"></td>
+                            </tr>
+                            <tr>
+                              <td>
+                                Application Number(s) if you (the applicant)
+                                currently have, or have you previously had, any
+                                other applications before the Court?
+                              </td>
+                              <td id="page7-2"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+              <!-- page 8 -->
               <div class="card">
                 <div class="card-header aleft" id="headingEight">
                   <div class="mb-0">
-                    <button
-                      class="btn reviewButton collapsed"
-                      type="button"
-                      data-toggle="collapse"
-                      data-target="#collapseEight"
-                      aria-expanded="false"
-                      aria-controls="collapseEight"
-                      id="docsButton"
-                    >
-                      <h2 class="btn-link">Page 8 - SUPPORTING DOCUMENTS</h2>
+                    <div class="reviewTitle">
+                      <h3>Page 8 - SUPPORTING DOCUMENTS</h3>
+                    </div>
+                    <div class="reviewDescription is-hidden">
                       <p class="reviewHeadPara lead">
                         In this page you must list all the documents related to
                         your case.The European Court of Human Rights expects to
@@ -753,43 +703,33 @@
                         not open and it will destroy any package that is deemed
                         suspicious.
                       </p>
-                      <i class="fa fa-3x fa-angle-right"></i>
-                    </button>
-                  </div>
-                </div>
-                <div
-                  id="collapseEight"
-                  class="collapse"
-                  aria-labelledby="headingEight"
-                  data-parent="#accordionParent"
-                >
-                  <div class="card-body">
-                    <table id="reviewTable8">
-                      <thead>
-                        <tr>
-                          <td><b>Date</b></td>
-                          <td><b>Title</b></td>
-                          <td><b>Description</b></td>
-                          <td><b>No. of Pages</b></td>
-                        </tr>
-                      </thead>
-                      <tbody id="docsBody" style="border: outset"></tbody>
-                    </table>
+                    </div>
+                    <div class="reviewQuestions is-hidden">
+                      <div class="container-fluid">
+                        <table id="reviewTable8">
+                          <thead>
+                            <tr>
+                              <td><b>Date</b></td>
+                              <td><b>Title</b></td>
+                              <td><b>Description</b></td>
+                              <td><b>No. of Pages</b></td>
+                            </tr>
+                          </thead>
+                          <tbody id="docsBody" style="border: outset"></tbody>
+                        </table>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+              <!-- page 9 -->
               <div class="card">
                 <div class="card-header aleft" id="headingNine">
                   <div class="mb-0">
-                    <button
-                      class="btn reviewButton collapsed"
-                      type="button"
-                      data-toggle="collapse"
-                      data-target="#collapseNine"
-                      aria-expanded="false"
-                      aria-controls="collapseNine"
-                    >
-                      <h2 class="btn-link">Page 9 - DECLARATION</h2>
+                    <div class="reviewTitle">
+                      <h3>Page 9 - DECLARATION</h3>
+                    </div>
+                    <div class="reviewDescription is-hidden">
                       <p class="reviewHeadPara lead">
                         "In this page you must mention any other comments you
                         might have in relation to your application and which you
@@ -806,38 +746,33 @@
                         confirms that the information you have provided in the
                         application form is correct."
                       </p>
-                      <i class="fa fa-3x fa-angle-right"></i>
-                    </button>
-                  </div>
-                </div>
-                <div
-                  id="collapseNine"
-                  class="collapse"
-                  aria-labelledby="headingNine"
-                  data-parent="#accordionParent"
-                >
-                  <div class="card-body">
-                    <table id="reviewTable9">
-                      <tbody>
-                        <tr>
-                          <td>
-                            Do you have any other comments about your
-                            application?
-                          </td>
-                          <td id="page9-1"></td>
-                        </tr>
-                      </tbody>
-                    </table>
+                    </div>
+                    <div class="reviewQuestions is-hidden">
+                      <div class="container-fluid">
+                        <table id="reviewTable9">
+                          <tbody>
+                            <tr>
+                              <td>
+                                Do you have any other comments about your
+                                application?
+                              </td>
+                              <td id="page9-1"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="card disabled-card">
+              <!-- page 10 -->
+              <div class="card">
                 <div class="card-header aleft" id="headingTen">
                   <div class="mb-0">
-                    <button class="btn" type="button">
-                      <h2 class="reviewButtonNoChange">
-                        Page 10 - Review Page
-                      </h2>
+                    <div class="reviewTitleDisabled">
+                      <h3>Page 10 - Review Page</h3>
+                    </div>
+                    <div class="reviewDescription is-hidden">
                       <p class="reviewHeadPara lead">
                         This is the current page. After you enter information on
                         your digital form, that information will be sent to this
@@ -846,17 +781,18 @@
                         page you can go back to each page of the digital
                         application form and edit the desired fields.
                       </p>
-                    </button>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="card disabled-card">
+              <!-- page 11 -->
+              <div class="card">
                 <div class="card-header aleft" id="headingEleven">
                   <div class="mb-0">
-                    <button class="btn" type="button">
-                      <h2 class="reviewButtonNoChange">
-                        Page 11 - Finish to PDF
-                      </h2>
+                    <div class="reviewTitleDisabled">
+                      <h3>Page 11 - Finish to PDF</h3>
+                    </div>
+                    <div class="reviewDescription is-hidden">
                       <p class="reviewHeadPara lead">
                         On this page you are provided guidance on how to apply
                         to the European COurt of Human Rights and you can
@@ -873,7 +809,7 @@
                         form, like the Anonymity Request, Supplementary Pages
                         for the Statement of Facts, or any other document.
                       </p>
-                    </button>
+                    </div>
                   </div>
                 </div>
               </div>

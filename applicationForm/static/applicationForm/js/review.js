@@ -1,4 +1,8 @@
 $(document).ready(function () {
+  $(".reviewQuestions")
+    .find("td")
+    .addClass("lead")
+    .css("font-family", "lato-thin");
   // adding two buttons
   addButtonsToReview();
   // Start of page 1

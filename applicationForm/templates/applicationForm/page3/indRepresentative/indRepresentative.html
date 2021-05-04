@@ -14,67 +14,38 @@
           person, please select the option "I represent myself at this stage".
         </p>
       </div>
+
       <br /><br />
       <div class="row form-group">
-        <h4 class="divSpacing col-sm-12">
-          Representative Type
-        </h4>
+        <h4 class="divSpacing col-sm-12">Representative Type</h4>
         <div class="col-sm-4 d-flex justify-content-center">
           <div class="custom-control custom-radio custom-control-inline">
-            <input
-              type="radio"
-              class="custom-control-input"
-              id="representativeNL"
-              name="page3[indRepresentativeType]"
-              value="non-lawyer"
-              required
-              data-parsley-group="page3a"
-              data-parsley-errors-container="#indRepError"
-            />
+            <input type="radio" class="custom-control-input" id="representativeNL" name="page3[indRepresentativeType]"
+              value="non-lawyer" required data-parsley-group="page3a" data-parsley-errors-container="#indRepError" />
             <label class="custom-control-label" for="representativeNL">
               Non-Lawyer
-              <a
-                href="#"
-                data-toggle="popover"
+              <a href="#" data-toggle="popover"
                 data-content="Some applicants may choose not to, or may not be able to, take part in the proceedings themselves for reasons such as health or incapacity. They may be represented by a person without legal training, for example a parent representing a child, or a guardian or family member or partner representing someone whose practical or medical circumstances make it difficult to take part in the proceedings (e.g. an applicant who is in hospital or prison). The representative must indicate in what capacity he or she is representing the applicant or his or her relationship with the applicant, together with his or her identity and contact details."
-                data-trigger="focus"
-                data-placement="bottom"
-                ><span> <i class="fas fa-question-circle"></i></span
-              ></a>
+                data-trigger="focus" data-placement="bottom"><span> <i class="fas fa-question-circle"></i></span></a>
             </label>
           </div>
         </div>
         <div class="col-sm-4 d-flex justify-content-center">
           <div class="custom-control custom-radio custom-control-inline">
-            <input
-              class="custom-control-input"
-              id="representativeL"
-              type="radio"
-              name="page3[indRepresentativeType]"
-              value="lawyer"
-            />
+            <input class="custom-control-input" id="representativeL" type="radio" name="page3[indRepresentativeType]"
+              value="lawyer" />
             <label class="custom-control-label" for="representativeL">
               Lawyer
-              <a
-                href="#"
-                data-toggle="popover"
+              <a href="#" data-toggle="popover"
                 data-content="Use this if the application is lodged by a lawyer. You do not have to instruct a lawyer at the stage of lodging the application, although it may be advisable to do so. You are informed if the case reaches a stage of the proceedings where representation by a lawyer is required. At this point – after a decision by the Court to give notice of the application to the Government concerned for written observations – you may be eligible for free legal aid if you have insufficient means to pay a lawyer’s fees and if the grant of such aid is considered necessary for the proper conduct of the case. Information is sent to you about this at the relevant time."
-                data-trigger="focus"
-                data-placement="bottom"
-                ><span><i class="fas fa-question-circle"></i></span
-              ></a>
+                data-trigger="focus" data-placement="bottom"><span><i class="fas fa-question-circle"></i></span></a>
             </label>
           </div>
         </div>
         <div class="col-sm-4 d-flex justify-content-center">
           <div class="custom-control custom-radio custom-control-inline">
-            <input
-              class="custom-control-input"
-              id="representativeNone"
-              type="radio"
-              name="page3[indRepresentativeType]"
-              value="selfRepresented"
-            />
+            <input class="custom-control-input" id="representativeNone" type="radio" name="page3[indRepresentativeType]"
+              value="selfRepresented" />
             <label class="custom-control-label" for="representativeNone">
               I represent myself at this stage
             </label>
@@ -82,10 +53,9 @@
         </div>
       </div>
       <div class="center-content-error" id="indRepError"></div>
-      <hr />
 
-      {% include 'applicationForm/page3/indRepresentative/non-lawyer.html' %} 
-      {% include 'applicationForm/page3/indRepresentative/lawyer.html' %} 
+      {% include 'applicationForm/page3/indRepresentative/non-lawyer.html' %}
+      {% include 'applicationForm/page3/indRepresentative/lawyer.html' %}
       {% include 'applicationForm/page3/indRepresentative/self.html' %}
       <div class="card-footer">
         <div class="row">
@@ -95,10 +65,7 @@
             </button>
           </div>
           <div class="col-sm-6 aright">
-            <button
-              class="btn btn-primary btn-next-form"
-              onclick="stepperForm.next()"
-            >
+            <button class="btn btn-primary btn-next-form" onclick="stepperForm.next()">
               Next
             </button>
           </div>

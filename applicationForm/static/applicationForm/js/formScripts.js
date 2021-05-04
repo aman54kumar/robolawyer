@@ -78,33 +78,36 @@ $("input[name='page2[orgIdentityOption]']").change(function () {
   }
 });
 
-$("#orgLFaxOption").on("change", (event) => {
+$("#indNLFaxOption").on("change", (event) => {
+  if ($(event.target).prop("checked")) {
+    $("#indNLFax").prop("disabled", true);
+    $("#indNLFaxDiv").removeClass("is-hidden");
+  } else {
+    $("#indNLFax").prop("disabled", false);
+    $("#indNLFaxDiv").addClass("is-hidden");
+  }
+});
+
+$("#indLFaxOption").on("change", (event) => {
   var extraFaxDiv = document.getElementById("extraFaxDiv");
   if ($(event.target).prop("checked")) {
     $("#indLFax").prop("disabled", true);
-    indLFaxTextArea = document.createElement("textarea");
+    var indLFaxTextAreaDiv = document.createElement("div");
+    var indLFaxTextAreaLabel = document.createElement("label");
+    indLFaxTextAreaLabel.setAttribute("for", "indLFaxTextArea");
+    indLFaxTextAreaLabel.innerHTML =
+      "If you do not have a fax number, you must provide an explanation as to why this information is missing and send the document containing this explanation as an accompanying document to your application. <br/> We will generate the text you enter in the below field as  an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You may add any other documents supporting your explanation both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.";
+    var indLFaxTextArea = document.createElement("textarea");
     indLFaxTextArea.classList += "form-control";
     indLFaxTextArea.id = "indLFaxTextArea";
     indLFaxTextArea.name = "page3[indLFaxTextArea]";
     indLFaxTextArea.placeholder =
       "Please provide an explanation for unavailability of Fax number";
-    if (extraFaxDiv.children.length === 0) extraFaxDiv.append(indLFaxTextArea);
+    indLFaxTextAreaDiv.append(indLFaxTextAreaLabel);
+    indLFaxTextAreaDiv.append(indLFaxTextArea);
+    if (extraFaxDiv.children.length === 0)
+      extraFaxDiv.append(indLFaxTextAreaDiv);
     else extraFaxDiv.classList.remove("is-hidden");
-    var popUpText = document.createElement("div");
-    popUpText.style.textAlign = "justify";
-    popUpText.innerHTML =
-      "If you do not have a fax number, you must provide an explanation as to why this information is missing and send the document containing this explanation as an accompanying document to your application. <br/> We will generate the text you enter in the below field as  an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You may add any other documents supporting your explanation both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.";
-    Swal.fire({
-      showConfirmButton: true,
-      confirmButtonText: "OK",
-      showCancelButton: false,
-      html: popUpText,
-      allowOutsideClick: false,
-      allowEscapeKey: false,
-      allowEnterKey: false,
-      padding: "4rem 1.5rem 3rem 1.5rem",
-      width: "60rem",
-    });
   } else {
     extraFaxDiv.classList.add("is-hidden");
     $("#indLFax").prop("disabled", false);
@@ -155,22 +158,10 @@ $("input[name='page3[indNLAuthorityQn]']").change(function () {
   noArea = document.getElementById("indNLAuthorityNo");
   var popUpText = document.createElement("div");
   if (result === "yes") {
+    $("#indNLAuthorityYes").removeClass("is-hidden");
     $(noArea).empty();
-    popUpText.style.textAlign = "justify";
-    popUpText.innerHTML =
-      "Please confirm you have read and understood that both you and your representative have to sign page 3 in the printed application form.";
-    Swal.fire({
-      showConfirmButton: true,
-      confirmButtonText: "I UNDERSTAND",
-      showCancelButton: false,
-      html: popUpText,
-      allowOutsideClick: false,
-      allowEscapeKey: false,
-      allowEnterKey: false,
-      padding: "4rem 1.5rem 3rem 1.5rem",
-      width: "60rem",
-    });
   } else {
+    $("#indNLAuthorityYes").addClass("is-hidden");
     popUpText.innerHTML =
       "<h5>Please explain in this textbox below why the applicant cannot sign the authority form. Please provide any additional documents that you deem necessary to support your case. <br/> We will generate this text as an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You must remember to add any other documents supporting your explanation – medical records, official documents – both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.</h5>";
     popUpText.append(document.createElement("br"));
@@ -232,24 +223,11 @@ $("input[name='page3[indNLEmployedL]']").change(function () {
 $("input[name='page3[indLAuthorityPower]']").change(function () {
   result = this.value;
   if (result === "Yes") {
+    $("#indLAuthorityPowerYesDiv").removeClass("is-hidden");
     $("#LotherNL").addClass("is-hidden");
-    var popUpText = document.createElement("div");
-    popUpText.style.textAlign = "justify";
-    popUpText.innerHTML =
-      "Please confirm you have read and understood that both you and your representative have to sign page 3 in the printed application form.";
-    Swal.fire({
-      showConfirmButton: true,
-      confirmButtonText: "I CONFIRM",
-      showCancelButton: false,
-      html: popUpText,
-      allowOutsideClick: false,
-      allowEscapeKey: false,
-      allowEnterKey: false,
-      padding: "4rem 1.5rem 3rem 1.5rem",
-      width: "60rem",
-    });
   } else {
     $("#LotherNL").removeClass("is-hidden");
+    $("#indLAuthorityPowerYesDiv").addClass("is-hidden");
   }
 });
 

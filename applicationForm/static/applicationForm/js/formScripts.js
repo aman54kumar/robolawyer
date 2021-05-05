@@ -114,6 +114,25 @@ $("#indLFaxOption").on("change", (event) => {
   }
 });
 
+$("#orgNLFaxOption").on("change", (event) => {
+  if ($(event.target).prop("checked")) {
+    $("#orgNLFax").prop("disabled", true);
+    $("#orgNLFaxDiv").removeClass("is-hidden");
+  } else {
+    $("#orgNLFax").prop("disabled", false);
+    $("#orgNLFaxDiv").addClass("is-hidden");
+  }
+});
+
+$("#orgLFaxOption").on("change", (event) => {
+  if ($(event.target).prop("checked")) {
+    $("#orgLFax").prop("disabled", true);
+    $("#orgLFaxDiv").removeClass("is-hidden");
+  } else {
+    $("#orgLFax").prop("disabled", false);
+    $("#orgLFaxDiv").addClass("is-hidden");
+  }
+});
 // ___________________Page4
 
 $("input[name='page3[indRepresentativeType]']").change(function () {

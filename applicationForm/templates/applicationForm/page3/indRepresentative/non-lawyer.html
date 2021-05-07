@@ -36,34 +36,39 @@
         <div></div>
       </div>
 
-      <div class="row col-sm-4">
-        <div class="col-sm-12">
-          <h4>Nationality</h4>
-          <input class="form-control" name="page3[indNLNationality]" id="indNLNationality" maxlength="49"
-            placeholder="Select Country" />
-          <input type="hidden" id="indPhoneNLNationality" />
-        </div>
-        <div class="col-sm-12">
-          <h4>Telephone Number (select country code)</h4>
-          <input class="form-control" type="tel" style="width: 100%" name="page3[indNLTel]" id="indNLTel" />
+      <div class="col-sm-4">
+        <div class="row">
+          <div class="col-sm-12 form-group">
+            <h4>Nationality</h4>
+            <input class="form-control" name="page3[indNLNationality]" id="indNLNationality" maxlength="49"
+              placeholder="Select country" />
+            <input type="hidden" id="indPhoneNLNationality" />
+          </div>
+          <div class="col-sm-12 form-group">
+            <h4>Telephone Number (select country code)</h4>
+            <input class="form-control" type="tel" style="width: 100%" name="page3[indNLTel]" id="indNLTel"
+              placeholder="Enter telephone number" />
+          </div>
         </div>
       </div>
 
-      <div class="row col-sm-4">
-        <div class="col-sm-12 nlEmailfield">
-          <h4>Email</h4>
-          <input class="form-control" type="email" name="page3[indNLEmail]" placeholder="Email" id="indNLEmail"
-            maxlength="49" />
-        </div>
-        <div class="col-sm-12">
-          <h4>Fax</h4>
-          <input class="form-control" type="tel" name="page3[indNLFax]" placeholder="Enter Fax number" id="indNLFax"
-            maxlength="15" />
-          <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="indNLFaxOption" name="page3[indNLFaxOption]"
-              data-parsley-group="page3a" />
-            <br />
-            <label class="custom-control-label" for="indNLFaxOption">I do not have a fax number</label>
+      <div class="col-sm-4">
+        <div class="row">
+          <div class="col-sm-12 nlEmailfield form-group">
+            <h4>Email</h4>
+            <input class="form-control" type="email" name="page3[indNLEmail]" placeholder="Enter email" id="indNLEmail"
+              maxlength="49" />
+          </div>
+          <div class="col-sm-12 form-group">
+            <h4>Fax</h4>
+            <input class="form-control" type="tel" name="page3[indNLFax]" placeholder="Enter fax number" id="indNLFax"
+              maxlength="15" />
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="indNLFaxOption" name="page3[indNLFaxOption]"
+                data-parsley-group="page3a" />
+              <br />
+              <label class="custom-control-label" for="indNLFaxOption">I do not have a fax number</label>
+            </div>
           </div>
         </div>
       </div>
@@ -77,7 +82,7 @@
         Supporting Document list on page 8. You may add any other documents supporting your explanation both to the
         Supporting Documents list on page 8, and as a copy in the attachments to the application.</label>
       <textarea id="indNLFaxArea" name="page3[indNLFaxArea]" class="form-control"
-        placeholder="Please provide an explanation for unavailability of Fax number"></textarea>
+        placeholder="Please provide an explanation for unavailability of fax number"></textarea>
     </div>
 
     <br />
@@ -255,13 +260,14 @@
       </h5>
     </div>
     <div>
-      <h4>
+      <h5>
         Please provide an email address for ECtHR communication system, eComms.
         You can read more about the eComms terms and conditions
 
         <a href="https://www.echr.coe.int/Pages/home.aspx?p=ecomms&c=" target="_blank">here</a>.
-      </h4>
-      <input class="form-control col-sm-4" type="email" name="page3[indIndeComms]" id="indIndeComms" maxlength="49" />
+      </h5>
+      <input class="form-control col-sm-4" type="email" name="page3[indIndeComms]" id="indIndeComms" maxlength="49"
+        placeholder="Enter ecomms email address" />
     </div>
     <br />
 

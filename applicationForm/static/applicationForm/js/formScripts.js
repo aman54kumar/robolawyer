@@ -89,28 +89,12 @@ $("#indNLFaxOption").on("change", (event) => {
 });
 
 $("#indLFaxOption").on("change", (event) => {
-  var extraFaxDiv = document.getElementById("extraFaxDiv");
   if ($(event.target).prop("checked")) {
     $("#indLFax").prop("disabled", true);
-    var indLFaxTextAreaDiv = document.createElement("div");
-    var indLFaxTextAreaLabel = document.createElement("label");
-    indLFaxTextAreaLabel.setAttribute("for", "indLFaxTextArea");
-    indLFaxTextAreaLabel.innerHTML =
-      "If you do not have a fax number, you must provide an explanation as to why this information is missing and send the document containing this explanation as an accompanying document to your application. <br/> We will generate the text you enter in the below field as  an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You may add any other documents supporting your explanation both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.";
-    var indLFaxTextArea = document.createElement("textarea");
-    indLFaxTextArea.classList += "form-control";
-    indLFaxTextArea.id = "indLFaxTextArea";
-    indLFaxTextArea.name = "page3[indLFaxTextArea]";
-    indLFaxTextArea.placeholder =
-      "Please provide an explanation for unavailability of Fax number";
-    indLFaxTextAreaDiv.append(indLFaxTextAreaLabel);
-    indLFaxTextAreaDiv.append(indLFaxTextArea);
-    if (extraFaxDiv.children.length === 0)
-      extraFaxDiv.append(indLFaxTextAreaDiv);
-    else extraFaxDiv.classList.remove("is-hidden");
+    $("#indLFaxDiv").removeClass("is-hidden");
   } else {
-    extraFaxDiv.classList.add("is-hidden");
     $("#indLFax").prop("disabled", false);
+    $("#indLFaxDiv").addClass("is-hidden");
   }
 });
 
@@ -1477,18 +1461,21 @@ function toggleAddButton(element, toggleValue) {
 limitLinesPage6 = 51;
 // limitLinesPage6 = 5;
 earlierLinesCountPage6 = 0;
+
 function isArrowKey(e) {
   var keyCode = e.keyCode;
   if (keyCode == 37 || keyCode == 38 || keyCode == 39 || keyCode == 40)
     return true;
   return false;
 }
+
 function isSelected(element) {
   var st = element.selectionStart;
   var end = element.selectionEnd;
   if (st != end && end > st) return true;
   return false;
 }
+
 function complaintKeyDown(event, element) {
   var getSelectedText =
     element.parentElement.parentElement.children[0].children[1].value;

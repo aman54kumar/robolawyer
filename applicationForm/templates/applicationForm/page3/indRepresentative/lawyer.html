@@ -3,42 +3,46 @@
   <div id="containerDivForLawyer">
     <h4>Details of the Lawyer Representative</h4>
     <div class="row">
-      <div class="form-group col-sm-6">
+      <div class="form-group col-sm-4">
         <h4>Surname</h4>
         <input class="form-control" type="text" name="page3[indLSurname]" placeholder="Enter your surname"
           id="indLSurname" data-parsley-group="page3c" maxlength="49" />
       </div>
-      <div class="form-group col-sm-6">
+      <div class="form-group col-sm-4">
         <h4>First Name(s)</h4>
-        <input class="form-control" type="text" name="page3[indLFirstName]" placeholder="Enter your First Name(s)"
+        <input class="form-control" type="text" name="page3[indLFirstName]" placeholder="Enter your first name(s)"
           id="indLFirstName" data-parsley-group="page3c" maxlength="49" />
       </div>
     </div>
     <div class="row">
       <div class="form-group col-sm-4">
         <h4>Address</h4>
-        <textarea class="form-control longAddress" cols="49" rows="8" placeholder="Enter Address"
+        <textarea class="form-control longAddress" cols="49" rows="8" placeholder="Enter address"
           name="page3[indLAddress]" id="indLAddress" maxlength="399" oninput="limitLines(this);"
           onpaste="limitLinesOnPaste(this);"></textarea>
         <div></div>
       </div>
-      <div class="col-sm-8 row">
-        <div class="row col-sm-12">
+      <div class="col-sm-8">
+        <div class="row">
           <div class="form-group col-sm-6">
             <h4>Nationality</h4>
             <input class="form-control" name="page3[indLNationality]" id="indLNationality" maxlength="49"
-              placeholder="Select Country" />
+              placeholder="Select country" />
             <input type="hidden" id="indphoneLNationality" />
           </div>
           <div class="form-group col-sm-6">
             <h4>Telephone Number (select country code)</h4>
-            <input class="form-control" type="tel" style="width: 100%" name="page3[indLTel]" id="indLTel" />
+            <input class="form-control" type="tel" style="width: 100%" name="page3[indLTel]" id="indLTel"
+              placeholder="Enter telephone number" />
           </div>
         </div>
-        <div class="row col-sm-12">
+
+
+
+        <div class="row">
           <div class="form-group col-sm-6">
             <h4>Fax</h4>
-            <input class="form-control" type="tel" name="page3[indLFax]" placeholder="Enter Fax number" id="indLFax"
+            <input class="form-control" type="tel" name="page3[indLFax]" placeholder="Enter fax number" id="indLFax"
               maxlength="15" />
             <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input" id="indLFaxOption" name="page3[indLFaxOption]"
@@ -47,187 +51,198 @@
               <label class="custom-control-label" for="indLFaxOption">I do not have a fax number</label>
             </div>
           </div>
-          <div class="form-group">
+          <div class="form-group col-sm-6">
             <h4>Email</h4>
-            <input class="form-control" type="email" name="page3[indLEmail]" placeholder="Email" id="indLEmail"
-              maxlength="49" />
+            <input class="form-control" type="email" name="page3[indLEmail]" placeholder="Enter email address"
+              id="indLEmail" maxlength="49" />
           </div>
         </div>
       </div>
     </div>
-    <div id="extraFaxDiv"></div>
   </div>
-  <div class="row">
-    <div class="indLAuthority col-sm-12">
-
-      <hr />
-
-      <h4 class="alert-heading">Authority</h4>
-      <h5 class="ajustify">
-        An applicant must sign the authority empowering the representative
-        to act on his or her behalf, unless, for example, the applicant is a
-        child or lacks legal capacity and is unable to sign. If a
-        representative who is not a lawyer has instructed a lawyer on behalf
-        of an applicant who is unable to sign, the representative should
-        sign the authority on the applicant’s behalf. A separate authority
-        form will not be accepted unless adequate explanations are provided
-        as to the existence of insurmountable practical obstacles in signing
-        the authority section on the form or it is used at a later stage to
-        appoint a lawyer/representative after the application has been
-        lodged with the Court.
-      </h5>
-
-      <div class="text-center">
-        <button class="btn more-info-button" data-toggle="collapse" data-target="#info-authorityL">
-          More Info
-        </button>
-      </div>
-      <br />
-      <div id="info-authorityL" class="collapse">
-        <h5 class="ajustify">
-          If an applicant is represented by a lawyer or other person, both
-          the applicant and the designated representative – whose
-          identifying details must be indicated on the application form -
-          must sign the authority section on the application form. The
-          applicant’s signature provides the necessary proof that the
-          representative has been authorised by the applicant to act on the
-          latter’s behalf; the representative’s signature, which is a new
-          requirement, provides confirmation that this person has in fact
-          accepted to act for the applicant. Where the applicant is an
-          organisation, it is the official or officer of that organisation
-          and the lawyer who sign. In the absence of such signature, the
-          Registry may continue to correspond only with the applicant due to
-          lack of proof that the representative is in fact involved in the
-          case.
-        </h5>
-      </div>
-      <br />
-      <br />
-      <div id="indLAuthorityExtra">
-        <div class="form-group">
-          <h4>
-            Are both the applicant and the representative able to sign the
-            Authority form (power of attorney)?
-          </h4>
-          <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" class="custom-control-input" id="indLAuthorityPowerYes" name="page3[indLAuthorityPower]"
-              value="Yes" data-parsley-group="page3" />
-            <label class="custom-control-label" for="indLAuthorityPowerYes">Yes</label>
-          </div>
-          <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" class="custom-control-input" id="indLAuthorityPowerNo" name="page3[indLAuthorityPower]"
-              value="No" data-parsley-group="3" />
-            <label class="custom-control-label" for="indLAuthorityPowerNo">No</label>
-          </div>
-        </div>
-        <div id="indLAuthorityPowerYesDiv" class="is-hidden">
-          <div class="custom-control custom-checkbox custom-control-inline">
-            <input type="checkbox" class="custom-control-input" id="indLAuthorityPowerYesCheckbox"
-              name="page3[indLAuthorityPowerYesCheckbox]" />
-            <label class="custom-control-label" for="indLAuthorityPowerYesCheckbox">Please confirm you have read and
-              understood that both you and your representative have to sign page 3 in the printed application
-              form.</label>
-          </div>
-        </div>
-
-
-        <div id="LotherNL" class="is-hidden">
-          <label>
-            <p class="lead">
-              Is there another person (parent, close relative, guardian)
-              sufficiently linked to the applicant who can act in the
-              name of the applicant and authorise the representative?
-              Preferably this is the same person as the non-lawyer
-              representative of the applicant.
-            </p>
-          </label>
-
-
-          <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" class="custom-control-input" id="LotherNLYes" name="page3[LotherNL]" value="yes"
-              data-parsley-group="page3" data-parsley-errors-container="#LotherNLError" />
-            <label class="custom-control-label" for="LotherNLYes">
-              Yes
-            </label>
-          </div>
-
-          <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" class="custom-control-input" id="LotherNLNo" name="page3[LotherNL]" value="no"
-              data-parsley-group="page3" data-parsley-required />
-            <label class="custom-control-label" for="LotherNLNo">
-              No
-            </label>
-          </div>
-
-          <div id="LotherNLError"></div>
-          <div id="indLOtherYes" class="is-hidden"></div>
-          <div id="indLOtherNo" class="is-hidden"></div>
-
-        </div>
-
-        <div id="LdivForAppendNL"></div>
-        <div id="LAuthorityAlertImage">
-          <div class="alert alert-danger" role="alert">
-            <p class="lead">
-              Very Important: This section must contain original signatures
-              and dates added after the form has been printed out (page 3 of
-              the printed application form). Failing to do so can result in
-              the application being declared inadmissible.
-            </p>
-          </div>
-
-          <br /><br />
-          <br />
-          <img src="{% static 'applicationForm/img/Signature-Indiv.png' %}" width="70%"
-            style="border: #ea0000 solid 4px" />
-        </div>
-        <br />
-        <br />
-      </div>
-
-    </div>
+  <div id="indLFaxDiv" class="col-sm-12 is-hidden">
+    <label for="indLFaxArea">If you do not have a fax number, you must provide an explanation as to why this
+      information is missing and send the document containing this explanation as an accompanying document to your
+      application. <br /> We will generate the text you enter in the below field as an additional document when you
+      generate the application form and we will automatically add the title and description of this document to the
+      Supporting Document list on page 8. You may add any other documents supporting your explanation both to the
+      Supporting Documents list on page 8, and as a copy in the attachments to the application.</label>
+    <textarea id="indLFaxArea" name="page3[indLFaxArea]" class="form-control"
+      placeholder="Please provide an explanation for unavailability of fax number"></textarea>
   </div>
-  <div class="form-group">
+</div>
+<div class="row">
+  <div class="indLAudivrity col-sm-12">
+
     <hr />
-    <br />
-    <h4 for="indLIndeComms" class="lead">
-      Electronic communication between the representative and the Court
-    </h4>
+
+    <h4 class="alert-heading">Authority</h4>
+    <h5 class="ajustify">
+      An applicant must sign the authority empowering the representative
+      to act on his or her behalf, unless, for example, the applicant is a
+      child or lacks legal capacity and is unable to sign. If a
+      representative who is not a lawyer has instructed a lawyer on behalf
+      of an applicant who is unable to sign, the representative should
+      sign the authority on the applicant’s behalf. A separate authority
+      form will not be accepted unless adequate explanations are provided
+      as to the existence of insurmountable practical obstacles in signing
+      the authority section on the form or it is used at a later stage to
+      appoint a lawyer/representative after the application has been
+      lodged with the Court.
+    </h5>
+
     <div class="text-center">
-      <button class="btn more-info-button" data-toggle="collapse" data-target="#info-ecomm">
+      <button class="btn more-info-button" data-toggle="collapse" data-target="#info-authorityL">
         More Info
       </button>
     </div>
-
     <br />
-    <div id="info-ecomm" class="collapse">
+    <div id="info-authorityL" class="collapse">
       <h5 class="ajustify">
-        eComms is a service initiated by the Court for communicating
-        electronically with an applicant’s representative. The service
-        is only activated if and when the case reaches a stage of the
-        proceedings where the Government concerned are requested to
-        submit written observations. The email address provided will be
-        used to create an eComms account. It is recommended that
-        representatives working in a law firm provide a generic email
-        address so that the account can be used by multiple users within
-        the firm. You should inform the Court of any change to your
-        eComms account email address. For more information, please refer
-        to the terms and conditions available on the eComms website
-        (https://ecomms.echr.coe.int), as well as the Practice Direction
-        on electronic filing by applicants
-        (www.echr.coe.int/practicedirections) (available in English and
-        French only).
+        If an applicant is represented by a lawyer or other person, both
+        the applicant and the designated representative – whose
+        identifying details must be indicated on the application form -
+        must sign the authority section on the application form. The
+        applicant’s signature provides the necessary proof that the
+        representative has been authorised by the applicant to act on the
+        latter’s behalf; the representative’s signature, which is a new
+        requirement, provides confirmation that this person has in fact
+        accepted to act for the applicant. Where the applicant is an
+        organisation, it is the official or officer of that organisation
+        and the lawyer who sign. In the absence of such signature, the
+        Registry may continue to correspond only with the applicant due to
+        lack of proof that the representative is in fact involved in the
+        case.
       </h5>
     </div>
-    <div>
-      <h5>
-        Please provide an email address for ECtHR communication system,
-        eComms. You can read more about the eComms terms and conditions
+    <br />
+    <br />
+    <div id="indLAuthorityExtra">
+      <div class="form-group">
+        <h4>
+          Are both the applicant and the representative able to sign the
+          Authority form (power of attorney)?
+        </h4>
+        <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio" class="custom-control-input" id="indLAuthorityPowerYes" name="page3[indLAuthorityPower]"
+            value="Yes" data-parsley-group="page3" />
+          <label class="custom-control-label" for="indLAuthorityPowerYes">Yes</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio" class="custom-control-input" id="indLAuthorityPowerNo" name="page3[indLAuthorityPower]"
+            value="No" data-parsley-group="3" />
+          <label class="custom-control-label" for="indLAuthorityPowerNo">No</label>
+        </div>
+      </div>
+      <div id="indLAuthorityPowerYesDiv" class="is-hidden">
+        <div class="custom-control custom-checkbox custom-control-inline">
+          <input type="checkbox" class="custom-control-input" id="indLAuthorityPowerYesCheckbox"
+            name="page3[indLAuthorityPowerYesCheckbox]" />
+          <label class="custom-control-label" for="indLAuthorityPowerYesCheckbox">Please confirm you have read and
+            understood that both you and your representative have to sign page 3 in the printed application
+            form.</label>
+        </div>
+      </div>
 
-        <a href="https://www.echr.coe.int/Pages/home.aspx?p=ecomms&c=" target="_blank">here</a>.
-      </h5>
-      <input class="form-control col-sm-4" type="email" name="page3[indLIndeComms]" id="indLIndeComms" maxlength="49" />
+
+      <div id="LotherNL" class="is-hidden">
+        <label>
+          <p class="lead">
+            Is there another person (parent, close relative, guardian)
+            sufficiently linked to the applicant who can act in the
+            name of the applicant and authorise the representative?
+            Preferably this is the same person as the non-lawyer
+            representative of the applicant.
+          </p>
+        </label>
+
+
+        <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio" class="custom-control-input" id="LotherNLYes" name="page3[LotherNL]" value="yes"
+            data-parsley-group="page3" data-parsley-errors-container="#LotherNLError" />
+          <label class="custom-control-label" for="LotherNLYes">
+            Yes
+          </label>
+        </div>
+
+        <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio" class="custom-control-input" id="LotherNLNo" name="page3[LotherNL]" value="no"
+            data-parsley-group="page3" data-parsley-required />
+          <label class="custom-control-label" for="LotherNLNo">
+            No
+          </label>
+        </div>
+
+        <div id="LotherNLError"></div>
+        <div id="indLOtherYes" class="is-hidden"></div>
+        <div id="indLOtherNo" class="is-hidden"></div>
+
+      </div>
+
+      <div id="LdivForAppendNL"></div>
+      <div id="LAuthorityAlertImage">
+        <div class="alert alert-danger" role="alert">
+          <p class="lead">
+            Very Important: This section must contain original signatures
+            and dates added after the form has been printed out (page 3 of
+            the printed application form). Failing to do so can result in
+            the application being declared inadmissible.
+          </p>
+        </div>
+
+        <br /><br />
+        <br />
+        <img src="{% static 'applicationForm/img/Signature-Indiv.png' %}" width="70%"
+          style="border: #ea0000 solid 4px" />
+      </div>
+      <br />
+      <br />
     </div>
-    <br /><br />
+
   </div>
+</div>
+<div class="form-group">
+  <hr />
+  <br />
+  <h4 for="indLIndeComms" class="lead">
+    Electronic communication between the representative and the Court
+  </h4>
+  <div class="text-center">
+    <button class="btn more-info-button" data-toggle="collapse" data-target="#info-ecomm">
+      More Info
+    </button>
+  </div>
+
+  <br />
+  <div id="info-ecomm" class="collapse">
+    <h5 class="ajustify">
+      eComms is a service initiated by the Court for communicating
+      electronically with an applicant’s representative. The service
+      is only activated if and when the case reaches a stage of the
+      proceedings where the Government concerned are requested to
+      submit written observations. The email address provided will be
+      used to create an eComms account. It is recommended that
+      representatives working in a law firm provide a generic email
+      address so that the account can be used by multiple users within
+      the firm. You should inform the Court of any change to your
+      eComms account email address. For more information, please refer
+      to the terms and conditions available on the eComms website
+      (https://ecomms.echr.coe.int), as well as the Practice Direction
+      on electronic filing by applicants
+      (www.echr.coe.int/practicedirections) (available in English and
+      French only).
+    </h5>
+  </div>
+  <div>
+    <h5>
+      Please provide an email address for ECtHR communication system,
+      eComms. You can read more about the eComms terms and conditions
+
+      <a href="https://www.echr.coe.int/Pages/home.aspx?p=ecomms&c=" target="_blank">here</a>.
+    </h5>
+    <input class="form-control col-sm-4" type="email" name="page3[indLIndeComms]" id="indLIndeComms" maxlength="49"
+      placeholder="Enter ecomms email address" />
+  </div>
+  <br /><br />
+</div>
 </div>

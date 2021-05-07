@@ -278,14 +278,12 @@ label {
 }
 
 .flag.xx.xx.blank.blank {
-  background: url(data:image/gif;base64,R0lGODlhAQABAIABAP///wAAACwAAAAAAQABAAACAkQBADs=)
-    round;
+  background: url(data:image/gif;base64,R0lGODlhAQABAIABAP///wAAACwAAAAAAQABAAACAkQBADs=) round;
   background-size: cover;
 }
 
 .flag.xx.xx.blank.blank:hover {
-  background: url(data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==)
-    round;
+  background: url(data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==) round;
   background-size: cover;
 }
 
@@ -328,11 +326,13 @@ label {
   text-align: center;
   transition: all 0.2s;
 }
+
 .reviewButton:hover {
   border-color: rgba(255, 255, 255, 1);
 }
+
 @media all and (max-width: 30em) {
-   .reviewButton {
+  .reviewButton {
     display: block;
     margin: 0.2em auto;
   }
@@ -341,6 +341,7 @@ label {
 .reviewTitle {
   display: flex;
 }
+
 .reviewTitle h3 {
   margin-right: 20px;
 }
@@ -373,13 +374,11 @@ label {
   margin-right: 3% !important;
 }
 
-/* .country-select-input {
-  border-style: solid;
-  width: 100%;
-} */
+
 .country-select {
   width: 100%;
 }
-/* #indNLNationality {
+
+.iti {
   width: 100%;
-} */
+}

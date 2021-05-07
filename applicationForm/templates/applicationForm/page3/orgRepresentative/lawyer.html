@@ -9,7 +9,7 @@
     </div>
     <div class="form-group col-sm-4">
       <h4>First Name(s)</h4>
-      <input class="form-control" type="text" name="page3[orglFirstName]" placeholder="Enter your First Name(s)"
+      <input class="form-control" type="text" name="page3[orglFirstName]" placeholder="Enter your first name(s)"
         id="orglFirstName" data-parsley-group="page3f" maxlength="49" />
     </div>
   </div>
@@ -17,35 +17,23 @@
   <div class="row">
     <div class="form-group col-sm-4">
       <h4>Address</h4>
-      <textarea class="form-control longAddress" rows="8" cols="49" maxlength="399" placeholder="Enter Address"
+      <textarea class="form-control longAddress" rows="8" cols="49" maxlength="399" placeholder="Enter address"
         name="page3[orglAddress]" id="orglAddress" oninput="limitLines(this);"
         onpaste="limitLinesOnPaste(this);"></textarea>
       <div></div>
     </div>
-
-    <div class="col-sm-8 row">
-      <div class="col-sm-12 row">
-        <div class="form-group col-sm-6">
+    <div class="col-sm-4">
+      <div class="row">
+        <div class="form-group col-sm-12">
           <h4>Nationality</h4>
           <input class="form-control" name="page3[orglNationality]" id="orglNationality" maxlength="49"
-            placeholder="Select Country" />
+            placeholder="Select country" />
           <input type="hidden" id="orgPhonelNationality" />
         </div>
-        <div class="form-group col-sm-6">
-          <h4>Telephone Number (select country code)</h4>
-          <input class="form-control" type="tel" name="page3[orglTel]" id="orglTel" />
-        </div>
-      </div>
-      <div class="col-sm-12 row">
-        <div class="form-group col-sm-6">
+        <div class="form-group col-sm-12">
           <h4>Fax</h4>
-          <input class="form-control" type="tel" name="page3[orglFax]" placeholder="Enter Fax number" id="orglFax"
+          <input class="form-control" type="tel" name="page3[orglFax]" placeholder="Enter fax number" id="orglFax"
             maxlength="15" />
-        </div>
-        <div class="form-group col-sm-6">
-          <h4>Email</h4>
-          <input class="form-control" type="email" name="page3[orglEmail]" placeholder="Email" id="orglEmail"
-            maxlength="49" style="width: 60%" />
         </div>
         <div class="col-sm-12">
           <div class="custom-control custom-checkbox">
@@ -56,6 +44,21 @@
         </div>
       </div>
     </div>
+    <div class="col-sm-4">
+      <div class="row">
+        <div class="form-group col-sm-12">
+          <h4>Telephone Number (select country code)</h4>
+          <input class="form-control" type="tel" name="page3[orglTel]" id="orglTel"
+            placeholder="Enter telephone number" />
+        </div>
+        <div class="form-group col-sm-12">
+          <h4>Email</h4>
+          <input class="form-control" type="email" name="page3[orglEmail]" placeholder="Enter email" id="orglEmail"
+            maxlength="49" />
+        </div>
+      </div>
+    </div>
+
     <div id="orgLFaxDiv" class="col-sm-12 is-hidden">
       <label for="orgLFaxArea">If you do not have a fax number, you must provide an explanation as to why this
         information is missing and send the document containing this explanation as an accompanying document to your

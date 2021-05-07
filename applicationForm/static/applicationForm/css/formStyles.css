@@ -250,6 +250,10 @@ input {
   -moz-hyphens: auto;
   hyphens: auto; 
 } */
+input {
+  font-family: "luxi_monoregular";
+  font-size: medium !important;
+}
 
 textarea {
   font-family: "luxi_monoregular";
@@ -368,3 +372,14 @@ label {
   overflow-y: auto;
   margin-right: 3% !important;
 }
+
+/* .country-select-input {
+  border-style: solid;
+  width: 100%;
+} */
+.country-select {
+  width: 100%;
+}
+/* #indNLNationality {
+  width: 100%;
+} */

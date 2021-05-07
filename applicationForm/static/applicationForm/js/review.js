@@ -176,7 +176,6 @@ $(document).ready(function () {
   // Start of Page 3
   // Start of page 3 ind NL
   $("input[name='page3[indRepresentativeType]']").change(function () {
-    console.log("lawyer: " + result);
     if (result === "lawyer") {
       $(".reviewRepIndL").removeClass("is-hidden");
       $("#reviewTable3").removeClass("is-hidden");
@@ -204,7 +203,6 @@ $(document).ready(function () {
   });
 
   $("#indNLCapacity").on("input", function () {
-    console.log("here");
     curValue = this.value;
     $("#page3-ind-rep-NL-1").text(curValue);
   });

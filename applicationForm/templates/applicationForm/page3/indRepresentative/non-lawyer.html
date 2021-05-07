@@ -22,7 +22,7 @@
       </div>
       <div class="form-group col-sm-4">
         <h4>First Name(s)</h4>
-        <input class="form-control" type="text" name="page3[indNLFirstName]" placeholder="Enter your First Name(s)"
+        <input class="form-control" type="text" name="page3[indNLFirstName]" placeholder="Enter your first name(s)"
           id="indNLFirstName" maxlength="49" data-parsley-group="page3b" />
       </div>
     </div>
@@ -36,42 +36,46 @@
         <div></div>
       </div>
 
-      <div class="row col-sm-8">
-        <div class="row col-sm-12">
-          <div class="col-sm-6">
-            <h4>Nationality</h4>
-            <input class="form-control" name="page3[indNLNationality]" id="indNLNationality" maxlength="49"
-              placeholder="Select Country" />
-            <input type="hidden" id="indPhoneNLNationality" />
-          </div>
-          <div class="col-sm-6 nlEmailfield">
-            <h4>Email</h4>
-            <input class="form-control" type="email" name="page3[indNLEmail]" placeholder="Email" id="indNLEmail"
-              maxlength="49" />
-          </div>
+      <div class="row col-sm-4">
+        <div class="col-sm-12">
+          <h4>Nationality</h4>
+          <input class="form-control" name="page3[indNLNationality]" id="indNLNationality" maxlength="49"
+            placeholder="Select Country" />
+          <input type="hidden" id="indPhoneNLNationality" />
         </div>
-        <div class="row col-sm-12">
-          <div class="form-group col-sm-6">
-            <h4>Telephone Number (select country code)</h4>
-            <input class="form-control" type="tel" style="width: 100%" name="page3[indNLTel]" id="indNLTel" />
-          </div>
-          <div class="form-group col-sm-6">
-            <h4>Fax</h4>
-            <input class="form-control" type="tel" name="page3[indNLFax]" placeholder="Enter Fax number" id="indNLFax"
-              maxlength="15" />
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="indNLFaxOption" name="page3[indNLFaxOption]"
-                data-parsley-group="page3a" />
-              <br />
-              <label class="custom-control-label" for="indNLFaxOption">I do not have a fax number</label>
-            </div>
+        <div class="col-sm-12">
+          <h4>Telephone Number (select country code)</h4>
+          <input class="form-control" type="tel" style="width: 100%" name="page3[indNLTel]" id="indNLTel" />
+        </div>
+      </div>
+
+      <div class="row col-sm-4">
+        <div class="col-sm-12 nlEmailfield">
+          <h4>Email</h4>
+          <input class="form-control" type="email" name="page3[indNLEmail]" placeholder="Email" id="indNLEmail"
+            maxlength="49" />
+        </div>
+        <div class="col-sm-12">
+          <h4>Fax</h4>
+          <input class="form-control" type="tel" name="page3[indNLFax]" placeholder="Enter Fax number" id="indNLFax"
+            maxlength="15" />
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="indNLFaxOption" name="page3[indNLFaxOption]"
+              data-parsley-group="page3a" />
+            <br />
+            <label class="custom-control-label" for="indNLFaxOption">I do not have a fax number</label>
           </div>
         </div>
       </div>
     </div>
     <br />
     <div id="indNLFaxDiv" class="col-sm-12 is-hidden">
-      <label for="indNLFaxArea">If you do not have a fax number, you must provide an explanation as to why this information is missing and send the document containing this explanation as an accompanying document to your application. <br/> We will generate the text you enter in the below field as  an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You may add any other documents supporting your explanation both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.</label>
+      <label for="indNLFaxArea">If you do not have a fax number, you must provide an explanation as to why this
+        information is missing and send the document containing this explanation as an accompanying document to your
+        application. <br /> We will generate the text you enter in the below field as an additional document when you
+        generate the application form and we will automatically add the title and description of this document to the
+        Supporting Document list on page 8. You may add any other documents supporting your explanation both to the
+        Supporting Documents list on page 8, and as a copy in the attachments to the application.</label>
       <textarea id="indNLFaxArea" name="page3[indNLFaxArea]" class="form-control"
         placeholder="Please provide an explanation for unavailability of Fax number"></textarea>
     </div>

@@ -593,7 +593,8 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     };
     docObject.push(official);
   }
-  if (!!$("#orgDateNoArea").val()) {
+
+  if ($("input[name='page2[orgDateOption]']:checked").val() === "No") {
     orgDateText = {
       date: moment().format("DD-MM-YYYY"),
       title: "Explanation for missing registration/incorporation no.",
@@ -603,7 +604,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     };
     docObject.push(orgDateText);
   }
-  if (!!$("#orgIdentityNoArea").val()) {
+  if ($("input[name='page2[orgIdentityOption]']:checked").val() === "No") {
     orgIdentityText = {
       date: moment().format("DD-MM-YYYY"),
       title: "Explanation for missing identification number.",

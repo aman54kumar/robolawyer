@@ -71,19 +71,19 @@
       placeholder="Please provide an explanation for unavailability of fax number"></textarea>
   </div>
 </div>
-<div class="row">
-  <div class="indLAudivrity col-sm-12">
+<div id="indLAuthoritySection" class="row is-hidden">
+  <div class="col-sm-12">
 
     <hr />
 
-    <h4 class="alert-heading">Authority</h4>
+    <h4 class="alert-heading">Authority form (power of attorney)</h4>
     <h5 class="ajustify">
       An applicant must sign the authority empowering the representative
       to act on his or her behalf, unless, for example, the applicant is a
       child or lacks legal capacity and is unable to sign. If a
       representative who is not a lawyer has instructed a lawyer on behalf
       of an applicant who is unable to sign, the representative should
-      sign the authority on the applicant’s behalf. A separate authority
+      sign the authority on the applicant’s behalf. A separat e authority
       form will not be accepted unless adequate explanations are provided
       as to the existence of insurmountable practical obstacles in signing
       the authority section on the form or it is used at a later stage to
@@ -133,8 +133,25 @@
             value="No" data-parsley-group="3" />
           <label class="custom-control-label" for="indLAuthorityPowerNo">No</label>
         </div>
+
       </div>
+
       <div id="indLAuthorityPowerYesDiv" class="is-hidden">
+        <div id="LAuthorityAlertImage">
+          <br>
+          <div class="alert alert-danger" role="alert">
+            <p class="lead">
+              Very Important: This section in the printed application must contain original signatures and dates added
+              after the form has been printed out (page 3 of the printed application form – see picture below). Failing
+              to do so can result in the application being declared inadmissible.
+            </p>
+          </div>
+          <br />
+          <img src="{% static 'applicationForm/img/Signature-Indiv.png' %}" width="70%"
+            style="border: #ea0000 solid 4px" />
+        </div>
+
+        <br>
         <div class="custom-control custom-checkbox custom-control-inline">
           <input type="checkbox" class="custom-control-input" id="indLAuthorityPowerYesCheckbox"
             name="page3[indLAuthorityPowerYesCheckbox]" />
@@ -142,18 +159,32 @@
             understood that both you and your representative have to sign page 3 in the printed application
             form.</label>
         </div>
+        <br>
+      </div>
+      <div id="indLAuthorityPowerNoDiv" class="is-hidden">
+        <h4 class="ajustify">Please explain in the textbox below why the applicant cannot sign the
+          authority form and provide the details of the non-lawyer representative (parent, close relative, guardian)
+          who can authorise the lawyer to act on the applicant’s behalf. <br /> <br /></h4>
+        <h5 class="ajustify">We will generate this text as an additional document when you generate the application
+          form and we will
+          automatically add the title and description of this document to the Supporting Document list on page 8. You
+          must remember to add any other documents supporting your explanation – medical records, official documents –
+          both to the Supporting Documents list, and as a copy in the attachments to the application.</h5>
+
+        <textarea name="page3[indLAuthAreaYes]" id="indLAuthAreaYes" class="form-control newPageTextArea"
+          oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px';"></textarea>
+
+
       </div>
 
-
       <div id="LotherNL" class="is-hidden">
+        <br>
         <label>
-          <p class="lead">
+          <h4>
             Is there another person (parent, close relative, guardian)
             sufficiently linked to the applicant who can act in the
             name of the applicant and authorise the representative?
-            Preferably this is the same person as the non-lawyer
-            representative of the applicant.
-          </p>
+          </h4>
         </label>
 
 
@@ -174,34 +205,35 @@
         </div>
 
         <div id="LotherNLError"></div>
-        <div id="indLOtherYes" class="is-hidden"></div>
-        <div id="indLOtherNo" class="is-hidden"></div>
+        <div id="indLOtherYes" class="is-hidden">
+          <br>
+
+        </div>
+        <div id="indLOtherNo" class="is-hidden">
+          <br>
+          <h5 class="ajustify">Please explain in this textbox below why the applicant cannot sing the
+            authority form. Please provide any
+            additional documents that you deem necessary to support your case. <br /> We will generate this text as an
+            additional document when you generate the application form and we will automatically add the title and
+            description of this document to the Supporting Document list on page 8. You must remember to add any other
+            documents supporting your explanation – medical records, official documents – both to the Supporting
+            Documents list on page 8, and as a copy in the attachments to the application.</h5>
+
+          <textarea name="page3[indLAuthAreaNo]" id="indLAuthAreaNo" class="form-control newPageTextArea"
+            oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px';"></textarea>
+        </div>
 
       </div>
 
       <div id="LdivForAppendNL"></div>
-      <div id="LAuthorityAlertImage">
-        <div class="alert alert-danger" role="alert">
-          <p class="lead">
-            Very Important: This section must contain original signatures
-            and dates added after the form has been printed out (page 3 of
-            the printed application form). Failing to do so can result in
-            the application being declared inadmissible.
-          </p>
-        </div>
 
-        <br /><br />
-        <br />
-        <img src="{% static 'applicationForm/img/Signature-Indiv.png' %}" width="70%"
-          style="border: #ea0000 solid 4px" />
-      </div>
       <br />
       <br />
     </div>
 
   </div>
 </div>
-<div class="form-group">
+<div id="indLECommsSection" class="form-group is-hidden">
   <hr />
   <br />
   <h4 for="indLIndeComms" class="lead">

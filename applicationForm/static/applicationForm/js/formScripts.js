@@ -128,7 +128,10 @@ $("input[name='page3[indRepresentativeType]']").change(function () {
     $("#lawyerRep").removeClass("is-hidden");
     $("#nonLawyerRep").addClass("is-hidden");
     $("#selfRep").addClass("is-hidden");
-    $(".indAuthority").removeClass("is-hidden");
+    $("#indNLAuthoritySection").addClass("is-hidden");
+    $("#indNLECommsSection").addClass("is-hidden");
+    $("#indLAuthoritySection").removeClass("is-hidden");
+    $("#indLECommsSection").removeClass("is-hidden");
     $("#indNLNationality").val("");
   } else if (result === "non-lawyer") {
     if (!$("#nonLawyerRep").children()[0]) {
@@ -141,14 +144,20 @@ $("input[name='page3[indRepresentativeType]']").change(function () {
     $("#nonLawyerRep").removeClass("is-hidden");
     $("#lawyerRep").addClass("is-hidden");
     $("#selfRep").addClass("is-hidden");
-    $(".indAuthority").removeClass("is-hidden");
+    $("#indNLAuthoritySection").removeClass("is-hidden");
+    $("#indNLECommsSection").removeClass("is-hidden");
     $("#indLNationality").val("");
+    $("#indLAuthoritySection").addClass("is-hidden");
+    $("#indLECommsSection").addClass("is-hidden");
   } else if (result === "selfRepresented") {
     $("#selfRep").removeClass("is-hidden");
     $("#reviewRepSelf").removeClass("is-hidden");
     $("#nonLawyerRep").addClass("is-hidden");
     $("#lawyerRep").addClass("is-hidden");
-    $(".indAuthority").addClass("is-hidden");
+    $("#indLAuthoritySection").addClass("is-hidden");
+    $("#indLECommsSection").addClass("is-hidden");
+    $("#indNLAuthoritySection").addClass("is-hidden");
+    $("#indNLECommsSection").addClass("is-hidden");
     $("#indNLNationality").val("");
     $("#indLNationality").val("");
   } else {
@@ -190,36 +199,8 @@ $("input[name='page3[indNLEmployedL]']").change(function () {
     $("#NLEmployedLNoTextDiv").addClass("is-hidden");
   } else {
     $("#NLEmployedLNoTextDiv").removeClass("is-hidden");
-    if ($("#NLEmployedLNoTextDiv").children.length != 0) {
-      $("#NLEmployedLNoTextDiv").empty();
-    }
     $("#NLAuthorityAlertImage").removeClass("is-hidden");
     $("#containerDivForLawyer").appendTo("#lawyerRep");
-    var NLEmployedLNoTextDiv = $("#NLEmployedLNoTextDiv");
-
-    NLEmployedLNoTextDiv.append(document.createElement("br"));
-    var popUpText = document.createElement("label");
-    popUpText.classList.add("lead");
-    popUpText.style.textAlign = "justify";
-
-    popUpText.innerHTML =
-      "<h5>Even though you do not need a lawyer at this stage, if/when the application enters a judicial stage and hearings of the case are scheduled, the Court will expect the applicant to be represented by a lawyer. Depending on the particularities of the application, it might take up to several years until the application enters the judicial phase and hearings are scheduled. The Court will inform you if this is the case and if you need to contract a lawyer. If you wish to represent yourself in the Chamber hearings or you do not afford a lawyer, the President of the Chamber may offer special dispensation for you to present your own case in accordance to Rule 36, or you may be granted free legal aid in the conditions specified by Rule 105 (former Rule 100).</h5>";
-    NLEmployedLNoTextDiv.append(popUpText);
-    NLEmployedLNoTextDiv.append(document.createElement("br"));
-    NLEmployedLNoDivDiv = document.createElement("div");
-    NLEmployedLNoCheckbox = document.createElement("input");
-    NLEmployedLNoCheckbox.type = "checkbox";
-    NLEmployedLNoCheckbox.classList.add("custom-control", "custom-checkbox");
-    NLEmployedLNoCheckbox.id = "NLEmployedLNoCheckbox";
-    NLEmployedLNoCheckbox.style = "margin-right: 20px";
-    var NLEmployedLNoCheckboxLabel = document.createElement("label");
-    NLEmployedLNoCheckboxLabel.setAttribute("for", "#NLEmployedLNoCheckbox");
-    NLEmployedLNoCheckboxLabel.innerHTML = "I UNDERSTAND";
-    NLEmployedLNoDivDiv.classList.add("d-flex", "flex-row");
-    NLEmployedLNoDivDiv.append(NLEmployedLNoCheckbox);
-    NLEmployedLNoDivDiv.append(NLEmployedLNoCheckboxLabel);
-    NLEmployedLNoTextDiv.append(NLEmployedLNoDivDiv);
-    NLEmployedLNoTextDiv.append(document.createElement("br"));
   }
 });
 
@@ -228,65 +209,25 @@ $("input[name='page3[indLAuthorityPower]']").change(function () {
   if (result === "Yes") {
     $("#indLAuthorityPowerYesDiv").removeClass("is-hidden");
     $("#LotherNL").addClass("is-hidden");
+    $("#indLAuthorityPowerNoDiv").addClass("is-hidden");
+    $("#containerDivForNonLawyer").appendTo("#nonLawyerRep");
   } else {
     $("#LotherNL").removeClass("is-hidden");
+    $("#indLAuthorityPowerNoDiv").removeClass("is-hidden");
     $("#indLAuthorityPowerYesDiv").addClass("is-hidden");
   }
 });
 
 $("input[name='page3[LotherNL]']").change(function () {
   var result = this.value;
-  var noArea = document.getElementById("indLOtherNo");
-  var yesArea = document.getElementById("indLOtherYes");
-  var resultArea = document.getElementById("indLOtherResult");
-  var popUpText = document.createElement("div");
   if (result === "yes") {
     $("#containerDivForNonLawyer").appendTo("#LdivForAppendNL");
-    $("#LAuthorityAlertImage").addClass("is-hidden");
-    $(noArea).empty();
     $("#indLOtherYes").removeClass("is-hidden");
     $("#indLOtherNo").addClass("is-hidden");
-    if (yesArea.children.length < 1) {
-      popUpText.style.textAlign = "justify";
-      popUpText.innerHTML =
-        "<h5>Please explain in the textbox below why the applicant cannot sign the authority form. We will generate this text as an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You must remember to add any other documents supporting your explanation – medical records, official documents – both to the Supporting Documents list, and as a copy in the attachments to the application.</h5>";
-      popUpText.append(document.createElement("br"));
-      indLOtherTextArea = document.createElement("textarea");
-      indLOtherTextArea.classList.add("form-control", "newPageTextArea");
-      indLOtherTextArea.addEventListener("input", function () {
-        this.style.height = "";
-        this.style.height = this.scrollHeight + "px";
-      });
-      indLOtherTextArea.id = "indLAuthAreaYes";
-      indLOtherTextArea.name = "page3[indLAuthAreaYes]";
-      popUpText.append(indLOtherTextArea);
-      popUpText.append(document.createElement("br"));
-
-      yesArea.append(popUpText);
-    }
   } else {
-    $("#LAuthorityAlertImage").removeClass("is-hidden");
     $("#containerDivForNonLawyer").appendTo("#nonLawyerRep");
-    $(yesArea).empty();
     $("#indLOtherNo").removeClass("is-hidden");
     $("#indLOtherYes").addClass("is-hidden");
-    if (noArea.children.length < 1) {
-      popUpText.style.textAlign = "justify";
-      popUpText.innerHTML =
-        "<h5>Please explain in this textbox below why the applicant cannot sing the authority form. Please provide any additional documents that you deem necessary to support your case. <br/> We will generate this text as an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You must remember to add any other documents supporting your explanation – medical records, official documents – both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.</h5>";
-
-      popUpText.append(document.createElement("br"));
-      indLOtherTextArea = document.createElement("textarea");
-      indLOtherTextArea.classList.add("form-control", "newPageTextArea");
-      indLOtherTextArea.addEventListener("input", function () {
-        this.style.height = "";
-        this.style.height = this.scrollHeight + "px";
-      });
-      indLOtherTextArea.id = "indLAuthAreaNo";
-      popUpText.append(indLOtherTextArea);
-      popUpText.append(document.createElement("br"));
-      noArea.append(popUpText);
-    }
   }
 });
 
@@ -355,46 +296,16 @@ $("input[name='page3[orgOffEntitled]']").change(function () {
   }
 });
 
-//
+//orgLAuthorityYes
+// orgAttorneyAreaDiv
 $("input[name='page3[orgAttorney]']").change(function () {
   var result = this.value;
-  var answerArea = document.getElementById("orgAttorneyAreaDiv");
-  var popUpText = document.createElement("div");
-  popUpText.style.textAlign = "justify";
   if (result === "yes") {
-    if (answerArea.children.length != 0) {
-      $(answerArea).empty();
-    }
-    popUpText.innerHTML =
-      "Please confirm you have read and understood that both you and your lawyer have to sign page 3 in the printed application form. If the organisation official is, in addition, the lawyer representing the organisation, you must sign the authority form on both fields.";
-    Swal.fire({
-      showConfirmButton: true,
-      confirmButtonText: "I CONFIRM",
-      showCancelButton: false,
-      html: popUpText,
-      allowOutsideClick: false,
-      allowEscapeKey: false,
-      allowEnterKey: false,
-      padding: "4rem 1.5rem 3rem 1.5rem",
-      width: "60rem",
-    });
+    $("#orgLAuthorityYes").removeClass("is-hidden");
+    $("#orgAttorneyAreaDiv").addClass("is-hidden");
   } else {
-    if (answerArea.children.length != 0) {
-      $(answerArea).empty();
-    }
-    popUpText.innerHTML =
-      "<h5>Please explain in this textbox below why the applicant cannot sing the authority form. Please provide any additional documents that you deem necessary to support your case. <br/> We will generate this text as an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You must remember to add any other documents supporting your explanation – medical records, official documents – both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.</h5>";
-    popUpText.append(document.createElement("br"));
-    orgAutorityTextarea = document.createElement("textarea");
-    orgAutorityTextarea.classList.add("form-control", "newPageTextArea");
-    orgAutorityTextarea.id = "orgAutorityAreaNo";
-    orgAutorityTextarea.addEventListener("input", function () {
-      this.style.height = "";
-      this.style.height = this.scrollHeight + "px";
-    });
-    popUpText.append(orgAutorityTextarea);
-    popUpText.append(document.createElement("br"));
-    answerArea.append(popUpText);
+    $("#orgAttorneyAreaDiv").removeClass("is-hidden");
+    $("#orgLAuthorityYes").addClass("is-hidden");
   }
 });
 //

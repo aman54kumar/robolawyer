@@ -90,9 +90,9 @@
     <br />
   </div>
 
-  <div class="indAuthority is-hidden">
+  <div id="indNLAuthoritySection" class="is-hidden">
     <br />
-    <h4 class="alert-heading">Authority</h4>
+    <h4 class="alert-heading">Authority form (power of attorney)</h4>
     <h5 class="lead ajustify">
       An applicant must sign the authority empowering the representative to act
       on his or her behalf, unless, for example, the applicant is a child or
@@ -133,6 +133,66 @@
     </div>
 
     <div id="authorityIndNL">
+      <div id="NLEmployedL">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <br />
+
+            <h4>
+              Have you, as the non-lawyer representative of the applicant,
+              employed a lawyer to represent the applicant in this case?
+            </h4>
+
+
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" class="custom-control-input" id="indNLEmployedLYes" name="page3[indNLEmployedL]"
+                value="yes" data-parsley-group="page3" data-parsley-errors-container="#indNLEmployedLError" />
+              <label class="custom-control-label" for="indNLEmployedLYes">
+                Yes
+              </label>
+            </div>
+
+
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" class="custom-control-input" id="indNLEmployedLNo" name="page3[indNLEmployedL]"
+                value="no" data-parsley-group="page3" data-parsley-required />
+              <label class="custom-control-label" for="indNLEmployedLNo">
+                No
+              </label>
+            </div>
+
+            <div id="indNLEmployedLError"></div>
+          </div>
+        </div>
+        <div id="NLEmployedLNoTextDiv" class="col-sm-12 is-hidden">
+          <h5 class="justify-content-center">Even though you do not need a lawyer at this stage, if/when the application
+            enters a judicial stage and
+            hearings of the case are scheduled, the Court will expect the applicant to be represented by a lawyer.
+            Depending on the particularities of the application, it might take up to several years until the
+            application enters the judicial phase and hearings are scheduled. The Court will inform you if this is the
+            case and if you need to contract a lawyer. If you wish to represent yourself in the Chamber hearings or
+            you do not afford a lawyer, the President of the Chamber may offer special dispensation for you to present
+            your own case in accordance to Rule 36, or you may be granted free legal aid in the conditions specified
+            by Rule 105 (former Rule 100).</h5>
+
+          <div class="custom-control custom-checkbox custom-control-inline">
+            <input type="checkbox" class="custom-control-input" id="NLEmployedLNoCheckbox" style="margin-right: 20px"
+              name="page3[NLEmployedLNoCheckbox]" />
+
+            <label class="custom-control-label" for="NLEmployedLNoCheckbox">I Understand</label>
+          </div>
+
+<br>
+<hr>
+
+
+        </div>
+
+        <div id="NLdivForAppendL"></div>
+      </div>
+
+
+
       <div class="col-sm-12">
         <div class="form-group">
           <br />
@@ -165,67 +225,38 @@
           </div>
         </div>
         <div id="indNLAuthorityYes" class="is-hidden">
+
+          <div id="NLAuthorityAlertImage">
+            <br>
+            <div class="alert alert-danger" role="alert">
+              <br />
+              <p class="lead">
+                Very Important: This section in the printed application must contain original signatures and dates added
+                after the form has been printed out (page 3 of the printed application form – see picture below).
+                Failing to do so can result in the application being declared inadmissible.
+              </p>
+            </div>
+            <img src="{% static 'applicationForm/img/Signature-Indiv.png' %}" width="70%"
+              style="border: #ea0000 solid 4px" />
+          </div>
+
+          <br>
           <div class="custom-checkbox custom-control custom-control-inline">
             <input type="checkbox" class="custom-control-input" id="indNLAutorityYesCheckbox"
               name="page3[indNLAutorityYesCheckbox]" />
             <label class="custom-control-label" for="indNLAutorityYesCheckbox">Please confirm you have read and
-              understood
-              that both you and your representative have to sign page 3 in the printed application form.</label>
+              understood that both you and your representative have to sign page 3 in the printed application
+              form.</label>
           </div>
+          <br>
+          <hr>
+          <br>
         </div>
 
         <div id="indNLAuthorityError"></div>
         <div id="indNLAuthorityNo"></div>
       </div>
-      <div id="NLEmployedL">
-        <div class="col-sm-12">
-          <div class="form-group">
-            <br />
 
-            <h4>
-              Have you, as the non-lawyer representative of the applicant,
-              employed a lawyer to represent the applicant in this case?
-            </h4>
-
-
-            <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" class="custom-control-input" id="indNLEmployedLYes" name="page3[indNLEmployedL]"
-                value="yes" data-parsley-group="page3" data-parsley-errors-container="#indNLEmployedLError" />
-              <label class="custom-control-label" for="indNLEmployedLYes">
-                Yes
-              </label>
-            </div>
-
-
-            <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" class="custom-control-input" id="indNLEmployedLNo" name="page3[indNLEmployedL]"
-                value="no" data-parsley-group="page3" data-parsley-required />
-              <label class="custom-control-label" for="indNLEmployedLNo">
-                No
-              </label>
-            </div>
-
-            <div id="indNLEmployedLError"></div>
-          </div>
-        </div>
-        <div class="col-sm-12 d-flex justify-content-center">
-          <div id="NLEmployedLNoTextDiv"></div>
-        </div>
-      </div>
-      <div id="NLdivForAppendL"></div>
-      <div id="NLAuthorityAlertImage">
-        <div class="alert alert-danger" role="alert">
-          <br />
-          <p class="lead">
-            Very Important: This section must contain original signatures and
-            dates added after the form has been printed out (page 3 of the printed
-            application form). Failing to do so can result in the application
-            being declared inadmissible.
-          </p>
-        </div>
-        <img src="{% static 'applicationForm/img/Signature-Indiv.png' %}" width="70%"
-          style="border: #ea0000 solid 4px" />
-      </div>
 
       <br />
       <hr />
@@ -233,7 +264,7 @@
     </div>
   </div>
 
-  <div id="IndNLEcommsSection" class="form-group">
+  <div id="indNLECommsSection" class="form-group is-hidden">
     <h4>Electronic communication between the representative and the Court</h4>
     <div class="text-center">
       <button class="btn more-info-button" data-toggle="collapse" data-target="#info-ecomm">

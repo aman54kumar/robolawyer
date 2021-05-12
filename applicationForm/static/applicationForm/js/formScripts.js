@@ -346,10 +346,12 @@ $("#page6Group").repeater({
     }
   },
   beforeDelete: function (element) {
-    var leftDeletedValue = element.children()[0].children[0].children[0]
-      .children[0].children[1].value;
-    var rightDeletedValue = element.children()[0].children[0].children[0]
-      .children[1].children[1].value;
+    var leftDeletedValue =
+      element.children()[0].children[0].children[0].children[0].children[1]
+        .value;
+    var rightDeletedValue =
+      element.children()[0].children[0].children[0].children[1].children[1]
+        .value;
     limitLinesPage6 =
       limitLinesPage6 +
       Math.max(
@@ -403,10 +405,12 @@ $("#page5Group").repeater({
     }
   },
   beforeDelete: function (element) {
-    var leftDeletedValue = element.children()[1].children[0].children[0]
-      .children[1].children[1].value;
-    var rightDeletedValue = element.children()[1].children[0].children[0]
-      .children[2].children[1].value;
+    var leftDeletedValue =
+      element.children()[1].children[0].children[0].children[1].children[1]
+        .value;
+    var rightDeletedValue =
+      element.children()[1].children[0].children[0].children[2].children[1]
+        .value;
     limitLinesPage5 =
       limitLinesPage5 +
       Math.max(
@@ -480,8 +484,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     anon = {
       date: moment().format("DD-MM-YYYY"),
       title: "Anonymity Request",
-      desc:
-        "Documents requesting anonymity in the public documents of the court.",
+      desc: "Documents requesting anonymity in the public documents of the court.",
       page: pageCountAnon("#anonReqText"),
     };
     docObject.push(anon);
@@ -509,8 +512,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     orgDateText = {
       date: moment().format("DD-MM-YYYY"),
       title: "Explanation for missing registration/incorporation no.",
-      desc:
-        "Organisation does not possess a registration/incorporation number.",
+      desc: "Organisation does not possess a registration/incorporation number.",
       page: 1,
     };
     docObject.push(orgDateText);
@@ -533,12 +535,22 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     };
     docObject.push(orgNLAuthText);
   }
-  if (!!$("#indLFaxTextArea").val()) {
+
+  if ($("#indNLFaxOption:checked").val() === "No") {
+    orgNLFaxText = {
+      date: moment().format("DD-MM-YYYY"),
+      title: "Explanation for missing fax number",
+      desc: "Document explaining why the representative cannot provide a fax number to the Court.",
+      page: 1,
+    };
+    docObject.push(orgNLFaxText);
+  }
+
+  if ($("#indLFaxOption:checked").val() === "No") {
     orgLFaxText = {
       date: moment().format("DD-MM-YYYY"),
       title: "Explanation for missing fax number",
-      desc:
-        "Document explaining why the lawyer cannot provide a fax number to the Court.",
+      desc: "Document explaining why the lawyer cannot provide a fax number to the Court.",
       page: 1,
     };
     docObject.push(orgLFaxText);
@@ -566,8 +578,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     orgNLOfficial = {
       date: moment().format("DD-MM-YYYY"),
       title: "Proof of organisation official",
-      desc:
-        "organisation official is legally entitled to represent the organisation",
+      desc: "organisation official is legally entitled to represent the organisation",
       page: 1,
     };
     docObject.push(orgNLOfficial);
@@ -586,8 +597,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     orgAutorityAreaNo = {
       date: moment().format("DD-MM-YYYY"),
       title: "Explanation for lack of authority form",
-      desc:
-        "organisation cannot sign the form authorising the representative to represent",
+      desc: "organisation cannot sign the form authorising the representative to represent",
       page: 1,
     };
     docObject.push(orgAutorityAreaNo);

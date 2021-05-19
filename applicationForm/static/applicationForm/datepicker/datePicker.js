@@ -35,7 +35,7 @@ function set_parameters() {
   date_general.datepicker(options);
 }
 
-$(document).ready(function () {
+var initialPopUp = function () {
   var popUpText = document.createElement("div");
   popUpText.style.textAlign = "justify";
   popUpText.innerHTML =
@@ -136,7 +136,10 @@ $(document).ready(function () {
       });
     }
   });
+};
 
+$(document).ready(function () {
+  // initialPopUp();
   set_parameters();
 });
 

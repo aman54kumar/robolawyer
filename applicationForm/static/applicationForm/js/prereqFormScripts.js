@@ -1,38 +1,3 @@
-$("#checkOverview").on("click", function () {});
-
-$("#finalDecisionDate").on("change", function () {
-  finalDecisionDate = moment($("#finalDecisionDate").val(), "DD/MM/YYYY");
-  finalDecisionDate = moment(finalDecisionDate, "DD/MM/YYYY").format(
-    "YYYY-MM-DD"
-  );
-  currentDate = moment().format("YYYY-MM-DD");
-  diffDate = moment(currentDate).diff(
-    moment(finalDecisionDate),
-    "months",
-    true
-  );
-  if (!isNaN(diffDate)) {
-    if (diffDate < 6) {
-      sixFutureDate = moment(finalDecisionDate)
-        .add(6, "months")
-        .format("DD-MM-YYYY");
-      Swal.fire(
-        "",
-        "Attention, according to the information entered in the date field, you must send your application in good time before " +
-          sixFutureDate +
-          "."
-      );
-    } else if (diffDate > 6) {
-      Swal.fire(
-        "",
-        "You have missed the 6 months time limit imposed by the Court. It is very likely that your application is declared inadmissible."
-      );
-    } else {
-      console.warn("check for problem");
-    }
-  }
-});
-
 // Feedback form
 var curPageNum = function (pageNumValue) {
   console.log(pageNumValue.value);
@@ -84,9 +49,51 @@ function getCookie(name) {
 }
 
 $(document).ready(function () {
-  $(".feedback_submit").click(feedbackSubmit);
+  // 2. The facts you are complaining about concern:
+  $("input[name='page1[concernYou]']").change(function () {
+    var concernYouVal = $("input[name='page1[concernYou]']:checked").val();
+    if (concernYouVal === "ConcernIndividual") {
+      $("input[name='page2[applicantType]'][value='Individual']")
+        .prop("checked", true)
+        .trigger("change");
+      $("input[name='page3[indRepresentativeType]'][value='selfRepresented']")
+        .prop("checked", true)
+        .trigger("change");
+    } else if (concernYouVal === "ConcernOrganisation") {
+      $("input[name='page2[applicantType]'][value='Organisation']")
+        .prop("checked", true)
+        .trigger("change");
+      $("input[name='page3[orgRepresentativeType]'][value='orgNoLawyer']")
+        .prop("checked", true)
+        .trigger("change");
+    } else if (concernYouVal === "OtherClose") {
+      $("input[name='page2[applicantType]'][value='Individual']")
+        .prop("checked", true)
+        .trigger("change");
+      $("input[name='page3[indRepresentativeType]'][value='non-lawyer']")
+        .prop("checked", true)
+        .trigger("change");
+    } else if (concernYouVal === "ClientIndividual") {
+      $("input[name='page2[applicantType]'][value='Individual']")
+        .prop("checked", true)
+        .trigger("change");
+      $("input[name='page3[indRepresentativeType]'][value='lawyer']")
+        .prop("checked", true)
+        .trigger("change");
+    } else if (concernYouVal === "ClientJuridical") {
+      $("input[name='page2[applicantType]'][value='Organisation']")
+        .prop("checked", true)
+        .trigger("change");
+      $("input[name='page3[orgRepresentativeType]'][value='orgYesLawyer']")
+        .prop("checked", true)
+        .trigger("change");
+    } else {
+      console.log("check for errors");
+    }
+  });
 });
 
+// 6-month comply
 $("input[name='page1[complySix]']").change(function () {
   result = this.value;
 
@@ -115,4 +122,39 @@ $("input[name='page1[referenceOption]']").change(function () {
   else {
     $(".referenceField").addClass("is-hidden");
   }
+});
+
+$("#finalDecisionDate").on("change", function () {
+  finalDecisionDate = moment($("#finalDecisionDate").val(), "DD/MM/YYYY");
+  finalDecisionDate = moment(finalDecisionDate, "DD/MM/YYYY").format(
+    "YYYY-MM-DD"
+  );
+  currentDate = moment().format("YYYY-MM-DD");
+  diffDate = moment(currentDate).diff(
+    moment(finalDecisionDate),
+    "months",
+    true
+  );
+  if (!isNaN(diffDate)) {
+    if (diffDate < 6) {
+      sixFutureDate = moment(finalDecisionDate)
+        .add(6, "months")
+        .format("DD-MM-YYYY");
+      Swal.fire(
+        "",
+        "Attention, according to the information entered in the date field, you must send your application in good time before " +
+          sixFutureDate +
+          "."
+      );
+    } else if (diffDate > 6) {
+      Swal.fire(
+        "",
+        "You have missed the 6 months time limit imposed by the Court. It is very likely that your application is declared inadmissible."
+      );
+    } else {
+      console.warn("check for problem");
+    }
+  }
+
+  $(".feedback_submit").click(feedbackSubmit);
 });

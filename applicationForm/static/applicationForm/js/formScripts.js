@@ -119,51 +119,55 @@ $("#orgLFaxOption").on("change", (event) => {
 });
 // ___________________Page4
 
-$("input[name='page3[indRepresentativeType]']").change(function () {
-  result = this.value;
-  if (result === "lawyer") {
-    if (!$("#lawyerRep").children()[0]) {
-      $("#containerDivForLawyer").appendTo("#lawyerRep");
+var representativeTypeOption = function () {
+  $("input[name='page3[indRepresentativeType]']").change(function () {
+    result = this.value;
+    if (result === "lawyer") {
+      if (!$("#lawyerRep").children()[0]) {
+        $("#containerDivForLawyer").appendTo("#lawyerRep");
+      }
+      $("#lawyerRep").removeClass("is-hidden");
+      $("#nonLawyerRep").addClass("is-hidden");
+      $("#selfRep").addClass("is-hidden");
+      $("#indNLAuthoritySection").addClass("is-hidden");
+      $("#indNLECommsSection").addClass("is-hidden");
+      $("#indLAuthoritySection").removeClass("is-hidden");
+      $("#indLECommsSection").removeClass("is-hidden");
+      $("#indNLNationality").val("");
+    } else if (result === "non-lawyer") {
+      if (!$("#nonLawyerRep").children()[0]) {
+        $("#containerDivForNonLawyer").appendTo("#nonLawyerRep");
+      }
+      if ($("#indNLEmployedLYes").prop("checked", true)) {
+        $("#indNLEmployedLYes").prop("checked", false);
+      }
+      $("#NLAuthorityAlertImage").removeClass("is-hidden");
+      $("#nonLawyerRep").removeClass("is-hidden");
+      $("#lawyerRep").addClass("is-hidden");
+      $("#selfRep").addClass("is-hidden");
+      $("#indNLAuthoritySection").removeClass("is-hidden");
+      $("#indNLECommsSection").removeClass("is-hidden");
+      $("#indLNationality").val("");
+      $("#indLAuthoritySection").addClass("is-hidden");
+      $("#indLECommsSection").addClass("is-hidden");
+    } else if (result === "selfRepresented") {
+      $("#selfRep").removeClass("is-hidden");
+      $("#reviewRepSelf").removeClass("is-hidden");
+      $("#nonLawyerRep").addClass("is-hidden");
+      $("#lawyerRep").addClass("is-hidden");
+      $("#indLAuthoritySection").addClass("is-hidden");
+      $("#indLECommsSection").addClass("is-hidden");
+      $("#indNLAuthoritySection").addClass("is-hidden");
+      $("#indNLECommsSection").addClass("is-hidden");
+      $("#indNLNationality").val("");
+      $("#indLNationality").val("");
+    } else {
+      console.log("check for bugs");
     }
-    $("#lawyerRep").removeClass("is-hidden");
-    $("#nonLawyerRep").addClass("is-hidden");
-    $("#selfRep").addClass("is-hidden");
-    $("#indNLAuthoritySection").addClass("is-hidden");
-    $("#indNLECommsSection").addClass("is-hidden");
-    $("#indLAuthoritySection").removeClass("is-hidden");
-    $("#indLECommsSection").removeClass("is-hidden");
-    $("#indNLNationality").val("");
-  } else if (result === "non-lawyer") {
-    if (!$("#nonLawyerRep").children()[0]) {
-      $("#containerDivForNonLawyer").appendTo("#nonLawyerRep");
-    }
-    if ($("#indNLEmployedLYes").prop("checked", true)) {
-      $("#indNLEmployedLYes").prop("checked", false);
-    }
-    $("#NLAuthorityAlertImage").removeClass("is-hidden");
-    $("#nonLawyerRep").removeClass("is-hidden");
-    $("#lawyerRep").addClass("is-hidden");
-    $("#selfRep").addClass("is-hidden");
-    $("#indNLAuthoritySection").removeClass("is-hidden");
-    $("#indNLECommsSection").removeClass("is-hidden");
-    $("#indLNationality").val("");
-    $("#indLAuthoritySection").addClass("is-hidden");
-    $("#indLECommsSection").addClass("is-hidden");
-  } else if (result === "selfRepresented") {
-    $("#selfRep").removeClass("is-hidden");
-    $("#reviewRepSelf").removeClass("is-hidden");
-    $("#nonLawyerRep").addClass("is-hidden");
-    $("#lawyerRep").addClass("is-hidden");
-    $("#indLAuthoritySection").addClass("is-hidden");
-    $("#indLECommsSection").addClass("is-hidden");
-    $("#indNLAuthoritySection").addClass("is-hidden");
-    $("#indNLECommsSection").addClass("is-hidden");
-    $("#indNLNationality").val("");
-    $("#indLNationality").val("");
-  } else {
-    console.log("check for bugs");
-  }
-});
+  });
+};
+
+representativeTypeOption();
 
 $("input[name='page3[indNLAuthorityQn]']").change(function () {
   result = this.value;
@@ -231,28 +235,30 @@ $("input[name='page3[LotherNL]']").change(function () {
   }
 });
 
-$("input[name='page3[orgRepresentativeType]']").change(function () {
-  result = this.value;
-  var messageText = document.getElementById("orgRepresentNoLawyer");
-  if (result === "orgYesLawyer") {
-    $("#orgRepresentNoLawyer").empty();
-    $("#orgLawyerRep").removeClass("is-hidden");
-    $(".orgAuthority").removeClass("is-hidden");
-    $("#ifOrgLawyerYes").removeClass("is-hidden");
-  } else if (result === "orgNoLawyer") {
-    $("#orgLawyerRep").addClass("is-hidden");
-    $(".orgAuthority").addClass("is-hidden");
-    $("#ifOrgLawyerYes").addClass("is-hidden");
-    $("#orglNationality").val("");
-    messageText.innerHTML =
-      "<h5>Even though you do not need a lawyer at this stage, if/when the application enters a judicial stage and hearings of the case are scheduled, the Court will expect you to be represented by a trained lawyer. Depending on the particularities of the application, it might take up to several years until the application enters the judicial phase and hearings are scheduled. The Court will inform you if this is the case and if you need to contract a lawyer. If you wish to represent yourself in the Chamber hearings or you do not afford a lawyer, the President of the Chamber may offer special dispensation for you to present your own case in accordance to Rule 36, or you may be granted free legal aid in the conditions specified by Rule 105 (former Rule 100).</h5>";
-    messageText.style.textAlign = "justify";
-
-    $("#orgRepresentNoLawyer");
-  } else {
-    console.log("check for bugs");
-  }
-});
+var orgRespresentativeOptions = function () {
+  $("input[name='page3[orgRepresentativeType]']").change(function () {
+    result = this.value;
+    var messageText = document.getElementById("orgRepresentNoLawyer");
+    if (result === "orgYesLawyer") {
+      $("#orgRepresentNoLawyer").empty();
+      $("#orgLawyerRep").removeClass("is-hidden");
+      $(".orgAuthority").removeClass("is-hidden");
+      $("#ifOrgLawyerYes").removeClass("is-hidden");
+    } else if (result === "orgNoLawyer") {
+      $("#orgLawyerRep").addClass("is-hidden");
+      $(".orgAuthority").addClass("is-hidden");
+      $("#ifOrgLawyerYes").addClass("is-hidden");
+      $("#orglNationality").val("");
+      messageText.innerHTML =
+        "<h5>Even though you do not need a lawyer at this stage, if/when the application enters a judicial stage and hearings of the case are scheduled, the Court will expect you to be represented by a trained lawyer. Depending on the particularities of the application, it might take up to several years until the application enters the judicial phase and hearings are scheduled. The Court will inform you if this is the case and if you need to contract a lawyer. If you wish to represent yourself in the Chamber hearings or you do not afford a lawyer, the President of the Chamber may offer special dispensation for you to present your own case in accordance to Rule 36, or you may be granted free legal aid in the conditions specified by Rule 105 (former Rule 100).</h5>";
+      messageText.style.textAlign = "justify";
+      $("#orgRepresentNoLawyer");
+    } else {
+      console.log("check for bugs");
+    }
+  });
+};
+orgRespresentativeOptions();
 
 $("input[name='page3[orgOffEntitled]']").change(function () {
   var result = this.value;
@@ -1772,6 +1778,5 @@ function removeCharAt(text, pos) {
 
 function getCheckedArticleAttachedToNumber() {
   home = $(".inputOuter:checked").val();
-  console.log(home);
   // return initialArticleString + " * ";
 }

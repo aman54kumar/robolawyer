@@ -6,7 +6,8 @@ from pdfrw import PdfReader
 
 
 def home(request):
-    return render(request, 'home/home.html')
+    context = {"home_page": "active"}
+    return render(request, 'home/home.html', context)
 
 
 # def testing(request):

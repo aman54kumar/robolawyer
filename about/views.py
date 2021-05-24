@@ -5,4 +5,5 @@ from django.contrib.staticfiles import finders
 
 
 def aboutPage(request):
-    return render(request, 'about/aboutUs.html')
+    context = {"about_page": "active"}
+    return render(request, 'about/aboutUs.html', context)

@@ -17,8 +17,12 @@ logger.info('Logging works!')
 sessionID = uuid.uuid4().hex
 
 
-class FormPageView(TemplateView):
-    template_name = "applicationForm/form.html"
+# class FormPageView(TemplateView):
+#     context = {"form_page": "active"}
+#     template_name = "applicationForm/form.html"
+def FormPageView(request):
+    context = {"form_page": "active"}
+    return render(request, 'applicationForm/form.html', context)
 
 
 def formProcessing(request):

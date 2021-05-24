@@ -5,4 +5,5 @@ from django.contrib.staticfiles import finders
 
 
 def extResPage(request):
-    return render(request, 'extResources/extResources.html')
+    context = {"res_page": "active"}
+    return render(request, 'extResources/extResources.html', context)

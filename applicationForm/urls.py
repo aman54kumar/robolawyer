@@ -3,7 +3,7 @@ from .views import FormPageView, formProcessing, feedback, download, error_500, 
 from django.conf.urls import handler400, handler500
 
 urlpatterns = [
-    path('', FormPageView.as_view(), name='form'),
+    path('', FormPageView, name='form'),
     path('submit', formProcessing, name='formProcessing'),
     path('feedback', feedback, name="feedback"),
     path('download', download, name="download"),

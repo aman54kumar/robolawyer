@@ -1,3 +1,10 @@
+// $(document).ready(function () {
+//   $(".navbar-nav .nav-item .nav-link").click(function () {
+//     $(".navbar-nav .nav-item .nav-link").removeClass("active");
+//     $(this).addClass("active");
+//   });
+// });
+
 $("#down-arrow-scroll").on("click", function (event) {
   if (this.hash !== "") {
     event.preventDefault();

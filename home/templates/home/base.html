@@ -1,137 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    {% load static %}
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0, maximum-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta
-      property="og:description"
-      content="Here you can get help with filling in the application form to the European Court of Human Rights."
-    />
-    <style>
-      * {
-        font-display: block; /* to make chrome bug warning about slow network detected for loading fonts disappear */
-      }
-    </style>
-    <link
-      href="https://fonts.googleapis.com/css?family=Varela+Round"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-      rel="stylesheet"
-    />
-    <link rel="shortcut icon" href="{% static 'home/images/favicon.ico' %}" />
-    <title>JustBot</title>
 
-    <link
-      rel="stylesheet"
-      href="{% static 'home/bootstrap/bootstrap.min.css' %}"
-    />
+<head>
+  {% load static %}
+  <meta charset="UTF-8" />
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0, maximum-scale=1.0" /> -->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta property="og:description"
+    content="Here you can get help with filling in the application form to the European Court of Human Rights." />
+  <script>
+    document.querySelector("meta[name=viewport]").setAttribute('content', 'width=device-width, initial-scale=' + (1 /
+      window.devicePixelRatio) + ', maximum-scale=1.0, user-scalable=0')
+  </script>
+  <style>
+    * {
+      font-display: block;
+      /* to make chrome bug warning about slow network detected for loading fonts disappear */
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet" />
+  <link rel="shortcut icon" href="{% static 'home/images/favicon.ico' %}" />
+  <title>JustBot</title>
 
-    <link
-      rel="stylesheet"
-      href="{% static 'home/fa/all.min.css' %}"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="{% static 'home/css/styles.css' %}" />
-    <!-- Custom fonts for this template -->
-    <link
-      href="{% static 'home/css/font/fontawesome-free/css/all.min.css' %}"
-      rel="stylesheet"
-    />
+  <link rel="stylesheet" href="{% static 'home/bootstrap/bootstrap.min.css' %}" />
 
-    <!-- <link
+  <link rel="stylesheet" href="{% static 'home/fa/all.min.css' %}" crossorigin="anonymous" />
+  <link rel="stylesheet" href="{% static 'home/css/styles.css' %}" />
+  <!-- Custom fonts for this template -->
+  <link href="{% static 'home/css/font/fontawesome-free/css/all.min.css' %}" rel="stylesheet" />
+
+  <!-- <link
       rel="stylesheet"
       href="{% static 'home/sweetalert2/sweetalert2.min.css' %}"
     /> -->
-    <!-- <link
+  <!-- <link
       rel="stylesheet"
       href="{% static 'home/sweetalert2/sweetalert2.bootstrap-4.min.css' %}"
     /> -->
-    <link
-      rel="stylesheet"
-      href="{% static 'home/sweetalert2/sweetalert2.bulma.min.css' %}"
-    />
+  <link rel="stylesheet" href="{% static 'home/sweetalert2/sweetalert2.bulma.min.css' %}" />
 
-    <!-- Custom styles for this template -->
-    <link href="{% static 'home/css/grayscale.css' %}" rel="stylesheet" />
-    {% block headContent %} {% endblock headContent %} {% block spHeadContent %}
-    {% endblock spHeadContent %}
-  </head>
+  <!-- Custom styles for this template -->
+  <link href="{% static 'home/css/grayscale.css' %}" rel="stylesheet" />
+  {% block headContent %} {% endblock headContent %} {% block spHeadContent %}
+  {% endblock spHeadContent %}
+</head>
 
-  <body id="page-top">
-    <!--<p class="bubble">by <a style="text-decoration:none;color:#000000;" href="https://www.tech-r.org/"><b> Tech-R|Technology for Human Rights <br> & the University of Oslo.</b></a></p> -->
-    <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-        <a class="navbar-brand js-scroll-trigger" href="{% url 'home' %}"
-          ><img
-            src="{% static 'home/images/logo.png' %}"
-            height="80px"
-            alt="JUST BOT"
-        /></a>
+<body id="page-top">
+  <!--<p class="bubble">by <a style="text-decoration:none;color:#000000;" href="https://www.tech-r.org/"><b> Tech-R|Technology for Human Rights <br> & the University of Oslo.</b></a></p> -->
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <a class="navbar-brand js-scroll-trigger" href="{% url 'home' %}"><img src="{% static 'home/images/logo.png' %}"
+          height="80px" alt="JUST BOT" /></a>
 
-        <button
-          class="navbar-toggler navbar-toggler-right"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarResponsive"
-          aria-controls="navbarResponsive"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          Menu
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="{% url 'home' %}"
-                ><h5>Home</h5></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link navbar-links" href="{% url 'form' %}"
-                ><h5>Application Form</h5></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link navbar-links" href="{% url 'about' %}"
-                ><h5>About Us</h5></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link navbar-links" href="{% url 'extResPage' %}"
-                ><h5>External Resources</h5></a
-              >
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-
-    <main role="main" class="Content">
-      {% block content %} {% endblock content %}
-    </main>
-    <footer class="py-4 bg-dark text-white-50">
-      <div class="container text-center">
-        <small> Powered by Tech-R. Technology for Human Rights. &copy; </small
-        ><br />
-        Contact: <a href="mailto:contact@justbot.org">contact@justbot.org</a
-        ><br />
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+        aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{% url 'home' %}">
+              <h5>Home</h5>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link navbar-links" href="{% url 'form' %}">
+              <h5>Application Form</h5>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link navbar-links" href="{% url 'about' %}">
+              <h5>About Us</h5>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link navbar-links" href="{% url 'extResPage' %}">
+              <h5>External Resources</h5>
+            </a>
+          </li>
+        </ul>
       </div>
-    </footer>
-    <script src="{% static 'home/js/jquery/jquery-3.4.1.min.js' %}"></script>
-    <script src="{% static 'home/js/jquery-easing/jquery.js' %}"></script>
-    <script src="{% static 'home/js/jquery-easing/jquery.easing.min.js' %}"></script>
-    <script src="{% static 'home/bootstrap/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'home/js/grayscale.js' %}"></script>
-    <script src="{% static 'home/js/grayscale.min.js' %}"></script>
-    <script src="{% static 'home/sweetalert2/sweetalert2.all.min.js'%}"></script>
-    <script src="{% static 'home/js/home.js' %}"></script>
-    <!-- <script src="{% static 'home/js/promise-polyfill.js' %}"></script> -->
+    </nav>
+  </div>
 
-    {% block scriptContent %} {% endblock scriptContent %}
-  </body>
+  <main role="main" class="Content">
+    {% block content %} {% endblock content %}
+  </main>
+  <footer class="py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small> Powered by Tech-R. Technology for Human Rights. &copy; </small><br />
+      Contact: <a href="mailto:contact@justbot.org">contact@justbot.org</a><br />
+    </div>
+  </footer>
+  <script src="{% static 'home/js/jquery/jquery-3.4.1.min.js' %}"></script>
+  <script src="{% static 'home/js/jquery-easing/jquery.js' %}"></script>
+  <script src="{% static 'home/js/jquery-easing/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'home/bootstrap/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'home/js/grayscale.js' %}"></script>
+  <script src="{% static 'home/js/grayscale.min.js' %}"></script>
+  <script src="{% static 'home/sweetalert2/sweetalert2.all.min.js'%}"></script>
+  <script src="{% static 'home/js/home.js' %}"></script>
+  <!-- <script src="{% static 'home/js/promise-polyfill.js' %}"></script> -->
+
+  {% block scriptContent %} {% endblock scriptContent %}
+</body>
+
 </html>

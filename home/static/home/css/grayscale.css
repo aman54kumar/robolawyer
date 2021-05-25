@@ -112,12 +112,6 @@
   background-attachment: scroll;
 }
 
-/* background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%));
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: cover; */
-
 .masthead h1 {
   font-family: "Varela Round";
   font-size: 2.5rem;
@@ -137,7 +131,14 @@
   font-size: 1rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 400px) {
+  .masthead {
+    padding: 8rem;
+  }
+  .home-desc-div {
+    width: 100%;
+  }
+
   .masthead h1 {
     font-size: 4rem;
     line-height: 4rem;
@@ -159,6 +160,9 @@
   .masthead h2 {
     max-width: 30rem;
     font-size: 1.25rem;
+  }
+  .home-desc-div {
+    width: 60%;
   }
 }
 

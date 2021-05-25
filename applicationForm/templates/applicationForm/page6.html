@@ -1,9 +1,4 @@
-<div
-  id="form-page-6"
-  role="tabpanel"
-  class="bs-stepper-pane fade"
-  aria-labelledby="stepperFormTrigger6"
->
+<div id="form-page-6" role="tabpanel" class="bs-stepper-pane fade" aria-labelledby="stepperFormTrigger6">
   <div class="col-md-12 mx-auto form-section">
     {% load static %}
     <div class="row">
@@ -20,11 +15,7 @@
             final decision.
           </p>
           <div class="text-center">
-            <button
-              class="btn more-info-button"
-              data-toggle="collapse"
-              data-target="#info-4"
-            >
+            <button class="btn more-info-button" data-toggle="collapse" data-target="#info-4">
               More Info
             </button>
           </div>
@@ -32,12 +23,11 @@
 
           <div id="info-4" class="collapse">
             <p>
-              For your application to be admissible, you must bring all the
-              matters which you want to complain about before the national
-              courts and use all the available appeals up to the highest level.
-              You must show that you have exhausted the available national legal
-              remedies and provide dates for each decision, so that the Court
-              can see that you have complied with the six-month time-limit.
+              For your application to be admissible, you must bring all the matters which you want to complain about
+              before the national courts and use all the available appeals up to the highest level. You must show that
+              you have exhausted the available national legal remedies and provide dates for each decision, so that the
+              Court can see that you have complied with the six-month time-limit (or 4 months, for domestic final
+              decisions served on you starting with February 1, 2022). <br />
               <br />
 
               <br />
@@ -112,51 +102,32 @@
                   <tr>
                     <td style="vertical-align: top" class="is-hidden">
                       <label for=""><b>Selected Article</b></label>
-                      <textarea
-                        name="page6[0][preArticleSelect]"
-                        id="preArticle_0_select"
-                        class="form-control preArticleSelect"
-                        data-pattern-id="preArticle_++_select"
-                        data-pattern-name="page6[++][preArticleSelect]"
-                        rows="5"
-                        data-parsley-group="page6"
-                        readonly
-                      ></textarea>
+                      <textarea name="page6[0][preArticleSelect]" id="preArticle_0_select"
+                        class="form-control preArticleSelect" data-pattern-id="preArticle_++_select"
+                        data-pattern-name="page6[++][preArticleSelect]" rows="5" data-parsley-group="page6"
+                        readonly></textarea>
                     </td>
                     <td width="30%" style="vertical-align: top">
                       <label for="complainSelect_0_0"><b>Complaint</b></label>
                       <!-- width: 35ch;-->
-                      <textarea
-                        name="page6[0][complainSelect]"
-                        style="padding: 10px"
-                        id="complain_0_select"
-                        class="form-control complainSelect"
-                        data-parsley-group="page6"
-                        data-pattern-id="complain_++_select"
-                        data-pattern-name="page6[++][complainSelect]"
-                        cols="26"
+                      <textarea name="page6[0][complainSelect]" style="padding: 10px" id="complain_0_select"
+                        class="form-control complainSelect" data-parsley-group="page6"
+                        data-pattern-id="complain_++_select" data-pattern-name="page6[++][complainSelect]" cols="26"
                         rows="5"
                         oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper( this, 26,true, false,);'
                         onpaste='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper( this, 26,true, true);'
-                        onkeydown="complaintKeyDown(event,this)"
-                      ></textarea>
+                        onkeydown="complaintKeyDown(event,this)"></textarea>
                     </td>
                     <td>
                       <label><b> Domestic Remedies Used</b></label>
-                      <textarea
-                        class="form-control remedies remediesTextCounter"
-                        name="page6[0][remediesUsed]"
+                      <textarea class="form-control remedies remediesTextCounter" name="page6[0][remediesUsed]"
                         id="complain_0_remedy"
                         oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper(this, 69, false,false);'
-                        rows="5"
-                        data-parsley-group="page6"
-                        data-pattern-id="complain_++_remedy"
+                        rows="5" data-parsley-group="page6" data-pattern-id="complain_++_remedy"
                         data-pattern-name="page6[++][remediesUsed]"
                         onpaste='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper(this, 69, false,true);'
-                        onfocus="getCounterValue(this);"
-                        onblur="hideCounterElement(this);"
-                        style="padding: 10px"
-                      ></textarea>
+                        onfocus="getCounterValue(this);" onblur="hideCounterElement(this);"
+                        style="padding: 10px"></textarea>
                       <!-- width: 80ch; -->
                       <br />
                       <div class="remediesCounter is-hidden">
@@ -166,18 +137,11 @@
                   </tr>
                 </table>
                 <div>
-                  <button
-                    type="button"
-                    class="s-btnAdd btn btn-primary is-hidden"
-                    id="addButton_6_0"
-                    data-pattern-id="addButton_6_++"
-                  >
+                  <button type="button" class="s-btnAdd btn btn-primary is-hidden" id="addButton_6_0"
+                    data-pattern-id="addButton_6_++">
                     Add +
                   </button>
-                  <button
-                    type="button"
-                    class="s-btnRemove btn btn-danger is-hidden"
-                  >
+                  <button type="button" class="s-btnRemove btn btn-danger is-hidden">
                     Remove -
                   </button>
                 </div>
@@ -195,51 +159,26 @@
             <br />
 
             <div class="custom-control custom-radio custom-control-inline">
-              <input
-                type="radio"
-                class="custom-control-input"
-                id="appealAvailableYes"
-                name="page6[appealAvailable]"
-                value="Yes"
-                data-parsley-group=""
-              />
-              <label class="custom-control-label" for="appealAvailableYes"
-                >Yes</label
-              >
+              <input type="radio" class="custom-control-input" id="appealAvailableYes" name="page6[appealAvailable]"
+                value="Yes" data-parsley-group="" />
+              <label class="custom-control-label" for="appealAvailableYes">Yes</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
-              <input
-                type="radio"
-                class="custom-control-input"
-                id="appealAvailableNo"
-                name="page6[appealAvailable]"
-                value="No"
-                data-parsley-group=""
-              />
-              <label class="custom-control-label" for="appealAvailableNo"
-                >No</label
-              >
+              <input type="radio" class="custom-control-input" id="appealAvailableNo" name="page6[appealAvailable]"
+                value="No" data-parsley-group="" />
+              <label class="custom-control-label" for="appealAvailableNo">No</label>
             </div>
           </div>
           <div class="form-group is-hidden appealDescribe">
             <div class="form-group is-hidden appealDescribe">
-              <h4 
-                >Please state which appeal or remedy you have not used and
+              <h4>Please state which appeal or remedy you have not used and
                 explain why not.
-            </h4>
+              </h4>
             </div>
             <div class="row justify-content-center">
-              <textarea
-                class="form-control lastAreas"
-                name="page6[appealDescribe]"
-                id="appealDescribe"
-                cols="100"
-                rows="16"
-                maxlength="1600"
-                oninput="limitLines(this)"
-                onpaste="limitLinesOnPaste(this)"
-                style="width: 110ch; padding: 10px"
-              ></textarea>
+              <textarea class="form-control lastAreas" name="page6[appealDescribe]" id="appealDescribe" cols="100"
+                rows="16" maxlength="1600" oninput="limitLines(this)" onpaste="limitLinesOnPaste(this)"
+                style="width: 110ch; padding: 10px"></textarea>
             </div>
             <div class="row justify-content-center">Lines Remaining:</div>
           </div>
@@ -249,18 +188,12 @@
           <div class="card-footer">
             <div class="row">
               <div class="col-sm-6 aleft">
-                <button
-                  class="btn btn-primary"
-                  onclick="stepperForm.previous()"
-                >
+                <button class="btn btn-primary" onclick="stepperForm.previous()">
                   Previous
                 </button>
               </div>
               <div class="col-sm-6 aright">
-                <button
-                  class="btn btn-primary btn-next-form"
-                  onclick="stepperForm.next()"
-                >
+                <button class="btn btn-primary btn-next-form" onclick="stepperForm.next()">
                   Next
                 </button>
               </div>
@@ -268,25 +201,18 @@
           </div>
         </div>
       </div>
-      <div
-        style="
+      <div style="
           position: fixed;
           right: 20px;
           bottom: 20px;
           width: 100%;
           margin-top: 5vw;
-        "
-        class="col-sm-1"
-      >
+        " class="col-sm-1">
         <p class="text-white">
           This is a Beta version of Just Bot and we rely on your feedback to
           improve it.
         </p>
-        <button
-          class="showModal btn feedback-button"
-          value="6"
-          onclick="curPageNum(this);"
-        >
+        <button class="showModal btn feedback-button" value="6" onclick="curPageNum(this);">
           Feedback
         </button>
       </div>

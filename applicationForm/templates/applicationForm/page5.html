@@ -1,9 +1,4 @@
-<div
-  id="form-page-5"
-  role="tabpanel"
-  class="bs-stepper-pane fade"
-  aria-labelledby="stepperFormTrigger5"
->
+<div id="form-page-5" role="tabpanel" class="bs-stepper-pane fade" aria-labelledby="stepperFormTrigger5">
   <div class="col-md-12 mx-auto form-section">
     {% load static %}
     <div class="row">
@@ -15,12 +10,8 @@
         <div class="card-body alert-info">
           <p class="lead ajustify">
             Indicate here alleged violation(s) of the
-            <a
-              href="https://www.echr.coe.int/Documents/Convention_ENG.pdf"
-              _target="#"
-            >
-              Convention and/or Protocols </a
-            >and relevant arguments. Explain as precisely as you can why the
+            <a href="https://www.echr.coe.int/Documents/Convention_ENG.pdf" _target="#">
+              Convention and/or Protocols </a>and relevant arguments. Explain as precisely as you can why the
             facts described in the previous section entail a violation of the
             Convention or/and Protocols. For each complaint raised you need to
             indicate the Article/s that apply and argue in brief sentences how
@@ -43,30 +34,28 @@
                   <tr>
                     <td>
                       Article 5 – Right to liberty and security
-                      </td>
+                    </td>
                     <td>
-                      The criminal proceedings against me lasted 9 years and 8
-                      months for two levels of jurisdiction. Also, I was not
-                      allowed to cross-examine the witness who gave the sole
-                      evidence against me.
+                      I was detained wrongfully at the border police station for three days without being told why or
+                      being allowed to phone a lawyer or my family. 
                     </td>
                   </tr>
                   <tr>
                     <td>
                       Article 6 – Right to a fair trial
-                      </td>
+                    </td>
                     <td>
-                      I was detained wrongfully at the border police station for
-                      three days without being told why or being allowed to
-                      phone a lawyer or my family.
+                      The criminal proceedings against me lasted 9 years and 8 months for two levels of jurisdiction.
+                      Also, I was not allowed to cross-examine the witness who gave the sole evidence against me.
                     </td>
                   </tr>
                   <tr>
                     <td>
                       Article 8 – Right to respect for private and family life
-                      </td>
+                    </td>
                     <td>
-                      My employer has been monitoring my personal correspondence and dismissed me based on the content of my personal correspondence.
+                      The domestic courts dismissed my complaints after my employer has been monitoring my personal
+                      correspondence and fired me based on the content of my personal correspondence.
                     </td>
                   </tr>
                 </tbody>
@@ -79,73 +68,47 @@
               <div class="a-group">
                 <table width="100%" style="border: none">
                   <tr>
-                    <td
-                      width="50%"
-                      style="
+                    <td width="50%" style="
                         padding-right: 10px;
                         border: none;
                         vertical-align: top;
-                      "
-                    >
+                      ">
                       <label for="articleSelect">Article(s) invoked </label>
-                      <select
-                        name="page5[0][articleSelect]"
-                        id="article_0_select"
-                        class="form-control articleSelect"
-                        data-parsley-group="page5"
-                        data-pattern-name="page5[++][articleSelect]"
+                      <select name="page5[0][articleSelect]" id="article_0_select" class="form-control articleSelect"
+                        data-parsley-group="page5" data-pattern-name="page5[++][articleSelect]"
                         data-pattern-id="article_++_select"
-                        onchange="populateDiv(this.id, '.descDiv1'); articleWrapper(this, 26, true); toggleAddButton(this);"
-                      ></select> <br>
-                      <div
-                      class="descDiv1"
-                        >
-                    
-                    </div>
-                  
-                  <div class="is-hidden page5AlertText">
-                    <p class="alert alert-danger">Please choose atleast 1 option</p>
-                  </div>
-                  <div class="conjArticle">
-                    <div class="secondSelectDiv">
-                    </div>
-                    <div class="is-hidden page5SecondAlertText">
-                      <p class="alert alert-danger">Please choose atleast 1 option</p>
-                    </div>
-                  </div>
+                        onchange="populateDiv(this.id, '.descDiv1'); articleWrapper(this, 26, true); toggleAddButton(this);"></select>
+                      <br>
+                      <div class="descDiv1">
+
+                      </div>
+
+                      <div class="is-hidden page5AlertText">
+                        <p class="alert alert-danger">Please choose at least one option</p>
+                      </div>
+                      <div class="conjArticle">
+                        <div class="secondSelectDiv">
+                        </div>
+                        <div class="is-hidden page5SecondAlertText">
+                          <p class="alert alert-danger">Please choose at least one option</p>
+                        </div>
+                      </div>
                     </td>
-                    <td
-                      width="25%"
-                      style="padding-right: 10px; border: none"
-                      class="is-hidden"
-                    >
+                    <td width="25%" style="padding-right: 10px; border: none" class="is-hidden">
                       <label for="articleArea">Article(s) Area </label>
-                      <textarea
-                        name="page5[0][articleArea]"
-                        id="article_0_area"
-                        class="form-control articleArea"
-                        data-parsley-group="page5"
-                        data-pattern-name="page5[++][articleArea]"
-                        data-pattern-id="article_++_area"
-                      ></textarea>
+                      <textarea name="page5[0][articleArea]" id="article_0_area" class="form-control articleArea"
+                        data-parsley-group="page5" data-pattern-name="page5[++][articleArea]"
+                        data-pattern-id="article_++_area"></textarea>
                     </td>
                     <td width="50%" style="border: none; vertical-align: top;">
                       <label>Explanation</label>
-                      <textarea
-                        class="form-control articleExplanation articleExpCounter"
-                        name="page5[0][articleExplanation]"
-                        id="article_0_explanation"
-                        data-pattern-id="article_++_explanation"
-                        data-pattern-name="page5[++][articleExplanation]"
+                      <textarea class="form-control articleExplanation articleExpCounter"
+                        name="page5[0][articleExplanation]" id="article_0_explanation"
+                        data-pattern-id="article_++_explanation" data-pattern-name="page5[++][articleExplanation]"
                         oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px";articleWrapper(this,72,false,false)'
                         onpaste='this.style.height = ""; this.style.height = this.scrollHeight + "px";articleWrapper(this, 72, false,true);'
-                        onfocus="getCounterValue(this);"
-                        onblur="hideCounterElement(this);"
-                        cols="30"
-                        rows="10"
-                        data-parsley-group="page5"
-                        style="width: 80ch; padding: 10px"
-                      ></textarea>
+                        onfocus="getCounterValue(this);" onblur="hideCounterElement(this);" cols="30" rows="10"
+                        data-parsley-group="page5" style="width: 80ch; padding: 10px"></textarea>
                       <br />
                       <div class="explanationCounter is-hidden">
                         Lines Remaining:
@@ -159,13 +122,10 @@
                   </tr>
                 </table>
                 <div class="container page5Div is-hidden">
-                  
+
                   <div class="row">
                     <div class="nameDiv"></div>
-                    <div
-                      class="descDiv"
-                      style="padding-left: 30px; padding-right: 30px"
-                    ></div>
+                    <div class="descDiv" style="padding-left: 30px; padding-right: 30px"></div>
                   </div>
                   <hr>
                   <div class="row">
@@ -179,13 +139,8 @@
                   <hr />
                 </div>
                 <div>
-                  <button
-                    type="button"
-                    class="a-btnAdd btn btn-primary page5_addButton"
-                    id="addButton_5_0"
-                    data-pattern-id="addButton_5_++"
-                    disabled
-                  >
+                  <button type="button" class="a-btnAdd btn btn-primary page5_addButton" id="addButton_5_0"
+                    data-pattern-id="addButton_5_++" disabled>
                     Add +
                   </button>
                   <button type="button" class="a-btnRemove btn btn-danger">
@@ -198,18 +153,12 @@
           <div class="card-footer">
             <div class="row">
               <div class="col-sm-6 aleft">
-                <button
-                  class="btn btn-primary"
-                  onclick="stepperForm.previous()"
-                >
+                <button class="btn btn-primary" onclick="stepperForm.previous()">
                   Previous
                 </button>
               </div>
               <div class="col-sm-6 aright">
-                <button
-                  class="btn btn-primary btn-next-form"
-                  onclick="stepperForm.next()"
-                >
+                <button class="btn btn-primary btn-next-form" onclick="stepperForm.next()">
                   Next
                 </button>
               </div>
@@ -217,25 +166,18 @@
           </div>
         </div>
       </div>
-      <div
-        style="
+      <div style="
           position: fixed;
           right: 20px;
           bottom: 20px;
           width: 100%;
           margin-top: 5vw;
-        "
-        class="col-sm-1"
-      >
+        " class="col-sm-1">
         <p class="text-white">
           This is a Beta version of Just Bot and we rely on your feedback to
           improve it.
         </p>
-        <button
-          class="showModal btn feedback-button"
-          value="5"
-          onclick="curPageNum(this);"
-        >
+        <button class="showModal btn feedback-button" value="5" onclick="curPageNum(this);">
           Feedback
         </button>
       </div>

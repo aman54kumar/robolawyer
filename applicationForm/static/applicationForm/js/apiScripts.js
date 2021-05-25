@@ -73,7 +73,7 @@ function addFieldTo6thPage(cbParent, currentArticleID, descDivClass) {
 
   preVal = document.getElementById(page6Second).value.split("\n").join("");
   preVal = preVal.substr(0, preVal.length - 3);
-  preValArray = preVal.split(" in Conjugation with ");
+  preValArray = preVal.split(" in Conjunction with ");
   articleValue = preValArray[0];
   conjugateValue = "";
   if (preValArray.length == 2) conjugateValue = preValArray[1];
@@ -89,11 +89,11 @@ function addFieldTo6thPage(cbParent, currentArticleID, descDivClass) {
     if (descDivClass === ".descDiv1") {
       fixedText =
         fixedText +
-        (conjugateValue === "" ? "" : " in Conjugation with " + conjugateValue);
+        (conjugateValue === "" ? "" : " in Conjunction with " + conjugateValue);
     } else {
       fixedText =
         articleValue +
-        (fixedText === "" ? "" : " in Conjugation with " + fixedText);
+        (fixedText === "" ? "" : " in Conjunction with " + fixedText);
     }
 
     fixedText += " : ";
@@ -124,11 +124,11 @@ function addFieldTo6thPage(cbParent, currentArticleID, descDivClass) {
     if (descDivClass === ".descDiv1") {
       fixedText =
         fixedText +
-        (conjugateValue === "" ? "" : " in Conjugation with " + conjugateValue);
+        (conjugateValue === "" ? "" : " in Conjunction with " + conjugateValue);
     } else {
       fixedText =
         articleValue +
-        (fixedText === "" ? "" : " in Conjugation with " + fixedText);
+        (fixedText === "" ? "" : " in Conjunction with " + fixedText);
     }
 
     fixedText += " : ";
@@ -177,9 +177,8 @@ function onCheckArticleDesc(
     if (mainCb && mainCb != checkBox) {
       mainCb.checked = checkBox.checked;
 
-      const mainCbChildren = mainCb.parentNode.querySelectorAll(
-        ".articleCheck"
-      );
+      const mainCbChildren =
+        mainCb.parentNode.querySelectorAll(".articleCheck");
       const numTotal = mainCbChildren.length;
 
       let numChecked = 0;
@@ -695,15 +694,14 @@ function populateDiv(elId, descDivClass) {
   selectedElement = document.getElementById(elId);
   selectTDElement = selectedElement.parentElement;
   selectedElementValue = selectedElement.value;
-  conjDivElement = selectTDElement.parentElement.querySelector(
-    ".secondSelectDiv"
-  );
+  conjDivElement =
+    selectTDElement.parentElement.querySelector(".secondSelectDiv");
   if (descDivClass === ".descDiv1") {
     alertText = selectTDElement.querySelector(".page5AlertText");
 
-    containerElement = document.getElementById(elId).parentElement.parentElement
-      .parentElement.parentElement.parentElement.children[2].parentElement
-      .children[2];
+    containerElement =
+      document.getElementById(elId).parentElement.parentElement.parentElement
+        .parentElement.parentElement.children[2].parentElement.children[2];
     $(conjDivElement).empty();
     var descDiv2 = document.createElement("div");
     descDiv2.classList.add("descDiv2");
@@ -716,9 +714,10 @@ function populateDiv(elId, descDivClass) {
     alertText = conjDivElement.parentElement.querySelector(
       ".page5SecondAlertText"
     );
-    containerElement = document.getElementById(elId).parentElement.parentElement
-      .parentElement.parentElement.parentElement.parentElement.parentElement
-      .children[2].parentElement.children[2];
+    containerElement =
+      document.getElementById(elId).parentElement.parentElement.parentElement
+        .parentElement.parentElement.parentElement.parentElement.children[2]
+        .parentElement.children[2];
   }
 
   tableElement = containerElement.children[2].children[0];

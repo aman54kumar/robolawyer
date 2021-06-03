@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # coding: utf-8
-# delete countryArticle.json and global static folder
-# python manage.py shell
-# exec(open('.\\applicationForm\\dataPreparation\\countryAPI\\countryJSON.py').read())
-# for linux
-# exec(open('./applicationForm/dataPreparation/countryAPI/countryJSON.py').read())
+""" delete countryArticle.json and global static folder
+ python manage.py shell
+ exec(open('.\\applicationForm\\dataPreparation\\countryAPI\\countryJSON.py').read())
+#  for linux
+ exec(open('./applicationForm/dataPreparation/countryAPI/countryJSON.py').read()) """
 import pandas as pd
 from datetime import datetime
 from django.conf import settings
@@ -14,8 +14,8 @@ jsons.suppress_warnings()
 
 articleFile = os.path.join(
     settings.BASE_DIR,
-    # 'applicationForm\\dataPreparation\\countryAPI\\API articles with ratification dates and reservations.xlsx'
-    'applicationForm/dataPreparation/countryAPI/9.dec.2020 - API articles with ratification dates and reservations.xlsx'
+    # 'applicationForm\\dataPreparation\\countryAPI\\API ratification territorial application reservations - With UK updated.xlsx'
+    'applicationForm/dataPreparation/countryAPI/API ratification territorial application reservations - With UK updated.xlsx'
 )
 
 courtFile = os.path.join(
@@ -35,7 +35,7 @@ court_json = {}
 fill_dt = datetime(2100, 1, 1)
 fill_na = "N/A"
 
-sheet_name = [i for i in range(1, 46)]
+sheet_name = [i for i in range(1,48)]
 data = pd.read_excel(articleFile, sheet_name=sheet_name, index_col=0)
 court = pd.read_csv(courtFile, header=0, sep=",", encoding="utf-8")
 

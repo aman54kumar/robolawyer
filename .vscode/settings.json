@@ -17,5 +17,8 @@
         "titleBar.inactiveBackground": "#b5712d99",
         "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.color": "#b5712d"
+    "peacock.color": "#b5712d",
+    "cSpell.ignoreWords": [
+        "authorising"
+    ]
 }

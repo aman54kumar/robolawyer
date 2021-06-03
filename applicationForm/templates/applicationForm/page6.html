@@ -54,15 +54,14 @@
               <table class="table-bordered">
                 <thead style="border: none">
                   <tr style="background-color: #2679c7; color: white">
-                    <th width="19%" rowspan="2">Complaint</th>
-                    <th width="35%" scope="col"></th>
-                    <th width="45%" scope="col">Domestic Remedies Used</th>
+                    <th width="35%" rowspan="2">Complaint</th>
+                    <!-- <th width="35%" scope="col"></th> -->
+                    <th width="65%" scope="col">Domestic remedies used and the date of the final decision</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Article 5 - Right to liberty and security</td>
-                    <td>Complaint about arrest by police</td>
+                    <td>Article 5 - Right to liberty and security: <br />Complaint about arrest by police</td>
                     <td>
                       High Court rejected claim on 05/12/13; leave to appeal
                       refused by Court of Appeal on 14/01/15 in the case with
@@ -70,8 +69,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>Article 6 - Right to a fair trial</td>
-                    <td>Complaint about neighbour dispute</td>
+                    <td>Article 6 - Right to a fair trial: <br />Complaint about neighbour dispute</td>
                     <td>
                       County Court rejected claim on 03/04/12; Court of Appeal
                       dismissed appeal on 04/12/14 in the case with the case
@@ -80,11 +78,10 @@
                   </tr>
                   <tr>
                     <td>
-                      Article 8 – Right to respect for private and family life
+                      Article 8 – Right to respect for private and family life: <br />Complaint about violation of
+                      personal correspondence
                     </td>
-                    <td>
-                      Complaint about violation of personal correspondence
-                    </td>
+
                     <td>
                       County Court rejected claim on 05/06/19; Court of Appeal
                       dismissed appeal on 04/05/20 in the case with the case
@@ -119,7 +116,7 @@
                         onkeydown="complaintKeyDown(event,this)"></textarea>
                     </td>
                     <td>
-                      <label><b> Domestic Remedies Used</b></label>
+                      <label><b> Domestic remedies used and the date of the final decision</b></label>
                       <textarea class="form-control remedies remediesTextCounter" name="page6[0][remediesUsed]"
                         id="complain_0_remedy"
                         oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper(this, 69, false,false);'

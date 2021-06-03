@@ -1,9 +1,4 @@
-<div
-  id="form-page-9"
-  role="tabpanel"
-  class="bs-stepper-pane fade text-center"
-  aria-labelledby="stepperFormTrigger9"
->
+<div id="form-page-9" role="tabpanel" class="bs-stepper-pane fade text-center" aria-labelledby="stepperFormTrigger9">
   <div class="col-md-12 mx-auto form-section">
     {% load static %}
     <div class="row">
@@ -11,175 +6,158 @@
         <div class="card-master-header">
           <h4 class="card-header-title">Other Comments and Declaration</h4>
         </div>
-        <div class="card-body">
+        <div class="card-body aleft">
+
+          <!-- other comments section -->
           <div class="form-group aleft">
-            <h4>Do you have any other comments about your application?</h4>
+            <h4>Do you have any other comments regarding your application? If you do, please write them in the box
+              below. </h4>
             <div class="row justify-content-center">
-              <textarea
-                class="limitedArea form-control lastAreas"
-                name="page9[formComments]"
-                id="formComments"
-                cols="100"
-                rows="4"
-                maxlength="500"
-                oninput="limitLines(this);"
-                onpaste="limitLinesOnPaste(this);"
-                style="width: 100ch; padding: 10px"
-              ></textarea>
+              <textarea class="limitedArea form-control lastAreas" name="page9[formComments]" id="formComments"
+                cols="100" rows="4" maxlength="500" oninput="limitLines(this);" onpaste="limitLinesOnPaste(this);"
+                style="width: 100ch; padding: 10px"></textarea>
               <br />
             </div>
             <div class="row justify-content-center"></div>
           </div>
 
-          <div class="aleft">
+
+
+          <!-- correspondence section -->
+          <div class="form-group">
+            <br>
+            <h4>Who will correspond with the court?</h4>
+            <br>
+            <h5>
+              The European Court of Human Rights will need to contact you in
+              order to inform you about the status of your application. The
+              Court may also need additional information from you in order to
+              process your application. For this reason it is very important
+              that you choose the preferred contact person with the Court in
+              such a manner that the communication is not delayed unnecessary.
+              Please keep in mind that failing to reply to the communications
+              from the Court may render your application incomplete or struck
+              out of the list of applications.
+            </h5>
+
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" class="custom-control-input" id="signatureDeclarationApplicant"
+                name="page9[signatureDeclaration]" value="Applicant" data-parsley-group="page9a" />
+              <label class="custom-control-label" for="signatureDeclarationApplicant">Applicant(s)</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" class="custom-control-input" id="signatureDeclarationRepresentative"
+                name="page9[signatureDeclaration]" value="Representative" data-parsley-group="page9a" />
+              <label class="custom-control-label" for="signatureDeclarationRepresentative">Representative(s)</label>
+            </div>
+            <div class="form-group">
+              <div class="is-hidden" id="correspondentOptionApplicant">
+                <label class="lead">Confirmation of correspondent</label>
+                <p class="ajustify">
+                  If there is more than one applicant or more than one
+                  representative, please give the name and address of the one
+                  person with whom the Court will correspond. Where the
+                  applicant is represented, the Court will correspond only
+                  with the representative (lawyer or nonlawyer).
+                </p>
+                <label for="confirmationApplicantName">Name of applicant</label>
+                <input class="form-control" type="text" name="page9[confirmationApplicantName]"
+                  id="confirmationApplicantName" maxlength="80" data-parsley-group="page9b" />
+
+                <label for="confirmationApplicantAddress">Address of applicant
+                  <a href="javascript://" data-toggle="popover"
+                    data-content="An applicant must provide a postal address separate from that of a lawyer or representative so that the Court can make contact if necessary. An applicant who is homeless or has no fixed residence may have to give a box number or friend’s details but should provide an explanation."
+                    data-trigger="focus" data-placement="bottom"><span><i
+                        class="fas fa-question-circle"></i></span></a></label>
+                <input class="form-control" type="text" name="page9[confirmationApplicantAddress]"
+                  id="confirmationApplicantAddress" maxlength="300" data-parsley-group="page9b" />
+              </div>
+              <div class="is-hidden" id="correspondentOptionRepresentative">
+                <label class="lead">Confirmation of correspondent</label>
+                <p>
+                  If there is more than one representative, please give the
+                  name and address of the one person with whom the Court will
+                  correspond. Where the applicant is represented, the Court
+                  will correspond only with the representative (lawyer or
+                  nonlawyer).
+                </p>
+                <label for="confirmationRepresentativeName">Name of Representative</label>
+                <input class="form-control" type="text" name="page9[confirmationRepresentativeName]"
+                  id="confirmationRepresentativeName" maxlength="80" data-parsley-group="page9c" />
+
+                <label for="confirmationRepresentativeAddress">Address of Representative</label>
+                <input class="form-control" type="text" name="page9[confirmationRepresentativeAddress]"
+                  id="confirmationRepresentativeAddress" maxlength="300" data-parsley-group="page9c" />
+              </div>
+            </div>
+          </div>
+
+          <!-- signature section -->
+          <div>
+            <div>
+              <br />
+              <h4>Signature</h4>
+            </div>
+            <br>
             <h5>
               You must declare that, to the best of your knowledge and belief,
               the information you have given in the present application form is
               correct.
             </h5>
-            <br />
-            <div class="form-group">
-              <h4>Who will correspond with the court?</h4>
-              <h5>
-                The European Court of Human Rights will need to contact you in
-                order to inform you about the status of your application. The
-                Court may also need additional information from you in order to
-                process your application. For this reason it is very important
-                that you choose the preferred contact person with the Court in
-                such a manner that the communication is not delayed unnecessary.
-                Please keep in mind that failing to reply to the communications
-                from the Court may render your application incomplete or struck
-                out of the list of applications.
-              </h5>
+
+
+            <div>
+              <br>
+              <h5>Who is going to sign the declaration concerning the accuracy of the information provided in the
+                application form?</h5>
+              <br>
               <div class="custom-control custom-radio custom-control-inline">
-                <input
-                  type="radio"
-                  class="custom-control-input"
-                  id="signatureDeclarationApplicant"
-                  name="page9[signatureDeclaration]"
-                  value="Applicant"
-                  data-parsley-group="page9a"
-                />
-                <label
-                  class="custom-control-label"
-                  for="signatureDeclarationApplicant"
-                  >Applicant(s)</label
-                >
+                <input type="radio" class="custom-control-input" id="signAccuracyDeclarationApplicant"
+                  name="page9[signAccuracyDeclaration]" value="Applicant" data-parsley-group="page9a" />
+                <label class="custom-control-label" for="signAccuracyDeclarationApplicant">The applicant</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input
-                  type="radio"
-                  class="custom-control-input"
-                  id="signatureDeclarationRepresentative"
-                  name="page9[signatureDeclaration]"
-                  value="Representative"
-                  data-parsley-group="page9a"
-                />
-                <label
-                  class="custom-control-label"
-                  for="signatureDeclarationRepresentative"
-                  >Representative(s)</label
-                >
+                <input type="radio" class="custom-control-input" id="signAccuracyDeclarationRepresentative"
+                  name="page9[signAccuracyDeclaration]" value="Representative" data-parsley-group="page9a" />
+                <label class="custom-control-label" for="signAccuracyDeclarationRepresentative">The
+                  representative</label>
               </div>
-              <div class="form-group">
-                <div class="is-hidden" id="correspondentOptionApplicant">
-                  <label class="lead">Confirmation of correspondent</label>
-                  <p class="ajustify">
-                    If there is more than one applicant or more than one
-                    representative, please give the name and address of the one
-                    person with whom the Court will correspond. Where the
-                    applicant is represented, the Court will correspond only
-                    with the representative (lawyer or nonlawyer).
-                  </p>
-                  <label for="confirmationApplicantName"
-                    >Name of applicant</label
-                  >
-                  <input
-                    class="form-control"
-                    type="text"
-                    name="page9[confirmationApplicantName]"
-                    id="confirmationApplicantName"
-                    maxlength="80"
-                    data-parsley-group="page9b"
-                  />
 
-                  <label for="confirmationApplicantAddress"
-                    >Address of applicant
-                    <a
-                      href="javascript://"
-                      data-toggle="popover"
-                      data-content="An applicant must provide a postal address separate from that of a lawyer or representative so that the Court can make contact if necessary. An applicant who is homeless or has no fixed residence may have to give a box number or friend’s details but should provide an explanation."
-                      data-trigger="focus"
-                      data-placement="bottom"
-                      ><span><i class="fas fa-question-circle"></i></span></a
-                  ></label>
-                  <input
-                    class="form-control"
-                    type="text"
-                    name="page9[confirmationApplicantAddress]"
-                    id="confirmationApplicantAddress"
-                    maxlength="300"
-                    data-parsley-group="page9b"
-                  />
-                </div>
-                <div class="is-hidden" id="correspondentOptionRepresentative">
-                  <label class="lead">Confirmation of correspondent</label>
-                  <p>
-                    If there is more than one representative, please give the
-                    name and address of the one person with whom the Court will
-                    correspond. Where the applicant is represented, the Court
-                    will correspond only with the representative (lawyer or
-                    nonlawyer).
-                  </p>
-                  <label for="confirmationRepresentativeName"
-                    >Name of Representative</label
-                  >
-                  <input
-                    class="form-control"
-                    type="text"
-                    name="page9[confirmationRepresentativeName]"
-                    id="confirmationRepresentativeName"
-                    maxlength="80"
-                    data-parsley-group="page9c"
-                  />
+            </div>
 
-                  <label for="confirmationRepresentativeAddress"
-                    >Address of Representative</label
-                  >
-                  <input
-                    class="form-control"
-                    type="text"
-                    name="page9[confirmationRepresentativeAddress]"
-                    id="confirmationRepresentativeAddress"
-                    maxlength="300"
-                    data-parsley-group="page9c"
-                  />
-                </div>
-              </div>
-              <div class="text-center">
-                <br />
-                <br />
-                <label class="lead"><b>Signature</b></label>
-              </div>
+            <div id="page9AlertAndImage" class="is-hidden">
               <div class="alert alert-danger">
                 <h5 class="lead">
-                  <b>VERY IMPORTANT</b>: This section in the printed version
-                  must contain original signatures of the applicant or his/her
-                  representative and the date. Please finish to fill in the
-                  application form, print it and then SIGN and DATE this page
-                  (page 13 of the printed application form). Failing to do so
-                  will result in the application not being examined by the
-                  Court.
+                  <b>VERY IMPORTANT</b>: This section in the printed version must contain original signatures of the
+                  applicant or its representative, as well as the date when the document was signed. Please finish to
+                  fill in the application form, print it and then SIGN and DATE this section (on page 13 of the printed
+                  application form). Failing to do so will result in the application not being examined by the Court.
                 </h5>
               </div>
-              <img
-                src="{% static 'applicationForm/img/Signature-Final.png' %}"
-                width="70%"
-                style="border: #ea0000 solid 4px"
-              />
+
+
+
+              <div class="declAndSignImage">
+                <br>
+                <img src="{% static 'applicationForm/img/Signature-Final.png' %}" width="70%"
+                  style="border: #ea0000 solid 4px" />
+              </div>
             </div>
           </div>
+
+          <!-- Todo: make required -->
+          <div class="custom-control custom-checkbox custom-control-inline">
+            <br><br>
+            <h4>Please confirm you have read and
+              understood that either the applicant or its representative have to sign and date page 13 in the printed
+              application form.</h4>
+            <input type="checkbox" class="custom-control-input" id="page9ConfirmReadCheckbox"
+              name="page9[confirmReadCheckboxYes]" />
+            <label class="custom-control-label" for="page9ConfirmReadCheckbox">I CONFIRM</label>
+          </div>
         </div>
+
+
         <div class="card-footer">
           <div class="row">
             <div class="col-sm-6 aleft">
@@ -188,10 +166,7 @@
               </button>
             </div>
             <div class="col-sm-6 aright">
-              <button
-                class="btn btn-primary btn-next-form"
-                onclick="stepperForm.next()"
-              >
+              <button class="btn btn-primary btn-next-form" onclick="stepperForm.next()">
                 Next
               </button>
             </div>
@@ -199,25 +174,18 @@
         </div>
       </div>
 
-      <div
-        style="
+      <div style="
           position: fixed;
           right: 20px;
           bottom: 20px;
           width: 100%;
           margin-top: 5vw;
-        "
-        class="col-sm-1"
-      >
+        " class="col-sm-1">
         <p class="text-white">
           This is a Beta version of Just Bot and we rely on your feedback to
           improve it.
         </p>
-        <button
-          class="showModal btn feedback-button"
-          value="9"
-          onclick="curPageNum(this);"
-        >
+        <button class="showModal btn feedback-button" value="9" onclick="curPageNum(this);">
           Feedback
         </button>
       </div>

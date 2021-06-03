@@ -484,6 +484,9 @@ function pageCountAnon(id) {
   return pageCount;
 }
 
+var globalDocObject = [];
+// var docObject;
+
 $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
   docObject = [];
   if (!!$("#anonReqText").val()) {
@@ -582,9 +585,9 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
   }
   if (!!$("#orgNLOfficialAreaYes").val()) {
     orgNLOfficial = {
-      date: moment().format("DD-MM-YYYY"),
+      date: "",
       title: "Proof of organisation official",
-      desc: "organisation official is legally entitled to represent the organisation",
+      desc: "Organisation official is legally entitled to represent the organisation",
       page: 1,
     };
     docObject.push(orgNLOfficial);
@@ -612,15 +615,35 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
 
   var docObjectLength = docObject.length;
   for (var i = 0; i < docObjectLength; i++) {
-    if ($(`#addButton_8_${i - 1}`).length) {
+    if (
+      $("#page8Group").children().length === 1 ||
+      $("#page8Group").children().last().find(".docsDate").val() != ""
+    ) {
       $(`#addButton_8_${i - 1}`).click();
+      inputPage8Values(i, docObject);
+    } else if (
+      $("#page8Group").children().length != 1 ||
+      $("#page8Group").children().last().find(".docsDate").val() === ""
+    ) {
+      inputPage8Values(i, docObject);
     }
-    $(`input[name='page8[${i}][date]']`).val(docObject[i].date);
-    $(`input[name='page8[${i}][title]']`).val(docObject[i].title);
-    $(`input[name='page8[${i}][desc]']`).val(docObject[i].desc);
-    $(`input[name='page8[${i}][page]']`).val(docObject[i].page);
+
+    // hide button div of 2nd last group
+    $("#page8Group")
+      .children("div:nth-last-child(2)")
+      .children("div")
+      .addClass("is-hidden");
   }
+
+  // check fields empty or not for delete button hiding for auto documents
 });
+
+var inputPage8Values = function (i, docObject) {
+  $(`input[name='page8[${i}][date]']`).val(docObject[i].date);
+  $(`input[name='page8[${i}][title]']`).val(docObject[i].title);
+  $(`input[name='page8[${i}][desc]']`).val(docObject[i].desc);
+  $(`input[name='page8[${i}][page]']`).val(docObject[i].page);
+};
 
 $("#page8Group").repeater({
   btnAddClass: "r-btnAdd",
@@ -682,6 +705,7 @@ $("#page8Group").repeater({
     }
   },
 });
+
 // get cursor position in textarea
 $.fn.setCursorPosition = function (position) {
   if (this.length == 0) return this;
@@ -951,6 +975,21 @@ $("input[name='page9[signatureDeclaration]']").change(function () {
     Swal.fire("", "check for error");
   }
 });
+
+// Page 9 signature accuracy section
+$("input[name='page9[signAccuracyDeclaration]']").on("change", function () {
+  if ($("input[name='page9[signAccuracyDeclaration]']").val() === "Applicant") {
+    $("#page9AlertAndImage").removeClass("is-hidden");
+  } else if (
+    $("input[name='page9[signAccuracyDeclaration]']").val() === "Representative"
+  ) {
+    $("#page9AlertAndImage").removeClass("is-hidden");
+  } else {
+    console.log("error in page 9 signature accuracy section");
+  }
+});
+
+// end page 9
 
 // Review page
 $(".reviewButton").on("click", function () {

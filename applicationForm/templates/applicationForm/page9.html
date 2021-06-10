@@ -125,38 +125,45 @@
 
             </div>
 
-            <div id="page9AlertAndImage" class="is-hidden">
-              <div class="alert alert-danger">
-                <h5 class="lead">
-                  <b>VERY IMPORTANT</b>: This section in the printed version must contain original signatures of the
-                  applicant or its representative, as well as the date when the document was signed. Please finish to
-                  fill in the application form, print it and then SIGN and DATE this section (on page 13 of the printed
-                  application form). Failing to do so will result in the application not being examined by the Court.
-                </h5>
-              </div>
 
-
-
-              <div class="declAndSignImage">
-                <br>
-                <img src="{% static 'applicationForm/img/Signature-Final.png' %}" width="70%"
-                  style="border: #ea0000 solid 4px" />
-              </div>
+            <div id="page9AlertAndImage" class="alert alert-danger is-hidden">
+              <br>
+              <h5 class="lead">
+                <b>VERY IMPORTANT</b>: This section in the printed version must contain original signatures of the
+                applicant or its representative, as well as the date when the document was signed. Please finish to
+                fill in the application form, print it and then SIGN and DATE this section (on page 13 of the printed
+                application form). Failing to do so will result in the application not being examined by the Court.
+              </h5>
             </div>
+
+
+
+            <div class="declAndSignImage">
+              <br>
+              <img id="page9imageRepresentativeChecked" class="is-hidden"
+                src="{% static 'applicationForm/img/Page 13 Signature Representative.png' %}" width="70%"
+                style="border: #ea0000 solid 4px" />
+              <img id="page9imageApplicantChecked" class="is-hidden"
+                src="{% static 'applicationForm/img/Page 13 Signature Applicant.png' %}" width="70%"
+                style="border: #ea0000 solid 4px" />
+            </div>
+
           </div>
 
           <!-- Todo: make required -->
-          <div class="custom-control custom-checkbox custom-control-inline">
+          <div>
             <br><br>
             <h4>Please confirm you have read and
               understood that either the applicant or its representative have to sign and date page 13 in the printed
               application form.</h4>
-            <input type="checkbox" class="custom-control-input" id="page9ConfirmReadCheckbox"
-              name="page9[confirmReadCheckboxYes]" />
-            <label class="custom-control-label" for="page9ConfirmReadCheckbox">I CONFIRM</label>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="page9ConfirmReadCheckbox"
+                name="page9[confirmReadCheckboxYes]" />
+              <label class="custom-control-label" for="page9ConfirmReadCheckbox">I CONFIRM</label>
+            </div>
+            <br>
           </div>
         </div>
-
 
         <div class="card-footer">
           <div class="row">

@@ -12,42 +12,6 @@ import os
 import jsons
 jsons.suppress_warnings()
 
-articleFile = os.path.join(
-    settings.BASE_DIR,
-    # 'applicationForm\\dataPreparation\\countryAPI\\API ratification territorial application reservations - With UK updated.xlsx'
-    'applicationForm/dataPreparation/countryAPI/API ratification territorial application reservations - With UK updated.xlsx'
-)
-
-courtFile = os.path.join(
-    settings.BASE_DIR,
-    'applicationForm/dataPreparation/countryAPI/Countries_and_national_courts.csv'
-)
-
-outputFile = os.path.join(
-    settings.BASE_DIR,
-    'applicationForm/static/applicationForm/apiFiles/countryArticle.json')
-
-final_list = {}
-country_json = {}
-article_json = {}
-court_json = {}
-court_json = {}
-fill_dt = datetime(2100, 1, 1)
-fill_na = "N/A"
-
-sheet_name = [i for i in range(1,48)]
-data = pd.read_excel(articleFile, sheet_name=sheet_name, index_col=0)
-court = pd.read_csv(courtFile, header=0, sep=",", encoding="utf-8")
-
-for element in data:
-    data[element]['Date'] = data[element]['Date'].fillna(fill_dt)
-    data[element]['Active/not active'] = data[element][
-        'Active/not active'].fillna(fill_na)
-    data[element]['Reservations/Derogations/Declarations'] = data[element][
-        'Reservations/Derogations/Declarations'].fillna(fill_na)
-    data[element]['Article'] = data[element]['Article'].fillna(fill_na)
-    data[element]['Full text'] = data[element]['Full text'].fillna(fill_na)
-
 
 def getFormattedArticleText(text):
     text = text.split('<br/>\n')
@@ -74,12 +38,51 @@ def getFormattedArticleText(text):
     return res
 
 
+articleFile = os.path.join(
+    settings.BASE_DIR,
+    # 'applicationForm\\dataPreparation\\countryAPI\\API ratification territorial application reservations - With UK updated.xlsx'
+    'applicationForm/dataPreparation/countryAPI/API ratification territorial application reservations - With UK updated.xlsx'
+)
+
+courtFile = os.path.join(
+    settings.BASE_DIR,
+    'applicationForm/dataPreparation/countryAPI/Countries_and_national_courts.csv'
+)
+
+outputFile = os.path.join(
+    settings.BASE_DIR,
+    'applicationForm/static/applicationForm/apiFiles/countryArticle.json')
+
+tempFile = os.path.join(
+    settings.BASE_DIR,
+    'applicationForm/static/applicationForm/apiFiles/temp.csv')
+final_list = {}
+country_json = {}
+article_json = {}
+court_json = {}
+court_json = {}
+fill_dt = datetime(2100, 1, 1)
+fill_na = "N/A"
+
+sheet_name = [i for i in range(1, 48)]
+data = pd.read_excel(articleFile, sheet_name=sheet_name, index_col=0)
+court = pd.read_csv(courtFile, header=0, sep=",", encoding="utf-8")
+
+for element in data:
+    data[element]['Date'] = data[element]['Date'].fillna(fill_dt)
+    data[element]['Active/not active'] = data[element][
+        'Active/not active'].fillna(fill_na)
+    data[element]['Reservations/Derogations/Declarations'] = data[element][
+        'Reservations/Derogations/Declarations'].fillna(fill_na)
+    data[element]['Article'] = data[element]['Article'].fillna(fill_na)
+    data[element]['Full text'] = data[element]['Full text'].fillna(fill_na)
+
 textArray = data[1]['Full text']
 resultList = []
 for text in textArray:
     resultList.append(getFormattedArticleText(text))
 court_country = court['Country']
-for item in range(1, len(data)):
+for item in range(1, len(data) + 1):
     country_json[data[item]['Country'][1]] = {}
 
 for item in country_json:
@@ -134,6 +137,5 @@ for item in country_json:
 final_list["country"] = country_json
 final_list["article"] = article_json
 
-# print(final_list["article"]["Full text"][3])
 with open(outputFile, 'w', encoding="UTF-8") as ps:
     ps.write(jsons.dumps(final_list))

@@ -145,7 +145,7 @@
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .masthead {
     height: 100vh;
     padding: 15rem;

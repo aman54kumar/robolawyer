@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'svglib',
     'django_extensions',
+    'debug_toolbar',
     'home',
     'applicationForm',
     'about',

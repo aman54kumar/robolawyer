@@ -139,7 +139,7 @@ var initialPopUp = function () {
 };
 
 $(document).ready(function () {
-  // initialPopUp();
+  initialPopUp();
   set_parameters();
 });
 

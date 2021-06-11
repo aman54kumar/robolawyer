@@ -978,12 +978,21 @@ $("input[name='page9[signatureDeclaration]']").change(function () {
 
 // Page 9 signature accuracy section
 $("input[name='page9[signAccuracyDeclaration]']").on("change", function () {
-  if ($("input[name='page9[signAccuracyDeclaration]']").val() === "Applicant") {
-    $("#page9AlertAndImage").removeClass("is-hidden");
-  } else if (
-    $("input[name='page9[signAccuracyDeclaration]']").val() === "Representative"
+  $("#page9AlertAndImage").removeClass("is-hidden");
+  if (
+    $("input[name='page9[signAccuracyDeclaration]']:checked").val() ===
+    "Applicant"
   ) {
-    $("#page9AlertAndImage").removeClass("is-hidden");
+    console.log(1);
+    $("#page9imageApplicantChecked").removeClass("is-hidden");
+    $("#page9imageRepresentativeChecked").addClass("is-hidden");
+  } else if (
+    $("input[name='page9[signAccuracyDeclaration]']:checked").val() ===
+    "Representative"
+  ) {
+    console.log(2);
+    $("#page9imageApplicantChecked").addClass("is-hidden");
+    $("#page9imageRepresentativeChecked").removeClass("is-hidden");
   } else {
     console.log("error in page 9 signature accuracy section");
   }

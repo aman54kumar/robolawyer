@@ -168,3 +168,7 @@ footer {
 .popButtonLeftAlign {
   justify-content: flex-start !important;
 }
+
+#page9AlertAndImage {
+  margin-top: 2rem;
+}

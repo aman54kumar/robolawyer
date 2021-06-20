@@ -2,22 +2,22 @@
     "python.linting.enabled": true,
     "python.linting.pylamaEnabled": true,
     "workbench.colorCustomizations": {
-        "activityBar.activeBackground": "#d18a44",
-        "activityBar.activeBorder": "#b2eccf",
-        "activityBar.background": "#d18a44",
+        "activityBar.activeBackground": "#598dc1",
+        "activityBar.activeBorder": "#e5b9cf",
+        "activityBar.background": "#598dc1",
         "activityBar.foreground": "#15202b",
         "activityBar.inactiveForeground": "#15202b99",
-        "activityBarBadge.background": "#b2eccf",
+        "activityBarBadge.background": "#e5b9cf",
         "activityBarBadge.foreground": "#15202b",
-        "statusBar.background": "#b5712d",
+        "statusBar.background": "#3f74a8",
         "statusBar.foreground": "#e7e7e7",
-        "statusBarItem.hoverBackground": "#d18a44",
-        "titleBar.activeBackground": "#b5712d",
+        "statusBarItem.hoverBackground": "#598dc1",
+        "titleBar.activeBackground": "#3f74a8",
         "titleBar.activeForeground": "#e7e7e7",
-        "titleBar.inactiveBackground": "#b5712d99",
+        "titleBar.inactiveBackground": "#3f74a899",
         "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.color": "#b5712d",
+    "peacock.color": "#3f74a8",
     "cSpell.ignoreWords": [
         "authorising"
     ]

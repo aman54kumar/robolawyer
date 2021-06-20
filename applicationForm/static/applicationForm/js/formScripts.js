@@ -983,14 +983,12 @@ $("input[name='page9[signAccuracyDeclaration]']").on("change", function () {
     $("input[name='page9[signAccuracyDeclaration]']:checked").val() ===
     "Applicant"
   ) {
-    console.log(1);
     $("#page9imageApplicantChecked").removeClass("is-hidden");
     $("#page9imageRepresentativeChecked").addClass("is-hidden");
   } else if (
     $("input[name='page9[signAccuracyDeclaration]']:checked").val() ===
     "Representative"
   ) {
-    console.log(2);
     $("#page9imageApplicantChecked").addClass("is-hidden");
     $("#page9imageRepresentativeChecked").removeClass("is-hidden");
   } else {

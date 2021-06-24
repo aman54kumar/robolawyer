@@ -612,38 +612,40 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     docObject.push(orgAutorityAreaNo);
   }
   // orgAutorityAreaNo
+  axios.defaults.xsrfCookieName = "csrftoken";
+  axios.defaults.xsrfHeaderName = "X-CSRFToken";
+  axios.post("/form/docObject", { docObject: docObject });
+  // var docObjectLength = docObject.length;
+  // for (var i = 0; i < docObjectLength; i++) {
+  //   if (
+  //     $("#page8Group").children().length === 1 ||
+  //     $("#page8Group").children().last().find(".docsDate").val() != ""
+  //   ) {
+  //     $(`#addButton_8_${i - 1}`).click();
+  //     inputPage8Values(i, docObject);
+  //   } else if (
+  //     $("#page8Group").children().length != 1 ||
+  //     $("#page8Group").children().last().find(".docsDate").val() === ""
+  //   ) {
+  //     inputPage8Values(i, docObject);
+  //   }
 
-  var docObjectLength = docObject.length;
-  for (var i = 0; i < docObjectLength; i++) {
-    if (
-      $("#page8Group").children().length === 1 ||
-      $("#page8Group").children().last().find(".docsDate").val() != ""
-    ) {
-      $(`#addButton_8_${i - 1}`).click();
-      inputPage8Values(i, docObject);
-    } else if (
-      $("#page8Group").children().length != 1 ||
-      $("#page8Group").children().last().find(".docsDate").val() === ""
-    ) {
-      inputPage8Values(i, docObject);
-    }
-
-    // hide button div of 2nd last group
-    $("#page8Group")
-      .children("div:nth-last-child(2)")
-      .children("div")
-      .addClass("is-hidden");
-  }
+  //   // hide button div of 2nd last group
+  //   $("#page8Group")
+  //     .children("div:nth-last-child(2)")
+  //     .children("div")
+  //     .addClass("is-hidden");
+  // }
 
   // check fields empty or not for delete button hiding for auto documents
 });
 
-var inputPage8Values = function (i, docObject) {
-  $(`input[name='page8[${i}][date]']`).val(docObject[i].date);
-  $(`input[name='page8[${i}][title]']`).val(docObject[i].title);
-  $(`input[name='page8[${i}][desc]']`).val(docObject[i].desc);
-  $(`input[name='page8[${i}][page]']`).val(docObject[i].page);
-};
+// var inputPage8Values = function (i, docObject) {
+//   $(`input[name='page8[${i}][date]']`).val(docObject[i].date);
+//   $(`input[name='page8[${i}][title]']`).val(docObject[i].title);
+//   $(`input[name='page8[${i}][desc]']`).val(docObject[i].desc);
+//   $(`input[name='page8[${i}][page]']`).val(docObject[i].page);
+// };
 
 $("#page8Group").repeater({
   btnAddClass: "r-btnAdd",

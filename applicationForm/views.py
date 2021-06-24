@@ -1,13 +1,15 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.template import RequestContext
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, response
 from django.template.loader import render_to_string
 from .dataPreparation.prepareResult import PrepareResult
+from .dataPreparation.prepareDocsPDF import PrepareDocsPDF
 from django.urls import reverse
 from django.conf import settings
 from django.core.mail import send_mail
 from django.core.mail import EmailMessage
+import json
 import os
 import logging
 import uuid
@@ -122,16 +124,9 @@ def error_500(request):
     return response
 
 
-# def server_error(request):
-#     response = render('errors/500.html',
-#                       context_instance=RequestContext(request))
-#     response.status_code = 500
-#     return response
-# return render(request,
-#               'applicationForm/templates/errors/404.html',
-#               status=404)
-
-# def handler500(request):
-#     return render(request,
-#                   'applicationForm/templates/errors/500.html',
-#                   status=500)
+def docObject(request):
+    if request.method == 'POST':
+        objectDict = json.loads(request.body)
+        preparePDF = PrepareDocsPDF(sessionID, objectDict)
+        preparePDF.main()
+    return HttpResponse('done')

@@ -1,9 +1,4 @@
-<div
-  id="form-page-8"
-  role="tabpanel"
-  class="bs-stepper-pane fade text-center"
-  aria-labelledby="stepperFormTrigger8"
->
+<div id="form-page-8" role="tabpanel" class="bs-stepper-pane fade text-center" aria-labelledby="stepperFormTrigger8">
   <div class="col-md-12 mx-auto form-section">
     {% load static %}
     <div class="row">
@@ -39,18 +34,21 @@
                     arrange the documents in order by date and by procedure;
                   </p>
                 </li>
-                <li><p class="lead">number the pages consecutively; and</p></li>
+                <li>
+                  <p class="lead">number the pages consecutively; and</p>
+                </li>
                 <li>
                   <p class="lead">NOT staple, bind or tape the documents.</p>
                 </li>
               </ul>
             </div>
+
+            <div id="page8DocsCreated">
+              <p class="lead">Documents created during this application: </p>
+              <ol></ol>
+            </div>
             <div class="text-center">
-              <button
-                class="btn more-info-button"
-                data-toggle="collapse"
-                data-target="#info-5"
-              >
+              <button class="btn more-info-button" data-toggle="collapse" data-target="#info-5">
                 More Info
               </button>
             </div>
@@ -83,81 +81,36 @@
                     <tr>
                       <td width="18%">
                         <label for="doc_0_0">Date</label>
-                        <input
-                          type="text"
-                          name="page8[0][date]"
-                          id="doc_0_date"
-                          class="form-control datepicker docsDate"
-                          data-pattern-name="page8[++][date]"
-                          data-pattern-id="doc_++_date"
-                          data-date-end-date="0d"
-                          data-parsley-group="page8"
-                          data-parsley-trigger-after-failure="change"
-                          required
-                        />
+                        <input type="text" name="page8[0][date]" id="doc_0_date"
+                          class="form-control datepicker docsDate" data-pattern-name="page8[++][date]"
+                          data-pattern-id="doc_++_date" data-date-end-date="0d" data-parsley-group="page8"
+                          data-parsley-trigger-after-failure="change" required />
                       </td>
                       <td width="30%" style="padding-right: 10px">
                         <label for="doc_0_0">Title of the Document</label>
-                        <input
-                          type="text"
-                          name="page8[0][title]"
-                          id="doc_0_title"
-                          class="form-control docsTitle"
-                          data-pattern-name="page8[++][title]"
-                          data-pattern-id="doc_++_title"
-                          maxlength="65"
-                          data-parsley-group="page8"
-                          required
-                        />
+                        <input type="text" name="page8[0][title]" id="doc_0_title" class="form-control docsTitle"
+                          data-pattern-name="page8[++][title]" data-pattern-id="doc_++_title" maxlength="65"
+                          data-parsley-group="page8" required />
                       </td>
                       <td width="40%" style="padding-right: 10px">
-                        <label for="doc_0_0"
-                          >Short description of the Document</label
-                        >
-                        <input
-                          type="text"
-                          name="page8[0][desc]"
-                          id="doc_0_desc"
-                          class="form-control docsDesc"
-                          data-pattern-name="page8[++][desc]"
-                          data-pattern-id="doc_++_desc"
-                          maxlength="70"
-                          data-parsley-group="page8"
-                          required
-                        />
+                        <label for="doc_0_0">Short description of the Document</label>
+                        <input type="text" name="page8[0][desc]" id="doc_0_desc" class="form-control docsDesc"
+                          data-pattern-name="page8[++][desc]" data-pattern-id="doc_++_desc" maxlength="70"
+                          data-parsley-group="page8" required />
                       </td>
                       <td width="12%">
-                        <label for="doc_0_0"
-                          >Number of Pages<a
-                            href="javascript://"
-                            data-toggle="popover"
-                            data-content="Indicate the total number of pages in each document"
-                            data-trigger="focus"
-                            data-placement="bottom"
-                            ><span
-                              ><i class="fas fa-question-circle"></i></span></a
-                        ></label>
-                        <input
-                          type="number"
-                          name="page8[0][page]"
-                          id="doc_0_page"
-                          class="form-control docsPages"
-                          data-pattern-name="page8[++][page]"
-                          data-pattern-id="doc_++_page"
-                          min="1"
-                          data-parsley-group="page8"
-                          required
-                        />
+                        <label for="doc_0_0">Number of Pages<a href="javascript://" data-toggle="popover"
+                            data-content="Indicate the total number of pages in each document" data-trigger="focus"
+                            data-placement="bottom"><span><i class="fas fa-question-circle"></i></span></a></label>
+                        <input type="number" name="page8[0][page]" id="doc_0_page" class="form-control docsPages"
+                          data-pattern-name="page8[++][page]" data-pattern-id="doc_++_page" min="1"
+                          data-parsley-group="page8" required />
                       </td>
                     </tr>
                   </table>
                   <div>
-                    <button
-                      type="button"
-                      class="r-btnAdd btn btn-primary"
-                      id="addButton_8_0"
-                      data-pattern-id="addButton_8_++"
-                    >
+                    <button type="button" class="r-btnAdd btn btn-primary" id="addButton_8_0"
+                      data-pattern-id="addButton_8_++">
                       Add +
                     </button>
                     <button type="button" class="r-btnRemove btn btn-danger">
@@ -170,43 +123,30 @@
               <div class="card-footer">
                 <div class="row">
                   <div class="col-sm-6 aleft">
-                    <button
-                      class="btn btn-primary"
-                      onclick="stepperForm.previous()"
-                    >
+                    <button class="btn btn-primary" onclick="stepperForm.previous()">
                       Previous
                     </button>
                   </div>
                   <div class="col-sm-6 aright">
-                    <button
-                      class="btn btn-primary btn-next-form"
-                      onclick="stepperForm.next()"
-                    >
+                    <button class="btn btn-primary btn-next-form" onclick="stepperForm.next()">
                       Next
                     </button>
                   </div>
                 </div>
               </div>
             </div>
-            <div
-              style="
+            <div style="
                 position: fixed;
                 right: 20px;
                 bottom: 20px;
                 width: 100%;
                 margin-top: 5vw;
-              "
-              class="col-sm-1"
-            >
+              " class="col-sm-1">
               <p class="text-white">
                 This is a Beta version of Just Bot and we rely on your feedback
                 to improve it.
               </p>
-              <button
-                class="showModal btn feedback-button"
-                value="8"
-                onclick="curPageNum(this);"
-              >
+              <button class="showModal btn feedback-button" value="8" onclick="curPageNum(this);">
                 Feedback
               </button>
             </div>

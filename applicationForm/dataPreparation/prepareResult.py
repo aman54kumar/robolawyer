@@ -277,10 +277,8 @@ class PrepareResult:
         self.create_New_Pdf(docs)
         # anonValue = self.inputObj["page2"]["page2[applicantAnonExp]"]
         # anonValue = anonValue.replace(" ", "")
-        print(self.sessionID)
 
         totalDocs = len(self.inputObj['page8']) / 4
-        print(self.inputObj['page3'])
         # allDocuments =
 
         # if anonValue != "":

@@ -21,6 +21,7 @@ from .inputMethodforWM import (
     go,
     bookmarkPageInputs,
 )
+
 import logging
 from .countryCoordDict import coordinateDict
 from datetime import datetime
@@ -500,48 +501,6 @@ class PrepareResult:
         else:
             totalPages = 14
         return totalPages
-
-
-def anonymityPage(canvas, doc):
-    PAGE_HEIGHT = defaultPageSize[1]
-    PAGE_WIDTH = defaultPageSize[0]
-    pageinfo = "Request of Anonymity"
-    Title = "Request of Anonymity"
-    canvas.saveState()
-    canvas.setFont("Times-Bold", 16)
-    canvas.drawCentredString(PAGE_WIDTH / 2.0, PAGE_HEIGHT - 108, Title)
-    canvas.setFont("Times-Roman", 9)
-    canvas.drawString(inch, 0.75 * inch, "Page %s" % pageinfo)
-    canvas.restoreState()
-
-
-def anonymityLaterPages(canvas, doc):
-    pageinfo = "Request of Anonymity"
-    canvas.saveState()
-    canvas.setFont("Times-Roman", 9)
-    canvas.drawString(inch, 0.75 * inch, "Page %d %s" % (doc.page, pageinfo))
-    canvas.restoreState()
-
-
-def extraStOfFactsFirstPage(canvas, doc):
-    PAGE_HEIGHT = defaultPageSize[1]
-    PAGE_WIDTH = defaultPageSize[0]
-    pageinfo = "Supplementary Statement on the Subject matter of the application"
-    Title = "Supplementary Statement on the Subject matter of the application"
-    canvas.saveState()
-    canvas.setFont("Times-Bold", 16)
-    canvas.drawCentredString(PAGE_WIDTH / 2.0, PAGE_HEIGHT - 108, Title)
-    canvas.setFont("Times-Roman", 9)
-    canvas.drawString(inch, 0.75 * inch, " %s" % pageinfo)
-    canvas.restoreState()
-
-
-def extraStOfFactsLaterPage(canvas, doc):
-    pageinfo = "Supplementary Statement on the Subject matter of the application"
-    canvas.saveState()
-    canvas.setFont("Times-Roman", 9)
-    canvas.drawString(inch, 0.75 * inch, "Page %d %s" % (doc.page, pageinfo))
-    canvas.restoreState()
 
 
 def changeCountryToCode(countryList):

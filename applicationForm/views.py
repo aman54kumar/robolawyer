@@ -1,3 +1,4 @@
+# from posixpath import dirname
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.template import RequestContext
@@ -5,6 +6,7 @@ from django.http import HttpResponse, Http404, response
 from django.template.loader import render_to_string
 from .dataPreparation.prepareResult import PrepareResult
 from .dataPreparation.prepareDocsPDF import PrepareDocsPDF
+from .dataPreparation.inputMethodforWM import bookmarkPageInputs
 from django.urls import reverse
 from django.conf import settings
 from django.core.mail import send_mail
@@ -13,6 +15,7 @@ import json
 import os
 import logging
 import uuid
+import shutil
 
 logger = logging.getLogger(__name__)
 logger.info('Logging works!')
@@ -35,6 +38,7 @@ def formProcessing(request):
     #     sessionID + '/finalPage/finalForm.pdf')
     if request.method == 'POST':
         form_dict = request.POST
+        print(form_dict)
         spclReplies.append(request.POST.getlist('page1[involvedStates]'))
         pagesName = [
             'page1', 'page2', 'page3', 'page4', 'page5', 'page6', 'page7',
@@ -45,7 +49,6 @@ def formProcessing(request):
             pages[page] = dict((key, value)
                                for key, value in form_dict.items()
                                if page in key.lower())
-        print(pages)
         prepareResult = PrepareResult(pages, sessionID, spclReplies)
         prepareResult.main()
         logger.warning("Your log message is here")
@@ -124,9 +127,25 @@ def error_500(request):
     return response
 
 
+def createDirectory(directoryName):
+    # code to create directory/file (Decide it) and name it as per the need
+    if not os.path.exists(directoryName):
+        os.makedirs(directoryName)
+    else:
+        shutil.rmtree(directoryName)
+        os.makedirs(directoryName)
+    return
+
+
 def docObject(request):
     if request.method == 'POST':
         objectDict = json.loads(request.body)
-        preparePDF = PrepareDocsPDF(sessionID, objectDict)
-        preparePDF.main()
+        dirname = "applicationForm/dataPreparation/results/" + sessionID + "/docs/"
+        createDirectory(dirname)
+        pageNList = [13]
+        for data in objectDict:
+            docName = objectDict.index(data)
+            docsPDF = PrepareDocsPDF(data, dirname, str(docName), data['title'], data['title'], sum(pageNList))
+            pageReturned = docsPDF.main()
+            pageNList.append(pageReturned)
     return HttpResponse('done')

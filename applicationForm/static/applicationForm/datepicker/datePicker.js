@@ -146,3 +146,13 @@ $(document).ready(function () {
 function setPageUrl() {
   window.location.href = "https://justbot.org";
 }
+
+// submitBtn = document.getElementById("form-submit-btn");
+// submitBtn.addEventListener("click", function () {
+//   $("#appForm").on("submit", function (e) {
+//     console.log($(this));
+//     // e.preventDefault();
+//     // let url = "{% url 'applicationForm:formProcessing' %}";
+//     // $.post(url, $(this).serialize());
+//   });
+// });

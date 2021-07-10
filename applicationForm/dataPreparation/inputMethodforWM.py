@@ -5,6 +5,7 @@ import operator
 from reportlab.lib.units import inch
 import textwrap
 from .countryCoordDict import coordinateDict
+from reportlab.pdfbase.pdfmetrics import stringWidth
 # from xml.sax.saxutils import escape
 
 _customFont = "Courier"
@@ -672,8 +673,6 @@ def sortDocumentsDate(self, inputObj):
 
 
 def bookmarkPageInputs(self, can, inputObj):
-    from reportlab.pdfbase.pdfmetrics import stringWidth
-
     headingText = "Accompanying Documents: Document " + str(inputObj[4] + 1)
     can.setFont("Courier", 18)
     can.drawString(120, 600, headingText)

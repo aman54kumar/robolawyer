@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
   //  stepwise form page code ends
   submitBtn = document.getElementById("form-submit-btn");
   submitBtn.addEventListener("click", function () {
-    console.log(form);
+    form.submit();
   });
 });
 

@@ -276,36 +276,7 @@ class PrepareResult:
                                              tempInput=codeList)
 
         self.create_New_Pdf(docs)
-        # anonValue = self.inputObj["page2"]["page2[applicantAnonExp]"]
-        # anonValue = anonValue.replace(" ", "")
-
-        totalDocs = len(self.inputObj['page8']) / 4
-        # allDocuments =
-
-        # if anonValue != "":
-        #     filenameAnon = ("applicationForm/dataPreparation/results/" +
-        #                     self.sessionID +
-        #                     "/finalPage/Result_form_page_14.pdf")
-        #     go(
-        #         self,
-        #         filenameAnon,
-        #         self.inputObj["page2"]["page2[applicantAnonExp]"],
-        #         anonymityPage,
-        #     )
-
-        # sofValue = self.inputObj["page4"]["page4[stOfFactsExtra]"]
-        # sofValue = sofValue.replace(" ", "")
-        # if sofValue != "":
-        #     filenameStOfFacts = ("applicationForm/dataPreparation/results/" +
-        #                          self.sessionID +
-        #                          "/finalPage/Result_form_page_15.pdf")
-        #     go(
-        #         self,
-        #         filenameStOfFacts,
-        #         self.inputObj["page4"]["page4[stOfFactsExtra]"],
-        #         extraStOfFactsFirstPage,
-        #         extraStOfFactsLaterPage,
-        #     )
+        # totalDocs = len(self.inputObj['page8']) / 4
 
         logger.warning("Your log message is here")
 
@@ -487,6 +458,7 @@ class PrepareResult:
                     single,
                 ],
             )
+            
             can.save()
 
     def checkDocsOrNot(self, docsList):
@@ -510,27 +482,6 @@ def changeCountryToCode(countryList):
         if country in coordinateDict:
             sumValue += coordinateDict[country]["n"]
     return str(sumValue) + ".00000000"
-
-
-def documentFirstPage(titleText):
-    PAGE_HEIGHT = defaultPageSize[1]
-    PAGE_WIDTH = defaultPageSize[0]
-    pageinfo = titleText
-    Title = titleText
-    canvas.saveState()
-    canvas.setFont("Times-Bold", 16)
-    canvas.drawCentredString(PAGE_WIDTH / 2.0, PAGE_HEIGHT - 108, Title)
-    canvas.setFont("Times-Roman", 9)
-    canvas.drawString(inch, 0.75 * inch, "Page %s" % pageinfo)
-    canvas.restoreState()
-
-
-def documentRestPages(titleText):
-    pageinfo = titleText
-    canvas.saveState()
-    canvas.setFont("Times-Roman", 9)
-    canvas.drawString(inch, 0.75 * inch, "Page %d %s" % (doc.page, pageinfo))
-    canvas.restoreState()
 
 
 def makeDictofTextDocuments(data):

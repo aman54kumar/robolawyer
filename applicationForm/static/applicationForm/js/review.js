@@ -13,14 +13,17 @@ $(document).ready(function () {
 
   $("input[name='page1[concernYou]']").on("change", function (e) {
     curValue = $("input[name='page1[concernYou]']:checked").val();
-    if (curValue === "Yes") {
+    if (curValue === "concernIndividual") {
       curValue = "You directly";
-    } else if (curValue === "No") {
+    } else if (curValue === "ConcernOrganisation") {
+      curValue = "Your organisation";
+    } else if (curValue === "OtherClose") {
       curValue =
-        "A close relative who is unable to lodge an application himself or herself";
-    } else if (curValue === "Other") {
-      curValue =
-        "A close relative who is unable to lodge an application himself or herself";
+        "A close relative or a person under your care or responsibility who is unable to lodge an application";
+    } else if (curValue === "ClientIndividual") {
+      curValue = "My client who is an individual person";
+    } else if (curValue === "ClientJuridical") {
+      curValue = "My client who is a juridical person";
     }
     $("#page1-2").text(curValue);
   });
@@ -431,55 +434,64 @@ $(document).ready(function () {
   // End of Page 4
 
   // Start of Page 5
-  $("#articleButton").on("click", function () {
-    var click = +$(this).data("clicks") || 0;
-    if (click % 2 == 0) {
-      articlesList = $(".articleSelect");
-      descriptionList = $(".articleExplanation");
-      articlesList.each(function (item) {
-        $("#articleBody").append(
-          "<tr><td>" +
-            String(articlesList[item].value) +
-            "</td> <td>" +
-            String(descriptionList[item].value) +
-            "</td> </tr>"
-        );
-      });
-    } else {
-      $("#articleBody").empty();
-    }
-    $(this).data("clicks", click + 1);
+  $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
+    $("#articleBody").empty();
+    articlesList = $(".articleArea");
+    descriptionList = $(".articleExplanation");
+    articlesList.each(function (item) {
+      $("#articleBody").append(
+        "<tr><td>" +
+          String(articlesList[item].value) +
+          "</td> <td>" +
+          String(descriptionList[item].value) +
+          "</td> </tr>"
+      );
+    });
   });
+
   // End of Page 5
 
   // to split article string for getting only number
-  function getArticleString(articleName) {
-    return articleName.split("-")[0];
-  }
   // end of algorithm
   // Start of Page 6
-  $("#complaintButton").on("click", function () {
-    var click = $(this).data("clicks") || 0;
-    if (click % 2 == 0) {
-      complaintList = $(".complainSelect");
-      remediesList = $(".remedies");
-      articlePassList = $(".preArticleSelect");
-      complaintList.each(function (item) {
-        $("#complaintBody").append(
-          "<tr><td>" +
-            (
-              String(getArticleString(articlePassList[item].value)) + "- "
-            ).concat(String(complaintList[item].value)) +
-            "</td> <td>" +
-            String(remediesList[item].value) +
-            "</td> </tr>"
-        );
-      });
-    } else {
-      $("#complaintBody").empty();
-    }
-    $(this).data("clicks", click + 1);
+  $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
+    $("#complaintBody").empty();
+    complaintList = $(".complainSelect");
+    remediesList = $(".remedies");
+    articlePassList = $(".preArticleSelect");
+    complaintList.each(function (item) {
+      $("#complaintBody").append(
+        "<tr><td>" +
+          String(complaintList[item].value) +
+          "</td> <td>" +
+          String(remediesList[item].value) +
+          "</td> </tr>"
+      );
+    });
   });
+
+  // $("#complaintButton").on("click", function () {
+  //   var click = $(this).data("clicks") || 0;
+  //   if (click % 2 == 0) {
+  //     complaintList = $(".complainSelect");
+  //     remediesList = $(".remedies");
+  //     articlePassList = $(".preArticleSelect");
+  //     complaintList.each(function (item) {
+  //       $("#complaintBody").append(
+  //         "<tr><td>" +
+  //           (
+  //             String(getArticleString(articlePassList[item].value)) + "- "
+  //           ).concat(String(complaintList[item].value)) +
+  //           "</td> <td>" +
+  //           String(remediesList[item].value) +
+  //           "</td> </tr>"
+  //       );
+  //     });
+  //   } else {
+  //     $("#complaintBody").empty();
+  //   }
+  //   $(this).data("clicks", click + 1);
+  // });
 
   $("#appealDescribe").on("input", function (e) {
     curValue = $("#appealDescribe").val().trim();

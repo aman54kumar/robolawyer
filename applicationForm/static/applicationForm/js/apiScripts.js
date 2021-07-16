@@ -426,6 +426,15 @@ function courtAPImethod(countryUrl) {
               "style",
               "border-bottom: solid 3px #ffcc0040"
             );
+          } else {
+            courtRow1.setAttribute(
+              "style",
+              "border-bottom: solid 3px #ffcc0040"
+            );
+            proceedingRow1.setAttribute(
+              "style",
+              "border-bottom: solid 3px #ffcc0040"
+            );
           }
 
           if (data[prop].Court.ProceedingType2) {
@@ -445,6 +454,15 @@ function courtAPImethod(countryUrl) {
                 "border-bottom: solid 3px #ffcc0040"
               );
               courtDetail2.setAttribute(
+                "style",
+                "border-bottom: solid 3px #ffcc0040"
+              );
+            } else {
+              courtRow2.setAttribute(
+                "style",
+                "border-bottom: solid 3px #ffcc0040"
+              );
+              proceedingRow2.setAttribute(
                 "style",
                 "border-bottom: solid 3px #ffcc0040"
               );

@@ -179,7 +179,7 @@ $("input[name='page3[indNLAuthorityQn]']").change(function () {
   } else {
     $("#indNLAuthorityYes").addClass("is-hidden");
     popUpText.innerHTML =
-      "<h5>Please explain in this textbox below why the applicant cannot sign the authority form. Please provide any additional documents that you deem necessary to support your case. <br/> We will generate this text as an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You must remember to add any other documents supporting your explanation – medical records, official documents – both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.</h5>";
+      "<h5 class='lead'>Please explain in this textbox below why the applicant cannot sign the authority form. Please provide any additional documents that you deem necessary to support your case. <br/> We will generate this text as an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You must remember to add any other documents supporting your explanation – medical records, official documents – both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.</h5>";
     popUpText.append(document.createElement("br"));
     indNLAuthTextArea = document.createElement("textarea");
     indNLAuthTextArea.addEventListener("input", function () {
@@ -488,6 +488,7 @@ var globalDocObject = [];
 // var docObject;
 
 $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
+  $("#page8DocsCreated").find("ol").empty();
   docObject = [];
   if (!!$("#anonReqText").val()) {
     anon = {

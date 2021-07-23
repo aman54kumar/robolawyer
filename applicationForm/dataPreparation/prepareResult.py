@@ -362,6 +362,7 @@ class PrepareResult:
         resultPath = glob.glob("applicationForm/dataPreparation/results/" +
                                self.sessionID +
                                "/finalPage/Result_form_page_*.pdf")
+        # print(type(resultPath))
         resultPath.sort(key=self.natural_key)
         self.pdf_merger(
             "applicationForm/dataPreparation/results/" + self.sessionID +
@@ -458,7 +459,6 @@ class PrepareResult:
                     single,
                 ],
             )
-            
             can.save()
 
     def checkDocsOrNot(self, docsList):

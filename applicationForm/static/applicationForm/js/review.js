@@ -13,7 +13,7 @@ $(document).ready(function () {
 
   $("input[name='page1[concernYou]']").on("change", function (e) {
     curValue = $("input[name='page1[concernYou]']:checked").val();
-    if (curValue === "concernIndividual") {
+    if (curValue === "ConcernIndividual") {
       curValue = "You directly";
     } else if (curValue === "ConcernOrganisation") {
       curValue = "Your organisation";
@@ -302,12 +302,12 @@ $(document).ready(function () {
   });
   $("#orgnlTel").on("input", function () {
     curValue = this.value;
-    $("#page3-org-rep-NL-8").text(curValue);
+    $("#page3-org-rep-NL-7").text(curValue);
   });
 
   $("#orgnlFax").on("input", function () {
     curValue = this.value;
-    $("#page3-org-rep-NL-7").text(curValue);
+    $("#page3-org-rep-NL-8").text(curValue);
   });
 
   $("#orgnlEmail").on("input", function () {
@@ -323,35 +323,35 @@ $(document).ready(function () {
       $("#page3-org-rep-NL-9").text("Yes");
       $("#orglSurname").on("input", function () {
         curValue = this.value;
-        $("#page3-org-rep-NL-1").text(curValue);
+        $("#page3-org-rep-L-1").text(curValue);
       });
       $("#orglSurname").on("input", function () {
         curValue = this.value;
-        $("#page3-org-rep-NL-2").text(curValue);
+        $("#page3-org-rep-L-2").text(curValue);
       });
       $("#orglFirstName").on("input", function () {
         curValue = this.value;
-        $("#page3-org-rep-NL-3").text(curValue);
+        $("#page3-org-rep-L-3").text(curValue);
       });
       $("#orglAddress").on("input", function () {
         curValue = this.value;
-        $("#page3-org-rep-NL-4").text(curValue);
+        $("#page3-org-rep-L-4").text(curValue);
       });
       $("#orglNationality").on("input", function () {
         curValue = this.value;
-        $("#page3-org-rep-NL-5").text(curValue);
+        $("#page3-org-rep-L-5").text(curValue);
       });
       $("#orglEmail").on("input", function () {
         curValue = this.value;
-        $("#page3-org-rep-NL-6").text(curValue);
+        $("#page3-org-rep-L-6").text(curValue);
       });
       $("#orglFax").on("input", function () {
         curValue = this.value;
-        $("#page3-org-rep-NL-7").text(curValue);
+        $("#page3-org-rep-L-7").text(curValue);
       });
       $("#orgIndeComms").on("input", function () {
         curValue = this.value;
-        $("#page3-org-rep-NL-8").text(curValue);
+        $("#page3-org-rep-L-8").text(curValue);
       });
     } else if (result === "orgNoLawyer") {
       $(".reviewRepOrgL").addClass("is-hidden");
@@ -366,36 +366,36 @@ $(document).ready(function () {
   // Start of page 3 org L
   $("#orglSurname").on("input", function () {
     curValue = this.value;
-    $("#page3-ind-rep-L-1").text(curValue);
+    $("#page3-org-rep-L-1").text(curValue);
   });
   $("#orglFirstName").on("input", function () {
     curValue = this.value;
-    $("#page3-ind-rep-L-2").text(curValue);
+    $("#page3-org-rep-L-2").text(curValue);
   });
   $("#orglAddress").on("input", function () {
     curValue = this.value;
-    $("#page3-ind-rep-L-3").text(curValue);
+    $("#page3-org-rep-L-3").text(curValue);
   });
   $("#orglNationality").on("focus change", function () {
     curValue = this.value;
-    $("#page3-ind-rep-L-4").text(curValue);
+    $("#page3-org-rep-L-4").text(curValue);
   });
   $("#orglEmail").on("input", function () {
     curValue = this.value;
-    $("#page3-ind-rep-L-5").text(curValue);
+    $("#page3-org-rep-L-5").text(curValue);
   });
   $("#orglTel").on("input", function () {
     curValue = this.value;
-    $("#page3-ind-rep-L-6").text(curValue);
+    $("#page3-org-rep-L-6").text(curValue);
   });
   $("#orglFax").on("input", function () {
     curValue = this.value;
-    $("#page3-ind-rep-L-7").text(curValue);
+    $("#page3-org-rep-L-7").text(curValue);
   });
 
   $("#orgIndeComms").on("input", function () {
     curValue = this.value;
-    $("#page3-ind-rep-L-8").text(curValue);
+    $("#page3-org-rep-L-8").text(curValue);
   });
 
   // End of page 3 org L
@@ -528,32 +528,26 @@ $(document).ready(function () {
   // End of Page 7
 
   // Start of Page 8
-  $("#docsButton").on("click", function () {
-    var click = +$(this).data("clicks") || 0;
-    if (click % 2 == 0) {
-      docsDateList = $(".docsDate");
-      docsTitleList = $(".docsTitle");
-      docsDescList = $(".docsDesc");
-      docsPagesList = $(".docsPages");
-      docsDateList.each(function (item) {
-        $("#docsBody").append(
-          "<tr><td>" +
-            String(docsDateList[item].value) +
-            "</td> <td>" +
-            String(docsTitleList[item].value) +
-            "</td> <td>" +
-            String(docsDescList[item].value) +
-            "</td> <td>" +
-            String(docsPagesList[item].value) +
-            "</td> </tr>"
-        );
-      });
-    } else {
-      $("#docsBody").empty();
-    }
-    $(this).data("clicks", click + 1);
+  $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
+    $("#docsBody").empty();
+    docsDateList = $(".docsDate");
+    docsTitleList = $(".docsTitle");
+    docsDescList = $(".docsDesc");
+    docsPagesList = $(".docsPages");
+    docsDateList.each(function (item) {
+      $("#docsBody").append(
+        "<tr><td>" +
+          String(docsDateList[item].value) +
+          "</td> <td>" +
+          String(docsTitleList[item].value) +
+          "</td> <td>" +
+          String(docsDescList[item].value) +
+          "</td> <td>" +
+          String(docsPagesList[item].value) +
+          "</td> </tr>"
+      );
+    });
   });
-
   // End of Page 8
 
   // Start of Page 9

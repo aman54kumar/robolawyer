@@ -14,12 +14,12 @@ from django.core.mail import EmailMessage
 import json
 import os
 import logging
-import uuid
+
 import shutil
 
 logger = logging.getLogger(__name__)
 logger.info('Logging works!')
-sessionID = uuid.uuid4().hex
+sessionID = settings.SESSIONID
 
 
 # class FormPageView(TemplateView):
@@ -33,13 +33,16 @@ def FormPageView(request):
 def formProcessing(request):
 
     spclReplies = []
+    hiddenDocsObject = []
     # filepath = os.path.join(
     #     settings.BASE_DIR, 'applicationForm/dataPreparation/results/' +
     #     sessionID + '/finalPage/finalForm.pdf')
     if request.method == 'POST':
         form_dict = request.POST
-        print(form_dict)
+        # print(form_dict)
         spclReplies.append(request.POST.getlist('page1[involvedStates]'))
+        # hiddenDocsObject = json.loads(form_dict['page8[hiddenDocObject]'])
+        # print(hiddenDocsObject)
         pagesName = [
             'page1', 'page2', 'page3', 'page4', 'page5', 'page6', 'page7',
             'page8', 'page9', 'page10'
@@ -123,7 +126,6 @@ def pdf_email(request):
 def error_500(request):
     response = render(request, 'errors/500.html')
     response.status_code = 500
-
     return response
 
 
@@ -137,15 +139,15 @@ def createDirectory(directoryName):
     return
 
 
-def docObject(request):
-    if request.method == 'POST':
-        objectDict = json.loads(request.body)
-        dirname = "applicationForm/dataPreparation/results/" + sessionID + "/docs/"
-        createDirectory(dirname)
-        pageNList = [13]
-        for data in objectDict:
-            docName = objectDict.index(data)
-            docsPDF = PrepareDocsPDF(data, dirname, str(docName), data['title'], data['title'], sum(pageNList))
-            pageReturned = docsPDF.main()
-            pageNList.append(pageReturned)
-    return HttpResponse('done')
+# def docObject(request):
+#     if request.method == 'POST':
+#         objectDict = json.loads(request.body)
+#         dirname = "applicationForm/dataPreparation/results/" + sessionID + "/docs/"
+#         createDirectory(dirname)
+#         pageNList = [13]
+#         for data in objectDict:
+#             docName = str(objectDict.index(data)) + ".pdf"
+#             docsPDF = PrepareDocsPDF(data, dirname, str(docName), data['title'], data['title'], sum(pageNList))
+#             pageReturned = docsPDF.main()
+#             pageNList.append(pageReturned)
+#     return HttpResponse('done')

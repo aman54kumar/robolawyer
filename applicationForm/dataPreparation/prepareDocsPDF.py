@@ -3,11 +3,6 @@ from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.rl_config import defaultPageSize
 from reportlab.lib.units import inch
 
-from functools import partial
-import os
-import shutil
-from applicationForm.dataPreparation.inputMethodforWM import formatText
-
 
 class PrepareDocsPDF:
 
@@ -49,11 +44,11 @@ class PrepareDocsPDF:
         doc.build(Story, onFirstPage=self.myFirstPage, onLaterPages=self.myLaterPages)
         return doc.page
 
-    def getObjectDict(self):
-        print(self.objectDict)
+    # def getObjectDict(self):
+    #     print(self.objectDict)
 
     def main(self):
-        self.getObjectDict()
+        # self.getObjectDict()
         pageNumber = self.go()
         return pageNumber
 

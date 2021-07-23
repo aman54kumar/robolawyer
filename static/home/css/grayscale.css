@@ -126,17 +126,31 @@
   -webkit-background-clip: text;
 }
 
-.masthead h2 {
-  max-width: 20rem;
-  font-size: 1rem;
+/* .masthead {
+  height: 100vh;
+  padding: 15rem;
+} */
+
+.masthead h1 {
+  font-size: 12vh;
+  line-height: 15vh;
+  letter-spacing: 0.8rem;
 }
 
-@media (min-width: 400px) {
+.home-desc-div {
+  width: 100vh;
+}
+
+/*
+.home-desc-div {
+  width: 100vh;
+} */
+/* @media (min-width: 400px) {
   .masthead {
     padding: 8rem;
   }
   .home-desc-div {
-    width: 100%;
+    width: 100vh;
   }
 
   .masthead h1 {
@@ -152,8 +166,8 @@
   }
 
   .masthead h1 {
-    font-size: 6.5rem;
-    line-height: 6.5rem;
+    font-size: 20vh;
+    line-height: 20vh;
     letter-spacing: 0.8rem;
   }
 
@@ -162,9 +176,9 @@
     font-size: 1.25rem;
   }
   .home-desc-div {
-    width: 60%;
+    width: 100vh;
   }
-}
+} */
 
 .btn {
   box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;

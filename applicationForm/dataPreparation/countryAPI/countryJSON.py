@@ -41,7 +41,7 @@ def getFormattedArticleText(text):
 articleFile = os.path.join(
     settings.BASE_DIR,
     # 'applicationForm\\dataPreparation\\countryAPI\\API ratification territorial application reservations - With UK updated.xlsx'
-    'applicationForm/dataPreparation/countryAPI/API ratification territorial application reservations - With UK updated.xlsx'
+    'applicationForm/dataPreparation/countryAPI/API ratification territorial application reservations - With UK updated-Jul23.xlsx'
 )
 
 courtFile = os.path.join(

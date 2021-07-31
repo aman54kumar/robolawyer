@@ -126,66 +126,17 @@
   -webkit-background-clip: text;
 }
 
-/* .masthead {
-  height: 100vh;
-  padding: 15rem;
-} */
-
 .masthead h1 {
   font-size: 12vh;
   line-height: 15vh;
   letter-spacing: 0.8rem;
 }
 
-/* .home-desc-div {
-  width: 100vh;
-} */
-
-/*
-.home-desc-div {
-  width: 100vh;
-} */
 @media (max-width: 1921px) {
-  /* .masthead {
-    padding: 8rem;
-  } */
   .home-desc-div {
     width: 120vh;
   }
-
-  /* .masthead h1 {
-    font-size: 4rem;
-    line-height: 4rem;
-  } */
 }
-/* @media (max-width: 600px) {
-  .home-desc-div {
-    width: 50vh;
-  }
-} */
-
-/* 
-
-@media (min-width: 1200px) {
-  .masthead {
-    height: 100vh;
-    padding: 15rem;
-  }
-
-  .masthead h1 {
-    font-size: 20vh;
-    line-height: 20vh;
-    letter-spacing: 0.8rem;
-  }
-
-  .masthead h2 {
-    max-width: 30rem;
-    font-size: 1.25rem;
-  }
-  .home-desc-div {
-    width: 100vh;
-  }
-} */
 
 .btn {
   box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;

@@ -14,6 +14,7 @@ from django.core.mail import EmailMessage
 import json
 import os
 import logging
+from django.http import QueryDict
 
 import shutil
 
@@ -34,6 +35,7 @@ def formProcessing(request):
 
     spclReplies = []
     hiddenDocsObject = []
+    hiddenObject = []
     # filepath = os.path.join(
     #     settings.BASE_DIR, 'applicationForm/dataPreparation/results/' +
     #     sessionID + '/finalPage/finalForm.pdf')
@@ -41,8 +43,8 @@ def formProcessing(request):
         form_dict = request.POST
         # print(form_dict)
         spclReplies.append(request.POST.getlist('page1[involvedStates]'))
-        # hiddenDocsObject = json.loads(form_dict['page8[hiddenDocObject]'])
-        # print(hiddenDocsObject)
+        hiddenDocsObject.append(request.POST.getlist('page8[hiddenDocObject]')[0])
+        
         pagesName = [
             'page1', 'page2', 'page3', 'page4', 'page5', 'page6', 'page7',
             'page8', 'page9', 'page10'
@@ -52,7 +54,14 @@ def formProcessing(request):
             pages[page] = dict((key, value)
                                for key, value in form_dict.items()
                                if page in key.lower())
-        prepareResult = PrepareResult(pages, sessionID, spclReplies)
+
+        # print(hiddenDocsObject)
+        # print("\n")
+        for item in hiddenDocsObject:
+            item = json.loads(item)
+            hiddenObject.append(item)
+
+        prepareResult = PrepareResult(pages, sessionID, spclReplies, hiddenDocsObject[0])
         prepareResult.main()
         logger.warning("Your log message is here")
 
@@ -146,7 +155,7 @@ def createDirectory(directoryName):
 #         createDirectory(dirname)
 #         pageNList = [13]
 #         for data in objectDict:
-#             docName = str(objectDict.index(data)) + ".pdf"
+#             docName = str(objectDict.index(data)) + ".pdf"  
 #             docsPDF = PrepareDocsPDF(data, dirname, str(docName), data['title'], data['title'], sum(pageNList))
 #             pageReturned = docsPDF.main()
 #             pageNList.append(pageReturned)

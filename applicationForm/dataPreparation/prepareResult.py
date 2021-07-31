@@ -18,22 +18,23 @@ from .inputMethodforWM import (
     modifyCountryNames,
     sortDocumentsDate,
     formatText,
-    go,
     bookmarkPageInputs,
 )
 
 import logging
 from .countryCoordDict import coordinateDict
-from datetime import datetime
+# from datetime import datetime
+from .prepareDocsPDF import PrepareDocsPDF
 
 logger = logging.getLogger(__name__)
 
 
 class PrepareResult:
-    def __init__(self, inputObj, sessionID, spclReplies):
+    def __init__(self, inputObj, sessionID, spclReplies, hiddenDocsObject):
         self.inputObj = inputObj
         self.sessionID = sessionID
         self.spclReplies = spclReplies
+        self.hiddenDocsObject = hiddenDocsObject
 
     basedirPDF = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -63,8 +64,20 @@ class PrepareResult:
             # inputDate = datetime.strptime(str(inputDate), "%Y-%m-%d")
             return str(inputDate)
 
+    def objectDocs(self, objectDict, dirname):
+        pageNList = [13]
+        import json
+        objectDict = json.loads(objectDict)
+        # print(type(objectDict))
+        for data in objectDict:
+            docName = "Result_form_page_" + str(14 + objectDict.index(data)) + ".pdf"
+            # print(data)
+            docsPDF = PrepareDocsPDF(data, dirname, str(docName), data['title'], data['title'], sum(pageNList))
+            pageReturned = docsPDF.main()
+            pageNList.append(pageReturned)
+
     def main(self):
-        """ next 3 lines to be executed when there is a change in application form file. Looks for the 
+        """ next 3 lines to be executed when there is a change in application form file. Looks for the
          formatting changes if needed."""
         # filename = 'applicationForm/dataPreparation/App_form.pdf'
         # self.createOrDeleteDirectory('applicationForm/dataPreparation/pages')
@@ -141,8 +154,7 @@ class PrepareResult:
                 break
 
         articleSecondPage = articleLineList[
-            no_of_lines_first_page:no_of_lines_first_page +
-            no_of_lines_second_page]
+            no_of_lines_first_page:no_of_lines_first_page + no_of_lines_second_page]
 
         # finish Input for Article Page
 
@@ -182,8 +194,8 @@ class PrepareResult:
 
         docs = self.inputObj["page8"]
 
-        paths = glob.glob(
-            "applicationForm/dataPreparation/pages/App_form_page_*.pdf")
+        # paths = glob.glob(
+        #     "applicationForm/dataPreparation/pages/App_form_page_*.pdf")
 
         codeList = []
         barCodeText = "ENG - 2018/1|"
@@ -244,11 +256,9 @@ class PrepareResult:
         codeList.append(barCodeText[:927])
         codeList.append(self.sessionID)
         self.createOrDeleteDirectory(
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/")
+            "applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/")
         self.createOrDeleteDirectory(
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/watermark/")
+            "applicationForm/dataPreparation/results/" + self.sessionID + "/watermark/")
         output1 = self.create_watermark_pdf(
             self.inputObj["page2"],
             pos=1,
@@ -282,91 +292,76 @@ class PrepareResult:
 
         self.watermark(
             "applicationForm/dataPreparation/pages/App_form_page_1.pdf",
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/Result_form_page_1.pdf",
+            "applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/Result_form_page_1.pdf",
             output1,
         )
         self.watermark(
             "applicationForm/dataPreparation/pages/App_form_page_2.pdf",
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/Result_form_page_2.pdf",
+            "applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/Result_form_page_2.pdf",
             output2,
         ),
         self.watermark(
             "applicationForm/dataPreparation/pages/App_form_page_3.pdf",
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/Result_form_page_3.pdf",
+            "applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/Result_form_page_3.pdf",
             output3,
         ),
         self.watermark(
             "applicationForm/dataPreparation/pages/App_form_page_4.pdf",
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/Result_form_page_4.pdf",
+            "applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/Result_form_page_4.pdf",
             output4,
         ),
         self.watermark(
             "applicationForm/dataPreparation/pages/App_form_page_5.pdf",
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/Result_form_page_5.pdf",
+            "applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/Result_form_page_5.pdf",
             output5,
         ),
         self.watermark(
             "applicationForm/dataPreparation/pages/App_form_page_6.pdf",
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/Result_form_page_6.pdf",
+            "applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/Result_form_page_6.pdf",
             output6,
         ),
         self.watermark(
             "applicationForm/dataPreparation/pages/App_form_page_7.pdf",
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/Result_form_page_7.pdf",
+            "applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/Result_form_page_7.pdf",
             output7,
         ),
         self.watermark(
             "applicationForm/dataPreparation/pages/App_form_page_8.pdf",
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/Result_form_page_8.pdf",
+            "applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/Result_form_page_8.pdf",
             output8,
         ),
         self.watermark(
             "applicationForm/dataPreparation/pages/App_form_page_9.pdf",
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/Result_form_page_9.pdf",
+            "applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/Result_form_page_9.pdf",
             output9,
         ),
         self.watermark(
-            "applicationForm/dataPreparation/pages/App_form_page_10.pdf",
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/Result_form_page_10.pdf",
+            "applicationForm/dataPreparation/pages/App_form_page_10.pdf", "applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/Result_form_page_10.pdf",
             output10,
         ),
         self.watermark(
             "applicationForm/dataPreparation/pages/App_form_page_11.pdf",
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/Result_form_page_11.pdf",
+            "applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/Result_form_page_11.pdf",
             output11,
         ),
         self.watermark(
             "applicationForm/dataPreparation/pages/App_form_page_12.pdf",
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/Result_form_page_12.pdf",
+            "applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/Result_form_page_12.pdf",
             output12,
         ),
         self.watermark(
             "applicationForm/dataPreparation/pages/App_form_page_13.pdf",
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/Result_form_page_13.pdf",
+            "applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/Result_form_page_13.pdf",
             output13,
         ),
 
-        resultPath = glob.glob("applicationForm/dataPreparation/results/" +
-                               self.sessionID +
-                               "/finalPage/Result_form_page_*.pdf")
+        self.objectDocs(self.hiddenDocsObject, "applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/")
+        resultPath = glob.glob("applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/Result_form_page_*.pdf")
         # print(type(resultPath))
+        
         resultPath.sort(key=self.natural_key)
         self.pdf_merger(
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/Application form to the ECtHR.pdf",
+            "applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/Application form to the ECtHR.pdf",
             resultPath,
         )
 
@@ -376,8 +371,7 @@ class PrepareResult:
         for page in range(pdf.getNumPages()):
             pdf_writer = PdfFileWriter()
             pdf_writer.addPage(pdf.getPage(page))
-            output_filename = ("applicationForm/dataPreparation/pages/" +
-                               "{}_page_{}.pdf".format(fname, page + 1))
+            output_filename = ("applicationForm/dataPreparation/pages/" + "{}_page_{}.pdf".format(fname, page + 1))
             with open(output_filename, "wb") as out:
                 pdf_writer.write(out)
             # print('Created: {}'.format(output_filename))
@@ -444,9 +438,7 @@ class PrepareResult:
         # initPages = self.checkDocsOrNot(docs4List)
         initPages = 100
         for single in range(totalBookmark):
-            filename = ("applicationForm/dataPreparation/results/" +
-                        self.sessionID + "/finalPage/Result_form_page_" +
-                        str(initPages + single) + ".pdf")
+            filename = ("applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/Result_form_page_" + str(initPages + single) + ".pdf")
             can = canvas.Canvas(filename, pagesize=A4)
             can = bookmarkPageInputs(
                 self,

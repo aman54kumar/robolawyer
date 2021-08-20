@@ -81,7 +81,7 @@ $("input[name='page2[orgIdentityOption]']").change(function () {
 
 $("#indNLFaxOption").on("change", (event) => {
   if ($(event.target).prop("checked")) {
-    $("#indNLFax").prop("disabled", true);
+    $("#indNLFax").val("").prop("disabled", true);
     $("#indNLFaxDiv").removeClass("is-hidden");
   } else {
     $("#indNLFax").prop("disabled", false);
@@ -91,7 +91,7 @@ $("#indNLFaxOption").on("change", (event) => {
 
 $("#indLFaxOption").on("change", (event) => {
   if ($(event.target).prop("checked")) {
-    $("#indLFax").prop("disabled", true);
+    $("#indLFax").val("").prop("disabled", true);
     $("#indLFaxDiv").removeClass("is-hidden");
   } else {
     $("#indLFax").prop("disabled", false);
@@ -101,7 +101,7 @@ $("#indLFaxOption").on("change", (event) => {
 
 $("#orgNLFaxOption").on("change", (event) => {
   if ($(event.target).prop("checked")) {
-    $("#orgNLFax").prop("disabled", true);
+    $("#orgNLFax").val("").prop("disabled", true);
     $("#orgNLFaxDiv").removeClass("is-hidden");
   } else {
     $("#orgNLFax").prop("disabled", false);
@@ -111,7 +111,7 @@ $("#orgNLFaxOption").on("change", (event) => {
 
 $("#orgLFaxOption").on("change", (event) => {
   if ($(event.target).prop("checked")) {
-    $("#orgLFax").prop("disabled", true);
+    $("#orgLFax").val("").prop("disabled", true);
     $("#orgLFaxDiv").removeClass("is-hidden");
   } else {
     $("#orgLFax").prop("disabled", false);

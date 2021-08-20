@@ -1,14 +1,30 @@
 $(document).ready(function () {
   $(".reviewQuestions")
-    .find("td")
-    .addClass("lead")
+    .find("tr")
+    .find("td:not(:first-child)")
+    .addClass("lead aright")
     .css("font-family", "lato-thin");
+
+  $(".reviewQuestions").find("tr").find("td:first-child").css({
+    width: "50%",
+    "font-family": "lato-thin",
+    "font-weight": "600",
+    "font-size": "1.25rem",
+  });
+
+  // $(".reviewQuestions")
+  //   .find("tr")
+  //   .find("td")
+  //   .first()
+  //   .css("font-weight", "bold !important");
+  // $(".reviewQuestions").find("tr").find("td").css("width", "60%");
   // adding two buttons
   addButtonsToReview();
   // Start of page 1
   $("#involvedStates").on("change", function (e) {
-    curValue = $("#involvedStates").val();
-    $("#page1-1").text(curValue);
+    let curValue = $("#involvedStates").val();
+    let curValueWithSpace = curValue.join(", ");
+    $("#page1-1").text(curValueWithSpace);
   });
 
   $("input[name='page1[concernYou]']").on("change", function (e) {
@@ -120,7 +136,7 @@ $(document).ready(function () {
   $("#anonReqText").on("input", function () {
     anonText = this.value;
     $("#page2-ind-10").html(
-      "<a id='page2-ind-10-text' href='#'>Click Here</a>"
+      "<a id='page2-ind-10-text' href='#'>Click here to view the document you created</a>"
     );
     $("#page2-ind-10-text").on("click", function () {
       var wnd = window.open("Anonymity Request", "", "_blank");
@@ -163,7 +179,9 @@ $(document).ready(function () {
   });
   $("#anonReqText").on("input", function () {
     anonText = this.value;
-    $("#page2-org-8").html("<a id='page2-org-8-text' href='#'>Click Here</a>");
+    $("#page2-org-8").html(
+      "<a id='page2-org-8-text' href='#'>Click here to view the document you created</a>"
+    );
     $("#page2-org-8-text").on("click", function () {
       var wnd = window.open("Anonymity Request", "", "_blank");
       wnd.document.write(anonText);
@@ -233,10 +251,11 @@ $(document).ready(function () {
     curValue = this.value;
     $("#page3-ind-rep-NL-7").text(curValue);
   });
-  $("#indNLFax").on("input", function () {
-    curValue = this.value;
+  $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
+    curValue = $("#indNLFax").val();
     $("#page3-ind-rep-NL-8").text(curValue);
   });
+
   $("#indIndeComms").on("input", function () {
     curValue = this.value;
     $("#page3-ind-rep-NL-9").text(curValue);
@@ -264,8 +283,8 @@ $(document).ready(function () {
     curValue = this.value;
     $("#page3-ind-rep-L-6").text(curValue);
   });
-  $("#indLFax").on("input", function () {
-    curValue = this.value;
+  $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
+    curValue = $("#indLFax").value;
     $("#page3-ind-rep-L-7").text(curValue);
   });
   $("#indLEmail").on("input", function () {
@@ -305,8 +324,8 @@ $(document).ready(function () {
     $("#page3-org-rep-NL-7").text(curValue);
   });
 
-  $("#orgnlFax").on("input", function () {
-    curValue = this.value;
+  $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
+    curValue = $("orgnlFax").value;
     $("#page3-org-rep-NL-8").text(curValue);
   });
 
@@ -345,8 +364,8 @@ $(document).ready(function () {
         curValue = this.value;
         $("#page3-org-rep-L-6").text(curValue);
       });
-      $("#orglFax").on("input", function () {
-        curValue = this.value;
+      $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
+        curValue = $("#orglFax").value;
         $("#page3-org-rep-L-7").text(curValue);
       });
       $("#orgIndeComms").on("input", function () {
@@ -388,8 +407,8 @@ $(document).ready(function () {
     curValue = this.value;
     $("#page3-org-rep-L-6").text(curValue);
   });
-  $("#orglFax").on("input", function () {
-    curValue = this.value;
+  $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
+    curValue = $("#orglFax").value;
     $("#page3-org-rep-L-7").text(curValue);
   });
 
@@ -404,7 +423,9 @@ $(document).ready(function () {
   // Start of page 4
   $("#stofFacts").on("input", function () {
     stOfFactsText = this.value;
-    $("#page4-1").html("<a id='page4-1-text' href='#'>Click Here</a>");
+    $("#page4-1").html(
+      "<a id='page4-1-text' href='#'>Click here to view the document you created</a>"
+    );
     $("#page4-1-text").on("click", function () {
       var wnd = window.open(
         "Statement of Facts",
@@ -419,7 +440,9 @@ $(document).ready(function () {
 
   $("#stofFactsExtra").on("input", function () {
     stOfFactsExtraText = this.value;
-    $("#page4-2").html("<a id='page4-2-text' href='#'>Click Here</a>");
+    $("#page4-2").html(
+      "<a id='page4-2-text' href='#'>Click here to view the document you created</a>"
+    );
     $("#page4-2-text").on("click", function () {
       var wnd = window.open(
         "Statement_of_Facts_Extra",

@@ -103,11 +103,10 @@ def download(request):
 
 def pdf_email(request):
     file_path = os.path.join(
-        settings.BASE_DIR, 'applicationForm/dataPreparation/results/' +
-        sessionID + '/finalPage/Application form to the ECtHR.pdf')
+        settings.BASE_DIR, 'applicationForm/dataPreparation/results/' + sessionID + '/finalPage/Application form to the ECtHR.pdf')
     if request.method == 'POST':
-        emailInput = request.POST.get('emailInput')
-        print(emailInput)
+        body = json.loads(request.body)
+        emailInput = body['emailInput']
         subject = "Your application to the European Court of Human Rights is here"
         from_user = settings.EMAIL_HOST_USER
         to = [emailInput]

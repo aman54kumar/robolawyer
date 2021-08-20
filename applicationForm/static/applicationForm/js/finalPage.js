@@ -1,32 +1,9 @@
-function pdfEmailSubmit(e) {
-  e.preventDefault();
-
-  console.log(e.target);
-  cardParentElement = e.target.parentElement.parentElement.parentElement;
-  console.log(cardParentElement);
-  firstInput = document.getElementById("pdfEmail").value;
-
-  var csrftoken = getCookie("csrftoken");
-  $.ajax({
-    type: "POST",
-    url: "/form/email",
-    data: {
-      emailInput: firstInput,
-      csrfmiddlewaretoken: csrftoken,
-    },
-    success: function () {
-      swal("PDF sent via Email");
-    },
-  });
-}
-
 function getCookie(name) {
   var cookieValue = null;
   if (document.cookie && document.cookie !== "") {
     var cookies = document.cookie.split(";");
     for (var i = 0; i < cookies.length; i++) {
       var cookie = jQuery.trim(cookies[i]);
-      // Does this cookie string begin with the name we want?
       if (cookie.substring(0, name.length + 1) === name + "=") {
         cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
         break;
@@ -35,7 +12,46 @@ function getCookie(name) {
   }
   return cookieValue;
 }
-
-$(document).ready(function () {
-  $(".email_form").click(pdfEmailSubmit);
+$("#pdfEmail").on("click", function () {
+  var csrftoken = getCookie("csrftoken");
+  Swal.fire({
+    title: "Please enter your email",
+    input: "text",
+    inputAttributes: {
+      autocapitalize: "off",
+    },
+    showCancelButton: true,
+    confirmButtonText: "Send PDF to my Email",
+    showLoaderOnConfirm: true,
+    preConfirm: (emailInput) => {
+      return axios({
+        method: "post",
+        url: `/form/email`,
+        headers: {
+          "X-CSRFToken": csrftoken,
+        },
+        data: {
+          emailInput: emailInput,
+        },
+      })
+        .then((response) => {
+          if (response.status !== 200) {
+            throw new Error(response.statusText);
+          }
+          return function () {
+            Swal.fire("PDF sent via Email");
+          };
+        })
+        .catch((error) => {
+          Swal.showValidationMessage(`Request failed: ${error}`);
+        });
+    },
+    allowOutsideClick: false,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        title: `PDF sent..!!! Please follow the instructions in the email you received.`,
+      });
+    }
+  });
 });

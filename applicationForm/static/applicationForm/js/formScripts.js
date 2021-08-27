@@ -101,20 +101,20 @@ $("#indLFaxOption").on("change", (event) => {
 
 $("#orgNLFaxOption").on("change", (event) => {
   if ($(event.target).prop("checked")) {
-    $("#orgNLFax").val("").prop("disabled", true);
+    $("#orgnlFax").val("").prop("disabled", true);
     $("#orgNLFaxDiv").removeClass("is-hidden");
   } else {
-    $("#orgNLFax").prop("disabled", false);
+    $("#orgnlFax").prop("disabled", false);
     $("#orgNLFaxDiv").addClass("is-hidden");
   }
 });
 
 $("#orgLFaxOption").on("change", (event) => {
   if ($(event.target).prop("checked")) {
-    $("#orgLFax").val("").prop("disabled", true);
+    $("#orglFax").val("").prop("disabled", true);
     $("#orgLFaxDiv").removeClass("is-hidden");
   } else {
-    $("#orgLFax").prop("disabled", false);
+    $("#orglFax").prop("disabled", false);
     $("#orgLFaxDiv").addClass("is-hidden");
   }
 });
@@ -545,7 +545,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     orgNLAuthText = {
       date: moment().format("DD-MM-YYYY"),
       title: "Explanation for lack of authority form",
-      desc: "applicant authorising the representative to represent him/her.",
+      desc: "Document explaining why the representative cannot provide a fax number.",
       page: 1,
       text: $("#indNLAuthArea").val(),
     };
@@ -556,7 +556,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     orgNLFaxText = {
       date: moment().format("DD-MM-YYYY"),
       title: "Explanation for missing fax number",
-      desc: "Document explaining why the representative cannot provide a fax number to the Court.",
+      desc: "Document explaining why the representative cannot provide a fax number.",
       page: 1,
       text: $("#indNLFaxArea").val(),
     };
@@ -567,7 +567,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     orgLFaxText = {
       date: moment().format("DD-MM-YYYY"),
       title: "Explanation for missing fax number",
-      desc: "Document explaining why the lawyer cannot provide a fax number to the Court.",
+      desc: "Document explaining why the representative cannot provide a fax number.",
       page: 1,
       text: $("#indLFaxArea").val(),
     };
@@ -578,7 +578,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     orgLOtherYesText = {
       date: moment().format("DD-MM-YYYY"),
       title: "Explanation for lack of signature on the authority form",
-      desc: "applicant authorising the representative to represent him/her.",
+      desc: "Document explaining the lack of authority form. ",
       page: 1,
       text: $("#indLAuthAreaYes").val(),
     };
@@ -588,7 +588,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     orgLOtherNoText = {
       date: moment().format("DD-MM-YYYY"),
       title: "Explanation for lack of signature on the authority form",
-      desc: "applicant authorising the representative to represent him/her.",
+      desc: "Document explaining the lack of authority form. ",
       page: 1,
       text: $("#indLAuthAreaNo").val(),
     };

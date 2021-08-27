@@ -252,8 +252,12 @@ $(document).ready(function () {
     $("#page3-ind-rep-NL-7").text(curValue);
   });
   $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
-    curValue = $("#indNLFax").val();
-    $("#page3-ind-rep-NL-8").text(curValue);
+    if ($("#indNLFaxOption")) {
+      $("#page3-ind-rep-NL-8").text("I do not have a fax number.");
+    } else {
+      curValue = $("#indNLFax").val();
+      $("#page3-ind-rep-NL-8").text(curValue);
+    }
   });
 
   $("#indIndeComms").on("input", function () {
@@ -284,8 +288,12 @@ $(document).ready(function () {
     $("#page3-ind-rep-L-6").text(curValue);
   });
   $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
-    curValue = $("#indLFax").value;
-    $("#page3-ind-rep-L-7").text(curValue);
+    if ($("#indLFaxOption").prop("checked")) {
+      $("#page3-ind-rep-L-7").text("I do not have a fax number.");
+    } else {
+      curValue = $("#indLFax").val();
+      $("#page3-ind-rep-L-7").text(curValue);
+    }
   });
   $("#indLEmail").on("input", function () {
     curValue = this.value;
@@ -323,12 +331,14 @@ $(document).ready(function () {
     curValue = this.value;
     $("#page3-org-rep-NL-7").text(curValue);
   });
-
   $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
-    curValue = $("orgnlFax").value;
-    $("#page3-org-rep-NL-8").text(curValue);
+    if ($("#orgNLFaxOption").prop("checked")) {
+      $("#page3-org-rep-NL-8").text("I do not have a fax number.");
+    } else {
+      curValue = $("#orgnlFax").val();
+      $("#page3-org-rep-NL-8").text(curValue);
+    }
   });
-
   $("#orgnlEmail").on("input", function () {
     curValue = this.value;
     $("#page3-org-rep-NL-6").text(curValue);
@@ -344,29 +354,33 @@ $(document).ready(function () {
         curValue = this.value;
         $("#page3-org-rep-L-1").text(curValue);
       });
-      $("#orglSurname").on("input", function () {
+      $("#orglFirstName").on("input", function () {
         curValue = this.value;
         $("#page3-org-rep-L-2").text(curValue);
       });
-      $("#orglFirstName").on("input", function () {
+      $("#orglAddress").on("input", function () {
         curValue = this.value;
         $("#page3-org-rep-L-3").text(curValue);
       });
-      $("#orglAddress").on("input", function () {
+      $("#orglNationality").on("input", function () {
         curValue = this.value;
         $("#page3-org-rep-L-4").text(curValue);
       });
-      $("#orglNationality").on("input", function () {
+      $("#orglEmail").on("input", function () {
         curValue = this.value;
         $("#page3-org-rep-L-5").text(curValue);
       });
-      $("#orglEmail").on("input", function () {
+      $("#orglTel").on("input", function () {
         curValue = this.value;
         $("#page3-org-rep-L-6").text(curValue);
       });
       $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
-        curValue = $("#orglFax").value;
-        $("#page3-org-rep-L-7").text(curValue);
+        if ($("#orgLFaxOption").prop("checked")) {
+          $("#page3-org-rep-L-7").text("I do not have a fax number.");
+        } else {
+          curValue = $("#orglFax").val();
+          $("#page3-org-rep-L-7").text(curValue);
+        }
       });
       $("#orgIndeComms").on("input", function () {
         curValue = this.value;
@@ -382,40 +396,40 @@ $(document).ready(function () {
 
   // End of page 3 org NL
 
-  // Start of page 3 org L
-  $("#orglSurname").on("input", function () {
-    curValue = this.value;
-    $("#page3-org-rep-L-1").text(curValue);
-  });
-  $("#orglFirstName").on("input", function () {
-    curValue = this.value;
-    $("#page3-org-rep-L-2").text(curValue);
-  });
-  $("#orglAddress").on("input", function () {
-    curValue = this.value;
-    $("#page3-org-rep-L-3").text(curValue);
-  });
-  $("#orglNationality").on("focus change", function () {
-    curValue = this.value;
-    $("#page3-org-rep-L-4").text(curValue);
-  });
-  $("#orglEmail").on("input", function () {
-    curValue = this.value;
-    $("#page3-org-rep-L-5").text(curValue);
-  });
-  $("#orglTel").on("input", function () {
-    curValue = this.value;
-    $("#page3-org-rep-L-6").text(curValue);
-  });
-  $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
-    curValue = $("#orglFax").value;
-    $("#page3-org-rep-L-7").text(curValue);
-  });
+  // Start of page 3 org L *** removed because old code when orgL and orgNL were different sections, remove after testing ***
+  // $("#orglSurname").on("input", function () {
+  //   curValue = this.value;
+  //   $("#page3-org-rep-L-1").text(curValue);
+  // });
+  // $("#orglFirstName").on("input", function () {
+  //   curValue = this.value;
+  //   $("#page3-org-rep-L-2").text(curValue);
+  // });
+  // $("#orglAddress").on("input", function () {
+  //   curValue = this.value;
+  //   $("#page3-org-rep-L-3").text(curValue);
+  // });
+  // $("#orglNationality").on("focus change", function () {
+  //   curValue = this.value;
+  //   $("#page3-org-rep-L-4").text(curValue);
+  // });
+  // $("#orglEmail").on("input", function () {
+  //   curValue = this.value;
+  //   $("#page3-org-rep-L-5").text(curValue);
+  // });
+  // $("#orglTel").on("input", function () {
+  //   curValue = this.value;
+  //   $("#page3-org-rep-L-6").text(curValue);
+  // });
+  // $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
+  //   curValue = $("#orglFax").value;
+  //   $("#page3-org-rep-L-7").text(curValue);
+  // });
 
-  $("#orgIndeComms").on("input", function () {
-    curValue = this.value;
-    $("#page3-org-rep-L-8").text(curValue);
-  });
+  // $("#orgIndeComms").on("input", function () {
+  //   curValue = this.value;
+  //   $("#page3-org-rep-L-8").text(curValue);
+  // });
 
   // End of page 3 org L
   // End of page 3
@@ -577,6 +591,34 @@ $(document).ready(function () {
   $("#formComments").on("input", function () {
     curValue = this.value;
     $("#page9-1").text(curValue);
+  });
+  $("input[name='page9[signatureDeclaration]']").on("change", function () {
+    curValue = $("input[name='page9[signatureDeclaration]']:checked").val();
+    $("#page9-2").text(curValue);
+    if (curValue === "Applicant") {
+      $("#page9-3q").text("Name of Applicant");
+      $("#page9-3").text($("#confirmationApplicantName").val());
+      $("#page9-4q").text("Address of Applicant");
+      $("#page9-4").text($("#confirmationApplicantAddress").val());
+    } else if (curValue === "Representative") {
+      $("#page9-3q").text("Name of Representative");
+      $("#page9-3").text($("#confirmationRepresentativeName").val());
+      $("#page9-4q").text("Address of Representative");
+      $("#page9-4").text($("#confirmationRepresentativeAddress").val());
+    } else {
+      console.log("error in page 9");
+    }
+  });
+
+  $("input[name='page9[signAccuracyDeclaration]']").on("change", function () {
+    curValue = $("input[name='page9[signAccuracyDeclaration]']:checked").val();
+    if (curValue === "Applicant") {
+      $("#page9-5").text("The Applicant");
+    } else if (curValue === "Representative") {
+      $("#page9-5").text("The Representative");
+    } else {
+      console.log("error sign accuracy declaration section");
+    }
   });
   // End of Page 9
 });

@@ -28,15 +28,10 @@ TEMPLATE_DEBUG = DEBUG
 SECRET_KEY = config('SECRET_KEY')
 
 dotenv_file = os.path.join(BASE_DIR, ".env")
-# if os.path.isfile(dotenv_file):
-#     ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
-# else:
-# ALLOWED_HOSTS = ['.justbot.eu-central-1.elasticbeanstalk.com', '.localhost']
+
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
-# ALLOWED_HOSTS = [
-#    'justbot.eu-central-1.elasticbeanstalk.com'
-# ]
+
 
 EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
@@ -61,7 +56,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
+    'storages',
     'corsheaders',
     'svglib',
     'django_extensions',
@@ -84,6 +79,7 @@ MIDDLEWARE = [
     'compression_middleware.middleware.CompressionMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'opencensus.ext.django.middleware.OpencensusMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
@@ -303,3 +299,16 @@ INTERNAL_IPS = [
 
 
 SESSIONID = uuid.uuid4().hex
+
+
+# Azure
+DEFAULT_FILE_STORAGE = 'backend.custom_azure.AzureMediaStorage'
+STATICFILES_STORAGE = 'backend.custom_azure.AzureStaticStorage'
+
+STATIC_LOCATION = "static"
+MEDIA_LOCATION = "media"
+
+AZURE_ACCOUNT_NAME = "justbotstorage"
+AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
+STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
+MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'

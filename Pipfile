@@ -40,6 +40,8 @@ werkzeug = "*"
 jsons = "*"
 numpy = "==1.19.3"
 django-debug-toolbar = "*"
+opencensus-ext-django = "*"
+django-storages-azure = "*"
 
 [requires]
 python_version = "3.8"

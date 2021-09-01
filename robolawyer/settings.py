@@ -101,8 +101,8 @@ TEMPLATES = [
     },
 ]
 
-# WSGI_APPLICATION = 'robolawyer.wsgi.application'
-ASGI_APPLICATION = 'robolawyer.asgi.application'
+WSGI_APPLICATION = 'robolawyer.wsgi.application'
+# ASGI_APPLICATION = 'robolawyer.asgi.application'
 dotenv_file = os.path.join(BASE_DIR, ".env")
 if 'RDS_DB_NAME' in os.environ:
     DATABASES = {
@@ -158,7 +158,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Internationalization
-# https://docs.djangoproject.com/en/2.2/topics/i18n/
+
 
 LANGUAGE_CODE = 'en-us'
 
@@ -192,8 +192,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 #     "DATE_INPUT_FORMATS": ["%d-%m-%Y"],
 # }
 
-# CORS_ORIGIN_ALLOW_ALL = True
-# CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ALLOW_CREDENTIALS = T
 
 # django-debug-toolbar
 INTERNAL_IPS = [

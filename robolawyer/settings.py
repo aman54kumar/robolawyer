@@ -227,70 +227,104 @@ STATICFILES_FINDERS = (
 
 
 # LOGGING
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse',
+APPLICATION_INSIGHTS = {
+    # Your Application Insights instrumentation key
+    'ikey': os.environ.get('INSIGHTS_KEY', "InstrumentationKey=ee5f04a0-52bc-4118-bcef-1a92012632d8"),
+
+    # (optional) By default, request names are logged as the request method
+    # and relative path of the URL.  To log the fully-qualified view names
+    # instead, set this to True.  Defaults to False.
+    'use_view_name': True,
+
+    # (optional) To log arguments passed into the views as custom properties,
+    # set this to True.  Defaults to False.
+    'record_view_arguments': True,
+}
+
+if not DEBUG:
+    LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': False,
+        'handlers': {
+            # The application insights handler is here
+            'appinsights': {
+                'class': 'applicationinsights.django.LoggingHandler',
+                'level': 'WARNING'
+            }
         },
-        'require_debug_true': {
-            '()': 'django.utils.log.RequireDebugTrue',
-        },
-    },
-    'formatters': {
-        'django.server': {
-            '()': 'django.utils.log.ServerFormatter',
-            'format': '[%(server_time)s] %(message)s',
-        },
-        'simple': {
-            'format': '%(levelname)s %(message)s'
-        },
-        'verbose': {
-            'format':
-            '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
-        },
-    },
-    'handlers': {
-        'console': {
-            'level': 'INFO',
-            'filters': ['require_debug_true'],
-            'class': 'logging.StreamHandler',
-        },
-        'console_debug_false': {
-            'level': 'ERROR',
-            'filters': ['require_debug_true'],
-            'class': 'logging.StreamHandler',
-        },
-        'django.server': {
-            'level': 'INFO',
-            'class': 'logging.StreamHandler',
-            'formatter': 'django.server',
-        },
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler',
-            'formatter': 'verbose',
-            'include_html': True,
-        },
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filters': ['require_debug_true'],
-            'filename': 'justbot-debug.log',
-            'formatter': 'simple'
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['file', 'console_debug_false', 'mail_admins'],
-            'level': 'INFO',
-        },
-        'django.server': {
-            'handlers': ['django.server'],
-            'level': 'INFO',
-            'propagate': False,
+        'loggers': {
+            'django': {
+                'handlers': ['appinsights'],
+                'level': 'WARNING',
+                'propagate': True,
+            }
         }
     }
-}
+
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'filters': {
+#         'require_debug_false': {
+#             '()': 'django.utils.log.RequireDebugFalse',
+#         },
+#         'require_debug_true': {
+#             '()': 'django.utils.log.RequireDebugTrue',
+#         },
+#     },
+#     'formatters': {
+#         'django.server': {
+#             '()': 'django.utils.log.ServerFormatter',
+#             'format': '[%(server_time)s] %(message)s',
+#         },
+#         'simple': {
+#             'format': '%(levelname)s %(message)s'
+#         },
+#         'verbose': {
+#             'format':
+#             '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+#         },
+#     },
+#     'handlers': {
+#         'console': {
+#             'level': 'INFO',
+#             'filters': ['require_debug_true'],
+#             'class': 'logging.StreamHandler',
+#         },
+#         'console_debug_false': {
+#             'level': 'ERROR',
+#             'filters': ['require_debug_true'],
+#             'class': 'logging.StreamHandler',
+#         },
+#         'django.server': {
+#             'level': 'INFO',
+#             'class': 'logging.StreamHandler',
+#             'formatter': 'django.server',
+#         },
+#         'mail_admins': {
+#             'level': 'ERROR',
+#             'filters': ['require_debug_false'],
+#             'class': 'django.utils.log.AdminEmailHandler',
+#             'formatter': 'verbose',
+#             'include_html': True,
+#         },
+#         'file': {
+#             'level': 'DEBUG',
+#             'class': 'logging.FileHandler',
+#             'filters': ['require_debug_true'],
+#             'filename': 'justbot-debug.log',
+#             'formatter': 'simple'
+#         },
+#     },
+#     'loggers': {
+#         'django': {
+#             'handlers': ['file', 'console_debug_false', 'mail_admins'],
+#             'level': 'INFO',
+#         },
+#         'django.server': {
+#             'handlers': ['django.server'],
+#             'level': 'INFO',
+#             'propagate': False,
+#         }
+#     }
+# }

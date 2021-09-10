@@ -208,22 +208,24 @@ SESSIONID = uuid.uuid4().hex
 
 
 # Azure
-DEFAULT_FILE_STORAGE = 'backend.custom_azure.AzureMediaStorage'
-STATICFILES_STORAGE = 'backend.custom_azure.AzureStaticStorage'
-AZURE_ACCOUNT_NAME = config('AZURE_ACCOUNT_NAME')
-AZURE_STORAGE_KEY = config('AZURE_STORAGE_KEY')
-AZURE_MEDIA_CONTAINER = config('AZURE_MEDIA_CONTAINER')
-AZURE_STATIC_CONTAINER = config('AZURE_STATIC_CONTAINER')
-AZURE_CUSTOM_DOMAIN = 'justbotcdn.azureedge.net'
-STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/static/'
-MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/media/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-)
+if config("ALLOWED_HOSTS") == "justbot.azurewebsites.net":
+    DEFAULT_FILE_STORAGE = 'backend.custom_azure.AzureMediaStorage'
+    STATICFILES_STORAGE = 'backend.custom_azure.AzureStaticStorage'
+    AZURE_ACCOUNT_NAME = config('AZURE_ACCOUNT_NAME')
+    AZURE_STORAGE_KEY = config('AZURE_STORAGE_KEY')
+    AZURE_MEDIA_CONTAINER = config('AZURE_MEDIA_CONTAINER')
+    AZURE_STATIC_CONTAINER = config('AZURE_STATIC_CONTAINER')
+    AZURE_CUSTOM_DOMAIN = 'justbotcdn.azureedge.net'
+    STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{AZURE_STATIC_CONTAINER}/'
+    MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{AZURE_MEDIA_CONTAINER}/'
 
+    STATIC_ROOT = os.path.join(BASE_DIR, "static")
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, "static")
+    STATIC_URL = '/static/'
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+STATICFILES_FINDERS = ('django.contrib.staticfiles.finders.FileSystemFinder', 'django.contrib.staticfiles.finders.AppDirectoriesFinder')
 instrumentationKey = config("INSTRUMENTATIONKEY")
 # LOGGING
 APPLICATION_INSIGHTS = {

@@ -211,10 +211,9 @@ SESSIONID = uuid.uuid4().hex
 DEFAULT_FILE_STORAGE = 'backend.custom_azure.AzureMediaStorage'
 STATICFILES_STORAGE = 'backend.custom_azure.AzureStaticStorage'
 AZURE_ACCOUNT_NAME = config('AZURE_ACCOUNT_NAME')
-AZURE_STORAGE_KEY = os.environ.get('AZURE_STORAGE_KEY', False)
-AZURE_MEDIA_CONTAINER = os.environ.get('AZURE_MEDIA_CONTAINER', 'media')
-AZURE_STATIC_CONTAINER = os.environ.get('AZURE_STATIC_CONTAINER', 'static')
-# AZURE_CUSTOM_DOMAIN = f'{config("AZURE_ACCOUNT_NAME")}.blob.core.windows.net'
+AZURE_STORAGE_KEY = config('AZURE_STORAGE_KEY')
+AZURE_MEDIA_CONTAINER = config('AZURE_MEDIA_CONTAINER')
+AZURE_STATIC_CONTAINER = config('AZURE_STATIC_CONTAINER')
 AZURE_CUSTOM_DOMAIN = 'justbotcdn.azureedge.net'
 STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{AZURE_STATIC_CONTAINER}/'
 MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{AZURE_MEDIA_CONTAINER}/'
@@ -226,10 +225,11 @@ STATICFILES_FINDERS = (
 )
 
 
+instrumentationKey = config("INSTRUMENTATIONKEY")
 # LOGGING
 APPLICATION_INSIGHTS = {
     # Your Application Insights instrumentation key
-    'ikey': os.environ.get('INSIGHTS_KEY', "InstrumentationKey=ee5f04a0-52bc-4118-bcef-1a92012632d8"),
+    'ikey': (instrumentationKey),
 
     # (optional) By default, request names are logged as the request method
     # and relative path of the URL.  To log the fully-qualified view names
@@ -239,6 +239,7 @@ APPLICATION_INSIGHTS = {
     # (optional) To log arguments passed into the views as custom properties,
     # set this to True.  Defaults to False.
     'record_view_arguments': True,
+    'endpoint': "https://westeurope-5.in.applicationinsights.azure.com/",
 }
 
 if not DEBUG:

@@ -1,5 +1,4 @@
 from robolawyer.settings import AZURE_ACCOUNT_NAME, AZURE_STORAGE_KEY
-from django.conf import settings
 from storages.backends.azure_storage import AzureStorage
 
 

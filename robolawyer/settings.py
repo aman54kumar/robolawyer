@@ -205,8 +205,7 @@ INTERNAL_IPS = [
 
 # sessionID
 SESSIONID = uuid.uuid4().hex
-
-
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 # Azure
 if config("ALLOWED_HOSTS") == "justbot.azurewebsites.net":
     DEFAULT_FILE_STORAGE = 'backend.custom_azure.AzureMediaStorage'
@@ -218,30 +217,16 @@ if config("ALLOWED_HOSTS") == "justbot.azurewebsites.net":
     AZURE_CUSTOM_DOMAIN = 'justbotcdn.azureedge.net'
     STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{AZURE_STATIC_CONTAINER}/'
     MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{AZURE_MEDIA_CONTAINER}/'
-
-    STATIC_ROOT = os.path.join(BASE_DIR, "static")
+    instrumentationKey = config("INSTRUMENTATIONKEY")
+    APPLICATION_INSIGHTS = {'ikey': (instrumentationKey), 'use_view_name': True, 'record_view_arguments': True, 'endpoint': "https://westeurope-5.in.applicationinsights.azure.com/"}
 else:
-    STATIC_ROOT = os.path.join(BASE_DIR, "static")
     STATIC_URL = '/static/'
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATICFILES_FINDERS = ('django.contrib.staticfiles.finders.FileSystemFinder', 'django.contrib.staticfiles.finders.AppDirectoriesFinder')
-instrumentationKey = config("INSTRUMENTATIONKEY")
+
 # LOGGING
-APPLICATION_INSIGHTS = {
-    # Your Application Insights instrumentation key
-    'ikey': (instrumentationKey),
 
-    # (optional) By default, request names are logged as the request method
-    # and relative path of the URL.  To log the fully-qualified view names
-    # instead, set this to True.  Defaults to False.
-    'use_view_name': True,
-
-    # (optional) To log arguments passed into the views as custom properties,
-    # set this to True.  Defaults to False.
-    'record_view_arguments': True,
-    'endpoint': "https://westeurope-5.in.applicationinsights.azure.com/",
-}
 
 if not DEBUG:
     LOGGING = {

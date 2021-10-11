@@ -172,27 +172,15 @@ representativeTypeOption();
 
 $("input[name='page3[indNLAuthorityQn]']").change(function () {
   result = this.value;
-  noArea = document.getElementById("indNLAuthorityNo");
-  var popUpText = document.createElement("div");
+
   if (result === "yes") {
     $("#indNLAuthorityYes").removeClass("is-hidden");
-    $(noArea).empty();
+    $("#indNLAuthorityNo").addClass("is-hidden");
+    $("#indNLAuthArea").val("");
   } else {
     $("#indNLAuthorityYes").addClass("is-hidden");
-    popUpText.innerHTML =
-      "<h5 class='lead'>Please explain in this textbox below why the applicant cannot sign the authority form. Please provide any additional documents that you deem necessary to support your case. <br/> We will generate this text as an additional document when you generate the application form and we will automatically add the title and description of this document to the Supporting Document list on page 8. You must remember to add any other documents supporting your explanation – medical records, official documents – both to the Supporting Documents list on page 8, and as a copy in the attachments to the application.</h5>";
-    popUpText.append(document.createElement("br"));
-    indNLAuthTextArea = document.createElement("textarea");
-    indNLAuthTextArea.addEventListener("input", function () {
-      this.style.height = "";
-      this.style.height = this.scrollHeight + "px";
-    });
-    indNLAuthTextArea.classList.add("form-control", "newPageTextArea");
-    indNLAuthTextArea.id = "indNLAuthArea";
-    indNLAuthTextArea.name = "page3[indNLAuthArea]";
-    popUpText.append(indNLAuthTextArea);
-    popUpText.append(document.createElement("br"));
-    noArea.append(popUpText);
+    $("#indNLAuthorityNo").removeClass("is-hidden");
+    $("#indNLAutorityYesCheckbox").prop("checked", false);
   }
 });
 
@@ -200,11 +188,9 @@ $("input[name='page3[indNLEmployedL]']").change(function () {
   result = this.value;
   if (result === "yes") {
     $("#containerDivForLawyer").appendTo("#NLdivForAppendL");
-    $("#NLAuthorityAlertImage").addClass("is-hidden");
     $("#NLEmployedLNoTextDiv").addClass("is-hidden");
   } else {
     $("#NLEmployedLNoTextDiv").removeClass("is-hidden");
-    $("#NLAuthorityAlertImage").removeClass("is-hidden");
     $("#containerDivForLawyer").appendTo("#lawyerRep");
   }
 });

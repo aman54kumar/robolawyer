@@ -1,4 +1,14 @@
 $(document).ready(function () {
+  function showTextNewWindow(textString) {
+    var wnd = window.open("", "_blank", "menubar=yes,scrollbars=yes");
+    var textList = textString.split("\n");
+    for (var i = 0; i < textList.length; i++) {
+      wnd.document.write(textList[i] + "<br>");
+    }
+    wnd.focus();
+    return false;
+  }
+
   $(".reviewQuestions")
     .find("tr")
     .find("td:not(:first-child)")
@@ -134,15 +144,12 @@ $(document).ready(function () {
     $("#page2-ind-9").text(result);
   });
   $("#anonReqText").on("input", function () {
-    anonText = this.value;
+    var anonText = this.value;
     $("#page2-ind-10").html(
       "<a id='page2-ind-10-text' href='#'>Click here to view the document you created</a>"
     );
     $("#page2-ind-10-text").on("click", function () {
-      var wnd = window.open("Anonymity Request", "", "_blank");
-      wnd.document.write(anonText);
-      wnd.focus();
-      return false;
+      showTextNewWindow(anonText);
     });
   });
 
@@ -183,10 +190,7 @@ $(document).ready(function () {
       "<a id='page2-org-8-text' href='#'>Click here to view the document you created</a>"
     );
     $("#page2-org-8-text").on("click", function () {
-      var wnd = window.open("Anonymity Request", "", "_blank");
-      wnd.document.write(anonText);
-      wnd.focus();
-      return false;
+      showTextNewWindow(anonText);
     });
   });
 
@@ -397,39 +401,6 @@ $(document).ready(function () {
   // End of page 3 org NL
 
   // Start of page 3 org L *** removed because old code when orgL and orgNL were different sections, remove after testing ***
-  // $("#orglSurname").on("input", function () {
-  //   curValue = this.value;
-  //   $("#page3-org-rep-L-1").text(curValue);
-  // });
-  // $("#orglFirstName").on("input", function () {
-  //   curValue = this.value;
-  //   $("#page3-org-rep-L-2").text(curValue);
-  // });
-  // $("#orglAddress").on("input", function () {
-  //   curValue = this.value;
-  //   $("#page3-org-rep-L-3").text(curValue);
-  // });
-  // $("#orglNationality").on("focus change", function () {
-  //   curValue = this.value;
-  //   $("#page3-org-rep-L-4").text(curValue);
-  // });
-  // $("#orglEmail").on("input", function () {
-  //   curValue = this.value;
-  //   $("#page3-org-rep-L-5").text(curValue);
-  // });
-  // $("#orglTel").on("input", function () {
-  //   curValue = this.value;
-  //   $("#page3-org-rep-L-6").text(curValue);
-  // });
-  // $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
-  //   curValue = $("#orglFax").value;
-  //   $("#page3-org-rep-L-7").text(curValue);
-  // });
-
-  // $("#orgIndeComms").on("input", function () {
-  //   curValue = this.value;
-  //   $("#page3-org-rep-L-8").text(curValue);
-  // });
 
   // End of page 3 org L
   // End of page 3
@@ -441,14 +412,7 @@ $(document).ready(function () {
       "<a id='page4-1-text' href='#'>Click here to view the document you created</a>"
     );
     $("#page4-1-text").on("click", function () {
-      var wnd = window.open(
-        "Statement of Facts",
-        "Statement of Facts",
-        "_blank"
-      );
-      wnd.document.write(stOfFactsText);
-      wnd.focus();
-      return false;
+      showTextNewWindow(stOfFactsText);
     });
   });
 
@@ -458,14 +422,7 @@ $(document).ready(function () {
       "<a id='page4-2-text' href='#'>Click here to view the document you created</a>"
     );
     $("#page4-2-text").on("click", function () {
-      var wnd = window.open(
-        "Statement_of_Facts_Extra",
-        "Statement_of_Facts_Extra",
-        "_blank"
-      );
-      wnd.document.write(stOfFactsExtraText);
-      wnd.focus();
-      return false;
+      showTextNewWindow(stOfFactsExtraText);
     });
   });
   // End of Page 4
@@ -473,7 +430,7 @@ $(document).ready(function () {
   // Start of Page 5
   $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
     $("#articleBody").empty();
-    articlesList = $(".articleArea");
+    articlesList = $(".complainSelect");
     descriptionList = $(".articleExplanation");
     articlesList.each(function (item) {
       $("#articleBody").append(

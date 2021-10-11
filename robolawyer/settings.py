@@ -29,9 +29,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 dotenv_file = os.path.join(BASE_DIR, ".env")
 
-
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
-
 
 EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
@@ -159,7 +157,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -202,7 +199,6 @@ INTERNAL_IPS = [
     # ...
 ]
 
-
 # sessionID
 SESSIONID = uuid.uuid4().hex
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
@@ -218,15 +214,21 @@ if config("ALLOWED_HOSTS") == "justbot.azurewebsites.net":
     STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{AZURE_STATIC_CONTAINER}/'
     MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{AZURE_MEDIA_CONTAINER}/'
     instrumentationKey = config("INSTRUMENTATIONKEY")
-    APPLICATION_INSIGHTS = {'ikey': (instrumentationKey), 'use_view_name': True, 'record_view_arguments': True, 'endpoint': "https://westeurope-5.in.applicationinsights.azure.com/"}
+    APPLICATION_INSIGHTS = {
+        'ikey': (instrumentationKey),
+        'use_view_name': True,
+        'record_view_arguments': True,
+        'endpoint': "https://westeurope-5.in.applicationinsights.azure.com/"
+    }
 else:
     STATIC_URL = '/static/'
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-STATICFILES_FINDERS = ('django.contrib.staticfiles.finders.FileSystemFinder', 'django.contrib.staticfiles.finders.AppDirectoriesFinder')
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder')
 
 # LOGGING
-
 
 if not DEBUG:
     LOGGING = {

@@ -59,17 +59,18 @@
         </div>
       </div>
     </div>
+    <div id="indLFaxDiv" class="col-sm-12 is-hidden">
+      <label for="indLFaxArea">If you do not have a fax number, you must provide an explanation as to why this
+        information is missing and send the document containing this explanation as an accompanying document to your
+        application. <br /> We will generate the text you enter in the below field as an additional document when you
+        generate the application form and we will automatically add the title and description of this document to the
+        Supporting Document list on page 8. You may add any other documents supporting your explanation both to the
+        Supporting Documents list on page 8, and as a copy in the attachments to the application.</label>
+      <textarea id="indLFaxArea" name="page3[indLFaxArea]" class="form-control"
+        placeholder="Please provide an explanation for unavailability of fax number"></textarea>
+    </div>
   </div>
-  <div id="indLFaxDiv" class="col-sm-12 is-hidden">
-    <label for="indLFaxArea">If you do not have a fax number, you must provide an explanation as to why this
-      information is missing and send the document containing this explanation as an accompanying document to your
-      application. <br /> We will generate the text you enter in the below field as an additional document when you
-      generate the application form and we will automatically add the title and description of this document to the
-      Supporting Document list on page 8. You may add any other documents supporting your explanation both to the
-      Supporting Documents list on page 8, and as a copy in the attachments to the application.</label>
-    <textarea id="indLFaxArea" name="page3[indLFaxArea]" class="form-control"
-      placeholder="Please provide an explanation for unavailability of fax number"></textarea>
-  </div>
+
 </div>
 <div id="indLAuthoritySection" class="row is-hidden">
   <div class="col-sm-12">
@@ -83,7 +84,7 @@
       child or lacks legal capacity and is unable to sign. If a
       representative who is not a lawyer has instructed a lawyer on behalf
       of an applicant who is unable to sign, the representative should
-      sign the authority on the applicant’s behalf. A separat e authority
+      sign the authority on the applicant’s behalf. A separate authority
       form will not be accepted unless adequate explanations are provided
       as to the existence of insurmountable practical obstacles in signing
       the authority section on the form or it is used at a later stage to
@@ -220,7 +221,7 @@
             Documents list on page 8, and as a copy in the attachments to the application.</h5>
 
           <textarea name="page3[indLAuthAreaNo]" id="indLAuthAreaNo" class="form-control newPageTextArea"
-            oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px';"></textarea>
+            oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px';"></textarea>\
         </div>
 
       </div>

@@ -254,7 +254,17 @@
         </div>
 
         <div id="indNLAuthorityError"></div>
-        <div id="indNLAuthorityNo"></div>
+        <div id="indNLAuthorityNo" class="is-hidden">
+          <h5 class='lead'>Please explain in this textbox below why the applicant cannot sign the authority form. Please
+            provide any additional documents that you deem necessary to support your case. <br /> We will generate this
+            text as an additional document when you generate the application form and we will automatically add the
+            title and description of this document to the Supporting Document list on page 8. You must remember to add
+            any other documents supporting your explanation – medical records, official documents – both to the
+            Supporting Documents list on page 8, and as a copy in the attachments to the application.</h5> <br>
+          <textarea class="form-control newPageTextArea" id="indNLAuthArea" name="page3[indNLAuthArea]"
+            oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px";'></textarea>
+          <br>
+        </div>
       </div>
 
 

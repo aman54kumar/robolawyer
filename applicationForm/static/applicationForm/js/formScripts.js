@@ -528,58 +528,69 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     docObject.push(orgIdentityText);
   }
   if (!!$("#indNLAuthArea").val()) {
-    orgNLAuthText = {
+    indNLAuthText = {
       date: moment().format("DD-MM-YYYY"),
       title: "Explanation for lack of authority form",
       desc: "Document explaining why the representative cannot provide a fax number.",
       page: 1,
       text: $("#indNLAuthArea").val(),
     };
-    docObject.push(orgNLAuthText);
+    docObject.push(indNLAuthText);
   }
 
   if ($("#indNLFaxOption:checked").val() === "No") {
-    orgNLFaxText = {
+    indNLFaxText = {
       date: moment().format("DD-MM-YYYY"),
-      title: "Explanation for missing fax number",
-      desc: "Document explaining why the representative cannot provide a fax number.",
+      title: "Non-lawyer representative missing fax number",
+      desc: "Document explaining why the non-lawyer representative cannot provide a fax number.",
       page: 1,
       text: $("#indNLFaxArea").val(),
     };
-    docObject.push(orgNLFaxText);
+    docObject.push(indNLFaxText);
   }
 
   if ($("#indLFaxOption:checked").val() === "No") {
-    orgLFaxText = {
+    indLFaxText = {
       date: moment().format("DD-MM-YYYY"),
-      title: "Explanation for missing fax number",
-      desc: "Document explaining why the representative cannot provide a fax number.",
+      title: "Lawyer representative missing fax number",
+      desc: "Document explaining why the lawyer representative cannot provide a fax number.",
       page: 1,
       text: $("#indLFaxArea").val(),
     };
-    docObject.push(orgLFaxText);
+    docObject.push(indLFaxText);
   }
 
   if (!!$("#indLAuthAreaYes").val()) {
-    orgLOtherYesText = {
+    indLOtherYesText = {
       date: moment().format("DD-MM-YYYY"),
       title: "Explanation for lack of signature on the authority form",
       desc: "Document explaining the lack of authority form. ",
       page: 1,
       text: $("#indLAuthAreaYes").val(),
     };
-    docObject.push(orgLOtherYesText);
+    docObject.push(indLOtherYesText);
   }
   if (!!$("#indLAuthAreaNo").val()) {
-    orgLOtherNoText = {
+    indLOtherNoText = {
       date: moment().format("DD-MM-YYYY"),
       title: "Explanation for lack of signature on the authority form",
       desc: "Document explaining the lack of authority form. ",
       page: 1,
       text: $("#indLAuthAreaNo").val(),
     };
-    docObject.push(orgLOtherNoText);
+    docObject.push(indLOtherNoText);
   }
+  if ($("#orgNLFaxOption:checked").val() === "on") {
+    orgNLFaxText = {
+      date: moment().format("DD-MM-YYYY"),
+      title: "Organisation official missing fax number",
+      desc: "Document explaining why the organisation official cannot provide a fax number.",
+      page: 1,
+      text: $("#orgNLFaxArea").val(),
+    };
+    docObject.push(orgNLFaxText);
+  }
+
   if (!!$("#orgNLOfficialAreaYes").val()) {
     orgNLOfficial = {
       date: "",

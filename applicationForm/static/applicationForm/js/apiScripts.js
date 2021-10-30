@@ -329,20 +329,16 @@ var articleDrop = function (finalArticleData) {
 
 var ratificationAPImethod = async function (countryURL) {
   startDateID = "#decisionDate1";
-  endDateID = "#decisionDate2";
   selectCountryID = "#involvedStates";
 
   var echrDiv = document.getElementById("echrDetails");
 
-  var selectedDate2 = moment($(endDateID).val(), "DD-MM-YYYY").format(
-    "DD MMMM YYYY"
-  );
   var selectedDate1 = moment($(startDateID).val(), "DD-MM-YYYY").format(
     "DD MMMM YYYY"
   );
   var currentSelectedCountry = $(selectCountryID).val();
   var finalCountryList = [];
-  if (moment(selectedDate2, "DD MMMM YYYY").isValid()) {
+  if (moment(selectedDate1, "DD MMMM YYYY").isValid()) {
     while (echrDiv.hasChildNodes()) {
       echrDiv.removeChild(echrDiv.lastChild);
     }
@@ -359,9 +355,6 @@ var ratificationAPImethod = async function (countryURL) {
           ).format("DD MMMM YYYY");
           finalCountryList.push(countryName);
           if (
-            moment(selectedDate2, "DD MMMM YYYY").isBefore(
-              moment(ratDate, "DD MMMM YYYY")
-            ) ||
             moment(selectedDate1, "DD MMMM YYYY").isBefore(
               moment(ratDate, "DD MMMM YYYY")
             )
@@ -537,35 +530,18 @@ var countryArticle = function (baseUrl) {
   var countryUrl =
     baseUrl + "static/applicationForm/apiFiles/countryArticle.json";
   startDateID = "#decisionDate1";
-  endDateID = "#decisionDate2";
   countrySelectID = "#involvedStates";
 
-  $(endDateID).on("change", function () {
-    if (
-      $.trim($(startDateID).val()) != "" &&
-      $.trim($(countrySelectID).val()) != ""
-    ) {
-      ratificationAPImethod(countryUrl).then(function (response) {
-        articleGenerateMethod(baseUrl, response);
-      });
-    }
-  });
   $(countrySelectID).on("change", function () {
     courtAPImethod(countryUrl);
-    if (
-      $.trim($(startDateID).val()) != "" &&
-      $.trim($(endDateID).val()) != ""
-    ) {
+    if ($.trim($(startDateID).val()) != "") {
       ratificationAPImethod(countryUrl).then(function (response) {
         articleGenerateMethod(baseUrl, response);
       });
     }
   });
   $(startDateID).on("change", function () {
-    if (
-      $.trim($(countrySelectID).val()) != "" &&
-      $.trim($(endDateID).val()) != ""
-    ) {
+    if ($.trim($(countrySelectID).val()) != "") {
       ratificationAPImethod(countryUrl).then(function (response) {
         articleGenerateMethod(baseUrl, response);
       });

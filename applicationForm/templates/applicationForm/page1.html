@@ -1,9 +1,4 @@
-<div
-  id="form-page-1"
-  role="tabpanel"
-  class="bs-stepper-pane fade"
-  aria-labelledby="stepperFormTrigger1"
->
+<div id="form-page-1" role="tabpanel" class="bs-stepper-pane fade" aria-labelledby="stepperFormTrigger1">
   <div class="col-md-12 mx-auto form-section">
     {% load static %}
     <div class="row">
@@ -29,26 +24,16 @@
               <h5>
                 Which state(s) do you intend to complain about in your
                 application to the European Court of Human Rights?
-                <a
-                  href="javascript://"
-                  data-toggle="popover"
+                <a href="javascript://" data-toggle="popover"
                   data-content="If the State you complain against is not amongst those enumerated below, your application is inadmissible. The Court is competent to assess only allegations involving one or several of the 47 member states of the Council of Europe."
-                  data-trigger="focus"
-                  data-placement="bottom"
-                >
-                  <span><i class="fas fa-question-circle"></i></span
-                ></a>
+                  data-trigger="focus" data-placement="bottom">
+                  <span><i class="fas fa-question-circle"></i></span></a>
               </h5>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="form-group">
-                    <select
-                      multiple
-                      class="show-menu-arrow form-control"
-                      name="page1[involvedStates]"
-                      id="involvedStates"
-                      data-parsley-group="page1"
-                    >
+                    <select multiple class="show-menu-arrow form-control" name="page1[involvedStates]"
+                      id="involvedStates" data-parsley-group="page1">
                       <option value="Albania">Albania</option>
                       <option value="Andorra">Andorra</option>
                       <option value="Armenia">Armenia</option>
@@ -116,97 +101,45 @@
               <h5>The facts you are complaining about concern:</h5>
               <div class="form-group">
                 <div id="error-container-concern">
-                  <div
-                    class="custom-control custom-radio custom-control-inline"
-                  >
-                    <input
-                      type="radio"
-                      class="custom-control-input"
-                      id="concernYouYes"
-                      name="page1[concernYou]"
-                      value="ConcernIndividual"
-                      data-parsley-errors-container="#error-container-concern"
-                      data-parsley-group="page1"
-                    />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" class="custom-control-input" id="concernYouYes" name="page1[concernYou]"
+                      value="ConcernIndividual" data-parsley-errors-container="#error-container-concern"
+                      data-parsley-group="page1" />
                     <label class="custom-control-label" for="concernYouYes">
-                      You directly</label
-                    >
+                      You directly</label>
                   </div>
-                  <div
-                    class="custom-control custom-radio custom-control-inline"
-                  >
-                    <input
-                      type="radio"
-                      class="custom-control-input"
-                      id="concernYouNo"
-                      name="page1[concernYou]"
-                      value="ConcernOrganisation"
-                      data-parsley-errors-container="#error-container-concern"
-                      data-parsley-group="page1"
-                    />
-                    <label class="custom-control-label" for="concernYouNo"
-                      >Your organisation
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" class="custom-control-input" id="concernYouNo" name="page1[concernYou]"
+                      value="ConcernOrganisation" data-parsley-errors-container="#error-container-concern"
+                      data-parsley-group="page1" />
+                    <label class="custom-control-label" for="concernYouNo">Your organisation
                     </label>
                   </div>
-                  <div
-                    class="custom-control custom-radio custom-control-inline"
-                  >
-                    <input
-                      type="radio"
-                      class="custom-control-input"
-                      id="concernYouOther"
-                      name="page1[concernYou]"
-                      value="OtherClose"
-                      data-parsley-errors-container="#error-container-concern"
-                      data-parsley-group="page1"
-                    />
-                    <label class="custom-control-label" for="concernYouOther"
-                      >A close relative or a person under your care or
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" class="custom-control-input" id="concernYouOther" name="page1[concernYou]"
+                      value="OtherClose" data-parsley-errors-container="#error-container-concern"
+                      data-parsley-group="page1" />
+                    <label class="custom-control-label" for="concernYouOther">A close relative or a person under your
+                      care or
                       responsibility who is unable to lodge an application
-                      <a
-                        href="javascript://"
-                        data-toggle="popover"
+                      <a href="javascript://" data-toggle="popover"
                         data-content="The Convention institutions have held that special considerations may arise in the case of victims of alleged breaches of Articles 2 (right to life), 3 (prohibition of torture) and 8 (right to respect for private and family life) at the hands of the national authorities. In this case you need to show legitimate interest in pursuing the application before the Court."
-                        data-trigger="focus"
-                        data-placement="bottom"
-                        ><span><i class="fas fa-question-circle"></i></span
-                      ></a>
+                        data-trigger="focus" data-placement="bottom"><span><i
+                            class="fas fa-question-circle"></i></span></a>
                     </label>
                   </div>
-                  <div
-                    class="custom-control custom-radio custom-control-inline"
-                  >
-                    <input
-                      type="radio"
-                      class="custom-control-input"
-                      id="concernYouIndividual"
-                      name="page1[concernYou]"
-                      value="ClientIndividual"
-                      data-parsley-errors-container="#error-container-concern"
-                      data-parsley-group="page1"
-                    />
-                    <label
-                      class="custom-control-label"
-                      for="concernYouIndividual"
-                      >My client who is an individual person
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" class="custom-control-input" id="concernYouIndividual" name="page1[concernYou]"
+                      value="ClientIndividual" data-parsley-errors-container="#error-container-concern"
+                      data-parsley-group="page1" />
+                    <label class="custom-control-label" for="concernYouIndividual">My client who is an individual person
                     </label>
                   </div>
-                  <div
-                    class="custom-control custom-radio custom-control-inline"
-                  >
-                    <input
-                      type="radio"
-                      class="custom-control-input"
-                      id="concernYouJuridical"
-                      name="page1[concernYou]"
-                      value="ClientJuridical"
-                      data-parsley-errors-container="#error-container-concern"
-                      data-parsley-group="page1"
-                    />
-                    <label
-                      class="custom-control-label"
-                      for="concernYouJuridical"
-                      >My client who is a juridical person
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" class="custom-control-input" id="concernYouJuridical" name="page1[concernYou]"
+                      value="ClientJuridical" data-parsley-errors-container="#error-container-concern"
+                      data-parsley-group="page1" />
+                    <label class="custom-control-label" for="concernYouJuridical">My client who is a juridical person
                     </label>
                   </div>
                 </div>
@@ -216,36 +149,21 @@
               <div class="form-group">
                 <label class="lead">
                   <h5>
-                    When did the alleged breach of the European Convention on
-                    Human Rights that you are complaining about start and when
-                    did it stop? <br />If you are not sure whether or when the
-                    violation stopped, please select today’s date in the second
-                    field.
+                    When did the alleged breach of the European Convention on Human Rights that you are complaining
+                    about happen? If you are not sure as to the exact day and month, please choose a date that is
+                    closest to the events.
                   </h5>
                 </label>
                 <div class="row">
-                  <div class="col-sm-6 input-group">
+                  <div class="col-sm-4 input-group">
                     <div class="input-daterange input-group" id="datepicker">
-                      <input
-                        type="text"
-                        class="input-sm form-control"
-                        name="page1[decisionDate1]"
-                        data-date-end-date="0d"
-                        id="decisionDate1"
-                        placeholder="Start"
-                      />
-                      <div class="input-group-append input-group-prepend">
+                      <input type="text" class="input-sm form-control" name="page1[decisionDate1]"
+                        data-date-end-date="0d" id="decisionDate1" placeholder="Choose Date" />
+                      <!-- <div class="input-group-append input-group-prepend">
                         <span class="input-group-text">To</span>
                       </div>
-                      <input
-                        type="text"
-                        class="input-sm form-control"
-                        name="end"
-                        data-date-end-date="0d"
-                        id="decisionDate2"
-                        name="page1[decisionDate2]"
-                        placeholder="End"
-                      />
+                      <input type="text" class="input-sm form-control" name="end" data-date-end-date="0d"
+                        id="decisionDate2" name="page1[decisionDate2]" placeholder="End" /> -->
                     </div>
                   </div>
                 </div>
@@ -260,12 +178,7 @@
                 deal with the subject matter of your dispute? The competent
                 national courts in the selected state(s) are in principle:
               </h5>
-              <table
-                class="table-bodered"
-                id="courtTable"
-                cellspacing="0"
-                style="border-collapse: collapse"
-              >
+              <table class="table-bodered" id="courtTable" cellspacing="0" style="border-collapse: collapse">
                 <thead style="border: none">
                   <tr style="background-color: #2679c7; color: white">
                     <th style="border: none" scope="col">Country</th>
@@ -277,25 +190,12 @@
               </table>
               <br /><br />
               <div class="custom-control custom-radio custom-control-inline">
-                <input
-                  type="radio"
-                  class="custom-control-input"
-                  id="courtCaseYes"
-                  name="page1[courtCase]"
-                  value="Yes"
-                />
-                <label class="custom-control-label" for="courtCaseYes"
-                  >Yes</label
-                >
+                <input type="radio" class="custom-control-input" id="courtCaseYes" name="page1[courtCase]"
+                  value="Yes" />
+                <label class="custom-control-label" for="courtCaseYes">Yes</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input
-                  type="radio"
-                  class="custom-control-input"
-                  id="courtCaseNo"
-                  name="page1[courtCase]"
-                  value="No"
-                />
+                <input type="radio" class="custom-control-input" id="courtCaseNo" name="page1[courtCase]" value="No" />
                 <label class="custom-control-label" for="courtCaseNo">No</label>
               </div>
               <br />
@@ -304,36 +204,18 @@
               <h5>
                 Were there available legal remedies capable of redressing your
                 situation that you have not used?
-                <a
-                  href="javascript://"
-                  data-toggle="popover"
+                <a href="javascript://" data-toggle="popover"
                   data-content="Before you apply to the Court, you need to exhaust domestic remedies. The only remedies the Convention requires to be exhausted are those that relate to the breaches alleged and those that are available, effective and sufficient. Essential is that the competent national authorities analyzed the merits of your claim/claims."
-                  data-trigger="focus"
-                  data-placement="bottom"
-                  ><span><i class="fas fa-question-circle"></i></span
-                ></a>
+                  data-trigger="focus" data-placement="bottom"><span><i class="fas fa-question-circle"></i></span></a>
               </h5>
 
               <div class="custom-control custom-radio custom-control-inline">
-                <input
-                  type="radio"
-                  class="custom-control-input"
-                  id="complySixYes"
-                  name="page1[complySix]"
-                  value="Yes"
-                />
-                <label class="custom-control-label" for="complySixYes"
-                  >Yes</label
-                >
+                <input type="radio" class="custom-control-input" id="complySixYes" name="page1[complySix]"
+                  value="Yes" />
+                <label class="custom-control-label" for="complySixYes">Yes</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input
-                  type="radio"
-                  class="custom-control-input"
-                  id="complySixNo"
-                  name="page1[complySix]"
-                  value="No"
-                />
+                <input type="radio" class="custom-control-input" id="complySixNo" name="page1[complySix]" value="No" />
                 <label class="custom-control-label" for="complySixNo">No</label>
               </div>
             </li>
@@ -341,28 +223,17 @@
               <h5>
                 When was the final decision in your case delivered or served on
                 you?
-                <a
-                  href="javascript://"
-                  data-toggle="popover"
-                  data-content="Your application needs to comply with the six-month rule which means you need to send your application no later than 6 months after the last remedy in the national system has been exhausted or where there are no remedies within 6 months after the events being complained about occurred. The six-month period starts running from the date on which you or your representative had sufficient knowledge of the final national decision. 
+                <a href="javascript://" data-toggle="popover"
+                  data-content="Your application needs to comply with the six-month rule which means you need to send your application no later than 6 months after the last remedy in the national system has been exhausted or where there are no remedies within 6 months after the events being complained about occurred. The six-month period starts running from the date on which you or your representative had sufficient knowledge of the final national decision.
                                     Exceptions to this rule are 1) continuous violations or 2) situations where there is no remedy available. In the first case, the six-month period starts to run from the end of the continuing situation. The fact that the event/alleged violation has consequences over time does not mean that the event has produced a continuing situation. In the second case, the six-month period starts running from the date on which the act complained of took place or the date on which you were directly affected.
                                     Please submit your application as soon as possible. If you send it at the last moment and is incomplete, you will have no time to re-submit a complete application form within the required 6-month time limit."
-                  data-trigger="focus"
-                  data-placement="bottom"
-                  ><span><i class="fas fa-question-circle"></i></span
-                ></a>
+                  data-trigger="focus" data-placement="bottom"><span><i class="fas fa-question-circle"></i></span></a>
               </h5>
               <div class="row">
                 <div class="col-sm-3">
                   <div class="form-group">
-                    <input
-                      type="text"
-                      id="finalDecisionDate"
-                      class="datepicker form-control"
-                      name="page1[finalDecisionDate]"
-                      data-date-end-date="0d"
-                      data-parsley-group="page1"
-                    />
+                    <input type="text" id="finalDecisionDate" class="datepicker form-control"
+                      name="page1[finalDecisionDate]" data-date-end-date="0d" data-parsley-group="page1" />
                   </div>
                 </div>
               </div>
@@ -374,44 +245,21 @@
                   from the Court in relation to these complaints?
                 </h5>
                 <div class="custom-control custom-radio custom-control-inline">
-                  <input
-                    type="radio"
-                    class="custom-control-input"
-                    id="referenceYes"
-                    name="page1[referenceOption]"
-                    value="Yes"
-                    data-parsley-group="page1"
-                  />
-                  <label class="custom-control-label" for="referenceYes"
-                    >Yes</label
-                  >
+                  <input type="radio" class="custom-control-input" id="referenceYes" name="page1[referenceOption]"
+                    value="Yes" data-parsley-group="page1" />
+                  <label class="custom-control-label" for="referenceYes">Yes</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                  <input
-                    type="radio"
-                    class="custom-control-input"
-                    id="referenceNo"
-                    name="page1[referenceOption]"
-                    value="No"
-                    data-parsley-group="page1"
-                  />
-                  <label class="custom-control-label" for="referenceNo"
-                    >No</label
-                  >
+                  <input type="radio" class="custom-control-input" id="referenceNo" name="page1[referenceOption]"
+                    value="No" data-parsley-group="page1" />
+                  <label class="custom-control-label" for="referenceNo">No</label>
                 </div>
 
                 <div class="is-hidden referenceField col-sm-3">
-                  <label for="referenceText"
-                    >Please indicate the reference number in this box.
+                  <label for="referenceText">Please indicate the reference number in this box.
                   </label>
-                  <input
-                    class="form-control"
-                    name="page1[referenceText]"
-                    id="referenceText"
-                    maxlength="10"
-                    data-parsley-group="page1"
-                    placeholder="Example: 123456/19"
-                  />
+                  <input class="form-control" name="page1[referenceText]" id="referenceText" maxlength="10"
+                    data-parsley-group="page1" placeholder="Example: 123456/19" />
                 </div>
               </div>
             </li>
@@ -421,35 +269,25 @@
           <div class="row">
             <div class="col-sm-6 aleft"></div>
             <div class="col-sm-6 aright">
-              <button
-                class="btn btn-primary btn-next-form"
-                onclick="stepperForm.next()"
-              >
+              <button class="btn btn-primary btn-next-form" onclick="stepperForm.next()">
                 Next
               </button>
             </div>
           </div>
         </div>
       </div>
-      <div
-        style="
+      <div style="
           position: fixed;
           right: 20px;
           bottom: 10px;
           width: 100%;
           margin-top: 5vw;
-        "
-        class="col-sm-1"
-      >
+        " class="col-sm-1">
         <p class="text-white">
           This is a Beta version of Just Bot and we rely on your feedback to
           improve it.
         </p>
-        <button
-          class="showModal btn feedback-button"
-          value="1"
-          onclick="curPageNum(this);"
-        >
+        <button class="showModal btn feedback-button" value="1" onclick="curPageNum(this);">
           Feedback
         </button>
       </div>

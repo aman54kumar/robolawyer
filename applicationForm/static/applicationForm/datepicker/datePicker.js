@@ -1,6 +1,4 @@
 function set_parameters() {
-  var date_start_input = $("#decisionDate1");
-  var date_end_input = $("#decisionDate2");
   var date_general = $(".datepicker");
   var container =
     $(".bootstrap-iso form").length > 0
@@ -26,12 +24,6 @@ function set_parameters() {
     clearBtn: true,
   };
 
-  date_start_input.datepicker(options).on("changeDate", function (e) {
-    date_end_input.datepicker("setStartDate", e.date);
-  });
-  date_end_input.datepicker(options).on("changeDate", function (e) {
-    date_start_input.datepicker("setEndDate", e.date);
-  });
   date_general.datepicker(options);
 }
 
@@ -139,7 +131,7 @@ var initialPopUp = function () {
 };
 
 $(document).ready(function () {
-  // initialPopUp();
+  initialPopUp();
   set_parameters();
 });
 

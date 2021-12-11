@@ -1,14 +1,7 @@
 {% extends 'home/base.html' %} {% load static %} {% block headContent %}
 
-<link
-  rel="stylesheet"
-  href="{% static 'applicationForm/css/formStyles.css' %}"
-/>
-<link
-  rel="stylesheet"
-  href="{{ STATIC_URL }}/static/about/css/aboutUs.css"
-  type="text/css"
-/>
+<link rel="stylesheet" href="{% static 'applicationForm/css/formStyles.css' %}" />
+<link rel="stylesheet" href="{{ STATIC_URL }}/static/about/css/aboutUs.css" type="text/css" />
 {% endblock headContent %} {% block content %}
 
 <div class="jumbotron jumbotron-core">
@@ -33,13 +26,9 @@
         the way. In later phases, we aim to integrate different language
         versions and algorithms to automate the writing process. <br /><br />
         Justbot is based on a partnership between
-        <a href="https://www.tech-r.org/" target="_blank"
-          >Technology for Human Rights (Tech-R)</a
-        >
+        <a href="https://www.tech-r.org/" target="_blank">Technology for Human Rights (Tech-R)</a>
         and the
-        <a href="https://www.uio.no/" target="_blank"
-          >Center for Experiential Legal Learning (CELL)</a
-        >
+        <a href="https://www.uio.no/" target="_blank">Center for Experiential Legal Learning (CELL)</a>
         at the Faculty of Law, University of Oslo.<br /><br />
         Technology for Human Rights (Tech-R) is a non-profit organisation
         founded by graduates of the Norwegian Centre for Human Rights (UiO) and
@@ -52,14 +41,9 @@
         projects that combine law and technology. <br />
         We would like to thank
         <a href="https://lovdata.no/" target="_blank">Lovdata</a>/<a
-          href="https://www.jus.uio.no/ifp/om/organisasjon/seri/"
-          target="=_blank"
-          >SERI</a
-        >
+          href="https://www.jus.uio.no/ifp/om/organisasjon/seri/" target="=_blank">SERI</a>
         for financial support and to the staff and students at the
-        <a href="https://www.jus.uio.no/smr/english/about/" target="_blank"
-          >Norwegian Center for Human Rights</a
-        >
+        <a href="https://www.jus.uio.no/smr/english/about/" target="_blank">Norwegian Center for Human Rights</a>
         for their cooperation in testing the digital form and providing their
         feedback. We would like to extend our gratitude to Erik Møse, former
         judge at the European Court of Human Rights, Kjetil Mujezinovic Larsen,
@@ -68,21 +52,16 @@
         improvement of Justbots digital form. <br /><br />
         We are open to new partners joining as the project moves forward. If you
         are interested in collaborating with us, you can reach us by email at
-        <a href="mailto:contact@justbot.org">contact@justbot.org .</a><br />
+        <a href="mailto:justbot@tech-r.org">justbot@tech-r.org .</a><br />
       </p>
-      <hr/
-      <br />
+      <hr/ <br />
 
       <div class="container">
         <div class="row">
           <div class="col-xl-6 col-md-6 col-sm-3 mb-4">
             <div class="acenter">
-              <a href="https://www.tech-r.org/" target="_blank"
-                ><img
-                  src="{% static 'home/images/techr-logo.png' %}"
-                  class=""
-                  alt="techR"
-              /></a>
+              <a href="https://www.tech-r.org/" target="_blank"><img src="{% static 'home/images/techr-logo.png' %}"
+                  class="" alt="techR" /></a>
 
               <div class="card-body">
                 <h4 class="font-weight-light ajustify">
@@ -103,17 +82,12 @@
           </div>
           <div class="col-xl-6 col-md-6 col-sm-3 mb-4">
             <div class="acenter">
-              <a href="https://www.uio.no/" target="_blank"
-                ><img
-                  src="{% static 'home/images/uio-logo.png' %}"
-                  class=""
-                  alt="uio"
-              /></a>
+              <a href="https://www.uio.no/" target="_blank"><img src="{% static 'home/images/uio-logo.png' %}" class=""
+                  alt="uio" /></a>
 
               <div class="card-body">
                 <h4 class="font-weight-light ajustify">
-                  <em
-                    >The CELL team is led by Professor Malcolm Langford, who
+                  <em>The CELL team is led by Professor Malcolm Langford, who
                     fundraised for the project and provided guidance throughout
                     Justbot’s development. Ph.D. Runar Lie provided legal,
                     technical and graphic design advice, and Professor Tobias

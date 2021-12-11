@@ -43,8 +43,9 @@ def formProcessing(request):
         form_dict = request.POST
         # print(form_dict)
         spclReplies.append(request.POST.getlist('page1[involvedStates]'))
-        hiddenDocsObject.append(request.POST.getlist('page8[hiddenDocObject]')[0])
-        
+        hiddenDocsObject.append(
+            request.POST.getlist('page8[hiddenDocObject]')[0])
+
         pagesName = [
             'page1', 'page2', 'page3', 'page4', 'page5', 'page6', 'page7',
             'page8', 'page9', 'page10'
@@ -61,7 +62,8 @@ def formProcessing(request):
             item = json.loads(item)
             hiddenObject.append(item)
 
-        prepareResult = PrepareResult(pages, sessionID, spclReplies, hiddenDocsObject[0])
+        prepareResult = PrepareResult(pages, sessionID, spclReplies,
+                                      hiddenDocsObject[0])
         prepareResult.main()
         logger.warning("Your log message is here")
 
@@ -79,7 +81,7 @@ def feedback(request):
         message = "1. Page No. - " + str(pageNo) + "\n2. Legal Trained - " + \
             str(legalTrained) + "\n3. Suggestion - " + str(suggestion)
         from_user = settings.EMAIL_HOST_USER
-        to = ["contact@justbot.org"]
+        to = ["justbot@tech-r.org"]
         send_mail(subject, message, from_user, to, fail_silently=False)
         return HttpResponse('We have received your feedback.')
     else:
@@ -103,7 +105,8 @@ def download(request):
 
 def pdf_email(request):
     file_path = os.path.join(
-        settings.BASE_DIR, 'applicationForm/dataPreparation/results/' + sessionID + '/finalPage/Application form to the ECtHR.pdf')
+        settings.BASE_DIR, 'applicationForm/dataPreparation/results/' +
+        sessionID + '/finalPage/Application form to the ECtHR.pdf')
     if request.method == 'POST':
         body = json.loads(request.body)
         emailInput = body['emailInput']
@@ -154,7 +157,7 @@ def createDirectory(directoryName):
 #         createDirectory(dirname)
 #         pageNList = [13]
 #         for data in objectDict:
-#             docName = str(objectDict.index(data)) + ".pdf"  
+#             docName = str(objectDict.index(data)) + ".pdf"
 #             docsPDF = PrepareDocsPDF(data, dirname, str(docName), data['title'], data['title'], sum(pageNList))
 #             pageReturned = docsPDF.main()
 #             pageNList.append(pageReturned)

@@ -126,33 +126,51 @@ $("input[name='page1[referenceOption]']").change(function () {
 
 $("#finalDecisionDate").on("change", function () {
   finalDecisionDate = moment($("#finalDecisionDate").val(), "DD/MM/YYYY");
-  finalDecisionDate = moment(finalDecisionDate, "DD/MM/YYYY").format(
-    "YYYY-MM-DD"
-  );
-  currentDate = moment().format("YYYY-MM-DD");
-  diffDate = moment(currentDate).diff(
+
+  currentDate = moment().format("DD/MM/YYYY");
+  protocol15Date = moment("01/02/2022", "DD/MM/YYYY");
+  const diffDate = moment(currentDate).diff(
     moment(finalDecisionDate),
     "months",
     true
   );
-  if (!isNaN(diffDate)) {
-    if (diffDate < 6) {
-      sixFutureDate = moment(finalDecisionDate)
-        .add(6, "months")
-        .format("DD-MM-YYYY");
+  if (moment(finalDecisionDate).isBefore(protocol15Date)) {
+    if (!isNaN(diffDate)) {
+      if (diffDate < 6) {
+        sixFutureDate = moment(finalDecisionDate)
+          .add(6, "months")
+          .format("DD/MM/YYYY");
+        Swal.fire(
+          "",
+          "Attention, according to the information entered in the date field, you must send your application in good time before " +
+            sixFutureDate +
+            "."
+        );
+      } else if (diffDate > 6) {
+        Swal.fire(
+          "",
+          "You have missed the 6 months time limit imposed by the Court. It is very likely that your application is declared inadmissible."
+        );
+      } else {
+        console.warn("check for problem");
+      }
+    }
+  } else {
+    if (diffDate < 4) {
+      const fourFutureDate = moment(finalDecisionDate)
+        .add(4, "months")
+        .format("DD/MM/YYYY");
       Swal.fire(
         "",
         "Attention, according to the information entered in the date field, you must send your application in good time before " +
-          sixFutureDate +
+          fourFutureDate +
           "."
       );
-    } else if (diffDate > 6) {
+    } else {
       Swal.fire(
         "",
-        "You have missed the 6 months time limit imposed by the Court. It is very likely that your application is declared inadmissible."
+        "You have missed the 4 months time limit imposed by the Court. It is very likely that your application is declared inadmissible."
       );
-    } else {
-      console.warn("check for problem");
     }
   }
 

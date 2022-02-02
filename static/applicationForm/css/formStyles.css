@@ -248,7 +248,7 @@ input {
   /* text-align: center !important; */
 /* -webkit-hyphens: auto;
   -moz-hyphens: auto;
-  hyphens: auto; 
+  hyphens: auto;
 } */
 input {
   font-family: "luxi_monoregular";
@@ -262,7 +262,7 @@ textarea {
   resize: none;
   /* white-space: pre-line;
   text-align: justify;
-  -moz-text-align-last: left; /* Firefox 12+ 
+  -moz-text-align-last: left; /* Firefox 12+
   text-align-last: left; */
 }
 

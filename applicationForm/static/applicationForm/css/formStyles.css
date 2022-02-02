@@ -6,6 +6,7 @@
     url("../fonts/luxi/luximr-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+  font-display: block;
 }
 
 @font-face {
@@ -13,6 +14,7 @@
   src: url("../fonts/lato/Lato-Thin.ttf") format("ttf");
   font-weight: 100;
   font-style: normal;
+  font-display: block;
 }
 
 body {
@@ -248,7 +250,7 @@ input {
   /* text-align: center !important; */
 /* -webkit-hyphens: auto;
   -moz-hyphens: auto;
-  hyphens: auto; 
+  hyphens: auto;
 } */
 input {
   font-family: "luxi_monoregular";
@@ -262,7 +264,7 @@ textarea {
   resize: none;
   /* white-space: pre-line;
   text-align: justify;
-  -moz-text-align-last: left; /* Firefox 12+ 
+  -moz-text-align-last: left; /* Firefox 12+
   text-align-last: left; */
 }
 

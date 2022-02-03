@@ -542,7 +542,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     indNLFaxText = {
       date: moment().format("DD-MM-YYYY"),
       title: "Non-lawyer representative missing fax number",
-      desc: "Document explaining why the non-lawyer representative cannot provide a fax number.",
+      desc: "Explanation for missing fax number (non-lawyer representative)",
       page: 1,
       text: $("#indNLFaxArea").val(),
     };
@@ -553,7 +553,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     indLFaxText = {
       date: moment().format("DD-MM-YYYY"),
       title: "Lawyer representative missing fax number",
-      desc: "Document explaining why the lawyer representative cannot provide a fax number.",
+      desc: "Explanation for missing fax number (lawyer representative)",
       page: 1,
       text: $("#indLFaxArea").val(),
     };

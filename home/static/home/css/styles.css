@@ -24,6 +24,11 @@ body {
   font-weight: 400 !important;
 }
 
+#justbot-brand {
+  height: 80px;
+  margin-left: 20px;
+}
+
 .header {
   min-width: 960px;
 }

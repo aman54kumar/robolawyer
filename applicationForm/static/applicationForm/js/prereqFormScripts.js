@@ -127,13 +127,19 @@ $("input[name='page1[referenceOption]']").change(function () {
 $("#finalDecisionDate").on("change", function () {
   finalDecisionDate = moment($("#finalDecisionDate").val(), "DD/MM/YYYY");
 
-  currentDate = moment().format("DD/MM/YYYY");
+  currentDate = moment({ h: 0 });
   protocol15Date = moment("01/02/2022", "DD/MM/YYYY");
+
+  console.log(finalDecisionDate);
+  console.log(currentDate);
+  console.log(protocol15Date);
+
   const diffDate = moment(currentDate).diff(
     moment(finalDecisionDate),
     "months",
     true
   );
+  console.log(diffDate);
   if (moment(finalDecisionDate).isBefore(protocol15Date)) {
     if (!isNaN(diffDate)) {
       if (diffDate < 6) {

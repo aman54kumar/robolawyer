@@ -53,10 +53,7 @@ body {
   text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.5);
 }
 
-.card-master {
-  background-color: transparent;
-  border: none;
-}
+
 
 .bs-stepper-circle {
   background-color: #ffffff;
@@ -69,6 +66,10 @@ body {
   color: #ffffff;
 }
 
+.card-master {
+  background-color: transparent;
+  border: none;
+}
 .card-master-header {
   padding: 0rem 1.25rem;
   background-color: transparent;

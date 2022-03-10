@@ -531,7 +531,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     indNLAuthText = {
       date: moment().format("DD-MM-YYYY"),
       title: "Explanation for lack of authority form",
-      desc: "Document explaining why the representative cannot provide a fax number.",
+      desc: "Document explaining the lack of authority form.",
       page: 1,
       text: $("#indNLAuthArea").val(),
     };
@@ -564,7 +564,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     indLOtherYesText = {
       date: moment().format("DD-MM-YYYY"),
       title: "Explanation for lack of signature on the authority form",
-      desc: "Document explaining the lack of authority form. ",
+      desc: "Document explaining the lack of authority form.",
       page: 1,
       text: $("#indLAuthAreaYes").val(),
     };

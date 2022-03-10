@@ -259,6 +259,9 @@ class PrepareResult:
             "applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/")
         self.createOrDeleteDirectory(
             "applicationForm/dataPreparation/results/" + self.sessionID + "/watermark/")
+
+        self.objectDocs(self.hiddenDocsObject,
+                        "applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/")
         output1 = self.create_watermark_pdf(
             self.inputObj["page2"],
             pos=1,
@@ -355,7 +358,7 @@ class PrepareResult:
             output13,
         ),
 
-        self.objectDocs(self.hiddenDocsObject, "applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/")
+
         resultPath = glob.glob("applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/Result_form_page_*.pdf")
         # print(type(resultPath))
         
@@ -400,6 +403,7 @@ class PrepareResult:
         filename = ("applicationForm/dataPreparation/results/" +
                     self.sessionID + "/watermark/resultForm_" + str(pos) +
                     ".pdf")
+        pathToNewFiles = "applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/"
         can = canvas.Canvas(filename, pagesize=A4)
         if pos == 1:
             can = firstPageInputs(self, can, inputObj, tempInput)
@@ -424,13 +428,22 @@ class PrepareResult:
         elif pos == 11:
             can = eleventhPageInputs(self, can, inputObj, tempInput)
         elif pos == 12:
-            can = twelvthPageInputs(self, can, inputObj)
+            pageNumberList = self.getNumberOfPagesList(pathToNewFiles)
+            can = twelvthPageInputs(self, can, inputObj, pageNumberList)
         elif pos == 13:
             can = thirteenthPageInputs(self, can, inputObj, tempInput)
         else:
             print("bug reported")
         can.save()
         return filename
+
+    def getNumberOfPagesList(self, directory_name):
+        pageCountList = []
+        for pdf_file in glob.iglob(str(directory_name)+ "*.pdf"):
+            with open(pdf_file, 'rb') as pdf_file:
+                pdf_reader = PdfFileReader(pdf_file)
+                pageCountList.append(pdf_reader.getNumPages())
+        return list(reversed(pageCountList))
 
     def create_New_Pdf(self, inputObj):
         totalBookmark = int((len(inputObj)) / 4)

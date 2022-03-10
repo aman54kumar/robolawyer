@@ -468,7 +468,7 @@ def eleventhPageInputs(self, can, inputObj, secondInput):
     return can
 
 
-def twelvthPageInputs(self, can, inputObj):
+def twelvthPageInputs(self, can, inputObj, pageNumberList):
     [
         dateListNew,
         titleListNew,
@@ -484,7 +484,7 @@ def twelvthPageInputs(self, can, inputObj):
         t1.setFont(_customFont, _customFontSize)
         desc = descListNew[item]
         title = titleListNew[item]
-        page = str(1 + int(pageListNew[item]) - int(pageListTemp[item]))
+        page = str(pageNumberList[item])
         can.setFont("Courier-Bold", 12)
         can.drawString(40, yCoord, title)
         can.setFont("Courier", 11)

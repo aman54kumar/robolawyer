@@ -96,15 +96,17 @@
                           data-parsley-group="page8" required />
                       </td>
                       <td width="12%">
-                        <label for="doc_0_0">Number of Pages<a href="javascript://" data-toggle="popover"
-                            data-content="Indicate the total number of pages in each document" data-trigger="focus"
-                            data-placement="bottom"><span><i class="fas fa-question-circle"></i></span></a></label>
+                        <label for="doc_0_0">Number of Pages<a href="javascript://" class="popover-class"><span><i
+                                class="fas fa-question-circle"></i></span></a></label>
                         <input type="number" name="page8[0][page]" id="doc_0_page" class="form-control docsPages"
                           data-pattern-name="page8[++][page]" data-pattern-id="doc_++_page" min="1"
                           data-parsley-group="page8" required />
                       </td>
                     </tr>
                   </table>
+                  {% comment %} data-toggle="popover"
+                  data-content="Indicate the total number of pages in each document" data-trigger="focus"
+                  data-placement="bottom" {% endcomment %}
                   <input type="hidden" id="hiddenDocObject" name="page8[hiddenDocObject]" value="" />
                   <div>
                     <button type="button" class="r-btnAdd btn btn-primary" id="addButton_8_0"

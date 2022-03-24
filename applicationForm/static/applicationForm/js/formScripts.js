@@ -641,139 +641,24 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
   // check fields empty or not for delete button hiding for auto documents
 });
 
+// const firstPageNumberLabelElement =
+
+const popover_attributes = {
+  content: "Indicate the total number of pages in each document",
+  trigger: "click",
+  placement: "bottom",
+  theme: "light",
+};
+document.getElementsByClassName("popover-class")[0].id = "first-popover";
+tippy("#first-popover", popover_attributes);
+document.getElementsByClassName("popover-class")[0].id = "";
+
 var inputPage8Values = function (i, docObject) {
   $(`input[name='page8[${i}][date]']`).val(docObject[i].date);
   $(`input[name='page8[${i}][title]']`).val(docObject[i].title);
   $(`input[name='page8[${i}][desc]']`).val(docObject[i].desc);
   $(`input[name='page8[${i}][page]']`).val(docObject[i].page);
 };
-
-// $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
-//   $("#page8DocsCreated").find("ol").empty();
-//   docObject = [];
-//   if (!!$("#anonReqText").val()) {
-//     anon = {
-//       title: "Anonymity Request",
-//       desc: "Documents requesting anonymity in the public documents of the court.",
-//       text: $("#anonReqText").val(),
-//     };
-//     docObject.push(anon);
-//   }
-//   if (!!$("#stofFactsExtra").val()) {
-//     facts = {
-//       title: "Supplementary Statement on the Subject matter of the application",
-//       desc: "Document to supplement further details on the facts.",
-//       text: $("#stofFactsExtra").val(),
-//     };
-//     docObject.push(facts);
-//   }
-//   // if (!!$("#orgnlCapacity").val()) {
-//   //   official = {
-//   //     title: "Proof of organisation official",
-//   //     desc: "Proof of the official's right to represent the organisation.",
-//   //   };
-//   //   docObject.push(official);
-//   // }
-
-//   if ($("input[name='page2[orgDateOption]']:checked").val() === "No") {
-//     orgDateText = {
-//       title: "Explanation for missing registration/incorporation no.",
-//       desc: "Organisation does not possess a registration/incorporation number.",
-//       text: $("#orgDateNoArea").val(),
-//     };
-//     docObject.push(orgDateText);
-//   }
-//   if ($("input[name='page2[orgIdentityOption]']:checked").val() === "No") {
-//     orgIdentityText = {
-//       title: "Explanation for missing identification number.",
-//       desc: "Organisation does not possess an identification number.",
-//       text: $("#orgIdentityNoArea").val(),
-//     };
-//     docObject.push(orgIdentityText);
-//   }
-//   if (!!$("#indNLAuthArea").val()) {
-//     orgNLAuthText = {
-//       title: "Explanation for lack of authority form",
-//       desc: "applicant authorising the representative to represent him/her.",
-//       text: $("#indNLAuthArea").val(),
-//     };
-//     docObject.push(orgNLAuthText);
-//   }
-
-//   if ($("#indNLFaxOption:checked").val() === "No") {
-//     orgNLFaxText = {
-//       title: "Explanation for missing fax number",
-//       desc: "Document explaining why the representative cannot provide a fax number to the Court.",
-//       text: $("#indNLFaxArea").val(),
-//     };
-//     docObject.push(orgNLFaxText);
-//   }
-
-//   if ($("#indLFaxOption:checked").val() === "No") {
-//     orgLFaxText = {
-//       title: "Explanation for missing fax number",
-//       desc: "Document explaining why the lawyer cannot provide a fax number to the Court.",
-//       text: $("#indLFaxArea").val(),
-//     };
-//     docObject.push(orgLFaxText);
-//   }
-
-//   if (!!$("#indLAuthAreaYes").val()) {
-//     orgLOtherYesText = {
-//       title: "Explanation for lack of signature on the authority form",
-//       desc: "applicant authorising the representative to represent him/her.",
-//       text: $("#indLAuthAreaYes").val(),
-//     };
-//     docObject.push(orgLOtherYesText);
-//   }
-//   if (!!$("#indLAuthAreaNo").val()) {
-//     orgLOtherNoText = {
-//       title: "Explanation for lack of signature on the authority form",
-//       desc: "applicant authorising the representative to represent him/her.",
-//       text: $("#indLAuthAreaNo").val(),
-//     };
-//     docObject.push(orgLOtherNoText);
-//   }
-//   if (!!$("#orgNLOfficialAreaYes").val()) {
-//     orgNLOfficial = {
-//       title: "Proof of organisation official",
-//       desc: "Organisation official is legally entitled to represent the organisation",
-//       text: $("#orgNLOfficialAreaYes").val(),
-//     };
-//     docObject.push(orgNLOfficial);
-//   }
-//   if (!!$("#orgNLOfficialAreaNo").val()) {
-//     orgNLOfficial = {
-//       title: "Organisation official document",
-//       desc: "organisation official cannot provide proof for its position",
-//       text: $("#orgNLOfficialAreaNo").val(),
-//     };
-//     docObject.push(orgNLOfficial);
-//   }
-
-//   if (!!$("#orgAutorityAreaNo").val()) {
-//     orgAutorityAreaNo = {
-//       title: "Explanation for lack of authority form",
-//       desc: "organisation cannot sign the form authorising the representative to represent",
-//       text: $("#orgAutorityAreaNo").val(),
-//     };
-//     docObject.push(orgAutorityAreaNo);
-//   }
-
-//   docObject.map((docs) => {
-//     $("#page8DocsCreated")
-//       .find("ol")
-//       .append("<li>" + docs.title + "</li>");
-//   });
-
-//   axios.defaults.xsrfHeaderName = "X-CSRFToken";
-//   axios.defaults.xsrfCookieName = "csrftoken";
-//   axios({
-//     method: "post",
-//     url: "docObject",
-//     data: docObject,
-//   });
-// });
 
 $("#page8Group").repeater({
   btnAddClass: "r-btnAdd",
@@ -825,6 +710,13 @@ $("#page8Group").repeater({
         currentButtonElement.className += " is-hidden";
       }
     }
+    document.getElementsByClassName("popover-class")[0].id = "";
+
+    const x = document.getElementById(
+      `doc_${parseInt(this.id.split("_")[2]) + 1}_page`
+    ).parentElement.children[0].children[0];
+    console.log(x);
+    tippy(x, popover_attributes);
   },
   afterDelete: function () {
     groups = $("#page8Group").children();

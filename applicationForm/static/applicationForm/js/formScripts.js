@@ -259,15 +259,6 @@ $("input[name='page3[orgOffEntitled]']").change(function () {
     popUpText.innerHTML =
       "<h5>Thank you, we have added the title of this document to the list of supporting documents on page 8. Please make sure to fill in the number of pages and the release date of this document on Page 8 (Supporting Documents) of this application form and to add a copy of the document as an attachment to the application form before you mail it to the Court.</h5>";
     popUpText.append(document.createElement("br"));
-    orgNLoffTextarea = document.createElement("textarea");
-    orgNLoffTextarea.classList.add("form-control", "newPageTextArea");
-    orgNLoffTextarea.id = "orgNLOfficialAreaYes";
-    orgNLoffTextarea.addEventListener("input", function () {
-      this.style.height = "";
-      this.style.height = this.scrollHeight + "px";
-    });
-    popUpText.append(orgNLoffTextarea);
-    popUpText.append(document.createElement("br"));
     answerArea.append(popUpText);
   } else {
     if (answerArea.children.length != 0) {

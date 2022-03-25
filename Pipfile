@@ -46,6 +46,7 @@ azure-storage-common = "*"
 azure-common = "*"
 django-extensions = "*"
 django-debug-toolbar = "*"
+openpyxl = "*"
 
 [requires]
 python_version = "3.10"

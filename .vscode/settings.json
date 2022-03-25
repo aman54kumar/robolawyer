@@ -23,5 +23,6 @@
   "peacock.color": "#3f74a8",
   "cSpell.ignoreWords": ["authorising"],
   "appService.defaultWebAppToDeploy": "/subscriptions/d9ce407e-a408-4796-9273-971cd7412f95/resourceGroups/Justbot/providers/Microsoft.Web/sites/justbot",
-  "appService.deploySubpath": "."
+  "appService.deploySubpath": ".",
+  "python.formatting.provider": "black"
 }

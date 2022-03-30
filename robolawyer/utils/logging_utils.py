@@ -1,4 +1,6 @@
-import logging
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 LOGGING = {
     "version": 1,
@@ -32,14 +34,18 @@ LOGGING = {
             "level": "DEBUG",
             "filters": ["require_debug_true"],
             "class": "logging.FileHandler",
-            "filename": "justbot_dev.log",
+            "filename": os.path.join(
+                os.path.dirname(BASE_DIR), "logs", "justbot_dev.log"
+            ),
             "formatter": "verbose",
         },
         "production_logfile": {
             "level": "ERROR",
             "filters": ["require_debug_false"],
             "class": "logging.handlers.RotatingFileHandler",
-            "filename": "justbot_production.log",
+            "filename": os.path.join(
+                os.path.dirname(BASE_DIR), "logs", "justbot_production.log"
+            ),
             "maxBytes": 1024 * 1024 * 100,  # 100MB
             "backupCount": 5,
             "formatter": "simple",

@@ -6,7 +6,7 @@ from django.template import RequestContext
 from django.http import HttpResponse, Http404, response
 from django.template.loader import render_to_string
 
-
+from robolawyer.utils.email_auth import Authenticate
 from .dataPreparation.prepareResult import PrepareResult
 from .dataPreparation.prepareDocsPDF import PrepareDocsPDF
 from .dataPreparation.inputMethodforWM import bookmarkPageInputs
@@ -125,7 +125,7 @@ def download(request):
 
 
 def pdf_email(request):
-
+    emailAccount = Authenticate()
     file_path = os.path.join(
         settings.BASE_DIR,
         "applicationForm/dataPreparation/results/"
@@ -136,7 +136,7 @@ def pdf_email(request):
     if request.method == "POST":
         body = json.loads(request.body)
         emailInput = body["emailInput"]
-        mailbox = settings.emailAccount.mailbox()
+        mailbox = emailAccount.mailbox()
         message = mailbox.new_message()
         message.subject = (
             "Your application to the European Court of Human Rights is here"

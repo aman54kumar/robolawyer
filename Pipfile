@@ -52,6 +52,8 @@ black = "*"
 django-o365mail = "*"
 cython = "*"
 o365 = "*"
+sentry-sdk = "*"
+raven = "*"
 
 [requires]
 python_version = "3.8"

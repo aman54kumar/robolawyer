@@ -6,6 +6,7 @@ from reportlab.lib.units import inch
 import textwrap
 from .countryCoordDict import coordinateDict
 from reportlab.pdfbase.pdfmetrics import stringWidth
+
 # from xml.sax.saxutils import escape
 
 _customFont = "Courier"
@@ -29,8 +30,7 @@ def firstPageInputs(self, can, inputObj, secondInput):
 
         indPobNew = modifyCountryNames(inputObj["page2[indPob]"])
         can.drawString(25, 285, indPobNew)
-        indNationalityNew = modifyCountryNames(
-            inputObj["page2[indNationality]"])
+        indNationalityNew = modifyCountryNames(inputObj["page2[indNationality]"])
         can.drawString(25, 245, indNationalityNew)
 
         addressOne = inputObj["page2[indAddress]"]
@@ -87,8 +87,9 @@ def secondPageInputs(self, can, inputObj):
     selectedStates = inputObj
     for selectedOne in selectedStates:
         if selectedOne in coordinateDict:
-            can.drawString(coordinateDict[selectedOne]["x"],
-                           coordinateDict[selectedOne]["y"], "X")
+            can.drawString(
+                coordinateDict[selectedOne]["x"], coordinateDict[selectedOne]["y"], "X"
+            )
     can.showPage()
     return can
 
@@ -101,57 +102,73 @@ def thirdPageInputs(self, can, inputObj):
         t = can.beginText()
         t.setFont(_customFont, _customFontSize)
 
-        can.drawString(25, 662, inputObj["page3[indNLCapacity]"]
-                       ) if "page3[indNLCapacity]" in inputObj else ""
-        can.drawString(25, 622, inputObj["page3[indNLSurname]"]
-                       ) if "page3[indNLSurname]" in inputObj else ""
-        can.drawString(25, 581, inputObj["page3[indNLFirstName]"]
-                       ) if "page3[indNLFirstName]" in inputObj else ""
+        can.drawString(
+            25, 662, inputObj["page3[indNLCapacity]"]
+        ) if "page3[indNLCapacity]" in inputObj else ""
+        can.drawString(
+            25, 622, inputObj["page3[indNLSurname]"]
+        ) if "page3[indNLSurname]" in inputObj else ""
+        can.drawString(
+            25, 581, inputObj["page3[indNLFirstName]"]
+        ) if "page3[indNLFirstName]" in inputObj else ""
 
-        indNLNationalityNew = (modifyCountryNames(
-            inputObj["page3[indNLNationality]"]) if "page3[indNLNationality]"
-                               in inputObj else "")
+        indNLNationalityNew = (
+            modifyCountryNames(inputObj["page3[indNLNationality]"])
+            if "page3[indNLNationality]" in inputObj
+            else ""
+        )
         can.drawString(25, 544, indNLNationalityNew)
 
-        addressThree = (inputObj["page3[indNLAddress]"]
-                        if "page3[indNLAddress]" in inputObj else "")
+        addressThree = (
+            inputObj["page3[indNLAddress]"] if "page3[indNLAddress]" in inputObj else ""
+        )
         newAddress = formatTextWithoutDash(self, addressThree, 49)
         t.setTextOrigin(25, 503)
         t.textLines(newAddress)
         can.drawText(t)
-        can.drawString(25, 402, inputObj["page3[indNLTel]"]
-                       ) if "page3[indNLTel]" in inputObj else ""
+        can.drawString(
+            25, 402, inputObj["page3[indNLTel]"]
+        ) if "page3[indNLTel]" in inputObj else ""
 
-        can.drawString(25, 362, inputObj["page3[indNLFax]"]
-                       ) if "page3[indNLFax]" in inputObj else ""
-        can.drawString(25, 322, inputObj["page3[indNLEmail]"]
-                       ) if "page3[indNLEmail]" in inputObj else ""
-        can.drawString(30, 37, inputObj["page3[indIndeComms]"]
-                       ) if "page3[indIndeComms]" in inputObj else ""
+        can.drawString(
+            25, 362, inputObj["page3[indNLFax]"]
+        ) if "page3[indNLFax]" in inputObj else ""
+        can.drawString(
+            25, 322, inputObj["page3[indNLEmail]"]
+        ) if "page3[indNLEmail]" in inputObj else ""
+        can.drawString(
+            30, 37, inputObj["page3[indIndeComms]"]
+        ) if "page3[indIndeComms]" in inputObj else ""
 
-        can.drawString(310, 662, inputObj["page3[indLSurname]"]
-                       ) if "page3[indLSurname]" in inputObj else ""
-        can.drawString(310, 622, inputObj["page3[indLFirstName]"]
-                       ) if "page3[indLFirstName]" in inputObj else ""
+        can.drawString(
+            310, 662, inputObj["page3[indLSurname]"]
+        ) if "page3[indLSurname]" in inputObj else ""
+        can.drawString(
+            310, 622, inputObj["page3[indLFirstName]"]
+        ) if "page3[indLFirstName]" in inputObj else ""
 
-        indLNationalityNew = (modifyCountryNames(
-            inputObj["page3[indLNationality]"])
-                              if "page3[indLNationality]" in inputObj else "")
+        indLNationalityNew = (
+            modifyCountryNames(inputObj["page3[indLNationality]"])
+            if "page3[indLNationality]" in inputObj
+            else ""
+        )
         can.drawString(310, 581, indLNationalityNew)
-        addressFour = (inputObj["page3[indLAddress]"]
-                       if "page3[indLAddress]" in inputObj else "")
+        addressFour = (
+            inputObj["page3[indLAddress]"] if "page3[indLAddress]" in inputObj else ""
+        )
         newAddressFour = formatTextWithoutDash(self, addressFour, 49)
         t.setTextOrigin(310, 543)
         t.textLines(newAddressFour)
         can.drawText(t)
         can.drawString(
-            310, 402,
-            inputObj["page3[indLTel]"]) if "page3[indLTel]" in inputObj else ""
+            310, 402, inputObj["page3[indLTel]"]
+        ) if "page3[indLTel]" in inputObj else ""
         can.drawString(
-            310, 362,
-            inputObj["page3[indLFax]"]) if "page3[indLFax]" in inputObj else ""
-        can.drawString(310, 322, inputObj["page3[indLEmail]"]
-                       ) if "page3[indLEmail]" in inputObj else ""
+            310, 362, inputObj["page3[indLFax]"]
+        ) if "page3[indLFax]" in inputObj else ""
+        can.drawString(
+            310, 322, inputObj["page3[indLEmail]"]
+        ) if "page3[indLEmail]" in inputObj else ""
 
     can.showPage()
 
@@ -171,7 +188,8 @@ def fourthPageInputs(self, can, inputObj):
             can.drawString(25, 585, inputObj["page3[orgnlFirstName]"])
 
             orgnlNationalityNew = modifyCountryNames(
-                inputObj["page3[orgnlNationality]"])
+                inputObj["page3[orgnlNationality]"]
+            )
             can.drawString(25, 548, orgnlNationalityNew)
             addressFour = inputObj["page3[orgnlAddress]"]
             newAddressFour = formatTextWithoutDash(self, addressFour, 49)
@@ -188,7 +206,8 @@ def fourthPageInputs(self, can, inputObj):
             can.drawString(25, 626, inputObj["page3[orgnlSurname]"])
             can.drawString(25, 585, inputObj["page3[orgnlFirstName]"])
             orgnlNationalityNew = modifyCountryNames(
-                inputObj["page3[orgnlNationality]"])
+                inputObj["page3[orgnlNationality]"]
+            )
             can.drawString(25, 548, orgnlNationalityNew)
             addressFour = inputObj["page3[orgnlAddress]"]
             newAddressFour = formatTextWithoutDash(self, addressFour, 49)
@@ -203,8 +222,7 @@ def fourthPageInputs(self, can, inputObj):
             can.drawString(310, 666, inputObj["page3[orglSurname]"])
             can.drawString(310, 626, inputObj["page3[orglFirstName]"])
 
-            orglNationalityNew = modifyCountryNames(
-                inputObj["page3[orglNationality]"])
+            orglNationalityNew = modifyCountryNames(inputObj["page3[orglNationality]"])
             can.drawString(310, 585, orglNationalityNew)
             addressFive = inputObj["page3[orglAddress]"]
             newAddressFive = formatTextWithoutDash(self, addressFive, 49)
@@ -301,8 +319,7 @@ def getListFromArticleObj(self, inputDict, length):
     explanationList = []
     for i in range(length):
         articleList.append(inputDict["page5[" + str(i) + "][articleArea]"])
-        explanationList.append(inputDict["page5[" + str(i) +
-                                         "][articleExplanation]"])
+        explanationList.append(inputDict["page5[" + str(i) + "][articleExplanation]"])
     return [articleList, explanationList]
 
 
@@ -468,7 +485,7 @@ def twelvthPageInputs(self, can, inputObj, pageNumberList):
         t1.setFont(_customFont, _customFontSize)
         desc = descListNew[item]
         title = titleListNew[item]
-        page = str(pageNumberList[item])
+        page = str(pageNumberList)
         can.setFont("Courier-Bold", 12)
         can.drawString(40, yCoord, title)
         can.setFont("Courier", 11)
@@ -530,22 +547,23 @@ def thirteenthPageInputs(self, can, inputObj, tempInput):
     drawing = svg2rlg(
         os.path.join(
             settings.BASE_DIR,
-            "applicationForm/dataPreparation/results/" + tempInput[1] +
-            "/barcode.svg",
-        ))
+            "applicationForm/dataPreparation/results/" + tempInput[1] + "/barcode.svg",
+        )
+    )
     renderPM.drawToFile(
         drawing,
         os.path.join(
             settings.BASE_DIR,
-            "applicationForm/dataPreparation/results/" + tempInput[1] +
-            "/barcode.png",
+            "applicationForm/dataPreparation/results/" + tempInput[1] + "/barcode.png",
         ),
         fmt="PNG",
     )
 
     im = Image.open(
-        os.path.join(settings.BASE_DIR,
-                     "applicationForm/dataPreparation/white-background.jpg"))
+        os.path.join(
+            settings.BASE_DIR, "applicationForm/dataPreparation/white-background.jpg"
+        )
+    )
     side_im_data = io.BytesIO()
     im.save(side_im_data, format="png")
     side_im_data.seek(0)
@@ -555,9 +573,9 @@ def thirteenthPageInputs(self, can, inputObj, tempInput):
     bcodeIm = Image.open(
         os.path.join(
             settings.BASE_DIR,
-            "applicationForm/dataPreparation/results/" + tempInput[1] +
-            "/barcode.png",
-        ))
+            "applicationForm/dataPreparation/results/" + tempInput[1] + "/barcode.png",
+        )
+    )
     side_bcodeIm_data = io.BytesIO()
     bcodeIm.save(side_bcodeIm_data, format="png")
     side_bcodeIm_data.seek(0)
@@ -619,9 +637,9 @@ def barcodeMaker(self, formInputs, applicantCode):
     svg.write(
         os.path.join(
             settings.BASE_DIR,
-            "applicationForm/dataPreparation/results/" + applicantCode +
-            "/barcode.svg",
-        ))
+            "applicationForm/dataPreparation/results/" + applicantCode + "/barcode.svg",
+        )
+    )
 
 
 def sortAccordingToDate(firstList, secondList):
@@ -828,11 +846,9 @@ def formatText(self, lines, limit, suffixLen=3, prefixLen=2):
     return str
 
 
-def extractStringFromList(firstList,
-                          secondList,
-                          tabEscape="%+",
-                          lineEscape="#-",
-                          paraEscape="$^"):
+def extractStringFromList(
+    firstList, secondList, tabEscape="%+", lineEscape="#-", paraEscape="$^"
+):
     finalString = ""
     for j in range(min(len(firstList), len(secondList))):
         firstLines = firstList[j].split("\n")
@@ -841,14 +857,16 @@ def extractStringFromList(firstList,
 
             if len(firstLines) > len(secondLines):
                 if i < len(secondLines):
-                    finalString += (firstLines[i] + tabEscape +
-                                    secondLines[i] + lineEscape)
+                    finalString += (
+                        firstLines[i] + tabEscape + secondLines[i] + lineEscape
+                    )
                 else:
                     finalString += firstLines[i] + tabEscape + lineEscape
             else:
                 if i < len(firstLines):
-                    finalString += (firstLines[i] + tabEscape +
-                                    secondLines[i] + lineEscape)
+                    finalString += (
+                        firstLines[i] + tabEscape + secondLines[i] + lineEscape
+                    )
                 else:
                     finalString += tabEscape + secondLines[i] + lineEscape
         finalString += paraEscape

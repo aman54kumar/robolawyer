@@ -46,12 +46,12 @@ LOGGING = {
             "backupCount": 5,
             "formatter": "simple",
         },
-        "sentry": {
-            "level": "ERROR",
-            "class": "raven.contrib.django.handlers.SentryHandler",
-            "filters": ["require_debug_false"],
-            "formatter": "simple",
-        },
+        # "sentry": {
+        #     "level": "ERROR",
+        #     "class": "raven.contrib.django.handlers.SentryHandler",
+        #     "filters": ["require_debug_false"],
+        #     "formatter": "simple",
+        # },
     },
     "root": {
         "level": "DEBUG",

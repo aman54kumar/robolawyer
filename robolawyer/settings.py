@@ -60,7 +60,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "raven.contrib.django.raven_compat",
     "storages",
     "corsheaders",
     "svglib",
@@ -234,10 +233,6 @@ STATICFILES_FINDERS = (
 
 # LOGGING
 
-
-# RAVEN_CONFIG = {
-#     "dsn": "https://cde5f0df67d04df3b44049379526e042@o1183119.ingest.sentry.io/6300191",
-# }
 
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration

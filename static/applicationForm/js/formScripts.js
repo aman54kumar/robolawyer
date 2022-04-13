@@ -501,8 +501,8 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
   if ($("input[name='page2[orgDateOption]']:checked").val() === "No") {
     orgDateText = {
       date: moment().format("DD-MM-YYYY"),
-      title: "Explanation for missing registration/incorporation no.",
-      desc: "Organisation does not possess a registration/incorporation number.",
+      title: "Explanation for missing registration/incorporation date",
+      desc: "Organisation does not possess a registration/incorporation date.",
       page: 1,
       text: $("#orgDateNoArea").val(),
     };

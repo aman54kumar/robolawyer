@@ -21,6 +21,12 @@ body {
   font-family: "lato_thin";
 }
 
+.popover {
+  max-width: 60%;
+  width: auto;
+
+}
+
 .form-section {
   margin-left: 0px !important;
 }
@@ -70,6 +76,7 @@ body {
   background-color: transparent;
   border: none;
 }
+
 .card-master-header {
   padding: 0rem 1.25rem;
   background-color: transparent;
@@ -281,14 +288,12 @@ label {
 }
 
 .flag.xx.xx.blank.blank {
-  background: url(data:image/gif;base64,R0lGODlhAQABAIABAP///wAAACwAAAAAAQABAAACAkQBADs=)
-    round;
+  background: url(data:image/gif;base64,R0lGODlhAQABAIABAP///wAAACwAAAAAAQABAAACAkQBADs=) round;
   background-size: cover;
 }
 
 .flag.xx.xx.blank.blank:hover {
-  background: url(data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==)
-    round;
+  background: url(data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==) round;
   background-size: cover;
 }
 

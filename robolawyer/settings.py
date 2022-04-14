@@ -46,10 +46,9 @@ CLIENT_ID = config("O365_MAIL_CLIENT_ID")
 SECRET_ID = config("O365_MAIL_CLIENT_SECRET")
 TENANT_ID = config("O365_MAIL_TENANT_ID")
 
-emailAccount = Authenticate()
 
-ADMINS = [(emailAccount.get_current_user(), emailAccount.main_resource)]
-MANAGERS = ADMINS
+# ADMINS = [(emailAccount.get_current_user(), emailAccount.main_resource)]
+# MANAGERS = ADMINS
 
 # Application definition
 

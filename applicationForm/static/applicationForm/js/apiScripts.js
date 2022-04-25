@@ -1,5 +1,6 @@
 // selects all child input checkboxes and applies the checked
 // item of the one that has been clicked on
+let derogationTableDict = new Map();
 function getEditedArticleAsPrefix(initialText) {
   var initialArrayPart = initialText.split(" - ")[0];
   var articleNameAsArray = initialArrayPart.split(" ");
@@ -77,7 +78,6 @@ function addFieldTo6thPage(cbParent, currentArticleID, descDivClass) {
   articleValue = preValArray[0];
   conjugateValue = "";
   if (preValArray.length == 2) conjugateValue = preValArray[1];
-  // var conjText =
   if (mainCheckBoxes.length > 1) {
     resultList = resultList.map((item) => fixedText + item);
     if (fixedText[0] === "P") {
@@ -113,9 +113,6 @@ function addFieldTo6thPage(cbParent, currentArticleID, descDivClass) {
       }
     }
   } else {
-    // resultList = resultList.map((item) => fixedText + item);
-    // console.log(resultList);
-    // console.log(fixedText);
     if (fixedText[0] === "P") {
       fixedText = fixedText;
     } else {
@@ -638,7 +635,7 @@ function callAPI(addButtonIDornewDiv) {
   }
 }
 
-function getDerogationText(selectedArticle, tableElement) {
+function getDerogationText(selectedArticle, derogationTableDict) {
   selectedCountryList = $("#involvedStates").val();
   curIndex = finalArticleArray.indexOf(selectedArticle);
   baseUrl = window.location.href.split("form/")[0];
@@ -647,42 +644,49 @@ function getDerogationText(selectedArticle, tableElement) {
     method: "get",
     url: articleUrl,
     crossorigin: true,
-  }).then(function (response) {
+  }).then((response) => {
     countryData = response.data.country;
     selectedCountryList.forEach(function (country) {
-      var newTRelement = document.createElement("tr");
-      newTRelement.style =
-        "border: solid; border-color: #eeeded; border-width: medium; margin: 10px;";
-      currentCountry = country;
-
-      h6Element = document.createElement("h6");
-      h6Element.setAttribute(
-        "style",
-        "padding-left:30px; padding-right:30px; font-family:lato_thin"
-      );
-      pElement = document.createElement("p");
-      pElement.setAttribute(
-        "style",
-        "padding-left:30px; padding-right:30px; font_family:lato_thin"
-      );
-      h6Element.innerHTML = currentCountry;
-      pElement.innerHTML = countryData[currentCountry].Reservations[curIndex];
-      if (
-        countryData.hasOwnProperty(currentCountry) &&
-        countryData[currentCountry].Reservations[curIndex] != "N/A"
-      ) {
-        var newTDelement1 = document.createElement("td");
-        var newTDelement2 = document.createElement("td");
-        newTDelement2.style = "word-break: break-word;";
-        newTDelement1.append(h6Element);
-        newTRelement.append(newTDelement1);
-        newTDelement2.append(pElement);
-        newTRelement.append(newTDelement2);
-        tableElement.append(newTRelement);
+      if (derogationTableDict.has(country)) {
+        const temp_array = derogationTableDict.get(country);
+        temp_array.push(countryData[country].Reservations[curIndex]);
+        derogationTableDict.set(country, temp_array);
+        // derogationTableDict[country] = temp_array;
+      } else {
+        derogationTableDict.set(country, [
+          countryData[country].Reservations[curIndex],
+        ]);
       }
     });
+    showDerogationText(tableElement, derogationTableDict);
   });
 }
+
+const showDerogationText = (tableDiv, derogationMap) => {
+  let table = document.createElement("table");
+
+  for (const [country, dText] of derogationMap.entries()) {
+    let row = document.createElement("tr");
+    row.setAttribute("style", "border-bottom: solid 1px black");
+    let cell1 = document.createElement("td");
+    cell1.innerHTML = "<p>" + country + "</p>";
+    row.appendChild(cell1);
+    dText.forEach((texts) => {
+      if (texts !== "N/A") {
+        let internalRow = document.createElement("tr");
+        let cell2 = document.createElement("td");
+        cell2.innerHTML =
+          "<p style='padding-left:30px; padding-right:30px; font_family:lato_thin'>" +
+          texts +
+          "</p>";
+        internalRow.appendChild(cell2);
+        row.appendChild(internalRow);
+      }
+    });
+    if (row.children.length !== 1) table.appendChild(row);
+  }
+  tableDiv.appendChild(table);
+};
 
 function populateDiv(elId, descDivClass) {
   selectedElement = document.getElementById(elId);
@@ -715,7 +719,6 @@ function populateDiv(elId, descDivClass) {
   }
 
   tableElement = containerElement.children[2].children[0];
-
   containerElement.classList.remove("is-hidden");
 
   if (conjDivElement.childElementCount === 1) {
@@ -739,22 +742,16 @@ function populateDiv(elId, descDivClass) {
       textValue = finalArticleArray[article];
 
       if (finalArticleArray[article] === selectedElementValue) {
-        // if (descDivClass === ".descDiv1") {
-        //   if (descriptionElement.childElementCount != 0) {
-        //     $(descriptionElement).empty();
-        //   }
-        // } else {
-        //   if (descriptionElement.get.childElementCount != 0) {
-        //     $(descriptionElement).empty();
-        //   }
-        // }
         if (tableElement.lastChild) {
           $(tableElement).empty();
         }
         if (descriptionElement.childElementCount != 0) {
           $(descriptionElement).empty();
         }
-        getDerogationText(finalArticleArray[article], tableElement);
+        if (!$(conjDivElement).find("select").length) {
+          derogationTableDict.clear();
+        }
+        getDerogationText(finalArticleArray[article], derogationTableDict);
 
         // full text
         let ulOuterElement = document.createElement("ul");

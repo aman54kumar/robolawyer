@@ -6,10 +6,11 @@
 #  for linux
  exec(open('./applicationForm/dataPreparation/countryAPI/countryJSON.py').read())
  """
-import pandas as pd
-from datetime import datetime
-from django.conf import settings
 import os
+from datetime import datetime
+import pandas as pd
+from django.conf import settings
+
 import jsons
 
 jsons.suppress_warnings()
@@ -40,106 +41,104 @@ def getFormattedArticleText(text):
     return res
 
 
-articleFile = os.path.join(
+ARTICLE_FILE = os.path.join(
     settings.BASE_DIR,
-    # 'applicationForm\\dataPreparation\\countryAPI\\API ratification territorial application reservations - With UK updated.xlsx'
     "applicationForm/dataPreparation/countryAPI/Updated API ratification list.xlsx",
 )
 
-courtFile = os.path.join(
+COURT_FILE = os.path.join(
     settings.BASE_DIR,
     "applicationForm/dataPreparation/countryAPI/Countries_and_national_courts.csv",
 )
 
-outputFile = os.path.join(
+OUTPUT_FILE = os.path.join(
     settings.BASE_DIR,
     "applicationForm/static/applicationForm/apiFiles/countryArticle.json",
 )
 
-tempFile = os.path.join(
+TEMP_FILE = os.path.join(
     settings.BASE_DIR, "applicationForm/static/applicationForm/apiFiles/temp.csv"
 )
-final_list = {}
-country_json = {}
-article_json = {}
-court_json = {}
-court_json = {}
-fill_dt = datetime(2100, 1, 1)
-fill_na = "N/A"
+FINAL_LIST = {}
+COUNTRY_JSON = {}
+ARTICLE_JSON = {}
+COURT_JSON = {}
+FILL_DT = datetime(2100, 1, 1)
+FILL_NA = "N/A"
 
-sheet_name = [i for i in range(1, 48)]
-data = pd.read_excel(articleFile, sheet_name=sheet_name, index_col=0, engine="xlrd")
-court = pd.read_csv(courtFile, header=0, sep=",", encoding="utf-8")
+SHEET_NAME = [i for i in range(1, 48)]
+DATA = pd.read_excel(ARTICLE_FILE, sheet_name=SHEET_NAME, index_col=0, engine="xlrd")
+COURT = pd.read_csv(COURT_FILE, header=0, sep=",", encoding="utf-8")
 
-for element in data:
-    data[element]["Date"] = data[element]["Date"].fillna(fill_dt)
-    data[element]["Active/not active"] = data[element]["Active/not active"].fillna(
-        fill_na
+for element in DATA:
+    DATA[element]["Date"] = DATA[element]["Date"].fillna(FILL_DT)
+    DATA[element]["Active/not active"] = DATA[element]["Active/not active"].fillna(
+        FILL_NA
     )
-    data[element]["Reservations/Derogations/Declarations"] = data[element][
+    DATA[element]["Reservations/Derogations/Declarations"] = DATA[element][
         "Reservations/Derogations/Declarations"
-    ].fillna(fill_na)
-    data[element]["Article"] = data[element]["Article"].fillna(fill_na)
-    data[element]["Full text"] = data[element]["Full text"].fillna(fill_na)
+    ].fillna(FILL_NA)
+    DATA[element]["Article"] = DATA[element]["Article"].fillna(FILL_NA)
+    DATA[element]["Full text"] = DATA[element]["Full text"].fillna(FILL_NA)
 
-textArray = data[1]["Full text"]
-resultList = []
-for text in textArray:
-    resultList.append(getFormattedArticleText(text))
-court_country = court["Country"]
-for item in range(1, len(data) + 1):
-    country_json[data[item]["Country"][1]] = {}
+TEXT_ARRAY = DATA[1]["Full text"]
+RESULT_LIST = []
+for text in TEXT_ARRAY:
+    RESULT_LIST.append(getFormattedArticleText(text))
+court_country = COURT["Country"]
+for item in range(1, len(DATA) + 1):
+    COUNTRY_JSON[DATA[item]["Country"][1]] = {}
 
-for item in country_json:
-    for record in data:
-        if item == data[record]["Country"].any():
-            country_json[item]["Date"] = pd.to_datetime(
-                data[record]["Date"]
+for item in COUNTRY_JSON:
+    for record in DATA:
+        if item == DATA[record]["Country"].any():
+            COUNTRY_JSON[item]["Date"] = pd.to_datetime(
+                DATA[record]["Date"]
             ).dt.strftime("%d-%m-%Y")
-            country_json[item]["Active"] = data[record]["Active/not active"]
-            country_json[item]["Reservations"] = data[record][
+            COUNTRY_JSON[item]["Active"] = DATA[record]["Active/not active"]
+            COUNTRY_JSON[item]["Reservations"] = DATA[record][
                 "Reservations/Derogations/Declarations"
             ]
-            country_json[item]["ratDate"] = pd.to_datetime(
-                data[record]["Date"].min()
+            COUNTRY_JSON[item]["ratDate"] = pd.to_datetime(
+                DATA[record]["Date"].min()
             ).strftime("%d-%m-%Y")
-        if item == data[record]["Country"].all():
-            article_json["Article"] = data[record]["Article"]
-            article_json["Full text"] = resultList
+        if item == DATA[record]["Country"].all():
+            ARTICLE_JSON["Article"] = DATA[record]["Article"]
+            ARTICLE_JSON["Full text"] = RESULT_LIST
 
-        if item in court["Country"].tolist():
+        if item in COURT["Country"].tolist():
             myIndex = court_country[court_country == item].index[0]
             if (
-                type(court["ProceedingType3"].iloc[myIndex]) == float
-                and type(court["ProceedingType2"].iloc[myIndex]) == float
+                isinstance(COURT["ProceedingType3"].iloc[myIndex]) == float
+                and isinstance(COURT["ProceedingType2"].iloc[myIndex]) == float
             ):
-                country_json[item]["Court"] = {
-                    "ProceedingType1": str(court["ProceedingType1"].iloc[myIndex]),
-                    "Court1": str(court["Court1"].iloc[myIndex]),
+                COUNTRY_JSON[item]["Court"] = {
+                    "ProceedingType1": str(COURT["ProceedingType1"].iloc[myIndex]),
+                    "Court1": str(COURT["Court1"].iloc[myIndex]),
                 }
 
             elif (
-                type(court["ProceedingType3"].iloc[myIndex]) == float
-                and type(court["ProceedingType2"].iloc[myIndex]) == str
+                isinstance(COURT["ProceedingType3"].iloc[myIndex]) == float
+                and isinstance(COURT["ProceedingType2"].iloc[myIndex]) == str
             ):
 
-                country_json[item]["Court"] = {
-                    "ProceedingType1": str(court["ProceedingType1"].iloc[myIndex]),
-                    "Court1": str(court["Court1"].iloc[myIndex]),
-                    "ProceedingType2": str(court["ProceedingType2"].iloc[myIndex]),
-                    "Court2": str(court["Court2"].iloc[myIndex]),
+                COUNTRY_JSON[item]["Court"] = {
+                    "ProceedingType1": str(COURT["ProceedingType1"].iloc[myIndex]),
+                    "Court1": str(COURT["Court1"].iloc[myIndex]),
+                    "ProceedingType2": str(COURT["ProceedingType2"].iloc[myIndex]),
+                    "Court2": str(COURT["Court2"].iloc[myIndex]),
                 }
             else:
-                country_json[item]["Court"] = {
-                    "ProceedingType1": str(court["ProceedingType1"].iloc[myIndex]),
-                    "Court1": str(court["Court1"].iloc[myIndex]),
-                    "ProceedingType2": str(court["ProceedingType2"].iloc[myIndex]),
-                    "Court2": str(court["Court2"].iloc[myIndex]),
-                    "ProceedingType3": str(court["ProceedingType3"].iloc[myIndex]),
-                    "Court3": str(court["Court3"].iloc[myIndex]),
+                COUNTRY_JSON[item]["Court"] = {
+                    "ProceedingType1": str(COURT["ProceedingType1"].iloc[myIndex]),
+                    "Court1": str(COURT["Court1"].iloc[myIndex]),
+                    "ProceedingType2": str(COURT["ProceedingType2"].iloc[myIndex]),
+                    "Court2": str(COURT["Court2"].iloc[myIndex]),
+                    "ProceedingType3": str(COURT["ProceedingType3"].iloc[myIndex]),
+                    "Court3": str(COURT["Court3"].iloc[myIndex]),
                 }
 
-final_list["country"] = country_json
-final_list["article"] = article_json
-with open(outputFile, "w", encoding="UTF-8") as ps:
-    ps.write(jsons.dumps(final_list))
+FINAL_LIST["country"] = COUNTRY_JSON
+FINAL_LIST["article"] = ARTICLE_JSON
+with open(OUTPUT_FILE, "w", encoding="UTF-8") as ps:
+    ps.write(jsons.dumps(FINAL_LIST))

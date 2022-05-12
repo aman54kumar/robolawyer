@@ -3,7 +3,7 @@ from cmath import log
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.template import RequestContext
-from django.http import HttpResponse, Http404, response
+from django.http import HttpResponse, Http404, response, JsonResponse
 from django.template.loader import render_to_string
 
 from robolawyer.utils.email_auth import Authenticate
@@ -67,7 +67,6 @@ def formProcessing(request):
 
         # print(hiddenDocsObject)
         # print("\n")
-        print(hiddenDocsObject)
         for item in hiddenDocsObject:
             item = json.loads(item)
             hiddenObject.append(item)
@@ -176,15 +175,38 @@ def createDirectory(directoryName):
     return
 
 
-# def docObject(request):
-#     if request.method == 'POST':
-#         objectDict = json.loads(request.body)
-#         dirname = "applicationForm/dataPreparation/results/" + sessionID + "/docs/"
-#         createDirectory(dirname)
-#         pageNList = [13]
-#         for data in objectDict:
-#             docName = str(objectDict.index(data)) + ".pdf"
-#             docsPDF = PrepareDocsPDF(data, dirname, str(docName), data['title'], data['title'], sum(pageNList))
-#             pageReturned = docsPDF.main()
-#             pageNList.append(pageReturned)
-#     return HttpResponse('done')
+def makeObjectDictResponse():
+    #
+    print("dd")
+
+
+def docObject(request):
+    if request.method == "POST":
+        objectDict = json.loads(request.body)
+        dirname = "applicationForm/dataPreparation/results/" + sessionID + "/docs/"
+        createDirectory(dirname)
+        pageNList = [13]
+        allObjects = objectDict["docObject"]
+        newObject = []
+        for data in allObjects:
+            docName = str(allObjects.index(data)) + ".pdf"
+            docsPDF = PrepareDocsPDF(
+                data,
+                dirname,
+                str(docName),
+                data["title"],
+                data["title"],
+                sum(pageNList),
+            )
+            pageReturned = docsPDF.main()
+            newObject.append(
+                {
+                    "date": data["date"],
+                    "title": data["title"],
+                    "desc": data["desc"],
+                    "page": pageReturned,
+                }
+            )
+            pageNList.append(pageReturned)
+        return JsonResponse(newObject, safe=False)
+    return HttpResponse("done")

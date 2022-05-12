@@ -477,7 +477,7 @@ def twelvthPageInputs(self, can, inputObj, pageNumberList):
         pageListNew,
         pageListTemp,
     ] = sortDocumentsDate(self, inputObj)
-    pageListNew = add_one_by_one(pageListTemp)
+    # pageListNew = add_one_by_one(pageListTemp)
     length = int((len(inputObj)) / 4)
     yCoord = 666
     for item in range(length):
@@ -485,7 +485,7 @@ def twelvthPageInputs(self, can, inputObj, pageNumberList):
         t1.setFont(_customFont, _customFontSize)
         desc = descListNew[item]
         title = titleListNew[item]
-        page = str(pageNumberList)
+        page = str(pageNumberList[item])
         can.setFont("Courier-Bold", 12)
         can.drawString(40, yCoord, title)
         can.setFont("Courier", 11)

@@ -72,11 +72,21 @@
             </div>
 
             <div class="form-group">
+              <div id="page8Spinner">
+                <div class="flower-spinner">
+                  <div class="dots-container">
+                    <div class="bigger-dot">
+                      <div class="smaller-dot"></div>
+                    </div>
+                  </div>
+                </div>
+                <h6 class="spinner-text text-center">Loading documents... </h6>
+              </div>
               <div id="page8Group">
                 <div class="r-group">
                   <table width="100%">
                     <tr>
-                      <td width="18%">
+                      <td width="12%">
                         <label for="doc_0_0">Date</label>
                         <input type="text" name="page8[0][date]" id="doc_0_date"
                           class="form-control datepicker docsDate" data-pattern-name="page8[++][date]"
@@ -95,9 +105,10 @@
                           data-pattern-name="page8[++][desc]" data-pattern-id="doc_++_desc" maxlength="70"
                           data-parsley-group="page8" required />
                       </td>
-                      <td width="12%">
-                        <label for="doc_0_0">Number of Pages<a href="javascript://" class="popover-class"><span><i
-                                class="fas fa-question-circle"></i></span></a></label>
+                      <td width="18%">
+                        <label for="doc_0_0" style="overflow: hidden;white-space: nowrap"><a href="javascript://"
+                            class="popover-class"><span><i class="fas fa-question-circle"></i></span></a>Number of
+                          Pages</label>
                         <input type="number" name="page8[0][page]" id="doc_0_page" class="form-control docsPages"
                           data-pattern-name="page8[++][page]" data-pattern-id="doc_++_page" min="1"
                           data-parsley-group="page8" required />

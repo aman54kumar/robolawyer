@@ -5,7 +5,6 @@ from reportlab.lib.units import inch
 
 
 class PrepareDocsPDF:
-
     def __init__(self, objectDict, dirname, docName, title, pageinfo, pageN):
         self.objectDict = objectDict
         self.dirname = dirname
@@ -18,16 +17,26 @@ class PrepareDocsPDF:
 
     def myFirstPage(self, canvas, doc):
         canvas.saveState()
-        canvas.setFont('Times-Bold', 16)
-        canvas.drawCentredString(self.PAGE_WIDTH / 2.0, self.PAGE_HEIGHT - 108, self.Title)
-        canvas.setFont('Times-Roman', 9)
-        canvas.drawString(1 * inch, 0.75 * inch, "Page %d / %s" % (doc.page + self.page, self.pageinfo))
+        canvas.setFont("Times-Bold", 16)
+        canvas.drawCentredString(
+            self.PAGE_WIDTH / 2.0, self.PAGE_HEIGHT - 108, self.Title
+        )
+        canvas.setFont("Times-Roman", 9)
+        canvas.drawString(
+            1 * inch,
+            0.75 * inch,
+            "Page %d / %s" % (doc.page + self.page, self.pageinfo),
+        )
         canvas.restoreState()
 
     def myLaterPages(self, canvas, doc):
         canvas.saveState()
-        canvas.setFont('Times-Roman', 9)
-        canvas.drawString(1 * inch, 0.75 * inch, "Page %d / %s" % (doc.page + self.page, self.pageinfo))
+        canvas.setFont("Times-Roman", 9)
+        canvas.drawString(
+            1 * inch,
+            0.75 * inch,
+            "Page %d / %s" % (doc.page + self.page, self.pageinfo),
+        )
         canvas.restoreState()
 
     def go(self):
@@ -37,7 +46,7 @@ class PrepareDocsPDF:
         style = styles["Normal"]
         style.fontName = "Courier"
         style.fontSize = 9
-        textString = self.objectDict['text'].replace("\n", "<br/>")
+        textString = self.objectDict["text"].replace("\n", "<br/>")
         p = Paragraph(textString, style)
         Story.append(p)
         Story.append(Spacer(1, 0.2 * inch))
@@ -51,5 +60,3 @@ class PrepareDocsPDF:
         # self.getObjectDict()
         pageNumber = self.go()
         return pageNumber
-
-

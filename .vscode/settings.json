@@ -1,6 +1,6 @@
 {
   "python.linting.enabled": true,
-  "python.linting.pylamaEnabled": false,
+  "python.linting.pylamaEnabled": true,
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#598dc1",
     "activityBar.activeBorder": "#e5b9cf",
@@ -25,5 +25,5 @@
   "appService.defaultWebAppToDeploy": "/subscriptions/d9ce407e-a408-4796-9273-971cd7412f95/resourceGroups/Justbot/providers/Microsoft.Web/sites/justbot",
   "appService.deploySubpath": ".",
   "python.formatting.provider": "black",
-  "python.linting.pylintEnabled": true
+  "python.linting.pylintEnabled": false
 }

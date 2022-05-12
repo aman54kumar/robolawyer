@@ -463,12 +463,16 @@ function pageCountAnon(id) {
 }
 
 var globalDocObject = [];
+let autoAddedDocs = [];
+let manualAddedDocs = [];
+let autoGenFlag = "auto";
 // var docObject;
 
 $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
   docObject = [];
   if (!!$("#anonReqText").val()) {
     anon = {
+      id: 1,
       date: moment().format("DD-MM-YYYY"),
       title: "Anonymity Request",
       desc: "Documents requesting anonymity in the public documents of the court.",
@@ -479,6 +483,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
   }
   if (!!$("#stofFactsExtra").val()) {
     facts = {
+      id: 2,
       date: moment().format("DD-MM-YYYY"),
       title: "Supplementary Statement on the Subject matter of the application",
       desc: "Document to supplement further details on the facts.",
@@ -489,6 +494,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
   }
   if (!!$("#orgnlCapacity").val()) {
     official = {
+      id: 3,
       date: moment().format("DD-MM-YYYY"),
       title: "Proof of organisation official",
       desc: "Proof of the official's right to represent the organisation.",
@@ -500,6 +506,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
 
   if ($("input[name='page2[orgDateOption]']:checked").val() === "No") {
     orgDateText = {
+      id: 4,
       date: moment().format("DD-MM-YYYY"),
       title: "Explanation for missing registration/incorporation date",
       desc: "Organisation does not possess a registration/incorporation date.",
@@ -510,6 +517,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
   }
   if ($("input[name='page2[orgIdentityOption]']:checked").val() === "No") {
     orgIdentityText = {
+      id: 5,
       date: moment().format("DD-MM-YYYY"),
       title: "Explanation for missing identification number.",
       desc: "Organisation does not possess an identification number.",
@@ -520,6 +528,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
   }
   if (!!$("#indNLAuthArea").val()) {
     indNLAuthText = {
+      id: 6,
       date: moment().format("DD-MM-YYYY"),
       title: "Explanation for lack of authority form",
       desc: "Document explaining the lack of authority form.",
@@ -531,6 +540,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
 
   if ($("#indNLFaxOption:checked").val() === "No") {
     indNLFaxText = {
+      id: 7,
       date: moment().format("DD-MM-YYYY"),
       title: "Non-lawyer representative missing fax number",
       desc: "Explanation for missing fax number (non-lawyer representative)",
@@ -542,6 +552,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
 
   if ($("#indLFaxOption:checked").val() === "No") {
     indLFaxText = {
+      id: 8,
       date: moment().format("DD-MM-YYYY"),
       title: "Lawyer representative missing fax number",
       desc: "Explanation for missing fax number (lawyer representative)",
@@ -553,6 +564,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
 
   if (!!$("#indLAuthAreaYes").val()) {
     indLOtherYesText = {
+      id: 9,
       date: moment().format("DD-MM-YYYY"),
       title: "Explanation for lack of signature on the authority form",
       desc: "Document explaining the lack of authority form.",
@@ -563,6 +575,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
   }
   if (!!$("#indLAuthAreaNo").val()) {
     indLOtherNoText = {
+      id: 10,
       date: moment().format("DD-MM-YYYY"),
       title: "Explanation for lack of signature on the authority form",
       desc: "Document explaining the lack of authority form. ",
@@ -573,6 +586,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
   }
   if ($("#orgNLFaxOption:checked").val() === "on") {
     orgNLFaxText = {
+      id: 11,
       date: moment().format("DD-MM-YYYY"),
       title: "Organisation official missing fax number",
       desc: "Document explaining why the organisation official cannot provide a fax number.",
@@ -584,7 +598,8 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
 
   if (!!$("#orgNLOfficialAreaYes").val()) {
     orgNLOfficial = {
-      date: "",
+      id: 12,
+      date: moment().format("DD-MM-YYYY"),
       title: "Proof of organisation official",
       desc: "Organisation official is legally entitled to represent the organisation",
       page: 1,
@@ -594,6 +609,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
   }
   if (!!$("#orgNLOfficialAreaNo").val()) {
     orgNLOfficial = {
+      id: 13,
       date: moment().format("DD-MM-YYYY"),
       title: "Organisation official document",
       desc: "organisation official cannot provide proof for its position",
@@ -605,6 +621,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
 
   if (!!$("#orgAutorityAreaNo").val()) {
     orgAutorityAreaNo = {
+      id: 14,
       date: moment().format("DD-MM-YYYY"),
       title: "Explanation for lack of authority form",
       desc: "organisation cannot sign the form authorising the representative to represent",
@@ -617,27 +634,54 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
 
   $("input[name='page8[hiddenDocObject]']").val(JSON.stringify(docObject));
 
-  var docObjectLength = docObject.length;
-  for (var i = 0; i < docObjectLength; i++) {
-    if (
-      $("#page8Group").children().length === 1 ||
-      $("#page8Group").children().last().find(".docsDate").val() != ""
-    ) {
-      $(`#addButton_8_${i - 1}`).click();
-      inputPage8Values(i, docObject);
-    } else if (
-      $("#page8Group").children().length != 1 ||
-      $("#page8Group").children().last().find(".docsDate").val() === ""
-    ) {
-      inputPage8Values(i, docObject);
-    }
+  document.getElementById("page8Spinner").style.display = "block";
+  document.getElementById("page8Group").style.display = "none";
+  const csrftoken = getCookie("csrftoken");
+  axios({
+    method: "post",
+    url: "/form/docObject",
+    data: { docObject: docObject },
+    headers: {
+      "X-CSRFToken": csrftoken,
+    },
+  })
+    .then((response) => {
+      const docObject = response.data;
+      const docObjectLength = docObject.length;
 
-    // hide button div of 2nd last group
-    $("#page8Group")
-      .children("div:nth-last-child(2)")
-      .children("div")
-      .addClass("is-hidden");
-  }
+      for (let i = 0; i < docObjectLength; i++) {
+        if (
+          $("#page8Group").children().length === 1 ||
+          $("#page8Group").children().last().find(".docsDate").val() != ""
+        ) {
+          if ($("#page8Group").children().length < docObjectLength) {
+            $(`#addButton_8_${i - 1}`).click();
+          }
+          inputPage8Values(i, docObject);
+        } else if (
+          $("#page8Group").children().length != 1 ||
+          $("#page8Group").children().last().find(".docsDate").val() === ""
+        ) {
+          inputPage8Values(i, docObject);
+        }
+
+        // hide button div of 2nd last group
+        $("#page8Group")
+          .children("div:nth-last-child(2)")
+          .children("div")
+          .addClass("is-hidden");
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+    .finally(() => {
+      document.getElementById("page8Spinner").style.display = "none";
+      document.getElementById("page8Group").style.display = "block";
+    });
+
+  // var docObjectLength = docObject.length;
+
   // check fields empty or not for delete button hiding for auto documents
 });
 
@@ -715,8 +759,14 @@ $("#page8Group").repeater({
     const x = document.getElementById(
       `doc_${parseInt(this.id.split("_")[2]) + 1}_page`
     ).parentElement.children[0].children[0];
-    console.log(x);
     tippy(x, popover_attributes);
+
+    // if(autoGenFlag === "auto"){
+    //   autoAddedDocs.push()
+    // }
+    // else {
+    //   manualAddedDocs.push()
+    // }
   },
   afterDelete: function () {
     groups = $("#page8Group").children();

@@ -597,41 +597,44 @@ function callAPI(addButtonIDornewDiv) {
     childSelectId = parentSelectId + "_conj";
     newDropdownElement.id = childSelectId;
     newDropdownElement.classList += "form-control";
-    correspDropdownElement = addButtonIDornewDiv.insertBefore(
-      newDropdownElement,
-      addButtonIDornewDiv.children[1]
-    );
-    newDropdownElement.addEventListener("change", () => {
-      populateDiv(childSelectId, ".descDiv2");
-    });
+    // console.log($(addButtonIDornewDiv).find("select").length);
+    if ($(addButtonIDornewDiv).find("select").length === 0) {
+      correspDropdownElement = addButtonIDornewDiv.insertBefore(
+        newDropdownElement,
+        addButtonIDornewDiv.children[1]
+      );
+      newDropdownElement.addEventListener("change", () => {
+        populateDiv(childSelectId, ".descDiv2");
+      });
 
-    correspDropdownElement = $(correspDropdownElement);
-    correspDropdownElement.append(
-      $("<option></option>")
-        .prop("value", "")
-        .prop("disabled", true)
-        .prop("selected", true)
-        .prop("hidden", true)
-        .text("Select Relevant Article")
-    );
-    $.each(data, function (article) {
-      textValue = data[article];
-      if (textValue === "Other articles") {
-        correspDropdownElement.append(
-          $("<option></option>")
-            .prop("disabled", true)
-            .addClass("dropdown-item")
-            .text(textValue)
-        );
-      } else {
-        correspDropdownElement.append(
-          $("<option></option>")
-            .prop("value", textValue)
-            .addClass("dropdown-item")
-            .text(textValue)
-        );
-      }
-    });
+      correspDropdownElement = $(correspDropdownElement);
+      correspDropdownElement.append(
+        $("<option></option>")
+          .prop("value", "")
+          .prop("disabled", true)
+          .prop("selected", true)
+          .prop("hidden", true)
+          .text("Select Relevant Article")
+      );
+      $.each(data, function (article) {
+        textValue = data[article];
+        if (textValue === "Other articles") {
+          correspDropdownElement.append(
+            $("<option></option>")
+              .prop("disabled", true)
+              .addClass("dropdown-item")
+              .text(textValue)
+          );
+        } else {
+          correspDropdownElement.append(
+            $("<option></option>")
+              .prop("value", textValue)
+              .addClass("dropdown-item")
+              .text(textValue)
+          );
+        }
+      });
+    }
   }
 }
 
@@ -651,7 +654,6 @@ function getDerogationText(selectedArticle, derogationTableDict) {
         const temp_array = derogationTableDict.get(country);
         temp_array.push(countryData[country].Reservations[curIndex]);
         derogationTableDict.set(country, temp_array);
-        // derogationTableDict[country] = temp_array;
       } else {
         derogationTableDict.set(country, [
           countryData[country].Reservations[curIndex],
@@ -866,13 +868,11 @@ function populateDiv(elId, descDivClass) {
 function conjunctionArticle(parentDivElement) {
   buttonElement = document.createElement("button");
   buttonElement.innerHTML = "Add Conjunction Article";
-  buttonElement.className += "btn btn-secondary";
+  buttonElement.className += "btn btn-secondary conjBtn";
   parentDivElement.insertBefore(buttonElement, parentDivElement.children[0]);
-  buttonElement.addEventListener("click", () => {
+  $(document.body).on("click", ".conjBtn", function () {
     callAPI(parentDivElement);
-    buttonElement.classList.add("is-hidden");
-
-    // TODO - get remove button
+    $(".conjBtn").addClass("is-hidden").removeClass("conjBtn");
   });
 }
 

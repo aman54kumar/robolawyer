@@ -43,7 +43,7 @@ def getFormattedArticleText(text):
 
 ARTICLE_FILE = os.path.join(
     settings.BASE_DIR,
-    "applicationForm/dataPreparation/countryAPI/Updated API ratification list.xlsx",
+    "applicationForm/dataPreparation/countryAPI/Updated API ratification list-old.xlsx",
 )
 
 COURT_FILE = os.path.join(
@@ -108,19 +108,17 @@ for item in COUNTRY_JSON:
 
         if item in COURT["Country"].tolist():
             myIndex = court_country[court_country == item].index[0]
-            if (
-                isinstance(COURT["ProceedingType3"].iloc[myIndex]) == float
-                and isinstance(COURT["ProceedingType2"].iloc[myIndex]) == float
+            if isinstance(COURT["ProceedingType3"].iloc[myIndex], float) and isinstance(
+                COURT["ProceedingType2"].iloc[myIndex], float
             ):
                 COUNTRY_JSON[item]["Court"] = {
                     "ProceedingType1": str(COURT["ProceedingType1"].iloc[myIndex]),
                     "Court1": str(COURT["Court1"].iloc[myIndex]),
                 }
 
-            elif (
-                isinstance(COURT["ProceedingType3"].iloc[myIndex]) == float
-                and isinstance(COURT["ProceedingType2"].iloc[myIndex]) == str
-            ):
+            elif isinstance(
+                COURT["ProceedingType3"].iloc[myIndex], float
+            ) and isinstance(COURT["ProceedingType2"].iloc[myIndex], str):
 
                 COUNTRY_JSON[item]["Court"] = {
                     "ProceedingType1": str(COURT["ProceedingType1"].iloc[myIndex]),

@@ -10,10 +10,21 @@ import glob
 import re
 import shutil
 from .inputMethodforWM import (
-    firstPageInputs, secondPageInputs, thirdPageInputs, fourthPageInputs,
-    fifthPageInputs, sixthPageInputs, seventhPageInputs, eighthPageInputs,
-    ninthPageInputs, tenthPageInputs, eleventhPageInputs, twelvthPageInputs,
-    thirteenthPageInputs, extractStringFromList)
+    firstPageInputs,
+    secondPageInputs,
+    thirdPageInputs,
+    fourthPageInputs,
+    fifthPageInputs,
+    sixthPageInputs,
+    seventhPageInputs,
+    eighthPageInputs,
+    ninthPageInputs,
+    tenthPageInputs,
+    eleventhPageInputs,
+    twelvthPageInputs,
+    thirteenthPageInputs,
+    extractStringFromList,
+)
 from .inputMethodforWM import (
     modifyCountryNames,
     sortDocumentsDate,
@@ -23,6 +34,7 @@ from .inputMethodforWM import (
 
 import logging
 from .countryCoordDict import coordinateDict
+
 # from datetime import datetime
 from .prepareDocsPDF import PrepareDocsPDF
 
@@ -39,9 +51,7 @@ class PrepareResult:
     basedirPDF = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
     def natural_key(self, string_):
-        return [
-            int(s) if s.isdigit() else s for s in re.split(r"(\d+)", string_)
-        ]
+        return [int(s) if s.isdigit() else s for s in re.split(r"(\d+)", string_)]
 
     def createOrDeleteDirectory(self, directoryName):
         dirname = directoryName
@@ -67,21 +77,26 @@ class PrepareResult:
     def objectDocs(self, objectDict, dirname):
         pageNList = [13]
         import json
+
         objectDict = json.loads(objectDict)
         # print(type(objectDict))
         for data in objectDict:
-            docName = "Result_form_page_" + str(
-                14 + objectDict.index(data)) + ".pdf"
+            docName = "Result_form_page_" + str(14 + objectDict.index(data)) + ".pdf"
             # print(data)
-            docsPDF = PrepareDocsPDF(data, dirname, str(docName),
-                                     data['title'], data['title'],
-                                     sum(pageNList))
+            docsPDF = PrepareDocsPDF(
+                data,
+                dirname,
+                str(docName),
+                data["title"],
+                data["title"],
+                sum(pageNList),
+            )
             pageReturned = docsPDF.main()
             pageNList.append(pageReturned)
 
     def main(self):
-        """ next 3 lines to be executed when there is a change in application form file. Looks for the
-         formatting changes if needed."""
+        """next 3 lines to be executed when there is a change in application form file. Looks for the
+        formatting changes if needed."""
         # filename = 'applicationForm/dataPreparation/App_form.pdf'
         # self.createOrDeleteDirectory('applicationForm/dataPreparation/pages')
         # self.pdf_splitter(filename)
@@ -126,11 +141,11 @@ class PrepareResult:
         #     articleExplanationList.append(articleExplanationList[0])
         # close test
 
-        lineEscape = '#-'
-        tabEscape = '%+'
-        finalString = extractStringFromList(articleSelectList,
-                                            articleExplanationList, tabEscape,
-                                            lineEscape)
+        lineEscape = "#-"
+        tabEscape = "%+"
+        finalString = extractStringFromList(
+            articleSelectList, articleExplanationList, tabEscape, lineEscape
+        )
 
         articleLineList = finalString.split(lineEscape)
 
@@ -138,7 +153,7 @@ class PrepareResult:
         no_of_lines_second_page = 54
         articleFirstPage = []
         articleSecondPage = []
-        paraEscape = '$^'
+        paraEscape = "$^"
 
         for i in range(no_of_lines_first_page):
             if i < len(articleLineList):
@@ -157,8 +172,8 @@ class PrepareResult:
                 break
 
         articleSecondPage = articleLineList[
-            no_of_lines_first_page:no_of_lines_first_page +
-            no_of_lines_second_page]
+            no_of_lines_first_page : no_of_lines_first_page + no_of_lines_second_page
+        ]
 
         # finish Input for Article Page
 
@@ -179,9 +194,9 @@ class PrepareResult:
         #     complainSelectList.append(complainSelectList[0])
         #     remediesUsedList.append(remediesUsedList[0])
         # close test
-        finalStringPage10 = extractStringFromList(complainSelectList,
-                                                  remediesUsedList, tabEscape,
-                                                  lineEscape)
+        finalStringPage10 = extractStringFromList(
+            complainSelectList, remediesUsedList, tabEscape, lineEscape
+        )
 
         # # print(repr(finalString))
         complainLineList = finalStringPage10.split(lineEscape)
@@ -213,20 +228,20 @@ class PrepareResult:
                 barCodeText += value + "|"
         for key, value in self.inputObj["page2"].items():
             if key not in [
-                    "page2[applicantType]",
-                    "page2[applicantAnon]",
-                    "page2[applicantAnonExp]",
-                    "page2[orgDateOption]",
-                    "page2[orgIdentityOption]",
-                    "page2[orgActivity]",
+                "page2[applicantType]",
+                "page2[applicantAnon]",
+                "page2[applicantAnonExp]",
+                "page2[orgDateOption]",
+                "page2[orgIdentityOption]",
+                "page2[orgActivity]",
             ]:
                 barCodeText += value + "|"
         for key, value in self.inputObj["page3"].items():
             if key not in [
-                    "page3[indRepresentativeType]",
-                    "page3[indNLCapacity]",
-                    "page3[orgCapacity]",
-                    "page3[orgRepresentativeType]",
+                "page3[indRepresentativeType]",
+                "page3[indNLCapacity]",
+                "page3[orgCapacity]",
+                "page3[orgRepresentativeType]",
             ]:
                 barCodeText += value + "|"
         barCodeText = barCodeText.replace("\r\n", "").replace("\n", "")
@@ -238,18 +253,16 @@ class PrepareResult:
 
         for indexes in [6, 21, 29, 36, 43]:
             barCodeList[indexes] = modifyCountryNames(barCodeList[indexes])
-        barCodeList = self.swapPositions(barCodeList, 20,
-                                         21)  # address-nationality
-        barCodeList = self.swapPositions(barCodeList, 22,
-                                         23)  # phone-fax-email
-        barCodeList = self.swapPositions(barCodeList, 23,
-                                         24)  # phone-fax-email
-        barCodeList = self.swapPositions(barCodeList, 28,
-                                         29)  # swapping page1 values:
+        barCodeList = self.swapPositions(barCodeList, 20, 21)  # address-nationality
+        barCodeList = self.swapPositions(barCodeList, 22, 23)  # phone-fax-email
+        barCodeList = self.swapPositions(barCodeList, 23, 24)  # phone-fax-email
+        barCodeList = self.swapPositions(barCodeList, 28, 29)  # swapping page1 values:
         barCodeList = self.swapPositions(
-            barCodeList, 12, 13)  # swapping page 4 address and nationality:
+            barCodeList, 12, 13
+        )  # swapping page 4 address and nationality:
         barCodeList = self.swapPositions(
-            barCodeList, 36, 37)  # swapping page 4 L address and nationality:
+            barCodeList, 36, 37
+        )  # swapping page 4 L address and nationality:
         barCodeList = self.swapPositions(barCodeList, 43, 44)
 
         barCodeList[4] = self.changeDateFormat(barCodeList[4])
@@ -260,15 +273,16 @@ class PrepareResult:
         codeList.append(barCodeText[:927])
         codeList.append(self.sessionID)
         self.createOrDeleteDirectory(
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/")
+            "applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/"
+        )
         self.createOrDeleteDirectory(
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/watermark/")
+            "applicationForm/dataPreparation/results/" + self.sessionID + "/watermark/"
+        )
 
         self.objectDocs(
-            self.hiddenDocsObject, "applicationForm/dataPreparation/results/" +
-            self.sessionID + "/finalPage/")
+            self.hiddenDocsObject,
+            "applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/",
+        )
         output1 = self.create_watermark_pdf(
             self.inputObj["page2"],
             pos=1,
@@ -287,13 +301,13 @@ class PrepareResult:
         output8 = self.create_watermark_pdf(articleFirstPage, pos=8)
         output9 = self.create_watermark_pdf(articleSecondPage, pos=9)
         output10 = self.create_watermark_pdf(complainFirstPage, pos=10)
-        output11 = self.create_watermark_pdf(self.inputObj["page6"],
-                                             pos=11,
-                                             tempInput=self.inputObj["page7"])
+        output11 = self.create_watermark_pdf(
+            self.inputObj["page6"], pos=11, tempInput=self.inputObj["page7"]
+        )
         output12 = self.create_watermark_pdf(docs, pos=12)
-        output13 = self.create_watermark_pdf(self.inputObj["page9"],
-                                             pos=13,
-                                             tempInput=codeList)
+        output13 = self.create_watermark_pdf(
+            self.inputObj["page9"], pos=13, tempInput=codeList
+        )
 
         self.create_New_Pdf(docs)
         # totalDocs = len(self.inputObj['page8']) / 4
@@ -302,92 +316,108 @@ class PrepareResult:
 
         self.watermark(
             "applicationForm/dataPreparation/pages/App_form_page_1.pdf",
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/Result_form_page_1.pdf",
+            "applicationForm/dataPreparation/results/"
+            + self.sessionID
+            + "/finalPage/Result_form_page_1.pdf",
             output1,
         )
         self.watermark(
             "applicationForm/dataPreparation/pages/App_form_page_2.pdf",
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/Result_form_page_2.pdf",
+            "applicationForm/dataPreparation/results/"
+            + self.sessionID
+            + "/finalPage/Result_form_page_2.pdf",
             output2,
         ),
         self.watermark(
             "applicationForm/dataPreparation/pages/App_form_page_3.pdf",
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/Result_form_page_3.pdf",
+            "applicationForm/dataPreparation/results/"
+            + self.sessionID
+            + "/finalPage/Result_form_page_3.pdf",
             output3,
         ),
         self.watermark(
             "applicationForm/dataPreparation/pages/App_form_page_4.pdf",
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/Result_form_page_4.pdf",
+            "applicationForm/dataPreparation/results/"
+            + self.sessionID
+            + "/finalPage/Result_form_page_4.pdf",
             output4,
         ),
         self.watermark(
             "applicationForm/dataPreparation/pages/App_form_page_5.pdf",
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/Result_form_page_5.pdf",
+            "applicationForm/dataPreparation/results/"
+            + self.sessionID
+            + "/finalPage/Result_form_page_5.pdf",
             output5,
         ),
         self.watermark(
             "applicationForm/dataPreparation/pages/App_form_page_6.pdf",
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/Result_form_page_6.pdf",
+            "applicationForm/dataPreparation/results/"
+            + self.sessionID
+            + "/finalPage/Result_form_page_6.pdf",
             output6,
         ),
         self.watermark(
             "applicationForm/dataPreparation/pages/App_form_page_7.pdf",
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/Result_form_page_7.pdf",
+            "applicationForm/dataPreparation/results/"
+            + self.sessionID
+            + "/finalPage/Result_form_page_7.pdf",
             output7,
         ),
         self.watermark(
             "applicationForm/dataPreparation/pages/App_form_page_8.pdf",
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/Result_form_page_8.pdf",
+            "applicationForm/dataPreparation/results/"
+            + self.sessionID
+            + "/finalPage/Result_form_page_8.pdf",
             output8,
         ),
         self.watermark(
             "applicationForm/dataPreparation/pages/App_form_page_9.pdf",
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/Result_form_page_9.pdf",
+            "applicationForm/dataPreparation/results/"
+            + self.sessionID
+            + "/finalPage/Result_form_page_9.pdf",
             output9,
         ),
         self.watermark(
             "applicationForm/dataPreparation/pages/App_form_page_10.pdf",
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/Result_form_page_10.pdf",
+            "applicationForm/dataPreparation/results/"
+            + self.sessionID
+            + "/finalPage/Result_form_page_10.pdf",
             output10,
         ),
         self.watermark(
             "applicationForm/dataPreparation/pages/App_form_page_11.pdf",
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/Result_form_page_11.pdf",
+            "applicationForm/dataPreparation/results/"
+            + self.sessionID
+            + "/finalPage/Result_form_page_11.pdf",
             output11,
         ),
         self.watermark(
             "applicationForm/dataPreparation/pages/App_form_page_12.pdf",
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/Result_form_page_12.pdf",
+            "applicationForm/dataPreparation/results/"
+            + self.sessionID
+            + "/finalPage/Result_form_page_12.pdf",
             output12,
         ),
         self.watermark(
             "applicationForm/dataPreparation/pages/App_form_page_13.pdf",
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/Result_form_page_13.pdf",
+            "applicationForm/dataPreparation/results/"
+            + self.sessionID
+            + "/finalPage/Result_form_page_13.pdf",
             output13,
         ),
 
-        resultPath = glob.glob("applicationForm/dataPreparation/results/" +
-                               self.sessionID +
-                               "/finalPage/Result_form_page_*.pdf")
+        resultPath = glob.glob(
+            "applicationForm/dataPreparation/results/"
+            + self.sessionID
+            + "/finalPage/Result_form_page_*.pdf"
+        )
         # print(type(resultPath))
 
         resultPath.sort(key=self.natural_key)
         self.pdf_merger(
-            "applicationForm/dataPreparation/results/" + self.sessionID +
-            "/finalPage/Application form to the ECtHR.pdf",
+            "applicationForm/dataPreparation/results/"
+            + self.sessionID
+            + "/finalPage/Application form to the ECtHR.pdf",
             resultPath,
         )
 
@@ -397,8 +427,10 @@ class PrepareResult:
         for page in range(pdf.getNumPages()):
             pdf_writer = PdfFileWriter()
             pdf_writer.addPage(pdf.getPage(page))
-            output_filename = ("applicationForm/dataPreparation/pages/" +
-                               "{}_page_{}.pdf".format(fname, page + 1))
+            output_filename = (
+                "applicationForm/dataPreparation/pages/"
+                + "{}_page_{}.pdf".format(fname, page + 1)
+            )
             with open(output_filename, "wb") as out:
                 pdf_writer.write(out)
             # print('Created: {}'.format(output_filename))
@@ -424,9 +456,13 @@ class PrepareResult:
         fh.close()
 
     def create_watermark_pdf(self, inputObj, pos, tempInput=None):
-        filename = ("applicationForm/dataPreparation/results/" +
-                    self.sessionID + "/watermark/resultForm_" + str(pos) +
-                    ".pdf")
+        filename = (
+            "applicationForm/dataPreparation/results/"
+            + self.sessionID
+            + "/watermark/resultForm_"
+            + str(pos)
+            + ".pdf"
+        )
 
         can = canvas.Canvas(filename, pagesize=A4)
         if pos == 1:
@@ -452,9 +488,13 @@ class PrepareResult:
         elif pos == 11:
             can = eleventhPageInputs(self, can, inputObj, tempInput)
         elif pos == 12:
-            pathToNewFiles = "applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/"
+            pathToNewFiles = (
+                "applicationForm/dataPreparation/results/"
+                + self.sessionID
+                + "/finalPage/"
+            )
             pageNumberList = self.getNumberOfPagesList(pathToNewFiles)
-            can = twelvthPageInputs(self, can, inputObj, pageNumberList)
+            can = twelvthPageInputs(self, can, inputObj, pageNumberList[::-1])
         elif pos == 13:
             can = thirteenthPageInputs(self, can, inputObj, tempInput)
         else:
@@ -464,13 +504,12 @@ class PrepareResult:
 
     def getNumberOfPagesList(self, directory_name):
         pageCountList = []
-        ext = ('.pdf')
+        ext = ".pdf"
 
         for path, dirc, pdf_files in os.walk(directory_name):
             for name in pdf_files:
-                print(name)
                 if name.endswith(ext):
-                    with open(os.path.join(path, name), 'rb') as pdf_file:
+                    with open(os.path.join(path, name), "rb") as pdf_file:
                         pdf_reader = PdfFileReader(pdf_file)
                         pageCountList.append(pdf_reader.getNumPages())
         # for pdf_file in glob.iglob(str(directory_name) + "*.pdf"):
@@ -486,9 +525,13 @@ class PrepareResult:
         # initPages = self.checkDocsOrNot(docs4List)
         initPages = 100
         for single in range(totalBookmark):
-            filename = ("applicationForm/dataPreparation/results/" +
-                        self.sessionID + "/finalPage/Result_form_page_" +
-                        str(initPages + single) + ".pdf")
+            filename = (
+                "applicationForm/dataPreparation/results/"
+                + self.sessionID
+                + "/finalPage/Result_form_page_"
+                + str(initPages + single)
+                + ".pdf"
+            )
             can = canvas.Canvas(filename, pagesize=A4)
             can = bookmarkPageInputs(
                 self,
@@ -504,8 +547,9 @@ class PrepareResult:
             can.save()
 
     def checkDocsOrNot(self, docsList):
-        sofExtra = any("Extra pages for the Statement of Facts" in sublist
-                       for sublist in docsList)
+        sofExtra = any(
+            "Extra pages for the Statement of Facts" in sublist for sublist in docsList
+        )
         anonReq = any("Anonymity Request" in sublist for sublist in docsList)
         totalPages = 0
         if sofExtra and anonReq:
@@ -528,22 +572,24 @@ def changeCountryToCode(countryList):
 
 def makeDictofTextDocuments(data):
     finalDocumentDict = {}
-    finalDocumentDict[
-        'Explanation for missing registration/incorporation no.'] = data[
-            'page2']['page2[orgDateNoArea]']
-    finalDocumentDict['Explanation for missing identification number.'] = data[
-        'page2']['page2[orgIdentityNoArea]']
-    finalDocumentDict['Anonymity Request'] = data['page2'][
-        'page2[applicantAnonExp]']
-    finalDocumentDict['Explanation for missing identification number.'] = data[
-        'page3']['page3[indLFaxTextArea]']
-    finalDocumentDict['Explanation for lack of authority form'] = data[
-        'page3']['page3[indNLAuthArea]']
-    finalDocumentDict[
-        'Explanation for lack of signature on the authority form'] = data[
-            'page3']['page3[indLAuthAreaYes]']
-    finalDocumentDict[''] = data['page3']['']
-    finalDocumentDict[''] = data['page3']['']
-    finalDocumentDict[''] = data['page3']['']
-    finalDocumentDict[''] = data['page3']['']
+    finalDocumentDict["Explanation for missing registration/incorporation no."] = data[
+        "page2"
+    ]["page2[orgDateNoArea]"]
+    finalDocumentDict["Explanation for missing identification number."] = data["page2"][
+        "page2[orgIdentityNoArea]"
+    ]
+    finalDocumentDict["Anonymity Request"] = data["page2"]["page2[applicantAnonExp]"]
+    finalDocumentDict["Explanation for missing identification number."] = data["page3"][
+        "page3[indLFaxTextArea]"
+    ]
+    finalDocumentDict["Explanation for lack of authority form"] = data["page3"][
+        "page3[indNLAuthArea]"
+    ]
+    finalDocumentDict["Explanation for lack of signature on the authority form"] = data[
+        "page3"
+    ]["page3[indLAuthAreaYes]"]
+    finalDocumentDict[""] = data["page3"][""]
+    finalDocumentDict[""] = data["page3"][""]
+    finalDocumentDict[""] = data["page3"][""]
+    finalDocumentDict[""] = data["page3"][""]
     return finalDocumentDict

@@ -673,6 +673,7 @@ def sortDocumentsDate(self, inputObj):
 
 
 def bookmarkPageInputs(self, can, inputObj):
+    print(inputObj)
     headingText = "Accompanying Documents: Document " + str(inputObj[4] + 1)
     can.setFont("Courier", 18)
     can.drawString(120, 600, headingText)
@@ -686,8 +687,8 @@ def bookmarkPageInputs(self, can, inputObj):
     can.drawString(80, 470, "Short Description: ")
     can.drawString(80, 440 - extraHeight, "Number of Pages: ")
 
-    startPage = str(1 + int(inputObj[2]) - int(inputObj[3]))
-    endPage = str(1 + int(inputObj[2]) - 1)
+    startPage = str(14 + int(inputObj[2]) - int(inputObj[3]))
+    endPage = str(14 + int(inputObj[2]) - 1)
     x = 80
     y = 410 - extraHeight
     pagesText1 = "Document starts at page "

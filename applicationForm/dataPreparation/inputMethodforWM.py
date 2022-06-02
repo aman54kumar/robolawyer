@@ -1,3 +1,4 @@
+from curses import has_key
 from textwrap import wrap
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet
@@ -198,7 +199,10 @@ def fourthPageInputs(self, can, inputObj):
             can.drawText(t)
 
             can.drawString(25, 407, inputObj["page3[orgnlTel]"])
-            can.drawString(25, 367, inputObj["page3[orgnlFax]"])
+            if "page3[orgnlFax]" not in inputObj:
+                can.drawString(25, 367, "")
+            else:
+                can.drawString(25, 367, inputObj["page3[orgnlFax]"])
             can.drawString(25, 327, inputObj["page3[orgnlEmail]"])
 
         elif inputObj["page3[orgRepresentativeType]"] == "orgYesLawyer":
@@ -216,7 +220,11 @@ def fourthPageInputs(self, can, inputObj):
             can.drawText(t)
 
             can.drawString(25, 407, inputObj["page3[orgnlTel]"])
-            can.drawString(25, 367, inputObj["page3[orgnlFax]"])
+            if "page3[orgnlFax]" not in inputObj:
+                can.drawString(25, 367, "")
+            else:
+                can.drawString(25, 367, inputObj["page3[orgnlFax]"])
+            # can.drawString(25, 367, inputObj["page3[orgnlFax]"])
             can.drawString(25, 327, inputObj["page3[orgnlEmail]"])
 
             can.drawString(310, 666, inputObj["page3[orglSurname]"])

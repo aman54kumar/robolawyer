@@ -7,6 +7,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
+from sentry_sdk.integrations.django import DjangoIntegration
+import sentry_sdk
 from .utils.logging_utils import LOGGING
 import dj_database_url
 import os
@@ -119,20 +121,20 @@ dotenv_file = os.path.join(BASE_DIR, ".env")
 #         }
 #     }
 # else:
-if os.path.isfile(dotenv_file):
-    # DATABASES = {
-    #     'default': {
-    #         'ENGINE': 'django.db.backends.postgresql',
-    #         'NAME': config('DB_NAME'),
-    #         'USER': config('DB_USER'),
-    #         'PASSWORD': config('DB_PASSWORD'),
-    #         'HOST': config('DB_HOST'),
-    #         'PORT': config('DB_PORT'),
-    #     }
-    # }
-    pass
-else:
-    DATABASES = {"default": dj_database_url.config()}
+# if os.path.isfile(dotenv_file):
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': config('DB_NAME'),
+#         'USER': config('DB_USER'),
+#         'PASSWORD': config('DB_PASSWORD'),
+#         'HOST': config('DB_HOST'),
+#         'PORT': config('DB_PORT'),
+#     }
+# }
+#     pass
+# else:
+#     DATABASES = {"default": dj_database_url.config()}
 
 # DATABASES = {
 #     'default': dj_database_url.config()
@@ -232,9 +234,6 @@ STATICFILES_FINDERS = (
 
 # LOGGING
 
-
-import sentry_sdk
-from sentry_sdk.integrations.django import DjangoIntegration
 
 sentry_sdk.init(
     dsn="https://dc5cf96950234e3fa78a91347b3a3b9b@o1183119.ingest.sentry.io/6300288",

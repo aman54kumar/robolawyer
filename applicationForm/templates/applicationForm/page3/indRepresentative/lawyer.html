@@ -3,34 +3,34 @@
   <div id="containerDivForLawyer">
     <h4>Details of the Lawyer Representative</h4>
     <div class="row">
-      <div class="form-group col-sm-4">
+      <div class="form-group col-lg-12 col-xl-4">
         <h4>Surname</h4>
         <input class="form-control" type="text" name="page3[indLSurname]" placeholder="Enter your surname"
           id="indLSurname" data-parsley-group="page3c" maxlength="49" />
       </div>
-      <div class="form-group col-sm-4">
+      <div class="form-group col-lg-12 col-xl-4">
         <h4>First Name(s)</h4>
         <input class="form-control" type="text" name="page3[indLFirstName]" placeholder="Enter your first name(s)"
           id="indLFirstName" data-parsley-group="page3c" maxlength="49" />
       </div>
     </div>
     <div class="row">
-      <div class="form-group col-sm-4">
+      <div class="form-group col-lg-12 col-xl-4">
         <h4>Address</h4>
         <textarea class="form-control longAddress" cols="49" rows="8" placeholder="Enter address"
           name="page3[indLAddress]" id="indLAddress" maxlength="399" oninput="limitLines(this);"
           onpaste="limitLinesOnPaste(this);"></textarea>
         <div></div>
       </div>
-      <div class="col-sm-8">
+      <div class="col-lg-12 col-xl-8">
         <div class="row">
-          <div class="form-group col-sm-6">
+          <div class="form-group col-lg-12 col-xl-6">
             <h4>Nationality</h4>
             <input class="form-control" name="page3[indLNationality]" id="indLNationality" maxlength="49"
               placeholder="Select country" />
             <input type="hidden" id="indphoneLNationality" />
           </div>
-          <div class="form-group col-sm-6">
+          <div class="form-group col-lg-12 col-xl-6">
             <h4>Telephone Number (select country code)</h4>
             <input class="form-control" type="tel" style="width: 100%" name="page3[indLTel]" id="indLTel"
               placeholder="Enter telephone number" />
@@ -40,7 +40,7 @@
 
 
         <div class="row">
-          <div class="form-group col-sm-6">
+          <div class="form-group col-lg-12 col-xl-6">
             <h4>Fax</h4>
             <input class="form-control" type="tel" name="page3[indLFax]" placeholder="Enter fax number" id="indLFax"
               maxlength="15" />
@@ -51,7 +51,7 @@
               <label class="custom-control-label" for="indLFaxOption">I do not have a fax number</label>
             </div>
           </div>
-          <div class="form-group col-sm-6">
+          <div class="form-group col-lg-12 col-xl-6">
             <h4>Email</h4>
             <input class="form-control" type="email" name="page3[indLEmail]" placeholder="Enter email address"
               id="indLEmail" maxlength="49" />
@@ -99,7 +99,7 @@
     </div>
     <br />
     <div id="info-authorityL" class="collapse">
-      <h5 class="lead ajustify">
+      <h5 class="ajustify">
         If an applicant is represented by a lawyer or other person, both
         the applicant and the designated representative – whose
         identifying details must be indicated on the application form -
@@ -237,9 +237,11 @@
 <div id="indLECommsSection" class="form-group is-hidden">
   <hr />
   <br />
-  <h4 for="indLIndeComms" class="lead">
-    Electronic communication between the representative and the Court
-  </h4>
+  <label for="indLIndeComms">
+    <h4>
+      Electronic communication between the representative and the Court
+    </h4>
+  </label>
   <div class="text-center">
     <button class="btn more-info-button" data-toggle="collapse" data-target="#info-ecomm">
       More Info
@@ -267,12 +269,12 @@
     </h5>
   </div>
   <div>
-    <h5>
+    <h4>
       Please provide an email address for ECtHR communication system,
       eComms. You can read more about the eComms terms and conditions
 
       <a href="https://www.echr.coe.int/Pages/home.aspx?p=ecomms&c=" target="_blank">here</a>.
-    </h5>
+    </h4>
     <input class="form-control col-sm-4" type="email" name="page3[indLIndeComms]" id="indLIndeComms" maxlength="49"
       placeholder="Enter ecomms email address" />
   </div>

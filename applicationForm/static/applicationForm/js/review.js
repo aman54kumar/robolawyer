@@ -16,7 +16,7 @@ $(document).ready(function () {
     .css("font-family", "lato-thin");
 
   $(".reviewQuestions").find("tr").find("td:first-child").css({
-    width: "20%",
+    width: "40%",
     "font-family": "lato-thin",
     "font-weight": "600",
     "font-size": "1.25rem",
@@ -585,8 +585,12 @@ function addButtonsToReview() {
     '<button class="reviewButton descButton" onclick="showHideSectionToggle(this)">Show Description <i class="fas fa-eye"></i></button><button class="reviewButton questionButton" onclick="showHideSectionToggle(this)">Show Questions <i class="fas fa-eye"></i></button>';
   buttonHTMLforDisabled =
     '<button class="reviewButton descButton" onclick="showHideSectionToggleSingleButton(this)">Show Description <i class="fas fa-eye"></i></button>';
-  $(".reviewTitle").append(buttonHTML);
-  $(".reviewTitleDisabled").append(buttonHTMLforDisabled);
+  $(".reviewTitle").append(
+    "<div style='font-size: medium'>" + buttonHTML + "</div>"
+  );
+  $(".reviewTitleDisabled").append(
+    "<div style='font-size: medium'>" + buttonHTMLforDisabled + "</div>"
+  );
 }
 
 function showHideSectionToggle(element) {

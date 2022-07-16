@@ -24,6 +24,6 @@
   "cSpell.ignoreWords": ["authorising"],
   "appService.defaultWebAppToDeploy": "/subscriptions/d9ce407e-a408-4796-9273-971cd7412f95/resourceGroups/Justbot/providers/Microsoft.Web/sites/justbot",
   "appService.deploySubpath": ".",
-  "python.formatting.provider": "black",
+  "python.formatting.provider": "autopep8",
   "python.linting.pylintEnabled": false
 }

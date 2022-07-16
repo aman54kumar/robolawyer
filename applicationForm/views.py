@@ -5,7 +5,8 @@ from django.views.generic import TemplateView
 from django.template import RequestContext
 from django.http import HttpResponse, Http404, response, JsonResponse
 from django.template.loader import render_to_string
-
+import requests
+from requests.adapters import HTTPAdapter, Retry
 from robolawyer.utils.email_auth import Authenticate
 from .dataPreparation.prepareResult import PrepareResult
 from .dataPreparation.prepareDocsPDF import PrepareDocsPDF
@@ -83,12 +84,16 @@ def formProcessing(request):
 
 
 def feedback(request):
+    emailAccount = Authenticate()
     if request.method == "POST":
+
+        mailbox = emailAccount.mailbox()
+        message = mailbox.new_message()
         pageNo = request.POST.get("pageNo")
         legalTrained = request.POST.get("legalExp")
         suggestion = request.POST.get("suggestion")
-        subject = "suggestionEmail"
-        message = (
+        message.subject = "suggestionEmail"
+        message.body = (
             "1. Page No. - "
             + str(pageNo)
             + "\n2. Legal Trained - "
@@ -96,9 +101,9 @@ def feedback(request):
             + "\n3. Suggestion - "
             + str(suggestion)
         )
-        from_user = settings.EMAIL_HOST_USER
-        to = ["justbot@tech-r.org"]
-        send_mail(subject, message, from_user, to, fail_silently=False)
+        message.sender.address = settings.EMAIL_HOST_USER
+        message.to.add(["justbot@tech-r.org"])
+        message.send()
         return HttpResponse("We have received your feedback.")
     else:
         return HttpResponse(
@@ -131,6 +136,7 @@ def pdf_email(request):
         + sessionID
         + "/finalPage/Application form to the ECtHR.pdf",
     )
+
 
     if request.method == "POST":
         body = json.loads(request.body)

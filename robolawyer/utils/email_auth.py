@@ -24,6 +24,7 @@ def Authenticate():
         protocol=protocol,
     )
     if not account.is_authenticated:
+        print("not authenticated")
         account.authenticate(scopes=scopes)
     else:
         print("Email Authenticated!")

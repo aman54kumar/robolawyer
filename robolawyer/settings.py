@@ -124,7 +124,7 @@ dotenv_file = os.path.join(BASE_DIR, ".env")
 if os.path.isfile(dotenv_file):
     DATABASES = {
         'default': {
-            #         'ENGINE': 'django.db.backends.postgresql',
+            'ENGINE': 'django.db.backends.postgresql',
             #         'NAME': config('DB_NAME'),
             #         'USER': config('DB_USER'),
             #         'PASSWORD': config('DB_PASSWORD'),

@@ -107,32 +107,32 @@ TEMPLATES = [
 WSGI_APPLICATION = "robolawyer.wsgi.application"
 # ASGI_APPLICATION = 'robolawyer.asgi.application'
 dotenv_file = os.path.join(BASE_DIR, ".env")
-if "RDS_DB_NAME" in os.environ:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql_psycopg2",
-            "NAME": os.environ["RDS_DB_NAME"],
-            "USER": os.environ["RDS_USERNAME"],
-            "PASSWORD": os.environ["RDS_PASSWORD"],
-            "HOST": os.environ["RDS_HOSTNAME"],
-            "PORT": os.environ["RDS_PORT"],
-        }
-    }
+# if "RDS_DB_NAME" in os.environ:
+#     DATABASES = {
+#         "default": {
+#             "ENGINE": "django.db.backends.postgresql_psycopg2",
+#             "NAME": os.environ["RDS_DB_NAME"],
+#             "USER": os.environ["RDS_USERNAME"],
+#             "PASSWORD": os.environ["RDS_PASSWORD"],
+#             "HOST": os.environ["RDS_HOSTNAME"],
+#             "PORT": os.environ["RDS_PORT"],
+#         }
+#     }
+# else:
+if os.path.isfile(dotenv_file):
+    # DATABASES = {
+    #     'default': {
+    #         'ENGINE': 'django.db.backends.postgresql',
+    #         'NAME': config('DB_NAME'),
+    #         'USER': config('DB_USER'),
+    #         'PASSWORD': config('DB_PASSWORD'),
+    #         'HOST': config('DB_HOST'),
+    #         'PORT': config('DB_PORT'),
+    #     }
+    # }
+    pass
 else:
-    if os.path.isfile(dotenv_file):
-        # DATABASES = {
-        #     'default': {
-        #         'ENGINE': 'django.db.backends.postgresql',
-        #         'NAME': config('DB_NAME'),
-        #         'USER': config('DB_USER'),
-        #         'PASSWORD': config('DB_PASSWORD'),
-        #         'HOST': config('DB_HOST'),
-        #         'PORT': config('DB_PORT'),
-        #     }
-        # }
-        pass
-    else:
-        DATABASES = {"default": dj_database_url.config()}
+    DATABASES = {"default": dj_database_url.config()}
 
 # DATABASES = {
 #     'default': dj_database_url.config()

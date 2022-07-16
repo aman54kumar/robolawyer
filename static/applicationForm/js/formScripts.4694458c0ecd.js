@@ -476,7 +476,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
       date: moment().format("DD-MM-YYYY"),
       title: "Anonymity Request",
       desc: "Documents requesting anonymity in the public documents of the court.",
-      page: pageCountAnon("#anonReqText"),
+      page: 1,
       text: $("#anonReqText").val(),
     };
     docObject.push(anon);
@@ -487,12 +487,12 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
       date: moment().format("DD-MM-YYYY"),
       title: "Supplementary Statement on the Subject matter of the application",
       desc: "Document to supplement further details on the facts.",
-      page: pageCountAnon("#stofFactsExtra"),
+      page: 1,
       text: $("#stofFactsExtra").val(),
     };
     docObject.push(facts);
   }
-  if (!!$("#orgnlCapacity").val()) {
+  if ($("#orgOffEntitledYes").is(":checked")) {
     official = {
       id: 3,
       date: moment().format("DD-MM-YYYY"),
@@ -504,7 +504,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     docObject.push(official);
   }
 
-  if ($("input[name='page2[orgDateOption]']:checked").val() === "No") {
+  if (!!$("#orgDateNoArea").val()) {
     orgDateText = {
       id: 4,
       date: moment().format("DD-MM-YYYY"),
@@ -515,7 +515,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     };
     docObject.push(orgDateText);
   }
-  if ($("input[name='page2[orgIdentityOption]']:checked").val() === "No") {
+  if (!!$("#orgIdentityNoArea").val()) {
     orgIdentityText = {
       id: 5,
       date: moment().format("DD-MM-YYYY"),
@@ -595,19 +595,21 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     };
     docObject.push(orgNLFaxText);
   }
-
-  if (!!$("#orgNLOfficialAreaYes").val()) {
-    orgNLOfficial = {
+  if ($("#orgNLFaxOption:checked").val() === "on") {
+    orgNLFaxText = {
       id: 12,
       date: moment().format("DD-MM-YYYY"),
-      title: "Proof of organisation official",
-      desc: "Organisation official is legally entitled to represent the organisation",
+      title: "Organisation lawyer missing fax number",
+      desc: "Document explaining why the organisation lawyer cannot provide a fax number.",
       page: 1,
-      text: $("#orgNLOfficialAreaYes").val(),
+      text: $("#orgLFaxArea").val(),
     };
-    docObject.push(orgNLOfficial);
+    docObject.push(orgNLFaxText);
   }
-  if (!!$("#orgNLOfficialAreaNo").val()) {
+  if (
+    $("#orgOffEntitledNo").is(":checked") &&
+    !!$("#orgNLOfficialAreaNo").val()
+  ) {
     orgNLOfficial = {
       id: 13,
       date: moment().format("DD-MM-YYYY"),

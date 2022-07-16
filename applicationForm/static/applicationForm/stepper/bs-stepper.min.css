@@ -188,7 +188,7 @@
 
 .vertical .bs-stepper-pane.fade.dstepper-none,
 .vertical .content.fade.dstepper-none {
-    visibility: hidden
+    display: none
 }
 
 /*# sourceMappingURL=bs-stepper.min.css.map */

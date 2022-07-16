@@ -4,9 +4,9 @@
     <h4>Details of the Non-Lawyer Representative</h4>
     <br />
     <div class="row">
-      <div class="form-group col-sm-4">
+      <div class="form-group col-lg-12 col-xl-4">
         <h4>
-          Capacity/relationship/function
+          Capacity / relationship / function
           <a href="javascript://" data-toggle="popover"
             data-content="What is your relationship to the applicant? Write here: relative, guardian, friend or anything else that describes your relationship with the applicant."
             data-trigger="focus" data-placement="bottom"><span><i class="fas fa-question-circle"></i></span></a>
@@ -15,12 +15,12 @@
           placeholder="Enter your relationship to the applicant" id="indNLCapacity" maxlength="49"
           data-parsley-group="page3b" />
       </div>
-      <div class="form-group col-sm-4">
+      <div class="form-group col-lg-12 col-xl-4">
         <h4>Surname</h4>
         <input class="form-control" type="text" name="page3[indNLSurname]" placeholder="Enter your surname"
           id="indNLSurname" maxlength="49" data-parsley-group="page3b" />
       </div>
-      <div class="form-group col-sm-4">
+      <div class="form-group col-lg-12 col-xl-4">
         <h4>First Name(s)</h4>
         <input class="form-control" type="text" name="page3[indNLFirstName]" placeholder="Enter your first name(s)"
           id="indNLFirstName" maxlength="49" data-parsley-group="page3b" />
@@ -28,7 +28,7 @@
     </div>
 
     <div class="row">
-      <div class="form-group col-sm-4">
+      <div class="form-group col-lg-12 col-xl-4">
         <h4>Address</h4>
         <textarea class="form-control shortAddress" cols="49" rows="6" maxlength="299" placeholder="Enter Address"
           name="page3[indNLAddress]" id="indNLAddress" oninput="limitLines(this);"
@@ -36,7 +36,7 @@
         <div></div>
       </div>
 
-      <div class="col-sm-4">
+      <div class=" col-lg-12 col-xl-4">
         <div class="row">
           <div class="col-sm-12 form-group">
             <h4>Nationality</h4>
@@ -52,7 +52,7 @@
         </div>
       </div>
 
-      <div class="col-sm-4">
+      <div class="col-lg-12 col-xl-4">
         <div class="row">
           <div class="col-sm-12 nlEmailfield form-group">
             <h4>Email</h4>
@@ -73,6 +73,7 @@
         </div>
       </div>
     </div>
+
     <br />
     <div id="indNLFaxDiv" class="col-sm-12 is-hidden">
       <label for="indNLFaxArea">If you do not have a fax number, you must provide an explanation as to why this
@@ -255,12 +256,12 @@
 
         <div id="indNLAuthorityError"></div>
         <div id="indNLAuthorityNo" class="is-hidden">
-          <h5 class='lead'>Please explain in this textbox below why the applicant cannot sign the authority form. Please
+          <h4>Please explain in this textbox below why the applicant cannot sign the authority form. Please
             provide any additional documents that you deem necessary to support your case. <br /> We will generate this
             text as an additional document when you generate the application form and we will automatically add the
             title and description of this document to the Supporting Document list on page 8. You must remember to add
             any other documents supporting your explanation – medical records, official documents – both to the
-            Supporting Documents list on page 8, and as a copy in the attachments to the application.</h5> <br>
+            Supporting Documents list on page 8, and as a copy in the attachments to the application.</h4> <br>
           <textarea class="form-control newPageTextArea" id="indNLAuthArea" name="page3[indNLAuthArea]"
             oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px";'></textarea>
           <br>
@@ -301,12 +302,12 @@
       </h5>
     </div>
     <div>
-      <h5>
+      <h4>
         Please provide an email address for ECtHR communication system, eComms.
         You can read more about the eComms terms and conditions
 
         <a href="https://www.echr.coe.int/Pages/home.aspx?p=ecomms&c=" target="_blank">here</a>.
-      </h5>
+      </h4>
       <input class="form-control col-sm-4" type="email" name="page3[indIndeComms]" id="indIndeComms" maxlength="49"
         placeholder="Enter ecomms email address" />
     </div>

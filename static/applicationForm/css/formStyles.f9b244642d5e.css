@@ -21,6 +21,10 @@ body {
   font-family: "lato_thin";
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
 .popover {
   max-width: 60%;
   width: auto;
@@ -192,18 +196,21 @@ table {
   width: 100%;
 }
 
-thead {
+/* thead {
   background-color: gainsboro;
   border: 2px solid black;
   border-bottom: 3px solid black;
+} */
+thead {
+  background-color: #2679c7;
+  color: white;
+  border: none;
 }
-
 td,
 th {
   padding: 10px;
   text-align: left;
-  border-bottom: 2px solid white;
-  border-right: 1px solid white;
+  border: none;
 }
 
 table tr th:last-of-type {

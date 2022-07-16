@@ -1,12 +1,23 @@
 currentStep = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
-  var stepperFormEl = document.querySelector("#stepperForm");
+  let stepperFormEl = document.querySelector("#stepperForm");
   stepperForm = new Stepper(stepperFormEl, {
     animation: true,
     linear: false,
+    selectors: {
+      steps: ".step",
+      trigger: ".step-trigger",
+      stepper: ".bs-stepper",
+    },
     excluded:
       "input[type=button], input[type=submit], input[type=reset], input[type=hidden], :disabled",
+  });
+
+  stepperFormEl.addEventListener("shown.bs-stepper", function (event) {
+    currentStep = event.detail.indexStep + 1;
+    const feedbackBtn = document.getElementById("feedback-btn");
+    feedbackBtn.value = currentStep;
   });
   var form = stepperFormEl.querySelector(".bs-stepper-content form");
 

@@ -1,19 +1,19 @@
 <div id="form-page-6" role="tabpanel" class="bs-stepper-pane fade" aria-labelledby="stepperFormTrigger6">
-  <div class="col-md-12 mx-auto form-section">
+  <div class="col-12 col-md-12 mx-auto form-section">
     {% load static %}
     <div class="row">
-      <div class="card-master col-sm-11">
+      <div class="card-master col-12 col-md-12">
         <div class="card-master-header">
           <h4 class="card-header-title acenter">Domestic Proceedings</h4>
         </div>
 
         <div class="card-body">
-          <p class="lead">
+          <h4>
             Indicate here all relevant judicial and/or administrative remedies
             you have used in your country. For each complaint, state all
             relevant court decisions, including those from lower courts and the
             final decision.
-          </p>
+          </h4>
           <div class="text-center">
             <button class="btn more-info-button" data-toggle="collapse" data-target="#info-4">
               More Info
@@ -22,7 +22,7 @@
           <br />
 
           <div id="info-4" class="collapse">
-            <p class="lead">
+            <h5>
               For your application to be admissible, you must bring all the matters which you want to complain about
               before the national courts and use all the available appeals up to the highest level. You must show that
               you have exhausted the available national legal remedies and provide dates for each decision, so that the
@@ -45,12 +45,12 @@
               If you think that there were no remedies to exhaust as they were
               non-existent or ineffective or inaccessible in some way, you
               should put down this reasoning briefly.
-            </p>
+            </h5>
           </div>
 
           <div class="form-group">
             <div class=" ">
-              <h5 class="alert-heading">Examples</h5>
+              <h4 class="alert-heading">Examples</h4>
               <table class="table-bordered">
                 <thead style="border: none">
                   <tr style="background-color: #2679c7; color: white">
@@ -97,15 +97,17 @@
               <div class="s-group" style="width: 85%; margin: auto">
                 <table>
                   <tr>
-                    <td style="vertical-align: top" class="is-hidden">
+                    <th style="vertical-align: top" class="is-hidden">
                       <label for=""><b>Selected Article</b></label>
                       <textarea name="page6[0][preArticleSelect]" id="preArticle_0_select"
                         class="form-control preArticleSelect" data-pattern-id="preArticle_++_select"
                         data-pattern-name="page6[++][preArticleSelect]" rows="5" data-parsley-group="page6"
                         readonly></textarea>
-                    </td>
-                    <td width="30%" style="vertical-align: top">
-                      <label for="complainSelect_0_0"><b>Complaint</b></label>
+                    </th>
+                    <th width="30%" style="vertical-align: top">
+                      <label class="lead" for="complainSelect_0_0">
+                        <h4>Complaint</h4>
+                      </label>
                       <!-- width: 35ch;-->
                       <textarea name="page6[0][complainSelect]" style="padding: 10px" id="complain_0_select"
                         class="form-control complainSelect" data-parsley-group="page6"
@@ -114,9 +116,11 @@
                         oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper( this, 26,true, false,);'
                         onpaste='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper( this, 26,true, true);'
                         onkeydown="complaintKeyDown(event,this)"></textarea>
-                    </td>
-                    <td>
-                      <label><b> Domestic remedies used and the date of the final decision</b></label>
+                    </th>
+                    <th>
+                      <label class="lead">
+                        <h4> Domestic remedies used and the date of the final decision</h4>
+                      </label>
                       <textarea class="form-control remedies remediesTextCounter" name="page6[0][remediesUsed]"
                         id="complain_0_remedy"
                         oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper(this, 69, false,false);'
@@ -130,7 +134,7 @@
                       <div class="remediesCounter is-hidden">
                         Lines Remaining:
                       </div>
-                    </td>
+                    </th>
                   </tr>
                 </table>
                 <div>
@@ -197,21 +201,6 @@
             </div>
           </div>
         </div>
-      </div>
-      <div style="
-          position: fixed;
-          right: 20px;
-          bottom: 20px;
-          width: 100%;
-          margin-top: 5vw;
-        " class="col-sm-1">
-        <p class="text-white">
-          This is a Beta version of Just Bot and we rely on your feedback to
-          improve it.
-        </p>
-        <button class="showModal btn feedback-button" value="6" onclick="curPageNum(this);">
-          Feedback
-        </button>
       </div>
     </div>
   </div>

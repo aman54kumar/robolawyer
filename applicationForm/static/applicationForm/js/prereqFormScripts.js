@@ -1,8 +1,8 @@
 // Feedback form
-var curPageNum = function (pageNumValue) {
-  console.log(pageNumValue.value);
-  document.getElementById("sugPageNo").value = pageNumValue.value;
-};
+// var curPageNum = function (pageNumValue) {
+//   console.log(pageNumValue.value);
+//   document.getElementById("sugPageNo").value = pageNumValue.value;
+// };
 
 function feedbackSubmit(e) {
   e.preventDefault();

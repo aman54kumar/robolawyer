@@ -1,28 +1,29 @@
 <div id="form-page-5" role="tabpanel" class="bs-stepper-pane fade" aria-labelledby="stepperFormTrigger5">
-  <div class="col-md-12 mx-auto form-section">
+  <div class="col-md col-md-12 mx-auto form-section">
     {% load static %}
     <div class="row">
-      <div class="card-master col-sm-11">
+      <div class="card-master col-12 col-md-12">
         <div class="card-master-header">
           <h4 class="card-header-title acenter">Alleged violations of the Convention/Protocols</h4>
         </div>
 
         <div class="card-body alert-info">
-          <p class="lead ajustify">
-            Indicate here alleged violation(s) of the
-            <a href="https://www.echr.coe.int/Documents/Convention_ENG.pdf" _target="#">
-              Convention and/or Protocols </a>and relevant arguments. Explain as precisely as you can why the
-            facts described in the previous section entail a violation of the
-            Convention or/and Protocols. For each complaint raised you need to
-            indicate the Article/s that apply and argue in brief sentences how
-            it has been infringed.
-          </p>
-
+          <label>
+            <h4 class="ajustify">
+              Indicate here alleged violation(s) of the
+              <a href="https://www.echr.coe.int/Documents/Convention_ENG.pdf" _target="#">
+                Convention and/or Protocols </a>and relevant arguments. Explain as precisely as you can why the
+              facts described in the previous section entail a violation of the
+              Convention or/and Protocols. For each complaint raised you need to
+              indicate the Article/s that apply and argue in brief sentences how
+              it has been infringed.
+            </h4>
+          </label>
           <br />
 
           <div class="form-group">
             <div class="articleExample">
-              <h5 class="alert-heading">Examples</h5>
+              <h4 class="alert-heading">Examples</h4>
               <table class="table-bordered">
                 <thead style="border: none">
                   <tr style="background-color: #2679c7; color: white">
@@ -68,12 +69,14 @@
               <div class="a-group">
                 <table width="100%" style="border: none">
                   <tr>
-                    <td width="50%" style="
+                    <th width="50%" style="
                         padding-right: 10px;
                         border: none;
                         vertical-align: top;
                       ">
-                      <label for="articleSelect">Article(s) invoked </label>
+                      <label class="lead" for="articleSelect">
+                        <h4>Article(s) invoked </h4>
+                      </label>
                       <select name="page5[0][articleSelect]" id="article_0_select" class="form-control articleSelect"
                         data-parsley-group="page5" data-pattern-name="page5[++][articleSelect]"
                         data-pattern-id="article_++_select"
@@ -93,15 +96,17 @@
                           <p class="alert alert-danger">Please choose at least one option</p>
                         </div>
                       </div>
-                    </td>
-                    <td width="25%" style="padding-right: 10px; border: none" class="is-hidden">
+                    </th>
+                    <th width="25%" style="padding-right: 10px; border: none" class="is-hidden">
                       <label for="articleArea">Article(s) Area </label>
                       <textarea name="page5[0][articleArea]" id="article_0_area" class="form-control articleArea"
                         data-parsley-group="page5" data-pattern-name="page5[++][articleArea]"
                         data-pattern-id="article_++_area"></textarea>
-                    </td>
-                    <td width="50%" style="border: none; vertical-align: top;">
-                      <label>Explanation</label>
+                    </th>
+                    <th width="50%" style="border: none; vertical-align: top;">
+                      <label class="lead">
+                        <h4>Explanation</h4>
+                      </label>
                       <textarea class="form-control articleExplanation articleExpCounter"
                         name="page5[0][articleExplanation]" id="article_0_explanation"
                         data-pattern-id="article_++_explanation" data-pattern-name="page5[++][articleExplanation]"
@@ -114,7 +119,7 @@
                         Lines Remaining:
                       </div>
                       <!-- 'this.style.height = ""; this.style.height = this.scrollHeight + "px"; -->
-                    </td>
+                    </th>
 
                     <p>
                       <!-- Add a remove button for the item. If one didn't exist, it would be added to overall group -->
@@ -165,21 +170,6 @@
             </div>
           </div>
         </div>
-      </div>
-      <div style="
-          position: fixed;
-          right: 20px;
-          bottom: 20px;
-          width: 100%;
-          margin-top: 5vw;
-        " class="col-sm-1">
-        <p class="text-white">
-          This is a Beta version of Just Bot and we rely on your feedback to
-          improve it.
-        </p>
-        <button class="showModal btn feedback-button" value="5" onclick="curPageNum(this);">
-          Feedback
-        </button>
       </div>
     </div>
   </div>

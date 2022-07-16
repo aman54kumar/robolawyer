@@ -99,7 +99,7 @@
   width: 100%;
   height: auto;
   min-height: 35rem;
-  padding: 15rem;
+  padding-top: 15rem;
   background: linear-gradient(
       to bottom,
       rgba(212, 199, 199, 0.3) 0%,

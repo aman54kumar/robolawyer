@@ -1,39 +1,12 @@
-<div
-  id="form-page-3"
-  role="tabpanel"
-  class="bs-stepper-pane fade"
-  aria-labelledby="stepperFormTrigger3"
->
-  <div class="col-md-12 mx-auto form-section">
+<div id="form-page-3" role="tabpanel" class="bs-stepper-pane fade" aria-labelledby="stepperFormTrigger3">
+  <div class="col-12 col-md-12 mx-auto form-section">
     <div class="row">
-      <div class="card-master col-sm-11">
+      <div class="card-master col-12 col-md-12">
 
         {% include 'applicationForm/page3/indRepresentative/indRepresentative.html' %}
 
         {% include 'applicationForm/page3/orgRepresentative/orgRepresentative.html' %}
 
-      </div>
-      <div
-        style="
-          position: fixed;
-          right: 20px;
-          bottom: 20px;
-          width: 100%;
-          margin-top: 5vw;
-        "
-        class="col-sm-1"
-      >
-        <p class="text-white">
-          This is a Beta version of Just Bot and we rely on your feedback to
-          improve it.
-        </p>
-        <button
-          class="showModal btn feedback-button"
-          value="3"
-          onclick="curPageNum(this);"
-        >
-          Feedback
-        </button>
       </div>
     </div>
   </div>

@@ -6,9 +6,7 @@
     <div class="container d-flex align-items-center">
         <div class="mx-auto text-center">
 
-
-            <h1 class="text-uppercase home-heading">JUST BOT
-                <img class="beta-logo" src="{% static 'home/images/beta.png' %}" height="55px" />
+            <h1 class="text-uppercase">JUST BOT <img class="beta-logo" src="{% static 'home/images/beta.png' %}" />
             </h1>
 
             <div class="home-desc-div">
@@ -39,25 +37,6 @@
     </div>
 </header>
 
-{% comment %}
-<div class="jumbotron home-jumbo acenter" id="homepage-section-2">
-    <div class="container">
-        <h1 class="display-5">Did you know ?</h1>
-        <p class="lead"> On average, only <b>5%</b> of all the applications submitted to the
-            ECtHR are given a judgment. </p>
-        <p class="lead"> The majority of cases are declared
-            inadmissible on formal grounds, such as not filling the application
-            form correctly, not exhausting all national remedies or submitting
-            the application later than 6 months after receiving a final decision
-            from the national court.
-        </p>
-        <br />
-        <div class="center">
-            <a class="btn btn-primary" href="{% url 'form' %}" role="button">Go to the Application Form</a>
-        </div>
-    </div>
-</div>
-{% endcomment %}
 <div class="bg-white text-center" style="margin-top: 40px;" id="homepage-section-2">
     <div class="container">
         <h1>Founders</h1>
@@ -71,11 +50,11 @@
 
 <div class="container">
     <div class="row justify-content-md-center center">
-        <div class="col-xl-3 col-md-6 mb-4">
+        <div class="homepage-founder-logo">
             <a href="https://www.tech-r.org/" target="_blank"><img src="{% static 'home/images/techr-logo.png' %}"
                     class="logo-images-home" alt="techR" width="270px"></a>
         </div>
-        <div class="col-xl-3 col-md-6 mb-4">
+        <div class="homepage-founder-logo">
             <a href="https://www.uio.no/" target="_blank"><img src="{% static 'home/images/uio-logo.png' %}"
                     class="logo-images-home" alt="uio" /></a>
         </div>

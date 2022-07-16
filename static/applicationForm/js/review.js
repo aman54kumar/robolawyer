@@ -16,7 +16,7 @@ $(document).ready(function () {
     .css("font-family", "lato-thin");
 
   $(".reviewQuestions").find("tr").find("td:first-child").css({
-    width: "50%",
+    width: "20%",
     "font-family": "lato-thin",
     "font-weight": "600",
     "font-size": "1.25rem",
@@ -80,7 +80,7 @@ $(document).ready(function () {
 
   $("#referenceText").on("input", function () {
     curValue = this.value;
-    $("#page1-7").text(curValue);
+    if (curValue !== "") $("#page1-7").text(curValue);
   });
 
   //    End of Page 1
@@ -366,7 +366,7 @@ $(document).ready(function () {
         curValue = this.value;
         $("#page3-org-rep-L-3").text(curValue);
       });
-      $("#orglNationality").on("input", function () {
+      $("#orglNationality").on("focus change", function () {
         curValue = this.value;
         $("#page3-org-rep-L-4").text(curValue);
       });

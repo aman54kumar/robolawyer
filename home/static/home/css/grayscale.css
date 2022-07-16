@@ -99,7 +99,7 @@
   width: 100%;
   height: auto;
   min-height: 35rem;
-  padding: 15rem;
+  padding-top: 15rem;
   background: linear-gradient(
       to bottom,
       rgba(212, 199, 199, 0.3) 0%,
@@ -110,6 +110,10 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: scroll;
+}
+
+@media (max-width: 990px) {
+
 }
 
 .masthead h1 {
@@ -132,7 +136,9 @@
   letter-spacing: 0.8rem;
 }
 
-@media (max-width: 1921px) {
+.home-desc-div {}
+
+@media (min-width: 768px) {
   .home-desc-div {
     width: 120vh;
   }

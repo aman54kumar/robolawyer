@@ -109,11 +109,22 @@ TEMPLATES = [
 WSGI_APPLICATION = "robolawyer.wsgi.application"
 # ASGI_APPLICATION = 'robolawyer.asgi.application'
 dotenv_file = os.path.join(BASE_DIR, ".env")
-
-if os.path.isfile(dotenv_file):
-    pass
+if 'RDS_DB_NAME' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': os.environ['RDS_DB_NAME'],
+            'USER': os.environ['RDS_USERNAME'],
+            'PASSWORD': os.environ['RDS_PASSWORD'],
+            'HOST': os.environ['RDS_HOSTNAME'],
+            'PORT': os.environ['RDS_PORT'],
+        }
+    }
 else:
-    DATABASES = {'default': dj_database_url.config()}
+    if os.path.isfile(dotenv_file):
+        pass
+    else:
+        DATABASES = {'default': dj_database_url.config()}
 
 
 # Password validation

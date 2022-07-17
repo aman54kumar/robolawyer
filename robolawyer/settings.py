@@ -123,8 +123,8 @@ else:
     if os.path.isfile(dotenv_file):
         pass
     else:
-        # DATABASES = {'default': dj_database_url.config()}
-        pass
+        DATABASES = {'default': dj_database_url.parse(
+            'postgres://fprtetitxmtgnu:557b3a7f4109b2b1e15cd0db94b2e667819af50adb34ca6e6c01ce0847a34f17@ec2-52-5-46-126.compute-1.amazonaws.com:5432/d1v1qmla2fahl3')}
 
 
 # Password validation

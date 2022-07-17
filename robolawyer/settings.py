@@ -123,7 +123,8 @@ else:
     if os.path.isfile(dotenv_file):
         pass
     else:
-        DATABASES = {'default': dj_database_url.config()}
+        # DATABASES = {'default': dj_database_url.config()}
+        pass
 
 
 # Password validation

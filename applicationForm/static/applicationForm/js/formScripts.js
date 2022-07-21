@@ -1324,7 +1324,7 @@ function articleWrapper(
   idTextArea = "#" + String(element.id);
   var cursorPosition = $(idTextArea).prop("selectionStart");
 
-  var text = `${element.value} ${conjunctionValueIfExists(element)}`;
+  var text = `${conjunctionValueIfExists(element)}`;
   console.log(text);
   var colLimit = columnLength;
   var rowLimit =
@@ -1459,15 +1459,18 @@ function articleWrapper(
 }
 
 function getCounterValue(element, p) {
-  const counterElement = element
-    .closest("tr")
-    .querySelector(".explanationCounter");
   if (element.closest(".s-group")) {
+    const counterElement = element
+      .closest("tr")
+      .querySelector(".remediesCounter ");
     limitLinesPage6 = limitLinesPage6 < 0 ? 0 : limitLinesPage6;
     var cnt = p >= 0 ? p + limitLinesPage6 : limitLinesPage6;
     counterElement.innerHTML = "Lines Remaining: " + cnt;
     counterElement.classList.remove("is-hidden");
   } else {
+    const counterElement = element
+      .closest("tr")
+      .querySelector(".explanationCounter");
     limitLinesPage5 = limitLinesPage5 < 0 ? 0 : limitLinesPage5;
     if (limitLinesPage5 > 4) {
       element
@@ -1924,11 +1927,12 @@ function getCheckedArticleAttachedToNumber() {
 }
 
 const conjunctionValueIfExists = (element) => {
+  const mainSelectText = element.closest("tr").querySelector(".articleSelect");
   const conjArticleSelect = element
-    .closest("td")
+    .closest("tr")
     .querySelector(".secondSelectDiv > select");
   if (conjArticleSelect) {
-    return `in conjunction with ${conjArticleSelect.value}`;
+    return `${mainSelectText.value} in conjunction with ${conjArticleSelect.value}`;
   }
-  return "";
+  return `${mainSelectText.value}`;
 };

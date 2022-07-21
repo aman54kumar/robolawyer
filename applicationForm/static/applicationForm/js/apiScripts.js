@@ -605,6 +605,7 @@ function callAPI(addButtonIDornewDiv) {
       );
       newDropdownElement.addEventListener("change", () => {
         populateDiv(childSelectId, ".descDiv2");
+        articleWrapper(newDropdownElement, 26, true);
       });
 
       correspDropdownElement = $(correspDropdownElement);

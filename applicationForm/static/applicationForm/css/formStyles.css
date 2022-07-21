@@ -194,7 +194,7 @@ body {
 }
 
 table {
-  font-family: lato_thin;
+  font-family: sans-serif;
   width: 100%;
 }
 
@@ -427,4 +427,18 @@ label {
   .col-xl-6  {
     max-width: 100%;
   }
+}
+
+#page5Group, .articleExample, .complainExample {
+  font-size: 1rem;
+}
+
+.addButtonWarningDiv {
+  padding: 0;
+}
+
+.remediesCounter {
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 400;
 }

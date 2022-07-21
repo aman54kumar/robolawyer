@@ -351,6 +351,17 @@ $("#page6Group").repeater({
   },
 });
 
+// Page 5 add button limit warning
+const page5AddButtonLimitWarning = (currentElement) => {
+  if (currentElement.disabled) {
+    Swal.fire("", "Not enough lines remaining to add another field.");
+  }
+  // if (linesRemaining < 5) {
+  //   Swal.fire("Not enough lines remaining to add another field.");
+  // }
+};
+// Page 5 add button limit warning end
+
 $("#page5Group").repeater({
   btnAddClass: "a-btnAdd",
   btnRemoveClass: "a-btnRemove",
@@ -365,6 +376,12 @@ $("#page5Group").repeater({
   animationSpeed: 400,
   animationEasing: "swing",
   clearValues: true,
+  // beforeAdd: function () {
+  //   const addButtonList = [...document.querySelectorAll(".page5_addButton")];
+  //   addButtonList.map((addButtonElement) => {
+  //     addButtonElement.addEventListener("click", page5AddButtonLimitWarning);
+  //   });
+  // },
   afterAdd: function () {
     callAPI(this.id);
     cur_id = this.id;
@@ -381,20 +398,21 @@ $("#page5Group").repeater({
     }
   },
   afterDelete: function () {
-    groups = $("#page5Group").children();
-    divTag = groups.children()[groups.children().length - 1];
-    buttonTag = divTag.children[0];
-    if (buttonTag.classList.contains("is-hidden")) {
-      divTag.children[0].classList.remove("is-hidden");
+    const lastGroupAddButton = [
+      ...document.getElementById("page5Group").children,
+    ]
+      .pop()
+      .querySelector(".page5GroupButtonsDiv")
+      .querySelector(".page5_addButton");
+    if (lastGroupAddButton.classList.contains("is-hidden")) {
+      lastGroupAddButton.classList.remove("is-hidden");
     }
   },
   beforeDelete: function (element) {
-    var leftDeletedValue =
-      element.children()[1].children[0].children[0].children[1].children[1]
-        .value;
-    var rightDeletedValue =
-      element.children()[1].children[0].children[0].children[2].children[1]
-        .value;
+    const leftDeletedValue = element[0].querySelector(".articleSelect").value;
+    const rightDeletedValue = element[0].querySelector(
+      ".articleExplanation"
+    ).value;
     limitLinesPage5 =
       limitLinesPage5 +
       Math.max(
@@ -409,14 +427,15 @@ $("#page5Group").repeater({
       );
 
     // for removal of selected Element's value from page 6 on removal of input group on page 5
-    getDeletingElementIdNumber = element
-      .children()[1]
-      .children[0].children[0].children[0].children[1].id.split("_")[1];
+    getDeletingElementIdNumber = element[0]
+      .querySelector(".articleSelect")
+      .id.split("_")[1];
     correspondingAddButton =
       "#addButton_6_" + String(getDeletingElementIdNumber);
     $(correspondingAddButton).siblings()[0].click();
   },
 });
+
 // Correspondent details
 
 // Correcpondant details end
@@ -1289,24 +1308,24 @@ function articleWrapper(
   isArticleSelectElement,
   isPaste
 ) {
-  repeaterParentElement =
-    element.parentElement.parentElement.parentElement.parentElement
-      .parentElement.parentElement.children;
+  const repeaterParentElement = element.closest("#page5Group").children;
   otherElementIndex = 0;
   if (isArticleSelectElement) {
     otherElementIndex = 2;
   }
 
-  invisibleArticleArea =
-    element.parentElement.parentElement.children[1].children[1];
-
-  otherElement =
-    element.parentElement.parentElement.children[otherElementIndex].children[1];
+  const invisibleArticleArea = element
+    .closest("tr")
+    .querySelector(".articleArea");
+  const otherElement = element
+    .closest("tr")
+    .querySelector(".articleExplanation");
 
   idTextArea = "#" + String(element.id);
   var cursorPosition = $(idTextArea).prop("selectionStart");
 
-  var text = element.value;
+  var text = `${element.value} ${conjunctionValueIfExists(element)}`;
+  console.log(text);
   var colLimit = columnLength;
   var rowLimit =
     Math.max(otherElement.value.split("\n").length, text.split("\n").length) +
@@ -1440,27 +1459,30 @@ function articleWrapper(
 }
 
 function getCounterValue(element, p) {
-  if (
-    element.parentElement.parentElement.parentElement.parentElement.parentElement.classList.contains(
-      "s-group"
-    )
-  ) {
+  const counterElement = element
+    .closest("tr")
+    .querySelector(".explanationCounter");
+  if (element.closest(".s-group")) {
     limitLinesPage6 = limitLinesPage6 < 0 ? 0 : limitLinesPage6;
     var cnt = p >= 0 ? p + limitLinesPage6 : limitLinesPage6;
-    counterElement =
-      element.parentElement.parentElement.children[2].children[3];
     counterElement.innerHTML = "Lines Remaining: " + cnt;
     counterElement.classList.remove("is-hidden");
   } else {
     limitLinesPage5 = limitLinesPage5 < 0 ? 0 : limitLinesPage5;
     if (limitLinesPage5 > 4) {
+      element
+        .closest(".a-group")
+        .querySelector(".addButtonWarningDiv")
+        .classList.add("is-hidden");
       toggleAddButton(element, false);
     } else {
+      element
+        .closest(".a-group")
+        .querySelector(".addButtonWarningDiv")
+        .classList.remove("is-hidden");
       toggleAddButton(element, true);
     }
     var cnt = p >= 0 ? p + limitLinesPage5 : limitLinesPage5;
-    counterElement =
-      element.parentElement.parentElement.children[2].children[3];
     counterElement.innerHTML = "Lines Remaining: " + cnt;
     counterElement.classList.remove("is-hidden");
   }
@@ -1900,3 +1922,13 @@ function getCheckedArticleAttachedToNumber() {
   home = $(".inputOuter:checked").val();
   // return initialArticleString + " * ";
 }
+
+const conjunctionValueIfExists = (element) => {
+  const conjArticleSelect = element
+    .closest("td")
+    .querySelector(".secondSelectDiv > select");
+  if (conjArticleSelect) {
+    return `in conjunction with ${conjArticleSelect.value}`;
+  }
+  return "";
+};

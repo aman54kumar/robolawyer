@@ -69,7 +69,7 @@
               <div class="a-group">
                 <table width="100%" style="border: none">
                   <tr>
-                    <th width="50%" style="
+                    <td width="50%" style="
                         padding-right: 10px;
                         border: none;
                         vertical-align: top;
@@ -80,7 +80,7 @@
                       <select name="page5[0][articleSelect]" id="article_0_select" class="form-control articleSelect"
                         data-parsley-group="page5" data-pattern-name="page5[++][articleSelect]"
                         data-pattern-id="article_++_select"
-                        onchange="populateDiv(this.id, '.descDiv1'); articleWrapper(this, 26, true); toggleAddButton(this);"></select>
+                        onchange="populateDiv(this.id, '.descDiv1'); toggleAddButton(this);"></select>
                       <br>
                       <div class="descDiv1">
 
@@ -96,14 +96,14 @@
                           <p class="alert alert-danger">Please choose at least one option</p>
                         </div>
                       </div>
-                    </th>
-                    <th width="25%" style="padding-right: 10px; border: none" class="is-hidden">
+                    </td>
+                    <td width="25%" style="padding-right: 10px; border: none" class="is-hidden">
                       <label for="articleArea">Article(s) Area </label>
                       <textarea name="page5[0][articleArea]" id="article_0_area" class="form-control articleArea"
                         data-parsley-group="page5" data-pattern-name="page5[++][articleArea]"
                         data-pattern-id="article_++_area"></textarea>
-                    </th>
-                    <th width="50%" style="border: none; vertical-align: top;">
+                    </td>
+                    <td width="50%" style="border: none; vertical-align: top;">
                       <label class="lead">
                         <h4>Explanation</h4>
                       </label>
@@ -114,12 +114,15 @@
                         onpaste='this.style.height = ""; this.style.height = this.scrollHeight + "px";articleWrapper(this, 72, false,true);'
                         onfocus="getCounterValue(this);" onblur="hideCounterElement(this);" cols="30" rows="10"
                         data-parsley-group="page5" style="width: 80ch; padding: 10px"></textarea>
+
                       <br />
                       <div class="explanationCounter is-hidden">
                         Lines Remaining:
                       </div>
+                      <div class="addButtonWarningDiv alert alert-danger is-hidden">New fields cannot be added because
+                        of constraints related to available number of lines. Add button will be disabled.</div>
                       <!-- 'this.style.height = ""; this.style.height = this.scrollHeight + "px"; -->
-                    </th>
+                    </td>
 
                     <p>
                       <!-- Add a remove button for the item. If one didn't exist, it would be added to overall group -->
@@ -135,15 +138,11 @@
                   <hr>
                   <div class="row">
                     <div>
-                      <!-- <tr>
-                        <td><div class="countryDiv"></div></td>
-                        <td style="word-break: break-word;"><div class="reservationDiv"></div></td>
-                      </tr> -->
                     </div>
                   </div>
                   <hr />
                 </div>
-                <div>
+                <div class="page5GroupButtonsDiv">
                   <button type="button" class="a-btnAdd btn btn-primary page5_addButton" id="addButton_5_0"
                     data-pattern-id="addButton_5_++" disabled>
                     Add +

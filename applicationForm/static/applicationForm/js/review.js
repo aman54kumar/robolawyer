@@ -18,7 +18,7 @@ $(document).ready(function () {
   $(".reviewQuestions").find("tr").find("td:first-child").css({
     width: "40%",
     "font-family": "lato-thin",
-    "font-weight": "600",
+    "font-weight": "400",
     "font-size": "1.25rem",
   });
 
@@ -594,8 +594,13 @@ function addButtonsToReview() {
 }
 
 function showHideSectionToggle(element) {
-  descriptionSection = element.parentElement.parentElement.children[1];
-  questionSection = element.parentElement.parentElement.children[2];
+  // descriptionSection = element.parentElement.parentElement.children[1];
+  descriptionSection = element
+    .closest(".reviewTitle")
+    .parentElement.querySelector(".reviewDescription");
+  questionSection = element
+    .closest(".reviewTitle")
+    .parentElement.querySelector(".reviewQuestions");
 
   if (element.classList.contains("descButton")) {
     toggleText(element, "Description");
@@ -607,7 +612,9 @@ function showHideSectionToggle(element) {
 }
 
 function showHideSectionToggleSingleButton(element) {
-  descriptionSection = element.parentElement.parentElement.children[1];
+  descriptionSection = element
+    .closest(".reviewTitleDisabled")
+    .parentElement.querySelector(".reviewDescription");
   if (element.classList.contains("descButton")) {
     toggleText(element, "Description");
     descriptionSection.classList.toggle("is-hidden");

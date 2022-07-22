@@ -776,10 +776,11 @@ $("#page8Group").repeater({
       }
     }
     document.getElementsByClassName("popover-class")[0].id = "";
-
-    const x = document.getElementById(
-      `doc_${parseInt(this.id.split("_")[2]) + 1}_page`
-    ).parentElement.children[0].children[0];
+    console.log(`doc_${parseInt(this.id.split("_")[2]) + 1}_page`);
+    const x = document
+      .getElementById(`doc_${parseInt(this.id.split("_")[2]) + 1}_page`)
+      .closest("th")
+      .querySelector("a");
     tippy(x, popover_attributes);
 
     // if(autoGenFlag === "auto"){

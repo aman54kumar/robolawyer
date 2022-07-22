@@ -260,7 +260,7 @@ $(document).ready(function () {
     if (indNLFaxBoolean === true) {
       const noFaxText = document.getElementById("indNLFaxArea").value;
       $("#page3-ind-rep-NL-8").html(
-        "<a id='page3-ind-rep-NL-8-text' href='#'>Click here to view the document you created.</a>"
+        "No, <a id='page3-ind-rep-NL-8-text' href='#'>Click here to view the document you created.</a>"
       );
       $("#page3-ind-rep-NL-8-text").on("click", function () {
         showTextNewWindow(noFaxText);
@@ -272,9 +272,29 @@ $(document).ready(function () {
     }
   });
 
+  $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
+    if (document.querySelector(".indNLAuthorityQn:checked")) {
+      const indNLAuthBoolean = document.querySelector(
+        ".indNLAuthorityQn:checked"
+      ).value;
+      if (indNLAuthBoolean === "no") {
+        const noAuthText = document.getElementById("indNLAuthArea").value;
+        $("#page3-ind-rep-NL-9").html(
+          "No, <a id='page3-ind-rep-NL-9-text' href='#'>Click here to view the document you created.</a>"
+        );
+        $("#page3-ind-rep-NL-9-text").on("click", function () {
+          showTextNewWindow(noAuthText);
+        });
+      } else {
+        //yes
+        $("#page3-ind-rep-NL-9").text("Yes");
+      }
+    }
+  });
+
   $("#indIndeComms").on("input", function () {
     curValue = this.value;
-    $("#page3-ind-rep-NL-9").text(curValue);
+    $("#page3-ind-rep-NL-10").text(curValue);
   });
   // End of Page 3 ind NL
 
@@ -295,6 +315,10 @@ $(document).ready(function () {
     curValue = this.value;
     $("#page3-ind-rep-L-4").text(curValue);
   });
+  $("#indLEmail").on("input", function () {
+    curValue = this.value;
+    $("#page3-ind-rep-L-5").text(curValue);
+  });
   $("#indLTel").on("input", function () {
     curValue = this.value;
     $("#page3-ind-rep-L-6").text(curValue);
@@ -304,7 +328,7 @@ $(document).ready(function () {
     if (indLFaxBoolean === true) {
       const noFaxText = document.getElementById("indLFaxArea").value;
       $("#page3-ind-rep-L-7").html(
-        "<a id='page3-ind-rep-L-7-text' href='#'>Click here to view the document you created.</a>"
+        "No, <a id='page3-ind-rep-L-7-text' href='#'>Click here to view the document you created.</a>"
       );
       $("#page3-ind-rep-L-7-text").on("click", function () {
         showTextNewWindow(noFaxText);
@@ -316,13 +340,29 @@ $(document).ready(function () {
     }
   });
 
-  $("#indLEmail").on("input", function () {
-    curValue = this.value;
-    $("#page3-ind-rep-L-5").text(curValue);
+  $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
+    if (document.querySelector(".indLAuthorityPower:checked")) {
+      const indLAuthBoolean = document.querySelector(
+        ".indLAuthorityPower:checked"
+      ).value;
+      if (indLAuthBoolean === "No") {
+        const noAuthText = document.querySelector(".indLAuthArea").value;
+        $("#page3-ind-rep-L-8").html(
+          "No, <a id='page3-ind-rep-L-8-text' href='#'>Click here to view the document you created.</a>"
+        );
+        $("#page3-ind-rep-L-8-text").on("click", function () {
+          showTextNewWindow(noAuthText);
+        });
+      } else {
+        //yes
+        $("#page3-ind-rep-L-8").text("Yes");
+      }
+    }
   });
+
   $("#indIndeComms").on("input", function () {
     curValue = this.value;
-    $("#page3-ind-rep-L-8").text(curValue);
+    $("#page3-ind-rep-L-9").text(curValue);
   });
 
   // End of Page 3 ind L
@@ -357,7 +397,7 @@ $(document).ready(function () {
     if (orgNLFaxBoolean === true) {
       const noFaxText = document.getElementById("orgNLFaxArea").value;
       $("#page3-org-rep-NL-8").html(
-        "<a id='page3-org-rep-NL-8-text' href='#'>Click here to view the document you created.</a>"
+        "No, <a id='page3-org-rep-NL-8-text' href='#'>Click here to view the document you created.</a>"
       );
       $("#page3-org-rep-NL-8-text").on("click", function () {
         showTextNewWindow(noFaxText);
@@ -366,6 +406,26 @@ $(document).ready(function () {
       //yes
       curValue = $("#orgnlFax").val();
       $("#page3-org-rep-NL-8").text(curValue);
+    }
+  });
+
+  $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
+    if (document.querySelector(".orgOffEntitled:checked")) {
+      const orgNLAuthBoolean = document.querySelector(
+        ".orgOffEntitled:checked"
+      ).value;
+      if (orgNLAuthBoolean === "no") {
+        const noAuthText = document.querySelector("#orgNLOfficialAreaNo").value;
+        $("#page3-org-rep-NL-9").html(
+          "No, <a id='page3-org-rep-NL-9-text' href='#'>Click here to view the document you created.</a>"
+        );
+        $("#page3-org-rep-NL-9-text").on("click", function () {
+          showTextNewWindow(noAuthText);
+        });
+      } else {
+        //yes
+        $("#page3-org-rep-NL-9").text("Yes");
+      }
     }
   });
 
@@ -379,7 +439,7 @@ $(document).ready(function () {
 
     if (result === "orgYesLawyer") {
       $(".reviewRepOrgL").removeClass("is-hidden");
-      $("#page3-org-rep-NL-9").text("Yes");
+      $("#page3-org-rep-NL-10").text("Yes");
       $("#orglSurname").on("input", function () {
         curValue = this.value;
         $("#page3-org-rep-L-1").text(curValue);
@@ -409,7 +469,7 @@ $(document).ready(function () {
         if (orgLFaxBoolean === true) {
           const noFaxText = document.getElementById("orgLFaxArea").value;
           $("#page3-org-rep-L-7").html(
-            "<a id='page3-org-rep-L-7-text' href='#'>Click here to view the document you created.</a>"
+            "No, <a id='page3-org-rep-L-7-text' href='#'>Click here to view the document you created.</a>"
           );
           $("#page3-org-rep-L-7-text").on("click", function () {
             showTextNewWindow(noFaxText);
@@ -421,9 +481,30 @@ $(document).ready(function () {
         }
       });
 
+      $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
+        if (document.querySelector(".orgAttorney:checked")) {
+          const orgLAuthBoolean = document.querySelector(
+            ".orgAttorney:checked"
+          ).value;
+          if (orgLAuthBoolean === "no") {
+            const noAuthText =
+              document.querySelector("#orgAutorityAreaNo").value;
+            $("#page3-org-rep-L-8").html(
+              "No, <a id='page3-org-rep-L-8-text' href='#'>Click here to view the document you created.</a>"
+            );
+            $("#page3-org-rep-L-8-text").on("click", function () {
+              showTextNewWindow(noAuthText);
+            });
+          } else {
+            //yes
+            $("#page3-org-rep-L-8").text("Yes");
+          }
+        }
+      });
+
       $("#orgIndeComms").on("input", function () {
         curValue = this.value;
-        $("#page3-org-rep-L-8").text(curValue);
+        $("#page3-org-rep-L-9").text(curValue);
       });
     } else if (result === "orgNoLawyer") {
       $(".reviewRepOrgL").addClass("is-hidden");

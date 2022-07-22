@@ -782,13 +782,6 @@ $("#page8Group").repeater({
       .closest("th")
       .querySelector("a");
     tippy(x, popover_attributes);
-
-    // if(autoGenFlag === "auto"){
-    //   autoAddedDocs.push()
-    // }
-    // else {
-    //   manualAddedDocs.push()
-    // }
   },
   afterDelete: function () {
     groups = $("#page8Group").children();

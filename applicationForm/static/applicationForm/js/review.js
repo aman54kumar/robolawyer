@@ -256,9 +256,17 @@ $(document).ready(function () {
     $("#page3-ind-rep-NL-7").text(curValue);
   });
   $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
-    if ($("#indNLFaxOption")) {
-      $("#page3-ind-rep-NL-8").text("I do not have a fax number.");
+    const indNLFaxBoolean = document.getElementById("indNLFaxOption").checked;
+    if (indNLFaxBoolean === true) {
+      const noFaxText = document.getElementById("indNLFaxArea").value;
+      $("#page3-ind-rep-NL-8").html(
+        "<a id='page3-ind-rep-NL-8-text' href='#'>Click here to view the document you created.</a>"
+      );
+      $("#page3-ind-rep-NL-8-text").on("click", function () {
+        showTextNewWindow(noFaxText);
+      });
     } else {
+      //yes
       curValue = $("#indNLFax").val();
       $("#page3-ind-rep-NL-8").text(curValue);
     }
@@ -292,13 +300,22 @@ $(document).ready(function () {
     $("#page3-ind-rep-L-6").text(curValue);
   });
   $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
-    if ($("#indLFaxOption").prop("checked")) {
-      $("#page3-ind-rep-L-7").text("I do not have a fax number.");
+    const indLFaxBoolean = document.getElementById("indLFaxOption").checked;
+    if (indLFaxBoolean === true) {
+      const noFaxText = document.getElementById("indLFaxArea").value;
+      $("#page3-ind-rep-L-7").html(
+        "<a id='page3-ind-rep-L-7-text' href='#'>Click here to view the document you created.</a>"
+      );
+      $("#page3-ind-rep-L-7-text").on("click", function () {
+        showTextNewWindow(noFaxText);
+      });
     } else {
-      curValue = $("#indLFax").val();
+      //yes
+      const curValue = $("#indLFax").val();
       $("#page3-ind-rep-L-7").text(curValue);
     }
   });
+
   $("#indLEmail").on("input", function () {
     curValue = this.value;
     $("#page3-ind-rep-L-5").text(curValue);
@@ -336,13 +353,22 @@ $(document).ready(function () {
     $("#page3-org-rep-NL-7").text(curValue);
   });
   $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
-    if ($("#orgNLFaxOption").prop("checked")) {
-      $("#page3-org-rep-NL-8").text("I do not have a fax number.");
+    const orgNLFaxBoolean = document.getElementById("orgNLFaxOption").checked;
+    if (orgNLFaxBoolean === true) {
+      const noFaxText = document.getElementById("orgNLFaxArea").value;
+      $("#page3-org-rep-NL-8").html(
+        "<a id='page3-org-rep-NL-8-text' href='#'>Click here to view the document you created.</a>"
+      );
+      $("#page3-org-rep-NL-8-text").on("click", function () {
+        showTextNewWindow(noFaxText);
+      });
     } else {
+      //yes
       curValue = $("#orgnlFax").val();
       $("#page3-org-rep-NL-8").text(curValue);
     }
   });
+
   $("#orgnlEmail").on("input", function () {
     curValue = this.value;
     $("#page3-org-rep-NL-6").text(curValue);
@@ -379,13 +405,22 @@ $(document).ready(function () {
         $("#page3-org-rep-L-6").text(curValue);
       });
       $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
-        if ($("#orgLFaxOption").prop("checked")) {
-          $("#page3-org-rep-L-7").text("I do not have a fax number.");
+        const orgLFaxBoolean = document.getElementById("orgLFaxOption").checked;
+        if (orgLFaxBoolean === true) {
+          const noFaxText = document.getElementById("orgLFaxArea").value;
+          $("#page3-org-rep-L-7").html(
+            "<a id='page3-org-rep-L-7-text' href='#'>Click here to view the document you created.</a>"
+          );
+          $("#page3-org-rep-L-7-text").on("click", function () {
+            showTextNewWindow(noFaxText);
+          });
         } else {
+          //yes
           curValue = $("#orglFax").val();
           $("#page3-org-rep-L-7").text(curValue);
         }
       });
+
       $("#orgIndeComms").on("input", function () {
         curValue = this.value;
         $("#page3-org-rep-L-8").text(curValue);

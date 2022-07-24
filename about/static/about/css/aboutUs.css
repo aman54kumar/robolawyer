@@ -61,6 +61,7 @@ html, body {
   text-align: center;
   border: white;
   background-color: transparent;
+  align-self: center;
 }
 
 .aboutSection {

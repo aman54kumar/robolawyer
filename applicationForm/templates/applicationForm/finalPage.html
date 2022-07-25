@@ -27,21 +27,21 @@
             <div class="text-center"> <img src="{% static 'about/images/team.png' %}" width=20%;></div>
             <br>
             <div class="buttonHolder">
-                
-                <a href="{% url 'download' %}" download><button class="btn btn-primary pdfButton">Download as PDF</button></a>
+
+                <a href="{% url 'download' %}" download><button class="btn btn-primary pdfButton">Download as
+                        PDF</button></a>
 
                 <button id="pdfEmail" class="btn btn-primary">Send PDF to Email</button>
             </div>
         </div>
 
 
-    </div> 
+    </div>
 </div>
 
 
 {% endblock content %}
 {% block scriptContent %}
 
-<script type="text/javascript" src="{% static 'applicationForm/axios/axios.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'applicationForm/js/finalPage.js' %}"></script>
 {% endblock scriptContent %}

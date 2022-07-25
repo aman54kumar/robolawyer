@@ -7,6 +7,9 @@ $(".btn-next-form").on("click", function () {
   );
 });
 
+const abc = gettext("hello");
+console.log(abc);
+
 var applicantTypeOption = function () {
   $("input[name='page2[applicantType]']").change(function () {
     result = this.value;
@@ -236,8 +239,9 @@ var orgRespresentativeOptions = function () {
       $(".orgAuthority").addClass("is-hidden");
       $("#ifOrgLawyerYes").addClass("is-hidden");
       $("#orglNationality").val("");
-      messageText.innerHTML =
-        "<h5>Even though you do not need a lawyer at this stage, if/when the application enters a judicial stage and hearings of the case are scheduled, the Court will expect you to be represented by a trained lawyer. Depending on the particularities of the application, it might take up to several years until the application enters the judicial phase and hearings are scheduled. The Court will inform you if this is the case and if you need to contract a lawyer. If you wish to represent yourself in the Chamber hearings or you do not afford a lawyer, the President of the Chamber may offer special dispensation for you to present your own case in accordance to <a href='https://echr.coe.int/Pages/home.aspx?p=basictexts/rules&c=' target='_blank'>Rule 36</a>, or you may be granted free legal aid in the conditions specified by <a href='https://echr.coe.int/Pages/home.aspx?p=basictexts/rules&c=' target='_blank'>Rule 105</a> (former Rule 100).</h5>";
+      messageText.innerHTML = getText(
+        "<h5>Even though you do not need a lawyer at this stage, if/when the application enters a judicial stage and hearings of the case are scheduled, the Court will expect you to be represented by a trained lawyer. Depending on the particularities of the application, it might take up to several years until the application enters the judicial phase and hearings are scheduled. The Court will inform you if this is the case and if you need to contract a lawyer. If you wish to represent yourself in the Chamber hearings or you do not afford a lawyer, the President of the Chamber may offer special dispensation for you to present your own case in accordance to <a href='https://echr.coe.int/Pages/home.aspx?p=basictexts/rules&c=' target='_blank'>Rule 36</a>, or you may be granted free legal aid in the conditions specified by <a href='https://echr.coe.int/Pages/home.aspx?p=basictexts/rules&c=' target='_blank'>Rule 105</a> (former Rule 100).</h5>"
+      );
       messageText.style.textAlign = "justify";
       $("#orgRepresentNoLawyer");
     } else {

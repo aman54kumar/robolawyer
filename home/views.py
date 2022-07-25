@@ -8,16 +8,3 @@ from pdfrw import PdfReader
 def home(request):
     context = {"home_page": "active"}
     return render(request, 'home/home.html', context)
-
-
-# def testing(request):
-#     pathToPdf = finders.find('App_form.pdf')
-#     pdf = PdfReader(pathToPdf)
-#     result = pdf.Root.Pages.Kids
-#     return HttpResponse(result)
-
-def testing(request):
-    pathToPdf = finders.find('App_form.pdf')
-    x = PdfReader(pathToPdf)
-    result = x.pages[0]
-    return HttpResponse(result)

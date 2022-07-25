@@ -13,6 +13,7 @@ from .utils.logging_utils import LOGGING
 import dj_database_url
 import os
 from decouple import config, Csv
+from django.utils.translation import gettext_lazy as _
 import uuid
 
 from robolawyer.utils.email_auth import Authenticate
@@ -64,7 +65,6 @@ INSTALLED_APPS = [
     "corsheaders",
     "svglib",
     "django_extensions",
-    "debug_toolbar",
     "home",
     "applicationForm",
     "about",
@@ -77,6 +77,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    'django.middleware.locale.LocaleMiddleware',
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -84,7 +85,6 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "opencensus.ext.django.middleware.OpencensusMiddleware",
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "robolawyer.urls"
@@ -105,9 +105,10 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = "robolawyer.wsgi.application"
-# ASGI_APPLICATION = 'robolawyer.asgi.application'
 dotenv_file = os.path.join(BASE_DIR, ".env")
+
 if 'RDS_DB_NAME' in os.environ:
     DATABASES = {
         'default': {
@@ -146,6 +147,14 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Internationalization
+LANGUAGES = (
+    ('en-us', _('English')),
+    ('it', _('Italian')),
+)
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
+]
 
 LANGUAGE_CODE = "en-us"
 
@@ -156,6 +165,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+# Language Settings
+
 
 # TEMPLATES
 
@@ -222,16 +233,16 @@ STATICFILES_FINDERS = (
 # LOGGING
 
 
-sentry_sdk.init(
-    dsn="https://dc5cf96950234e3fa78a91347b3a3b9b@o1183119.ingest.sentry.io/6300288",
-    integrations=[DjangoIntegration()],
-    # Set traces_sample_rate to 1.0 to capture 100%
-    # of transactions for performance monitoring.
-    # We recommend adjusting this value in production.
-    traces_sample_rate=1.0,
-    # If you wish to associate users to errors (assuming you are using
-    # django.contrib.auth) you may enable sending PII data.
-    send_default_pii=True,
-)
+# sentry_sdk.init(
+#     dsn="https://dc5cf96950234e3fa78a91347b3a3b9b@o1183119.ingest.sentry.io/6300288",
+#     integrations=[DjangoIntegration()],
+#     # Set traces_sample_rate to 1.0 to capture 100%
+#     # of transactions for performance monitoring.
+#     # We recommend adjusting this value in production.
+#     traces_sample_rate=1.0,
+#     # If you wish to associate users to errors (assuming you are using
+#     # django.contrib.auth) you may enable sending PII data.
+#     send_default_pii=True,
+# )
 
 LOGGING = LOGGING

@@ -3,6 +3,7 @@
 {% block content %}
 
 <header class="masthead">
+    {% load i18n %}
     <div class="container d-flex align-items-center">
         <div class="mx-auto text-center">
 
@@ -10,7 +11,7 @@
             </h1>
 
             <div class="home-desc-div">
-
+                {% translate "Home string" %}
                 <p class="lead text-white"> On average, only <b>5%</b> of all the applications submitted to the
                     <em>European Court of Human Rights</em> are given a judgment.
                     The majority of cases are declared

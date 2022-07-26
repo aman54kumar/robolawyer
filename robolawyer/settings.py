@@ -221,17 +221,19 @@ STATICFILES_FINDERS = (
 
 # LOGGING
 
-
-sentry_sdk.init(
-    dsn="https://dc5cf96950234e3fa78a91347b3a3b9b@o1183119.ingest.sentry.io/6300288",
-    integrations=[DjangoIntegration()],
-    # Set traces_sample_rate to 1.0 to capture 100%
-    # of transactions for performance monitoring.
-    # We recommend adjusting this value in production.
-    traces_sample_rate=1.0,
-    # If you wish to associate users to errors (assuming you are using
-    # django.contrib.auth) you may enable sending PII data.
-    send_default_pii=True,
-)
+if DEBUG:
+    pass
+else:
+    sentry_sdk.init(
+        dsn="https://dc5cf96950234e3fa78a91347b3a3b9b@o1183119.ingest.sentry.io/6300288",
+        integrations=[DjangoIntegration()],
+        # Set traces_sample_rate to 1.0 to capture 100%
+        # of transactions for performance monitoring.
+        # We recommend adjusting this value in production.
+        traces_sample_rate=1.0,
+        # If you wish to associate users to errors (assuming you are using
+        # django.contrib.auth) you may enable sending PII data.
+        send_default_pii=True,
+    )
 
 LOGGING = LOGGING

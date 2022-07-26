@@ -1311,15 +1311,15 @@ function articleWrapper(
   const invisibleArticleArea = element
     .closest("tr")
     .querySelector(".articleArea");
-  const otherElement = element
-    .closest("tr")
-    .querySelector(".articleExplanation");
+  const otherElement =
+    otherElementIndex === 0
+      ? element.closest("tr").querySelector(".articleExplanation")
+      : element.closest("tr").querySelector(".articleSelect");
 
   idTextArea = "#" + String(element.id);
   var cursorPosition = $(idTextArea).prop("selectionStart");
-
-  var text = `${conjunctionValueIfExists(element)}`;
-  console.log(text);
+  var text = element.value;
+  if (otherElementIndex === 2) text = conjunctionValueIfExists(element);
   var colLimit = columnLength;
   var rowLimit =
     Math.max(otherElement.value.split("\n").length, text.split("\n").length) +
@@ -1491,8 +1491,7 @@ function hideCounterElement(element) {
       "s-group"
     )
   ) {
-    counterElement =
-      element.parentElement.parentElement.children[2].children[3];
+    counterElement = element.closest("tr").querySelector(".remediesCounter");
     counterElement.innerHTML = "Lines Remaining: " + limitLinesPage6;
     counterElement.classList.add("is-hidden");
   } else {
@@ -1718,8 +1717,7 @@ function complaintWrapper(
     }
   }
   if (!isComplaintInputElement) {
-    counterElement =
-      element.parentElement.parentElement.children[2].children[3];
+    counterElement = element.closest("tr").querySelector(".remediesCounter");
     var p =
       otherElement.value.split("\n").length - element.value.split("\n").length;
     getCounterValue(counterElement, p);

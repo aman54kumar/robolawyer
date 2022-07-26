@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-25 19:37+0530\n"
+"POT-Creation-Date: 2022-07-26 23:55+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,10 +17,66 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: home/templates/home/base.html:51
-msgid "Simple string"
-msgstr "Simple string"
+
+#: home/templates/home/base.html:55
+msgid "Nav_Menu"
+msgstr "Menu"
+
+#: home/templates/home/base.html:62
+msgid "Nav_Home"
+msgstr "Home"
+
+#: home/templates/home/base.html:67
+msgid "Nav_ApplicationForm"
+msgstr "Application Form"
+
+#: home/templates/home/base.html:72
+msgid "Nav_AboutUs"
+msgstr "About Us"
+
+#: home/templates/home/base.html:77
+msgid "Nav_ExtRes"
+msgstr "External Resources"
+
+#: home/templates/home/base.html:101
+msgid "LangSelect_Go"
+msgstr "Go"
+
+#: home/templates/home/base.html:105
+msgid "Footer_PoweredBy"
+msgstr "Powered by Tech-R. Technology for Human Rights."
+
+#: home/templates/home/base.html:106
+msgid "Footer.Contact"
+msgstr "Contact"
 
 #: home/templates/home/home.html:14
-msgid "Home string"
-msgstr "Home string"
+msgid "home_descText"
+msgstr ""
+"On average, only <b>5%</b> of all the applications submitted to the "
+"<em>European Court of Human Rights</em> are given a judgment. The majority "
+"of cases are declared inadmissible on formal grounds, such as filling the "
+"application form incorrectly, not exhausting all national remedies or "
+"submitting the application later than 6 months after receiving a final "
+"decision from the national court."
+
+#: home/templates/home/home.html:17
+msgid "Home_HereToHelp"
+msgstr ""
+"We are here to help you fill in your application form for the European Court "
+"of Human Rights."
+
+#: home/templates/home/home.html:22
+msgid "Home_Button_GoForm"
+msgstr "Go to the Application Form"
+
+#: home/templates/home/home.html:36
+msgid "Home_Founders"
+msgstr "Founders"
+
+#: home/templates/home/home.html:37
+msgid "Home_Colab_TechR_UiO"
+msgstr ""
+"The Just Bot project is a collaboration between <a href='https://www.tech-r."
+"org/' target='_blank'>Tech - R</a> and the <a href='https://www.uio.no/' "
+"target='_blank'>University of Oslo</a>."

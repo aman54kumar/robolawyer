@@ -42,39 +42,39 @@
 </head>
 
 <body>
-
+  {% load i18n %}
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <a class="navbar-brand js-scroll-trigger" href="{% url 'home' %}"><img id="justbot-brand"
         src="{% static 'home/images/logo.png' %}" alt="JUST BOT" /></a>
-    {% load i18n %}
 
-    {% trans "Simple string" %}
+
+
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
       data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
       aria-label="Toggle navigation">
-      Menu
+      {% trans "Nav_Menu" %}
       <i class="fas fa-bars"></i>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger {{ home_page }}" href="{% url 'home' %}">
-            <h5>Home</h5>
+            <h5>{% trans "Nav_Home" %}</h5>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link navbar-links {{ form_page }}" href="{% url 'form' %}">
-            <h5>Application Form</h5>
+            <h5>{% trans "Nav_ApplicationForm" %}</h5>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link navbar-links {{ about_page }}" href="{% url 'about' %}">
-            <h5>About Us</h5>
+            <h5>{% trans "Nav_AboutUs" %}</h5>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link navbar-links {{ res_page }}" href="{% url 'extResPage' %}">
-            <h5>External Resources</h5>
+            <h5>{% trans "Nav_ExtRes" %}</h5>
           </a>
         </li>
       </ul>
@@ -86,7 +86,6 @@
     {% block content %} {% endblock content %}
   </main>
   <footer class="py-4 bg-dark text-white-50">
-    {% load i18n %}
 
     <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
       <select name="language">
@@ -99,12 +98,12 @@
         </option>
         {% endfor %}
       </select>
-      <input type="submit" value="Go">
+      <input type="submit" value="{% trans 'LangSelect_Go' %}">
     </form>
 
     <div class="container text-center">
-      <small> Powered by Tech-R. Technology for Human Rights. &copy; </small><br />
-      Contact: <a href="mailto:justbot@tech-r.org">justbot@tech-r.org</a><br />
+      <small> {% trans "Footer_PoweredBy" %} &copy; </small><br />
+      {% trans "Footer.Contact" %}: <a href="mailto:justbot@tech-r.org">justbot@tech-r.org</a><br />
     </div>
   </footer>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, re_path, include
 from django.conf.urls.i18n import i18n_patterns
 from django.views.i18n import JavaScriptCatalog
 import home
@@ -14,6 +14,7 @@ js_info_dict = {
     'packages': ('languages', )
 }
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
@@ -22,9 +23,8 @@ urlpatterns = [
     path('externalResources/', include('extResources.urls')),
     # Needed for locale change
     path('i18n/', include('django.conf.urls.i18n')),
-
     # robots.txt
-    path('robots.txt', RobotsTextView.as_view())
+    path('robots.txt', RobotsTextView.as_view()),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

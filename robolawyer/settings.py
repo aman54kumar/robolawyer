@@ -128,6 +128,15 @@ else:
             'postgres://fprtetitxmtgnu:557b3a7f4109b2b1e15cd0db94b2e667819af50adb34ca6e6c01ce0847a34f17@ec2-52-5-46-126.compute-1.amazonaws.com:5432/d1v1qmla2fahl3')}
 
 
+# Cache
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
+    }
+}
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -155,6 +164,9 @@ LANGUAGES = (
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),
 ]
+
+LANGUAGE_SESSION_KEY = 'session_language_justbot'
+LANGUAGE_COOKIE_NAME = 'cookie_language_justbot'
 
 LANGUAGE_CODE = "en-us"
 

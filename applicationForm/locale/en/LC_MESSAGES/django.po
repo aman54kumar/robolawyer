@@ -1,0 +1,325 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-26 23:55+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: applicationForm/templates/applicationForm/form.html:44
+msgid "Form_FormTitle"
+msgstr "Application Form"
+
+#: applicationForm/templates/applicationForm/form.html:54
+msgid "Form_Stepper_1"
+msgstr "Prerequisites"
+
+#: applicationForm/templates/applicationForm/form.html:62
+msgid "Form_Stepper_2"
+msgstr "Applicant Details"
+
+#: applicationForm/templates/applicationForm/form.html:70
+msgid "Form_Stepper_3"
+msgstr "Representation"
+
+#: applicationForm/templates/applicationForm/form.html:78
+msgid "Form_Stepper_4"
+msgstr "Facts"
+
+#: applicationForm/templates/applicationForm/form.html:86
+msgid "Form_Stepper_5"
+msgstr "Alleged violations of the Convention/Protocols"
+
+#: applicationForm/templates/applicationForm/form.html:94
+msgid "Form_Stepper_6"
+msgstr "Domestic Proceedings"
+
+#: applicationForm/templates/applicationForm/form.html:102
+msgid "Form_Stepper_7"
+msgstr "International Proceedings"
+
+#: applicationForm/templates/applicationForm/form.html:109
+msgid "Form_Stepper_8"
+msgstr "Supporting documents"
+
+#: applicationForm/templates/applicationForm/form.html:116
+msgid "Form_Stepper_9"
+msgstr "Other Comments and Declaration"
+
+#: applicationForm/templates/applicationForm/form.html:124
+msgid "Form_Stepper_10"
+msgstr "Review"
+
+#: applicationForm/templates/applicationForm/form.html:131
+msgid "Form_Stepper_11"
+msgstr "Finish to PDF"
+
+#: applicationForm/templates/applicationForm/form.html:269
+msgid "Feedback_Qn1"
+msgstr "Are you a legally trained person?"
+
+#: applicationForm/templates/applicationForm/form.html:273
+msgid "Option_Yes"
+msgstr "Yes"
+
+#: applicationForm/templates/applicationForm/form.html:277
+msgid "Option_No"
+msgstr "No"
+
+#: applicationForm/templates/applicationForm/form.html:282
+msgid "Feedback_Qn2"
+msgstr "How can we improve this page?"
+
+#: applicationForm/templates/applicationForm/form.html:286
+msgid "Feedback_CancelButton"
+msgstr "Cancel"
+
+#: applicationForm/templates/applicationForm/form.html:287
+msgid "Feedback_SubmitButton"
+msgstr "Send your message"
+
+#: applicationForm/templates/applicationForm/page1.html:8
+msgid "Page1_Heading"
+msgstr "Prerequisites"
+
+#: applicationForm/templates/applicationForm/page1.html:13
+msgid "Page1_Instruction"
+msgstr ""
+"Please fill in this application form with utmost care. If you leave "
+"something out or omit a relevant document, your application form is likely "
+"to be rejected as incomplete. The European Court of Human Rights assesses, "
+"in principle, only complete applications sent within 6 months of receiving a "
+"final judgement from the domestic courts. Sending an incomplete application "
+"form does not interrupt the 6 months term required by the Court."
+
+#: applicationForm/templates/applicationForm/page1.html:21
+msgid "Page1_Qn1"
+msgstr ""
+"Which state(s) do you intend to complain about in your application to the "
+"European Court of Human Rights?"
+
+#: applicationForm/templates/applicationForm/page1.html:22
+msgid "Page1_Qn1_Popover"
+msgstr ""
+"If the State you complain against is not amongst those enumerated below, "
+"your application is inadmissible. The Court is competent to assess only "
+"allegations involving one or several of the 47 member states of the Council "
+"of Europe."
+
+#: applicationForm/templates/applicationForm/page1.html:31
+msgid "Albania"
+msgstr "Albania"
+
+#: applicationForm/templates/applicationForm/page1.html:32
+msgid "Andorra"
+msgstr "Andorra"
+
+#: applicationForm/templates/applicationForm/page1.html:33
+msgid "Armenia"
+msgstr "Armenia"
+
+#: applicationForm/templates/applicationForm/page1.html:34
+msgid "Austria"
+msgstr "Austria"
+
+#: applicationForm/templates/applicationForm/page1.html:35
+msgid "Azerbaijan"
+msgstr "Azerbaijan"
+
+#: applicationForm/templates/applicationForm/page1.html:36
+msgid "Belgium"
+msgstr "Belgium"
+
+#: applicationForm/templates/applicationForm/page1.html:37
+msgid "Bulgaria"
+msgstr "Bulgaria"
+
+#: applicationForm/templates/applicationForm/page1.html:39
+msgid "Bosnia and Herzegovina"
+msgstr "Bosnia and Herzegovina"
+
+#: applicationForm/templates/applicationForm/page1.html:41
+msgid "Croatia"
+msgstr "Croatia"
+
+#: applicationForm/templates/applicationForm/page1.html:42
+msgid "Cyprus"
+msgstr "Cyprus"
+
+#: applicationForm/templates/applicationForm/page1.html:43
+msgid "Czech Republic"
+msgstr "Czech Republic"
+
+#: applicationForm/templates/applicationForm/page1.html:45
+msgid "Denmark"
+msgstr "Denmark"
+
+#: applicationForm/templates/applicationForm/page1.html:47
+msgid "Estonia"
+msgstr "Estonia"
+
+#: applicationForm/templates/applicationForm/page1.html:48
+msgid "Finland"
+msgstr "Finland"
+
+#: applicationForm/templates/applicationForm/page1.html:49
+msgid "France"
+msgstr "France"
+
+#: applicationForm/templates/applicationForm/page1.html:51
+msgid "Georgia"
+msgstr "Georgia"
+
+#: applicationForm/templates/applicationForm/page1.html:52
+msgid "Germany"
+msgstr "Germany"
+
+#: applicationForm/templates/applicationForm/page1.html:53
+msgid "Greece"
+msgstr "Greece"
+
+#: applicationForm/templates/applicationForm/page1.html:55
+msgid "Hungary"
+msgstr "Hungary"
+
+#: applicationForm/templates/applicationForm/page1.html:56
+msgid "Ireland"
+msgstr "Ireland"
+
+#: applicationForm/templates/applicationForm/page1.html:57
+msgid "Iceland"
+msgstr "Iceland"
+
+#: applicationForm/templates/applicationForm/page1.html:58
+msgid "Italy"
+msgstr "Italy"
+
+#: applicationForm/templates/applicationForm/page1.html:59
+msgid "Liechtenstein"
+msgstr "Liechtenstein"
+
+#: applicationForm/templates/applicationForm/page1.html:60
+msgid "Lithuania"
+msgstr "Lithuania"
+
+#: applicationForm/templates/applicationForm/page1.html:61
+msgid "Luxembourg"
+msgstr "Luxembourg"
+
+#: applicationForm/templates/applicationForm/page1.html:62
+msgid "Latvia"
+msgstr "Latvia"
+
+#: applicationForm/templates/applicationForm/page1.html:63
+msgid "Malta"
+msgstr "Malta"
+
+#: applicationForm/templates/applicationForm/page1.html:64
+msgid "Monaco"
+msgstr "Monaco"
+
+#: applicationForm/templates/applicationForm/page1.html:66
+msgid "Republic of Moldova"
+msgstr "Republic of Moldova"
+
+#: applicationForm/templates/applicationForm/page1.html:68
+msgid "North Macedonia"
+msgstr "North Macedonia"
+
+#: applicationForm/templates/applicationForm/page1.html:70
+msgid "Montenegro"
+msgstr "Montenegro"
+
+#: applicationForm/templates/applicationForm/page1.html:71
+msgid "Netherlands"
+msgstr "Netherlands"
+
+#: applicationForm/templates/applicationForm/page1.html:72
+msgid "Norway"
+msgstr "Norway"
+
+#: applicationForm/templates/applicationForm/page1.html:73
+msgid "Poland"
+msgstr "Poland"
+
+#: applicationForm/templates/applicationForm/page1.html:74
+msgid "Portugal"
+msgstr "Portugal"
+
+#: applicationForm/templates/applicationForm/page1.html:75
+msgid "Romania"
+msgstr "Romania"
+
+#: applicationForm/templates/applicationForm/page1.html:77
+msgid "Russian Federation"
+msgstr "Russian Federation"
+
+#: applicationForm/templates/applicationForm/page1.html:79
+msgid "San Marino"
+msgstr "San Marino"
+
+#: applicationForm/templates/applicationForm/page1.html:80
+msgid "Serbia"
+msgstr "Serbia"
+
+#: applicationForm/templates/applicationForm/page1.html:81
+msgid "Slovak Republic"
+msgstr "Slovak Republic"
+
+#: applicationForm/templates/applicationForm/page1.html:82
+msgid "Slovenia"
+msgstr "Slovenia"
+
+#: applicationForm/templates/applicationForm/page1.html:83
+msgid "Spain"
+msgstr "Spain"
+
+#: applicationForm/templates/applicationForm/page1.html:84
+msgid "Sweden"
+msgstr "Sweden"
+
+#: applicationForm/templates/applicationForm/page1.html:85
+msgid "Switzerland"
+msgstr "Switzerland"
+
+#: applicationForm/templates/applicationForm/page1.html:86
+msgid "Turkey"
+msgstr "Turkey"
+
+#: applicationForm/templates/applicationForm/page1.html:87
+msgid "Ukraine"
+msgstr "Ukraine"
+
+#: applicationForm/templates/applicationForm/page1.html:88
+msgid "United Kingdom"
+msgstr "United Kingdom"
+
+msgid "Page1_Qn2"
+msgstr "The facts you are complaining about concern"
+
+msgid "Page1_Qn2_Option1"
+msgstr "You directly"
+
+msgid "Page1_Qn2_Option2"
+msgstr ""
+
+msgid "Page1_Qn2_Option3"
+msgstr ""
+
+msgid "Page1_Qn2_Option4"
+msgstr ""
+
+msgid "Page1_Qn2_Option5"
+msgstr ""

@@ -1,7 +1,7 @@
 {% extends 'home/base.html' %}
 {% load static %}
 {% block headContent %}
-
+{% load i18n %}
 <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
     integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw=="
@@ -40,8 +40,8 @@
 
 <div class="jumbotron" style="margin-bottom: 0;background: linear-gradient(to bottom,  #1f549e 0%,#2989d8 100%)">
     <br>
-    <h1 class="display-5" id="form-title">
-        APPLICATION FORM
+    <h1 class="display-5 text-uppercase" id="form-title">
+        {% trans 'Form_FormTitle' %}
     </h1>
 
     <div class=" mb-5 p-4" style="background-color:transparent;">
@@ -51,7 +51,7 @@
                     <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger1"
                         aria-controls="form-page-1">
                         <span class="bs-stepper-circle">1</span>
-                        <span class="bs-stepper-label">Prerequisites</span>
+                        <span class="bs-stepper-label">{% trans 'Form_Stepper_1' %}</span>
                     </button>
                 </div>
 
@@ -59,7 +59,7 @@
                     <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger2"
                         aria-controls="form-page-2">
                         <span class="bs-stepper-circle">2</span>
-                        <span class="bs-stepper-label">Applicant Details</span>
+                        <span class="bs-stepper-label">{% trans 'Form_Stepper_2' %}</span>
                     </button>
                 </div>
 
@@ -67,7 +67,7 @@
                     <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger3"
                         aria-controls="form-page-3">
                         <span class="bs-stepper-circle">3</span>
-                        <span class="bs-stepper-label">Representation</span>
+                        <span class="bs-stepper-label">{% trans 'Form_Stepper_3' %}</span>
                     </button>
                 </div>
 
@@ -75,7 +75,7 @@
                     <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger4"
                         aria-controls="form-page-4">
                         <span class="bs-stepper-circle">4</span>
-                        <span class="bs-stepper-label">Facts</span>
+                        <span class="bs-stepper-label">{% trans 'Form_Stepper_4' %}</span>
                     </button>
                 </div>
 
@@ -83,7 +83,7 @@
                     <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger5"
                         aria-controls="form-page-5">
                         <span class="bs-stepper-circle">5</span>
-                        <span class="bs-stepper-label">Alleged violations of the Convention/Protocols</span>
+                        <span class="bs-stepper-label">{% trans 'Form_Stepper_5' %}</span>
                     </button>
                 </div>
 
@@ -91,7 +91,7 @@
                     <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger6"
                         aria-controls="form-page-6">
                         <span class="bs-stepper-circle">6</span>
-                        <span class="bs-stepper-label">Domestic Proceedings</span>
+                        <span class="bs-stepper-label">{% trans 'Form_Stepper_6' %}</span>
                     </button>
                 </div>
 
@@ -99,21 +99,21 @@
                     <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger7"
                         aria-controls="form-page-7">
                         <span class="bs-stepper-circle">7</span>
-                        <span class="bs-stepper-label">International Proceedings</span>
+                        <span class="bs-stepper-label">{% trans 'Form_Stepper_7' %}</span>
                     </button>
                 </div>
                 <div class="step" data-target="#form-page-8">
                     <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger8"
                         aria-controls="form-page-8">
                         <span class="bs-stepper-circle">8</span>
-                        <span class="bs-stepper-label">Supporting documents</span>
+                        <span class="bs-stepper-label">{% trans 'Form_Stepper_8' %}</span>
                     </button>
                 </div>
                 <div class="step" data-target="#form-page-9">
                     <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger9"
                         aria-controls="form-page-9">
                         <span class="bs-stepper-circle">9</span>
-                        <span class="bs-stepper-label">Other Comments and Declaration</span>
+                        <span class="bs-stepper-label">{% trans 'Form_Stepper_9' %}</span>
                     </button>
                 </div>
 
@@ -121,14 +121,14 @@
                     <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger10"
                         aria-controls="form-page-10">
                         <span class="bs-stepper-circle">10</span>
-                        <span class="bs-stepper-label">Review</span>
+                        <span class="bs-stepper-label">{% trans 'Form_Stepper_10' %}</span>
                     </button>
                 </div>
                 <div class="step" data-target="#form-page-11">
                     <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger11"
                         aria-controls="form-page-11">
                         <span class="bs-stepper-circle">11</span>
-                        <span class="bs-stepper-label">Finish to PDF</span>
+                        <span class="bs-stepper-label">{% trans 'Form_Stepper_11' %}</span>
                     </button>
                 </div>
             </div>
@@ -266,26 +266,25 @@
 
     {% csrf_token %}
     <div class="form-group">
-        <label for=""> Are you a legally trained person?</label>
+        <label for=""> {% trans 'Feedback_Qn1' %}</label>
         <input type="text" id="sugPageNo" class="is-hidden" name="sugPageNo">
         <div class="custom-control custom-radio custom-control-inline">
             <input type="radio" class="custom-control-input" id="legalTrainYesFirst" name="legalTrained" value="Yes">
-            <label class="custom-control-label" for="legalTrainYesFirst">Yes</label>
+            <label class="custom-control-label" for="legalTrainYesFirst">{% trans 'Option_Yes' %}</label>
         </div>
         <div class="custom-control custom-radio custom-control-inline">
             <input type="radio" class="custom-control-input" id="legalTrainNoFirst" name="legalTrained" value="No">
-            <label class="custom-control-label" for="legalTrainNoFirst">No</label>
+            <label class="custom-control-label" for="legalTrainNoFirst">{% trans 'Option_No' %}</label>
         </div>
         <input type="text" class="is-hidden" name="legalTrainedInput">
     </div>
     <div class="form-group">
-        <label for="suggestionArea">How can we improve this page?</label>
+        <label for="suggestionArea">{% trans 'Feedback_Qn2' %}</label>
         <textarea class="form-control" id="suggestionArea" name="suggestionArea" type="text" rows="5"></textarea>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-default cancelButton" type="button" onclick="Swal.close()">Cancel</button>
-        <button type="submit" class="btn feedback-button feedback_submit">Send your
-            message</button>
+        <button class="btn btn-default cancelButton" type="button" onclick="Swal.close()">{% trans 'Feedback_CancelButton' %}</button>
+        <button type="submit" class="btn feedback-button feedback_submit">{% trans 'Feedback_SubmitButton' %}</button>
     </div>
 </form>
 `,

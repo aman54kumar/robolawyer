@@ -581,17 +581,17 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     docObject.push(indLFaxText);
   }
 
-  if (!!$("#indLAuthAreaYes").val()) {
-    indLOtherYesText = {
-      id: 9,
-      date: moment().format("DD-MM-YYYY"),
-      title: "Explanation for lack of signature on the authority form",
-      desc: "Document explaining the lack of authority form.",
-      page: 1,
-      text: $("#indLAuthAreaYes").val(),
-    };
-    docObject.push(indLOtherYesText);
-  }
+  // if (!!$("#indLAuthAreaYes").val()) {
+  //   indLOtherYesText = {
+  //     id: 9,
+  //     date: moment().format("DD-MM-YYYY"),
+  //     title: "Explanation for lack of signature on the authority form",
+  //     desc: "Document explaining the lack of authority form.",
+  //     page: 1,
+  //     text: $("#indLAuthAreaYes").val(),
+  //   };
+  //   docObject.push(indLOtherYesText);
+  // }
   if (!!$("#indLAuthAreaNo").val()) {
     indLOtherNoText = {
       id: 10,

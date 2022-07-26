@@ -81,7 +81,8 @@ class PrepareResult:
         objectDict = json.loads(objectDict)
         # print(type(objectDict))
         for data in objectDict:
-            docName = "Result_form_page_" + str(14 + objectDict.index(data)) + ".pdf"
+            docName = "Result_form_page_" + \
+                str(14 + objectDict.index(data)) + ".pdf"
             # print(data)
             docsPDF = PrepareDocsPDF(
                 data,
@@ -172,7 +173,7 @@ class PrepareResult:
                 break
 
         articleSecondPage = articleLineList[
-            no_of_lines_first_page : no_of_lines_first_page + no_of_lines_second_page
+            no_of_lines_first_page: no_of_lines_first_page + no_of_lines_second_page
         ]
 
         # finish Input for Article Page
@@ -253,10 +254,14 @@ class PrepareResult:
 
         for indexes in [6, 21, 29, 36, 43]:
             barCodeList[indexes] = modifyCountryNames(barCodeList[indexes])
-        barCodeList = self.swapPositions(barCodeList, 20, 21)  # address-nationality
-        barCodeList = self.swapPositions(barCodeList, 22, 23)  # phone-fax-email
-        barCodeList = self.swapPositions(barCodeList, 23, 24)  # phone-fax-email
-        barCodeList = self.swapPositions(barCodeList, 28, 29)  # swapping page1 values:
+        barCodeList = self.swapPositions(
+            barCodeList, 20, 21)  # address-nationality
+        barCodeList = self.swapPositions(
+            barCodeList, 22, 23)  # phone-fax-email
+        barCodeList = self.swapPositions(
+            barCodeList, 23, 24)  # phone-fax-email
+        # swapping page1 values:
+        barCodeList = self.swapPositions(barCodeList, 28, 29)
         barCodeList = self.swapPositions(
             barCodeList, 12, 13
         )  # swapping page 4 address and nationality:
@@ -488,13 +493,8 @@ class PrepareResult:
         elif pos == 11:
             can = eleventhPageInputs(self, can, inputObj, tempInput)
         elif pos == 12:
-            pathToNewFiles = (
-                "applicationForm/dataPreparation/results/"
-                + self.sessionID
-                + "/finalPage/"
-            )
-            pageNumberList = self.getNumberOfPagesList(pathToNewFiles)
-            can = twelvthPageInputs(self, can, inputObj, pageNumberList[::-1])
+
+            can = twelvthPageInputs(self, can, inputObj)
         elif pos == 13:
             can = thirteenthPageInputs(self, can, inputObj, tempInput)
         else:

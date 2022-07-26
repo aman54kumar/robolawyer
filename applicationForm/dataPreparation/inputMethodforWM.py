@@ -31,7 +31,8 @@ def firstPageInputs(self, can, inputObj, secondInput):
 
         indPobNew = modifyCountryNames(inputObj["page2[indPob]"])
         can.drawString(25, 285, indPobNew)
-        indNationalityNew = modifyCountryNames(inputObj["page2[indNationality]"])
+        indNationalityNew = modifyCountryNames(
+            inputObj["page2[indNationality]"])
         can.drawString(25, 245, indNationalityNew)
 
         addressOne = inputObj["page2[indAddress]"]
@@ -230,7 +231,8 @@ def fourthPageInputs(self, can, inputObj):
             can.drawString(310, 666, inputObj["page3[orglSurname]"])
             can.drawString(310, 626, inputObj["page3[orglFirstName]"])
 
-            orglNationalityNew = modifyCountryNames(inputObj["page3[orglNationality]"])
+            orglNationalityNew = modifyCountryNames(
+                inputObj["page3[orglNationality]"])
             can.drawString(310, 585, orglNationalityNew)
             addressFive = inputObj["page3[orglAddress]"]
             newAddressFive = formatTextWithoutDash(self, addressFive, 49)
@@ -327,7 +329,8 @@ def getListFromArticleObj(self, inputDict, length):
     explanationList = []
     for i in range(length):
         articleList.append(inputDict["page5[" + str(i) + "][articleArea]"])
-        explanationList.append(inputDict["page5[" + str(i) + "][articleExplanation]"])
+        explanationList.append(
+            inputDict["page5[" + str(i) + "][articleExplanation]"])
     return [articleList, explanationList]
 
 
@@ -477,7 +480,7 @@ def eleventhPageInputs(self, can, inputObj, secondInput):
     return can
 
 
-def twelvthPageInputs(self, can, inputObj, pageNumberList):
+def twelvthPageInputs(self, can, inputObj):
     [
         dateListNew,
         titleListNew,
@@ -486,6 +489,7 @@ def twelvthPageInputs(self, can, inputObj, pageNumberList):
         pageListTemp,
     ] = sortDocumentsDate(self, inputObj)
     # pageListNew = add_one_by_one(pageListTemp)
+
     length = int((len(inputObj)) / 4)
     yCoord = 666
     for item in range(length):
@@ -493,7 +497,7 @@ def twelvthPageInputs(self, can, inputObj, pageNumberList):
         t1.setFont(_customFont, _customFontSize)
         desc = descListNew[item]
         title = titleListNew[item]
-        page = str(pageNumberList[item])
+        page = str(pageListNew[item])
         can.setFont("Courier-Bold", 12)
         can.drawString(40, yCoord, title)
         can.setFont("Courier", 11)
@@ -555,14 +559,16 @@ def thirteenthPageInputs(self, can, inputObj, tempInput):
     drawing = svg2rlg(
         os.path.join(
             settings.BASE_DIR,
-            "applicationForm/dataPreparation/results/" + tempInput[1] + "/barcode.svg",
+            "applicationForm/dataPreparation/results/" +
+            tempInput[1] + "/barcode.svg",
         )
     )
     renderPM.drawToFile(
         drawing,
         os.path.join(
             settings.BASE_DIR,
-            "applicationForm/dataPreparation/results/" + tempInput[1] + "/barcode.png",
+            "applicationForm/dataPreparation/results/" +
+            tempInput[1] + "/barcode.png",
         ),
         fmt="PNG",
     )
@@ -581,7 +587,8 @@ def thirteenthPageInputs(self, can, inputObj, tempInput):
     bcodeIm = Image.open(
         os.path.join(
             settings.BASE_DIR,
-            "applicationForm/dataPreparation/results/" + tempInput[1] + "/barcode.png",
+            "applicationForm/dataPreparation/results/" +
+            tempInput[1] + "/barcode.png",
         )
     )
     side_bcodeIm_data = io.BytesIO()

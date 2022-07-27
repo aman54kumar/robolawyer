@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-26 23:55+0530\n"
+"POT-Creation-Date: 2022-07-27 13:58+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,10 +71,22 @@ msgid "Feedback_Qn1"
 msgstr "Are you a legally trained person?"
 
 #: applicationForm/templates/applicationForm/form.html:273
+#: applicationForm/templates/applicationForm/page1.html:186
+#: applicationForm/templates/applicationForm/page1.html:204
+#: applicationForm/templates/applicationForm/page1.html:238
+#: applicationForm/templates/applicationForm/page2/anonymity.html:22
+#: applicationForm/templates/applicationForm/page2/organisation.html:38
+#: applicationForm/templates/applicationForm/page2/organisation.html:73
 msgid "Option_Yes"
 msgstr "Yes"
 
 #: applicationForm/templates/applicationForm/form.html:277
+#: applicationForm/templates/applicationForm/page1.html:190
+#: applicationForm/templates/applicationForm/page1.html:209
+#: applicationForm/templates/applicationForm/page1.html:243
+#: applicationForm/templates/applicationForm/page2/anonymity.html:27
+#: applicationForm/templates/applicationForm/page2/organisation.html:43
+#: applicationForm/templates/applicationForm/page2/organisation.html:78
 msgid "Option_No"
 msgstr "No"
 
@@ -306,20 +318,359 @@ msgstr "Ukraine"
 msgid "United Kingdom"
 msgstr "United Kingdom"
 
+#: applicationForm/templates/applicationForm/page1.html:95
 msgid "Page1_Qn2"
 msgstr "The facts you are complaining about concern"
 
+#: applicationForm/templates/applicationForm/page1.html:104
 msgid "Page1_Qn2_Option1"
 msgstr "You directly"
 
+#: applicationForm/templates/applicationForm/page1.html:110
 msgid "Page1_Qn2_Option2"
-msgstr ""
+msgstr "Your organisation"
 
+#: applicationForm/templates/applicationForm/page1.html:117
 msgid "Page1_Qn2_Option3"
 msgstr ""
+"A close relative or a person under your care or responsibility who is unable "
+"to lodge an application"
 
+#: applicationForm/templates/applicationForm/page1.html:119
+msgid "Page1_Qn2_Option3_Popover"
+msgstr ""
+"The Convention institutions have held that special considerations may arise "
+"in the case of victims of alleged breaches of Articles 2 (right to life), 3 "
+"(prohibition of torture) and 8 (right to respect for private and family "
+"life) at the hands of the national authorities. In this case you need to "
+"show legitimate interest in pursuing the application before the Court."
+
+#: applicationForm/templates/applicationForm/page1.html:127
 msgid "Page1_Qn2_Option4"
-msgstr ""
+msgstr "My client who is an individual person"
 
+#: applicationForm/templates/applicationForm/page1.html:134
 msgid "Page1_Qn2_Option5"
+msgstr "My client who is a juridical person"
+
+#: applicationForm/templates/applicationForm/page1.html:143
+msgid "Page1_Qn3"
 msgstr ""
+"When did the alleged breach of the European Convention on Human Rights that "
+"you are complaining about happen? If you are not sure as to the exact day "
+"and month, please choose a date that is closest to the events."
+
+#: applicationForm/templates/applicationForm/page1.html:170
+msgid "Page1_Qn4"
+msgstr ""
+"Have you brought your case before the highest court competent to deal with "
+"the subject matter of your dispute? The competent national courts in the "
+"selected state(s) are in principle"
+
+#: applicationForm/templates/applicationForm/page1.html:175
+msgid "Page1_Table_Heading_Country"
+msgstr "Country"
+
+#: applicationForm/templates/applicationForm/page1.html:176
+msgid "Page1_Table_Heading_ProceedingType"
+msgstr "Type of proceeding"
+
+#: applicationForm/templates/applicationForm/page1.html:177
+msgid "Page1_Table_Heading_CourtName"
+msgstr "National court(s)"
+
+#: applicationForm/templates/applicationForm/page1.html:196
+msgid "Page1_Qn5"
+msgstr ""
+"Were there available legal remedies capable of redressing your situation "
+"that you have not used?"
+
+#: applicationForm/templates/applicationForm/page1.html:197
+msgid "Page1_Qn5_Popover"
+msgstr ""
+"Before you apply to the Court, you need to exhaust domestic remedies. The "
+"only remedies the Convention requires to be exhausted are those that relate "
+"to the breaches alleged and those that are available, effective and "
+"sufficient. Essential is that the competent national authorities analyzed "
+"the merits of your claim/claims."
+
+#: applicationForm/templates/applicationForm/page1.html:214
+msgid "Page1_Qn6"
+msgstr "When was the final decision in your case delivered or served on you?"
+
+#: applicationForm/templates/applicationForm/page1.html:216
+msgid "Page1_Qn6_Popover"
+msgstr ""
+"Your application needs to comply with the time limit within which you have "
+"to send your application to the European Court of Human Rights. <br/>The "
+"time limit starts running from the date on which you or your representative "
+"have received the final national decision. If there are no available "
+"national remedies for your case, the time limit starts running after the "
+"events being complained about occurred. <br/> <br/>For decisions/events that "
+"occured before 31/01/2022 the time limit is six months (the six-month rule). "
+"<br/>For decisions/events that occured on or after 01/02/2022 the time limit "
+"is four months (the four-month rule). <br/><br/>Exceptions to this rule are "
+"1) continuous violations or 2) situations where there is no remedy "
+"available. In the first case, the time limit starts to run from the end of "
+"the continuing situation. The fact that the event/alleged violation has "
+"consequences over time does not mean that the event has produced a "
+"continuing situation. In the second case, the  time limit starts running "
+"from the date on which the act complained of took place or the date on which "
+"you were directly affected. <br/>Please submit your application as soon as "
+"possible. If you send it at the last moment and is incomplete, you will have "
+"no time to re-submit a complete application form within the required time "
+"limit."
+
+#: applicationForm/templates/applicationForm/page1.html:232
+msgid "Page1_Qn7"
+msgstr ""
+"Do you already have a Reference number (Application number) from the Court "
+"in relation to these complaints?"
+
+#: applicationForm/templates/applicationForm/page1.html:247
+msgid "Page1_Qn7_ExtraQn"
+msgstr "Please indicate the reference number in this box."
+
+#: applicationForm/templates/applicationForm/page1.html:250
+msgid "Text_Example"
+msgstr "Example"
+
+#: applicationForm/templates/applicationForm/page1.html:261
+#: applicationForm/templates/applicationForm/page2.html:71
+msgid "Button_Next"
+msgstr "Next"
+
+#: applicationForm/templates/applicationForm/page2.html:8
+msgid "Page2_Heading"
+msgstr "Prerequisites"
+
+#: applicationForm/templates/applicationForm/page2.html:16
+msgid "Page2_Instructions"
+msgstr ""
+"Please fill in this application form with utmost care. If you leave "
+"something out or omit a relevant document, your application form is likely "
+"to be rejected as incomplete. The European Court of Human Rights assesses, "
+"in principle, only complete applications sent within 6 months of receiving a "
+"final judgement from the domestic courts. Sending an incomplete application "
+"form does not interrupt the 6 months term required by the Court."
+
+#: applicationForm/templates/applicationForm/page2.html:29
+msgid "Page2_Option_Individual"
+msgstr "Individual"
+
+#: applicationForm/templates/applicationForm/page2.html:31
+msgid "page2_Option_Individual_Popover"
+msgstr ""
+"This section applies to an applicant who is an individual person, as opposed "
+"to a legal entity such as a company or association. If there is more than "
+"one individual applicant, this information must be provided for each "
+"additional applicant, on a separate application form."
+
+#: applicationForm/templates/applicationForm/page2.html:42
+msgid "Page2_Option_Organisation"
+msgstr "Organisation"
+
+#: applicationForm/templates/applicationForm/page2.html:45
+msgid "Page2_Option_Organisation_Popover"
+msgstr ""
+"This section concerns applicants that are legal entities such as a company, "
+"non-governmental organisation or association, etc. The identity and contact "
+"details of the applicant organisation must be filled in. If there is more "
+"than one such applicant, this information must be provided for each "
+"additional applicant, on a separate application form."
+
+#: applicationForm/templates/applicationForm/page2.html:66
+msgid "Button_Previous"
+msgstr "Previous"
+
+#: applicationForm/templates/applicationForm/page2/anonymity.html:5
+msgid "Page2_Anonymity_Question"
+msgstr "Do you want to keep your identity anonymous in public documents published by the Court?"
+
+#: applicationForm/templates/applicationForm/page2/anonymity.html:10
+msgid "Page2_Anonymity_Question_Explanation"
+msgstr "If your application is declared admissible by the Court, your name will appear on the documents related to your case that are published by the Court. These documents are publicly available. You can request not to disclose your identity to the public."
+
+#: applicationForm/templates/applicationForm/page2/anonymity.html:34
+
+msgid "Page2_Anonymity_Question_Placeholder"
+msgstr "Provide a detailed explanation"
+
+#: applicationForm/templates/applicationForm/page2/individual.html:4
+msgid "Page2_Individual_Instructions"
+msgstr ""
+"Fill in this part only if you’re an Individual. If you’re a company, "
+"association, NGO or other legal entity, select “Organisation” above."
+
+#: applicationForm/templates/applicationForm/page2/individual.html:10
+msgid "Page2_Individual_Surname"
+msgstr "Surname"
+
+#: applicationForm/templates/applicationForm/page2/individual.html:16
+msgid "Page2_Individual_Fname"
+msgstr "First Name(s)"
+
+#: applicationForm/templates/applicationForm/page2/individual.html:26
+msgid "Page2_Individual_DOB"
+msgstr "Date of Birth"
+
+#: applicationForm/templates/applicationForm/page2/individual.html:36
+msgid "Page2_Individual_POB"
+msgstr "Place of Birth"
+
+#: applicationForm/templates/applicationForm/page2/individual.html:43
+msgid "Page2_Individual_Nationality"
+msgstr "Nationality"
+
+#: applicationForm/templates/applicationForm/page2/individual.html:53
+msgid "Page2_Individual_Address"
+msgstr "Address"
+
+#: applicationForm/templates/applicationForm/page2/individual.html:55
+msgid "Page2_Individual_Address_Popover"
+msgstr ""
+"An applicant must provide a postal address separate from that of a lawyer or "
+"representative so that the Court can make contact if necessary. An applicant "
+"who is homeless or has no fixed residence may have to give a box number or "
+"friend’s details but should provide an explanation."
+
+#: applicationForm/templates/applicationForm/page2/individual.html:63
+msgid "Page2_Individual_Address_LinesRemaining"
+msgstr "Lines Remaining"
+
+#: applicationForm/templates/applicationForm/page2/individual.html:68
+msgid "Page2_Individual_TelNo"
+msgstr "Telephone Number (select country code)"
+
+#: applicationForm/templates/applicationForm/page2/individual.html:75
+msgid "Page2_Individual_Email"
+msgstr "Email"
+
+#: applicationForm/templates/applicationForm/page2/individual.html:85
+msgid "Page2_Individual_Sex"
+msgstr "Sex"
+
+#: applicationForm/templates/applicationForm/page2/individual.html:90
+msgid "Page2_Individual_Sex_Male"
+msgstr "Male"
+
+#: applicationForm/templates/applicationForm/page2/individual.html:95
+msgid "Page2_Individual_Sex_Female"
+msgstr "Female"
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:4
+msgid "Page2_Organisation_Instructions"
+msgstr ""
+"Fill in this part only if you are writing the application on behalf of a "
+"company, association, NGO or other legal entity. If you are complaining "
+"about breaches against an individual person, please select \"Individual\" "
+"above. In exceptional cases, the European Court of Human Rights might grant "
+"to legal entities the right to lodge an application on behalf of "
+"individuals, however this is not common practice (see <a href='http://hudoc."
+"echr.coe.int/eng?i=002-9574' target='_blank'><em>CLR on behalf of Valentin "
+"Campeanu v. Romania</em></a>)."
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:11
+msgid "Page2_Organisation_Name"
+msgstr "Name"
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:14
+msgid "Page2_Organisation_Name_Placeholder"
+msgstr "Name of the organisation"
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:21
+msgid "Page2_Organisation_Activity"
+msgstr "Activity"
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:24
+msgid "Page2_Organisation_Activity_Placeholder"
+msgstr "Enter activity"
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:31
+msgid "Page2_Organisation_RegDateOption"
+msgstr ""
+"Do you have a date of registration or incorporation of your organisation?"
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:47
+msgid "Page2_Organisation_RegDate"
+msgstr "Please provide the date of registration or incorporation"
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:52
+msgid "Page2_Organisation_RegDate_Placeholder"
+msgstr "Date of registration or incorporation"
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:57
+msgid "Page2_Organisation_NoRegDateMessage"
+msgstr ""
+"If you do not have a registration/incorporation date of your organisation, "
+"you must provide an explanation as to why this information is missing and "
+"send the document containing this explanation as an accompanying document to "
+"your application. <br /> We will generate the text you enter in the below "
+"field as an additional document when you generate the application form and "
+"we will automatically add the title and description of this document to the "
+"Supporting Document list on page 8. You may add any other documents "
+"supporting your explanation both to the Supporting Documents list on page 8, "
+"and as a copy in the attachments to the application."
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:63
+msgid "Page2_Organisation_NoRegDate_Placeholder"
+msgstr ""
+"Example of explanation: The organisation has been registered 99 years ago, "
+"the documents and any records mentioning the exact date of registration and "
+"incorporation have been lost in a fire. Records of the fire are added to "
+"this application as a proof."
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:68
+msgid "Page2_Organisation_ID_Option"
+msgstr "Does your organisation have an identification number?"
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:82
+msgid "Page2_Organisation_ID"
+msgstr "Please provide the identification number."
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:84
+msgid "Page2_Organisation_ID_Placeholder"
+msgstr "Enter identification number"
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:90
+msgid "Page2_Organisation_NoIDMessage"
+msgstr ""
+"If you do not have the identification number of your organisation, you must "
+"provide an explanation as to why this information is missing and send the "
+"document containing this explanation as an accompanying document to your "
+"application. <br /> We will generate the text you enter in the below field "
+"as an additional document when you generate the application form and we will "
+"automatically add the title and description of this document to the "
+"Supporting Document list on page 8. You may add any other documents "
+"supporting your explanation both to the Supporting Documents list on page 8, "
+"and as a copy in the attachments to the application."
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:96
+msgid "Page2_Organisation_NoID_Placeholder"
+msgstr ""
+"Example of explanation: The country where the organisation is located does "
+"not provide identification numbers."
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:104
+msgid "Page2_Organisation_Address"
+msgstr "Registered Address"
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:108
+msgid "Page2_Organisation_Address_Placeholder"
+msgstr "Enter address"
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:114
+msgid "Page2_Organisation_TelNo"
+msgstr "Telephone (select country code)"
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:117
+msgid "Page2_Organisation_TelNoPlaceholder"
+msgstr "Enter telephone number"
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:121
+msgid "Page2_Organisation_Email"
+msgstr "Email"
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:124
+msgid "Page2_Organisation_Email_Placeholder"
+msgstr "Enter email address"

@@ -101,40 +101,37 @@
                       value="ConcernIndividual" data-parsley-errors-container="#error-container-concern"
                       data-parsley-group="page1" />
                     <label class="custom-control-label" for="concernYouYes">
-                      You directly</label>
+                      {% trans 'Page1_Qn2_Option1' %}</label>
                   </div>
                   <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio" class="custom-control-input" id="concernYouNo" name="page1[concernYou]"
                       value="ConcernOrganisation" data-parsley-errors-container="#error-container-concern"
                       data-parsley-group="page1" />
-                    <label class="custom-control-label" for="concernYouNo">Your organisation
+                    <label class="custom-control-label" for="concernYouNo">{% trans 'Page1_Qn2_Option2' %}
                     </label>
                   </div>
                   <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio" class="custom-control-input" id="concernYouOther" name="page1[concernYou]"
                       value="OtherClose" data-parsley-errors-container="#error-container-concern"
                       data-parsley-group="page1" />
-                    <label class="custom-control-label" for="concernYouOther">A close relative or a person under your
-                      care or
-                      responsibility who is unable to lodge an application
+                    <label class="custom-control-label" for="concernYouOther">{% trans 'Page1_Qn2_Option3' %}
                       <a href="javascript://" data-toggle="popover"
-                        data-content="The Convention institutions have held that special considerations may arise in the case of victims of alleged breaches of Articles 2 (right to life), 3 (prohibition of torture) and 8 (right to respect for private and family life) at the hands of the national authorities. In this case you need to show legitimate interest in pursuing the application before the Court."
-                        data-trigger="focus" data-placement="bottom"><span><i
-                            class="fas fa-question-circle"></i></span></a>
+                        data-content="{% trans 'Page1_Qn2_Option3_Popover' %}" data-trigger="focus"
+                        data-placement="bottom"><span><i class="fas fa-question-circle"></i></span></a>
                     </label>
                   </div>
                   <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio" class="custom-control-input" id="concernYouIndividual" name="page1[concernYou]"
                       value="ClientIndividual" data-parsley-errors-container="#error-container-concern"
                       data-parsley-group="page1" />
-                    <label class="custom-control-label" for="concernYouIndividual">My client who is an individual person
+                    <label class="custom-control-label" for="concernYouIndividual">{% trans 'Page1_Qn2_Option4' %}
                     </label>
                   </div>
                   <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio" class="custom-control-input" id="concernYouJuridical" name="page1[concernYou]"
                       value="ClientJuridical" data-parsley-errors-container="#error-container-concern"
                       data-parsley-group="page1" />
-                    <label class="custom-control-label" for="concernYouJuridical">My client who is a juridical person
+                    <label class="custom-control-label" for="concernYouJuridical">{% trans 'Page1_Qn2_Option5' %}
                     </label>
                   </div>
                 </div>
@@ -143,10 +140,7 @@
             <li class="ordLists">
               <div class="form-group">
                 <label class="lead">
-                  <h4>
-                    When did the alleged breach of the European Convention on Human Rights that you are complaining
-                    about happen? If you are not sure as to the exact day and month, please choose a date that is
-                    closest to the events.
+                  <h4>{% trans 'Page1_Qn3' %}
                   </h4>
                 </label>
                 <div class="row">
@@ -173,18 +167,14 @@
             </li>
             <li class="ordLists">
               <label class="lead">
-                <h4>
-                  Have you brought your case before the highest court competent to
-                  deal with the subject matter of your dispute? The competent
-                  national courts in the selected state(s) are in principle:
-                </h4>
+                <h4>{% trans 'Page1_Qn4' %}:</h4>
               </label>
               <table id="courtTable">
                 <thead>
                   <tr>
-                    <th scope="col">Country</th>
-                    <th scope="col">Type of proceeding</th>
-                    <th scope="col">National court(s)</th>
+                    <th scope="col">{% trans 'Page1_Table_Heading_Country' %}</th>
+                    <th scope="col">{% trans 'Page1_Table_Heading_ProceedingType' %}</th>
+                    <th scope="col">{% trans 'Page1_Table_Heading_CourtName' %}</th>
                   </tr>
                 </thead>
                 <tbody id="courtData"></tbody>
@@ -193,49 +183,38 @@
               <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" class="custom-control-input" id="courtCaseYes" name="page1[courtCase]"
                   value="Yes" />
-                <label class="custom-control-label" for="courtCaseYes">Yes</label>
+                <label class="custom-control-label" for="courtCaseYes">{% trans 'Option_Yes' %}</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" class="custom-control-input" id="courtCaseNo" name="page1[courtCase]" value="No" />
-                <label class="custom-control-label" for="courtCaseNo">No</label>
+                <label class="custom-control-label" for="courtCaseNo">{% trans 'Option_No' %}</label>
               </div>
               <br />
             </li>
             <li class="ordLists">
               <label class="lead">
-                <h4>
-                  Were there available legal remedies capable of redressing your
-                  situation that you have not used?
-                  <a href="javascript://" data-toggle="popover"
-                    data-content="Before you apply to the Court, you need to exhaust domestic remedies. The only remedies the Convention requires to be exhausted are those that relate to the breaches alleged and those that are available, effective and sufficient. Essential is that the competent national authorities analyzed the merits of your claim/claims."
+                <h4>{% trans 'Page1_Qn5' %}
+                  <a href="javascript://" data-toggle="popover" data-content="{% trans 'Page1_Qn5_Popover' %}"
                     data-trigger="focus" data-placement="bottom"><span><i class="fas fa-question-circle"></i></span></a>
                 </h4>
 
                 <div class="custom-control custom-radio custom-control-inline">
                   <input type="radio" class="custom-control-input" id="complySixYes" name="page1[complySix]"
                     value="Yes" />
-                  <label class="custom-control-label" for="complySixYes">Yes</label>
+                  <label class="custom-control-label" for="complySixYes">{% trans 'Option_Yes' %}</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
                   <input type="radio" class="custom-control-input" id="complySixNo" name="page1[complySix]"
                     value="No" />
-                  <label class="custom-control-label" for="complySixNo">No</label>
+                  <label class="custom-control-label" for="complySixNo">{% trans 'Option_No' %}</label>
                 </div>
             </li>
             <li class="ordLists">
               <label class="lead">
-                <h5>
-                  When was the final decision in your case delivered or served on
-                  you?
+                <h5>{% trans 'Page1_Qn6' %}
                   <a href="javascript://" data-toggle="popover" data-html="true"
-                    data-content="Your application needs to comply with the time limit within which you have to send your application to the European Court of Human Rights. <br/>
-                    The time limit starts running from the date on which you or your representative have received the final national decision. If there are no available national remedies for your case, the time limit starts running after the events being complained about occurred. <br/> <br/>
-                    For decisions/events that occured before 31/01/2022 the time limit is six months (the six-month rule). <br/>
-                    For decisions/events that occured on or after 01/02/2022 the time limit is four months (the four-month rule). <br/><br/>
-
-                    Exceptions to this rule are 1) continuous violations or 2) situations where there is no remedy available. In the first case, the time limit starts to run from the end of the continuing situation. The fact that the event/alleged violation has consequences over time does not mean that the event has produced a continuing situation. In the second case, the  time limit starts running from the date on which the act complained of took place or the date on which you were directly affected. <br/>
-                    Please submit your application as soon as possible. If you send it at the last moment and is incomplete, you will have no time to re-submit a complete application form within the required time limit."
-                    data-trigger="focus" data-placement="top"><span><i class="fas fa-question-circle"></i></span></a>
+                    data-content="{% trans 'Page1_Qn6_Popover' %}" data-trigger="focus" data-placement="top"><span><i
+                        class="fas fa-question-circle"></i></span></a>
                 </h5>
               </label>
               <div class="row">
@@ -250,27 +229,25 @@
             <li class="ordLists">
               <div class="form-group">
                 <label class="lead">
-                  <h5>
-                    Do you already have a Reference number (Application number)
-                    from the Court in relation to these complaints?
+                  <h5>{% trans 'Page1_Qn7' %}
                   </h5>
                 </label>
                 <div class="custom-control custom-radio custom-control-inline">
                   <input type="radio" class="custom-control-input" id="referenceYes" name="page1[referenceOption]"
                     value="Yes" data-parsley-group="page1" />
-                  <label class="custom-control-label" for="referenceYes">Yes</label>
+                  <label class="custom-control-label" for="referenceYes">{% trans 'Option_Yes' %}</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
                   <input type="radio" class="custom-control-input" id="referenceNo" name="page1[referenceOption]"
                     value="No" data-parsley-group="page1" />
-                  <label class="custom-control-label" for="referenceNo">No</label>
+                  <label class="custom-control-label" for="referenceNo">{% trans 'Option_No' %}</label>
                 </div>
 
                 <div class="is-hidden referenceField col-sm-3">
-                  <label for="referenceText">Please indicate the reference number in this box.
+                  <label for="referenceText">{% trans 'Page1_Qn7_ExtraQn' %}
                   </label>
                   <input class="form-control" name="page1[referenceText]" id="referenceText" maxlength="10"
-                    data-parsley-group="page1" placeholder="Example: 123456/19" />
+                    data-parsley-group="page1" placeholder="{% trans 'Text_Example' %}: 123456/19" />
                 </div>
               </div>
             </li>
@@ -281,8 +258,7 @@
             <div class="col-sm-6 aleft"></div>
             <div class="col-sm-6 aright">
               <button class="btn btn-primary btn-next-form" onclick="stepperForm.next()">
-                Next
-              </button>
+                {% trans 'Button_Next' %} </button>
             </div>
           </div>
         </div>

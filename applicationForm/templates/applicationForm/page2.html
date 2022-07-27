@@ -1,10 +1,11 @@
 <div id="form-page-2" role="tabpanel" class="bs-stepper-pane fade" aria-labelledby="stepperFormTrigger2">
   <div class="col-12 col-md-12 mx-auto form-section">
     {% load static %}
+    {% load i18n %}
     <div class="row">
       <div class="card-master col-12 col-md-12">
         <div class="card-master-header">
-          <h4 class="card-header-title acenter">Applicant</h4>
+          <h4 class="card-header-title acenter">{% trans 'Page2_Heading' %} Applicant</h4>
         </div>
 
         <div class="card-body">
@@ -12,7 +13,7 @@
             <div class="col-sm-12">
               <label>
                 <br />
-                <p class="lead">
+                <p class="lead">{% trans 'Page2_Instructions' %}
                   Select the appropriate option for your situation and fill in
                   the requested details.
                 </p>
@@ -25,12 +26,10 @@
                 <input type="radio" class="custom-control-input" id="applicantTypeInd" name="page2[applicantType]"
                   value="Individual" data-parsley-group="page2" data-parsley-errors-container="#IndOrgError" />
                 <label class="custom-control-label" for="applicantTypeInd">
-                  <h4>
-                    Individual
+                  <h4>{% trans 'Page2_Option_Individual' %}
                     <a href="javascript://" data-toggle="popover"
-                      data-content="This section applies to an applicant who is an individual person, as opposed to a legal entity such as a company or association. If there is more than one individual applicant, this information must be provided for each additional applicant, on a separate application form."
-                      data-trigger="focus" data-placement="bottom"><span><i
-                          class="fas fa-question-circle"></i></span></a>
+                      data-content="{% trans 'page2_Option_Individual_Popover' %}" data-trigger="focus"
+                      data-placement="bottom"><span><i class="fas fa-question-circle"></i></span></a>
                   </h4>
                 </label>
               </div>
@@ -40,12 +39,11 @@
                 <input type="radio" class="custom-control-input" id="applicantTypeOrg" name="page2[applicantType]"
                   value="Organisation" data-parsley-group="page2" data-parsley-required />
                 <label class="custom-control-label" for="applicantTypeOrg">
-                  <h4>
+                  <h4>{% trans 'Page2_Option_Organisation' %}
                     Organisation
                     <a href="javascript://" data-toggle="popover"
-                      data-content="This section concerns applicants that are legal entities such as a company, non-governmental organisation or association, etc. The identity and contact details of the applicant organisation must be filled in. If there is more than one such applicant, this information must be provided for each additional applicant, on a separate application form."
-                      data-trigger="focus" data-placement="bottom"><span><i
-                          class="fas fa-question-circle"></i></span></a>
+                      data-content="{% trans 'Page2_Option_Organisation_Popover' %}" data-trigger="focus"
+                      data-placement="bottom"><span><i class="fas fa-question-circle"></i></span></a>
                   </h4>
                 </label>
               </div>
@@ -65,12 +63,12 @@
           <div class="row">
             <div class="col-sm-6 aleft">
               <button class="btn btn-primary" onclick="stepperForm.previous()">
-                Previous
+                {% trans 'Button_Previous' %}
               </button>
             </div>
             <div class="col-sm-6 aright">
               <button class="btn btn-primary btn-next-form" onclick="stepperForm.next()">
-                Next
+                {% trans 'Button_Next' %}
               </button>
             </div>
           </div>

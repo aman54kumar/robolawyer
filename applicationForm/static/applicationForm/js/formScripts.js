@@ -7,9 +7,7 @@ $(".btn-next-form").on("click", function () {
   );
 });
 
-const abc = gettext("hello");
-console.log(abc);
-
+console.log(gettext("Hello"));
 var applicantTypeOption = function () {
   $("input[name='page2[applicantType]']").change(function () {
     result = this.value;
@@ -239,9 +237,8 @@ var orgRespresentativeOptions = function () {
       $(".orgAuthority").addClass("is-hidden");
       $("#ifOrgLawyerYes").addClass("is-hidden");
       $("#orglNationality").val("");
-      messageText.innerHTML = getText(
-        "<h5>Even though you do not need a lawyer at this stage, if/when the application enters a judicial stage and hearings of the case are scheduled, the Court will expect you to be represented by a trained lawyer. Depending on the particularities of the application, it might take up to several years until the application enters the judicial phase and hearings are scheduled. The Court will inform you if this is the case and if you need to contract a lawyer. If you wish to represent yourself in the Chamber hearings or you do not afford a lawyer, the President of the Chamber may offer special dispensation for you to present your own case in accordance to <a href='https://echr.coe.int/Pages/home.aspx?p=basictexts/rules&c=' target='_blank'>Rule 36</a>, or you may be granted free legal aid in the conditions specified by <a href='https://echr.coe.int/Pages/home.aspx?p=basictexts/rules&c=' target='_blank'>Rule 105</a> (former Rule 100).</h5>"
-      );
+      messageText.innerHTML =
+        "<h5>Even though you do not need a lawyer at this stage, if/when the application enters a judicial stage and hearings of the case are scheduled, the Court will expect you to be represented by a trained lawyer. Depending on the particularities of the application, it might take up to several years until the application enters the judicial phase and hearings are scheduled. The Court will inform you if this is the case and if you need to contract a lawyer. If you wish to represent yourself in the Chamber hearings or you do not afford a lawyer, the President of the Chamber may offer special dispensation for you to present your own case in accordance to <a href='https://echr.coe.int/Pages/home.aspx?p=basictexts/rules&c=' target='_blank'>Rule 36</a>, or you may be granted free legal aid in the conditions specified by <a href='https://echr.coe.int/Pages/home.aspx?p=basictexts/rules&c=' target='_blank'>Rule 105</a> (former Rule 100).</h5>";
       messageText.style.textAlign = "justify";
       $("#orgRepresentNoLawyer");
     } else {
@@ -585,17 +582,17 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     docObject.push(indLFaxText);
   }
 
-  if (!!$("#indLAuthAreaYes").val()) {
-    indLOtherYesText = {
-      id: 9,
-      date: moment().format("DD-MM-YYYY"),
-      title: "Explanation for lack of signature on the authority form",
-      desc: "Document explaining the lack of authority form.",
-      page: 1,
-      text: $("#indLAuthAreaYes").val(),
-    };
-    docObject.push(indLOtherYesText);
-  }
+  // if (!!$("#indLAuthAreaYes").val()) {
+  //   indLOtherYesText = {
+  //     id: 9,
+  //     date: moment().format("DD-MM-YYYY"),
+  //     title: "Explanation for lack of signature on the authority form",
+  //     desc: "Document explaining the lack of authority form.",
+  //     page: 1,
+  //     text: $("#indLAuthAreaYes").val(),
+  //   };
+  //   docObject.push(indLOtherYesText);
+  // }
   if (!!$("#indLAuthAreaNo").val()) {
     indLOtherNoText = {
       id: 10,
@@ -655,6 +652,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     };
     docObject.push(orgAutorityAreaNo);
   }
+
   // orgAutorityAreaNo
 
   $("input[name='page8[hiddenDocObject]']").val(JSON.stringify(docObject));
@@ -1315,15 +1313,15 @@ function articleWrapper(
   const invisibleArticleArea = element
     .closest("tr")
     .querySelector(".articleArea");
-  const otherElement = element
-    .closest("tr")
-    .querySelector(".articleExplanation");
+  const otherElement =
+    otherElementIndex === 0
+      ? element.closest("tr").querySelector(".articleExplanation")
+      : element.closest("tr").querySelector(".articleSelect");
 
   idTextArea = "#" + String(element.id);
   var cursorPosition = $(idTextArea).prop("selectionStart");
-
-  var text = `${conjunctionValueIfExists(element)}`;
-  console.log(text);
+  var text = element.value;
+  if (otherElementIndex === 2) text = conjunctionValueIfExists(element);
   var colLimit = columnLength;
   var rowLimit =
     Math.max(otherElement.value.split("\n").length, text.split("\n").length) +
@@ -1495,8 +1493,7 @@ function hideCounterElement(element) {
       "s-group"
     )
   ) {
-    counterElement =
-      element.parentElement.parentElement.children[2].children[3];
+    counterElement = element.closest("tr").querySelector(".remediesCounter");
     counterElement.innerHTML = "Lines Remaining: " + limitLinesPage6;
     counterElement.classList.add("is-hidden");
   } else {
@@ -1722,8 +1719,7 @@ function complaintWrapper(
     }
   }
   if (!isComplaintInputElement) {
-    counterElement =
-      element.parentElement.parentElement.children[2].children[3];
+    counterElement = element.closest("tr").querySelector(".remediesCounter");
     var p =
       otherElement.value.split("\n").length - element.value.split("\n").length;
     getCounterValue(counterElement, p);

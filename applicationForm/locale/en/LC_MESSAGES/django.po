@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-27 13:58+0530\n"
+"POT-Creation-Date: 2022-07-27 16:19+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,9 +74,14 @@ msgstr "Are you a legally trained person?"
 #: applicationForm/templates/applicationForm/page1.html:186
 #: applicationForm/templates/applicationForm/page1.html:204
 #: applicationForm/templates/applicationForm/page1.html:238
-#: applicationForm/templates/applicationForm/page2/anonymity.html:22
+#: applicationForm/templates/applicationForm/page2/anonymity.html:15
 #: applicationForm/templates/applicationForm/page2/organisation.html:38
 #: applicationForm/templates/applicationForm/page2/organisation.html:73
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:102
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:156
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:164
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:125
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:177
 msgid "Option_Yes"
 msgstr "Yes"
 
@@ -84,9 +89,12 @@ msgstr "Yes"
 #: applicationForm/templates/applicationForm/page1.html:190
 #: applicationForm/templates/applicationForm/page1.html:209
 #: applicationForm/templates/applicationForm/page1.html:243
-#: applicationForm/templates/applicationForm/page2/anonymity.html:27
+#: applicationForm/templates/applicationForm/page2/anonymity.html:20
 #: applicationForm/templates/applicationForm/page2/organisation.html:43
 #: applicationForm/templates/applicationForm/page2/organisation.html:78
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:107
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:134
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:186
 msgid "Option_No"
 msgstr "No"
 
@@ -437,6 +445,8 @@ msgstr "Example"
 
 #: applicationForm/templates/applicationForm/page1.html:261
 #: applicationForm/templates/applicationForm/page2.html:71
+#: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:62
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/orgRepresentative.html:42
 msgid "Button_Next"
 msgstr "Next"
 
@@ -480,19 +490,26 @@ msgstr ""
 "additional applicant, on a separate application form."
 
 #: applicationForm/templates/applicationForm/page2.html:66
+#: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:57
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/orgRepresentative.html:37
 msgid "Button_Previous"
 msgstr "Previous"
 
 #: applicationForm/templates/applicationForm/page2/anonymity.html:5
 msgid "Page2_Anonymity_Question"
-msgstr "Do you want to keep your identity anonymous in public documents published by the Court?"
+msgstr ""
+"Do you want to keep your identity anonymous in public documents published by "
+"the Court?"
 
-#: applicationForm/templates/applicationForm/page2/anonymity.html:10
+#: applicationForm/templates/applicationForm/page2/anonymity.html:8
 msgid "Page2_Anonymity_Question_Explanation"
-msgstr "If your application is declared admissible by the Court, your name will appear on the documents related to your case that are published by the Court. These documents are publicly available. You can request not to disclose your identity to the public."
+msgstr ""
+"If your application is declared admissible by the Court, your name will "
+"appear on the documents related to your case that are published by the "
+"Court. These documents are publicly available. You can request not to "
+"disclose your identity to the public."
 
-#: applicationForm/templates/applicationForm/page2/anonymity.html:34
-
+#: applicationForm/templates/applicationForm/page2/anonymity.html:26
 msgid "Page2_Anonymity_Question_Placeholder"
 msgstr "Provide a detailed explanation"
 
@@ -674,3 +691,545 @@ msgstr "Email"
 #: applicationForm/templates/applicationForm/page2/organisation.html:124
 msgid "Page2_Organisation_Email_Placeholder"
 msgstr "Enter email address"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:4
+msgid "Page3_IndRep_Heading"
+msgstr "Representation"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:8
+msgid "Page3_IndRep_BodyHeading"
+msgstr "Representative(s) of the Individual Applicant"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:9
+msgid "Page3_IndRep_Instructions"
+msgstr ""
+"You do not have to be represented by a lawyer at this stage, but if you are, "
+"please select \"lawyer\". If this application is lodged on your behalf by "
+"someone else, such as a friend, a relative, or a guardian, please select "
+"\"non-lawyer\". If you are not represented by another person, please select "
+"the option \"I represent myself at this stage\"."
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:15
+msgid "Page3_IndRep_Type"
+msgstr "Representative Type"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:21
+msgid "Page3_IndRep_NL"
+msgstr "Non-Lawyer"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:22
+msgid "Page3_IndRep_NL_Popover"
+msgstr ""
+"Some applicants may choose not to, or may not be able to, take part in the "
+"proceedings themselves for reasons such as health or incapacity. They may be "
+"represented by a person without legal training, for example a parent "
+"representing a child, or a guardian or family member or partner representing "
+"someone whose practical or medical circumstances make it difficult to take "
+"part in the proceedings (e.g. an applicant who is in hospital or prison). "
+"The representative must indicate in what capacity he or she is representing "
+"the applicant or his or her relationship with the applicant, together with "
+"his or her identity and contact details.If the State you complain against is "
+"not amongst those enumerated below, your application is inadmissible. The "
+"Court is competent to assess only allegations involving one or several of "
+"the 47 member states of the Council of Europe."
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:32
+msgid "Page3_IndRep_L"
+msgstr "Lawyer"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:33
+msgid "Page3_IndRep_L_Popover"
+msgstr ""
+"Use this if the application is lodged by a lawyer. You do not have to "
+"instruct a lawyer at the stage of lodging the application, although it may "
+"be advisable to do so. You are informed if the case reaches a stage of the "
+"proceedings where representation by a lawyer is required. At this point – "
+"after a decision by the Court to give notice of the application to the "
+"Government concerned for written observations – you may be eligible for free "
+"legal aid if you have insufficient means to pay a lawyer’s fees and if the "
+"grant of such aid is considered necessary for the proper conduct of the "
+"case. Information is sent to you about this at the relevant time."
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:43
+msgid "Page3_IndRep_Self"
+msgstr "I represent myself at this stage"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:4
+msgid "Page3_IndRep_L_Heading"
+msgstr "Details of the Lawyer Representative"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:7
+msgid "Page3_IndRep_L_Surname"
+msgstr "Surname"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:9
+msgid "Page3_IndRep_L_Surname_Placeholder"
+msgstr "Enter your surname"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:13
+msgid "Page3_IndRep_L_FName"
+msgstr "First Name(s)"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:15
+msgid "Page3_IndRep_L_Fname_Placeholder"
+msgstr "Enter your first name(s)"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:21
+msgid "Page3_IndRep_L_Address"
+msgstr "Address"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:23
+msgid "Page3_IndRep_L_Address_Placeholder"
+msgstr "Enter address"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:30
+msgid "Page3_IndRep_L_Nationality"
+msgstr "Nationality"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:32
+msgid "Page3_IndRep_L_Nationality_Placeholder"
+msgstr "Select country"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:36
+msgid "Page3_IndRep_L_TelNo"
+msgstr "Telephone Number (select country code)"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:38
+msgid "Page3_IndRep_L_TelNo_Placeholder"
+msgstr "Enter telephone number"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:46
+msgid "Page3_IndRep_L_Fax"
+msgstr "Fax"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:48
+msgid "Page3_IndRep_L_Fax_Placeholder"
+msgstr "Enter fax number"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:53
+msgid "Page3_IndRep_L_NoFax_Check"
+msgstr "I do not have a fax number"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:58
+msgid "Page3_IndRep_L_Email"
+msgstr "Email"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:60
+msgid "Page3_IndRep_L_Email_Placeholder"
+msgstr "Enter email"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:67
+msgid "Page3_IndRep_L_NoFax_Message"
+msgstr ""
+"If you do not have a fax number, you must provide an explanation as to why "
+"this information is missing and send the document containing this "
+"explanation as an accompanying document to your application. <br /> We will "
+"generate the text you enter in the below field as an additional document "
+"when you generate the application form and we will automatically add the "
+"title and description of this document to the Supporting Document list on "
+"page 8. You may add any other documents supporting your explanation both to "
+"the Supporting Documents list on page 8, and as a copy in the attachments to "
+"the application."
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:69
+msgid "Page3_IndRep_L_NoFaxArea_Placeholder"
+msgstr "Please provide an explanation for unavailability of fax number"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:79
+msgid "Page3_IndRep_L_Authority_Heading"
+msgstr "Authority form (power of attorney)"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:80
+msgid "Page3_IndRep_L_Authority_Description"
+msgstr ""
+"An applicant must sign the authority empowering the representative to act on "
+"his or her behalf, unless, for example, the applicant is a child or lacks "
+"legal capacity and is unable to sign. If a representative who is not a "
+"lawyer has instructed a lawyer on behalf of an applicant who is unable to "
+"sign, the representative should sign the authority on the applicant’s "
+"behalf. A separate authority form will not be accepted unless adequate "
+"explanations are provided as to the existence of insurmountable practical "
+"obstacles in signing the authority section on the form or it is used at a "
+"later stage to appoint a lawyer/representative after the application has "
+"been lodged with the Court."
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:85
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:200
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:98
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:235
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/orgRepresentative.html:16
+msgid "Button_MoreInfo"
+msgstr "More Info"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:90
+msgid "Page3_IndRep_L_Authority_MoreInfo"
+msgstr ""
+"If an applicant is represented by a lawyer or other person, both the "
+"applicant and the designated representative – whose identifying details must "
+"be indicated on the application form - must sign the authority section on "
+"the application form. The applicant’s signature provides the necessary proof "
+"that the representative has been authorised by the applicant to act on the "
+"latter’s behalf; the representative’s signature, which is a new requirement, "
+"provides confirmation that this person has in fact accepted to act for the "
+"applicant. Where the applicant is an organisation, it is the official or "
+"officer of that organisation and the lawyer who sign. In the absence of such "
+"signature, the Registry may continue to correspond only with the applicant "
+"due to lack of proof that the representative is in fact involved in the case."
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:97
+msgid "Page3_IndRep_L_Authority_Option"
+msgstr ""
+"Are both the applicant and the representative able to sign the Authority "
+"form (power of attorney)?"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:117
+msgid "Page3_IndRep_L_VeryImportant"
+msgstr ""
+"Very Important: This section in the printed application must contain "
+"original signatures and dates added after the form has been printed out "
+"(page 3 of the printed application form – see picture below). Failing to do "
+"so can result in the application being declared inadmissible."
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:130
+msgid "Page3_IndRep_L_AuthorityUnderstood_Check"
+msgstr ""
+"Please confirm you have read and understood that both you and your "
+"representative have to sign page 3 in the printed application form."
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:135
+msgid "Page3_IndRep_L_AuthorityNo_Message"
+msgstr ""
+"Please explain in the textbox below why the applicant cannot sign the "
+"authority form and provide the details of the non-lawyer representative "
+"(parent, close relative, guardian) who can authorise the lawyer to act on "
+"the applicant’s behalf."
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:136
+msgid "Page3_IndRep_L_AuthorityNo_Message_Explanation"
+msgstr ""
+"We will generate this text as an additional document when you generate the "
+"application form and we will automatically add the title and description of "
+"this document to the Supporting Document list on page 8. You must remember "
+"to add any other documents supporting your explanation – medical records, "
+"official documents – both to the Supporting Documents list, and as a copy in "
+"the attachments to the application."
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:147
+msgid "Page3_IndRep_L_OtherNL"
+msgstr ""
+"Is there another person (parent, close relative, guardian) sufficiently "
+"linked to the applicant who can act in the name of the applicant and "
+"authorise the representative?"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:175
+msgid "Page3_IndRep_L_AuthorityForm_NoSign"
+msgstr ""
+"Please explain in this textbox below why the applicant cannot sign the "
+"authority form. Please provide any additional documents that you deem "
+"necessary to support your case. <br /> We will generate this text as an "
+"additional document when you generate the application form and we will "
+"automatically add the title and description of this document to the "
+"Supporting Document list on page 8. You must remember to add any other "
+"documents supporting your explanation – medical records, official documents "
+"– both to the Supporting Documents list on page 8, and as a copy in the "
+"attachments to the application."
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:195
+msgid "Page3_IndRep_L_Ecomms"
+msgstr "Electronic communication between the representative and the Court"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:206
+msgid "Page3_IndRep_L_Ecomms_MoreInfo"
+msgstr ""
+"eComms is a service initiated by the Court for communicating electronically "
+"with an applicant’s representative. The service is only activated if and "
+"when the case reaches a stage of the proceedings where the Government "
+"concerned are requested to submit written observations. The email address "
+"provided will be used to create an eComms account. It is recommended that "
+"representatives working in a law firm provide a generic email address so "
+"that the account can be used by multiple users within the firm. You should "
+"inform the Court of any change to your eComms account email address. For "
+"more information, please refer to the terms and conditions available on the "
+"eComms website (https://ecomms.echr.coe.int), as well as the Practice "
+"Direction on electronic filing by applicants (www.echr.coe.int/"
+"practicedirections) (available in English and French only)."
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:210
+msgid "Page3_IndRep_L_Ecomms_Email"
+msgstr ""
+" Please provide an email address for ECtHR communication system, eComms. You "
+"can read more about the eComms terms and conditions <a href=\"https://www."
+"echr.coe.int/Pages/home.aspx?p=ecomms&c=\" target=\"_blank\">here</a>."
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:213
+msgid "Page3_IndRep_L_Ecomms_Email_Placeholder"
+msgstr "Enter ecomms email address"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:4
+msgid "Page3_IndRep_NL_Heading"
+msgstr "Details of the Non-Lawyer Representative"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:9
+msgid "Page3_IndRep_NL_Capacity"
+msgstr "Capacity / relationship / function"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:10
+msgid "Page3_IndRep_NL_Capacity_Popover"
+msgstr ""
+"What is your relationship to the applicant? Write here: relative, guardian, "
+"friend or anything else that describes your relationship with the applicant."
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:14
+msgid "Page3_IndRep_NL_Capacity_Placeholder"
+msgstr "Enter your relationship to the applicant"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:18
+msgid "Page3_IndRep_NL_Surname"
+msgstr "Surname"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:20
+msgid "Page3_IndRep_NL_Surname_Placeholder"
+msgstr "Enter your surname"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:24
+msgid "Page3_IndRep_NL_Fname"
+msgstr "First Name(s)"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:26
+msgid "Page3_IndRep_NL_Fname_Placeholder"
+msgstr "Enter your first name(s)"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:33
+msgid "Page3_IndRep_NL_Address"
+msgstr "Address"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:35
+msgid "Page3_IndRep_NL_Address_Placeholder"
+msgstr "Enter address"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:43
+msgid "Page3_IndRep_NL_Nationality"
+msgstr "Nationality"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:45
+msgid "Page3_IndRep_NL_Nationality_Placeholder"
+msgstr "Select country"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:49
+msgid "Page3_IndRep_NL_TelNo"
+msgstr "Telephone Number (select country code)"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:51
+msgid "Page3_IndRep_NL_TelNo_Placeholder"
+msgstr "Enter telephone number"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:59
+msgid "Page3_IndRep_NL_Email"
+msgstr "Email"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:61
+msgid "Page3_IndRep_NL_Email_Placeholder"
+msgstr "Enter email"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:64
+msgid "Page3_IndRep_NL_Fax"
+msgstr "Fax"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:66
+msgid "Page3_IndRep_NL_Fax_Placeholder"
+msgstr "Enter fax number"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:71
+msgid "Page3_IndRep_NL_NoFax_Check"
+msgstr "I do not have a fax number"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:80
+msgid "Page3_IndRep_NL_NoFax_Message"
+msgstr ""
+"If you do not have a fax number, you must provide an explanation as to why "
+"this information is missing and send the document containing this "
+"explanation as an accompanying document to your application. <br /> We will "
+"generate the text you enter in the below field as an additional document "
+"when you generate the application form and we will automatically add the "
+"title and description of this document to the Supporting Document list on "
+"page 8. You may add any other documents supporting your explanation both to "
+"the Supporting Documents list on page 8, and as a copy in the attachments to "
+"the application."
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:82
+msgid "Page3_IndRep_NL_NoFax_Message_PlaceHolder"
+msgstr "Please provide an explanation for unavailability of fax number"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:92
+msgid "Page3_IndRep_NL_Authority_Heading"
+msgstr "Authority form (power of attorney)"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:93
+msgid "Page3_IndRep_NL_Authority_Description"
+msgstr ""
+"An applicant must sign the authority empowering the representative to act on "
+"his or her behalf, unless, for example, the applicant is a child or lacks "
+"legal capacity and is unable to sign. If a representative who is not a "
+"lawyer has instructed a lawyer on behalf of an applicant who is unable to "
+"sign, the representative should sign the authority on the applicant’s "
+"behalf. A separate authority form will not be accepted unless adequate "
+"explanations are provided as to the existence of insurmountable practical "
+"obstacles in signing the authority section on the form or it is used at a "
+"later stage to appoint a lawyer/representative after the application has "
+"been lodged with the Court."
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:103
+msgid "Page3_IndRep_NL_Authority_MoreInfo"
+msgstr ""
+"If an applicant is represented by a lawyer or other person, both the "
+"applicant and the designated representative – whose identifying details must "
+"be indicated on the application form - must sign the authority section on "
+"the application form. The applicant’s signature provides the necessary proof "
+"that the representative has been authorised by the applicant to act on the "
+"latter’s behalf; the representative’s signature, which is a new requirement, "
+"provides confirmation that this person has in fact accepted to act for the "
+"applicant. Where the applicant is an organisation, it is the official or "
+"officer of that organisation and the lawyer who sign. In the absence of such "
+"signature, the Registry may continue to correspond only with the applicant "
+"due to lack of proof that the representative is in fact involved in the case."
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:116
+msgid "Page3_IndRep_NL_LawyerRep_Option"
+msgstr ""
+"Have you, as the non-lawyer representative of the applicant, employed a "
+"lawyer to represent the applicant in this case?"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:142
+msgid "Page3_IndRep_NL_EmployedL_No"
+msgstr ""
+"Even though you do not need a lawyer at this stage, if/when the application "
+"enters a judicial stage and hearings of the case are scheduled, the Court "
+"will expect the applicant to be represented by a lawyer. Depending on the "
+"particularities of the application, it might take up to several years until "
+"the application enters the judicial phase and hearings are scheduled. The "
+"Court will inform you if this is the case and if you need to contract a "
+"lawyer. If you wish to represent yourself in the Chamber hearings or you do "
+"not afford a lawyer, the President of the Chamber may offer special "
+"dispensation for you to present your own case in accordance to Rule 36, or "
+"you may be granted free legal aid in the conditions specified by Rule 105 "
+"(former Rule 100)."
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:149
+msgid "Page3_IndRep_NL_Understand_Check"
+msgstr "I Understand"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:167
+msgid "Page3_IndRep_NL_AuthorityForm_Option"
+msgstr ""
+"Are both the applicant and the representative able to sign the Authority "
+"form (power of attorney)?"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:169
+msgid "Page3_IndRep_NL_AuthorityForm_Option_Explanation"
+msgstr ""
+"If the applicant is a child or otherwise legally or physically unable to "
+"sign the authority, then the authority form may be left unsigned, however "
+"you must explain that this is the case - choose NO below and we will help "
+"you with the additional steps."
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:196
+msgid "Page3_IndRep_NL_VeryImportant"
+msgstr ""
+"Very Important: This section in the printed application must contain "
+"original signatures and dates added after the form has been printed out "
+"(page 3 of the printed application form – see picture below). Failing to do "
+"so can result in the application being declared inadmissible."
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:208
+msgid "Page3_IndRep_NL_ConfirmSign"
+msgstr ""
+"Please confirm you have read and understood that both you and your "
+"representative have to sign page 3 in the printed application form."
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:217
+msgid "Page3_IndRep_NL_AuthorityForm_NoSignMessage"
+msgstr ""
+"Please explain in this textbox below why the applicant cannot sign the "
+"authority form. Please provide any additional documents that you deem "
+"necessary to support your case. <br /> We will generate this text as an "
+"additional document when you generate the application form and we will "
+"automatically add the title and description of this document to the "
+"Supporting Document list on page 8. You must remember to add any other "
+"documents supporting your explanation – medical records, official documents "
+"– both to the Supporting Documents list on page 8, and as a copy in the "
+"attachments to the application."
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:232
+msgid "Page3_IndRep_NL_Ecomms"
+msgstr "Electronic communication between the representative and the Court"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:241
+msgid "Page3_IndRep_NL_Ecomms_MoreInfo"
+msgstr ""
+"eComms is a service initiated by the Court for communicating electronically "
+"with an applicant’s representative. The service is only activated if and "
+"when the case reaches a stage of the proceedings where the Government "
+"concerned are requested to submit written observations. The email address "
+"provided will be used to create an eComms account. It is recommended that "
+"representatives working in a law firm provide a generic email address so "
+"that the account can be used by multiple users within the firm. You should "
+"inform the Court of any change to your eComms account email address. For "
+"more information, please refer to the terms and conditions available on the "
+"eComms website (https://ecomms.echr.coe.int), as well as the Practice "
+"Direction on electronic filing by applicants (www.echr.coe.int/"
+"practicedirections) (available in English and French only)."
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:245
+msgid "Page3_IndRep_NL_Ecomms_Email"
+msgstr ""
+" Please provide an email address for ECtHR communication system, eComms. You "
+"can read more about the eComms terms and conditions <a href=\"https://www."
+"echr.coe.int/Pages/home.aspx?p=ecomms&c=\" target=\"_blank\">here</a>."
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:248
+msgid "Page3_IndRep_NL_Ecomms_Email_Placeholder"
+msgstr "Enter ecomms email address"
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/self.html:2
+msgid "Page3_SelfRep"
+msgstr ""
+"Even though you do not need a lawyer at this stage, if/when the application "
+"enters a judicial stage and hearings of the case are scheduled, the Court "
+"will expect the applicant to be represented by a trained lawyer. Depending "
+"on the particularities of the application, it might take up to several years "
+"until the application enters the judicial phase and hearings are scheduled. "
+"The Court will inform you if this is the case and if you need to contract a "
+"lawyer. If you wish to represent yourself in the Chamber hearings or you do "
+"not afford a lawyer, the President of the Chamber may offer special "
+"dispensation for you to present your own case in accordance to <a href="
+"\"https://echr.coe.int/Pages/home.aspx?p=basictexts/rules&c=\" target="
+"\"_blank\">Rule 36</a>, or you may be granted free legal aid in the "
+"conditions specified by <a href=\"https://echr.coe.int/Pages/home.aspx?"
+"p=basictexts/rules&c=\"   target=\"_blank\">Rule 105</a> (former Rule 100)."
+
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/orgRepresentative.html:5
+msgid "Page3_OrgRep_Heading"
+msgstr "Representation"
+
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/orgRepresentative.html:10
+msgid "Page3_OrgRep_Body_Heading"
+msgstr "Representative(s) of the Applicant Organisation"
+
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/orgRepresentative.html:12
+msgid "Page3_OrgRep_Official_Instructions"
+msgstr ""
+"Where the applicant is an organisation, it must be represented before the "
+"Court by a person entitled to act on its behalf and in its name (e.g. a duly "
+"authorised director or official)."
+
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/orgRepresentative.html:21
+msgid "Page3_OrgRep_Official_MoreInfo"
+msgstr ""
+"This official representative might be the person specifically designated by "
+"the board, or council of administration for that purpose, or the person who "
+"is authorised generally under domestic law or the organisation’s articles to "
+"act on its behalf. It may be that a legal person’s representative is also a "
+"lawyer or legal officer and has the capacity to act additionally as legal "
+"representative. Both parts of the application form concerning representation "
+"must still be filled in, and requisite documentary proof provided of "
+"authority to represent the legal person must be attached."

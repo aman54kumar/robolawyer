@@ -1,53 +1,55 @@
 {% load static %}
+{% load i18n %}
 <div class="is-hidden" id="nonLawyerRep">
   <div id="containerDivForNonLawyer">
-    <h4>Details of the Non-Lawyer Representative</h4>
+    <h4>{% trans 'Page3_IndRep_NL_Heading' %} </h4>
     <br />
     <div class="row">
       <div class="form-group col-lg-12 col-xl-4">
         <h4>
-          Capacity / relationship / function
-          <a href="javascript://" data-toggle="popover"
-            data-content="What is your relationship to the applicant? Write here: relative, guardian, friend or anything else that describes your relationship with the applicant."
+          {% trans 'Page3_IndRep_NL_Capacity' %}
+          <a href="javascript://" data-toggle="popover" data-content="{% trans 'Page3_IndRep_NL_Capacity_Popover' %}"
             data-trigger="focus" data-placement="bottom"><span><i class="fas fa-question-circle"></i></span></a>
         </h4>
         <input class="form-control" type="text" name="page3[indNLCapacity]"
-          placeholder="Enter your relationship to the applicant" id="indNLCapacity" maxlength="49"
+          placeholder="{% trans 'Page3_IndRep_NL_Capacity_Placeholder' %}" id="indNLCapacity" maxlength="49"
           data-parsley-group="page3b" />
       </div>
       <div class="form-group col-lg-12 col-xl-4">
-        <h4>Surname</h4>
-        <input class="form-control" type="text" name="page3[indNLSurname]" placeholder="Enter your surname"
-          id="indNLSurname" maxlength="49" data-parsley-group="page3b" />
+        <h4>{% trans 'Page3_IndRep_NL_Surname' %}</h4>
+        <input class="form-control" type="text" name="page3[indNLSurname]"
+          placeholder="{% trans 'Page3_IndRep_NL_Surname_Placeholder' %}" id="indNLSurname" maxlength="49"
+          data-parsley-group="page3b" />
       </div>
       <div class="form-group col-lg-12 col-xl-4">
-        <h4>First Name(s)</h4>
-        <input class="form-control" type="text" name="page3[indNLFirstName]" placeholder="Enter your first name(s)"
-          id="indNLFirstName" maxlength="49" data-parsley-group="page3b" />
+        <h4>{% trans 'Page3_IndRep_NL_Fname' %}</h4>
+        <input class="form-control" type="text" name="page3[indNLFirstName]"
+          placeholder="{% trans 'Page3_IndRep_NL_Fname_Placeholder' %}" id="indNLFirstName" maxlength="49"
+          data-parsley-group="page3b" />
       </div>
     </div>
 
     <div class="row">
       <div class="form-group col-lg-12 col-xl-4">
-        <h4>Address</h4>
-        <textarea class="form-control shortAddress" cols="49" rows="6" maxlength="299" placeholder="Enter Address"
-          name="page3[indNLAddress]" id="indNLAddress" oninput="limitLines(this);"
-          onpaste="limitLinesOnPaste(this);"></textarea>
+        <h4>{% trans 'Page3_IndRep_NL_Address' %}</h4>
+        <textarea class="form-control shortAddress" cols="49" rows="6" maxlength="299"
+          placeholder="{% trans 'Page3_IndRep_NL_Address_Placeholder' %}" name="page3[indNLAddress]" id="indNLAddress"
+          oninput="limitLines(this);" onpaste="limitLinesOnPaste(this);"></textarea>
         <div></div>
       </div>
 
       <div class=" col-lg-12 col-xl-4">
         <div class="row">
           <div class="col-sm-12 form-group">
-            <h4>Nationality</h4>
+            <h4>{% trans 'Page3_IndRep_NL_Nationality' %}</h4>
             <input class="form-control" name="page3[indNLNationality]" id="indNLNationality" maxlength="49"
-              placeholder="Select country" />
+              placeholder="{% trans 'Page3_IndRep_NL_Nationality_Placeholder' %}" />
             <input type="hidden" id="indPhoneNLNationality" />
           </div>
           <div class="col-sm-12 form-group">
-            <h4>Telephone Number (select country code)</h4>
+            <h4>{% trans 'Page3_IndRep_NL_TelNo' %}</h4>
             <input class="form-control" type="tel" style="width: 100%" name="page3[indNLTel]" id="indNLTel"
-              placeholder="Enter telephone number" />
+              placeholder="{% trans 'Page3_IndRep_NL_TelNo_Placeholder' %}" />
           </div>
         </div>
       </div>
@@ -55,19 +57,19 @@
       <div class="col-lg-12 col-xl-4">
         <div class="row">
           <div class="col-sm-12 nlEmailfield form-group">
-            <h4>Email</h4>
-            <input class="form-control" type="email" name="page3[indNLEmail]" placeholder="Enter email" id="indNLEmail"
-              maxlength="49" />
+            <h4>{% trans 'Page3_IndRep_NL_Email' %}</h4>
+            <input class="form-control" type="email" name="page3[indNLEmail]"
+              placeholder="{% trans 'Page3_IndRep_NL_Email_Placeholder' %}" id="indNLEmail" maxlength="49" />
           </div>
           <div class="col-sm-12 form-group">
-            <h4>Fax</h4>
-            <input class="form-control" type="tel" name="page3[indNLFax]" placeholder="Enter fax number" id="indNLFax"
-              maxlength="15" />
+            <h4>{% trans 'Page3_IndRep_NL_Fax' %}</h4>
+            <input class="form-control" type="tel" name="page3[indNLFax]"
+              placeholder="{% trans 'Page3_IndRep_NL_Fax_Placeholder' %}" id="indNLFax" maxlength="15" />
             <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input" id="indNLFaxOption" name="page3[indNLFaxOption]"
                 data-parsley-group="page3a" value="No" />
               <br />
-              <label class="custom-control-label" for="indNLFaxOption">I do not have a fax number</label>
+              <label class="custom-control-label" for="indNLFaxOption">{% trans 'Page3_IndRep_NL_NoFax_Check' %}</label>
             </div>
           </div>
         </div>
@@ -76,14 +78,9 @@
 
     <br />
     <div id="indNLFaxDiv" class="col-sm-12 is-hidden">
-      <label for="indNLFaxArea">If you do not have a fax number, you must provide an explanation as to why this
-        information is missing and send the document containing this explanation as an accompanying document to your
-        application. <br /> We will generate the text you enter in the below field as an additional document when you
-        generate the application form and we will automatically add the title and description of this document to the
-        Supporting Document list on page 8. You may add any other documents supporting your explanation both to the
-        Supporting Documents list on page 8, and as a copy in the attachments to the application.</label>
+      <label for="indNLFaxArea">{% trans 'Page3_IndRep_NL_NoFax_Message' %}</label>
       <textarea id="indNLFaxArea" name="page3[indNLFaxArea]" class="form-control"
-        placeholder="Please provide an explanation for unavailability of fax number"></textarea>
+        placeholder="{% trans 'Page3_IndRep_NL_NoFax_Message_PlaceHolder' %}"></textarea>
     </div>
 
     <br />
@@ -93,40 +90,18 @@
 
   <div id="indNLAuthoritySection" class="is-hidden">
     <br />
-    <h4 class="alert-heading">Authority form (power of attorney)</h4>
-    <h5 class="lead ajustify">
-      An applicant must sign the authority empowering the representative to act
-      on his or her behalf, unless, for example, the applicant is a child or
-      lacks legal capacity and is unable to sign. If a representative who is not
-      a lawyer has instructed a lawyer on behalf of an applicant who is unable
-      to sign, the representative should sign the authority on the applicant’s
-      behalf. A separate authority form will not be accepted unless adequate
-      explanations are provided as to the existence of insurmountable practical
-      obstacles in signing the authority section on the form or it is used at a
-      later stage to appoint a lawyer/representative after the application has
-      been lodged with the Court.
+    <h4 class="alert-heading">{% trans 'Page3_IndRep_NL_Authority_Heading' %}</h4>
+    <h5 class="lead ajustify">{% trans 'Page3_IndRep_NL_Authority_Description' %}
     </h5>
 
     <div class="text-center">
       <button class="btn more-info-button" data-toggle="collapse" data-target="#info-authority">
-        More Info
+        {% trans 'Button_MoreInfo' %}
       </button>
     </div>
     <br />
     <div id="info-authority" class="collapse">
-      <h5 class="lead ajustify">
-        If an applicant is represented by a lawyer or other person, both the
-        applicant and the designated representative – whose identifying details
-        must be indicated on the application form - must sign the authority
-        section on the application form. The applicant’s signature provides the
-        necessary proof that the representative has been authorised by the
-        applicant to act on the latter’s behalf; the representative’s signature,
-        which is a new requirement, provides confirmation that this person has
-        in fact accepted to act for the applicant. Where the applicant is an
-        organisation, it is the official or officer of that organisation and the
-        lawyer who sign. In the absence of such signature, the Registry may
-        continue to correspond only with the applicant due to lack of proof that
-        the representative is in fact involved in the case.
+      <h5 class="lead ajustify">{% trans 'Page3_IndRep_NL_Authority_MoreInfo' %}
       </h5>
       <br />
       <hr />
@@ -139,9 +114,7 @@
           <div class="form-group">
             <br />
 
-            <h4>
-              Have you, as the non-lawyer representative of the applicant,
-              employed a lawyer to represent the applicant in this case?
+            <h4>{% trans 'Page3_IndRep_NL_LawyerRep_Option' %}
             </h4>
 
 
@@ -150,7 +123,7 @@
                 name="page3[indNLEmployedL]" value="yes" data-parsley-group="page3"
                 data-parsley-errors-container="#indNLEmployedLError" />
               <label class="custom-control-label" for="indNLEmployedLYes">
-                Yes
+                {% trans 'Option_Yes' %}
               </label>
             </div>
 
@@ -159,7 +132,7 @@
               <input type="radio" class="custom-control-input indNLEmployedL" id="indNLEmployedLNo"
                 name="page3[indNLEmployedL]" value="no" data-parsley-group="page3" data-parsley-required />
               <label class="custom-control-label" for="indNLEmployedLNo">
-                No
+                {% trans 'Option_No' %}
               </label>
             </div>
 
@@ -167,21 +140,14 @@
           </div>
         </div>
         <div id="NLEmployedLNoTextDiv" class="col-sm-12 is-hidden">
-          <h5 class="justify-content-center">Even though you do not need a lawyer at this stage, if/when the application
-            enters a judicial stage and
-            hearings of the case are scheduled, the Court will expect the applicant to be represented by a lawyer.
-            Depending on the particularities of the application, it might take up to several years until the
-            application enters the judicial phase and hearings are scheduled. The Court will inform you if this is the
-            case and if you need to contract a lawyer. If you wish to represent yourself in the Chamber hearings or
-            you do not afford a lawyer, the President of the Chamber may offer special dispensation for you to present
-            your own case in accordance to Rule 36, or you may be granted free legal aid in the conditions specified
-            by Rule 105 (former Rule 100).</h5>
+          <h5 class="justify-content-center">{% trans 'Page3_IndRep_NL_EmployedL_No' %}</h5>
 
           <div class="custom-control custom-checkbox custom-control-inline">
             <input type="checkbox" class="custom-control-input" id="NLEmployedLNoCheckbox" style="margin-right: 20px"
               name="page3[NLEmployedLNoCheckbox]" />
 
-            <label class="custom-control-label" for="NLEmployedLNoCheckbox">I Understand</label>
+            <label class="custom-control-label"
+              for="NLEmployedLNoCheckbox">{% trans 'Page3_IndRep_NL_Understand_Check' %}</label>
           </div>
 
           <br>
@@ -198,15 +164,10 @@
       <div class="col-sm-12">
         <div class="form-group">
           <br />
-          <h4>
-            Are both the applicant and the representative able to sign the
-            Authority form (power of attorney)?
-            <br /></h4>
-          <h5> If the applicant is a child or otherwise legally or physically unable
-            to sign the authority, then the authority form may be left unsigned,
-            however you must explain that this is the case - choose NO below and
-            we will help you with the additional steps.</h5>
 
+          <h4>{% trans 'Page3_IndRep_NL_AuthorityForm_Option' %}
+            <br /></h4>
+          <h5> {% trans 'Page3_IndRep_NL_AuthorityForm_Option_Explanation' %}</h5>
 
 
           <div class="custom-control custom-radio custom-control-inline">
@@ -214,7 +175,7 @@
               name="page3[indNLAuthorityQn]" value="yes" data-parsley-group="page3"
               data-parsley-errors-container="#indNLAuthorityError" />
             <label class="custom-control-label" for="indNLAuthorityQn1">
-              Yes
+              {% trans 'Option_Yes' %}
             </label>
           </div>
 
@@ -223,7 +184,7 @@
             <input type="radio" class="custom-control-input indNLAuthorityQn" id="indNLAuthorityQn2"
               name="page3[indNLAuthorityQn]" value="no" data-parsley-group="page3" data-parsley-required />
             <label class="custom-control-label" for="indNLAuthorityQn2">
-              No
+              {% trans 'Option_No' %}
             </label>
           </div>
         </div>
@@ -233,10 +194,7 @@
             <br>
             <div class="alert alert-danger" role="alert">
               <br />
-              <p class="lead">
-                Very Important: This section in the printed application must contain original signatures and dates added
-                after the form has been printed out (page 3 of the printed application form – see picture below).
-                Failing to do so can result in the application being declared inadmissible.
+              <p class="lead">{% trans 'Page3_IndRep_NL_VeryImportant' %}
               </p>
             </div>
             <img src="{% static 'applicationForm/img/Signature-Indiv.png' %}" width="70%"
@@ -247,9 +205,8 @@
           <div class="custom-checkbox custom-control custom-control-inline">
             <input type="checkbox" class="custom-control-input" id="indNLAutorityYesCheckbox"
               name="page3[indNLAutorityYesCheckbox]" />
-            <label class="custom-control-label" for="indNLAutorityYesCheckbox">Please confirm you have read and
-              understood that both you and your representative have to sign page 3 in the printed application
-              form.</label>
+            <label class="custom-control-label"
+              for="indNLAutorityYesCheckbox">{% trans 'Page3_IndRep_NL_ConfirmSign' %}</label>
           </div>
           <br>
           <hr>
@@ -258,12 +215,7 @@
 
         <div id="indNLAuthorityError"></div>
         <div id="indNLAuthorityNo" class="is-hidden">
-          <h4>Please explain in this textbox below why the applicant cannot sign the authority form. Please
-            provide any additional documents that you deem necessary to support your case. <br /> We will generate this
-            text as an additional document when you generate the application form and we will automatically add the
-            title and description of this document to the Supporting Document list on page 8. You must remember to add
-            any other documents supporting your explanation – medical records, official documents – both to the
-            Supporting Documents list on page 8, and as a copy in the attachments to the application.</h4> <br>
+          <h4>{% trans 'Page3_IndRep_NL_AuthorityForm_NoSignMessage' %}</h4> <br>
           <textarea class="form-control newPageTextArea" id="indNLAuthArea" name="page3[indNLAuthArea]"
             oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px";'></textarea>
           <br>
@@ -278,43 +230,25 @@
   </div>
 
   <div id="indNLECommsSection" class="form-group is-hidden">
-    <h4>Electronic communication between the representative and the Court</h4>
+    <h4>{% trans 'Page3_IndRep_NL_Ecomms' %}</h4>
     <div class="text-center">
       <button class="btn more-info-button" data-toggle="collapse" data-target="#info-ecomm">
-        More Info
+        {% trans 'Button_MoreInfo' %}
       </button>
     </div>
 
     <br />
     <div id="info-ecomm" class="collapse">
-      <h5 class="ajustify">
-        eComms is a service initiated by the Court for communicating
-        electronically with an applicant’s representative. The service is only
-        activated if and when the case reaches a stage of the proceedings where
-        the Government concerned are requested to submit written observations.
-        The email address provided will be used to create an eComms account. It
-        is recommended that representatives working in a law firm provide a
-        generic email address so that the account can be used by multiple users
-        within the firm. You should inform the Court of any change to your
-        eComms account email address. For more information, please refer to the
-        terms and conditions available on the eComms website
-        (https://ecomms.echr.coe.int), as well as the Practice Direction on
-        electronic filing by applicants (www.echr.coe.int/practicedirections)
-        (available in English and French only).
+      <h5 class="ajustify">{% trans 'Page3_IndRep_NL_Ecomms_MoreInfo' %}
       </h5>
     </div>
     <div>
-      <h4>
-        Please provide an email address for ECtHR communication system, eComms.
-        You can read more about the eComms terms and conditions
-
-        <a href="https://www.echr.coe.int/Pages/home.aspx?p=ecomms&c=" target="_blank">here</a>.
+      <h4>{% trans 'Page3_IndRep_NL_Ecomms_Email' %}
       </h4>
       <input class="form-control col-sm-4" type="email" name="page3[indIndeComms]" id="indIndeComms" maxlength="49"
-        placeholder="Enter ecomms email address" />
+        placeholder="{% trans 'Page3_IndRep_NL_Ecomms_Email_Placeholder' %}" />
     </div>
     <br />
-
     <br />
   </div>
 </div>

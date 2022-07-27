@@ -7,7 +7,8 @@ $(".btn-next-form").on("click", function () {
   );
 });
 
-console.log(gettext("Hello"));
+const hello = gettext("hello");
+console.log(hello);
 var applicantTypeOption = function () {
   $("input[name='page2[applicantType]']").change(function () {
     result = this.value;

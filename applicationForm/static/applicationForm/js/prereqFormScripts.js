@@ -120,6 +120,7 @@ $("input[name='page1[referenceOption]']").change(function () {
   result = this.value;
   if (result === "Yes") $(".referenceField").removeClass("is-hidden");
   else {
+    $("#referenceText").val("");
     $(".referenceField").addClass("is-hidden");
   }
 });

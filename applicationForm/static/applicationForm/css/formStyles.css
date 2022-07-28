@@ -442,3 +442,14 @@ label {
   font-size: 1rem;
   font-weight: 400;
 }
+
+.reviewComponent {
+  font-size: 1.1rem;
+}
+.reviewQuestion {
+  font-weight: 600;
+}
+
+.reviewAnswer {
+  font-weight: 400;
+}

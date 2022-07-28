@@ -22,65 +22,78 @@ $(document).ready(function () {
     "font-size": "1.25rem",
   });
 
-  // $(".reviewQuestions")
-  //   .find("tr")
-  //   .find("td")
-  //   .first()
-  //   .css("font-weight", "bold !important");
-  // $(".reviewQuestions").find("tr").find("td").css("width", "60%");
+  const answerType = {
+    INPUT: "Input",
+    RADIO: "Radio",
+    SELECT: "Select",
+  };
+  const getAnswerValue = (selectorValue, typeOfAnswer) => {
+    switch (typeOfAnswer) {
+      case answerType.INPUT: {
+        return $(selectorValue).val();
+      }
+      case answerType.RADIO: {
+        result = document
+          .querySelector(selectorValue)
+          ?.parentElement.querySelector("label")
+          .innerText.replace(/[^a-zA-Z\s]/g, "")
+          .replaceAll("\n", "");
+        return result;
+      }
+      case answerType.SELECT: {
+        return [...document.querySelector(selectorValue)]
+          .filter((option) => option.selected)
+          .map((option) => option.value)
+          .join(", ");
+      }
+      default: {
+        console.log("check for error");
+      }
+    }
+  };
   // adding two buttons
   addButtonsToReview();
   // Start of page 1
-  $("#involvedStates").on("change", function (e) {
-    let curValue = $("#involvedStates").val();
-    let curValueWithSpace = curValue.join(", ");
-    $("#page1-1").text(curValueWithSpace);
-  });
 
-  $("input[name='page1[concernYou]']").on("change", function (e) {
-    curValue = $("input[name='page1[concernYou]']:checked").val();
-    if (curValue === "ConcernIndividual") {
-      curValue = "You directly";
-    } else if (curValue === "ConcernOrganisation") {
-      curValue = "Your organisation";
-    } else if (curValue === "OtherClose") {
-      curValue =
-        "A close relative or a person under your care or responsibility who is unable to lodge an application";
-    } else if (curValue === "ClientIndividual") {
-      curValue = "My client who is an individual person";
-    } else if (curValue === "ClientJuridical") {
-      curValue = "My client who is a juridical person";
-    }
-    $("#page1-2").text(curValue);
-  });
+  $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
+    document.getElementById("page1-1").innerText =
+      getAnswerValue("#involvedStates", answerType.SELECT) ?? "";
 
-  $("#decisionDate1").on("change", function (e) {
-    curValue = $("#decisionDate1").val();
-    $("#page1-3-1").text("Start: " + curValue);
-  });
-  $("#decisionDate2").on("change", function (e) {
-    curValue = $("#decisionDate2").val();
-    $("#page1-3-2").text("Stop: " + curValue);
-  });
+    document.getElementById("page1-2").innerText =
+      getAnswerValue(
+        "input[name='page1[concernYou]']:checked",
+        answerType.RADIO
+      ) ?? "";
 
-  $("input[name='page1[courtCase]']").on("change", function (e) {
-    curValue = $("input[name='page1[courtCase]']:checked").val();
-    $("#page1-4").text(curValue);
-  });
+    document.getElementById("page1-3").innerText =
+      getAnswerValue("#decisionDate1", answerType.INPUT) ?? "";
 
-  $("input[name='page1[complySix]']").on("change", function (e) {
-    curValue = $("input[name='page1[complySix]']:checked").val();
-    $("#page1-5").text(curValue);
-  });
+    document.getElementById("page1-4").innerText =
+      getAnswerValue(
+        "input[name='page1[courtCase]']:checked",
+        answerType.RADIO
+      ) ?? "";
 
-  $("#finalDecisionDate").on("change", function (e) {
-    curValue = $("#finalDecisionDate").val();
-    $("#page1-6").text(curValue);
-  });
+    document.getElementById("page1-5").innerText =
+      getAnswerValue(
+        "input[name='page1[complySix]']:checked",
+        answerType.RADIO
+      ) ?? "";
 
-  $("#referenceText").on("input", function () {
-    curValue = this.value;
-    if (curValue !== "") $("#page1-7").text(curValue);
+    document.getElementById("page1-6").innerText = getAnswerValue(
+      "#finalDecisionDate",
+      answerType.INPUT
+    );
+
+    document.getElementById("page1-7").innerText = [
+      getAnswerValue(
+        "input[name='page1[referenceOption]']:checked",
+        answerType.RADIO
+      ),
+      getAnswerValue("input[name='page1[referenceText]']", answerType.INPUT),
+    ]
+      .filter((val) => val)
+      .join(", ");
   });
 
   //    End of Page 1

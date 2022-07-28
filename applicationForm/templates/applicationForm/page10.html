@@ -1,4 +1,4 @@
-<div id="form-page-10" role="tabpanel" class="bs-stepper-pane fade text-center" aria-labelledby="stepperFormTrigger10">
+<div id="form-page-10" role="tabpanel" class="bs-stepper-pane fade text-center" aria-labelledby="stepperFormdivigger10">
   <div class="col-md-12 mx-auto form-section" id="reviewSection">
     {% load static %}
     <div class="row">
@@ -21,12 +21,12 @@
                         This page contains some of the most general conditions
                         that you have to fulfill in order for your application
                         to be complete and admissible. These include: the
-                        country you are complaining against, information about
+                        coundivy you are complaining against, information about
                         exhausting the domestic judicial remedies, the date when
                         the acts took place and the date when you received the
                         final judgement for the highest domestic court competent
                         to deal with your case. This information is required in
-                        order to determine whether the country you intend to
+                        order to determine whether the coundivy you intend to
                         complain against was under obligations pursuant to the
                         European Convention on Human Rights at the time when the
                         facts took place and to determine whether you are
@@ -46,66 +46,59 @@
                     </div>
 
                     <div class="reviewQuestions is-hidden">
-                      <div class="container-fluid">
-                        <table class="reviewTable">
-                          <tbody>
-                            <tr>
-                              <td>
-                                Which state(s) is/are concerned by your
-                                application?
-                              </td>
-                              <td id="page1-1"></td>
-                            </tr>
+                      <div class="container-fluid" id="reviewTable">
+                        <div class="reviewComponent">
+                          <p class="reviewQuestion">
+                            Which state(s) is/are concerned by your
+                            application?
+                          </p>
+                          <p class="reviewAnswer" id="page1-1"></p>
+                        </div>
 
-                            <tr>
-                              <td>
-                                The facts you are complaining about concern:
-                              </td>
-                              <td id="page1-2"></td>
-                            </tr>
-                            <tr>
-                              <td>
-                                When did the facts that you are complaining
-                                about start and when did they stop?
-                              </td>
-                              <td id="page1-3">
-                                <div id="page1-3-1"></div>
-                                <div id="page1-3-2"></div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                Have you brought your case before the highest
-                                court competent to deal with the subject matter
-                                of your dispute?
-                              </td>
-                              <td id="page1-4"></td>
-                            </tr>
-                            <tr>
-                              <td>
-                                Were there available legal or administrative
-                                remedies capable of remedying your situation
-                                that you have not used?
-                              </td>
-                              <td id="page1-5"></td>
-                            </tr>
-                            <tr>
-                              <td>
-                                When was the final decision in your case
-                                delivered or served on you?
-                              </td>
-                              <td id="page1-6"></td>
-                            </tr>
-                            <tr>
-                              <td>
-                                Reference number (Application number) from the
-                                Court in relation to these complaints, if
-                                available.
-                              </td>
-                              <td id="page1-7"></td>
-                            </tr>
-                          </tbody>
-                        </table>
+                        <div class="reviewComponent">
+                          <p class="reviewQuestion">
+                            The facts you are complaining about concern:
+                          </p>
+                          <p class="reviewAnswer" id="page1-2"></p>
+                        </div>
+                        <div class="reviewComponent">
+                          <p class="reviewQuestion">
+                            When did the alleged breach of the European Convention on Human Rights that you are
+                            complaining about happen?
+                          </p>
+                          <p class="reviewAnswer" id="page1-3"></p>
+                        </div>
+                        <div class="reviewComponent">
+                          <p class="reviewQuestion">
+                            Have you brought your case before the highest
+                            court competent to deal with the subject matter
+                            of your dispute?
+                          </p>
+                          <p class="reviewAnswer" id="page1-4"></p>
+                        </div>
+                        <div class="reviewComponent">
+                          <p class="reviewQuestion">
+                            Were there available legal or adminisdivative
+                            remedies capable of remedying your situation
+                            that you have not used?
+                          </p>
+                          <p class="reviewAnswer" id="page1-5"></p>
+                        </div>
+                        <div class="reviewComponent">
+                          <p class="reviewQuestion">
+                            When was the final decision in your case
+                            delivered or served on you?
+                          </p>
+                          <p class="reviewAnswer" id="page1-6"></p>
+                        </div>
+                        <div class="reviewComponent">
+                          <p class="reviewQuestion">
+                            Reference number (Application number) from the
+                            Court in relation to these complaints, if
+                            available.
+                          </p>
+                          <p class="reviewAnswer" id="page1-7"></p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -128,106 +121,100 @@
                         applicants who are legal entities you must provide in
                         addition to the full name, address, telephone number and
                         email address, you must also provide the activity field,
-                        identification number and date of registration.
+                        identification number and date of regisdivation.
                       </p>
                     </div>
 
                     <div class="reviewQuestions is-hidden">
-                      <div class="container-fluid">
-                        <div id="reviewTable2">
-                          <table>
-                            <tbody>
-                              <tr>
-                                <td>
-                                  Select the option appropriate for your
-                                  situation and fill in the requested details.
-                                </td>
-                                <td id="page2-1"></td>
-                              </tr>
-                            </tbody>
-                          </table>
+                      <div class="container-fluid" id="reviewTable2">
+                        <div class="reviewComponent">
+                          <p class="reviewQuestion">
+                            Select the option appropriate for your
+                            situation and fill in the requested details.
+                          </p>
+                          <p class="reviewAnswer" id="page2-1"></p>
                         </div>
                         <div id="indReview" class="is-hidden">
                           <table>
                             <tbody>
-                              <tr>
+                              <div>
                                 <td>Surname</td>
                                 <td id="page2-ind-1"></td>
-                              </tr>
-                              <tr>
+                              </div>
+                              <div>
                                 <td>First Name(s)</td>
                                 <td id="page2-ind-2"></td>
-                              </tr>
-                              <tr>
+                              </div>
+                              <div>
                                 <td>Date of Birth</td>
                                 <td id="page2-ind-3"></td>
-                              </tr>
-                              <tr>
+                              </div>
+                              <div>
                                 <td>Place of Birth</td>
                                 <td id="page2-ind-4"></td>
-                              </tr>
-                              <tr>
+                              </div>
+                              <div>
                                 <td>Nationality</td>
                                 <td id="page2-ind-5"></td>
-                              </tr>
-                              <tr>
+                              </div>
+                              <div>
                                 <td>Address</td>
                                 <td id="page2-ind-6"></td>
-                              </tr>
-                              <tr>
+                              </div>
+                              <div>
                                 <td>Telephone Number</td>
                                 <td id="page2-ind-7"></td>
-                              </tr>
-                              <tr>
+                              </div>
+                              <div>
                                 <td>Email</td>
                                 <td id="page2-ind-8"></td>
-                              </tr>
-                              <tr>
+                              </div>
+                              <div>
                                 <td>Sex</td>
                                 <td id="page2-ind-9"></td>
-                              </tr>
-                              <tr>
+                              </div>
+                              <div>
                                 <td>Anonymity Request</td>
                                 <td id="page2-ind-10"></td>
-                              </tr>
+                              </div>
                             </tbody>
                           </table>
                         </div>
                         <div id="orgReview" class="is-hidden">
                           <table>
                             <tbody>
-                              <tr>
+                              <div>
                                 <td>Name</td>
                                 <td id="page2-org-1"></td>
-                              </tr>
-                              <tr>
+                              </div>
+                              <div>
                                 <td>Activity</td>
                                 <td id="page2-org-2"></td>
-                              </tr>
-                              <tr>
-                                <td>Date of Registration or incorporation</td>
+                              </div>
+                              <div>
+                                <td>Date of Regisdivation or incorporation</td>
                                 <td id="page2-org-3"></td>
-                              </tr>
-                              <tr>
+                              </div>
+                              <div>
                                 <td>Identification Number</td>
                                 <td id="page2-org-4"></td>
-                              </tr>
-                              <tr>
+                              </div>
+                              <div>
                                 <td>Registered Address</td>
                                 <td id="page2-org-5"></td>
-                              </tr>
-                              <tr>
+                              </div>
+                              <div>
                                 <td>Telephone</td>
                                 <td id="page2-org-6"></td>
-                              </tr>
-                              <tr>
+                              </div>
+                              <div>
                                 <td>Email</td>
                                 <td id="page2-org-7"></td>
-                              </tr>
-                              <tr>
+                              </div>
+                              <div>
                                 <td>Anonymity Request</td>
                                 <td id="page2-org-8"></td>
-                              </tr>
+                              </div>
                             </tbody>
                           </table>
                         </div>
@@ -274,108 +261,108 @@
                             <div class="reviewRepIndNL is-hidden">
                               <table>
                                 <tbody>
-                                  <tr>
+                                  <div>
                                     <td>Representative Type</td>
                                     <td id="page3-ind-rep-NL"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Capacity/relationship/function</td>
                                     <td id="page3-ind-rep-NL-1"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Surname</td>
                                     <td id="page3-ind-rep-NL-2"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>First Name(s)</td>
                                     <td id="page3-ind-rep-NL-3"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Address</td>
                                     <td id="page3-ind-rep-NL-4"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Nationality</td>
                                     <td id="page3-ind-rep-NL-5"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Email</td>
                                     <td id="page3-ind-rep-NL-6"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Telephone Number</td>
                                     <td id="page3-ind-rep-NL-7"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Fax</td>
                                     <td id="page3-ind-rep-NL-8"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Are both the applicant and the representative able to sign the Authority form
                                       (power of attorney)?</td>
                                     <td id="page3-ind-rep-NL-9"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Ecomms email</td>
                                     <td id="page3-ind-rep-NL-10"></td>
-                                  </tr>
+                                  </div>
                                 </tbody>
                               </table>
                             </div>
                             <div class="reviewRepIndL is-hidden">
                               <table>
                                 <tbody>
-                                  <tr>
+                                  <div>
                                     <td>Representative Type</td>
                                     <td id="page3-ind-rep-L"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Surname</td>
                                     <td id="page3-ind-rep-L-1"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>First Name(s)</td>
                                     <td id="page3-ind-rep-L-2"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Address</td>
                                     <td id="page3-ind-rep-L-3"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Nationality</td>
                                     <td id="page3-ind-rep-L-4"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Email</td>
                                     <td id="page3-ind-rep-L-5"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Telephone Number</td>
                                     <td id="page3-ind-rep-L-6"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Fax</td>
                                     <td id="page3-ind-rep-L-7"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Are both the applicant and the representative able to sign the
                                       Authority form (power of attorney)?</td>
                                     <td id='page3-ind-rep-L-8'></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Ecomms Email</td>
                                     <td id="page3-ind-rep-L-9"></td>
-                                  </tr>
+                                  </div>
                                 </tbody>
                               </table>
                             </div>
                             <div class="reviewRepSelf is-hidden">
                               <table>
                                 <tbody>
-                                  <tr>
+                                  <div>
                                     <td>Representative Type</td>
                                     <td id="page3-ind-rep-self"></td>
-                                  </tr>
+                                  </div>
                                 </tbody>
                               </table>
                             </div>
@@ -384,93 +371,93 @@
                             <div class="reviewRepOrgNL is-hidden">
                               <table>
                                 <tbody>
-                                  <tr>
+                                  <div>
                                     <td>Capacity/relationship/function</td>
                                     <td id="page3-org-rep-NL-1"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Surname</td>
                                     <td id="page3-org-rep-NL-2"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>First Name(s)</td>
                                     <td id="page3-org-rep-NL-3"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Address</td>
                                     <td id="page3-org-rep-NL-4"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Nationality</td>
                                     <td id="page3-org-rep-NL-5"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Email</td>
                                     <td id="page3-org-rep-NL-6"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Telephone Number</td>
                                     <td id="page3-org-rep-NL-7"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Fax</td>
                                     <td id="page3-org-rep-NL-8"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Do you have a document proving that the organisation official is legally
                                       entitled to represent the organisation?</td>
                                     <td id="page3-org-rep-NL-9"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>
                                       Is the organisation going to be
                                       represented by a Lawyer?
                                     </td>
                                     <td id="page3-org-rep-NL-10"></td>
-                                  </tr>
+                                  </div>
                                 </tbody>
                               </table>
                             </div>
                             <div class="reviewRepOrgL is-hidden">
                               <table>
                                 <tbody>
-                                  <tr>
+                                  <div>
                                     <td>Surname</td>
                                     <td id="page3-org-rep-L-1"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>First Name(s)</td>
                                     <td id="page3-org-rep-L-2"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Address</td>
                                     <td id="page3-org-rep-L-3"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Nationality</td>
                                     <td id="page3-org-rep-L-4"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Email</td>
                                     <td id="page3-org-rep-L-5"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Telephone Number</td>
                                     <td id="page3-org-rep-L-6"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Fax</td>
                                     <td id="page3-org-rep-L-7"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Are both the applicant and the representative able to sign the Authority form
                                       (power of attorney)?</td>
                                     <td id="page3-org-rep-L-8"></td>
-                                  </tr>
-                                  <tr>
+                                  </div>
+                                  <div>
                                     <td>Email address for eComms account</td>
                                     <td id="page3-org-rep-L-9"></td>
-                                  </tr>
+                                  </div>
                                 </tbody>
                               </table>
                             </div>
@@ -492,7 +479,7 @@
                       <p class="reviewHeadPara lead">
                         In this page you must state the matter of your facts.
                         You must present clearly and concisely the key events of
-                        your case and the administrative and judicial decisions
+                        your case and the adminisdivative and judicial decisions
                         that you consider led to the violation of your rights.
                       </p>
                     </div>
@@ -500,17 +487,17 @@
                       <div class="container-fluid">
                         <table id="reviewTable4">
                           <tbody>
-                            <tr>
+                            <div>
                               <td>Statement of Facts</td>
                               <td id="page4-1"></td>
-                            </tr>
-                            <tr>
+                            </div>
+                            <div>
                               <td>
                                 Supplementary Statement on the Subject matter of
                                 the application
                               </td>
                               <td name="" id="page4-2"></td>
-                            </tr>
+                            </div>
                           </tbody>
                         </table>
                       </div>
@@ -539,10 +526,10 @@
                         We will provide a link to the convention, as well as a
                         drop down with all the articles of the European
                         Convention on Human Rights and its Protocols that your
-                        country was bound by at the time the facts happened. In
+                        coundivy was bound by at the time the facts happened. In
                         addition you will be shown the text of each article
                         chosen and any reservations, declarations or derogations
-                        that the country you are complaining about might have
+                        that the coundivy you are complaining about might have
                         made to the article(s) chosen.
                       </p>
                     </div>
@@ -550,10 +537,10 @@
                       <div class="container-fluid">
                         <table id="reviewTable5">
                           <thead>
-                            <tr>
+                            <div>
                               <td><b>Article Invoked</b></td>
                               <td><b>Explanation</b></td>
-                            </tr>
+                            </div>
                           </thead>
                           <tbody id="articleBody" style="border: outset"></tbody>
                         </table>
@@ -588,20 +575,20 @@
                       <div class="container-fluid">
                         <table id="reviewTable6">
                           <thead>
-                            <tr>
+                            <div>
                               <td><b>Complaint</b></td>
                               <td><b>Remedies Used</b></td>
-                            </tr>
+                            </div>
                           </thead>
                           <tbody id="complaintBody" style="border: outset"></tbody>
                           <tbody>
-                            <tr>
+                            <div>
                               <td>
                                 Please state which appeal or remedy you have not
                                 used and explain why not.
                               </td>
                               <td id="page6-1"></td>
-                            </tr>
+                            </div>
                           </tbody>
                         </table>
                       </div>
@@ -621,7 +608,7 @@
                         In this page you must list any international bodies that
                         you have resorted to in order to address your
                         complaints. These international bodies may be
-                        international arbitration panels or other United Nations
+                        international arbidivation panels or other United Nations
                         bodies, such as the International Labour Organisation or
                         the United Nations Human Rights Committee. <br />
                         If you have appealed to any other international body,
@@ -637,7 +624,7 @@
                       <div class="container-fluid">
                         <table id="reviewTable7">
                           <tbody id="page7-body">
-                            <tr>
+                            <div>
                               <td>
                                 Please give a concise summary of the procedure
                                 (complaints submitted, name of the international
@@ -645,15 +632,15 @@
                                 given).
                               </td>
                               <td id="page7-1"></td>
-                            </tr>
-                            <tr>
+                            </div>
+                            <div>
                               <td>
                                 Application Number(s) if you (the applicant)
                                 currently have, or have you previously had, any
                                 other applications before the Court?
                               </td>
                               <td id="page7-2"></td>
-                            </tr>
+                            </div>
                           </tbody>
                         </table>
                       </div>
@@ -708,7 +695,7 @@
                         <br />
                         <br />
                         Please note that the European Court of Human Rights will
-                        not open and it will destroy any package that is deemed
+                        not open and it will desdivoy any package that is deemed
                         suspicious.
                       </p>
                     </div>
@@ -716,12 +703,12 @@
                       <div class="container-fluid">
                         <table id="reviewTable8">
                           <thead>
-                            <tr>
+                            <div>
                               <td><b>Date</b></td>
                               <td><b>Title</b></td>
                               <td><b>Description</b></td>
                               <td><b>No. of Pages</b></td>
-                            </tr>
+                            </div>
                           </thead>
                           <tbody id="docsBody" style="border: outset"></tbody>
                         </table>
@@ -759,30 +746,30 @@
                       <div class="container-fluid">
                         <table id="reviewTable9">
                           <tbody>
-                            <tr>
+                            <div>
                               <td>
                                 Do you have any other comments about your
                                 application?
                               </td>
                               <td id="page9-1"></td>
-                            </tr>
-                            <tr>
+                            </div>
+                            <div>
                               <td>Confirmation of correspondent</td>
                               <td id="page9-2"></td>
-                            </tr>
-                            <tr>
+                            </div>
+                            <div>
                               <td id="page9-3q"></td>
                               <td id="page9-3"></td>
-                            </tr>
-                            <tr>
+                            </div>
+                            <div>
                               <td id="page9-4q"></td>
                               <td id="page9-4"></td>
-                            </tr>
-                            <tr>
+                            </div>
+                            <div>
                               <td>Who is going to sign the declaration concerning the accuracy of the information
                                 provided in the application form?</td>
                               <td id="page9-5"></td>
-                            </tr>
+                            </div>
                           </tbody>
                         </table>
                       </div>

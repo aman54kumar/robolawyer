@@ -558,63 +558,40 @@ $(document).ready(function () {
 
   // Start of Page 5
   $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
-    $("#articleBody").empty();
-    articlesList = $(".complainSelect");
-    descriptionList = $(".articleExplanation");
-    articlesList.each(function (item) {
-      $("#articleBody").append(
-        "<tr><td>" +
-          String(articlesList[item].value) +
-          "</td> <td>" +
-          String(descriptionList[item].value) +
-          "</td> </tr>"
+    const articlesList = document.querySelectorAll(".articleArea");
+    const descriptionList = document.querySelectorAll(".articleExplanation");
+    document.getElementById("reviewTable5").innerHTML = "";
+    const baseDiv = document.getElementById("reviewTable5");
+    let articleHTMLString = [];
+    for (let i = 0; i < articlesList.length; i++) {
+      articleHTMLString.push(
+        `<div class='reviewComponent'><p class='reviewQuestion'>Articles Invoked</p><p class='reviewAnswer'>${articlesList[i].value}</p><p class='reviewQuestion'>Explanation</p><p class='reviewAnswer'>${descriptionList[i].value}</p></div>`
       );
-    });
+    }
+    for (const articleObject of articleHTMLString) {
+      baseDiv.innerHTML += articleObject + "<hr>";
+    }
+    baseDiv.lastChild.remove();
   });
 
   // End of Page 5
 
-  // to split article string for getting only number
-  // end of algorithm
   // Start of Page 6
   $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
-    $("#complaintBody").empty();
-    complaintList = $(".complainSelect");
-    remediesList = $(".remedies");
-    articlePassList = $(".preArticleSelect");
-    complaintList.each(function (item) {
-      $("#complaintBody").append(
-        "<tr><td>" +
-          String(complaintList[item].value) +
-          "</td> <td>" +
-          String(remediesList[item].value) +
-          "</td> </tr>"
+    const complainList = document.querySelectorAll(".complainSelect");
+    const remediesList = document.querySelectorAll(".remedies");
+    document.getElementById("reviewTable6").innerHTML = "";
+    const baseDiv = document.getElementById("reviewTable6");
+    let complainHTMLString = [];
+    for (let i = 0; i < complainList.length; i++) {
+      complainHTMLString.push(
+        `<div class='reviewComponent'><p class='reviewQuestion'>Complaint</p><p class='reviewAnswer'>${complainList[i].value}</p><p class='reviewQuestion'>Remedies Used</p><p class='reviewAnswer'>${remediesList[i].value}</p></div>`
       );
-    });
+    }
+    for (const complainObject of complainHTMLString) {
+      baseDiv.innerHTML += complainObject + "<hr>";
+    }
   });
-
-  // $("#complaintButton").on("click", function () {
-  //   var click = $(this).data("clicks") || 0;
-  //   if (click % 2 == 0) {
-  //     complaintList = $(".complainSelect");
-  //     remediesList = $(".remedies");
-  //     articlePassList = $(".preArticleSelect");
-  //     complaintList.each(function (item) {
-  //       $("#complaintBody").append(
-  //         "<tr><td>" +
-  //           (
-  //             String(getArticleString(articlePassList[item].value)) + "- "
-  //           ).concat(String(complaintList[item].value)) +
-  //           "</td> <td>" +
-  //           String(remediesList[item].value) +
-  //           "</td> </tr>"
-  //       );
-  //     });
-  //   } else {
-  //     $("#complaintBody").empty();
-  //   }
-  //   $(this).data("clicks", click + 1);
-  // });
 
   $("#appealDescribe").on("input", function (e) {
     curValue = $("#appealDescribe").val().trim();
@@ -652,24 +629,41 @@ $(document).ready(function () {
 
   // Start of Page 8
   $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
-    $("#docsBody").empty();
-    docsDateList = $(".docsDate");
-    docsTitleList = $(".docsTitle");
-    docsDescList = $(".docsDesc");
-    docsPagesList = $(".docsPages");
-    docsDateList.each(function (item) {
-      $("#docsBody").append(
-        "<tr><td>" +
-          String(docsDateList[item].value) +
-          "</td> <td>" +
-          String(docsTitleList[item].value) +
-          "</td> <td>" +
-          String(docsDescList[item].value) +
-          "</td> <td>" +
-          String(docsPagesList[item].value) +
-          "</td> </tr>"
+    const docsDateList = document.querySelectorAll(".docsDate");
+    const docsTitleList = document.querySelectorAll(".docsTitle");
+    const docsDescList = document.querySelectorAll(".docsDesc");
+    const docsPagesList = document.querySelectorAll(".docsPages");
+    document.getElementById("reviewTable8").innerHTML = "";
+    const baseDiv = document.getElementById("reviewTable5");
+    let docsHTMLString = [];
+    for (let i = 0; i < docsDateList.length; i++) {
+      docsHTMLString.push(
+        `<div class='reviewComponent'><p class='reviewQuestion'>Date</p><p class='reviewAnswer'>${docsDateList[i].value}</p><p class='reviewQuestion'>Title</p><p class='reviewAnswer'>${docsTitleList[i].value}</p><p class='reviewQuestion'>Description</p><p class='reviewAnswer'>${docsDescList[i].value}</p><p class='reviewQuestion'>No. of Pages</p><p class='reviewAnswer'>${docsPagesList[i].value}</p></div>`
       );
-    });
+    }
+    for (const docsObject of docsHTMLString) {
+      baseDiv.innerHTML += docsObject + "<hr>";
+    }
+    baseDiv.lastChild.remove();
+
+    // $("#docsBody").empty();
+    // docsDateList = $(".docsDate");
+    // docsTitleList = $(".docsTitle");
+    // docsDescList = $(".docsDesc");
+    // docsPagesList = $(".docsPages");
+    // docsDateList.each(function (item) {
+    //   $("#docsBody").append(
+    //     "<tr><td>" +
+    //       String(docsDateList[item].value) +
+    //       "</td> <td>" +
+    //       String(docsTitleList[item].value) +
+    //       "</td> <td>" +
+    //       String(docsDescList[item].value) +
+    //       "</td> <td>" +
+    //       String(docsPagesList[item].value) +
+    //       "</td> </tr>"
+    //   );
+    // });
   });
   // End of Page 8
 

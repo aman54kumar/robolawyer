@@ -1317,17 +1317,17 @@ function articleWrapper(
       : element.closest("tr").querySelector(".articleSelect");
 
   idTextArea = "#" + String(element.id);
-  var cursorPosition = $(idTextArea).prop("selectionStart");
-  var text = element.value;
+  let cursorPosition = $(idTextArea).prop("selectionStart");
+  let text = element.value;
   if (otherElementIndex === 2) text = conjunctionValueIfExists(element);
-  var colLimit = columnLength;
-  var rowLimit =
+  let colLimit = columnLength;
+  let rowLimit =
     Math.max(otherElement.value.split("\n").length, text.split("\n").length) +
     limitLinesPage5;
-  var posInfo = getPosInfo(text, cursorPosition - 1, colLimit);
-  var relPos = posInfo.rel_pos;
-  var overFlowInfo = null;
-  var isExceeded = false;
+  let posInfo = getPosInfo(text, cursorPosition - 1, colLimit);
+  let relPos = posInfo.rel_pos;
+  let overFlowInfo = null;
+  let isExceeded = false;
   // if (isArticleSelectElement) {
   //   otherElement.removeAttribute("disabled");
   // }

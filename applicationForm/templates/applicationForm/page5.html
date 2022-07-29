@@ -80,7 +80,7 @@
                       <select name="page5[0][articleSelect]" id="article_0_select" class="form-control articleSelect"
                         data-parsley-group="page5" data-pattern-name="page5[++][articleSelect]"
                         data-pattern-id="article_++_select"
-                        onchange="populateDiv(this.id, '.descDiv1'); toggleAddButton(this);"></select>
+                        onchange="populateDiv(this.id, '.descDiv1'); articleWrapper(this, 26, true);toggleAddButton(this);"></select>
                       <br>
                       <div class="descDiv1">
 
@@ -110,8 +110,7 @@
                       <textarea class="form-control articleExplanation articleExpCounter"
                         name="page5[0][articleExplanation]" id="article_0_explanation"
                         data-pattern-id="article_++_explanation" data-pattern-name="page5[++][articleExplanation]"
-                        oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px";articleWrapper(this,72,false,false)'
-                        onpaste='this.style.height = ""; this.style.height = this.scrollHeight + "px";articleWrapper(this, 72, false,true);'
+                        oninput="articleWrapper(this,72,false,false);" onpaste="articleWrapper(this, 72, false,true);"
                         onfocus="getCounterValue(this);" onblur="hideCounterElement(this);" cols="30" rows="10"
                         data-parsley-group="page5" style="width: 80ch; padding: 10px"></textarea>
 

@@ -645,25 +645,6 @@ $(document).ready(function () {
       baseDiv.innerHTML += docsObject + "<hr>";
     }
     baseDiv.lastChild.remove();
-
-    // $("#docsBody").empty();
-    // docsDateList = $(".docsDate");
-    // docsTitleList = $(".docsTitle");
-    // docsDescList = $(".docsDesc");
-    // docsPagesList = $(".docsPages");
-    // docsDateList.each(function (item) {
-    //   $("#docsBody").append(
-    //     "<tr><td>" +
-    //       String(docsDateList[item].value) +
-    //       "</td> <td>" +
-    //       String(docsTitleList[item].value) +
-    //       "</td> <td>" +
-    //       String(docsDescList[item].value) +
-    //       "</td> <td>" +
-    //       String(docsPagesList[item].value) +
-    //       "</td> </tr>"
-    //   );
-    // });
   });
   // End of Page 8
 

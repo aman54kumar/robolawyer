@@ -270,10 +270,11 @@ $("input[name='page3[orgOffEntitled]']").change(function () {
     orgNLoffTextarea = document.createElement("textarea");
     orgNLoffTextarea.classList.add("form-control", "newPageTextArea");
     orgNLoffTextarea.id = "orgNLOfficialAreaNo";
-    orgNLoffTextarea.addEventListener("input", function () {
-      this.style.height = "";
-      this.style.height = this.scrollHeight + "px";
-    });
+    orgNLoffTextarea.rows = "10";
+    // orgNLoffTextarea.addEventListener("input", function () {
+    //   this.style.height = "";
+    //   this.style.height = this.scrollHeight + "px";
+    // });
     popUpText.append(orgNLoffTextarea);
     popUpText.append(document.createElement("br"));
     answerArea.append(popUpText);

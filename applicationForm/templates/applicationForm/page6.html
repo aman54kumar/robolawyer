@@ -112,9 +112,8 @@
                       <textarea name="page6[0][complainSelect]" style="padding: 10px" id="complain_0_select"
                         class="form-control complainSelect" data-parsley-group="page6"
                         data-pattern-id="complain_++_select" data-pattern-name="page6[++][complainSelect]" cols="26"
-                        rows="5"
-                        oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper( this, 26,true, false,);'
-                        onpaste='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper( this, 26,true, true);'
+                        rows="5" oninput='complaintWrapper( this, 26,true, false,);'
+                        onpaste='complaintWrapper( this, 26,true, true);'
                         onkeydown="complaintKeyDown(event,this)"></textarea>
                     </th>
                     <th>
@@ -122,11 +121,9 @@
                         <h4> Domestic remedies used and the date of the final decision</h4>
                       </label>
                       <textarea class="form-control remedies remediesTextCounter" name="page6[0][remediesUsed]"
-                        id="complain_0_remedy"
-                        oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper(this, 69, false,false);'
-                        rows="5" data-parsley-group="page6" data-pattern-id="complain_++_remedy"
-                        data-pattern-name="page6[++][remediesUsed]"
-                        onpaste='this.style.height = "";this.style.height = this.scrollHeight + "px"; complaintWrapper(this, 69, false,true);'
+                        id="complain_0_remedy" oninput='complaintWrapper(this, 69, false,false);' rows="5"
+                        data-parsley-group="page6" data-pattern-id="complain_++_remedy"
+                        data-pattern-name="page6[++][remediesUsed]" onpaste='complaintWrapper(this, 69, false,true);'
                         onfocus="getCounterValue(this);" onblur="hideCounterElement(this);"
                         style="padding: 10px"></textarea>
                       <!-- width: 80ch; -->

@@ -69,11 +69,7 @@
               <div class="a-group">
                 <table width="100%" style="border: none">
                   <tr>
-                    <td width="50%" style="
-                        padding-right: 10px;
-                        border: none;
-                        vertical-align: top;
-                      ">
+                    <td class="page5TableTDSelect">
                       <label class="lead" for="articleSelect">
                         <h4>Article(s) invoked </h4>
                       </label>
@@ -103,7 +99,7 @@
                         data-parsley-group="page5" data-pattern-name="page5[++][articleArea]"
                         data-pattern-id="article_++_area"></textarea>
                     </td>
-                    <td width="50%" style="border: none; vertical-align: top;">
+                    <td class="page5TableTDArea">
                       <label class="lead">
                         <h4>Explanation</h4>
                       </label>
@@ -118,8 +114,10 @@
                       <div class="explanationCounter is-hidden">
                         Lines Remaining:
                       </div>
-                      <div class="addButtonWarningDiv alert alert-danger is-hidden">New fields cannot be added because
-                        of constraints related to available number of lines. Add button will be disabled.</div>
+                      <div class="textAreaLimitWarningDiv alert alert-danger is-hidden">You cannot add any more text
+                        because
+                        you’ve reached the text limit imposed by the court in the application form. Please rephrase your
+                        text if you want to make changes</div>
                       <!-- 'this.style.height = ""; this.style.height = this.scrollHeight + "px"; -->
                     </td>
 
@@ -141,6 +139,10 @@
                   </div>
                   <hr />
                 </div>
+                <div class="addButtonWarningDiv alert alert-danger is-hidden">You cannot add any more articles because
+                  you have reached the text limit imposed by the Court on the application form. The add button is
+                  disabled. If you need to add more articles, please rephrase the text in the explanation fields and
+                  make it shorter to free up space.</div>
                 <div class="page5GroupButtonsDiv">
                   <button type="button" class="a-btnAdd btn btn-primary page5_addButton" id="addButton_5_0"
                     data-pattern-id="addButton_5_++" disabled>

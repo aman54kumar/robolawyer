@@ -700,9 +700,11 @@ function populateDiv(elId, descDivClass) {
   if (descDivClass === ".descDiv1") {
     alertText = selectTDElement.querySelector(".page5AlertText");
 
-    containerElement =
-      document.getElementById(elId).parentElement.parentElement.parentElement
-        .parentElement.parentElement.children[2].parentElement.children[2];
+    containerElement = document
+      .getElementById(elId)
+      .closest(".a-group")
+      .querySelector(".page5Div");
+
     $(conjDivElement).empty();
     var descDiv2 = document.createElement("div");
     descDiv2.classList.add("descDiv2");
@@ -715,10 +717,10 @@ function populateDiv(elId, descDivClass) {
     alertText = conjDivElement.parentElement.querySelector(
       ".page5SecondAlertText"
     );
-    containerElement =
-      document.getElementById(elId).parentElement.parentElement.parentElement
-        .parentElement.parentElement.parentElement.parentElement.children[2]
-        .parentElement.children[2];
+    containerElement = document
+      .getElementById(elId)
+      .closest(".a-group")
+      .querySelector(".page5Div");
   }
 
   tableElement = containerElement.children[2].children[0];

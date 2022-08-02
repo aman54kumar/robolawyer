@@ -377,12 +377,6 @@ $("#page5Group").repeater({
   animationSpeed: 400,
   animationEasing: "swing",
   clearValues: true,
-  // beforeAdd: function () {
-  //   const addButtonList = [...document.querySelectorAll(".page5_addButton")];
-  //   addButtonList.map((addButtonElement) => {
-  //     addButtonElement.addEventListener("click", page5AddButtonLimitWarning);
-  //   });
-  // },
   afterAdd: function () {
     callAPI(this.id);
     cur_id = this.id;
@@ -488,14 +482,69 @@ let manualAddedDocs = [];
 let autoGenFlag = "auto";
 // var docObject;
 
+docDetails = {
+  anon: {
+    title: "Anonymity Request",
+    desc: "Documents requesting anonymity in the public documents of the court.",
+  },
+  fact: {
+    title: "Supplementary Statement on the Subject matter of the application",
+    desc: "Document to supplement further details on the facts.",
+  },
+  orgOff: {
+    title: "Proof of organisation official",
+    desc: "Proof of the official's right to represent the organisation.",
+  },
+  regDate: {
+    title: "Explanation for missing registration/incorporation date",
+    desc: "Organisation does not possess a registration/incorporation date.",
+  },
+  orgID: {
+    title: "Explanation for missing identification number.",
+    desc: "Organisation does not possess an identification number.",
+  },
+  indNLAuth: {
+    title: "Explanation for lack of authority form",
+    desc: "Document explaining the lack of authority form.",
+  },
+  indNLFax: {
+    title: "Non-lawyer representative missing fax number",
+    desc: "Explanation for missing fax number (non-lawyer representative)",
+  },
+  indLFax: {
+    title: "Lawyer representative missing fax number",
+    desc: "Explanation for missing fax number (lawyer representative)",
+  },
+  indLAuth: {
+    title: "Explanation for lack of signature on the authority form",
+    desc: "Document explaining the lack of authority form. ",
+  },
+  orgOffFax: {
+    title: "Organisation official missing fax number",
+    desc: "Document explaining why the organisation official cannot provide a fax number.",
+  },
+  orgLFax: {
+    title: "Organisation lawyer missing fax number",
+    desc: "Document explaining why the organisation lawyer cannot provide a fax number.",
+  },
+  orgNLOff: {
+    title: "Organisation official document",
+    desc: "organisation official cannot provide proof for its position",
+  },
+  orgAuth: {
+    title: "Explanation for lack of authority form",
+    desc: "organisation cannot sign the form authorising the representative to represent",
+  },
+};
+
 $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
   docObject = [];
   if (!!$("#anonReqText").val()) {
     anon = {
       id: 1,
       date: moment().format("DD-MM-YYYY"),
-      title: "Anonymity Request",
-      desc: "Documents requesting anonymity in the public documents of the court.",
+      title: docDetails.anon.title,
+      desc: docDetails.anon.desc,
       page: 1,
       text: $("#anonReqText").val(),
     };
@@ -505,8 +554,8 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     facts = {
       id: 2,
       date: moment().format("DD-MM-YYYY"),
-      title: "Supplementary Statement on the Subject matter of the application",
-      desc: "Document to supplement further details on the facts.",
+      title: docDetails.fact.title,
+      desc: docDetails.fact.desc,
       page: 1,
       text: $("#stofFactsExtra").val(),
     };
@@ -516,8 +565,8 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     official = {
       id: 3,
       date: moment().format("DD-MM-YYYY"),
-      title: "Proof of organisation official",
-      desc: "Proof of the official's right to represent the organisation.",
+      title: docDetails.orgOff.title,
+      desc: docDetails.orgOff.desc,
       page: 1,
       text: "",
     };
@@ -528,8 +577,8 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     orgDateText = {
       id: 4,
       date: moment().format("DD-MM-YYYY"),
-      title: "Explanation for missing registration/incorporation date",
-      desc: "Organisation does not possess a registration/incorporation date.",
+      title: docDetails.regDate.title,
+      desc: docDetails.regDate.desc,
       page: 1,
       text: $("#orgDateNoArea").val(),
     };
@@ -539,8 +588,8 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     orgIdentityText = {
       id: 5,
       date: moment().format("DD-MM-YYYY"),
-      title: "Explanation for missing identification number.",
-      desc: "Organisation does not possess an identification number.",
+      title: docDetails.orgID.title,
+      desc: docDetails.orgID.desc,
       page: 1,
       text: $("#orgIdentityNoArea").val(),
     };
@@ -550,8 +599,8 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     indNLAuthText = {
       id: 6,
       date: moment().format("DD-MM-YYYY"),
-      title: "Explanation for lack of authority form",
-      desc: "Document explaining the lack of authority form.",
+      title: docDetails.indNLAuth.title,
+      desc: docDetails.indNLAuth.desc,
       page: 1,
       text: $("#indNLAuthArea").val(),
     };
@@ -562,8 +611,8 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     indNLFaxText = {
       id: 7,
       date: moment().format("DD-MM-YYYY"),
-      title: "Non-lawyer representative missing fax number",
-      desc: "Explanation for missing fax number (non-lawyer representative)",
+      title: docDetails.indNLFax.title,
+      desc: docDetails.indNLFax.desc,
       page: 1,
       text: $("#indNLFaxArea").val(),
     };
@@ -574,31 +623,20 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     indLFaxText = {
       id: 8,
       date: moment().format("DD-MM-YYYY"),
-      title: "Lawyer representative missing fax number",
-      desc: "Explanation for missing fax number (lawyer representative)",
+      title: docObject.indLFax.title,
+      desc: docObject.indLFax.desc,
       page: 1,
       text: $("#indLFaxArea").val(),
     };
     docObject.push(indLFaxText);
   }
 
-  // if (!!$("#indLAuthAreaYes").val()) {
-  //   indLOtherYesText = {
-  //     id: 9,
-  //     date: moment().format("DD-MM-YYYY"),
-  //     title: "Explanation for lack of signature on the authority form",
-  //     desc: "Document explaining the lack of authority form.",
-  //     page: 1,
-  //     text: $("#indLAuthAreaYes").val(),
-  //   };
-  //   docObject.push(indLOtherYesText);
-  // }
   if (!!$("#indLAuthAreaNo").val()) {
     indLOtherNoText = {
       id: 10,
       date: moment().format("DD-MM-YYYY"),
-      title: "Explanation for lack of signature on the authority form",
-      desc: "Document explaining the lack of authority form. ",
+      title: docDetails.indLAuth.title,
+      desc: docDetails.indLAuth.desc,
       page: 1,
       text: $("#indLAuthAreaNo").val(),
     };
@@ -608,19 +646,19 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     orgNLFaxText = {
       id: 11,
       date: moment().format("DD-MM-YYYY"),
-      title: "Organisation official missing fax number",
-      desc: "Document explaining why the organisation official cannot provide a fax number.",
+      title: docDetails.orgOffFax.title,
+      desc: docDetails.orgOff.desc,
       page: 1,
       text: $("#orgNLFaxArea").val(),
     };
     docObject.push(orgNLFaxText);
   }
-  if ($("#orgNLFaxOption:checked").val() === "on") {
+  if (!!$("#orgLFaxArea").val() === "on") {
     orgNLFaxText = {
       id: 12,
       date: moment().format("DD-MM-YYYY"),
-      title: "Organisation lawyer missing fax number",
-      desc: "Document explaining why the organisation lawyer cannot provide a fax number.",
+      title: docDetails.orgLFax.title,
+      desc: docDetails.orgLFax.desc,
       page: 1,
       text: $("#orgLFaxArea").val(),
     };
@@ -633,8 +671,8 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     orgNLOfficial = {
       id: 13,
       date: moment().format("DD-MM-YYYY"),
-      title: "Organisation official document",
-      desc: "organisation official cannot provide proof for its position",
+      title: docDetails.orgNLOff.title,
+      desc: docDetails.orgNLOff.desc,
       page: 1,
       text: $("#orgNLOfficialAreaNo").val(),
     };
@@ -645,8 +683,8 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     orgAutorityAreaNo = {
       id: 14,
       date: moment().format("DD-MM-YYYY"),
-      title: "Explanation for lack of authority form",
-      desc: "organisation cannot sign the form authorising the representative to represent",
+      title: docDetails.orgAuth.title,
+      desc: docDetails.orgAuth.desc,
       page: 1,
       text: $("#orgAutorityAreaNo").val(),
     };
@@ -1470,15 +1508,27 @@ function getCounterValue(element, p) {
     if (limitLinesPage5 > 4) {
       element
         .closest(".a-group")
-        .querySelector(".addButtonWarningDiv")
+        .querySelector(".textAreaLimitWarningDiv")
         .classList.add("is-hidden");
       toggleAddButton(element, false);
     } else {
       element
         .closest(".a-group")
-        .querySelector(".addButtonWarningDiv")
+        .querySelector(".textAreaLimitWarningDiv")
         .classList.remove("is-hidden");
       toggleAddButton(element, true);
+    }
+
+    if (limitLinesPage5 !== 0) {
+      element
+        .closest(".a-group")
+        .querySelector(".addButtonWarningDiv")
+        .classList.add("is-hidden");
+    } else {
+      element
+        .closest(".a-group")
+        .querySelector(".addButtonWarningDiv")
+        .classList.remove("is-hidden");
     }
     var cnt = p >= 0 ? p + limitLinesPage5 : limitLinesPage5;
     counterElement.innerHTML = "Lines Remaining: " + cnt;
@@ -1517,10 +1567,10 @@ var trimLastNthCharInString = function (str, ch, n) {
 };
 
 function toggleAddButton(element, toggleValue) {
-  parentElement =
-    element.parentElement.parentElement.parentElement.parentElement
-      .parentElement.children[3].children[0];
-  parentElement.disabled = toggleValue;
+  parentElement = element
+    .closest(".a-group")
+    .querySelector(".page5GroupButtonsDiv")
+    .querySelector(".page5_addButton").disabled = toggleValue;
 }
 
 // Complaint Page processing

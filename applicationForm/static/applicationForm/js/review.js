@@ -1,12 +1,17 @@
 $(document).ready(function () {
-  function showTextNewWindow(textString) {
-    var wnd = window.open("", "_blank", "menubar=yes,scrollbars=yes");
-    var textList = textString.split("\n");
-    for (var i = 0; i < textList.length; i++) {
-      wnd.document.write(textList[i] + "<br>");
-    }
-    wnd.focus();
-    return false;
+  function showTextNewWindow(textString, docTitle) {
+    const useScreenWidth = window.screen.width;
+    const htmlTextString = textString.replace(/\r?\n|\r/g, "<br>");
+    Swal.fire({
+      title: docTitle,
+      html: `<p class="reviewPopupText">${htmlTextString}</p>`,
+      width: useScreenWidth,
+      allowOutsideClick: false,
+      showCloseButton: true,
+      customClass: {
+        title: "reviewPopupHeading",
+      },
+    });
   }
 
   $(".reviewQuestions")
@@ -162,7 +167,7 @@ $(document).ready(function () {
       "<a id='page2-ind-10-text' href='#'>Click here to view the document you created</a>"
     );
     $("#page2-ind-10-text").on("click", function () {
-      showTextNewWindow(anonText);
+      showTextNewWindow(anonText, docDetails.anon.title);
     });
   });
 
@@ -203,7 +208,7 @@ $(document).ready(function () {
       "<a id='page2-org-8-text' href='#'>Click here to view the document you created</a>"
     );
     $("#page2-org-8-text").on("click", function () {
-      showTextNewWindow(anonText);
+      showTextNewWindow(anonText, docDetails.anon.title);
     });
   });
 
@@ -276,7 +281,7 @@ $(document).ready(function () {
         "No, <a id='page3-ind-rep-NL-8-text' href='#'>Click here to view the document you created.</a>"
       );
       $("#page3-ind-rep-NL-8-text").on("click", function () {
-        showTextNewWindow(noFaxText);
+        showTextNewWindow(noFaxText, docDetails.indNLFax.title);
       });
     } else {
       //yes
@@ -296,7 +301,7 @@ $(document).ready(function () {
           "No, <a id='page3-ind-rep-NL-9-text' href='#'>Click here to view the document you created.</a>"
         );
         $("#page3-ind-rep-NL-9-text").on("click", function () {
-          showTextNewWindow(noAuthText);
+          showTextNewWindow(noAuthText, docDetails.indNLAuth.title);
         });
       } else {
         //yes
@@ -344,7 +349,7 @@ $(document).ready(function () {
         "No, <a id='page3-ind-rep-L-7-text' href='#'>Click here to view the document you created.</a>"
       );
       $("#page3-ind-rep-L-7-text").on("click", function () {
-        showTextNewWindow(noFaxText);
+        showTextNewWindow(noFaxText, docDetails.indLFax.title);
       });
     } else {
       //yes
@@ -364,7 +369,7 @@ $(document).ready(function () {
           "No, <a id='page3-ind-rep-L-8-text' href='#'>Click here to view the document you created.</a>"
         );
         $("#page3-ind-rep-L-8-text").on("click", function () {
-          showTextNewWindow(noAuthText);
+          showTextNewWindow(noAuthText, docDetails.indLAuth.title);
         });
       } else {
         //yes
@@ -373,7 +378,7 @@ $(document).ready(function () {
     }
   });
 
-  $("#indIndeComms").on("input", function () {
+  $("#indLIndeComms").on("input", function () {
     curValue = this.value;
     $("#page3-ind-rep-L-9").text(curValue);
   });
@@ -413,7 +418,7 @@ $(document).ready(function () {
         "No, <a id='page3-org-rep-NL-8-text' href='#'>Click here to view the document you created.</a>"
       );
       $("#page3-org-rep-NL-8-text").on("click", function () {
-        showTextNewWindow(noFaxText);
+        showTextNewWindow(noFaxText, docDetails.orgOffFax.title);
       });
     } else {
       //yes
@@ -433,7 +438,7 @@ $(document).ready(function () {
           "No, <a id='page3-org-rep-NL-9-text' href='#'>Click here to view the document you created.</a>"
         );
         $("#page3-org-rep-NL-9-text").on("click", function () {
-          showTextNewWindow(noAuthText);
+          showTextNewWindow(noAuthText, docDetails.orgAuth.title);
         });
       } else {
         //yes
@@ -485,7 +490,7 @@ $(document).ready(function () {
             "No, <a id='page3-org-rep-L-7-text' href='#'>Click here to view the document you created.</a>"
           );
           $("#page3-org-rep-L-7-text").on("click", function () {
-            showTextNewWindow(noFaxText);
+            showTextNewWindow(noFaxText, docDetails.orgLFax.title);
           });
         } else {
           //yes
@@ -506,7 +511,7 @@ $(document).ready(function () {
               "No, <a id='page3-org-rep-L-8-text' href='#'>Click here to view the document you created.</a>"
             );
             $("#page3-org-rep-L-8-text").on("click", function () {
-              showTextNewWindow(noAuthText);
+              showTextNewWindow(noAuthText, docDetails.orgAuth.title);
             });
           } else {
             //yes
@@ -521,7 +526,7 @@ $(document).ready(function () {
       });
     } else if (result === "orgNoLawyer") {
       $(".reviewRepOrgL").addClass("is-hidden");
-      $("#page3-org-rep-NL-9").text("No");
+      $("#page3-org-rep-NL-10").text("No");
     } else {
       console.log("check for bugs");
     }
@@ -541,7 +546,7 @@ $(document).ready(function () {
       "<a id='page4-1-text' href='#'>Click here to view the document you created</a>"
     );
     $("#page4-1-text").on("click", function () {
-      showTextNewWindow(stOfFactsText);
+      showTextNewWindow(stOfFactsText, "Statement of Facts");
     });
   });
 
@@ -551,7 +556,7 @@ $(document).ready(function () {
       "<a id='page4-2-text' href='#'>Click here to view the document you created</a>"
     );
     $("#page4-2-text").on("click", function () {
-      showTextNewWindow(stOfFactsExtraText);
+      showTextNewWindow(stOfFactsExtraText.fact.title);
     });
   });
   // End of Page 4
@@ -634,7 +639,7 @@ $(document).ready(function () {
     const docsDescList = document.querySelectorAll(".docsDesc");
     const docsPagesList = document.querySelectorAll(".docsPages");
     document.getElementById("reviewTable8").innerHTML = "";
-    const baseDiv = document.getElementById("reviewTable5");
+    const baseDiv = document.getElementById("reviewTable8");
     let docsHTMLString = [];
     for (let i = 0; i < docsDateList.length; i++) {
       docsHTMLString.push(

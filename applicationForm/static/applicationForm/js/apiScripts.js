@@ -288,6 +288,9 @@ function countrySelect() {
     labelElement: null,
     valueMissingMessage: "",
     getIsValueMissing: null,
+    change: function () {
+      console.log("hello");
+    },
     // updateData:
   });
 }

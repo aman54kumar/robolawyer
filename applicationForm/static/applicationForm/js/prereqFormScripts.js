@@ -1,12 +1,5 @@
-// Feedback form
-// var curPageNum = function (pageNumValue) {
-//   console.log(pageNumValue.value);
-//   document.getElementById("sugPageNo").value = pageNumValue.value;
-// };
-
 function feedbackSubmit(e) {
   e.preventDefault();
-
   console.log(e.target);
   cardParentElement = e.target.parentElement.parentElement.parentElement;
   console.log(cardParentElement);
@@ -180,6 +173,22 @@ $("#finalDecisionDate").on("change", function () {
       );
     }
   }
-
-  $(".feedback_submit").click(feedbackSubmit);
 });
+
+const russiaMessageDisplay = () => {
+  const selectedCountries = [
+    ...document.querySelectorAll("#involvedStates :checked"),
+  ].map((option) => option.value);
+
+  const selectedDate = moment(
+    document.querySelector("#decisionDate1").value,
+    "DD-MM-YYYY"
+  );
+  const russiaOutDate = moment("16-09-2022", "DD-MM-YYYY");
+  if (
+    selectedCountries.includes("Russian Federation") &&
+    selectedDate.isSameOrAfter(russiaOutDate)
+  ) {
+    document.querySelector("#russiaWarningDiv").classList.remove("is-hidden");
+  } else document.querySelector("#russiaWarningDiv").classList.add("is-hidden");
+};

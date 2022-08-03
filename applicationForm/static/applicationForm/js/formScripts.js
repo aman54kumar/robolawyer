@@ -1512,11 +1512,13 @@ function getCounterValue(element, p) {
         .classList.add("is-hidden");
       toggleAddButton(element, false);
     } else {
-      element
-        .closest(".a-group")
-        .querySelector(".textAreaLimitWarningDiv")
-        .classList.remove("is-hidden");
-      toggleAddButton(element, true);
+      if (!element.closest(".a-group").nextElementSibling) {
+        element
+          .closest(".a-group")
+          .querySelector(".textAreaLimitWarningDiv")
+          .classList.remove("is-hidden");
+        toggleAddButton(element, true);
+      }
     }
 
     if (limitLinesPage5 !== 0) {
@@ -1525,10 +1527,12 @@ function getCounterValue(element, p) {
         .querySelector(".addButtonWarningDiv")
         .classList.add("is-hidden");
     } else {
-      element
-        .closest(".a-group")
-        .querySelector(".addButtonWarningDiv")
-        .classList.remove("is-hidden");
+      if (!element.closest(".a-group").nextElementSibling) {
+        element
+          .closest(".a-group")
+          .querySelector(".addButtonWarningDiv")
+          .classList.remove("is-hidden");
+      }
     }
     var cnt = p >= 0 ? p + limitLinesPage5 : limitLinesPage5;
     counterElement.innerHTML = "Lines Remaining: " + cnt;

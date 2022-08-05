@@ -46,7 +46,8 @@ def formProcessing(request):
         form_dict = request.POST
         # print(form_dict)
         spclReplies.append(request.POST.getlist("page1[involvedStates]"))
-        hiddenDocsObject.append(request.POST.getlist("page8[hiddenDocObject]")[0])
+        hiddenDocsObject.append(
+            request.POST.getlist("page8[hiddenDocObject]")[0])
 
         pagesName = [
             "page1",
@@ -137,7 +138,6 @@ def pdf_email(request):
         + "/finalPage/Application form to the ECtHR.pdf",
     )
 
-
     if request.method == "POST":
         body = json.loads(request.body)
         emailInput = body["emailInput"]
@@ -178,12 +178,15 @@ def createDirectory(directoryName):
     else:
         shutil.rmtree(directoryName)
         os.makedirs(directoryName)
-    return
 
 
-def makeObjectDictResponse():
-    #
-    print("dd")
+# def emptyDirectory(directoryName):
+#     with os.scandir(directoryName) as entries:
+#         for entry in entries:
+#             if entry.is_dir() and not entry.is_symlink():
+#                 shutil.rmtree(entry.path)
+#             else:
+#                 os.remove(entry.path)
 
 
 def docObject(request):

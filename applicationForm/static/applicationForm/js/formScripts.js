@@ -539,7 +539,7 @@ docDetails = {
 
 $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
   docObject = [];
-  if (!!$("#anonReqText").val()) {
+  if ($("#applicantAnonYes").is(":checked") && !!$("#anonReqText").val()) {
     anon = {
       id: 1,
       date: moment().format("DD-MM-YYYY"),
@@ -623,8 +623,8 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     indLFaxText = {
       id: 8,
       date: moment().format("DD-MM-YYYY"),
-      title: docObject.indLFax.title,
-      desc: docObject.indLFax.desc,
+      title: docDetails.indLFax.title,
+      desc: docDetails.indLFax.desc,
       page: 1,
       text: $("#indLFaxArea").val(),
     };
@@ -691,11 +691,11 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     docObject.push(orgAutorityAreaNo);
   }
   // orgAutorityAreaNo
-
   $("input[name='page8[hiddenDocObject]']").val(JSON.stringify(docObject));
-
   document.getElementById("page8Spinner").style.display = "block";
+
   document.getElementById("page8Group").style.display = "none";
+  page8Refresh();
   const csrftoken = getCookie("csrftoken");
   axios({
     method: "post",
@@ -708,6 +708,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     .then((response) => {
       const docObject = response.data;
       const docObjectLength = docObject.length;
+      console.log(docObjectLength);
 
       for (let i = 0; i < docObjectLength; i++) {
         if (
@@ -815,7 +816,6 @@ $("#page8Group").repeater({
       }
     }
     document.getElementsByClassName("popover-class")[0].id = "";
-    console.log(`doc_${parseInt(this.id.split("_")[2]) + 1}_page`);
     const x = document
       .getElementById(`doc_${parseInt(this.id.split("_")[2]) + 1}_page`)
       .closest("th")
@@ -1982,4 +1982,19 @@ const conjunctionValueIfExists = (element) => {
     return `${mainSelectText.value} in conjunction with ${conjArticleSelect.value}`;
   }
   return `${mainSelectText.value}`;
+};
+
+const page8Refresh = () => {
+  const availableFieldGroupsArray = [
+    ...document.querySelector("#page8Group").children,
+  ].reverse();
+  for (let i = availableFieldGroupsArray.length - 1; i > 0; i--) {
+    availableFieldGroupsArray[i].querySelector(".r-btnRemove").click();
+  }
+
+  // $("#page8Group")
+  //   .find(":input")
+  //   .each(function () {
+  //     $(this).val("");
+  //   });
 };

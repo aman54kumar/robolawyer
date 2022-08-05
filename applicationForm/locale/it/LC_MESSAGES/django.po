@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-26 23:23+0530\n"
+"POT-Creation-Date: 2022-08-05 15:58+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,10 +71,30 @@ msgid "Feedback_Qn1"
 msgstr ""
 
 #: applicationForm/templates/applicationForm/form.html:273
+#: applicationForm/templates/applicationForm/page1.html:186
+#: applicationForm/templates/applicationForm/page1.html:204
+#: applicationForm/templates/applicationForm/page1.html:238
+#: applicationForm/templates/applicationForm/page2/anonymity.html:16
+#: applicationForm/templates/applicationForm/page2/organisation.html:39
+#: applicationForm/templates/applicationForm/page2/organisation.html:74
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:103
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:157
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:165
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:126
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:178
 msgid "Option_Yes"
 msgstr ""
 
 #: applicationForm/templates/applicationForm/form.html:277
+#: applicationForm/templates/applicationForm/page1.html:190
+#: applicationForm/templates/applicationForm/page1.html:209
+#: applicationForm/templates/applicationForm/page1.html:243
+#: applicationForm/templates/applicationForm/page2/anonymity.html:21
+#: applicationForm/templates/applicationForm/page2/organisation.html:44
+#: applicationForm/templates/applicationForm/page2/organisation.html:79
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:108
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:135
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:187
 msgid "Option_No"
 msgstr ""
 
@@ -88,4 +108,809 @@ msgstr ""
 
 #: applicationForm/templates/applicationForm/form.html:287
 msgid "Feedback_SubmitButton"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:8
+msgid "Page1_Heading"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:13
+msgid "Page1_Instruction"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:21
+msgid "Page1_Qn1"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:22
+msgid "Page1_Qn1_Popover"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:31
+msgid "Albania"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:32
+msgid "Andorra"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:33
+msgid "Armenia"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:34
+msgid "Austria"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:35
+msgid "Azerbaijan"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:36
+msgid "Belgium"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:37
+msgid "Bulgaria"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:39
+msgid "Bosnia and Herzegovina"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:41
+msgid "Croatia"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:42
+msgid "Cyprus"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:43
+msgid "Czech Republic"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:45
+msgid "Denmark"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:47
+msgid "Estonia"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:48
+msgid "Finland"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:49
+msgid "France"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:51
+msgid "Georgia"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:52
+msgid "Germany"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:53
+msgid "Greece"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:55
+msgid "Hungary"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:56
+msgid "Ireland"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:57
+msgid "Iceland"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:58
+msgid "Italy"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:59
+msgid "Liechtenstein"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:60
+msgid "Lithuania"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:61
+msgid "Luxembourg"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:62
+msgid "Latvia"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:63
+msgid "Malta"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:64
+msgid "Monaco"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:66
+msgid "Republic of Moldova"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:68
+msgid "North Macedonia"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:70
+msgid "Montenegro"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:71
+msgid "Netherlands"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:72
+msgid "Norway"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:73
+msgid "Poland"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:74
+msgid "Portugal"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:75
+msgid "Romania"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:77
+msgid "Russian Federation"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:79
+msgid "San Marino"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:80
+msgid "Serbia"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:81
+msgid "Slovak Republic"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:82
+msgid "Slovenia"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:83
+msgid "Spain"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:84
+msgid "Sweden"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:85
+msgid "Switzerland"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:86
+msgid "Turkey"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:87
+msgid "Ukraine"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:88
+msgid "United Kingdom"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:95
+msgid "Page1_Qn2"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:104
+msgid "Page1_Qn2_Option1"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:110
+msgid "Page1_Qn2_Option2"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:117
+msgid "Page1_Qn2_Option3"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:119
+msgid "Page1_Qn2_Option3_Popover"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:127
+msgid "Page1_Qn2_Option4"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:134
+msgid "Page1_Qn2_Option5"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:143
+msgid "Page1_Qn3"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:170
+msgid "Page1_Qn4"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:175
+msgid "Page1_Table_Heading_Country"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:176
+msgid "Page1_Table_Heading_ProceedingType"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:177
+msgid "Page1_Table_Heading_CourtName"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:196
+msgid "Page1_Qn5"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:197
+msgid "Page1_Qn5_Popover"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:214
+msgid "Page1_Qn6"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:216
+msgid "Page1_Qn6_Popover"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:232
+msgid "Page1_Qn7"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:247
+msgid "Page1_Qn7_ExtraQn"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:250
+msgid "Text_Example"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page1.html:261
+#: applicationForm/templates/applicationForm/page2.html:71
+#: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:63
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/orgRepresentative.html:43
+msgid "Button_Next"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2.html:8
+msgid "Page2_Heading"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2.html:16
+msgid "Page2_Instructions"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2.html:29
+msgid "Page2_Option_Individual"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2.html:31
+msgid "page2_Option_Individual_Popover"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2.html:42
+msgid "Page2_Option_Organisation"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2.html:45
+msgid "Page2_Option_Organisation_Popover"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2.html:66
+#: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:58
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/orgRepresentative.html:38
+msgid "Button_Previous"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/anonymity.html:6
+msgid "Page2_Anonymity_Question"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/anonymity.html:9
+msgid "Page2_Anonymity_Question_Explanation"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/anonymity.html:27
+msgid "Page2_Anonymity_Question_Placeholder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/individual.html:5
+msgid "Page2_Individual_Instructions"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/individual.html:11
+msgid "Page2_Individual_Surname"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/individual.html:17
+msgid "Page2_Individual_Fname"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/individual.html:27
+msgid "Page2_Individual_DOB"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/individual.html:37
+msgid "Page2_Individual_POB"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/individual.html:44
+msgid "Page2_Individual_Nationality"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/individual.html:54
+msgid "Page2_Individual_Address"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/individual.html:56
+msgid "Page2_Individual_Address_Popover"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/individual.html:64
+msgid "Page2_Individual_Address_LinesRemaining"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/individual.html:69
+msgid "Page2_Individual_TelNo"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/individual.html:76
+msgid "Page2_Individual_Email"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/individual.html:86
+msgid "Page2_Individual_Sex"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/individual.html:91
+msgid "Page2_Individual_Sex_Male"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/individual.html:96
+msgid "Page2_Individual_Sex_Female"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:5
+msgid "Page2_Organisation_Instructions"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:12
+msgid "Page2_Organisation_Name"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:15
+msgid "Page2_Organisation_Name_Placeholder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:22
+msgid "Page2_Organisation_Activity"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:25
+msgid "Page2_Organisation_Activity_Placeholder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:32
+msgid "Page2_Organisation_RegDateOption"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:48
+msgid "Page2_Organisation_RegDate"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:53
+msgid "Page2_Organisation_RegDate_Placeholder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:58
+msgid "Page2_Organisation_NoRegDateMessage"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:64
+msgid "Page2_Organisation_NoRegDate_Placeholder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:69
+msgid "Page2_Organisation_ID_Option"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:83
+msgid "Page2_Organisation_ID"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:85
+msgid "Page2_Organisation_ID_Placeholder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:91
+msgid "Page2_Organisation_NoIDMessage"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:97
+msgid "Page2_Organisation_NoID_Placeholder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:105
+msgid "Page2_Organisation_Address"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:109
+msgid "Page2_Organisation_Address_Placeholder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:115
+msgid "Page2_Organisation_TelNo"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:118
+msgid "Page2_Organisation_TelNoPlaceholder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:122
+msgid "Page2_Organisation_Email"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page2/organisation.html:125
+msgid "Page2_Organisation_Email_Placeholder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:5
+msgid "Page3_IndRep_Heading"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:9
+msgid "Page3_IndRep_BodyHeading"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:10
+msgid "Page3_IndRep_Instructions"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:16
+msgid "Page3_IndRep_Type"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:22
+msgid "Page3_IndRep_NL"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:23
+msgid "Page3_IndRep_NL_Popover"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:33
+msgid "Page3_IndRep_L"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:34
+msgid "Page3_IndRep_L_Popover"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:44
+msgid "Page3_IndRep_Self"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:5
+msgid "Page3_IndRep_L_Heading"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:8
+msgid "Page3_IndRep_L_Surname"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:10
+msgid "Page3_IndRep_L_Surname_Placeholder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:14
+msgid "Page3_IndRep_L_FName"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:16
+msgid "Page3_IndRep_L_Fname_Placeholder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:22
+msgid "Page3_IndRep_L_Address"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:24
+msgid "Page3_IndRep_L_Address_Placeholder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:31
+msgid "Page3_IndRep_L_Nationality"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:33
+msgid "Page3_IndRep_L_Nationality_Placeholder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:37
+msgid "Page3_IndRep_L_TelNo"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:39
+msgid "Page3_IndRep_L_TelNo_Placeholder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:47
+msgid "Page3_IndRep_L_Fax"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:49
+msgid "Page3_IndRep_L_Fax_Placeholder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:54
+msgid "Page3_IndRep_L_NoFax_Check"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:59
+msgid "Page3_IndRep_L_Email"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:61
+msgid "Page3_IndRep_L_Email_Placeholder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:68
+msgid "Page3_IndRep_L_NoFax_Message"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:70
+msgid "Page3_IndRep_L_NoFaxArea_Placeholder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:80
+msgid "Page3_IndRep_L_Authority_Heading"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:81
+msgid "Page3_IndRep_L_Authority_Description"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:86
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:201
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:99
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:236
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/orgRepresentative.html:17
+msgid "Button_MoreInfo"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:91
+msgid "Page3_IndRep_L_Authority_MoreInfo"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:98
+msgid "Page3_IndRep_L_Authority_Option"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:118
+msgid "Page3_IndRep_L_VeryImportant"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:131
+msgid "Page3_IndRep_L_AuthorityUnderstood_Check"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:136
+msgid "Page3_IndRep_L_AuthorityNo_Message"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:137
+msgid "Page3_IndRep_L_AuthorityNo_Message_Explanation"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:148
+msgid "Page3_IndRep_L_OtherNL"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:176
+msgid "Page3_IndRep_L_AuthorityForm_NoSign"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:196
+msgid "Page3_IndRep_L_Ecomms"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:207
+msgid "Page3_IndRep_L_Ecomms_MoreInfo"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:211
+msgid "Page3_IndRep_L_Ecomms_Email"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:214
+msgid "Page3_IndRep_L_Ecomms_Email_Placeholder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:5
+msgid "Page3_IndRep_NL_Heading"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:10
+msgid "Page3_IndRep_NL_Capacity"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:11
+msgid "Page3_IndRep_NL_Capacity_Popover"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:15
+msgid "Page3_IndRep_NL_Capacity_Placeholder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:19
+msgid "Page3_IndRep_NL_Surname"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:21
+msgid "Page3_IndRep_NL_Surname_Placeholder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:25
+msgid "Page3_IndRep_NL_Fname"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:27
+msgid "Page3_IndRep_NL_Fname_Placeholder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:34
+msgid "Page3_IndRep_NL_Address"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:36
+msgid "Page3_IndRep_NL_Address_Placeholder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:44
+msgid "Page3_IndRep_NL_Nationality"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:46
+msgid "Page3_IndRep_NL_Nationality_Placeholder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:50
+msgid "Page3_IndRep_NL_TelNo"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:52
+msgid "Page3_IndRep_NL_TelNo_Placeholder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:60
+msgid "Page3_IndRep_NL_Email"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:62
+msgid "Page3_IndRep_NL_Email_Placeholder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:65
+msgid "Page3_IndRep_NL_Fax"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:67
+msgid "Page3_IndRep_NL_Fax_Placeholder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:72
+msgid "Page3_IndRep_NL_NoFax_Check"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:81
+msgid "Page3_IndRep_NL_NoFax_Message"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:83
+msgid "Page3_IndRep_NL_NoFax_Message_PlaceHolder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:93
+msgid "Page3_IndRep_NL_Authority_Heading"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:94
+msgid "Page3_IndRep_NL_Authority_Description"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:104
+msgid "Page3_IndRep_NL_Authority_MoreInfo"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:117
+msgid "Page3_IndRep_NL_LawyerRep_Option"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:143
+msgid "Page3_IndRep_NL_EmployedL_No"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:150
+msgid "Page3_IndRep_NL_Understand_Check"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:168
+msgid "Page3_IndRep_NL_AuthorityForm_Option"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:170
+msgid "Page3_IndRep_NL_AuthorityForm_Option_Explanation"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:197
+msgid "Page3_IndRep_NL_VeryImportant"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:209
+msgid "Page3_IndRep_NL_ConfirmSign"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:218
+msgid "Page3_IndRep_NL_AuthorityForm_NoSignMessage"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:233
+msgid "Page3_IndRep_NL_Ecomms"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:242
+msgid "Page3_IndRep_NL_Ecomms_MoreInfo"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:246
+msgid "Page3_IndRep_NL_Ecomms_Email"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:249
+msgid "Page3_IndRep_NL_Ecomms_Email_Placeholder"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/indRepresentative/self.html:3
+msgid "Page3_SelfRep"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/orgRepresentative.html:6
+msgid "Page3_OrgRep_Heading"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/orgRepresentative.html:11
+msgid "Page3_OrgRep_Body_Heading"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/orgRepresentative.html:13
+msgid "Page3_OrgRep_Official_Instructions"
+msgstr ""
+
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/orgRepresentative.html:22
+msgid "Page3_OrgRep_Official_MoreInfo"
 msgstr ""

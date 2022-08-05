@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-26 23:23+0530\n"
+"POT-Creation-Date: 2022-08-05 15:58+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -75,9 +75,3 @@ msgstr ""
 #: home/templates/home/home.html:37
 msgid "Home_Colab_TechR_UiO"
 msgstr ""
-
-#~ msgid "Home string"
-#~ msgstr "Stringa domestica"
-
-#~ msgid "Simple string"
-#~ msgstr "Stringa semplice"

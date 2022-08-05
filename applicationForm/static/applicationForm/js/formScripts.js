@@ -695,7 +695,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
   document.getElementById("page8Spinner").style.display = "block";
 
   document.getElementById("page8Group").style.display = "none";
-  page8Refresh();
+  // page8Refresh();
   const csrftoken = getCookie("csrftoken");
   axios({
     method: "post",
@@ -708,8 +708,6 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     .then((response) => {
       const docObject = response.data;
       const docObjectLength = docObject.length;
-      console.log(docObjectLength);
-
       for (let i = 0; i < docObjectLength; i++) {
         if (
           $("#page8Group").children().length === 1 ||

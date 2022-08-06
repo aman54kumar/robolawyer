@@ -196,6 +196,7 @@ def docObject(request):
         createDirectory(dirname)
         pageNList = [13]
         allObjects = objectDict["docObject"]
+        print(allObjects)
         newObject = []
         for data in allObjects:
             docName = str(allObjects.index(data)) + ".pdf"

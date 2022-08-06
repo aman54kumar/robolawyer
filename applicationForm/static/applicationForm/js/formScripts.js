@@ -659,8 +659,8 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     };
     docObject.push(orgNLFaxText);
   }
-  if ($("#orgLFaxOption").val() === "on" && !!$("#orgLFaxArea").val()) {
-    orgNLFaxText = {
+  if ($("#orgLFaxOption:checked").val() === "on" && !!$("#orgLFaxArea").val()) {
+    orgLFaxText = {
       id: 12,
       date: moment().format("DD-MM-YYYY"),
       title: docDetails.orgLFax.title,
@@ -668,7 +668,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
       page: 1,
       text: $("#orgLFaxArea").val(),
     };
-    docObject.push(orgNLFaxText);
+    docObject.push(orgLFaxText);
   }
   if (
     $("#orgOffEntitledNo").is(":checked") &&
@@ -701,7 +701,6 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
   document.getElementById("page8Spinner").style.display = "block";
 
   document.getElementById("page8Group").style.display = "none";
-  // page8Refresh();
   const csrftoken = getCookie("csrftoken");
   axios({
     method: "post",
@@ -714,6 +713,9 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     .then((response) => {
       const docObject = response.data;
       const docObjectLength = docObject.length;
+      if (docObjectLength === 0) {
+        docDeleteCheck(docObject);
+      }
       for (let i = 0; i < docObjectLength; i++) {
         if (
           document.querySelector("#page8Group").childElementCount <
@@ -728,10 +730,6 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
           inputPage8Values(i, docObject);
         } else {
           docDeleteCheck(docObject);
-          document
-            .querySelector("#page8Group")
-            .lastElementChild.querySelector(".page8ButtonContainer")
-            .classList.remove("is-hidden");
         }
         const allRGroup = [
           ...document.querySelector("#page8Group").querySelectorAll(".r-group"),
@@ -744,16 +742,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
               .classList.add("is-hidden");
           }
         }
-        // hide button div of 2nd last group
-        // $("#page8Group")
-        //   .children("div:nth-last-child(2)")
-        //   .children("div")
-        //   .addClass("is-hidden");
       }
-      // document
-      //   .querySelector("#page8Group")
-      //   .lastChild.querySelector(".page8ButtonContainer")
-      //   .classList.remove("is-hidden");
     })
     .catch((error) => {
       console.log(error);
@@ -762,12 +751,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
       document.getElementById("page8Spinner").style.display = "none";
       document.getElementById("page8Group").style.display = "block";
     });
-
   // var docObjectLength = docObject.length;
-  document
-    .querySelector("#page8Group")
-    .lastElementChild.querySelector(".page8ButtonContainer")
-    .classList.remove("is-hidden");
   // check fields empty or not for delete button hiding for auto documents
 });
 
@@ -795,10 +779,14 @@ var inputPage8Values = function (i, docObject) {
   const currentRGroup = document
     .querySelector(`input[name='page8[${i}][page]']`)
     .closest(".r-group");
-  if (document.querySelector("#page8Group").lastChild === currentRGroup) {
+
+  if (
+    document.querySelector("#page8Group").lastElementChild === currentRGroup
+  ) {
     currentRGroup
       .querySelector(".page8ButtonContainer")
       .classList.remove("is-hidden");
+    currentRGroup.querySelector(".r-btnRemove").classList.add("is-hidden");
   } else {
     currentRGroup
       .querySelector(".page8ButtonContainer")
@@ -853,7 +841,7 @@ $("#page8Group").repeater({
         currentButtonElement &&
         !currentButtonElement.classList.contains("is-hidden")
       ) {
-        currentButtonElement.className += " is-hidden";
+        currentButtonElement.classList.add("is-hidden");
       }
     }
     document.getElementsByClassName("popover-class")[0].id = "";
@@ -863,13 +851,31 @@ $("#page8Group").repeater({
       .querySelector("a");
     tippy(x, popover_attributes);
   },
-  afterDelete: function () {
-    groups = $("#page8Group").children();
-    divTag = groups.children()[groups.children().length - 1];
-    buttonTag = divTag.children[0];
-    if (buttonTag.classList.contains("is-hidden")) {
-      divTag.children[0].classList.remove("is-hidden");
+  beforeDelete: function (element) {
+    if (document.querySelector("#page8Group").childElementCount > 1) {
+      const prevElementGroup = element[0].previousElementSibling;
+      if (prevElementGroup.querySelector("input").disabled) {
+        prevElementGroup
+          .querySelector(".r-btnRemove")
+          .classList.add("is-hidden");
+      }
     }
+  },
+  afterDelete: function () {
+    document
+      .querySelector("#page8Group")
+      .lastElementChild.querySelector(".page8ButtonContainer ")
+      .classList.remove("is-hidden");
+    document
+      .querySelector("#page8Group")
+      .lastElementChild.querySelector(".r-btnAdd")
+      .classList.remove("is-hidden");
+    // groups = $("#page8Group").children();
+    // divTag = groups.children()[groups.children().length - 1];
+    // buttonTag = divTag.children[0];
+    // if (buttonTag.classList.contains("is-hidden")) {
+    //   divTag.children[0].classList.remove("is-hidden");
+    // }
   },
 });
 
@@ -2033,6 +2039,26 @@ const docDeleteCheck = (docObject) => {
   const totalFieldsDescArray = [
     ...document.querySelector("#page8Group").querySelectorAll(".docsDesc"),
   ].map((element) => element.value);
+
+  if (docObject.length === 0) {
+    for (const targetDesc of totalDescFields.reverse()) {
+      if (targetDesc.closest(".r-group").previousElementSibling) {
+        console.log("first");
+        targetDesc.closest(".r-group").querySelector(".r-btnRemove").click();
+      } else {
+        console.log("second");
+        const allInputFields = targetDesc
+          .closest(".r-group")
+          .querySelectorAll("input");
+        for (const fields of allInputFields) {
+          fields.value = "";
+          fields.disabled = false;
+        }
+        return;
+      }
+    }
+  }
+
   const totalPDFDescArray = docObject.map((data) => data.desc);
 
   for (const pdfDesc of totalFieldsDescArray) {
@@ -2043,13 +2069,10 @@ const docDeleteCheck = (docObject) => {
       const targetDescArray = totalDescFields.filter(
         (desc) => desc.value === pdfDesc
       );
+      console.log(targetDescArray);
       for (const targetDesc of targetDescArray) {
         targetDesc.closest(".r-group").querySelector(".r-btnRemove").click();
       }
-      targetDesc
-        .closest(".r-group")
-        .querySelector(".page8ButtonContainer")
-        .classList.remove("is-hidden");
     }
   }
 };

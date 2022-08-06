@@ -291,6 +291,28 @@ $(document).ready(function () {
   });
 
   $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
+    if ($("#indNLEmployedLYes").is(":checked")) {
+      document.querySelector(".reviewRepIndL").classList.remove("is-hidden");
+    }
+    document
+      .getElementById("page3-ind-rep-L-8")
+      .closest(".reviewComponent")
+      .classList.add("is-hidden");
+    document
+      .getElementById("page3-ind-rep-L-9")
+      .closest(".reviewComponent")
+      .classList.add("is-hidden");
+    document
+      .getElementById("page3-ind-rep-NL-9")
+      .closest(".reviewComponent")
+      .classList.remove("is-hidden");
+    document
+      .getElementById("page3-ind-rep-NL-10")
+      .closest(".reviewComponent")
+      .classList.remove("is-hidden");
+  });
+
+  $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
     if (document.querySelector(".indNLAuthorityQn:checked")) {
       const indNLAuthBoolean = document.querySelector(
         ".indNLAuthorityQn:checked"
@@ -383,6 +405,27 @@ $(document).ready(function () {
     $("#page3-ind-rep-L-9").text(curValue);
   });
 
+  $("#stepperFormTrigger10, #gotoPage10").on("click", function () {
+    if ($("#LotherNLYes").is(":checked")) {
+      document.querySelector(".reviewRepIndNL").classList.remove("is-hidden");
+    }
+    document
+      .getElementById("page3-ind-rep-L-8")
+      .closest(".reviewComponent")
+      .classList.remove("is-hidden");
+    document
+      .getElementById("page3-ind-rep-L-9")
+      .closest(".reviewComponent")
+      .classList.remove("is-hidden");
+    document
+      .getElementById("page3-ind-rep-NL-9")
+      .closest(".reviewComponent")
+      .classList.add("is-hidden");
+    document
+      .getElementById("page3-ind-rep-NL-10")
+      .closest(".reviewComponent")
+      .classList.add("is-hidden");
+  });
   // End of Page 3 ind L
 
   // Start of page 3 org NL

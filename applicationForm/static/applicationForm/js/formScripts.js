@@ -533,7 +533,7 @@ docDetails = {
   },
   orgAuth: {
     title: "Explanation for lack of authority form",
-    desc: "organisation cannot sign the form authorising the representative to represent",
+    desc: "organisation cannot sign the form authorising the representative to represent.",
   },
 };
 
@@ -573,7 +573,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     docObject.push(official);
   }
 
-  if (!!$("#orgDateNoArea").val()) {
+  if ($("#orgDateNo").is(":checked") && !!$("#orgDateNoArea").val()) {
     orgDateText = {
       id: 4,
       date: moment().format("DD-MM-YYYY"),
@@ -584,7 +584,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     };
     docObject.push(orgDateText);
   }
-  if (!!$("#orgIdentityNoArea").val()) {
+  if ($("#orgIdentityNo").is(":checked") && !!$("#orgIdentityNoArea").val()) {
     orgIdentityText = {
       id: 5,
       date: moment().format("DD-MM-YYYY"),
@@ -595,7 +595,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     };
     docObject.push(orgIdentityText);
   }
-  if (!!$("#indNLAuthArea").val()) {
+  if ($("#indNLAuthorityQn2").is(":checked") && !!$("#indNLAuthArea").val()) {
     indNLAuthText = {
       id: 6,
       date: moment().format("DD-MM-YYYY"),
@@ -607,7 +607,10 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     docObject.push(indNLAuthText);
   }
 
-  if ($("#indNLFaxOption:checked").val() === "No") {
+  if (
+    $("#indNLFaxOption:checked").val() === "No" &&
+    !!$("#indNLFaxArea").val()
+  ) {
     indNLFaxText = {
       id: 7,
       date: moment().format("DD-MM-YYYY"),
@@ -619,7 +622,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     docObject.push(indNLFaxText);
   }
 
-  if ($("#indLFaxOption:checked").val() === "No") {
+  if ($("#indLFaxOption:checked").val() === "No" && !!$("#indLFaxArea").val()) {
     indLFaxText = {
       id: 8,
       date: moment().format("DD-MM-YYYY"),
@@ -631,7 +634,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     docObject.push(indLFaxText);
   }
 
-  if (!!$("#indLAuthAreaNo").val()) {
+  if ($("#LotherNLNo").is(":checked") && !!$("#indLAuthAreaNo").val()) {
     indLOtherNoText = {
       id: 10,
       date: moment().format("DD-MM-YYYY"),
@@ -642,18 +645,21 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     };
     docObject.push(indLOtherNoText);
   }
-  if ($("#orgNLFaxOption:checked").val() === "on") {
+  if (
+    $("#orgNLFaxOption:checked").val() === "on" &&
+    !!$("#orgNLFaxArea").val()
+  ) {
     orgNLFaxText = {
       id: 11,
       date: moment().format("DD-MM-YYYY"),
       title: docDetails.orgOffFax.title,
-      desc: docDetails.orgOff.desc,
+      desc: docDetails.orgOffFax.desc,
       page: 1,
       text: $("#orgNLFaxArea").val(),
     };
     docObject.push(orgNLFaxText);
   }
-  if (!!$("#orgLFaxArea").val() === "on") {
+  if ($("#orgLFaxOption").val() === "on" && !!$("#orgLFaxArea").val()) {
     orgNLFaxText = {
       id: 12,
       date: moment().format("DD-MM-YYYY"),
@@ -679,7 +685,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     docObject.push(orgNLOfficial);
   }
 
-  if (!!$("#orgAutorityAreaNo").val()) {
+  if ($("#orgAttorneyNo").is(":checked") && !!$("#orgAutorityAreaNo").val()) {
     orgAutorityAreaNo = {
       id: 14,
       date: moment().format("DD-MM-YYYY"),
@@ -710,26 +716,44 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
       const docObjectLength = docObject.length;
       for (let i = 0; i < docObjectLength; i++) {
         if (
-          $("#page8Group").children().length === 1 ||
-          $("#page8Group").children().last().find(".docsDate").val() != ""
+          document.querySelector("#page8Group").childElementCount <
+          docObjectLength
         ) {
-          if ($("#page8Group").children().length < docObjectLength) {
-            $(`#addButton_8_${i - 1}`).click();
-          }
           inputPage8Values(i, docObject);
+          $(`#addButton_8_${i}`).click();
         } else if (
-          $("#page8Group").children().length != 1 ||
-          $("#page8Group").children().last().find(".docsDate").val() === ""
+          document.querySelector("#page8Group").childElementCount ===
+          docObjectLength
         ) {
           inputPage8Values(i, docObject);
+        } else {
+          docDeleteCheck(docObject);
+          document
+            .querySelector("#page8Group")
+            .lastElementChild.querySelector(".page8ButtonContainer")
+            .classList.remove("is-hidden");
         }
+        const allRGroup = [
+          ...document.querySelector("#page8Group").querySelectorAll(".r-group"),
+        ];
 
+        for (let i in allRGroup) {
+          if (i < allRGroup.length - 1) {
+            allRGroup[i]
+              .querySelector(".page8ButtonContainer")
+              .classList.add("is-hidden");
+          }
+        }
         // hide button div of 2nd last group
-        $("#page8Group")
-          .children("div:nth-last-child(2)")
-          .children("div")
-          .addClass("is-hidden");
+        // $("#page8Group")
+        //   .children("div:nth-last-child(2)")
+        //   .children("div")
+        //   .addClass("is-hidden");
       }
+      // document
+      //   .querySelector("#page8Group")
+      //   .lastChild.querySelector(".page8ButtonContainer")
+      //   .classList.remove("is-hidden");
     })
     .catch((error) => {
       console.log(error);
@@ -740,7 +764,10 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     });
 
   // var docObjectLength = docObject.length;
-
+  document
+    .querySelector("#page8Group")
+    .lastElementChild.querySelector(".page8ButtonContainer")
+    .classList.remove("is-hidden");
   // check fields empty or not for delete button hiding for auto documents
 });
 
@@ -761,6 +788,22 @@ var inputPage8Values = function (i, docObject) {
   $(`input[name='page8[${i}][title]']`).val(docObject[i].title);
   $(`input[name='page8[${i}][desc]']`).val(docObject[i].desc);
   $(`input[name='page8[${i}][page]']`).val(docObject[i].page);
+  $(`input[name='page8[${i}][date]']`).attr("disabled", "disabled");
+  $(`input[name='page8[${i}][title]']`).attr("disabled", "disabled");
+  $(`input[name='page8[${i}][desc]']`).attr("disabled", "disabled");
+  $(`input[name='page8[${i}][page]']`).attr("disabled", "disabled");
+  const currentRGroup = document
+    .querySelector(`input[name='page8[${i}][page]']`)
+    .closest(".r-group");
+  if (document.querySelector("#page8Group").lastChild === currentRGroup) {
+    currentRGroup
+      .querySelector(".page8ButtonContainer")
+      .classList.remove("is-hidden");
+  } else {
+    currentRGroup
+      .querySelector(".page8ButtonContainer")
+      .classList.add("is-hidden");
+  }
 };
 
 $("#page8Group").repeater({
@@ -1982,17 +2025,31 @@ const conjunctionValueIfExists = (element) => {
   return `${mainSelectText.value}`;
 };
 
-const page8Refresh = () => {
-  const availableFieldGroupsArray = [
-    ...document.querySelector("#page8Group").children,
-  ].reverse();
-  for (let i = availableFieldGroupsArray.length - 1; i > 0; i--) {
-    availableFieldGroupsArray[i].querySelector(".r-btnRemove").click();
-  }
+const docDeleteCheck = (docObject) => {
+  const totalDocDescArray = Object.values(docDetails).map((data) => data.desc);
+  let totalDescFields = [
+    ...document.querySelector("#page8Group").querySelectorAll(".docsDesc"),
+  ];
+  const totalFieldsDescArray = [
+    ...document.querySelector("#page8Group").querySelectorAll(".docsDesc"),
+  ].map((element) => element.value);
+  const totalPDFDescArray = docObject.map((data) => data.desc);
 
-  // $("#page8Group")
-  //   .find(":input")
-  //   .each(function () {
-  //     $(this).val("");
-  //   });
+  for (const pdfDesc of totalFieldsDescArray) {
+    if (
+      totalDocDescArray.includes(pdfDesc) &&
+      !totalPDFDescArray.includes(pdfDesc)
+    ) {
+      const targetDescArray = totalDescFields.filter(
+        (desc) => desc.value === pdfDesc
+      );
+      for (const targetDesc of targetDescArray) {
+        targetDesc.closest(".r-group").querySelector(".r-btnRemove").click();
+      }
+      targetDesc
+        .closest(".r-group")
+        .querySelector(".page8ButtonContainer")
+        .classList.remove("is-hidden");
+    }
+  }
 };

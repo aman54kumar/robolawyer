@@ -727,7 +727,40 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
           document.querySelector("#page8Group").childElementCount ===
           docObjectLength
         ) {
-          inputPage8Values(i, docObject);
+          const docsDescInFieldsArray = [
+            ...document
+              .querySelector("#page8Group")
+              .querySelectorAll(".docsDesc"),
+          ];
+          const docsDescValuesArray = docsDescInFieldsArray.map(
+            (docs) => docs.value
+          );
+          const totalDocDescArray = Object.values(docDetails).map(
+            (data) => data.desc
+          );
+          let fieldCount = 0;
+          for (const docs of totalDocDescArray) {
+            if (docsDescValuesArray.includes(docs)) fieldCount += 1;
+          }
+
+          if (fieldCount !== 0) {
+            $(`#addButton_8_${fieldCount - 1}`).click();
+            $(`input[name='page8[${fieldCount + 1}][date]']`).val(
+              $(`input[name='page8[${fieldCount}][date]']`).val()
+            );
+            $(`input[name='page8[${fieldCount + 1}][title]']`).val(
+              $(`input[name='page8[${fieldCount}][title]']`).val()
+            );
+            $(`input[name='page8[${fieldCount + 1}][desc]']`).val(
+              $(`input[name='page8[${fieldCount}][desc]']`).val()
+            );
+            $(`input[name='page8[${fieldCount + 1}][page]']`).val(
+              $(`input[name='page8[${fieldCount}][page]']`).val()
+            );
+            inputPage8Values(fieldCount, docObject);
+          } else {
+            inputPage8Values(i, docObject);
+          }
         } else {
           docDeleteCheck(docObject);
         }
@@ -776,6 +809,7 @@ var inputPage8Values = function (i, docObject) {
   $(`input[name='page8[${i}][title]']`).attr("disabled", "disabled");
   $(`input[name='page8[${i}][desc]']`).attr("disabled", "disabled");
   $(`input[name='page8[${i}][page]']`).attr("disabled", "disabled");
+
   const currentRGroup = document
     .querySelector(`input[name='page8[${i}][page]']`)
     .closest(".r-group");

@@ -240,7 +240,10 @@ def fourthPageInputs(self, can, inputObj):
             t.textLines(newAddressFive)
             can.drawText(t)
             can.drawString(310, 407, inputObj["page3[orglTel]"])
-            can.drawString(310, 367, inputObj["page3[orglFax]"])
+            if "page3[orglFax]" not in inputObj:
+                can.drawString(310, 367, "")
+            else:
+                can.drawString(310, 367, inputObj["page3[orglFax]"])
             can.drawString(310, 327, inputObj["page3[orglEmail]"])
             can.drawString(25, 30, inputObj["page3[orgIndeComms]"])
 
@@ -664,7 +667,6 @@ def sortAccordingToDate(firstList, secondList):
 
 def sortDocumentsDate(self, inputObj):
     from datetime import datetime
-    print(inputObj)
     length = int((len(inputObj)) / 4)
     dateList = []
     titleList = []

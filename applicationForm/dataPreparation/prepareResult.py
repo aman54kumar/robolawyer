@@ -214,16 +214,12 @@ class PrepareResult:
 
         docs = self.inputObj["page8"]
 
-        # paths = glob.glob(
-        #     "applicationForm/dataPreparation/pages/App_form_page_*.pdf")
-
         codeList = []
         barCodeText = "ENG - 2018/1|"
 
         inputState = self.spclReplies[0]
         statesValue = changeCountryToCode(inputState)
 
-        # print(statesValue)
         for key, value in self.inputObj["page1"].items():
             if key in ["page1[referenceText]"]:
                 barCodeText += value + "|"
@@ -493,7 +489,6 @@ class PrepareResult:
         elif pos == 11:
             can = eleventhPageInputs(self, can, inputObj, tempInput)
         elif pos == 12:
-
             can = twelvthPageInputs(self, can, inputObj)
         elif pos == 13:
             can = thirteenthPageInputs(self, can, inputObj, tempInput)

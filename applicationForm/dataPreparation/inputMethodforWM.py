@@ -489,7 +489,6 @@ def twelvthPageInputs(self, can, inputObj):
         pageListTemp,
     ] = sortDocumentsDate(self, inputObj)
     # pageListNew = add_one_by_one(pageListTemp)
-
     length = int((len(inputObj)) / 4)
     yCoord = 666
     for item in range(length):
@@ -665,7 +664,7 @@ def sortAccordingToDate(firstList, secondList):
 
 def sortDocumentsDate(self, inputObj):
     from datetime import datetime
-
+    print(inputObj)
     length = int((len(inputObj)) / 4)
     dateList = []
     titleList = []

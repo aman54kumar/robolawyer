@@ -44,7 +44,6 @@ def formProcessing(request):
     #     sessionID + '/finalPage/finalForm.pdf')
     if request.method == "POST":
         form_dict = request.POST
-        # print(form_dict)
         spclReplies.append(request.POST.getlist("page1[involvedStates]"))
         hiddenDocsObject.append(
             request.POST.getlist("page8[hiddenDocObject]")[0])
@@ -67,8 +66,6 @@ def formProcessing(request):
                 (key, value) for key, value in form_dict.items() if page in key.lower()
             )
 
-        # print(hiddenDocsObject)
-        # print("\n")
         for item in hiddenDocsObject:
             item = json.loads(item)
             hiddenObject.append(item)

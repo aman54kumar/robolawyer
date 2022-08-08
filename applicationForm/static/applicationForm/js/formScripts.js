@@ -724,7 +724,7 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
           inputPage8Values(i, docObject);
           $(`#addButton_8_${i}`).click();
         } else if (
-          document.querySelector("#page8Group").childElementCount ===
+          document.querySelector("#page8Group").childElementCount >=
           docObjectLength
         ) {
           const docsDescInFieldsArray = [
@@ -805,10 +805,10 @@ var inputPage8Values = function (i, docObject) {
   $(`input[name='page8[${i}][title]']`).val(docObject[i].title);
   $(`input[name='page8[${i}][desc]']`).val(docObject[i].desc);
   $(`input[name='page8[${i}][page]']`).val(docObject[i].page);
-  $(`input[name='page8[${i}][date]']`).attr("disabled", "disabled");
-  $(`input[name='page8[${i}][title]']`).attr("disabled", "disabled");
-  $(`input[name='page8[${i}][desc]']`).attr("disabled", "disabled");
-  $(`input[name='page8[${i}][page]']`).attr("disabled", "disabled");
+  $(`input[name='page8[${i}][date]']`).attr("readonly", "true");
+  $(`input[name='page8[${i}][title]']`).attr("readonly", "true");
+  $(`input[name='page8[${i}][desc]']`).attr("readonly", "true");
+  $(`input[name='page8[${i}][page]']`).attr("readonly", "true");
 
   const currentRGroup = document
     .querySelector(`input[name='page8[${i}][page]']`)
@@ -842,7 +842,7 @@ $("#page8Group").repeater({
   animationSpeed: 400,
   animationEasing: "swing",
   clearValues: true,
-  afterAdd: function () {
+  afterAdd: function (element) {
     var container =
       $(".bootstrap-iso form").length > 0
         ? $(".bootstrap-iso form").parent()
@@ -866,18 +866,12 @@ $("#page8Group").repeater({
       calendarWeeks: false,
       clearBtn: true,
     });
-    cur_id = this.id;
-    id_no = cur_id.split("_8_")[1];
-    for (i = id_no; i >= 0; i--) {
-      newID = "addButton_8_" + i;
-      currentButtonElement = document.getElementById(newID);
-      if (
-        currentButtonElement &&
-        !currentButtonElement.classList.contains("is-hidden")
-      ) {
-        currentButtonElement.classList.add("is-hidden");
-      }
-    }
+    // hide add button of previous group
+    element[0].previousElementSibling
+      .querySelector(".r-btnAdd")
+      .classList.add("is-hidden");
+
+    // initialize popover on page input
     document.getElementsByClassName("popover-class")[0].id = "";
     const x = document
       .getElementById(`doc_${parseInt(this.id.split("_")[2]) + 1}_page`)
@@ -904,12 +898,6 @@ $("#page8Group").repeater({
       .querySelector("#page8Group")
       .lastElementChild.querySelector(".r-btnAdd")
       .classList.remove("is-hidden");
-    // groups = $("#page8Group").children();
-    // divTag = groups.children()[groups.children().length - 1];
-    // buttonTag = divTag.children[0];
-    // if (buttonTag.classList.contains("is-hidden")) {
-    //   divTag.children[0].classList.remove("is-hidden");
-    // }
   },
 });
 
@@ -2077,10 +2065,8 @@ const docDeleteCheck = (docObject) => {
   if (docObject.length === 0) {
     for (const targetDesc of totalDescFields.reverse()) {
       if (targetDesc.closest(".r-group").previousElementSibling) {
-        console.log("first");
         targetDesc.closest(".r-group").querySelector(".r-btnRemove").click();
       } else {
-        console.log("second");
         const allInputFields = targetDesc
           .closest(".r-group")
           .querySelectorAll("input");

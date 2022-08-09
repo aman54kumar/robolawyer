@@ -7,6 +7,9 @@ $(".btn-next-form").on("click", function () {
   );
 });
 
+let isAutoDoc = false;
+let isFormRefresh = false;
+
 var applicantTypeOption = function () {
   $("input[name='page2[applicantType]']").change(function () {
     result = this.value;
@@ -537,167 +540,50 @@ docDetails = {
   },
 };
 
+let manualDocList = [];
+
 $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
-  docObject = [];
-  if ($("#applicantAnonYes").is(":checked") && !!$("#anonReqText").val()) {
-    anon = {
-      id: 1,
-      date: moment().format("DD-MM-YYYY"),
-      title: docDetails.anon.title,
-      desc: docDetails.anon.desc,
-      page: 1,
-      text: $("#anonReqText").val(),
-    };
-    docObject.push(anon);
-  }
-  if (!!$("#stofFactsExtra").val()) {
-    facts = {
-      id: 2,
-      date: moment().format("DD-MM-YYYY"),
-      title: docDetails.fact.title,
-      desc: docDetails.fact.desc,
-      page: 1,
-      text: $("#stofFactsExtra").val(),
-    };
-    docObject.push(facts);
-  }
-  if ($("#orgOffEntitledYes").is(":checked")) {
-    official = {
-      id: 3,
-      date: moment().format("DD-MM-YYYY"),
-      title: docDetails.orgOff.title,
-      desc: docDetails.orgOff.desc,
-      page: 1,
-      text: "",
-    };
-    docObject.push(official);
-  }
+  const basePage8Div = document.getElementById("page8Group");
+  document.addEventListener("click", function (event) {
+    var isClickInsideElement = basePage8Div.contains(event.target);
+    if (!isClickInsideElement) {
+      const manualDocsElementList = [
+        ...document.querySelectorAll(".manualDoc"),
+      ];
 
-  if ($("#orgDateNo").is(":checked") && !!$("#orgDateNoArea").val()) {
-    orgDateText = {
-      id: 4,
-      date: moment().format("DD-MM-YYYY"),
-      title: docDetails.regDate.title,
-      desc: docDetails.regDate.desc,
-      page: 1,
-      text: $("#orgDateNoArea").val(),
-    };
-    docObject.push(orgDateText);
-  }
-  if ($("#orgIdentityNo").is(":checked") && !!$("#orgIdentityNoArea").val()) {
-    orgIdentityText = {
-      id: 5,
-      date: moment().format("DD-MM-YYYY"),
-      title: docDetails.orgID.title,
-      desc: docDetails.orgID.desc,
-      page: 1,
-      text: $("#orgIdentityNoArea").val(),
-    };
-    docObject.push(orgIdentityText);
-  }
-  if ($("#indNLAuthorityQn2").is(":checked") && !!$("#indNLAuthArea").val()) {
-    indNLAuthText = {
-      id: 6,
-      date: moment().format("DD-MM-YYYY"),
-      title: docDetails.indNLAuth.title,
-      desc: docDetails.indNLAuth.desc,
-      page: 1,
-      text: $("#indNLAuthArea").val(),
-    };
-    docObject.push(indNLAuthText);
-  }
+      for (const doc of manualDocsElementList) {
+        const docInputList = [...doc.querySelectorAll("input")].filter(
+          (d) => d.type !== "hidden"
+        );
 
-  if (
-    $("#indNLFaxOption:checked").val() === "No" &&
-    !!$("#indNLFaxArea").val()
-  ) {
-    indNLFaxText = {
-      id: 7,
-      date: moment().format("DD-MM-YYYY"),
-      title: docDetails.indNLFax.title,
-      desc: docDetails.indNLFax.desc,
-      page: 1,
-      text: $("#indNLFaxArea").val(),
-    };
-    docObject.push(indNLFaxText);
-  }
+        manualDoc = {
+          date: docInputList[0].value,
+          title: docInputList[1].value,
+          desc: docInputList[2].value,
+          page: docInputList[3].value,
+          manual: true,
+        };
 
-  if ($("#indLFaxOption:checked").val() === "No" && !!$("#indLFaxArea").val()) {
-    indLFaxText = {
-      id: 8,
-      date: moment().format("DD-MM-YYYY"),
-      title: docDetails.indLFax.title,
-      desc: docDetails.indLFax.desc,
-      page: 1,
-      text: $("#indLFaxArea").val(),
-    };
-    docObject.push(indLFaxText);
-  }
+        const checkDocExisting = manualDocList.filter(
+          (doc) =>
+            doc.date === manualDoc.date &&
+            doc.title === manualDoc.title &&
+            doc.desc === manualDoc.desc &&
+            doc.page === manualDoc.page
+        );
 
-  if ($("#LotherNLNo").is(":checked") && !!$("#indLAuthAreaNo").val()) {
-    indLOtherNoText = {
-      id: 10,
-      date: moment().format("DD-MM-YYYY"),
-      title: docDetails.indLAuth.title,
-      desc: docDetails.indLAuth.desc,
-      page: 1,
-      text: $("#indLAuthAreaNo").val(),
-    };
-    docObject.push(indLOtherNoText);
-  }
-  if (
-    $("#orgNLFaxOption:checked").val() === "on" &&
-    !!$("#orgNLFaxArea").val()
-  ) {
-    orgNLFaxText = {
-      id: 11,
-      date: moment().format("DD-MM-YYYY"),
-      title: docDetails.orgOffFax.title,
-      desc: docDetails.orgOffFax.desc,
-      page: 1,
-      text: $("#orgNLFaxArea").val(),
-    };
-    docObject.push(orgNLFaxText);
-  }
-  if ($("#orgLFaxOption:checked").val() === "on" && !!$("#orgLFaxArea").val()) {
-    orgLFaxText = {
-      id: 12,
-      date: moment().format("DD-MM-YYYY"),
-      title: docDetails.orgLFax.title,
-      desc: docDetails.orgLFax.desc,
-      page: 1,
-      text: $("#orgLFaxArea").val(),
-    };
-    docObject.push(orgLFaxText);
-  }
-  if (
-    $("#orgOffEntitledNo").is(":checked") &&
-    !!$("#orgNLOfficialAreaNo").val()
-  ) {
-    orgNLOfficial = {
-      id: 13,
-      date: moment().format("DD-MM-YYYY"),
-      title: docDetails.orgNLOff.title,
-      desc: docDetails.orgNLOff.desc,
-      page: 1,
-      text: $("#orgNLOfficialAreaNo").val(),
-    };
-    docObject.push(orgNLOfficial);
-  }
+        if (checkDocExisting.length === 0) {
+          manualDocList.push(manualDoc);
+        }
+      }
 
-  if ($("#orgAttorneyNo").is(":checked") && !!$("#orgAutorityAreaNo").val()) {
-    orgAutorityAreaNo = {
-      id: 14,
-      date: moment().format("DD-MM-YYYY"),
-      title: docDetails.orgAuth.title,
-      desc: docDetails.orgAuth.desc,
-      page: 1,
-      text: $("#orgAutorityAreaNo").val(),
-    };
-    docObject.push(orgAutorityAreaNo);
-  }
+      // list
+    }
+  });
+
   // orgAutorityAreaNo
-  $("input[name='page8[hiddenDocObject]']").val(JSON.stringify(docObject));
+  docObject = getDocObject();
+
   document.getElementById("page8Spinner").style.display = "block";
 
   document.getElementById("page8Group").style.display = "none";
@@ -711,85 +597,77 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
     },
   })
     .then((response) => {
-      const docObject = response.data;
-      const docObjectLength = docObject.length;
-      if (docObjectLength === 0) {
-        docDeleteCheck(docObject);
-      }
-      for (let i = 0; i < docObjectLength; i++) {
-        if (
-          document.querySelector("#page8Group").childElementCount <
-          docObjectLength
-        ) {
-          inputPage8Values(i, docObject);
-          $(`#addButton_8_${i}`).click();
-        } else if (
-          document.querySelector("#page8Group").childElementCount >=
-          docObjectLength
-        ) {
-          const docsDescInFieldsArray = [
-            ...document
-              .querySelector("#page8Group")
-              .querySelectorAll(".docsDesc"),
-          ];
-          const docsDescValuesArray = docsDescInFieldsArray.map(
-            (docs) => docs.value
-          );
-          const totalDocDescArray = Object.values(docDetails).map(
-            (data) => data.desc
-          );
-          let fieldCount = 0;
-          for (const docs of totalDocDescArray) {
-            if (docsDescValuesArray.includes(docs)) fieldCount += 1;
-          }
+      const autoDocList = response.data;
 
-          if (fieldCount !== 0) {
-            $(`#addButton_8_${fieldCount - 1}`).click();
-            $(`input[name='page8[${fieldCount + 1}][date]']`).val(
-              $(`input[name='page8[${fieldCount}][date]']`).val()
-            );
-            $(`input[name='page8[${fieldCount + 1}][title]']`).val(
-              $(`input[name='page8[${fieldCount}][title]']`).val()
-            );
-            $(`input[name='page8[${fieldCount + 1}][desc]']`).val(
-              $(`input[name='page8[${fieldCount}][desc]']`).val()
-            );
-            $(`input[name='page8[${fieldCount + 1}][page]']`).val(
-              $(`input[name='page8[${fieldCount}][page]']`).val()
-            );
-            inputPage8Values(fieldCount, docObject);
-          } else {
-            inputPage8Values(i, docObject);
-          }
-        } else {
-          docDeleteCheck(docObject);
-        }
-        const allRGroup = [
-          ...document.querySelector("#page8Group").querySelectorAll(".r-group"),
-        ];
-
-        for (let i in allRGroup) {
-          if (i < allRGroup.length - 1) {
-            allRGroup[i]
-              .querySelector(".page8ButtonContainer")
-              .classList.add("is-hidden");
-          }
-        }
+      //  delete all except first and make all fields of first empty
+      resetPage8Form();
+      if (autoDocList.length === 0) {
+        document
+          .querySelector("#page8Group")
+          .children[0].classList.add("manualDoc");
       }
+      setTimeout(() => {
+        // add manual docs
+        const combinedList = autoDocList.concat(manualDocList);
+        console.log(combinedList);
+        $("input[name='page8[hiddenDocObject]']").val(
+          JSON.stringify(combinedList)
+        );
+        addDoc(combinedList);
+        document.getElementById("page8Spinner").style.display = "none";
+        document.getElementById("page8Group").style.display = "block";
+        isFormRefresh = false;
+      }, 500);
     })
     .catch((error) => {
       console.log(error);
     })
-    .finally(() => {
-      document.getElementById("page8Spinner").style.display = "none";
-      document.getElementById("page8Group").style.display = "block";
-    });
+    .finally(() => {});
   // var docObjectLength = docObject.length;
   // check fields empty or not for delete button hiding for auto documents
 });
 
 // const firstPageNumberLabelElement =
+const checkEmptyRowAvailablePage8 = () =>
+  document
+    .getElementById("page8Group")
+    .lastElementChild.querySelector(".docsDesc").value === "";
 
+const resetPage8Form = () => {
+  const rootElement = document.getElementById("page8Group");
+  const childrenCount = rootElement.childElementCount;
+  isFormRefresh = true;
+  for (i = childrenCount - 1; i > 0; i--) {
+    rootElement.children[i].querySelector(".r-btnRemove").click();
+  }
+
+  [
+    ...[...rootElement.children].map((child) =>
+      child.querySelectorAll("input")
+    )[0],
+  ].forEach((r) => {
+    r.value = "";
+    r.readOnly = false;
+  });
+
+  [...rootElement.children].map((child) => {
+    child.classList.remove("manualDoc");
+  });
+};
+
+const addDoc = (docObject) => {
+  for (let i = 0; i < docObject.length; i++) {
+    isAutoDoc = docObject[i].manual ? false : true;
+    if (!checkEmptyRowAvailablePage8()) {
+      document
+        .getElementById("page8Group")
+        .lastElementChild.querySelector(".r-btnAdd")
+        .click();
+    }
+    inputPage8Values(i, docObject[i]);
+    isAutoDoc = false;
+  }
+};
 const popover_attributes = {
   content: "Indicate the total number of pages in each document",
   trigger: "click",
@@ -800,31 +678,16 @@ document.getElementsByClassName("popover-class")[0].id = "first-popover";
 tippy("#first-popover", popover_attributes);
 document.getElementsByClassName("popover-class")[0].id = "";
 
-var inputPage8Values = function (i, docObject) {
-  $(`input[name='page8[${i}][date]']`).val(docObject[i].date);
-  $(`input[name='page8[${i}][title]']`).val(docObject[i].title);
-  $(`input[name='page8[${i}][desc]']`).val(docObject[i].desc);
-  $(`input[name='page8[${i}][page]']`).val(docObject[i].page);
-  $(`input[name='page8[${i}][date]']`).attr("readonly", "true");
-  $(`input[name='page8[${i}][title]']`).attr("readonly", "true");
-  $(`input[name='page8[${i}][desc]']`).attr("readonly", "true");
-  $(`input[name='page8[${i}][page]']`).attr("readonly", "true");
-
-  const currentRGroup = document
-    .querySelector(`input[name='page8[${i}][page]']`)
-    .closest(".r-group");
-
-  if (
-    document.querySelector("#page8Group").lastElementChild === currentRGroup
-  ) {
-    currentRGroup
-      .querySelector(".page8ButtonContainer")
-      .classList.remove("is-hidden");
-    currentRGroup.querySelector(".r-btnRemove").classList.add("is-hidden");
-  } else {
-    currentRGroup
-      .querySelector(".page8ButtonContainer")
-      .classList.add("is-hidden");
+const inputPage8Values = (i, doc) => {
+  $(`input[name='page8[${i}][date]']`).val(doc.date);
+  $(`input[name='page8[${i}][title]']`).val(doc.title);
+  $(`input[name='page8[${i}][desc]']`).val(doc.desc);
+  $(`input[name='page8[${i}][page]']`).val(doc.page);
+  if (isAutoDoc) {
+    $(`input[name='page8[${i}][date]']`).attr("readonly", "true");
+    $(`input[name='page8[${i}][title]']`).attr("readonly", "true");
+    $(`input[name='page8[${i}][desc]']`).attr("readonly", "true");
+    $(`input[name='page8[${i}][page]']`).attr("readonly", "true");
   }
 };
 
@@ -870,6 +733,11 @@ $("#page8Group").repeater({
     element[0].previousElementSibling
       .querySelector(".r-btnAdd")
       .classList.add("is-hidden");
+    if (isAutoDoc) {
+      element[0].querySelector(".r-btnRemove").classList.add("is-hidden");
+    } else {
+      element[0].classList.add("manualDoc");
+    }
 
     // initialize popover on page input
     document.getElementsByClassName("popover-class")[0].id = "";
@@ -878,11 +746,25 @@ $("#page8Group").repeater({
       .closest("th")
       .querySelector("a");
     tippy(x, popover_attributes);
+
+    //hide/show delete button based on auto or manual
   },
   beforeDelete: function (element) {
+    if (!isFormRefresh) {
+      const docInputList = [...element[0].querySelectorAll("input")].filter(
+        (d) => d.type !== "hidden"
+      );
+      manualDocList = manualDocList.filter(
+        (doc) =>
+          doc.date !== docInputList[0].value &&
+          doc.title !== docInputList[1].value &&
+          doc.desc !== docInputList[2].value &&
+          doc.page !== docInputList[3].value
+      );
+    }
     if (document.querySelector("#page8Group").childElementCount > 1) {
       const prevElementGroup = element[0].previousElementSibling;
-      if (prevElementGroup.querySelector("input").disabled) {
+      if (prevElementGroup.querySelector("input")) {
         prevElementGroup
           .querySelector(".r-btnRemove")
           .classList.add("is-hidden");

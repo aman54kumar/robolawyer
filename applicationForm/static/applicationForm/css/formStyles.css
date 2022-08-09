@@ -233,18 +233,16 @@ table tr td:last-of-type {
   margin: 50px;
 }
 
-.feedback_banner {
-  height: 10vw;
-  width: 20vw;
-}
 
 .feedback-btn-div {
-  margin-top: 30rem !important;
+  position: fixed;
+  margin-top: 8rem;
+  /* padding-right: 5rem; */
 }
 
 .feedback-button {
   background-color: #fbcd33;
-  position: fixed;
+  /* position: fixed; */
 }
 
 .feedback-popover {

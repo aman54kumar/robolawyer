@@ -42,24 +42,30 @@ logger = logging.getLogger(__name__)
 
 
 class PrepareResult:
-    def __init__(self, inputObj, sessionID, spclReplies, hiddenDocsObject):
+    def __init__(self, inputObj, sessionID, spclReplies):
         self.inputObj = inputObj
         self.sessionID = sessionID
         self.spclReplies = spclReplies
-        self.hiddenDocsObject = hiddenDocsObject
+        # self.hiddenDocsObject = hiddenDocsObject
 
     basedirPDF = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
     def natural_key(self, string_):
         return [int(s) if s.isdigit() else s for s in re.split(r"(\d+)", string_)]
 
-    def createOrDeleteDirectory(self, directoryName):
+    def createOrDeleteDirectory(self, directoryName, isFinalPage):
         dirname = directoryName
-        if not os.path.exists(dirname):
-            os.makedirs(dirname)
+        if (isFinalPage):
+            if not os.path.exists(dirname):
+                os.makedirs(dirname)
+            else:
+                pass
         else:
-            shutil.rmtree(dirname)
-            os.makedirs(dirname)
+            if not os.path.exists(dirname):
+                os.makedirs(dirname)
+            else:
+                shutil.rmtree(dirname)
+                os.makedirs(dirname)
 
     def swapPositions(self, list, pos1, pos2):
         list[pos1], list[pos2] = list[pos2], list[pos1]
@@ -69,17 +75,13 @@ class PrepareResult:
         if inDate == "":
             return inDate
         else:
-            # inputDate = datetime.strptime(inDate, "%d-%m-%Y").date()
             inputDate = moment.date(inDate, "%d-%m-%Y").strftime("%Y-%m-%d")
-            # inputDate = datetime.strptime(str(inputDate), "%Y-%m-%d")
             return str(inputDate)
 
     def objectDocs(self, objectDict, dirname):
         pageNList = [13]
         import json
-
         objectDict = json.loads(objectDict)
-        # print(type(objectDict))
         for data in objectDict:
             docName = "Result_form_page_" + \
                 str(14 + objectDict.index(data)) + ".pdf"
@@ -101,6 +103,7 @@ class PrepareResult:
         # filename = 'applicationForm/dataPreparation/App_form.pdf'
         # self.createOrDeleteDirectory('applicationForm/dataPreparation/pages')
         # self.pdf_splitter(filename)
+        print(self.sessionID)
         sof = self.inputObj["page4"]["page4[stOfFacts]"]
         sof1 = ""
         sof2 = ""
@@ -274,16 +277,18 @@ class PrepareResult:
         codeList.append(barCodeText[:927])
         codeList.append(self.sessionID)
         self.createOrDeleteDirectory(
-            "applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/"
+            "applicationForm/dataPreparation/results/" +
+            self.sessionID + "/finalPage/", True
         )
         self.createOrDeleteDirectory(
-            "applicationForm/dataPreparation/results/" + self.sessionID + "/watermark/"
+            "applicationForm/dataPreparation/results/" +
+            self.sessionID + "/watermark/", False
         )
 
-        self.objectDocs(
-            self.hiddenDocsObject,
-            "applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/",
-        )
+        # self.objectDocs(
+        #     self.hiddenDocsObject,
+        #     "applicationForm/dataPreparation/results/" + self.sessionID + "/finalPage/",
+        # )
         output1 = self.create_watermark_pdf(
             self.inputObj["page2"],
             pos=1,
@@ -412,9 +417,9 @@ class PrepareResult:
             + self.sessionID
             + "/finalPage/Result_form_page_*.pdf"
         )
-        # print(type(resultPath))
 
         resultPath.sort(key=self.natural_key)
+
         self.pdf_merger(
             "applicationForm/dataPreparation/results/"
             + self.sessionID
@@ -507,17 +512,11 @@ class PrepareResult:
                     with open(os.path.join(path, name), "rb") as pdf_file:
                         pdf_reader = PdfFileReader(pdf_file)
                         pageCountList.append(pdf_reader.getNumPages())
-        # for pdf_file in glob.iglob(str(directory_name) + "*.pdf"):
-        #     with open(pdf_file, 'rb') as pdf_file:
-        #         pdf_reader = PdfFileReader(pdf_file)
-        #         pageCountList.append(pdf_reader.getNumPages())
-
         return list(reversed(pageCountList))
 
     def create_New_Pdf(self, inputObj):
         totalBookmark = int((len(inputObj)) / 4)
         docs4List = sortDocumentsDate(self, inputObj)
-        # initPages = self.checkDocsOrNot(docs4List)
         initPages = 100
         for single in range(totalBookmark):
             filename = (
@@ -541,20 +540,6 @@ class PrepareResult:
             )
             can.save()
 
-    def checkDocsOrNot(self, docsList):
-        sofExtra = any(
-            "Extra pages for the Statement of Facts" in sublist for sublist in docsList
-        )
-        anonReq = any("Anonymity Request" in sublist for sublist in docsList)
-        totalPages = 0
-        if sofExtra and anonReq:
-            totalPages = 14 + int(docsList[3][1])
-        elif sofExtra or anonReq:
-            totalPages = 14 + int(docsList[3][0])
-        else:
-            totalPages = 14
-        return totalPages
-
 
 def changeCountryToCode(countryList):
     sumValue = 0
@@ -563,28 +548,3 @@ def changeCountryToCode(countryList):
         if country in coordinateDict:
             sumValue += coordinateDict[country]["n"]
     return str(sumValue) + ".00000000"
-
-
-def makeDictofTextDocuments(data):
-    finalDocumentDict = {}
-    finalDocumentDict["Explanation for missing registration/incorporation no."] = data[
-        "page2"
-    ]["page2[orgDateNoArea]"]
-    finalDocumentDict["Explanation for missing identification number."] = data["page2"][
-        "page2[orgIdentityNoArea]"
-    ]
-    finalDocumentDict["Anonymity Request"] = data["page2"]["page2[applicantAnonExp]"]
-    finalDocumentDict["Explanation for missing identification number."] = data["page3"][
-        "page3[indLFaxTextArea]"
-    ]
-    finalDocumentDict["Explanation for lack of authority form"] = data["page3"][
-        "page3[indNLAuthArea]"
-    ]
-    finalDocumentDict["Explanation for lack of signature on the authority form"] = data[
-        "page3"
-    ]["page3[indLAuthAreaYes]"]
-    finalDocumentDict[""] = data["page3"][""]
-    finalDocumentDict[""] = data["page3"][""]
-    finalDocumentDict[""] = data["page3"][""]
-    finalDocumentDict[""] = data["page3"][""]
-    return finalDocumentDict

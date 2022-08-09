@@ -76,8 +76,12 @@ var initialPopUp = function () {
             overviewDivContent = document.getElementById("reviewSection");
             var popUpView = document.createElement("div");
             popUpView.id = "reviewPopupContainer";
-            overviewDivContent.children[0].children[0].children[2].hidden = true;
-            overviewDivContent.children[0].children[0].children[1].children[0].children[1].hidden = true;
+            // overviewDivContent.children[0].children[0].children[2].hidden = true;
+            // overviewDivContent.querySelector(".card-footer").hidden = true;
+            // overviewDivContent.children[0].children[0].children[1].children[0].children[1].hidden = true;
+            // overviewDivContent.querySelector(
+            //   "#headingOne"
+            // ).parent.hidden = true;
             Swal.fire({
               showConfirmButton: true,
               confirmButtonText:

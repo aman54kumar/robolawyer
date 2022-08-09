@@ -689,7 +689,6 @@ def sortDocumentsDate(self, inputObj):
 
 
 def bookmarkPageInputs(self, can, inputObj):
-    print(inputObj)
     headingText = "Accompanying Documents: Document " + str(inputObj[4] + 1)
     can.setFont("Courier", 18)
     can.drawString(120, 600, headingText)

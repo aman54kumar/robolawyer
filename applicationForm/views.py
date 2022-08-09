@@ -45,8 +45,8 @@ def formProcessing(request):
     if request.method == "POST":
         form_dict = request.POST
         spclReplies.append(request.POST.getlist("page1[involvedStates]"))
-        hiddenDocsObject.append(
-            request.POST.getlist("page8[hiddenDocObject]")[0])
+        # hiddenDocsObject.append(
+        #     request.POST.getlist("page8[hiddenDocObject]")[0])
 
         pagesName = [
             "page1",
@@ -71,7 +71,7 @@ def formProcessing(request):
             hiddenObject.append(item)
 
         prepareResult = PrepareResult(
-            pages, sessionID, spclReplies, hiddenDocsObject[0]
+            pages, sessionID, spclReplies
         )
         prepareResult.main()
         logger.warning("Your log message is here")
@@ -189,13 +189,15 @@ def createDirectory(directoryName):
 def docObject(request):
     if request.method == "POST":
         objectDict = json.loads(request.body)
-        dirname = "applicationForm/dataPreparation/results/" + sessionID + "/docs/"
+        dirname = "applicationForm/dataPreparation/results/" + sessionID + "/finalPage/"
         createDirectory(dirname)
         pageNList = [13]
         allObjects = objectDict["docObject"]
         newObject = []
         for data in allObjects:
-            docName = str(allObjects.index(data)) + ".pdf"
+            docName = "Result_form_page_" + \
+                str(14 + allObjects.index(data)) + ".pdf"
+            print(docName)
             docsPDF = PrepareDocsPDF(
                 data,
                 dirname,

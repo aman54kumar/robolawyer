@@ -1,5 +1,6 @@
 {% extends 'home/base.html' %}
 {% load static %}
+{% load i18n %}
 {% block headContent %}
 
 <link rel="stylesheet"
@@ -46,7 +47,7 @@
 <div class="jumbotron" style="margin-bottom: 0;background: linear-gradient(to bottom,  #1f549e 0%,#2989d8 100%)">
     <br>
     <h1 class="display-5" id="form-title">
-        APPLICATION FORM
+        {% trans 'Form_FormTitle' %}
     </h1>
 
     <div class=" mb-5 p-4" style="background-color:transparent;">
@@ -56,7 +57,7 @@
                     <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger1"
                         aria-controls="form-page-1">
                         <span class="bs-stepper-circle">1</span>
-                        <span class="bs-stepper-label">Prerequisites</span>
+                        <span class="bs-stepper-label">{% trans 'Form_Stepper_1' %}</span>
                     </button>
                 </div>
 
@@ -64,7 +65,7 @@
                     <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger2"
                         aria-controls="form-page-2">
                         <span class="bs-stepper-circle">2</span>
-                        <span class="bs-stepper-label">Applicant Details</span>
+                        <span class="bs-stepper-label">{% trans 'Form_Stepper_2' %}</span>
                     </button>
                 </div>
 
@@ -72,7 +73,7 @@
                     <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger3"
                         aria-controls="form-page-3">
                         <span class="bs-stepper-circle">3</span>
-                        <span class="bs-stepper-label">Representation</span>
+                        <span class="bs-stepper-label">{% trans 'Form_Stepper_3' %}</span>
                     </button>
                 </div>
 
@@ -80,7 +81,7 @@
                     <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger4"
                         aria-controls="form-page-4">
                         <span class="bs-stepper-circle">4</span>
-                        <span class="bs-stepper-label">Facts</span>
+                        <span class="bs-stepper-label">{% trans 'Form_Stepper_4' %}</span>
                     </button>
                 </div>
 
@@ -88,7 +89,7 @@
                     <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger5"
                         aria-controls="form-page-5">
                         <span class="bs-stepper-circle">5</span>
-                        <span class="bs-stepper-label">Alleged violations of the Convention/Protocols</span>
+                        <span class="bs-stepper-label">{% trans 'Form_Stepper_5' %}</span>
                     </button>
                 </div>
 
@@ -96,7 +97,7 @@
                     <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger6"
                         aria-controls="form-page-6">
                         <span class="bs-stepper-circle">6</span>
-                        <span class="bs-stepper-label">Domestic Proceedings</span>
+                        <span class="bs-stepper-label">{% trans 'Form_Stepper_6' %}</span>
                     </button>
                 </div>
 
@@ -104,21 +105,21 @@
                     <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger7"
                         aria-controls="form-page-7">
                         <span class="bs-stepper-circle">7</span>
-                        <span class="bs-stepper-label">International Proceedings</span>
+                        <span class="bs-stepper-label">{% trans 'Form_Stepper_7' %}</span>
                     </button>
                 </div>
                 <div class="step" data-target="#form-page-8">
                     <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger8"
                         aria-controls="form-page-8">
                         <span class="bs-stepper-circle">8</span>
-                        <span class="bs-stepper-label">Supporting documents</span>
+                        <span class="bs-stepper-label">{% trans 'Form_Stepper_8' %}</span>
                     </button>
                 </div>
                 <div class="step" data-target="#form-page-9">
                     <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger9"
                         aria-controls="form-page-9">
                         <span class="bs-stepper-circle">9</span>
-                        <span class="bs-stepper-label">Other Comments and Declaration</span>
+                        <span class="bs-stepper-label">{% trans 'Form_Stepper_9' %}</span>
                     </button>
                 </div>
 
@@ -126,14 +127,14 @@
                     <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger10"
                         aria-controls="form-page-10">
                         <span class="bs-stepper-circle">10</span>
-                        <span class="bs-stepper-label">Review</span>
+                        <span class="bs-stepper-label">{% trans 'Form_Stepper_10' %}</span>
                     </button>
                 </div>
                 <div class="step" data-target="#form-page-11">
                     <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger11"
                         aria-controls="form-page-11">
                         <span class="bs-stepper-circle">11</span>
-                        <span class="bs-stepper-label">Finish to PDF</span>
+                        <span class="bs-stepper-label">{% trans 'Form_Stepper_11' %}</span>
                     </button>
                 </div>
             </div>
@@ -158,11 +159,10 @@
                 <div class="col-md-4 col-lg-1">
                     <div class="feedback-btn-div">
                         <p class="lead text-white">
-                            This is a Beta version of Just Bot and we rely on your feedback to
-                            improve it.
+                            {% trans 'feedback_Text'  %}
                         </p>
                         <button class="btn feedback-button" id="feedback-btn" value="1">
-                            Feedback
+                            {% trans 'feedback_button_text' %}
                         </button>
                     </div>
                 </div>
@@ -172,66 +172,7 @@
     {% endblock content %}
 
     {% block scriptContent %}
-    <script type="text/javascript">
-        const originalPage8FormState = `<div id="page8Group">
-                <div class="r-group">
-                  <table width="100%">
-                    <tr>
-                      <th width="12%">
-                        <label for="doc_0_0">
-                          <h5>Date</h5>
-                        </label>
-                        <input type="text" name="page8[0][date]" id="doc_0_date"
-                          class="form-control datepicker docsDate" data-pattern-name="page8[++][date]"
-                          data-pattern-id="doc_++_date" data-date-end-date="0d" data-parsley-group="page8"
-                          data-parsley-trigger-after-failure="change" required />
-                      </th>
-                      <th width="30%" style="padding-right: 10px">
-                        <label for="doc_0_0">
-                          <h5>Title of the Document</h5>
-                        </label>
-                        <input type="text" name="page8[0][title]" id="doc_0_title" class="form-control docsTitle"
-                          data-pattern-name="page8[++][title]" data-pattern-id="doc_++_title" maxlength="65"
-                          data-parsley-group="page8" required />
-                      </th>
-                      <th width="40%" style="padding-right: 10px">
-                        <label for="doc_0_0">
-                          <h5>Short description of the Document</h5>
-                        </label>
-                        <input type="text" name="page8[0][desc]" id="doc_0_desc" class="form-control docsDesc"
-                          data-pattern-name="page8[++][desc]" data-pattern-id="doc_++_desc" maxlength="70"
-                          data-parsley-group="page8" required />
-                      </th>
-                      <th width="18%">
-                        <label for="doc_0_0" style="display: flex">
-                          <h5>Number of
-                            Pages</h5><a href="javascript://" class="popover-class"><span><i
-                                class="fas fa-question-circle"></i></span></a>
 
-                        </label>
-                        <input type="number" name="page8[0][page]" id="doc_0_page" class="form-control docsPages"
-                          data-pattern-name="page8[++][page]" data-pattern-id="doc_++_page" min="1"
-                          data-parsley-group="page8" required />
-                      </th>
-                    </tr>
-                  </table>
-                  {% comment %} data-toggle="popover"
-                  data-content="Indicate the total number of pages in each document" data-trigger="focus"
-                  data-placement="bottom" {% endcomment %}
-                  <input type="hidden" id="hiddenDocObject" name="page8[hiddenDocObject]" value="" />
-                  <div>
-                    <button type="button" class="r-btnAdd btn btn-primary" id="addButton_8_0"
-                      data-pattern-id="addButton_8_++">
-                      Add +
-                    </button>
-                    <button type="button" class="r-btnRemove btn btn-danger">
-                      Remove -
-                    </button>
-                  </div>
-                </div>
-                <!-- add button here -->
-              </div>`
-    </script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"
@@ -338,26 +279,25 @@
 
     {% csrf_token %}
     <div class="form-group">
-        <label for=""> Are you a legally trained person?</label>
+        <label for="">{% trans 'Feedback_Qn1' %}</label>
         <input type="text" id="sugPageNo" class="is-hidden" name="sugPageNo">
         <div class="custom-control custom-radio custom-control-inline">
             <input type="radio" class="custom-control-input" id="legalTrainYesFirst" name="legalTrained" value="Yes">
-            <label class="custom-control-label" for="legalTrainYesFirst">Yes</label>
+            <label class="custom-control-label" for="legalTrainYesFirst">{% trans 'Option_Yes' %}</label>
         </div>
         <div class="custom-control custom-radio custom-control-inline">
             <input type="radio" class="custom-control-input" id="legalTrainNoFirst" name="legalTrained" value="No">
-            <label class="custom-control-label" for="legalTrainNoFirst">No</label>
+            <label class="custom-control-label" for="legalTrainNoFirst">{% trans 'Option_No' %}</label>
         </div>
         <input type="text" class="is-hidden" name="legalTrainedInput">
     </div>
     <div class="form-group">
-        <label for="suggestionArea">How can we improve this page?</label>
+        <label for="suggestionArea">{% trans 'Feedback_Qn2' %}</label>
         <textarea class="form-control" id="suggestionArea" name="suggestionArea" type="text" rows="5"></textarea>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-default cancelButton" type="button" onclick="Swal.close()">Cancel</button>
-        <button type="submit" class="btn feedback-button feedback_submit">Send your
-            message</button>
+        <button class="btn btn-default cancelButton" type="button" onclick="Swal.close()">{% trans 'Feedback_CancelButton' %}</button>
+        <button type="submit" class="btn feedback-button feedback_submit">{% trans 'Feedback_SubmitButton' %}</button>
     </div>
 </form>
 `,

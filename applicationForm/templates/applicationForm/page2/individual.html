@@ -1,101 +1,101 @@
 <div class="is-hidden" id="indBeginner">
   <div class="card">
+    {% load i18n %}
     <div class="card-header">
       <p class="lead">
-        Fill in this part only if you’re an Individual. If you’re a
-        company, association, NGO or other legal entity, select
-        “Organisation” above.
+        {% trans 'Page2_Individual_Instructions' %}
       </p>
     </div>
     <div class="card-body">
       <div class="row divSpacing">
         <div class="form-group col-lg-12 col-xl-6">
-          <h4>Surname</h4>
-          <input class="form-control" type="text" placeholder="Enter Surname" name="page2[indSurname]" id="indSurname"
-            maxlength="49" data-parsley-group="page2a" />
+          <h4>{% trans 'Surname' %}</h4>
+          <input class="form-control" type="text" placeholder="{% trans 'Surname_Placeholder' %}"
+            name="page2[indSurname]" id="indSurname" maxlength="49" data-parsley-group="page2a" />
         </div>
         <div class="form-group col-lg-12 col-xl-6">
           <label class="lead">
-            <h4>First Name(s)</h4>
+            <h4>{% trans 'FirstName' %}</h4>
           </label>
-          <input class="form-control" type="text" placeholder="Enter first name" name="page2[indFirstName]"
-            id="indFirstName" maxlength="49" data-parsley-group="page2a" />
+          <input class="form-control" type="text" placeholder="{% trans 'FirstName_Placeholder' %}"
+            name="page2[indFirstName]" id="indFirstName" maxlength="49" data-parsley-group="page2a" />
         </div>
       </div>
 
       <div class="row divSpacing">
         <div class="form-group col-lg-12 col-xl-4">
           <label class="lead">
-            <h4>Date of Birth</h4>
+            <h4>{% trans 'DOB' %}</h4>
           </label>
           <input type="text" id="birthDate" class="datepicker form-control" name="page2[birthDate]"
-            data-date-end-date="0d" data-parsley-group="page2a" placeholder="Choose date of birth" />
+            data-date-end-date="0d" data-parsley-group="page2a" placeholder="{% trans 'DOB_Placeholder' %}" />
           <div class="input-group-addon">
             <span class="glyphicon glyphicon-th"></span>
           </div>
         </div>
         <div class="form-group col-lg-12 col-xl-4">
           <label class="lead">
-            <h4>Place of Birth</h4>
+            <h4>{% trans 'POB' %}</h4>
           </label>
           <input class="form-control" name="page2[indPob]" id="indPob" maxlength="49" data-parsley-group="page2a"
-            placeholder="Enter place of birth" />
+            placeholder="{% trans 'POB_Placeholder' %}" />
         </div>
         <div class="form-group col-lg-12 col-xl-4">
           <label class="lead">
-            <h4>Nationality</h4>
+            <h4>{% trans 'Nationality' %}</h4>
           </label>
           <input class="form-control" name="page2[indNationality]" id="indNationality" data-parsley-group="page2a"
-            placeholder="Select country" />
+            placeholder="{% trans 'Nationality_Placeholder' %}" />
         </div>
       </div>
       <div class="row divSpacing justify-content-between">
         <div class="form-group col-lg-12 col-xl-6">
           <label class="lead">
             <h4>
-              Address
+              {% trans 'Address' %}
               <a href="javascript://" data-toggle="popover"
-                data-content="An applicant must provide a postal address separate from that of a lawyer or representative so that the Court can make contact if necessary. An applicant who is homeless or has no fixed residence may have to give a box number or friend’s details but should provide an explanation."
-                data-trigger="focus" data-placement="bottom"><span><i class="fas fa-question-circle"></i></span></a>
+                data-content="{% trans 'Page2_Individual_Address_Popover' %}" data-trigger="focus"
+                data-placement="bottom"><span><i class="fas fa-question-circle"></i></span></a>
             </h4>
           </label>
 
           <textarea class="form-control limit-me shortAddress" name="page2[indAddress]" id="indAddress" cols="49"
             rows="6" maxlength="299" data-parsley-group="page2a" oninput="limitLines(this);"
             onpaste="limitLinesOnPaste(this);"></textarea>
-          <div>Lines Remaining: 6</div>
+          <div>{% trans 'Address_Lines_Remaining' %}: 6</div>
         </div>
         <div class="row col-lg-12 col-xl-6 class-for-push-next-line">
           <div class="form-group col-lg-12 col-xl-12">
             <label class="lead">
-              <h4>Telephone Number (select country code)</h4>
+              <h4>{% trans 'TelNo' %}</h4>
             </label>
             <input type="tel" name="page2[indPhone]" id="indPhone" class="form-control" data-parsley-group="page2a"
-              placeholder="Enter telephone number" />
+              placeholder="{% trans 'TelNo_Placeholder' %}" />
           </div>
           <div class="form-group col-lg-12 col-xl-12">
             <label class="lead">
-              <h4>Email</h4>
+              <h4>{% trans 'Email' %}</h4>
             </label>
-            <input class="form-control" type="email" name="page2[indEmail]" placeholder="Enter email address"
-              id="indEmail" data-parsley-type="email" data-parsley-group="page2a" maxlength="49" />
+            <input class="form-control" type="email" name="page2[indEmail]"
+              placeholder="{% trans 'Email_Placeholder' %}" id="indEmail" data-parsley-type="email"
+              data-parsley-group="page2a" maxlength="49" />
           </div>
         </div>
       </div>
 
       <div class="form-group">
         <label class="lead">
-          <h4>Sex</h4>
+          <h4>{% trans 'Sex' %}</h4>
         </label>
         <div class="custom-control custom-radio custom-control">
           <input type="radio" class="custom-control-input" id="applicantSexMale" name="page2[applicantSex]" value="M"
             data-parsley-group="page2a" />
-          <label class="custom-control-label" for="applicantSexMale">Male</label>
+          <label class="custom-control-label" for="applicantSexMale">{% trans 'Sex_Male' %}</label>
         </div>
         <div class="custom-control custom-radio custom-control">
           <input type="radio" class="custom-control-input" id="applicantSexFemale" name="page2[applicantSex]" value="F"
             data-parsley-group="page2a" />
-          <label class="custom-control-label" for="applicantSexFemale">Female</label>
+          <label class="custom-control-label" for="applicantSexFemale">{% trans 'Sex_Female' %}</label>
         </div>
       </div>
       <br /><br />

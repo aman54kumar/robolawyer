@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-11 03:10+0530\n"
+"POT-Creation-Date: 2022-08-11 04:33+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -95,6 +95,9 @@ msgstr "Are you a legally trained person?"
 #: applicationForm/templates/applicationForm/page3/orgRepresentative/lawyer.html:86
 #: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:96
 #: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:116
+#: applicationForm/templates/applicationForm/page6.html:126
+#: applicationForm/templates/applicationForm/page7.html:28
+#: applicationForm/templates/applicationForm/page7.html:66
 msgid "Option_Yes"
 msgstr "Yes"
 
@@ -111,6 +114,9 @@ msgstr "Yes"
 #: applicationForm/templates/applicationForm/page3/orgRepresentative/lawyer.html:91
 #: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:101
 #: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:121
+#: applicationForm/templates/applicationForm/page6.html:131
+#: applicationForm/templates/applicationForm/page7.html:33
+#: applicationForm/templates/applicationForm/page7.html:71
 msgid "Option_No"
 msgstr "No"
 
@@ -467,6 +473,11 @@ msgstr "Example"
 #: applicationForm/templates/applicationForm/page2.html:71
 #: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:64
 #: applicationForm/templates/applicationForm/page3/orgRepresentative/orgRepresentative.html:45
+#: applicationForm/templates/applicationForm/page4.html:84
+#: applicationForm/templates/applicationForm/page5.html:151
+#: applicationForm/templates/applicationForm/page6.html:158
+#: applicationForm/templates/applicationForm/page7.html:93
+#: applicationForm/templates/applicationForm/page8.html:121
 msgid "Button_Next"
 msgstr "Next"
 
@@ -512,6 +523,11 @@ msgstr ""
 #: applicationForm/templates/applicationForm/page2.html:66
 #: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:59
 #: applicationForm/templates/applicationForm/page3/orgRepresentative/orgRepresentative.html:40
+#: applicationForm/templates/applicationForm/page4.html:79
+#: applicationForm/templates/applicationForm/page5.html:146
+#: applicationForm/templates/applicationForm/page6.html:153
+#: applicationForm/templates/applicationForm/page7.html:88
+#: applicationForm/templates/applicationForm/page8.html:116
 msgid "Button_Previous"
 msgstr "Previous"
 
@@ -620,7 +636,12 @@ msgstr ""
 "friend’s details but should provide an explanation."
 
 #: applicationForm/templates/applicationForm/page2/individual.html:65
-msgid "Address_Lines_Remaining"
+#: applicationForm/templates/applicationForm/page5.html:103
+#: applicationForm/templates/applicationForm/page6.html:97
+#: applicationForm/templates/applicationForm/page6.html:144
+#: applicationForm/templates/applicationForm/page7.html:44
+#: applicationForm/templates/applicationForm/page7.html:82
+msgid "Lines_Remaining"
 msgstr "Lines Remaining"
 
 #: applicationForm/templates/applicationForm/page2/individual.html:70
@@ -909,6 +930,11 @@ msgstr ""
 #: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:239
 #: applicationForm/templates/applicationForm/page3/orgRepresentative/lawyer.html:135
 #: applicationForm/templates/applicationForm/page3/orgRepresentative/orgRepresentative.html:18
+#: applicationForm/templates/applicationForm/page4.html:22
+#: applicationForm/templates/applicationForm/page6.html:17
+#: applicationForm/templates/applicationForm/page7.html:16
+#: applicationForm/templates/applicationForm/page7.html:54
+#: applicationForm/templates/applicationForm/page8.html:36
 msgid "Button_MoreInfo"
 msgstr "More Info"
 
@@ -1285,42 +1311,389 @@ msgstr ""
 "must still be filled in, and requisite documentary proof provided of "
 "authority to represent the legal person must be attached."
 
-#~ msgid "Page3_IndRep_NL_AuthorityForm_NoSignMessage"
-#~ msgstr ""
-#~ "Please explain in this textbox below why the applicant cannot sign the "
-#~ "authority form. Please provide any additional documents that you deem "
-#~ "necessary to support your case. <br /> We will generate this text as an "
-#~ "additional document when you generate the application form and we will "
-#~ "automatically add the title and description of this document to the "
-#~ "Supporting Document list on page 8. You must remember to add any other "
-#~ "documents supporting your explanation – medical records, official "
-#~ "documents – both to the Supporting Documents list on page 8, and as a "
-#~ "copy in the attachments to the application."
+#: applicationForm/templates/applicationForm/page4.html:9
+msgid "Page4_Heading"
+msgstr "Statement of the facts"
 
-#~ msgid "Page3_IndRep_NL_Ecomms_MoreInfo"
-#~ msgstr ""
-#~ "eComms is a service initiated by the Court for communicating "
-#~ "electronically with an applicant’s representative. The service is only "
-#~ "activated if and when the case reaches a stage of the proceedings where "
-#~ "the Government concerned are requested to submit written observations. "
-#~ "The email address provided will be used to create an eComms account. It "
-#~ "is recommended that representatives working in a law firm provide a "
-#~ "generic email address so that the account can be used by multiple users "
-#~ "within the firm. You should inform the Court of any change to your eComms "
-#~ "account email address. For more information, please refer to the terms "
-#~ "and conditions available on the eComms website (https://ecomms.echr.coe."
-#~ "int), as well as the Practice Direction on electronic filing by "
-#~ "applicants (www.echr.coe.int/practicedirections) (available in English "
-#~ "and French only)."
+#: applicationForm/templates/applicationForm/page4.html:10
+#, fuzzy
+#| msgid "Page1_Qn2_Popover"
+msgid "Page4_Heading_Popover"
+msgstr ""
+"Filling in this information on the application form is to assist the Court "
+"in speedily assessing and allocating incoming cases. Additional explanations "
+"may be appended, if necessary, in a separate document up to a maximum of 20 "
+"pages: these only develop and cannot replace the statement of facts, "
+"complaints and compliance with the admissibility criteria that must be on "
+"the application form itself."
 
-#~ msgid "Page3_IndRep_NL_Ecomms_Email_Placeholder"
-#~ msgstr "Enter ecomms email address"
+#: applicationForm/templates/applicationForm/page4.html:17
+msgid "Page4_Description"
+msgstr ""
+"Describe here in chronological order the facts concerning your case. Present "
+"only key events and court decisions concerning your case and please make "
+"sure to deal with each factual matter in a separate paragraph. Kindly note "
+"that the length of the description of the facts is not important. In fact, "
+"the more concise your description, the better. It is important to be honest, "
+"give exact dates and present events in the order in which they occurred."
 
-#~ msgid "Page3_IndRep_NL_Surname"
-#~ msgstr "Surname"
+#: applicationForm/templates/applicationForm/page4.html:28
+msgid "Page4_MoreInfo_1"
+msgstr "Be clear and concise and give exact dates."
 
-#~ msgid "Page3_IndRep_NL_Surname_Placeholder"
-#~ msgstr "Enter your surname"
+#: applicationForm/templates/applicationForm/page4.html:31
+msgid "Page4_MoreInfo_2"
+msgstr ""
+"Be chronological and set out events in the order in which they occurred. If "
+"your complaints relate to a number of different matters (for example "
+"different sets of court proceedings), please deal with each factual matter "
+"separately."
+
+#: applicationForm/templates/applicationForm/page4.html:34
+msgid "Page4_MoreInfo_3"
+msgstr ""
+"Put down the essential information concerning your case: the key facts and "
+"decisions, and how your rights have been violated, without irrelevant "
+"background or side issues. Do not include lengthy quotations: you can always "
+"give a reference to an accompanying document."
+
+#: applicationForm/templates/applicationForm/page4.html:38
+msgid "Page4_MoreInfo_4"
+msgstr ""
+"You must provide documents to support your case, in particular copies of "
+"relevant decisions or documentary records of any measures about which you "
+"complain, such as medical reports, witness statements, transcripts, "
+"documents of title to property, or records of periods spent in custody, a "
+"notice of eviction or a deportation order."
+
+#: applicationForm/templates/applicationForm/page4.html:41
+msgid "Page4_MoreInfo_5"
+msgstr ""
+"All relevant documents you refer to should be listed in the document list "
+"(step 8 in this form) and you have to attach copies to the application form. "
+"If you cannot obtain copies of particular documents you should explain why "
+"not."
+
+#: applicationForm/templates/applicationForm/page4.html:46
+msgid "Page4_MoreInfo_6"
+msgstr ""
+"Where the matter complained of does not cause any real harm or significant "
+"disadvantage, raises no new human rights issues that need to be addressed at "
+"international level and has already been looked at by a domestic court, the "
+"case may also be rejected."
+
+#: applicationForm/templates/applicationForm/page4.html:62
+msgid "Page4_Supplementary"
+msgstr "Supplementary Statement on the Subject matter of the application."
+
+#: applicationForm/templates/applicationForm/page4.html:70
+msgid "Page4_Supplementary_Delete_Button"
+msgstr "Delete Supplementary Statement"
+
+#: applicationForm/templates/applicationForm/page5.html:8
+msgid "Page5_Heading"
+msgstr "Alleged violations of the Convention/Protocols"
+
+#: applicationForm/templates/applicationForm/page5.html:13
+msgid "Page5_Heading_Description"
+msgstr ""
+"Indicate here alleged violation(s) of the <a href=\"https://www.echr.coe.int/"
+"Documents/Convention_ENG.pdf\" _target=\"#\"> Convention and/or Protocols </"
+"a>and relevant arguments. Explain as precisely as you can why the facts "
+"described in the previous section entail a violation of the Convention or/"
+"and Protocols. For each complaint raised you need to indicate the Article/s "
+"that apply and argue in brief sentences how it has been infringed."
+
+#: applicationForm/templates/applicationForm/page5.html:20
+#: applicationForm/templates/applicationForm/page6.html:30
+msgid "Text_Examples"
+msgstr "Example"
+
+#: applicationForm/templates/applicationForm/page5.html:24
+#: applicationForm/templates/applicationForm/page5.html:62
+msgid "Page5_Header_ArticlesInvoked"
+msgstr "Article(s) invoked"
+
+#: applicationForm/templates/applicationForm/page5.html:25
+#: applicationForm/templates/applicationForm/page5.html:92
+msgid "Page5_Header_Explanation"
+msgstr "Explanation"
+
+#: applicationForm/templates/applicationForm/page5.html:31
+msgid "Page5_Ex1_Article"
+msgstr "Article 5 - Right to liberty and security"
+
+#: applicationForm/templates/applicationForm/page5.html:33
+msgid "Page5_Ex1_Explanation"
+msgstr ""
+"I was detained wrongfully at the border police station for three days "
+"without being told why or being allowed to phone a lawyer or my family."
+
+#: applicationForm/templates/applicationForm/page5.html:38
+msgid "Page5_Ex2_Article"
+msgstr "Article 6 - Right to a fair trial"
+
+#: applicationForm/templates/applicationForm/page5.html:40
+msgid "Page5_Ex2_Explanation"
+msgstr ""
+"The criminal proceedings against me lasted 9 years and 8 months for two "
+"levels of jurisdiction. Also, I was not allowed to cross-examine the witness "
+"who gave the sole evidence against me."
+
+#: applicationForm/templates/applicationForm/page5.html:45
+msgid "Page5_Ex3_Article"
+msgstr "Article 8 - Right to respect for private and family life"
+
+#: applicationForm/templates/applicationForm/page5.html:47
+msgid "Page5_Ex3_Explanation"
+msgstr ""
+"The domestic courts dismissed my complaints after my employer has been "
+"monitoring my personal correspondence and fired me based on the content of "
+"my personal correspondence."
+
+#: applicationForm/templates/applicationForm/page5.html:74
+#: applicationForm/templates/applicationForm/page5.html:80
+msgid "Page5_Please_Choose_One"
+msgstr "Please choose at least one option"
+
+#: applicationForm/templates/applicationForm/page5.html:106
+msgid "Page5_Text_Area_Limit_Warning"
+msgstr ""
+"You cannot add any more text because you’ve reached the text limit imposed "
+"by the court in the application form. Please rephrase your text if you want "
+"to make changes"
+
+#: applicationForm/templates/applicationForm/page5.html:129
+msgid "Page5_Cannot_Add_More_Warning"
+msgstr ""
+"You cannot add any more articles because you have reached the text limit "
+"imposed by the Court on the application form. The add button is disabled. If "
+"you need to add more articles, please rephrase the text in the explanation "
+"fields and make it shorter to free up space."
+
+#: applicationForm/templates/applicationForm/page5.html:133
+#: applicationForm/templates/applicationForm/page6.html:105
+#: applicationForm/templates/applicationForm/page8.html:103
+msgid "Add_Button"
+msgstr "Add"
+
+#: applicationForm/templates/applicationForm/page5.html:136
+#: applicationForm/templates/applicationForm/page6.html:108
+#: applicationForm/templates/applicationForm/page8.html:106
+msgid "Remove_Button"
+msgstr "Remove"
+
+#: applicationForm/templates/applicationForm/page6.html:8
+msgid "Page6_Heading"
+msgstr "Domestic Proceedings"
+
+#: applicationForm/templates/applicationForm/page6.html:12
+msgid "Page6_Heading_Description"
+msgstr ""
+"Indicate here all relevant judicial and/or administrative remedies you have "
+"used in your country. For each complaint, state all relevant court "
+"decisions, including those from lower courts and the final decision."
+
+#: applicationForm/templates/applicationForm/page6.html:24
+msgid "Page6_MoreInfo_Text"
+msgstr ""
+"For your application to be admissible, you must bring all the matters which "
+"you want to complain about before the national courts and use all the "
+"available appeals up to the highest level. You must show that you have "
+"exhausted the available national legal remedies and provide dates for each "
+"decision, so that the Court can see that you have complied with the six-"
+"month time-limit (or 4 months, for domestic final decisions served on you "
+"starting with February 1, 2022). <br /><br /><br />Only a summary of the "
+"remedies need be given, with the name of the court, the date and a concise "
+"description of the decision taken. Extra details about the court proceedings "
+"or how the courts dealt with complaints can be added in supplementary "
+"annexes if necessary. Remember to append copies of all the decisions taken "
+"by courts or other decision-making bodies, from the lowest to the highest; "
+"you must also provide copies of your claims or applications to the courts "
+"and your statements of appeal so that you can show that you raised the "
+"substance of your Convention complaints at each level. <br /> <br /> If you "
+"think that there were no remedies to exhaust as they were non-existent or "
+"ineffective or inaccessible in some way, you should put down this reasoning "
+"briefly."
+
+#: applicationForm/templates/applicationForm/page6.html:34
+#: applicationForm/templates/applicationForm/page6.html:75
+msgid "Page6_Header_Complaint"
+msgstr "Complaint"
+
+#: applicationForm/templates/applicationForm/page6.html:35
+#: applicationForm/templates/applicationForm/page6.html:87
+msgid "Page6_Header_Remedies"
+msgstr "Domestic remedies used and the date of the final decision"
+
+#: applicationForm/templates/applicationForm/page6.html:40
+#, fuzzy
+#| msgid "Page5_Ex1_Explanation"
+msgid "Page6_Ex1_Complaint"
+msgstr ""
+"Article 5 - Right to liberty and security: Complaint about arrest by police"
+
+#: applicationForm/templates/applicationForm/page6.html:41
+msgid "Page6_Ex1_Remedies"
+msgstr ""
+"High Court rejected claim on 05/12/13; leave to appeal refused by Court of "
+"Appeal on 14/01/15 in the case with the case file number XXXXXXX."
+
+#: applicationForm/templates/applicationForm/page6.html:45
+msgid "Page6_Ex2_Complaint"
+msgstr "Article 6 - Right to a fair trial: Complaint about neighbour dispute"
+
+#: applicationForm/templates/applicationForm/page6.html:47
+msgid "Page6_Ex2_Remedies"
+msgstr ""
+"County Court rejected claim on 03/04/12; Court of Appeal dismissed appeal on "
+"04/12/14 in the case with the case file number XXXXXXX."
+
+#: applicationForm/templates/applicationForm/page6.html:51
+msgid "Page6_Ex3_Complaint"
+msgstr ""
+"Article 8 - Right to respect for private and family life: Complaint about "
+"violation of personal correspondence"
+
+#: applicationForm/templates/applicationForm/page6.html:54
+msgid "Page6_Ex3_Remedies"
+msgstr ""
+"County Court rejected claim on 05/06/19; Court of Appeal dismissed appeal on "
+"04/05/20 in the case with the case file number XXXXXXX."
+
+#: applicationForm/templates/applicationForm/page6.html:118
+msgid "Page6_Unused_Remedy_Option"
+msgstr ""
+"Is or was there an appeal or remedy available to you which you have not used?"
+
+#: applicationForm/templates/applicationForm/page6.html:136
+msgid "Page6_Unused_Remedy_Explain"
+msgstr ""
+"Please state which appeal or remedy you have not used and explain why not."
+
+#: applicationForm/templates/applicationForm/page7.html:8
+msgid "Page7_Heading"
+msgstr "International Proceedings"
+
+#: applicationForm/templates/applicationForm/page7.html:12
+msgid "Page7_Another_Investigation"
+msgstr ""
+"Have you raised any of these complaints in another procedure of "
+"international investigation or settlement?"
+
+#: applicationForm/templates/applicationForm/page7.html:21
+msgid "Page7_Another_Investigation_Description"
+msgstr ""
+"You must indicate whether you have submitted the complaints in your "
+"application to any other procedure of international investigation or "
+"settlement, for example a United Nations body such as the ILO or the UN "
+"Human Rights Committee, or an international arbitration panel. If you have, "
+"you should give details, including the name of the body to which you "
+"submitted your complaints, the dates and details of any proceedings which "
+"took place and details of any decisions that were taken. You should also "
+"submit copies of relevant decisions and other documents."
+
+#: applicationForm/templates/applicationForm/page7.html:37
+msgid "Page7_Another_Investigation_Summary"
+msgstr ""
+"Please give a concise summary of the procedure (complaints submitted, name "
+"of the international body and date and nature of any decisions given)."
+
+#: applicationForm/templates/applicationForm/page7.html:50
+msgid "Page7_Other_Application"
+msgstr ""
+"Do you (the applicant) currently have, or have you previously had, any other "
+"applications before the Court?"
+
+#: applicationForm/templates/applicationForm/page7.html:59
+msgid "Page7_Other_Application_Description"
+msgstr ""
+"If you have, or have had, any other applications before the Court give the "
+"application number(s). If your first application form was rejected as "
+"incomplete, no file is kept, neither the form nor any of the attached "
+"documents. So, merely sending the missing document or a letter with the "
+"missing information will not be sufficient: you must fill in a fresh "
+"application form and append to it copies of all the relevant documents, even "
+"if you have sent the documents in previous correspondence addressed to the "
+"Court."
+
+#: applicationForm/templates/applicationForm/page7.html:75
+msgid "Page7_Other_Application_Write"
+msgstr "Please write the relevant application number(s) in the box below."
+
+#: applicationForm/templates/applicationForm/page8.html:8
+msgid "Page8_Heading"
+msgstr "Supporting documents"
+
+#: applicationForm/templates/applicationForm/page8.html:12
+msgid "Page8_Subheading"
+msgstr "List of Accompanying Documents"
+
+#: applicationForm/templates/applicationForm/page8.html:14
+msgid "Page8_Description1"
+msgstr ""
+"List here all judgments and decisions referred to in this application, as "
+"well as any other documents you wish the Court to take into consideration as "
+"evidence supporting your claims. <br /><b>IMPORTANT</b>: If the final "
+"decision has not yet been drafted by the national authority, please wait "
+"until it is drafted and communicated to you or your lawyer, before you apply "
+"to the Court.<br />Please note: The Court may request you to provide "
+"supplementary information and/or documents."
+
+#: applicationForm/templates/applicationForm/page8.html:17
+msgid "Page8_Description2"
+msgstr ""
+"No documents will be returned to you. It is thus in your interests to submit "
+"copies, not originals. We will list the documents chronologically for you, "
+"however you MUST attach copies of the documents and:"
+
+#: applicationForm/templates/applicationForm/page8.html:22
+msgid "Page8_Description2_1"
+msgstr "arrange the documents in order by date and by procedure;"
+
+#: applicationForm/templates/applicationForm/page8.html:26
+msgid "Page8_Description2_2"
+msgstr "number the pages consecutively; and"
+
+#: applicationForm/templates/applicationForm/page8.html:29
+msgid "Page8_Description2_3"
+msgstr "NOT staple, bind or tape the documents."
+
+#: applicationForm/templates/applicationForm/page8.html:41
+msgid "Page8_MoreInfo_Text"
+msgstr ""
+"You have to support your complaints by documentary evidence. This means that "
+"if there is a complaint about an official act or decision, a copy of that "
+"decision or document attesting to that official act or measure must be "
+"provided. The Court cannot just take your word for what you say has "
+"happened. For example, if you complain that your house is being "
+"expropriated, you must attach to the application form a copy of the official "
+"decision ordering the expropriation; if you allege that you have been "
+"refused legal aid for your child’s custody proceedings, you must provide a "
+"copy of the document by the decision body setting out that refusal. If there "
+"are a number of documents relating to a particular incident or procedure, "
+"you should err on the side of caution and provide all that appears relevant "
+"rather than risk not attaching a relevant document."
+
+#: applicationForm/templates/applicationForm/page8.html:56
+msgid "Page8_Loading_Documents"
+msgstr "Loading documents..."
+
+#: applicationForm/templates/applicationForm/page8.html:64
+msgid "Page8_Heading_Date"
+msgstr "Date"
+
+#: applicationForm/templates/applicationForm/page8.html:73
+msgid "Page8_Heading_Title"
+msgstr "Title of the Document"
+
+#: applicationForm/templates/applicationForm/page8.html:81
+msgid "Page8_Heading_Description"
+msgstr "Short description of the Document"
+
+#: applicationForm/templates/applicationForm/page8.html:89
+msgid "Page8_Heading_Page"
+msgstr "Page"
 
 #~ msgid "Page3_IndRep_NL_Fname"
 #~ msgstr "First Name(s)"

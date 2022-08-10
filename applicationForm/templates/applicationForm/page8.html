@@ -1,71 +1,44 @@
 <div id="form-page-8" role="tabpanel" class="bs-stepper-pane fade text-center" aria-labelledby="stepperFormTrigger8">
   <div class="col-12 col-md-12 mx-auto form-section">
     {% load static %}
+    {% load i18n %}
     <div class="row">
       <div class="card-master col-12 col-md-12">
         <div class="card-master-header">
-          <h4 class="card-header-title acenter">Supporting documents</h4>
+          <h4 class="card-header-title acenter">{% trans 'Page8_Heading' %}</h4>
         </div>
         <div class="card-body">
           <div class="section aleft">
-            <h3 class="acenter">List of Accompanying Documents</h3>
+            <h3 class="acenter">{% trans 'Page8_Subheading' %}</h3>
             <br>
-            <h4>
-              List here all judgments and decisions referred to in this
-              application, as well as any other documents you wish the Court to
-              take into consideration as evidence supporting your claims.
-              <br />
-              <b>IMPORTANT</b>: If the final decision has not yet been drafted
-              by the national authority, please wait until it is drafted and
-              communicated to you or your lawyer, before you apply to the Court.
-              <br />
-              Please note: The Court may request you to provide supplementary
-              information and/or documents.
+            <h4>{% trans 'Page8_Description1' %}
             </h4>
             <div>
-              <h4>
-                No documents will be returned to you. It is thus in your
-                interests to submit copies, not originals. We will list the
-                documents chronologically for you, however you MUST attach
-                copies of the documents and:
+              <h4>{% trans 'Page8_Description2' %}
               </h4>
               <ul>
                 <li>
                   <h4>
-                    arrange the documents in order by date and by procedure;
+                    {% trans 'Page8_Description2_1' %}
                   </h4>
                 </li>
                 <li>
-                  <h4>number the pages consecutively; and</h4>
+                  <h4>{% trans 'Page8_Description2_2' %}</h4>
                 </li>
                 <li>
-                  <h4>NOT staple, bind or tape the documents.</h4>
+                  <h4>{% trans 'Page8_Description2_3' %}</h4>
                 </li>
               </ul>
             </div>
 
             <div class="text-center">
               <button class="btn more-info-button" data-toggle="collapse" data-target="#info-5">
-                More Info
+                {% trans 'Button_MoreInfo' %}
               </button>
             </div>
             <br />
             <div id="info-5" class="collapse">
-              <h5 class="ajustify">
-                You have to support your complaints by documentary evidence.
-                This means that if there is a complaint about an official act or
-                decision, a copy of that decision or document attesting to that
-                official act or measure must be provided. The Court cannot just
-                take your word for what you say has happened. For example, if
-                you complain that your house is being expropriated, you must
-                attach to the application form a copy of the official decision
-                ordering the expropriation; if you allege that you have been
-                refused legal aid for your child’s custody proceedings, you must
-                provide a copy of the document by the decision body setting out
-                that refusal. If there are a number of documents relating to a
-                particular incident or procedure, you should err on the side of
-                caution and provide all that appears relevant rather than risk
-                not attaching a relevant document.
+              <h5 class="ajustify"> {% trans 'Page8_MoreInfo_Text' %}
                 <br />
               </h5>
               <hr style="border-top: 3px solid rgba(0, 0, 0, 0.4)" />
@@ -80,7 +53,7 @@
                     </div>
                   </div>
                 </div>
-                <h6 class="spinner-text text-center">Loading documents... </h6>
+                <h6 class="spinner-text text-center">{% trans 'Page8_Loading_Documents' %}</h6>
               </div>
               <div id="page8Group">
                 <div class="r-group">
@@ -88,7 +61,7 @@
                     <tr>
                       <th width="12%">
                         <label for="doc_0_0">
-                          <h5>Date</h5>
+                          <h5>{% trans 'Page8_Heading_Date' %}</h5>
                         </label>
                         <input type="text" name="page8[0][date]" id="doc_0_date"
                           class="form-control datepicker docsDate" data-pattern-name="page8[++][date]"
@@ -97,7 +70,7 @@
                       </th>
                       <th width="30%" style="padding-right: 10px">
                         <label for="doc_0_0">
-                          <h5>Title of the Document</h5>
+                          <h5>{% trans 'Page8_Heading_Title' %}</h5>
                         </label>
                         <input type="text" name="page8[0][title]" id="doc_0_title" class="form-control docsTitle"
                           data-pattern-name="page8[++][title]" data-pattern-id="doc_++_title" maxlength="65"
@@ -105,7 +78,7 @@
                       </th>
                       <th width="40%" style="padding-right: 10px">
                         <label for="doc_0_0">
-                          <h5>Short description of the Document</h5>
+                          <h5>{% trans 'Page8_Heading_Description' %}</h5>
                         </label>
                         <input type="text" name="page8[0][desc]" id="doc_0_desc" class="form-control docsDesc"
                           data-pattern-name="page8[++][desc]" data-pattern-id="doc_++_desc" maxlength="70"
@@ -113,9 +86,8 @@
                       </th>
                       <th width="18%">
                         <label for="doc_0_0" style="display: flex">
-                          <h5>Number of
-                            Pages</h5><a href="javascript://" class="popover-class"><span><i
-                                class="fas fa-question-circle"></i></span></a>
+                          <h5>{% trans 'Page8_Heading_Page' %}</h5><a href="javascript://"
+                            class="popover-class"><span><i class="fas fa-question-circle"></i></span></a>
 
                         </label>
                         <input type="number" name="page8[0][page]" id="doc_0_page" class="form-control docsPages"
@@ -124,17 +96,14 @@
                       </th>
                     </tr>
                   </table>
-                  {% comment %} data-toggle="popover"
-                  data-content="Indicate the total number of pages in each document" data-trigger="focus"
-                  data-placement="bottom" {% endcomment %}
                   <input type="hidden" class="hiddenDocObject" name="page8[hiddenDocObject]" value="" />
                   <div class="page8ButtonContainer">
                     <button type="button" class="r-btnAdd btn btn-primary" id="addButton_8_0"
                       data-pattern-id="addButton_8_++">
-                      Add +
+                      {% trans 'Add_Button' %} +
                     </button>
                     <button type="button" class="r-btnRemove btn btn-danger">
-                      Remove -
+                      {% trans 'Remove_Button' %} -
                     </button>
                   </div>
                 </div>
@@ -144,12 +113,12 @@
                 <div class="row">
                   <div class="col-sm-6 aleft">
                     <button class="btn btn-primary" onclick="stepperForm.previous()">
-                      Previous
+                      {% trans 'Button_Previous' %}
                     </button>
                   </div>
                   <div class="col-sm-6 aright">
                     <button class="btn btn-primary btn-next-form" onclick="stepperForm.next()">
-                      Next
+                      {% trans 'Button_Next' %}
                     </button>
                   </div>
                 </div>

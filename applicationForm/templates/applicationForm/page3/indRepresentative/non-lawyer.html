@@ -147,7 +147,7 @@
       <div class="col-sm-12">
         <div class="form-group">
           <br />
-          <h4 class="alert-heading">{% trans 'Page3_IndRep_NL_Authority_Heading' %}</h4>
+          <h4 class="alert-heading">{% trans 'Page3_Authority_Heading' %}</h4>
           <h5 class="lead ajustify">
             {% trans 'Page3_IndRep_NL_Authority_Description' %}
           </h5>
@@ -168,7 +168,7 @@
           </div>
           <br />
           <h4>
-            {% trans 'AuthorityForm_Option' %}
+            {% trans 'Page3_Authority_Option' %}
             <br /></h4>
           <h5> {% trans 'AuthorityForm_Option_Explanation' %}</h5>
 
@@ -220,7 +220,7 @@
 
         <div id="indNLAuthorityError"></div>
         <div id="indNLAuthorityNo" class="is-hidden">
-          <h4>{% trans 'Page3_IndRep_NL_AuthorityForm_NoSignMessage' %}</h4> <br>
+          <h4>{% trans 'Page3_AuthorityForm_NoSign' %}</h4> <br>
           <textarea class="form-control newPageTextArea" id="indNLAuthArea" name="page3[indNLAuthArea]"
             rows="10"></textarea>
           <br>
@@ -233,7 +233,7 @@
   </div>
 
   <div id="indNLECommsSection" class="form-group is-hidden">
-    <h4>{% trans 'Page3_IndRep_NL_Ecomms' %}</h4>
+    <h4>{% trans 'Page3_Ecomms' %}</h4>
     <div class="text-center">
       <button class="btn more-info-button" data-toggle="collapse" data-target="#info-ecomm">
         {% trans 'Button_MoreInfo' %}
@@ -243,15 +243,15 @@
     <br />
     <div id="info-ecomm" class="collapse">
       <h5 class="ajustify">
-        {% trans 'Page3_IndRep_NL_Ecomms_MoreInfo' %}
+        {% trans 'Page3_Ecomms_MoreInfo' %}
       </h5>
     </div>
     <div>
       <h4>
-        {% trans 'Page3_IndRep_NL_Ecomms_Email' %}
+        {% trans 'Page3_Ecomms_Email' %}
       </h4>
       <input class="form-control col-sm-4" type="email" name="page3[indIndeComms]" id="indIndeComms" maxlength="49"
-        placeholder="{% trans 'Page3_IndRep_NL_Ecomms_Email_Placeholder' %}" />
+        placeholder="{% trans 'Page3_Ecomms_Email_Placeholder' %}" />
     </div>
     <br />
     <br />

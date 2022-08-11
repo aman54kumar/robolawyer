@@ -1,10 +1,11 @@
 <div id="form-page-10" role="tabpanel" class="bs-stepper-pane fade text-center" aria-labelledby="stepperFormdivigger10">
   <div class="col-md-12 mx-auto form-section" id="reviewSection">
     {% load static %}
+    {% load i18n %}
     <div class="row">
       <div class="card-master col-12 col-md-12">
         <div class="card-master-header">
-          <h4 class="card-header-title">Review</h4>
+          <h4 class="card-header-title">{% trans 'Page10_Heading' %}</h4>
         </div>
         <div class="card-body">
           <div class="accordion" id="accordionParent">
@@ -14,34 +15,11 @@
                 <div class="card-header aleft" id="headingOne">
                   <div class="mb-0">
                     <div class="reviewTitle">
-                      <h3>Page 1 - Prerequisites</h3>
+                      <h3>{% trans 'Page' %} 1 - {% trans 'Page1_Heading' %}</h3>
                     </div>
                     <div class="reviewDescription is-hidden">
                       <p class="reviewHeadPara lead">
-                        This page contains some of the most general conditions
-                        that you have to fulfill in order for your application
-                        to be complete and admissible. These include: the
-                        coundivy you are complaining against, information about
-                        exhausting the domestic judicial remedies, the date when
-                        the acts took place and the date when you received the
-                        final judgement for the highest domestic court competent
-                        to deal with your case. This information is required in
-                        order to determine whether the coundivy you intend to
-                        complain against was under obligations pursuant to the
-                        European Convention on Human Rights at the time when the
-                        facts took place and to determine whether you are
-                        complying with two important rules of the European Court
-                        of Human Rights. These rules concern your duty to
-                        exhaust all available and effective national remedies
-                        before sending an application to the ECtHR and your duty
-                        to send the application to the ECtHR within 6 months
-                        from receiving a final judgement. If you have not
-                        exhausted all available national remedies or you send
-                        your application to ECtHR more than 6 months from the
-                        moment you received the final judgement from the highest
-                        national court competent to deal with your case, then
-                        your application will most probably be considered
-                        inadmissible.
+                        {% trans 'Page10_ReviewDescription_1' %}
                       </p>
                     </div>
 
@@ -49,53 +27,44 @@
                       <div class="container-fluid" id="reviewTable">
                         <div class="reviewComponent">
                           <p class="reviewQuestion">
-                            When did the alleged breach of the European Convention on Human Rights that you are
-                            complaining about happen?
+                            {% trans 'Page1_Qn1_Part' %}
                           </p>
                           <p class="reviewAnswer" id="page1-3"></p>
                         </div>
                         <div class="reviewComponent">
                           <p class="reviewQuestion">
-                            Which state(s) is/are concerned by your
-                            application?
+                            {% trans 'Page1_Qn2' %}
                           </p>
                           <p class="reviewAnswer" id="page1-1"></p>
                         </div>
                         <div class="reviewComponent">
                           <p class="reviewQuestion">
-                            The facts you are complaining about concern:
+                            {% trans 'Page1_Qn3' %}
                           </p>
                           <p class="reviewAnswer" id="page1-2"></p>
                         </div>
 
                         <div class="reviewComponent">
                           <p class="reviewQuestion">
-                            Have you brought your case before the highest
-                            court competent to deal with the subject matter
-                            of your dispute?
+                            {% trans 'Page1_Qn4_Part' %}
                           </p>
                           <p class="reviewAnswer" id="page1-4"></p>
                         </div>
                         <div class="reviewComponent">
                           <p class="reviewQuestion">
-                            Were there available legal or adminisdivative
-                            remedies capable of remedying your situation
-                            that you have not used?
+                            {% trans 'Page1_Qn5' %}
                           </p>
                           <p class="reviewAnswer" id="page1-5"></p>
                         </div>
                         <div class="reviewComponent">
                           <p class="reviewQuestion">
-                            When was the final decision in your case
-                            delivered or served on you?
+                            {% trans 'Page1_Qn6' %}
                           </p>
                           <p class="reviewAnswer" id="page1-6"></p>
                         </div>
                         <div class="reviewComponent">
                           <p class="reviewQuestion">
-                            Reference number (Application number) from the
-                            Court in relation to these complaints, if
-                            available.
+                            {% trans 'Page1_Qn7' %}
                           </p>
                           <p class="reviewAnswer" id="page1-7"></p>
                         </div>
@@ -110,18 +79,11 @@
                 <div class="card-header aleft" id="headingTwo">
                   <div class="mb-0">
                     <div class="reviewTitle">
-                      <h3>Page 2 - Applicant Details</h3>
+                      <h3>{% trans 'Page' %} 2 - {% trans 'Page2_Heading' %}</h3>
                     </div>
                     <div class="reviewDescription is-hidden">
                       <p class="reviewHeadPara lead">
-                        In this page you must provide the details of the
-                        applicant, including the full name, address, telephone
-                        number and email address, as well as the date and place
-                        of birth and nationality for individual applicants. For
-                        applicants who are legal entities you must provide in
-                        addition to the full name, address, telephone number and
-                        email address, you must also provide the activity field,
-                        identification number and date of regisdivation.
+                        {% trans 'Page10_ReviewDescription_2' %}
                       </p>
                     </div>
 
@@ -129,85 +91,84 @@
                       <div class="container-fluid" id="reviewTable2">
                         <div class="reviewComponent">
                           <p class="reviewQuestion">
-                            Select the option appropriate for your
-                            situation and fill in the requested details.
+                            {% trans 'Page2_Review_ApplicantType' %}
                           </p>
                           <p class="reviewAnswer" id="page2-1"></p>
                         </div>
                         <div id="indReview" class="is-hidden">
                           <div class="reviewComponent">
-                            <p class="reviewQuestion">Surname</p>
+                            <p class="reviewQuestion">{% trans 'Surname' %}</p>
                             <p class="reviewAnswer" id="page2-ind-1"></p>
                           </div>
                           <div class="reviewComponent">
-                            <p class="reviewQuestion">First Name(s)</p>
+                            <p class="reviewQuestion">{% trans 'FirstName' %}</p>
                             <p class="reviewAnswer" id="page2-ind-2"></p>
                           </div>
                           <div class="reviewComponent">
-                            <p class="reviewQuestion">Date of Birth</p>
+                            <p class="reviewQuestion">{% trans 'DOB' %}</p>
                             <p class="reviewAnswer" id="page2-ind-3"></p>
                           </div>
                           <div class="reviewComponent">
-                            <p class="reviewQuestion">Place of Birth</p>
+                            <p class="reviewQuestion">{% trans 'POB' %}</p>
                             <p class="reviewAnswer" id="page2-ind-4"></p>
                           </div>
                           <div class="reviewComponent">
-                            <p class="reviewQuestion">Nationality</p>
+                            <p class="reviewQuestion">{% trans 'Nationality' %}</p>
                             <p class="reviewAnswer" id="page2-ind-5"></p>
                           </div>
                           <div class="reviewComponent">
-                            <p class="reviewQuestion">Address</p>
+                            <p class="reviewQuestion">{% trans 'Address' %}</p>
                             <p class="reviewAnswer" id="page2-ind-6"></p>
                           </div>
                           <div class="reviewComponent">
-                            <p class="reviewQuestion">Telephone Number</p>
+                            <p class="reviewQuestion">{% trans 'TelNo' %}</p>
                             <p class="reviewAnswer" id="page2-ind-7"></p>
                           </div>
                           <div class="reviewComponent">
-                            <p class="reviewQuestion">Email</p>
+                            <p class="reviewQuestion">{% trans 'Email' %}</p>
                             <p class="reviewAnswer" id="page2-ind-8"></p>
                           </div>
                           <div class="reviewComponent">
-                            <p class="reviewQuestion">Sex</p>
+                            <p class="reviewQuestion">{% trans 'Sex' %}</p>
                             <p class="reviewAnswer" id="page2-ind-9"></p>
                           </div>
                           <div class="reviewComponent">
-                            <p class="reviewQuestion">Anonymity Request</p>
+                            <p class="reviewQuestion">{% trans 'Page10_Anonymity_Request' %}</p>
                             <p class="reviewAnswer" id="page2-ind-10"></p>
                           </div>
                         </div>
 
                         <div id="orgReview" class="is-hidden">
                           <div class="reviewComponent">
-                            <p class="reviewQuestion">Name</p>
+                            <p class="reviewQuestion">{% trans 'Page2_Organisation_Name' %}</p>
                             <p class="reviewAnswer" id="page2-org-1"></p>
                           </div>
                           <div class="reviewComponent">
-                            <p class="reviewQuestion">Activity</p>
+                            <p class="reviewQuestion">{% trans 'Page2_Organisation_Activity' %}</p>
                             <p class="reviewAnswer" id="page2-org-2"></p>
                           </div>
                           <div class="reviewComponent">
-                            <p class="reviewQuestion">Date of Regisdivation or incorporation</p>
+                            <p class="reviewQuestion">{% trans 'Page2_Organisation_RegDate' %}</p>
                             <p class="reviewAnswer" id="page2-org-3"></p>
                           </div>
                           <div class="reviewComponent">
-                            <p class="reviewQuestion">Identification Number</p>
+                            <p class="reviewQuestion">{% trans 'Page2_Organisation_ID' %}</p>
                             <p class="reviewAnswer" id="page2-org-4"></p>
                           </div>
                           <div class="reviewComponent">
-                            <p class="reviewQuestion">Registered Address</p>
+                            <p class="reviewQuestion">{% trans 'Page2_Organisation_Address' %}</p>
                             <p class="reviewAnswer" id="page2-org-5"></p>
                           </div>
                           <div class="reviewComponent">
-                            <p class="reviewQuestion">Telephone</p>
+                            <p class="reviewQuestion">{% trans 'TelNo' %}</p>
                             <p class="reviewAnswer" id="page2-org-6"></p>
                           </div>
                           <div class="reviewComponent">
-                            <p class="reviewQuestion">Email</p>
+                            <p class="reviewQuestion">{% trans 'Email' %}</p>
                             <p class="reviewAnswer" id="page2-org-7"></p>
                           </div>
                           <div class="reviewComponent">
-                            <p class="reviewQuestion">Anonymity Request</p>
+                            <p class="reviewQuestion">Page10_Anonymity_Request</p>
                             <p class="reviewAnswer" id="page2-org-8"></p>
                           </div>
                         </div>
@@ -222,28 +183,11 @@
                 <div class="card-header aleft" id="headingThree">
                   <div class="mb-0">
                     <div class="reviewTitle">
-                      <h3>Page 3 - Representation</h3>
+                      <h3>{% trans 'Page' %} 3 - {% trans 'Page3_Heading' %}</h3>
                     </div>
                     <div class="reviewDescription is-hidden">
                       <p class="reviewHeadPara lead">
-                        In this page you must inform the case on whether you
-                        have a representative or not. At this point in the
-                        application process you do not need a lawyer, although
-                        if your application is complete and reaches a judicial
-                        stage where the chamber organizes hearings, then the
-                        ECtHR will expect you to be represented by a lawyer. The
-                        Court will inform you in good time if this is the case.
-                        <br />
-                        It is common that in the case of an applicant who is
-                        physically or legally unable to lodge the application,
-                        there is a non-lawyer who represents the applicant, for
-                        example in the case of children or persons who have
-                        disappeared. Either the applicant or a non-lawyer
-                        representative of an applicant may give power of
-                        attorney to a lawyer. In the case where the applicant
-                        has a representative, both the applicant and the
-                        representative must sign the authority form giving the
-                        representative the power to represent the applicant.
+                        {% trans 'Page10_ReviewDescription_3' %}
                       </p>
                     </div>
 
@@ -253,98 +197,95 @@
                           <div class="reviewRepIndividual is-hidden">
                             <div class="reviewRepIndNL is-hidden">
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Representative Type</p>
+                                <p class="reviewQuestion">{% trans 'Page3_IndRep_Type' %}</p>
                                 <p class="reviewAnswer" id="page3-ind-rep-NL"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Capacity/relationship/function</p>
+                                <p class="reviewQuestion">{% trans 'Page3_IndRep_NL_Capacity' %}</p>
                                 <p class="reviewAnswer" id="page3-ind-rep-NL-1"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Surname</p>
+                                <p class="reviewQuestion">{% trans 'Surname' %}</p>
                                 <p class="reviewAnswer" id="page3-ind-rep-NL-2"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">First Name(s)</p>
+                                <p class="reviewQuestion">{% trans 'FirstName' %}</p>
                                 <p class="reviewAnswer" id="page3-ind-rep-NL-3"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Address</p>
+                                <p class="reviewQuestion">{% trans 'Address' %}</p>
                                 <p class="reviewAnswer" id="page3-ind-rep-NL-4"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Nationality</p>
+                                <p class="reviewQuestion">{% trans 'Nationality' %}</p>
                                 <p class="reviewAnswer" id="page3-ind-rep-NL-5"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Email</p>
+                                <p class="reviewQuestion">{% trans 'Email' %}</p>
                                 <p class="reviewAnswer" id="page3-ind-rep-NL-6"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Telephone Number</p>
+                                <p class="reviewQuestion">{% trans 'TelNo' %}</p>
                                 <p class="reviewAnswer" id="page3-ind-rep-NL-7"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Fax</p>
+                                <p class="reviewQuestion">{% trans 'Fax' %}</p>
                                 <p class="reviewAnswer" id="page3-ind-rep-NL-8"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Are both the applicant and the representative able to sign the
-                                  Authority form
-                                  (power of attorney)?</p>
+                                <p class="reviewQuestion"> {% trans 'Page3_Authority_Option' %}</p>
                                 <p class="reviewAnswer" id="page3-ind-rep-NL-9"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Ecomms email</p>
+                                <p class="reviewQuestion"> {% trans 'Page3_Ecomms_Email' %}</p>
                                 <p class="reviewAnswer" id="page3-ind-rep-NL-10"></p>
                               </div>
                             </div>
                             <div class="reviewRepIndL is-hidden">
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Representative Type</p>
+                                <p class="reviewQuestion">{% trans 'Page3_IndRep_Type' %}</p>
                                 <p class="reviewAnswer" id="page3-ind-rep-L"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Surname</p>
+                                <p class="reviewQuestion">{% trans 'Surname' %}</p>
                                 <p class="reviewAnswer" id="page3-ind-rep-L-1"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">First Name(s)</p>
+                                <p class="reviewQuestion">{% trans 'FirstName' %}</p>
                                 <p class="reviewAnswer" id="page3-ind-rep-L-2"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Address</p>
+                                <p class="reviewQuestion">{% trans 'Address' %}</p>
                                 <p class="reviewAnswer" id="page3-ind-rep-L-3"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Nationality</p>
+                                <p class="reviewQuestion">{% trans 'Nationality' %}</p>
                                 <p class="reviewAnswer" id="page3-ind-rep-L-4"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Email</p>
+                                <p class="reviewQuestion">{% trans 'Email' %}</p>
                                 <p class="reviewAnswer" id="page3-ind-rep-L-5"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Telephone Number</p>
+                                <p class="reviewQuestion">{% trans 'TelNo' %}</p>
                                 <p class="reviewAnswer" id="page3-ind-rep-L-6"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Fax</p>
+                                <p class="reviewQuestion">{% trans 'Fax' %}</p>
                                 <p class="reviewAnswer" id="page3-ind-rep-L-7"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Are both the applicant and the representative able to sign the
-                                  Authority form (power of attorney)?</p>
+                                <p class="reviewQuestion">{% trans 'Page3_Authority_Option' %}</p>
                                 <p class="reviewAnswer" id='page3-ind-rep-L-8'></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Ecomms Email</p>
+                                <p class="reviewQuestion">{% trans 'Page3_Ecomms_Email' %}</p>
                                 <p class="reviewAnswer" id="page3-ind-rep-L-9"></p>
                               </div>
                             </div>
                             <div class="reviewRepSelf is-hidden">
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Representative Type</p>
+                                <p class="reviewQuestion">{% trans 'Page3_IndRep_Type' %}</p>
                                 <p class="reviewAnswer" id="page3-ind-rep-self"></p>
                               </div>
                             </div>
@@ -352,88 +293,83 @@
                           <div class="reviewRepOrganisation is-hidden">
                             <div class="reviewRepOrgNL is-hidden">
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Capacity/relationship/function</p>
+                                <p class="reviewQuestion">{% trans 'Page3_OrgOfficial_Capacity' %}</p>
                                 <p class="reviewAnswer" id="page3-org-rep-NL-1"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Surname</p>
+                                <p class="reviewQuestion">{% trans 'Surname' %}</p>
                                 <p class="reviewAnswer" id="page3-org-rep-NL-2"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">First Name(s)</p>
+                                <p class="reviewQuestion">{% trans 'FirstName' %}</p>
                                 <p class="reviewAnswer" id="page3-org-rep-NL-3"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Address</p>
+                                <p class="reviewQuestion">{% trans 'Address' %}</p>
                                 <p class="reviewAnswer" id="page3-org-rep-NL-4"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Nationality</p>
+                                <p class="reviewQuestion">{% trans 'Nationality' %}</p>
                                 <p class="reviewAnswer" id="page3-org-rep-NL-5"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Email</p>
+                                <p class="reviewQuestion">{% trans 'Email' %}</p>
                                 <p class="reviewAnswer" id="page3-org-rep-NL-6"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Telephone Number</p>
+                                <p class="reviewQuestion">{% trans 'TelNo' %}</p>
                                 <p class="reviewAnswer" id="page3-org-rep-NL-7"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Fax</p>
+                                <p class="reviewQuestion"></p>
                                 <p class="reviewAnswer" id="page3-org-rep-NL-8"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Do you have a document proving that the organisation official
-                                  is legally
-                                  entitled to represent the organisation?</p>
+                                <p class="reviewQuestion">{% trans 'Page3_OrgOff_Entitled' %}</p>
                                 <p class="reviewAnswer" id="page3-org-rep-NL-9"></p>
                               </div>
                               <div class="reviewComponent">
                                 <p class="reviewQuestion">
-                                  Is the organisation going to be
-                                  represented by a Lawyer?
+                                  {% trans 'Page3_Org_RepLawyer' %}
                                 </p>
                                 <p class="reviewAnswer" id="page3-org-rep-NL-10"></p>
                               </div>
                             </div>
                             <div class="reviewRepOrgL is-hidden">
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Surname</p>
+                                <p class="reviewQuestion">{% trans 'Surname' %}</p>
                                 <p class="reviewAnswer" id="page3-org-rep-L-1"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">First Name(s)</p>
+                                <p class="reviewQuestion">{% trans 'FirstName' %}</p>
                                 <p class="reviewAnswer" id="page3-org-rep-L-2"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Address</p>
+                                <p class="reviewQuestion">{% trans 'Address' %}</p>
                                 <p class="reviewAnswer" id="page3-org-rep-L-3"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Nationality</p>
+                                <p class="reviewQuestion">{% trans 'Nationality' %}</p>
                                 <p class="reviewAnswer" id="page3-org-rep-L-4"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Email</p>
+                                <p class="reviewQuestion">{% trans 'Email' %}</p>
                                 <p class="reviewAnswer" id="page3-org-rep-L-5"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Telephone Number</p>
+                                <p class="reviewQuestion">{% trans 'TelNo' %}</p>
                                 <p class="reviewAnswer" id="page3-org-rep-L-6"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Fax</p>
+                                <p class="reviewQuestion">{% trans 'Fax' %}</p>
                                 <p class="reviewAnswer" id="page3-org-rep-L-7"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Are both the applicant and the representative able to sign the
-                                  Authority form
-                                  (power of attorney)?</p>
+                                <p class="reviewQuestion">{% trans 'Page3_Authority_Option' %}</p>
                                 <p class="reviewAnswer" id="page3-org-rep-L-8"></p>
                               </div>
                               <div class="reviewComponent">
-                                <p class="reviewQuestion">Email address for eComms account</p>
+                                <p class="reviewQuestion"> {% trans 'Page3_Ecomms_Email' %}</p>
                                 <p class="reviewAnswer" id="page3-org-rep-L-9"></p>
                               </div>
                             </div>
@@ -449,27 +385,22 @@
                 <div class="card-header aleft" id="headingFour">
                   <div class="mb-0">
                     <div class="reviewTitle">
-                      <h3>Page 4 - Facts</h3>
+                      <h3>{% trans 'Page' %} 4 - {% trans 'Page4_Heading' %}</h3>
                     </div>
                     <div class="reviewDescription is-hidden">
                       <p class="reviewHeadPara lead">
-                        In this page you must state the matter of your facts.
-                        You must present clearly and concisely the key events of
-                        your case and the adminisdivative and judicial decisions
-                        that you consider led to the violation of your rights.
+                        {% trans 'Page10_ReviewDescription_4' %}
                       </p>
                     </div>
                     <div class="reviewQuestions is-hidden">
                       <div class="container-fluid">
                         <div id="reviewTable4">
                           <div class="reviewComponent">
-                            <p class="reviewQuestion">Statement of Facts</p>
+                            <p class="reviewQuestion">{% trans 'Page4_Heading' %}</p>
                             <p class="reviewAnswer" id="page4-1"></p>
                           </div>
                           <div class="reviewComponent">
-                            <p class="reviewQuestion">
-                              Supplementary Statement on the Subject matter of
-                              the application
+                            <p class="reviewQuestion">{% trans 'Page4_Supplementary' %}
                             </p>
                             <p class="reviewAnswer" id="page4-2"></p>
                           </div>
@@ -485,26 +416,12 @@
                   <div class="mb-0">
                     <div class="reviewTitle">
                       <h3>
-                        Page 5 - Alleged Violations Of The Convention/Protocols
+                        {% trans 'Page' %} 5 - {% trans 'Page5_Heading' %}
                       </h3>
                     </div>
                     <div class="reviewDescription is-hidden">
                       <p class="reviewHeadPara lead">
-                        In this page you must choose the articles of the
-                        European Convention of Human Rights and/or its Protocols
-                        which you considered has been violated by the state you
-                        are complaining against. You must also provide an
-                        explanation based on the facts of your case which
-                        explain why you consider that particular article has
-                        been infringed upon. <br />
-                        We will provide a link to the convention, as well as a
-                        drop down with all the articles of the European
-                        Convention on Human Rights and its Protocols that your
-                        coundivy was bound by at the time the facts happened. In
-                        addition you will be shown the text of each article
-                        chosen and any reservations, declarations or derogations
-                        that the coundivy you are complaining about might have
-                        made to the article(s) chosen.
+                        {% trans 'Page10_ReviewDescription_5' %}
                       </p>
                     </div>
                     <div class="reviewQuestions is-hidden">
@@ -515,67 +432,45 @@
                     </div>
                   </div>
                 </div>
-                <!-- page 6 -->
-                <div class="card">
-                  <div class="card-header aleft" id="headingSix">
-                    <div class="mb-0">
-                      <div class="reviewTitle">
-                        <h3>Page 6 - Domestic Proceedings</h3>
-                      </div>
-                      <div class="reviewDescription is-hidden">
-                        <p class="reviewHeadPara lead">
-                          In this page you must list all the domestic remedies you
-                          have appealed to in relation to the articles of the
-                          European Convention on Human Rights which you think
-                          might have been infringed upon. <br />
-                          One of the reasons why the European Court of Human
-                          Rights declares applications inadmisible is that the
-                          applicant does not prove that she/he has exhausted the
-                          domestic remedies that were available. This is why it is
-                          important that you show that you went to the national
-                          courts and appealed up to the highest level in order to
-                          seek remedy for your complaints.
-                        </p>
-                      </div>
-                      <div class="reviewQuestions is-hidden">
-                        <div class="container-fluid">
-                          <div id="reviewTable6">
-                          </div>
-                          <div class="reviewComponent">
-                            <p class="reviewQuestion">
-                              Please state which appeal or remedy you have not
-                              used and explain why not.
-                            </p>
-                            <p class="reviewAnswer" id="page6-1"></p>
-                          </div>
+              </div>
+              <!-- page 6 -->
+              <div class="card">
+                <div class="card-header aleft" id="headingSix">
+                  <div class="mb-0">
+                    <div class="reviewTitle">
+                      <h3>{% trans 'Page' %} 6 - {% trans 'Page6_Heading' %}</h3>
+                    </div>
+                    <div class="reviewDescription is-hidden">
+                      <p class="reviewHeadPara lead">
+                        {% trans 'Page10_ReviewDescription_6' %}
+                      </p>
+                    </div>
+                    <div class="reviewQuestions is-hidden">
+                      <div class="container-fluid">
+                        <div id="reviewTable6">
+                        </div>
+                        <div class="reviewComponent">
+                          <p class="reviewQuestion">
+                            {% trans 'Page6_Unused_Remedy_Explain' %}
+                          </p>
+                          <p class="reviewAnswer" id="page6-1"></p>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+
               <!-- page 7 -->
               <div class="card">
                 <div class="card-header aleft" id="headingSeven">
                   <div class="mb-0">
                     <div class="reviewTitle">
-                      <h3>Page 7 - International Proceedings</h3>
+                      <h3>{% trans 'Page' %} 7 - {% trans 'Page7_Heading' %}</h3>
                     </div>
                     <div class="reviewDescription is-hidden">
                       <p class="reviewHeadPara lead">
-                        In this page you must list any international bodies that
-                        you have resorted to in order to address your
-                        complaints. These international bodies may be
-                        international arbidivation panels or other United Nations
-                        bodies, such as the International Labour Organisation or
-                        the United Nations Human Rights Committee. <br />
-                        If you have appealed to any other international body,
-                        your application in front of the European Court of Human
-                        Rights may be dismissed.<br />
-                        You must also mention if you (the applicant) have sent
-                        prior applications to the European Court of Human
-                        Rights. This is especially important if you have prior
-                        applications on the same matter.
+                        {% trans 'Page10_ReviewDescription_7' %}
                       </p>
                     </div>
                     <div class="reviewQuestions is-hidden">
@@ -583,18 +478,13 @@
                         <div id="reviewTable7">
                           <div class="reviewComponent">
                             <p class="reviewQuestion">
-                              Please give a concise summary of the procedure
-                              (complaints submitted, name of the international
-                              body and date and nature of any decisions
-                              given).
+                              {% trans 'Page7_Another_Investigation_Summary' %}
                             </p>
                             <p class="reviewAnswer" id="page7-1"></p>
                           </div>
                           <div class="reviewComponent">
                             <p class="reviewQuestion">
-                              Application Number(s) if you (the applicant)
-                              currently have, or have you previously had, any
-                              other applications before the Court?
+                              {% trans 'Page7_Other_Application' %}
                             </p>
                             <p class="reviewAnswer" id="page7-2"></p>
                           </div>
@@ -609,50 +499,11 @@
                 <div class="card-header aleft" id="headingEight">
                   <div class="mb-0">
                     <div class="reviewTitle">
-                      <h3>Page 8 - Supporting Documents</h3>
+                      <h3>{% trans 'Page' %} 8 - {% trans 'Page8_Heading' %}</h3>
                     </div>
                     <div class="reviewDescription is-hidden">
                       <p class="reviewHeadPara lead">
-                        In this page you must list all the documents related to
-                        your case.The European Court of Human Rights expects to
-                        receive a chronologically arranged list with the name,
-                        description and page numbers of each document, as well
-                        as copies of the listed documents. For this reason you
-                        must make a list of all the documents you want to submit
-                        to the Court in order to support your claims (decisions,
-                        medical reports, witness statements and other material
-                        you might deem necessary). Using the information you
-                        enter on this page, the digital application form will
-                        automatically determine the order and consecutive page
-                        numbers of your documents: you just enter the date and
-                        page numbers, and it will calculate automatically where
-                        in the accompanying documents folder each document can
-                        be found. Before you send the application form to the
-                        European Court of Human Rights you still have to
-                        manually gather the documents, arrange them according to
-                        the list of documents on page 12 of the PRINTED FORM.
-                        You also have to number the pages of each document
-                        consecutively and add them in order in the envelope
-                        containing your application. <br />
-                        Please be advised that the European Court of Human
-                        Rights has very specific requirements for how the
-                        accompanying documents should be arranged: <br />
-                        they should be arranged by date and procedure. <br />
-                        the pages of all documents must be numbered
-                        consecutively, similarly to how chapters in a book are
-                        numbered. When you generate the printable application
-                        form from Justbot, you will receive separator pages for
-                        each document that you listed. The separator pages
-                        contain the title and description of each document, as
-                        well as the start and end page number for each document
-                        and they will guide you in numbering the pages of your
-                        documents. <br />
-                        you must not staple, bind or tape the documents.
-                        <br />
-                        <br />
-                        Please note that the European Court of Human Rights will
-                        not open and it will desdivoy any package that is deemed
-                        suspicious.
+                        {% trans 'Page10_ReviewDescription_8' %}
                       </p>
                     </div>
                     <div class="reviewQuestions is-hidden">
@@ -669,24 +520,11 @@
                 <div class="card-header aleft" id="headingNine">
                   <div class="mb-0">
                     <div class="reviewTitle">
-                      <h3>Page 9 - Declaration</h3>
+                      <h3>{% trans 'Page' %} 9 - {% trans 'Page9_Heading' %}</h3>
                     </div>
                     <div class="reviewDescription is-hidden">
                       <p class="reviewHeadPara lead">
-                        "In this page you must mention any other comments you
-                        might have in relation to your application and which you
-                        have not mentioned already, but you nonetheless feel
-                        they are important. You must also choose a correspondent
-                        with the European Court of Human Rights. It can be
-                        either the applicant or the representative of the
-                        applicant. <br />
-                        In the printed version of the application form, which
-                        has a different format from the digital form, the page
-                        corresponding to this step in the digital form needs to
-                        be dated and signed by the applicant or its
-                        representative. Your signature on the application form
-                        confirms that the information you have provided in the
-                        application form is correct."
+                        {% trans 'Page10_ReviewDescription_9' %}
                       </p>
                     </div>
                     <div class="reviewQuestions is-hidden">
@@ -694,13 +532,12 @@
                         <div id="reviewTable9">
                           <div class="reviewComponent">
                             <p class="reviewQuestion">
-                              Do you have any other comments about your
-                              application?
+                              {% trans 'Page9_OtherComments' %}
                             </p>
                             <p class="reviewAnswer" id="page9-1"></p>
                           </div>
                           <div class="reviewComponent">
-                            <p class="reviewQuestion">Confirmation of correspondent</p>
+                            <p class="reviewQuestion">{% trans 'Page9_Confirmation_Applicant' %}</p>
                             <p class="reviewAnswer" id="page9-2"></p>
                           </div>
                           <div class="reviewComponent">
@@ -712,10 +549,7 @@
                             <p class="reviewAnswer" id="page9-4"></p>
                           </div>
                           <div class="reviewComponent">
-                            <p class="reviewQuestion">Who is going to sign the declaration concerning the
-                              accuracy of
-                              the information
-                              provided in the application form?</p>
+                            <p class="reviewQuestion">{% trans 'Page9_Who_Sign' %}</p>
                             <p class="reviewAnswer" id="page9-5"></p>
                           </div>
                         </div>
@@ -729,16 +563,11 @@
                 <div class="card-header aleft" id="headingTen">
                   <div class="mb-0">
                     <div class="reviewTitleDisabled">
-                      <h3>Page 10 - Review Page</h3>
+                      <h3>{% trans 'Page' %} 10 - {% trans 'Page10_Heading' %}</h3>
                     </div>
                     <div class="reviewDescription is-hidden">
                       <p class="reviewHeadPara lead">
-                        This is the current page. After you enter information on
-                        your digital form, that information will be sent to this
-                        page, providing you a way of checking whether you have
-                        entered all the information you needed to. From this
-                        page you can go back to each page of the digital
-                        application form and edit the desired fields.
+                        {% trans 'Page10_ReviewDescription_10' %}
                       </p>
                     </div>
                   </div>
@@ -749,24 +578,11 @@
                 <div class="card-header aleft" id="headingEleven">
                   <div class="mb-0">
                     <div class="reviewTitleDisabled">
-                      <h3>Page 11 - Finish to PDF</h3>
+                      <h3>{% trans 'Page' %} 11 - {% trans 'Page11_Heading' %}</h3>
                     </div>
                     <div class="reviewDescription is-hidden">
                       <p class="reviewHeadPara lead">
-                        On this page you are provided guidance on how to apply
-                        to the European Court of Human Rights and you can
-                        generate the pdf version of your application form. At
-                        the bottom of the page you have two buttons: one to send
-                        the generated form to an email address, and another to
-                        download the form directly from your browser. The
-                        document that is generated is one pdf which contains the
-                        full application form in the format required by the
-                        European Court of Human Rights, as well as separator
-                        pages for the documents you listed on page 8 of the
-                        digital form. In this pdf you will also find the
-                        documents you may have created within the application
-                        form, like the Anonymity Request, Supplementary Pages
-                        for the Statement of Facts, or any other document.
+                        {% trans 'Page10_ReviewDescription_11' %}
                       </p>
                     </div>
                   </div>
@@ -778,12 +594,12 @@
               <div class="row">
                 <div class="col-sm-6 aleft">
                   <button class="btn btn-primary" onclick="stepperForm.previous()">
-                    Previous
+                    {% trans 'Button_Previous' %}
                   </button>
                 </div>
                 <div class="col-sm-6 aright">
                   <button class="btn btn-primary btn-next-form" onclick="stepperForm.next()">
-                    Next
+                    {% trans 'Button_Next' %}
                   </button>
                 </div>
               </div>

@@ -19,9 +19,6 @@
               <div class="form-group">
                 <label class="lead">
                   <h4>{% trans 'Page1_Qn1' %}
-                    When did the alleged breach of the European Convention on Human Rights that you are complaining
-                    about happen? If you are not sure as to the exact day and month, please choose a date that is
-                    closest to the events.
                   </h4>
                 </label>
                 <div class="row">
@@ -111,27 +108,15 @@
                     <option value="United Kingdom">{% trans 'United Kingdom' %}</option>
                   </select>
                   <div class="is-hidden alert alert-danger" id="russiaWarningDiv">
-                    {% trans 'Page1_Russia_Warning_Text'  %}.
-                    According to the date provided in
-                    question no. 1, the
-                    European
-                    Court of Human Rights cannot process an application against the Russian Federation.<br /> The
-                    Russian Federation ceased to be a High Contracting Party to the European Convention on Human Rights
-                    on 16 September 2022. This means the Russian Federation cannot be held accountable for violations of
-                    the Convention which occurred on or after this date.
-                    The Court remains competent to deal with applications directed against the Russian Federation in
-                    relation to acts or omissions capable of constituting a violation of the Convention provided that
-                    they
-                    occurred until 16 September 2022. <br />
-                    You can read the Court’s resolution on this matter <a
-                      href="https://echr.coe.int/Documents/Resolution_ECHR_cessation_membership_Russia_CoE_ENG.pdf">here</a>
+                    {% trans 'Page1_Russia_Warning_Text' %}
+                    </a>
                   </div>
                 </div>
               </div>
             </li>
             <li class="ordLists">
               <label class="lead">
-                <h4>{% trans 'Page1_Qn3' %}The facts you are complaining about concern:</h4>
+                <h4>{% trans 'Page1_Qn3' %}</h4>
               </label>
               <div class="form-group">
                 <div id="error-container-concern">
@@ -180,7 +165,7 @@
             <li class="ordLists">
               <label class="lead">
                 <h4>
-                  {% trans 'Page1_Qn4' %}:
+                  {% trans 'Page1_Qn4' %}
                 </h4>
               </label>
               <table id="courtTable">

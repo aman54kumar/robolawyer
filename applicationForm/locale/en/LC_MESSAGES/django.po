@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-11 04:33+0530\n"
+"POT-Creation-Date: 2022-08-11 07:20+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -81,9 +81,9 @@ msgid "Feedback_Qn1"
 msgstr "Are you a legally trained person?"
 
 #: applicationForm/templates/applicationForm/form.html:286
-#: applicationForm/templates/applicationForm/page1.html:200
-#: applicationForm/templates/applicationForm/page1.html:219
-#: applicationForm/templates/applicationForm/page1.html:255
+#: applicationForm/templates/applicationForm/page1.html:185
+#: applicationForm/templates/applicationForm/page1.html:204
+#: applicationForm/templates/applicationForm/page1.html:240
 #: applicationForm/templates/applicationForm/page2/anonymity.html:18
 #: applicationForm/templates/applicationForm/page2/organisation.html:40
 #: applicationForm/templates/applicationForm/page2/organisation.html:77
@@ -102,9 +102,9 @@ msgid "Option_Yes"
 msgstr "Yes"
 
 #: applicationForm/templates/applicationForm/form.html:290
-#: applicationForm/templates/applicationForm/page1.html:204
-#: applicationForm/templates/applicationForm/page1.html:224
-#: applicationForm/templates/applicationForm/page1.html:260
+#: applicationForm/templates/applicationForm/page1.html:189
+#: applicationForm/templates/applicationForm/page1.html:209
+#: applicationForm/templates/applicationForm/page1.html:245
 #: applicationForm/templates/applicationForm/page2/anonymity.html:23
 #: applicationForm/templates/applicationForm/page2/organisation.html:45
 #: applicationForm/templates/applicationForm/page2/organisation.html:82
@@ -133,6 +133,7 @@ msgid "Feedback_SubmitButton"
 msgstr "Send your message"
 
 #: applicationForm/templates/applicationForm/page1.html:8
+#: applicationForm/templates/applicationForm/page10.html:18
 msgid "Page1_Heading"
 msgstr "Prerequisites"
 
@@ -153,13 +154,14 @@ msgstr ""
 "you are complaining about happen? If you are not sure as to the exact day "
 "and month, please choose a date that is closest to the events."
 
-#: applicationForm/templates/applicationForm/page1.html:44
+#: applicationForm/templates/applicationForm/page1.html:41
+#: applicationForm/templates/applicationForm/page10.html:36
 msgid "Page1_Qn2"
 msgstr ""
 "Which state(s) do you intend to complain about in your application to the "
 "European Court of Human Rights?"
 
-#: applicationForm/templates/applicationForm/page1.html:45
+#: applicationForm/templates/applicationForm/page1.html:42
 msgid "Page1_Qn2_Popover"
 msgstr ""
 "If the State you complain against is not amongst those enumerated below, "
@@ -167,217 +169,230 @@ msgstr ""
 "allegations involving one or several of the 47 member states of the Council "
 "of Europe."
 
-#: applicationForm/templates/applicationForm/page1.html:54
+#: applicationForm/templates/applicationForm/page1.html:51
 msgid "Albania"
 msgstr "Albania"
 
-#: applicationForm/templates/applicationForm/page1.html:55
+#: applicationForm/templates/applicationForm/page1.html:52
 msgid "Andorra"
 msgstr "Andorra"
 
-#: applicationForm/templates/applicationForm/page1.html:56
+#: applicationForm/templates/applicationForm/page1.html:53
 msgid "Armenia"
 msgstr "Armenia"
 
-#: applicationForm/templates/applicationForm/page1.html:57
+#: applicationForm/templates/applicationForm/page1.html:54
 msgid "Austria"
 msgstr "Austria"
 
-#: applicationForm/templates/applicationForm/page1.html:58
+#: applicationForm/templates/applicationForm/page1.html:55
 msgid "Azerbaijan"
 msgstr "Azerbaijan"
 
-#: applicationForm/templates/applicationForm/page1.html:59
+#: applicationForm/templates/applicationForm/page1.html:56
 msgid "Belgium"
 msgstr "Belgium"
 
-#: applicationForm/templates/applicationForm/page1.html:60
+#: applicationForm/templates/applicationForm/page1.html:57
 msgid "Bulgaria"
 msgstr "Bulgaria"
 
-#: applicationForm/templates/applicationForm/page1.html:62
+#: applicationForm/templates/applicationForm/page1.html:59
 msgid "Bosnia and Herzegovina"
 msgstr "Bosnia and Herzegovina"
 
-#: applicationForm/templates/applicationForm/page1.html:64
+#: applicationForm/templates/applicationForm/page1.html:61
 msgid "Croatia"
 msgstr "Croatia"
 
-#: applicationForm/templates/applicationForm/page1.html:65
+#: applicationForm/templates/applicationForm/page1.html:62
 msgid "Cyprus"
 msgstr "Cyprus"
 
-#: applicationForm/templates/applicationForm/page1.html:66
+#: applicationForm/templates/applicationForm/page1.html:63
 msgid "Czech Republic"
 msgstr "Czech Republic"
 
-#: applicationForm/templates/applicationForm/page1.html:68
+#: applicationForm/templates/applicationForm/page1.html:65
 msgid "Denmark"
 msgstr "Denmark"
 
-#: applicationForm/templates/applicationForm/page1.html:70
+#: applicationForm/templates/applicationForm/page1.html:67
 msgid "Estonia"
 msgstr "Estonia"
 
-#: applicationForm/templates/applicationForm/page1.html:71
+#: applicationForm/templates/applicationForm/page1.html:68
 msgid "Finland"
 msgstr "Finland"
 
-#: applicationForm/templates/applicationForm/page1.html:72
+#: applicationForm/templates/applicationForm/page1.html:69
 msgid "France"
 msgstr "France"
 
-#: applicationForm/templates/applicationForm/page1.html:74
+#: applicationForm/templates/applicationForm/page1.html:71
 msgid "Georgia"
 msgstr "Georgia"
 
-#: applicationForm/templates/applicationForm/page1.html:75
+#: applicationForm/templates/applicationForm/page1.html:72
 msgid "Germany"
 msgstr "Germany"
 
-#: applicationForm/templates/applicationForm/page1.html:76
+#: applicationForm/templates/applicationForm/page1.html:73
 msgid "Greece"
 msgstr "Greece"
 
-#: applicationForm/templates/applicationForm/page1.html:78
+#: applicationForm/templates/applicationForm/page1.html:75
 msgid "Hungary"
 msgstr "Hungary"
 
-#: applicationForm/templates/applicationForm/page1.html:79
+#: applicationForm/templates/applicationForm/page1.html:76
 msgid "Ireland"
 msgstr "Ireland"
 
-#: applicationForm/templates/applicationForm/page1.html:80
+#: applicationForm/templates/applicationForm/page1.html:77
 msgid "Iceland"
 msgstr "Iceland"
 
-#: applicationForm/templates/applicationForm/page1.html:81
+#: applicationForm/templates/applicationForm/page1.html:78
 msgid "Italy"
 msgstr "Italy"
 
-#: applicationForm/templates/applicationForm/page1.html:82
+#: applicationForm/templates/applicationForm/page1.html:79
 msgid "Liechtenstein"
 msgstr "Liechtenstein"
 
-#: applicationForm/templates/applicationForm/page1.html:83
+#: applicationForm/templates/applicationForm/page1.html:80
 msgid "Lithuania"
 msgstr "Lithuania"
 
-#: applicationForm/templates/applicationForm/page1.html:84
+#: applicationForm/templates/applicationForm/page1.html:81
 msgid "Luxembourg"
 msgstr "Luxembourg"
 
-#: applicationForm/templates/applicationForm/page1.html:85
+#: applicationForm/templates/applicationForm/page1.html:82
 msgid "Latvia"
 msgstr "Latvia"
 
-#: applicationForm/templates/applicationForm/page1.html:86
+#: applicationForm/templates/applicationForm/page1.html:83
 msgid "Malta"
 msgstr "Malta"
 
-#: applicationForm/templates/applicationForm/page1.html:87
+#: applicationForm/templates/applicationForm/page1.html:84
 msgid "Monaco"
 msgstr "Monaco"
 
-#: applicationForm/templates/applicationForm/page1.html:89
+#: applicationForm/templates/applicationForm/page1.html:86
 msgid "Republic of Moldova"
 msgstr "Republic of Moldova"
 
-#: applicationForm/templates/applicationForm/page1.html:91
+#: applicationForm/templates/applicationForm/page1.html:88
 msgid "North Macedonia"
 msgstr "North Macedonia"
 
-#: applicationForm/templates/applicationForm/page1.html:93
+#: applicationForm/templates/applicationForm/page1.html:90
 msgid "Montenegro"
 msgstr "Montenegro"
 
-#: applicationForm/templates/applicationForm/page1.html:94
+#: applicationForm/templates/applicationForm/page1.html:91
 msgid "Netherlands"
 msgstr "Netherlands"
 
-#: applicationForm/templates/applicationForm/page1.html:95
+#: applicationForm/templates/applicationForm/page1.html:92
 msgid "Norway"
 msgstr "Norway"
 
-#: applicationForm/templates/applicationForm/page1.html:96
+#: applicationForm/templates/applicationForm/page1.html:93
 msgid "Poland"
 msgstr "Poland"
 
-#: applicationForm/templates/applicationForm/page1.html:97
+#: applicationForm/templates/applicationForm/page1.html:94
 msgid "Portugal"
 msgstr "Portugal"
 
-#: applicationForm/templates/applicationForm/page1.html:98
+#: applicationForm/templates/applicationForm/page1.html:95
 msgid "Romania"
 msgstr "Romania"
 
-#: applicationForm/templates/applicationForm/page1.html:100
+#: applicationForm/templates/applicationForm/page1.html:97
 msgid "Russian Federation"
 msgstr "Russian Federation"
 
-#: applicationForm/templates/applicationForm/page1.html:102
+#: applicationForm/templates/applicationForm/page1.html:99
 msgid "San Marino"
 msgstr "San Marino"
 
-#: applicationForm/templates/applicationForm/page1.html:103
+#: applicationForm/templates/applicationForm/page1.html:100
 msgid "Serbia"
 msgstr "Serbia"
 
-#: applicationForm/templates/applicationForm/page1.html:104
+#: applicationForm/templates/applicationForm/page1.html:101
 msgid "Slovak Republic"
 msgstr "Slovak Republic"
 
-#: applicationForm/templates/applicationForm/page1.html:105
+#: applicationForm/templates/applicationForm/page1.html:102
 msgid "Slovenia"
 msgstr "Slovenia"
 
-#: applicationForm/templates/applicationForm/page1.html:106
+#: applicationForm/templates/applicationForm/page1.html:103
 msgid "Spain"
 msgstr "Spain"
 
-#: applicationForm/templates/applicationForm/page1.html:107
+#: applicationForm/templates/applicationForm/page1.html:104
 msgid "Sweden"
 msgstr "Sweden"
 
-#: applicationForm/templates/applicationForm/page1.html:108
+#: applicationForm/templates/applicationForm/page1.html:105
 msgid "Switzerland"
 msgstr "Switzerland"
 
-#: applicationForm/templates/applicationForm/page1.html:109
+#: applicationForm/templates/applicationForm/page1.html:106
 msgid "Turkey"
 msgstr "Turkey"
 
-#: applicationForm/templates/applicationForm/page1.html:110
+#: applicationForm/templates/applicationForm/page1.html:107
 msgid "Ukraine"
 msgstr "Ukraine"
 
-#: applicationForm/templates/applicationForm/page1.html:111
+#: applicationForm/templates/applicationForm/page1.html:108
 msgid "United Kingdom"
 msgstr "United Kingdom"
 
-#: applicationForm/templates/applicationForm/page1.html:114
+#: applicationForm/templates/applicationForm/page1.html:111
 msgid "Page1_Russia_Warning_Text"
 msgstr ""
+"According to the date provided in question no. 1, the European Court of "
+"Human Rights cannot process an application against the Russian Federation."
+"<br /> The Russian Federation ceased to be a High Contracting Party to the "
+"European Convention on Human Rights on 16 September 2022. This means the "
+"Russian Federation cannot be held accountable for violations of the "
+"Convention which occurred on or after this date. The Court remains competent "
+"to deal with applications directed against the Russian Federation in "
+"relation to acts or omissions capable of constituting a violation of the "
+"Convention provided that they occurred until 16 September 2022. <br /> You "
+"can read the Court’s resolution on this matter <a href=\"https://echr.coe."
+"int/Documents/Resolution_ECHR_cessation_membership_Russia_CoE_ENG.pdf\" "
+"target=\"_blank\">here."
 
-#: applicationForm/templates/applicationForm/page1.html:134
+#: applicationForm/templates/applicationForm/page1.html:119
+#: applicationForm/templates/applicationForm/page10.html:42
 msgid "Page1_Qn3"
-msgstr "The facts you are complaining about concern"
+msgstr "The facts you are complaining about concern:"
 
-#: applicationForm/templates/applicationForm/page1.html:143
+#: applicationForm/templates/applicationForm/page1.html:128
 msgid "Page1_Qn3_Option1"
 msgstr "You directly"
 
-#: applicationForm/templates/applicationForm/page1.html:149
+#: applicationForm/templates/applicationForm/page1.html:134
 msgid "Page1_Qn3_Option2"
 msgstr "Your organisation"
 
-#: applicationForm/templates/applicationForm/page1.html:156
+#: applicationForm/templates/applicationForm/page1.html:141
 msgid "Page1_Qn3_Option3"
 msgstr ""
 "A close relative or a person under your care or responsibility who is unable "
 "to lodge an application"
 
-#: applicationForm/templates/applicationForm/page1.html:158
+#: applicationForm/templates/applicationForm/page1.html:143
 msgid "Page1_Qn3_Option3_Popover"
 msgstr ""
 "The Convention institutions have held that special considerations may arise "
@@ -386,40 +401,41 @@ msgstr ""
 "life) at the hands of the national authorities. In this case you need to "
 "show legitimate interest in pursuing the application before the Court."
 
-#: applicationForm/templates/applicationForm/page1.html:166
+#: applicationForm/templates/applicationForm/page1.html:151
 msgid "Page1_Qn3_Option4"
 msgstr "My client who is an individual person"
 
-#: applicationForm/templates/applicationForm/page1.html:173
+#: applicationForm/templates/applicationForm/page1.html:158
 msgid "Page1_Qn3_Option5"
 msgstr "My client who is a juridical person"
 
-#: applicationForm/templates/applicationForm/page1.html:183
+#: applicationForm/templates/applicationForm/page1.html:168
 msgid "Page1_Qn4"
 msgstr ""
 "Have you brought your case before the highest court competent to deal with "
 "the subject matter of your dispute? The competent national courts in the "
-"selected state(s) are in principle"
+"selected state(s) are in principle:"
 
-#: applicationForm/templates/applicationForm/page1.html:189
+#: applicationForm/templates/applicationForm/page1.html:174
 msgid "Page1_Table_Heading_Country"
 msgstr "Country"
 
-#: applicationForm/templates/applicationForm/page1.html:190
+#: applicationForm/templates/applicationForm/page1.html:175
 msgid "Page1_Table_Heading_ProceedingType"
 msgstr "Type of proceeding"
 
-#: applicationForm/templates/applicationForm/page1.html:191
+#: applicationForm/templates/applicationForm/page1.html:176
 msgid "Page1_Table_Heading_CourtName"
 msgstr "National court(s)"
 
-#: applicationForm/templates/applicationForm/page1.html:211
+#: applicationForm/templates/applicationForm/page1.html:196
+#: applicationForm/templates/applicationForm/page10.html:55
 msgid "Page1_Qn5"
 msgstr ""
 "Were there available legal remedies capable of redressing your situation "
 "that you have not used?"
 
-#: applicationForm/templates/applicationForm/page1.html:212
+#: applicationForm/templates/applicationForm/page1.html:197
 msgid "Page1_Qn5_Popover"
 msgstr ""
 "Before you apply to the Court, you need to exhaust domestic remedies. The "
@@ -428,11 +444,12 @@ msgstr ""
 "sufficient. Essential is that the competent national authorities analyzed "
 "the merits of your claim/claims."
 
-#: applicationForm/templates/applicationForm/page1.html:230
+#: applicationForm/templates/applicationForm/page1.html:215
+#: applicationForm/templates/applicationForm/page10.html:61
 msgid "Page1_Qn6"
 msgstr "When was the final decision in your case delivered or served on you?"
 
-#: applicationForm/templates/applicationForm/page1.html:232
+#: applicationForm/templates/applicationForm/page1.html:217
 msgid "Page1_Qn6_Popover"
 msgstr ""
 "Your application needs to comply with the time limit within which you have "
@@ -455,21 +472,23 @@ msgstr ""
 "no time to re-submit a complete application form within the required time "
 "limit."
 
-#: applicationForm/templates/applicationForm/page1.html:249
+#: applicationForm/templates/applicationForm/page1.html:234
+#: applicationForm/templates/applicationForm/page10.html:67
 msgid "Page1_Qn7"
 msgstr ""
 "Do you already have a Reference number (Application number) from the Court "
 "in relation to these complaints?"
 
-#: applicationForm/templates/applicationForm/page1.html:264
+#: applicationForm/templates/applicationForm/page1.html:249
 msgid "Page1_Qn7_ExtraQn"
 msgstr "Please indicate the reference number in this box."
 
-#: applicationForm/templates/applicationForm/page1.html:267
+#: applicationForm/templates/applicationForm/page1.html:252
 msgid "Text_Example"
 msgstr "Example"
 
-#: applicationForm/templates/applicationForm/page1.html:278
+#: applicationForm/templates/applicationForm/page1.html:263
+#: applicationForm/templates/applicationForm/page10.html:602
 #: applicationForm/templates/applicationForm/page2.html:71
 #: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:64
 #: applicationForm/templates/applicationForm/page3/orgRepresentative/orgRepresentative.html:45
@@ -478,12 +497,572 @@ msgstr "Example"
 #: applicationForm/templates/applicationForm/page6.html:158
 #: applicationForm/templates/applicationForm/page7.html:93
 #: applicationForm/templates/applicationForm/page8.html:121
+#: applicationForm/templates/applicationForm/page9.html:152
 msgid "Button_Next"
 msgstr "Next"
 
+#: applicationForm/templates/applicationForm/page10.html:8
+#: applicationForm/templates/applicationForm/page10.html:566
+msgid "Page10_Heading"
+msgstr "Review"
+
+#: applicationForm/templates/applicationForm/page10.html:18
+#: applicationForm/templates/applicationForm/page10.html:82
+#: applicationForm/templates/applicationForm/page10.html:186
+#: applicationForm/templates/applicationForm/page10.html:388
+#: applicationForm/templates/applicationForm/page10.html:419
+#: applicationForm/templates/applicationForm/page10.html:441
+#: applicationForm/templates/applicationForm/page10.html:469
+#: applicationForm/templates/applicationForm/page10.html:502
+#: applicationForm/templates/applicationForm/page10.html:523
+#: applicationForm/templates/applicationForm/page10.html:566
+#: applicationForm/templates/applicationForm/page10.html:581
+msgid "Page"
+msgstr "Page"
+
+#: applicationForm/templates/applicationForm/page10.html:22
+msgid "Page10_ReviewDescription_1"
+msgstr ""
+"This page contains some of the most general conditions that you have to "
+"fulfill in order for your application to be complete and admissible. These "
+"include: the coundivy you are complaining against, information about "
+"exhausting the domestic judicial remedies, the date when the acts took place "
+"and the date when you received the final judgement for the highest domestic "
+"court competent to deal with your case. This information is required in "
+"order to determine whether the coundivy you intend to complain against was "
+"under obligations pursuant to the European Convention on Human Rights at the "
+"time when the facts took place and to determine whether you are complying "
+"with two important rules of the European Court of Human Rights. These rules "
+"concern your duty to exhaust all available and effective national remedies "
+"before sending an application to the ECtHR and your duty to send the "
+"application to the ECtHR within 6 months from receiving a final judgement. "
+"If you have not exhausted all available national remedies or you send your "
+"application to ECtHR more than 6 months from the moment you received the "
+"final judgement from the highest national court competent to deal with your "
+"case, then your application will most probably be considered inadmissible."
+
+#: applicationForm/templates/applicationForm/page10.html:30
+msgid "Page1_Qn1_Part"
+msgstr ""
+"When did the alleged breach of the European Convention on Human Rights that "
+"you are complaining about happen?"
+
+#: applicationForm/templates/applicationForm/page10.html:49
+msgid "Page1_Qn4_Part"
+msgstr ""
+"Have you brought your case before the highest court competent to deal with "
+"the subject matter of your dispute?"
+
+#: applicationForm/templates/applicationForm/page10.html:82
 #: applicationForm/templates/applicationForm/page2.html:8
 msgid "Page2_Heading"
 msgstr "Applicant"
+
+#: applicationForm/templates/applicationForm/page10.html:86
+msgid "Page10_ReviewDescription_2"
+msgstr ""
+"In this page you must provide the details of the applicant, including the "
+"full name, address, telephone number and email address, as well as the date "
+"and place of birth and nationality for individual applicants. For applicants "
+"who are legal entities you must provide in addition to the full name, "
+"address, telephone number and email address, you must also provide the "
+"activity field, identification number and date of registration."
+
+#: applicationForm/templates/applicationForm/page10.html:94
+msgid "Page2_Review_ApplicantType"
+msgstr ""
+"Select the option appropriate for your situation and fill in the requested "
+"details."
+
+#: applicationForm/templates/applicationForm/page10.html:100
+#: applicationForm/templates/applicationForm/page10.html:208
+#: applicationForm/templates/applicationForm/page10.html:250
+#: applicationForm/templates/applicationForm/page10.html:300
+#: applicationForm/templates/applicationForm/page10.html:340
+#: applicationForm/templates/applicationForm/page2/individual.html:12
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:8
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:19
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/lawyer.html:6
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:15
+msgid "Surname"
+msgstr "Surname"
+
+#: applicationForm/templates/applicationForm/page10.html:104
+#: applicationForm/templates/applicationForm/page10.html:212
+#: applicationForm/templates/applicationForm/page10.html:254
+#: applicationForm/templates/applicationForm/page10.html:304
+#: applicationForm/templates/applicationForm/page10.html:344
+#: applicationForm/templates/applicationForm/page2/individual.html:18
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:13
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:25
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/lawyer.html:11
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:20
+msgid "FirstName"
+msgstr "First Name(s)"
+
+#: applicationForm/templates/applicationForm/page10.html:108
+#: applicationForm/templates/applicationForm/page2/individual.html:28
+msgid "DOB"
+msgstr "Date of Birth"
+
+#: applicationForm/templates/applicationForm/page10.html:112
+#: applicationForm/templates/applicationForm/page2/individual.html:38
+msgid "POB"
+msgstr "Place of Birth"
+
+#: applicationForm/templates/applicationForm/page10.html:116
+#: applicationForm/templates/applicationForm/page10.html:220
+#: applicationForm/templates/applicationForm/page10.html:262
+#: applicationForm/templates/applicationForm/page10.html:312
+#: applicationForm/templates/applicationForm/page10.html:352
+#: applicationForm/templates/applicationForm/page2/individual.html:45
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:30
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:44
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/lawyer.html:29
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:41
+msgid "Nationality"
+msgstr "Nationality"
+
+#: applicationForm/templates/applicationForm/page10.html:120
+#: applicationForm/templates/applicationForm/page10.html:216
+#: applicationForm/templates/applicationForm/page10.html:258
+#: applicationForm/templates/applicationForm/page10.html:308
+#: applicationForm/templates/applicationForm/page10.html:348
+#: applicationForm/templates/applicationForm/page2/individual.html:55
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:21
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:34
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/lawyer.html:20
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:29
+msgid "Address"
+msgstr "Address"
+
+#: applicationForm/templates/applicationForm/page10.html:124
+#: applicationForm/templates/applicationForm/page10.html:163
+#: applicationForm/templates/applicationForm/page10.html:228
+#: applicationForm/templates/applicationForm/page10.html:270
+#: applicationForm/templates/applicationForm/page10.html:320
+#: applicationForm/templates/applicationForm/page10.html:360
+#: applicationForm/templates/applicationForm/page2/individual.html:70
+#: applicationForm/templates/applicationForm/page2/organisation.html:120
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:36
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:50
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/lawyer.html:51
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:63
+msgid "TelNo"
+msgstr "Telephone Number (select country code)"
+
+#: applicationForm/templates/applicationForm/page10.html:128
+#: applicationForm/templates/applicationForm/page10.html:167
+#: applicationForm/templates/applicationForm/page10.html:224
+#: applicationForm/templates/applicationForm/page10.html:266
+#: applicationForm/templates/applicationForm/page10.html:316
+#: applicationForm/templates/applicationForm/page10.html:356
+#: applicationForm/templates/applicationForm/page2/individual.html:77
+#: applicationForm/templates/applicationForm/page2/organisation.html:127
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:57
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:60
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/lawyer.html:56
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:68
+msgid "Email"
+msgstr "Email"
+
+#: applicationForm/templates/applicationForm/page10.html:132
+#: applicationForm/templates/applicationForm/page2/individual.html:88
+msgid "Sex"
+msgstr "Sex"
+
+#: applicationForm/templates/applicationForm/page10.html:136
+msgid "Page10_Anonymity_Request"
+msgstr "Anonymity Request"
+
+#: applicationForm/templates/applicationForm/page10.html:143
+#: applicationForm/templates/applicationForm/page2/organisation.html:13
+msgid "Page2_Organisation_Name"
+msgstr "Name"
+
+#: applicationForm/templates/applicationForm/page10.html:147
+#: applicationForm/templates/applicationForm/page2/organisation.html:23
+msgid "Page2_Organisation_Activity"
+msgstr "Activity"
+
+#: applicationForm/templates/applicationForm/page10.html:151
+#: applicationForm/templates/applicationForm/page2/organisation.html:50
+msgid "Page2_Organisation_RegDate"
+msgstr "Please provide the date of registration or incorporation"
+
+#: applicationForm/templates/applicationForm/page10.html:155
+#: applicationForm/templates/applicationForm/page2/organisation.html:86
+msgid "Page2_Organisation_ID"
+msgstr "Please provide the identification number."
+
+#: applicationForm/templates/applicationForm/page10.html:159
+#: applicationForm/templates/applicationForm/page2/organisation.html:110
+msgid "Page2_Organisation_Address"
+msgstr "Registered Address"
+
+#: applicationForm/templates/applicationForm/page10.html:186
+#, fuzzy
+#| msgid "Page1_Heading"
+msgid "Page3_Heading"
+msgstr "Prerequisites"
+
+#: applicationForm/templates/applicationForm/page10.html:190
+msgid "Page10_ReviewDescription_3"
+msgstr ""
+"In this page you must inform the case on whether you have a representative "
+"or not. At this point in the application process you do not need a lawyer, "
+"although if your application is complete and reaches a judicial stage where "
+"the chamber organizes hearings, then the ECtHR will expect you to be "
+"represented by a lawyer. The Court will inform you in good time if this is "
+"the case.<br>It is common that in the case of an applicant who is physically "
+"or legally unable to lodge the application, there is a non-lawyer who "
+"represents the applicant, for example in the case of children or persons who "
+"have disappeared. Either the applicant or a non-lawyer representative of an "
+"applicant may give power of attorney to a lawyer. In the case where the "
+"applicant has a representative, both the applicant and the representative "
+"must sign the authority form giving the representative the power to "
+"represent the applicant."
+
+#: applicationForm/templates/applicationForm/page10.html:200
+#: applicationForm/templates/applicationForm/page10.html:246
+#: applicationForm/templates/applicationForm/page10.html:288
+#: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:17
+msgid "Page3_IndRep_Type"
+msgstr "Representative Type"
+
+#: applicationForm/templates/applicationForm/page10.html:204
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:10
+msgid "Page3_IndRep_NL_Capacity"
+msgstr "Capacity / relationship / function"
+
+#: applicationForm/templates/applicationForm/page10.html:232
+#: applicationForm/templates/applicationForm/page10.html:274
+#: applicationForm/templates/applicationForm/page10.html:364
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:46
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:65
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/lawyer.html:35
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:47
+msgid "Fax"
+msgstr "Fax"
+
+#: applicationForm/templates/applicationForm/page10.html:236
+#: applicationForm/templates/applicationForm/page10.html:278
+#: applicationForm/templates/applicationForm/page10.html:368
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:98
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:171
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/lawyer.html:81
+msgid "Page3_Authority_Option"
+msgstr ""
+"Are both the applicant and the representative able to sign the Authority "
+"form (power of attorney)?"
+
+#: applicationForm/templates/applicationForm/page10.html:240
+#: applicationForm/templates/applicationForm/page10.html:282
+#: applicationForm/templates/applicationForm/page10.html:372
+#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:215
+#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:251
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/lawyer.html:147
+msgid "Page3_Ecomms_Email"
+msgstr ""
+" Please provide an email address for ECtHR communication system, eComms. You "
+"can read more about the eComms terms and conditions <a href=\"https://www."
+"echr.coe.int/Pages/home.aspx?p=ecomms&c=\" target=\"_blank\">here</a>."
+
+#: applicationForm/templates/applicationForm/page10.html:296
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:9
+msgid "Page3_OrgOfficial_Capacity"
+msgstr "Capacity/function"
+
+#: applicationForm/templates/applicationForm/page10.html:328
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:86
+msgid "Page3_OrgOff_Entitled"
+msgstr ""
+"Do you have a document proving that the organisation official is legally "
+"entitled to represent the organisation?"
+
+#: applicationForm/templates/applicationForm/page10.html:333
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:109
+msgid "Page3_Org_RepLawyer"
+msgstr "Is the organisation going to be represented by a Lawyer?"
+
+#: applicationForm/templates/applicationForm/page10.html:388
+#: applicationForm/templates/applicationForm/page10.html:399
+#: applicationForm/templates/applicationForm/page4.html:9
+msgid "Page4_Heading"
+msgstr "Statement of the facts"
+
+#: applicationForm/templates/applicationForm/page10.html:392
+msgid "Page10_ReviewDescription_4"
+msgstr ""
+"In this page you must state the matter of your facts. You must present "
+"clearly and concisely the key events of your case and the adminisdivative "
+"and judicial decisions that you consider led to the violation of your rights."
+
+#: applicationForm/templates/applicationForm/page10.html:403
+#: applicationForm/templates/applicationForm/page4.html:62
+msgid "Page4_Supplementary"
+msgstr "Supplementary Statement on the Subject matter of the application."
+
+#: applicationForm/templates/applicationForm/page10.html:419
+#: applicationForm/templates/applicationForm/page5.html:8
+msgid "Page5_Heading"
+msgstr "Alleged violations of the Convention/Protocols"
+
+#: applicationForm/templates/applicationForm/page10.html:424
+msgid "Page10_ReviewDescription_5"
+msgstr ""
+"In this page you must choose the articles of the European Convention of "
+"Human Rights and/or its Protocols which you considered has been violated by "
+"the state you are complaining against. You must also provide an explanation "
+"based on the facts of your case which explain why you consider that "
+"particular article has been infringed upon.<br> We will provide a link to "
+"the convention, as well as a drop down with all the articles of the European "
+"Convention on Human Rights and its Protocols that your coundivy was bound by "
+"at the time the facts happened. In addition you will be shown the text of "
+"each article chosen and any reservations, declarations or derogations that "
+"the coundivy you are complaining about might have made to the article(s) "
+"chosen."
+
+#: applicationForm/templates/applicationForm/page10.html:441
+#: applicationForm/templates/applicationForm/page6.html:8
+msgid "Page6_Heading"
+msgstr "Domestic Proceedings"
+
+#: applicationForm/templates/applicationForm/page10.html:445
+msgid "Page10_ReviewDescription_6"
+msgstr ""
+"In this page you must list all the domestic remedies you have appealed to in "
+"relation to the articles of the European Convention on Human Rights which "
+"you think might have been infringed upon.<br> One of the reasons why the "
+"European Court of Human Rights declares applications inadmisible is that the "
+"applicant does not prove that she/he has exhausted the domestic remedies "
+"that were available. This is why it is important that you show that you went "
+"to the national courts and appealed up to the highest level in order to seek "
+"remedy for your complaints."
+
+#: applicationForm/templates/applicationForm/page10.html:454
+#: applicationForm/templates/applicationForm/page6.html:136
+msgid "Page6_Unused_Remedy_Explain"
+msgstr ""
+"Please state which appeal or remedy you have not used and explain why not."
+
+#: applicationForm/templates/applicationForm/page10.html:469
+#: applicationForm/templates/applicationForm/page7.html:8
+msgid "Page7_Heading"
+msgstr "International Proceedings"
+
+#: applicationForm/templates/applicationForm/page10.html:473
+msgid "Page10_ReviewDescription_7"
+msgstr ""
+"In this page you must list any international bodies that you have resorted "
+"to in order to address your complaints. These international bodies may be "
+"international arbidivation panels or other United Nations bodies, such as "
+"the International Labour Organisation or the United Nations Human Rights "
+"Committee.<br> If you have appealed to any other international body, your "
+"application in front of the European Court of Human Rights may be dismissed. "
+"<br>You must also mention if you (the applicant) have sent prior "
+"applications to the European Court of Human Rights. This is especially "
+"important if you have prior applications on the same matter."
+
+#: applicationForm/templates/applicationForm/page10.html:481
+#: applicationForm/templates/applicationForm/page7.html:37
+msgid "Page7_Another_Investigation_Summary"
+msgstr ""
+"Please give a concise summary of the procedure (complaints submitted, name "
+"of the international body and date and nature of any decisions given)."
+
+#: applicationForm/templates/applicationForm/page10.html:487
+#: applicationForm/templates/applicationForm/page7.html:50
+msgid "Page7_Other_Application"
+msgstr ""
+"Do you (the applicant) currently have, or have you previously had, any other "
+"applications before the Court?"
+
+#: applicationForm/templates/applicationForm/page10.html:502
+#: applicationForm/templates/applicationForm/page8.html:8
+msgid "Page8_Heading"
+msgstr "Supporting documents"
+
+#: applicationForm/templates/applicationForm/page10.html:506
+msgid "Page10_ReviewDescription_8"
+msgstr ""
+"In this page you must list all the documents related to your case.The "
+"European Court of Human Rights expects to receive a chronologically arranged "
+"list with the name, description and page numbers of each document, as well "
+"as copies of the listed documents. For this reason you must make a list of "
+"all the documents you want to submit to the Court in order to support your "
+"claims (decisions, medical reports, witness statements and other material "
+"you might deem necessary). Using the information you enter on this page, the "
+"digital application form will automatically determine the order and "
+"consecutive page numbers of your documents: you just enter the date and page "
+"numbers, and it will calculate automatically where in the accompanying "
+"documents folder each document can be found. Before you send the application "
+"form to the European Court of Human Rights you still have to manually gather "
+"the documents, arrange them according to the list of documents on page 12 of "
+"the PRINTED FORM. You also have to number the pages of each document "
+"consecutively and add them in order in the envelope containing your "
+"application.<br> Please be advised that the European Court of Human Rights "
+"has very specific requirements for how the accompanying documents should be "
+"arranged: <br>they should be arranged by date and procedure.<br>The pages of "
+"all documents must be numbered consecutively, similarly to how chapters in a "
+"book are numbered. When you generate the printable application form from "
+"Justbot, you will receive separator pages for each document that you listed. "
+"The separator pages contain the title and description of each document, as "
+"well as the start and end page number for each document and they will guide "
+"you in numbering the pages of your documents.<br> You must not staple, bind "
+"or tape the documents.<br><br>Please note that the European Court of Human "
+"Rights will not open and it will desdivoy any package that is deemed "
+"suspicious."
+
+#: applicationForm/templates/applicationForm/page10.html:523
+#: applicationForm/templates/applicationForm/page9.html:8
+msgid "Page9_Heading"
+msgstr "Other Comments and Declaration"
+
+#: applicationForm/templates/applicationForm/page10.html:527
+msgid "Page10_ReviewDescription_9"
+msgstr ""
+"In this page you must mention any other comments you might have in relation "
+"to your application and which you have not mentioned already, but you "
+"nonetheless feel they are important. You must also choose a correspondent "
+"with the European Court of Human Rights. It can be either the applicant or "
+"the representative of the applicant.<br>In the printed version of the "
+"application form, which has a different format from the digital form, the "
+"page corresponding to this step in the digital form needs to be dated and "
+"signed by the applicant or its representative. Your signature on the "
+"application form confirms that the information you have provided in the "
+"application form is correct."
+
+#: applicationForm/templates/applicationForm/page10.html:535
+#: applicationForm/templates/applicationForm/page9.html:14
+msgid "Page9_OtherComments"
+msgstr ""
+"Do you have any other comments regarding your application? If you do, please "
+"write them in the box below."
+
+#: applicationForm/templates/applicationForm/page10.html:540
+#: applicationForm/templates/applicationForm/page9.html:47
+#: applicationForm/templates/applicationForm/page9.html:64
+msgid "Page9_Confirmation_Applicant"
+msgstr "Confirmation of correspondent"
+
+#: applicationForm/templates/applicationForm/page10.html:552
+#: applicationForm/templates/applicationForm/page9.html:90
+msgid "Page9_Who_Sign"
+msgstr ""
+"Who is going to sign the declaration concerning the accuracy of the "
+"information provided in the application form?"
+
+#: applicationForm/templates/applicationForm/page10.html:570
+msgid "Page10_ReviewDescription_10"
+msgstr ""
+"This is the current page. After you enter information on your digital form, "
+"that information will be sent to this page, providing you a way of checking "
+"whether you have entered all the information you needed to. From this page "
+"you can go back to each page of the digital application form and edit the "
+"desired fields."
+
+#: applicationForm/templates/applicationForm/page10.html:581
+#: applicationForm/templates/applicationForm/page11.html:8
+#, fuzzy
+#| msgid "Page1_Heading"
+msgid "Page11_Heading"
+msgstr "Finish"
+
+#: applicationForm/templates/applicationForm/page10.html:585
+msgid "Page10_ReviewDescription_11"
+msgstr ""
+"On this page you are provided guidance on how to apply to the European Court "
+"of Human Rights and you can generate the pdf version of your application "
+"form. At the bottom of the page you have two buttons: one to send the "
+"generated form to an email address, and another to download the form "
+"directly from your browser. The document that is generated is one pdf which "
+"contains the full application form in the format required by the European "
+"Court of Human Rights, as well as separator pages for the documents you "
+"listed on page 8 of the digital form. In this pdf you will also find the "
+"documents you may have created within the application form, like the "
+"Anonymity Request, Supplementary Pages for the Statement of Facts, or any "
+"other document."
+
+#: applicationForm/templates/applicationForm/page10.html:597
+#: applicationForm/templates/applicationForm/page11.html:47
+#: applicationForm/templates/applicationForm/page2.html:66
+#: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:59
+#: applicationForm/templates/applicationForm/page3/orgRepresentative/orgRepresentative.html:40
+#: applicationForm/templates/applicationForm/page4.html:79
+#: applicationForm/templates/applicationForm/page5.html:146
+#: applicationForm/templates/applicationForm/page6.html:153
+#: applicationForm/templates/applicationForm/page7.html:88
+#: applicationForm/templates/applicationForm/page8.html:116
+#: applicationForm/templates/applicationForm/page9.html:147
+msgid "Button_Previous"
+msgstr "Previous"
+
+#: applicationForm/templates/applicationForm/page11.html:12
+msgid "Page11_Very_Important_Subheading"
+msgstr "VERY IMPORTANT"
+
+#: applicationForm/templates/applicationForm/page11.html:14
+msgid "Page11_Subheading_description"
+msgstr ""
+"The application form has to be printed out and sent by mail to the registrar "
+"of the European Court of Human Rights.<br>Please keep the Court informed of "
+"any change of address and/or circumstances relevant to your application."
+
+#: applicationForm/templates/applicationForm/page11.html:17
+msgid "Page11_Before_Mailing"
+msgstr "Before mailing the form, please make sure to:"
+
+#: applicationForm/templates/applicationForm/page11.html:20
+msgid "Page11_Before_Mailing_1"
+msgstr ""
+"Add the original signatures of the applicant(s) and/or the authorised "
+"representative(s) in all the relevant fields (page 3 if you are an "
+"individual that is represented by someone else, page 4 if you are an "
+"organisation that is represented by a lawyer, and page 13 of the printed "
+"application form). The receipt of a faxed application is not counted as a "
+"complete application as the Court needs to receive the original signed "
+"application form."
+
+#: applicationForm/templates/applicationForm/page11.html:22
+msgid "Page11_Before_Mailing_2"
+msgstr ""
+"Add full and legible copies of all documents mentioned in your application. "
+"No documents will be returned to you. It is thus in your interests to submit "
+"copies, not originals. You MUST:"
+
+#: applicationForm/templates/applicationForm/page11.html:25
+msgid "Page11_Before_Mailing_2_1"
+msgstr "arrange the documents in order by date and by procedure;"
+
+#: applicationForm/templates/applicationForm/page11.html:26
+msgid "Page11_Before_Mailing_2_2"
+msgstr "number the pages consecutively; and"
+
+#: applicationForm/templates/applicationForm/page11.html:27
+msgid "Page11_Before_Mailing_2_3"
+msgstr "NOT staple, bind or tape the documents."
+
+#: applicationForm/templates/applicationForm/page11.html:30
+msgid "Page11_Before_Mailing_3"
+msgstr ""
+"You must dispatch the signed original by post within the six-month time-"
+"limit from the date when the final decision from the highest national court "
+"was communicated."
+
+#: applicationForm/templates/applicationForm/page11.html:33
+msgid "Page11_Before_Mailing_4"
+msgstr "The completed and signed application form should be sent by post to:"
+
+#: applicationForm/templates/applicationForm/page11.html:36
+msgid "Page11_Before_Mailing_4_Address"
+msgstr ""
+"<b>The Registrar</b><br><b>European Court of Human Rights</b><br><b>Council "
+"of Europe</b><br><b>67075 STRASBOURG CEDEX</b><br><b>FRANCE</b>"
+
+#: applicationForm/templates/applicationForm/page11.html:49
+msgid "Button_Submit_Form_Button"
+msgstr "Generate Printable PDF Form"
 
 #: applicationForm/templates/applicationForm/page2.html:17
 msgid "Page2_Instructions"
@@ -520,17 +1099,6 @@ msgstr ""
 "than one such applicant, this information must be provided for each "
 "additional applicant, on a separate application form."
 
-#: applicationForm/templates/applicationForm/page2.html:66
-#: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:59
-#: applicationForm/templates/applicationForm/page3/orgRepresentative/orgRepresentative.html:40
-#: applicationForm/templates/applicationForm/page4.html:79
-#: applicationForm/templates/applicationForm/page5.html:146
-#: applicationForm/templates/applicationForm/page6.html:153
-#: applicationForm/templates/applicationForm/page7.html:88
-#: applicationForm/templates/applicationForm/page8.html:116
-msgid "Button_Previous"
-msgstr "Previous"
-
 #: applicationForm/templates/applicationForm/page2/anonymity.html:7
 msgid "Page2_Anonymity_Question"
 msgstr ""
@@ -555,14 +1123,6 @@ msgstr ""
 "Fill in this part only if you’re an Individual. If you’re a company, "
 "association, NGO or other legal entity, select “Organisation” above."
 
-#: applicationForm/templates/applicationForm/page2/individual.html:12
-#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:8
-#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:19
-#: applicationForm/templates/applicationForm/page3/orgRepresentative/lawyer.html:6
-#: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:15
-msgid "Surname"
-msgstr "Surname"
-
 #: applicationForm/templates/applicationForm/page2/individual.html:13
 #: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:10
 #: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:21
@@ -570,14 +1130,6 @@ msgstr "Surname"
 #: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:16
 msgid "Surname_Placeholder"
 msgstr "Enter your surname"
-
-#: applicationForm/templates/applicationForm/page2/individual.html:18
-#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:13
-#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:25
-#: applicationForm/templates/applicationForm/page3/orgRepresentative/lawyer.html:11
-#: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:20
-msgid "FirstName"
-msgstr "First Name(s)"
 
 #: applicationForm/templates/applicationForm/page2/individual.html:20
 #: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:15
@@ -587,29 +1139,13 @@ msgstr "First Name(s)"
 msgid "FirstName_Placeholder"
 msgstr "Name of the organisation"
 
-#: applicationForm/templates/applicationForm/page2/individual.html:28
-msgid "DOB"
-msgstr "Date of Birth"
-
 #: applicationForm/templates/applicationForm/page2/individual.html:31
 msgid "DOB_Placeholder"
 msgstr "Choose Date of Birth"
 
-#: applicationForm/templates/applicationForm/page2/individual.html:38
-msgid "POB"
-msgstr "Place of Birth"
-
 #: applicationForm/templates/applicationForm/page2/individual.html:41
 msgid "POB_Placeholder"
 msgstr "Enter Place of Birth"
-
-#: applicationForm/templates/applicationForm/page2/individual.html:45
-#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:30
-#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:44
-#: applicationForm/templates/applicationForm/page3/orgRepresentative/lawyer.html:29
-#: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:41
-msgid "Nationality"
-msgstr "Nationality"
 
 #: applicationForm/templates/applicationForm/page2/individual.html:48
 #: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:32
@@ -618,14 +1154,6 @@ msgstr "Nationality"
 #: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:43
 msgid "Nationality_Placeholder"
 msgstr "Select country"
-
-#: applicationForm/templates/applicationForm/page2/individual.html:55
-#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:21
-#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:34
-#: applicationForm/templates/applicationForm/page3/orgRepresentative/lawyer.html:20
-#: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:29
-msgid "Address"
-msgstr "Address"
 
 #: applicationForm/templates/applicationForm/page2/individual.html:57
 msgid "Page2_Individual_Address_Popover"
@@ -644,15 +1172,6 @@ msgstr ""
 msgid "Lines_Remaining"
 msgstr "Lines Remaining"
 
-#: applicationForm/templates/applicationForm/page2/individual.html:70
-#: applicationForm/templates/applicationForm/page2/organisation.html:120
-#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:36
-#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:50
-#: applicationForm/templates/applicationForm/page3/orgRepresentative/lawyer.html:51
-#: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:63
-msgid "TelNo"
-msgstr "Telephone Number (select country code)"
-
 #: applicationForm/templates/applicationForm/page2/individual.html:73
 #: applicationForm/templates/applicationForm/page2/organisation.html:123
 #: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:38
@@ -662,15 +1181,6 @@ msgstr "Telephone Number (select country code)"
 msgid "TelNo_Placeholder"
 msgstr "Enter telephone number"
 
-#: applicationForm/templates/applicationForm/page2/individual.html:77
-#: applicationForm/templates/applicationForm/page2/organisation.html:127
-#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:57
-#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:60
-#: applicationForm/templates/applicationForm/page3/orgRepresentative/lawyer.html:56
-#: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:68
-msgid "Email"
-msgstr "Email"
-
 #: applicationForm/templates/applicationForm/page2/individual.html:80
 #: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:59
 #: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:62
@@ -678,10 +1188,6 @@ msgstr "Email"
 #: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:70
 msgid "Email_Placeholder"
 msgstr "Enter email"
-
-#: applicationForm/templates/applicationForm/page2/individual.html:88
-msgid "Sex"
-msgstr "Sex"
 
 #: applicationForm/templates/applicationForm/page2/individual.html:93
 msgid "Sex_Male"
@@ -703,17 +1209,9 @@ msgstr ""
 "echr.coe.int/eng?i=002-9574' target='_blank'><em>CLR on behalf of Valentin "
 "Campeanu v. Romania</em></a>)."
 
-#: applicationForm/templates/applicationForm/page2/organisation.html:13
-msgid "Page2_Organisation_Name"
-msgstr "Name"
-
 #: applicationForm/templates/applicationForm/page2/organisation.html:16
 msgid "Page2_Organisation_Name_Placeholder"
 msgstr "Name of the organisation"
-
-#: applicationForm/templates/applicationForm/page2/organisation.html:23
-msgid "Page2_Organisation_Activity"
-msgstr "Activity"
 
 #: applicationForm/templates/applicationForm/page2/organisation.html:26
 msgid "Page2_Organisation_Activity_Placeholder"
@@ -723,10 +1221,6 @@ msgstr "Enter activity"
 msgid "Page2_Organisation_RegDateOption"
 msgstr ""
 "Do you have a date of registration or incorporation of your organisation?"
-
-#: applicationForm/templates/applicationForm/page2/organisation.html:50
-msgid "Page2_Organisation_RegDate"
-msgstr "Please provide the date of registration or incorporation"
 
 #: applicationForm/templates/applicationForm/page2/organisation.html:55
 msgid "Page2_Organisation_RegDate_Placeholder"
@@ -757,10 +1251,6 @@ msgstr ""
 msgid "Page2_Organisation_ID_Option"
 msgstr "Does your organisation have an identification number?"
 
-#: applicationForm/templates/applicationForm/page2/organisation.html:86
-msgid "Page2_Organisation_ID"
-msgstr "Please provide the identification number."
-
 #: applicationForm/templates/applicationForm/page2/organisation.html:89
 msgid "Page2_Organisation_ID_Placeholder"
 msgstr "Enter identification number"
@@ -783,10 +1273,6 @@ msgid "Page2_Organisation_NoID_Placeholder"
 msgstr ""
 "Example of explanation: The country where the organisation is located does "
 "not provide identification numbers."
-
-#: applicationForm/templates/applicationForm/page2/organisation.html:110
-msgid "Page2_Organisation_Address"
-msgstr "Registered Address"
 
 #: applicationForm/templates/applicationForm/page2/organisation.html:114
 #: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:22
@@ -816,10 +1302,6 @@ msgstr ""
 "someone else, such as a friend, a relative, or a guardian, please select "
 "\"non-lawyer\". If you are not represented by another person, please select "
 "the option \"I represent myself at this stage\"."
-
-#: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:17
-msgid "Page3_IndRep_Type"
-msgstr "Representative Type"
 
 #: applicationForm/templates/applicationForm/page3/indRepresentative/indRepresentative.html:23
 msgid "Page3_IndRep_NL"
@@ -865,13 +1347,6 @@ msgstr "I represent myself at this stage"
 #: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:5
 msgid "Page3_IndRep_L_Heading"
 msgstr "Details of the Lawyer Representative"
-
-#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:46
-#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:65
-#: applicationForm/templates/applicationForm/page3/orgRepresentative/lawyer.html:35
-#: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:47
-msgid "Fax"
-msgstr "Fax"
 
 #: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:47
 #: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:66
@@ -953,14 +1428,6 @@ msgstr ""
 "signature, the Registry may continue to correspond only with the applicant "
 "due to lack of proof that the representative is in fact involved in the case."
 
-#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:98
-#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:171
-#: applicationForm/templates/applicationForm/page3/orgRepresentative/lawyer.html:81
-msgid "Page3_Authority_Option"
-msgstr ""
-"Are both the applicant and the representative able to sign the Authority "
-"form (power of attorney)?"
-
 #: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:118
 msgid "Page3_IndRep_VeryImportant"
 msgstr ""
@@ -1039,15 +1506,6 @@ msgstr ""
 "Direction on electronic filing by applicants (www.echr.coe.int/"
 "practicedirections) (available in English and French only)."
 
-#: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:215
-#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:251
-#: applicationForm/templates/applicationForm/page3/orgRepresentative/lawyer.html:147
-msgid "Page3_Ecomms_Email"
-msgstr ""
-" Please provide an email address for ECtHR communication system, eComms. You "
-"can read more about the eComms terms and conditions <a href=\"https://www."
-"echr.coe.int/Pages/home.aspx?p=ecomms&c=\" target=\"_blank\">here</a>."
-
 #: applicationForm/templates/applicationForm/page3/indRepresentative/lawyer.html:218
 #: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:254
 #: applicationForm/templates/applicationForm/page3/orgRepresentative/lawyer.html:150
@@ -1057,10 +1515,6 @@ msgstr "Enter ecomms email address"
 #: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:5
 msgid "Page3_IndRep_NL_Heading"
 msgstr "Details of the Non-Lawyer Representative"
-
-#: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:10
-msgid "Page3_IndRep_NL_Capacity"
-msgstr "Capacity / relationship / function"
 
 #: applicationForm/templates/applicationForm/page3/indRepresentative/non-lawyer.html:11
 msgid "Page3_IndRep_NL_Capacity_Popover"
@@ -1233,10 +1687,6 @@ msgstr ""
 msgid "Page3_OrgOfficial_Heading"
 msgstr "Organisation Official"
 
-#: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:9
-msgid "Page3_OrgOfficial_Capacity"
-msgstr "Capacity/function"
-
 #: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:11
 msgid "Page3_OrgOfficial_Capacity_Placeholder"
 msgstr "Enter your capacity/relationship/function in the organisation"
@@ -1266,12 +1716,6 @@ msgstr ""
 msgid "Page3_OrgOff_NoFaxArea_Placeholder"
 msgstr "Please provide an explanation for unavailability of Fax number"
 
-#: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:86
-msgid "Page3_OrgOff_Entitled"
-msgstr ""
-"Do you have a document proving that the organisation official is legally "
-"entitled to represent the organisation?"
-
 #: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:87
 msgid "Page3_OrgOff_Entitled_Description"
 msgstr ""
@@ -1279,10 +1723,6 @@ msgstr ""
 "represent the organisation under your national law. This document can be: a "
 "copy of the extract of the company register or of the chamber of commerce "
 "register, a notarised authorisation or minutes of the governing body."
-
-#: applicationForm/templates/applicationForm/page3/orgRepresentative/non-lawyer.html:109
-msgid "Page3_Org_RepLawyer"
-msgstr "Is the organisation going to be represented by a Lawyer?"
 
 #: applicationForm/templates/applicationForm/page3/orgRepresentative/orgRepresentative.html:6
 msgid "Page3_OrgRep_Heading"
@@ -1310,10 +1750,6 @@ msgstr ""
 "representative. Both parts of the application form concerning representation "
 "must still be filled in, and requisite documentary proof provided of "
 "authority to represent the legal person must be attached."
-
-#: applicationForm/templates/applicationForm/page4.html:9
-msgid "Page4_Heading"
-msgstr "Statement of the facts"
 
 #: applicationForm/templates/applicationForm/page4.html:10
 #, fuzzy
@@ -1382,17 +1818,9 @@ msgstr ""
 "international level and has already been looked at by a domestic court, the "
 "case may also be rejected."
 
-#: applicationForm/templates/applicationForm/page4.html:62
-msgid "Page4_Supplementary"
-msgstr "Supplementary Statement on the Subject matter of the application."
-
 #: applicationForm/templates/applicationForm/page4.html:70
 msgid "Page4_Supplementary_Delete_Button"
 msgstr "Delete Supplementary Statement"
-
-#: applicationForm/templates/applicationForm/page5.html:8
-msgid "Page5_Heading"
-msgstr "Alleged violations of the Convention/Protocols"
 
 #: applicationForm/templates/applicationForm/page5.html:13
 msgid "Page5_Heading_Description"
@@ -1483,10 +1911,6 @@ msgstr "Add"
 msgid "Remove_Button"
 msgstr "Remove"
 
-#: applicationForm/templates/applicationForm/page6.html:8
-msgid "Page6_Heading"
-msgstr "Domestic Proceedings"
-
 #: applicationForm/templates/applicationForm/page6.html:12
 msgid "Page6_Heading_Description"
 msgstr ""
@@ -1566,15 +1990,6 @@ msgid "Page6_Unused_Remedy_Option"
 msgstr ""
 "Is or was there an appeal or remedy available to you which you have not used?"
 
-#: applicationForm/templates/applicationForm/page6.html:136
-msgid "Page6_Unused_Remedy_Explain"
-msgstr ""
-"Please state which appeal or remedy you have not used and explain why not."
-
-#: applicationForm/templates/applicationForm/page7.html:8
-msgid "Page7_Heading"
-msgstr "International Proceedings"
-
 #: applicationForm/templates/applicationForm/page7.html:12
 msgid "Page7_Another_Investigation"
 msgstr ""
@@ -1593,18 +2008,6 @@ msgstr ""
 "took place and details of any decisions that were taken. You should also "
 "submit copies of relevant decisions and other documents."
 
-#: applicationForm/templates/applicationForm/page7.html:37
-msgid "Page7_Another_Investigation_Summary"
-msgstr ""
-"Please give a concise summary of the procedure (complaints submitted, name "
-"of the international body and date and nature of any decisions given)."
-
-#: applicationForm/templates/applicationForm/page7.html:50
-msgid "Page7_Other_Application"
-msgstr ""
-"Do you (the applicant) currently have, or have you previously had, any other "
-"applications before the Court?"
-
 #: applicationForm/templates/applicationForm/page7.html:59
 msgid "Page7_Other_Application_Description"
 msgstr ""
@@ -1620,10 +2023,6 @@ msgstr ""
 #: applicationForm/templates/applicationForm/page7.html:75
 msgid "Page7_Other_Application_Write"
 msgstr "Please write the relevant application number(s) in the box below."
-
-#: applicationForm/templates/applicationForm/page8.html:8
-msgid "Page8_Heading"
-msgstr "Supporting documents"
 
 #: applicationForm/templates/applicationForm/page8.html:12
 msgid "Page8_Subheading"
@@ -1695,32 +2094,106 @@ msgstr "Short description of the Document"
 msgid "Page8_Heading_Page"
 msgstr "Page"
 
-#~ msgid "Page3_IndRep_NL_Fname"
-#~ msgstr "First Name(s)"
+#: applicationForm/templates/applicationForm/page9.html:28
+msgid "Page9_WhoCorrespond"
+msgstr "Who will correspond with the court?"
 
-#~ msgid "Page3_IndRep_NL_Fname_Placeholder"
-#~ msgstr "Enter your first name(s)"
+#: applicationForm/templates/applicationForm/page9.html:29
+msgid "Page9_WhoCorrespond_Description"
+msgstr ""
+"The European Court of Human Rights will need to contact you in order to "
+"inform you about the status of your application. The Court may also need "
+"additional information from you in order to process your application. For "
+"this reason it is very important that you choose the preferred contact "
+"person with the Court in such a manner that the communication is not delayed "
+"unnecessary. Please keep in mind that failing to reply to the communications "
+"from the Court may render your application incomplete or struck out of the "
+"list of applications."
 
-#~ msgid "Page3_IndRep_NL_Address"
-#~ msgstr "Address"
+#: applicationForm/templates/applicationForm/page9.html:36
+msgid "Page9_Applicant"
+msgstr "Applicant(s)"
 
-#~ msgid "Page3_IndRep_NL_Address_Placeholder"
-#~ msgstr "Enter address"
+#: applicationForm/templates/applicationForm/page9.html:42
+msgid "Page9_Representative"
+msgstr "Representative(s)"
 
-#~ msgid "Page3_IndRep_NL_Nationality"
-#~ msgstr "Nationality"
+#: applicationForm/templates/applicationForm/page9.html:48
+msgid "Page9_Confirmation_Applicant_Description"
+msgstr ""
+"If there is more than one applicant or more than one representative, please "
+"give the name and address of the one person with whom the Court will "
+"correspond. Where the applicant is represented, the Court will correspond "
+"only with the representative (lawyer or nonlawyer)."
 
-#~ msgid "Page3_IndRep_NL_Nationality_Placeholder"
-#~ msgstr "Select country"
+#: applicationForm/templates/applicationForm/page9.html:50
+msgid "Page9_Applicant_Name"
+msgstr "Name of applicant"
 
-#~ msgid "Page3_IndRep_NL_TelNo"
-#~ msgstr "Telephone Number (select country code)"
+#: applicationForm/templates/applicationForm/page9.html:54
+msgid "Page9_Applicant_Address"
+msgstr "Address of applicant"
 
-#~ msgid "Page3_IndRep_NL_TelNo_Placeholder"
-#~ msgstr "Enter telephone number"
+#: applicationForm/templates/applicationForm/page9.html:56
+msgid "Page9_Applicant_Address_Popover"
+msgstr ""
+"An applicant must provide a postal address separate from that of a lawyer or "
+"representative so that the Court can make contact if necessary. An applicant "
+"who is homeless or has no fixed residence may have to give a box number or "
+"friend’s details but should provide an explanation."
 
-#~ msgid "Page3_IndRep_NL_Email"
-#~ msgstr "Email"
+#: applicationForm/templates/applicationForm/page9.html:65
+msgid "Page9_Confirmation_Representative_Description"
+msgstr ""
+"If there is more than one representative, please give the name and address "
+"of the one person with whom the Court will correspond. Where the applicant "
+"is represented, the Court will correspond only with the representative "
+"(lawyer or nonlawyer)."
 
-#~ msgid "Page3_IndRep_NL_Email_Placeholder"
-#~ msgstr "Enter email"
+#: applicationForm/templates/applicationForm/page9.html:67
+msgid "Page9_Representative_Name"
+msgstr "Name of Representative"
+
+#: applicationForm/templates/applicationForm/page9.html:71
+#, fuzzy
+#| msgid "Page2_Organisation_Address"
+msgid "Page9_Representative_Address"
+msgstr "Registered Address of Representative"
+
+#: applicationForm/templates/applicationForm/page9.html:82
+msgid "Page9_Signature"
+msgstr "Signature"
+
+#: applicationForm/templates/applicationForm/page9.html:84
+msgid "Page9_Signature_Description"
+msgstr ""
+"You must declare that, to the best of your knowledge and belief, the "
+"information you have given in the present application form is correct."
+
+#: applicationForm/templates/applicationForm/page9.html:96
+msgid "Page9_Who_Sign_Applicant"
+msgstr "The applicant"
+
+#: applicationForm/templates/applicationForm/page9.html:102
+msgid "Page9_Who_Sign_Representative"
+msgstr "The representative"
+
+#: applicationForm/templates/applicationForm/page9.html:111
+msgid "Page9_Very_Important"
+msgstr ""
+"<b>VERY IMPORTANT</b>: This section in the printed version must contain "
+"original signatures of the applicant or its representative, as well as the "
+"date when the document was signed. Please finish to fill in the application "
+"form, print it and then SIGN and DATE this section (on page 13 of the "
+"printed application form). Failing to do so will result in the application "
+"not being examined by the Court."
+
+#: applicationForm/templates/applicationForm/page9.html:132
+msgid "Page9_Confirm_Read"
+msgstr ""
+"Please confirm you have read and understood that either the applicant or its "
+"representative have to sign and date page 13 in the printed application form."
+
+#: applicationForm/templates/applicationForm/page9.html:137
+msgid "Page9_Confirm_Checkbox_Text"
+msgstr "I CONFIRM"

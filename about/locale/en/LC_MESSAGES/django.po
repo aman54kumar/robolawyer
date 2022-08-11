@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-11 07:44+0530\n"
+"POT-Creation-Date: 2022-08-11 10:07+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,8 +19,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: about/templates/about/aboutUs.html:10
-#, fuzzy
-#| msgid "AboutUs_Vision_Heading"
 msgid "AboutUs_Heading"
 msgstr "Vision"
 
@@ -105,8 +103,6 @@ msgid "AboutUs_People_Heading"
 msgstr "People"
 
 #: about/templates/about/aboutUs.html:37
-#, fuzzy
-#| msgid "AboutUs_People_Heading"
 msgid "AboutUs_People_Subheading"
 msgstr "The Tech-R team working on Justbot"
 
@@ -136,8 +132,12 @@ msgstr "Graphic design and logo"
 
 #: about/templates/about/aboutUs.html:80
 msgid "AboutUs_Dan_Task"
-msgstr "(Ongoing) Natural language processing algorithms that will he quality of the applications to the ECtHR."
+msgstr ""
+"(Ongoing) Natural language processing algorithms that will he quality of the "
+"applications to the ECtHR."
 
-#: about/templates/about/aboutUs.html:91
+#: about/templates/about/aboutUs.html:89
 msgid "AboutUs_Footer"
-msgstr "Developed by Technology for Human Rights (Tech-R) with financial support and advice from the Law Faculty at the University of Oslo and Lovdata."
+msgstr ""
+"Developed by Technology for Human Rights (Tech-R) with financial support and "
+"advice from the Law Faculty at the University of Oslo and Lovdata."

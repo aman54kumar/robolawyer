@@ -2,8 +2,8 @@
 /* garamond  */
 @font-face {
   font-family: "luxi_monoregular";
-  src: url("../fonts/luxi/luximr-webfont.woff2") format("woff2"),
-    url("../fonts/luxi/luximr-webfont.woff") format("woff");
+  src: url("../fonts/luxi/luximr-webfont.fa60aae3c6ba.woff2") format("woff2"),
+    url("../fonts/luxi/luximr-webfont.fd9f89010eda.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -11,7 +11,7 @@
 
 @font-face {
   font-family: "lato_thin";
-  src: url("../fonts/lato/Lato-Thin.ttf") format("ttf");
+  src: url("../fonts/lato/Lato-Thin.9a77fbaa85fa.ttf") format("ttf");
   font-weight: 100;
   font-style: normal;
   font-display: block;

@@ -46,7 +46,7 @@ var initialPopUp = function () {
     width: "60rem",
     customClass: { actions: "popButtonLeftAlign" },
     didOpen: function (el) {
-      cancelButton = el.children[2].children[3];
+      cancelButton = el.querySelector(".swal2-cancel");
       cancelButton.onclick = function () {
         window.location.href = homeUrl;
       };
@@ -71,17 +71,12 @@ var initialPopUp = function () {
         width: "60rem",
         customClass: { actions: "popButtonLeftAlign" },
         didOpen: function (el) {
-          cancelButton = el.children[2].children[1];
-          cancelButton.onclick = function () {
+          confirmButton = el.querySelector(".swal2-confirm");
+          console.log(confirmButton);
+          confirmButton.onclick = function () {
             overviewDivContent = document.getElementById("reviewSection");
             var popUpView = document.createElement("div");
             popUpView.id = "reviewPopupContainer";
-            // overviewDivContent.children[0].children[0].children[2].hidden = true;
-            // overviewDivContent.querySelector(".card-footer").hidden = true;
-            // overviewDivContent.children[0].children[0].children[1].children[0].children[1].hidden = true;
-            // overviewDivContent.querySelector(
-            //   "#headingOne"
-            // ).parent.hidden = true;
             Swal.fire({
               showConfirmButton: true,
               confirmButtonText:

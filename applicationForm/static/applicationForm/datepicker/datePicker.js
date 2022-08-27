@@ -72,7 +72,6 @@ var initialPopUp = function () {
         customClass: { actions: "popButtonLeftAlign" },
         didOpen: function (el) {
           confirmButton = el.querySelector(".swal2-confirm");
-          console.log(confirmButton);
           confirmButton.onclick = function () {
             overviewDivContent = document.getElementById("reviewSection");
             var popUpView = document.createElement("div");

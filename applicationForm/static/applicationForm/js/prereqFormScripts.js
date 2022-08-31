@@ -93,7 +93,7 @@ $("input[name='page1[complySix]']").change(function () {
   if (result === "Yes") {
     Swal.fire(
       "",
-      "If you have not exhausted the available legal remedies your application may be declared inadmissible. <br/> The Court does not demand that you make use of remedies which are ineffective or apply for special discretionary or extraordinary remedies outside the normal appeal procedures. Nonetheless, it is required from you to bring proof that the existing legal remedies are ineffective."
+      "If you have not exhausted the available legal remedies your application maybe declared inadmissible. <br/> The Court does not demand that you make use of remedies which are ineffective or apply for special discretionary or extraordinary remedies outside the normal appeal procedures. Nonetheless, it is required from you to bring proof that the existing legal remedies are ineffective."
     );
   }
 });

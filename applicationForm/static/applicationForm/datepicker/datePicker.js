@@ -92,11 +92,23 @@ var initialPopUp = function () {
                 backdrop: "swal2-noanimation",
               },
               didOpen: function (el) {
-                contentDiv = el.children[1];
+                contentDiv = document.querySelector("#swal2-html-container");
+                contentDiv.style = "display: block";
                 contentDiv.innerHTML = overviewDivContent.innerHTML;
-                contentDiv.children[0].children[0].children[0].children[0].innerText =
+                contentDiv.querySelector(".card-header-title").innerText =
                   "Overview";
                 contentDiv.classList.add("popUpScroll");
+                contentDiv
+                  .querySelector(".card-footer")
+                  .classList.add("is-hidden");
+                quesrionButtonsToHideArray = [
+                  ...contentDiv.querySelectorAll(".hideQuestionOverview"),
+                ];
+                quesrionButtonsToHideArray.map((card) => {
+                  card.querySelector(".questionButton").style.visibility =
+                    "hidden";
+                });
+
                 $(".popUpCard").on("click", function () {
                   console.log(this);
                   $(this).children("i").toggleClass("fa-angle-down");

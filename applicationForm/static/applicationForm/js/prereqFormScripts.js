@@ -104,7 +104,7 @@ $("input[name='page1[courtCase]']").change(function () {
   if (result == "No") {
     Swal.fire(
       "",
-      "If you have not used all the available domestic legal remedies for your case, it is possible that your application may be declared inadmissible. <br/>In some cases a lower court is considered sufficient, as long as the decision that you received is a final decision."
+      "If you have not used all the available domestic legal remedies for your case, it is possible that your application maybe declared inadmissible. <br/>In some cases a lower court is considered sufficient, as long as the decision that you received is a final decision."
     );
   }
 });

@@ -218,3 +218,12 @@ img {
   color: #fff;
   font-size: 1.0625em;
 }
+
+#privacyLink {
+  color: #fff;
+  font-size: 1rem;
+}
+
+#privacyLink:hover {
+  text-decoration: underline;
+}

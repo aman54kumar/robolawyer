@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-import home, applicationForm, about, extResources
+import home
+import applicationForm
+import about
+import extResources
+import privacy
 from django.conf.urls.static import static
 from django.conf import settings
 from robots_txt.views import RobotsTextView
@@ -26,7 +30,7 @@ urlpatterns = [
     path('form/', include('applicationForm.urls')),
     path('aboutUs/', include('about.urls')),
     path('externalResources/', include('extResources.urls')),
-
+    path('privacy/', include('privacy.urls')),
     # robots.txt
     path('robots.txt', RobotsTextView.as_view())
 ]

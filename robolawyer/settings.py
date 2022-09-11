@@ -69,6 +69,7 @@ INSTALLED_APPS = [
     "applicationForm",
     "about",
     "extResources",
+    "privacy",
     "robots_txt",
 ]
 

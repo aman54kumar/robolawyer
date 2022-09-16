@@ -46,7 +46,7 @@ moment==0.12.1
 mypy-extensions==0.4.3
 numpy==1.22.3
 O365==2.0.18.1
-oauthlib==3.2.0
+oauthlib==3.2.1
 opencensus==0.8.0
 opencensus-context==0.1.2
 opencensus-ext-django==0.7.6

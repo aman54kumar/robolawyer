@@ -30,7 +30,7 @@ urlpatterns = [
     path('form/', include('applicationForm.urls')),
     path('aboutUs/', include('about.urls')),
     path('externalResources/', include('extResources.urls')),
-    path('privacy/', include('privacy.urls')),
+    path('privacy-policy/', include('privacy.urls')),
     # robots.txt
     path('robots.txt', RobotsTextView.as_view())
 ]

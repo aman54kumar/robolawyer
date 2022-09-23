@@ -55,3 +55,33 @@ $("#pdfEmail").on("click", function () {
     }
   });
 });
+
+const deleteDataButton = document.getElementById("deleteDataButton");
+const csrftoken = getCookie("csrftoken");
+deleteDataButton.addEventListener("click", function () {
+  Swal.fire({
+    title: "Do you really want to delete your data?",
+    showConfirmButton: true,
+    showCancelButton: true,
+    confirmButtonText: "Yes",
+    cancelButtonText: "No",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      axios({
+        method: "delete",
+        url: `/form/deleteUserData`,
+        headers: {
+          "X-CSRFToken": csrftoken,
+        },
+      })
+        .then((response) => {
+          Swal.fire(
+            "Your data is deleted from JustBot servers now. You can close the browser tab."
+          );
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  });
+});

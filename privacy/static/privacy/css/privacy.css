@@ -1,0 +1,49 @@
+html, body {
+    background: linear-gradient(to bottom,  #1f549e 0%,#2989d8 100%);
+  }
+
+#privacyPageDiv {
+    /* position: relative;
+    top: 10rem;
+    width: 90%; */
+    min-height: 100vh; /* will cover the 100% of viewport */
+    width: 90%;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    padding-bottom: 100px; /* height of your footer */
+
+  }
+
+  .card-master {
+    background-color: transparent;
+    border: none;
+  }
+  .card-master-header {
+    padding: 0rem 1.25rem;
+    background-color: transparent;
+    border-bottom: 0px;
+    z-index: 1000;
+    width: auto;
+    display: inherit;
+    text-align: center;
+    margin-bottom: -15px;
+  }
+
+  .card-master-header h4 {
+    /* width: 350px; */
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fbcd33;
+    padding: 20px;
+    display: inline-block;
+    margin-bottom: 0px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    margin-bottom: -30px;
+  }
+.card-body{
+  padding: 2rem;
+  margin: 1rem;
+  background-color: white;
+}

@@ -1,3 +1,11 @@
+function onBeforeUnload(e) {
+  if (true) {
+    e.preventDefault();
+    e.returnValue = "";
+    return;
+  }
+}
+window.addEventListener("beforeunload", onBeforeUnload);
 function getCookie(name) {
   var cookieValue = null;
   if (document.cookie && document.cookie !== "") {

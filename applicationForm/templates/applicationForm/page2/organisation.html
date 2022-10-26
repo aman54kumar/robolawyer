@@ -1,35 +1,29 @@
 <div class="is-hidden" id="orgBeginner">
   <div class="card">
+    {% load i18n %}
     <div class="card-header">
       <p class="lead">
-        Fill in this part only if you are writing the application on
-        behalf of a company, association, NGO or other legal entity.
-        If you are complaining about breaches against an individual
-        person, please select "Individual" above. In exceptional
-        cases, the European Court of Human Rights might grant to
-        legal entities the right to lodge an application on behalf
-        of individuals, however this is not common practice (see <a href="http://hudoc.echr.coe.int/eng?i=002-9574"
-          target="_blank"><em>CLR
-            on behalf of Valentin Campeanu v. Romania</em></a>).
+        {% trans 'Page2_Organisation_Instructions' %}
       </p>
     </div>
     <div class="card-body">
       <div class="row divSpacing">
         <div class="col-lg-12 col-xl-6 form-group">
           <label class="lead">
-            <h4>Name</h4>
+            <h4>{% trans 'Page2_Organisation_Name' %}</h4>
           </label>
-          <textarea class="form-control orgNameField" type="text" placeholder="Name of the organisation"
-            name="page2[orgName]" data-parsley-group="page2b" cols="49" maxlength="95" rows="2" id="orgName"
-            oninput="limitLines(this);" onpaste="limitLinesOnPaste(this);"></textarea>
+          <textarea class="form-control orgNameField" type="text"
+            placeholder="{% trans 'Page2_Organisation_Name_Placeholder' %}" name="page2[orgName]"
+            data-parsley-group="page2b" cols="49" maxlength="95" rows="2" id="orgName" oninput="limitLines(this);"
+            onpaste="limitLinesOnPaste(this);"></textarea>
           <div></div>
         </div>
         <div class="form-group col-lg-12 col-xl-6">
           <label class="lead">
-            <h4>Activity</h4>
+            <h4>{% trans 'Page2_Organisation_Activity' %}</h4>
           </label>
           <input class="form-control" type="text" name="page2[orgActivity]" data-parsley-group="page2b" maxlength="49"
-            placeholder="Enter activity" id="orgActivity" />
+            placeholder="{% trans 'Page2_Organisation_Activity_Placeholder' %}" id="orgActivity" />
         </div>
       </div>
 
@@ -37,98 +31,75 @@
         <div class="form-group col-lg-12 col-xl-6">
           <label class="lead">
             <h4>
-              Do you have a date of registration or incorporation of your organisation?
+              {% trans 'Page2_Organisation_RegDateOption' %}
             </h4>
           </label>
           <div class="custom-control custom-radio custom-control">
             <input type="radio" class="custom-control-input" id="orgDateYes" name="page2[orgDateOption]" value="Yes"
               data-parsley-group="page2b" />
-            <label class="custom-control-label" for="orgDateYes">Yes</label>
+            <label class="custom-control-label" for="orgDateYes">{% trans 'Option_Yes' %}</label>
           </div>
           <div class="custom-control custom-radio custom-control">
             <input type="radio" class="custom-control-input" id="orgDateNo" name="page2[orgDateOption]" value="No"
               data-parsley-group="page2b" />
-            <label class="custom-control-label" for="orgDateNo">No</label>
+            <label class="custom-control-label" for="orgDateNo">{% trans 'Option_No' %}</label>
           </div>
           <div class="form-group is-hidden orgDateDiv">
             <label class="lead">
               <h4>
-                Please provide the date of registration or
-                incorporation
+                {% trans 'Page2_Organisation_RegDate' %}
               </h4>
             </label>
             <input type="text" id="orgDate" class="datepicker form-control col-sm-6" name="page2[orgDate]"
-              data-date-end-date="0d" data-parsley-group="page2b" placeholder="Date of registration or incorporation" />
+              data-date-end-date="0d" data-parsley-group="page2b"
+              placeholder="{% trans 'Page2_Organisation_RegDate_Placeholder' %}" />
           </div>
           <div>
             <div class="is-hidden" id="regDateNoDiv">
               <label class="lead">
                 <h5>
-                  If you do not have a registration/incorporation date
-                  of your organisation, you must provide an
-                  explanation as to why this information is missing
-                  and send the document containing this explanation as
-                  an accompanying document to your application. <br />
-                  We will generate the text you enter in the below
-                  field as an additional document when you generate
-                  the application form and we will automatically add
-                  the title and description of this document to the
-                  Supporting Document list on page 8. You may add any
-                  other documents supporting your explanation both to
-                  the Supporting Documents list on page 8, and as a
-                  copy in the attachments to the application.
+                  {% trans 'Page2_Organisation_NoRegDateMessage' %}
                 </h5>
               </label>
             </div>
             <textarea class="form-control is-hidden orgDateNoArea col-sm-12" name="page2[orgDateNoArea]"
               id="orgDateNoArea" rows="10"
-              placeholder="Example of explanation: The organisation has been registered 99 years ago, the documents and any records mentioning the exact date of registration and incorporation have been lost in a fire. Records of the fire are added to this application as a proof."></textarea>
+              placeholder="{% trans 'Page2_Organisation_NoRegDate_Placeholder' %}"></textarea>
           </div>
         </div>
         <div class="col-lg-12 col-xl-6 form-group">
           <label class="lead">
-            <h4>Does your organisation have an identification number?</h4>
+            <h4>{% trans 'Page2_Organisation_ID_Option' %}</h4>
           </label>
           <div class="custom-control custom-radio custom-control">
             <input type="radio" class="custom-control-input" id="orgIdentityYes" name="page2[orgIdentityOption]"
               value="Yes" data-parsley-group="page2b" />
-            <label class="custom-control-label" for="orgIdentityYes">Yes</label>
+            <label class="custom-control-label" for="orgIdentityYes">{% trans 'Option_Yes' %}</label>
           </div>
           <div class="custom-control custom-radio custom-control">
             <input type="radio" class="custom-control-input" id="orgIdentityNo" name="page2[orgIdentityOption]"
               value="No" data-parsley-group="page2b" />
-            <label class="custom-control-label" for="orgIdentityNo">No</label>
+            <label class="custom-control-label" for="orgIdentityNo">{% trans 'Option_No' %}</label>
           </div>
           <div class="form-group is-hidden orgIdentityDiv">
             <label class="lead">
-              <h4>Please provide the identification number.</h4>
+              <h4>{% trans 'Page2_Organisation_ID' %}</h4>
             </label>
-            <input class="form-control col-sm-6" type="text" placeholder="Enter identification number"
-              name="page2[orgID]" maxlength="49" id="orgID" />
+            <input class="form-control col-sm-6" type="text"
+              placeholder="{% trans 'Page2_Organisation_ID_Placeholder' %}" name="page2[orgID]" maxlength="49"
+              id="orgID" />
           </div>
           <div>
             <div class="is-hidden" id="orgIDNoDiv">
               <label class="lead">
                 <h5>
-                  If you do not have the identification number of your
-                  organisation, you must provide an explanation as to
-                  why this information is missing and send the
-                  document containing this explanation as an
-                  accompanying document to your application. <br />
-                  We will generate the text you enter in the below
-                  field as an additional document when you generate
-                  the application form and we will automatically add
-                  the title and description of this document to the
-                  Supporting Document list on page 8. You may add any
-                  other documents supporting your explanation both to
-                  the Supporting Documents list on page 8, and as a
-                  copy in the attachments to the application.
+                  {% trans 'Page2_Organisation_NoIDMessage' %}
                 </h5>
               </label>
             </div>
             <textarea class="form-control is-hidden orgIdentityNoArea col-sm-12" name="page2[orgIdentityNoArea]"
               id="orgIdentityNoArea" rows="10"
-              placeholder="Example of explanation: The country where the organisation is located does not provide identification numbers."></textarea>
+              placeholder="{% trans 'Page2_Organisation_NoID_Placeholder' %}"></textarea>
           </div>
         </div>
       </div>
@@ -136,27 +107,28 @@
       <div class="row divSpacing">
         <div class="col-lg-12 col-xl-6 form-group">
           <label class="lead">
-            <h4>Registered Address</h4>
+            <h4>{% trans 'Page2_Organisation_Address' %}</h4>
           </label>
           <textarea class="form-control longAddress" name="page2[orgAddress]" id="orgAddress" cols="49" rows="8"
             maxlength="399" oninput="limitLines(this);" onpaste="limitLinesOnPaste(this)"
-            placeholder="Enter address"></textarea>
+            placeholder="{% trans 'Address_Placeholder' %}"></textarea>
           <div></div>
         </div>
         <div class="row col-lg-12 col-xl-6">
           <div class="form-group col-lg-12 col-xl-12">
             <label class="lead">
-              <h4>Telephone (select country code)</h4>
+              <h4>{% trans 'TelNo' %}</h4>
             </label>
             <input class="form-control" type="tel" id="orgPhone" name="page2[orgPhone]" data-parsley-group="page2b"
-              placeholder="Enter telephone number" />
+              placeholder="{% trans 'TelNo_Placeholder' %}" />
           </div>
           <div class="form-group col-lg-12 col-xl-12">
             <label>
-              <h4>Email</h4>
+              <h4>{% trans 'Email' %}</h4>
             </label>
             <input class="form-control" type="email" name="page2[orgEmail]" id="orgEmail"
-              placeholder="Enter email address" data-parsley-type="email" data-parsley-group="page2b" maxlength="49" />
+              placeholder="{% trans 'Page2_Organisation_Email_Placeholder' %}" data-parsley-type="email"
+              data-parsley-group="page2b" maxlength="49" />
           </div>
         </div>
       </div>

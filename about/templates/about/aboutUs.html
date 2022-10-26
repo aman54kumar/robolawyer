@@ -3,153 +3,82 @@
 <link rel="stylesheet" href="{% static 'applicationForm/css/formStyles.css' %}" />
 <link rel="stylesheet" href="{{ STATIC_URL }}/static/about/css/aboutUs.css" type="text/css" />
 {% endblock headContent %} {% block content %}
-
+{% load i18n %}
 <div class="container-fluid" id="aboutPageDiv">
+=======
   <div class="card-master">
     <div class="card-master-header">
-      <h4 class="card-header-title acenter">About Us</h4>
+      <h4 class="card-header-title acenter">{% trans 'AboutUs_Heading' %}</h4>
     </div>
     <div class="card-body">
       <br> <br> <br>
       <div class="aboutSection noDivSpacing row">
-        <div class="section-heading about_section_heading">Vision</div>
+        <div class="section-heading about_section_heading">{% trans 'AboutUs_Vision_Heading' %}</div>
         <div class="card col-sm-12 section-box">
-          <p>JustBot aims to help applicants and their lawyers improve the quality of
-            their applications to the European Court of Human Rights. Since 2014, when Rule 47 of the ECtHR was updated
-            with most of its current admissibility requirements, over almost 30% of the applications processed by the
-            Court were rejected as incomplete in the pre-judicial phase, and of those entering the judicial phase, only
-            5.5% reached the stage of receiving a judgement, while the large majority was declared inadmissible or has
-            been struck out of the list. The development of JustBot is planned over several years and in several phases.
-            In the first phase, this project provides a digital tool in English that automates the standard procedure
-            and provides help along the way. In later phases, we aim to integrate different language versions and
-            algorithms to automate the writing process.
-
-            {% comment %} Since 2014, over 30% of the applications processed
-            by the Court were rejected as incomplete in the pre-judicial phase, and of those entering the judicial
-            phase,
-            only 5% reached the stage of receiving a judgement, while the large majority was declared inadmissible or
-            struck out of the list. The development of JustBot is planned over several years and in several phases. In
-            the
-            first phase, this project provides a digital tool in English that automates the standard procedure and
-            provides help along the way. In later phases, we aim to integrate different language versions and algorithms
-            to automate the writing process. {% endcomment %}
-          </p>
+          <p>{% trans 'AboutUs_Vision_Description' %}</p>
         </div>
       </div>
       <div class="aboutSection noDivSpacing row">
-        <div class="section-heading about_section_heading">Organisation</div>
+        <div class="section-heading about_section_heading">{% trans 'AboutUs_Organisation_Heading' %}</div>
         <div class="card col-sm-12 section-box">
-          <p>
-            JustBot is developed by <a href="https://www.tech-r.org" target="_blank">Technology for Human Rights
-              (Tech-R)
-            </a>
-            with advice and financing from the <a href="https://www.jus.uio.no/english/" target="_blank">Faculty of
-              Law at
-              the University of Oslo (UiO)</a> and <a href="https://lovdata.no/" target="_blank">Lovdata</a>. </p>
-          <p>
-            <a href="https://www.tech-r.org" target="_blank">Technology for Human Rights
-              (Tech-R)
-            </a> is a non-profit organisation founded in 2019 by graduates of the
-            <a href="https://www.jus.uio.no/smr/english/" target="_blank">Norwegian Centre for Human Rights (NCHR)</a>
-            and <a href="https://www.mn.uio.no/ifi/english/index.html" target="_blank">Informatics Institute</a> of the
-            <a href="https://www.uio.no/" target="_blank"> University of
-              Oslo (UiO) </a>. Tech-R is
-            dedicated to finding ways of using technology for the protection and fulfilment of human rights, and this
-            project is an important step in fulfilling our mission.
+          <p>{% trans 'AboutUs_Organisation_Description1' %}
+          </p>
+          <p>{% trans 'AboutUs_Organisation_Description2' %}
+            <a href="https://www.tech-r.org" target="_blank">
           </p>
 
-          <p>
-            We are grateful to the University of Oslo’s <a href="https://www.jus.uio.no/english/"
-              target="_blank">Faculty of
-              Law</a>, <a href="https://www.jus.uio.no/ifp/english/about/organization/nrccl/" target="_blank">Norwegian
-              Research Center for Computers and Law (NRCCL)</a>
-            and <a href="https://www.jus.uio.no/smr/english/" target="_blank">Norwegian Centre for Human Rights
-              (NCHR)</a> for their support and involvement in JustBot. We would like to
-            thank in particular the staff and students at the NCHR for their cooperation in testing the digital form
-            and providing their feedback, Professor <a
-              href="https://www.jus.uio.no/ior/english/people/aca/malcolml/index.html" target="_blank">Malcolm
-              Langford</a>
-            for his fundraising efforts and guidance, Ph.D. <a
-              href="https://www.jus.uio.no/ior/english/people/aca/runarhl/index.html" target="_blank">Runar Lie</a>
-            for his legal, technical and graphic design
-            advice, Professor <a href="https://www.jus.uio.no/ifp/english/people/aca/tobiasm/index.html"
-              target="_blank">Tobias Mahler</a> for his
-            advice on privacy and data protection and <a href="https://avantgardelawyers.org/our-people/"
-              target="_blank">Andra Matei</a>, former
-            lawyer at the European Court of Human Rights who undertook the legal quality assurance for JustBot’s digital
-            form.
-
-            We would like to extend our gratitude to <a href="https://en.wikipedia.org/wiki/Erik_M%C3%B8se"
-              target="_blank">Erik Møse</a>, former
-            judge at the European Court of Human Rights, <a
-              href="https://www.jus.uio.no/ior/english/people/aca/kjetill/index.html" target="_blank">Kjetil Mujezinovic
-              Larsen</a>, Professor of human rights at the Faculty of
-            Law and <a href="https://www.jus.uio.no/ifp/english/people/aca/lucat/index.html" target="_blank">Luca
-              Tosoni</a>, Phd. fellow in
-            cybersecurity law at <a href="https://www.jus.uio.no/ifp/english/about/organization/nrccl/"
-              target="_blank">NRCCL</a> for their contribution to the improvement of JustBots digital form.
-
-            We are open to new partners joining as the project moves forward. If you are interested in collaborating
-            with us, you can reach us by email at <a href="mailto:justbot@tech-r.org">justbot@tech-r.org</a>.
-
+          <p>{% trans 'AboutUs_Organisation_Description3' %}
           </p>
         </div>
 
       </div>
       <div class="aboutSection noDivSpacing row">
-        <div class="section-heading about_section_heading">People</div>
+        <div class="section-heading about_section_heading">{% trans 'AboutUs_People_Heading' %}</div>
         <div class="card col-sm-12 section-box">
-          <div class="align-center">The Tech-R team working on JustBot </div>
+          <div class="align-center">{% trans 'AboutUs_People_Subheading' %}</div>
           <div class="page-content">
             <div class="card1">
               <div class="content">
                 <h2 class="title">Lelia Marcau</h2>
-                <p class="copy">JustBot’s architecture and content</p>
-                {% comment %} <button class="btn">View Trips</button> {% endcomment %}
+                <p class="copy">{% trans 'AboutUs_Lelia_Task' %}</p>
               </div>
             </div>
             <div class="card1">
               <div class="content">
                 <h2 class="title">Kumar Aman</h2>
-                <p class="copy">Website architecture and development</p>
-                {% comment %} <button class="btn">View Trips</button> {% endcomment %}
+                <p class="copy">{% trans 'AboutUs_Aman_Task' %}</p>
               </div>
             </div>
             <div class="card1">
               <div class="content">
                 <h2 class="title">Nina Pupalova</h2>
-                <p class="copy">Legal text review </p>
-                {% comment %} <button class="btn">Book Now</button> {% endcomment %}
+                <p class="copy">{% trans 'AboutUs_Nina_Task' %}</p>
               </div>
             </div>
             <div class="card1">
               <div class="content">
                 <h2 class="title">Asude Burcu Karapinar </h2>
-                <p class="copy">Privacy assessment, privacy policy and testing </p>
-                {% comment %} <button class="btn">Book Now</button> {% endcomment %}
+                <p class="copy">{% trans 'AboutUs_Asude_Task' %}</p>
               </div>
             </div>
           </div>
           <div class="page-content">
             <div class="card1">
               <div class="content">
-                <h2 class="title">Ágnes Dinnyés (intern) </h2>
-                <p class="copy">Testing and launch preparation</p>
-                {% comment %} <button class="btn">Book Now</button> {% endcomment %}
+                <h2 class="title">Agnes Dinnyes (intern) </h2>
+                <p class="copy">{% trans 'AboutUs_Agnes_Task' %}</p>
               </div>
             </div>
             <div class="card1">
               <div class="content">
                 <h2 class="title">Nabil Ouhi </h2>
-                <p class="copy">Graphic design and logo </p>
-                {% comment %} <button class="btn">View Trips</button> {% endcomment %}
+                <p class="copy">{% trans 'AboutUs_Nabil_Task' %}</p>
               </div>
             </div>
             <div class="card1">
               <div class="content">
                 <h2 class="title">Dan Costin </h2>
-                <p class="copy">Natural language processing on ECtHR case-law </p>
-                {% comment %} <button class="btn">View Trips</button> {% endcomment %}
+                <p class="copy">{% trans 'AboutUs_Dan_Task' %}</p>
               </div>
             </div>
           </div>
@@ -157,23 +86,8 @@
         </div>
       </div>
     </div>
-    <div class="card-footer footer-container">
-      Developed by Technology for Human Rights (Tech-R) with financial support and advice from the Law
-      Faculty at the University of Oslo and Lovdata.
-      <div class="row about-footerImages-container">
-        <div class="aboutpage-founder-logo">
-          <a href="https://www.tech-r.org/" target="_blank"><img src="{% static 'home/images/techr-logo.png' %}"
-              class="logo-images-about" alt="techR"></a>
-        </div>
-        <div class="aboutpage-founder-logo">
-          <a href="https://www.uio.no/" target="_blank"><img src="{% static 'home/images/uio-logo.png' %}"
-              class="logo-images-about" alt="uio" /></a>
-        </div>
-        <div class="aboutpage-founder-logo">
-          <a href="https://lovdata.no/" target="_blank"><img src="{% static 'home/images/lovdata-logo.png' %}"
-              class="logo-images-about" alt="lovdata" /></a>
-        </div>
-      </div>
+    <div class="card-footer">
+      {% trans 'AboutUs_Footer' %} {logo tech-r} {logo UiO} {logo lovdata}
     </div>
   </div>
 </div>

@@ -1,31 +1,27 @@
 <div class="is-hidden" id="indRepresentative">
   <div class="card-master">
+    {% load i18n %}
     <div class="card-master-header">
-      <h4 class="card-header-title acenter">Representation</h4>
+      <h4 class="card-header-title acenter">{% trans 'Page3_IndRep_Heading' %}</h4>
     </div>
     <div class="card-body">
       <div class="container">
-        <h3 class="acenter">Representative(s) of the Individual Applicant</h3>
+        <h3 class="acenter">{% trans 'Page3_IndRep_BodyHeading' %}</h3>
         <p class="lead">
-          You do not have to be represented by a lawyer at this stage, but if
-          you are, please select "lawyer". If this application is lodged on your
-          behalf by someone else, such as a friend, a relative, or a guardian,
-          please select "non-lawyer". If you are not represented by another
-          person, please select the option "I represent myself at this stage".
+          {% trans 'Page3_IndRep_Instructions' %}
         </p>
       </div>
 
       <br /><br />
       <div class="row form-group">
-        <h4 class="divSpacing col-sm-12">Representative Type</h4>
+        <h4 class="divSpacing col-sm-12">{% trans 'Page3_IndRep_Type' %}</h4>
         <div class="col-sm-4 d-flex justify-content-center">
           <div class="custom-control custom-radio custom-control-inline">
             <input type="radio" class="custom-control-input" id="representativeNL" name="page3[indRepresentativeType]"
               value="non-lawyer" required data-parsley-group="page3a" data-parsley-errors-container="#indRepError" />
             <label class="custom-control-label" for="representativeNL">
-              Non-Lawyer
-              <a href="#" data-toggle="popover"
-                data-content="Some applicants may choose not to, or may not be able to, take part in the proceedings themselves for reasons such as health or incapacity. They may be represented by a person without legal training, for example a parent representing a child, or a guardian or family member or partner representing someone whose practical or medical circumstances make it difficult to take part in the proceedings (e.g. an applicant who is in hospital or prison). The representative must indicate in what capacity he or she is representing the applicant or his or her relationship with the applicant, together with his or her identity and contact details."
+              {% trans 'Page3_IndRep_NL' %}
+              <a href="#" data-toggle="popover" data-content="{% trans 'Page3_IndRep_NL_Popover' %}"
                 data-trigger="focus" data-placement="bottom"><span> <i class="fas fa-question-circle"></i></span></a>
             </label>
           </div>
@@ -35,10 +31,9 @@
             <input class="custom-control-input" id="representativeL" type="radio" name="page3[indRepresentativeType]"
               value="lawyer" />
             <label class="custom-control-label" for="representativeL">
-              Lawyer
-              <a href="#" data-toggle="popover"
-                data-content="Use this if the application is lodged by a lawyer. You do not have to instruct a lawyer at the stage of lodging the application, although it may be advisable to do so. You are informed if the case reaches a stage of the proceedings where representation by a lawyer is required. At this point – after a decision by the Court to give notice of the application to the Government concerned for written observations – you may be eligible for free legal aid if you have insufficient means to pay a lawyer’s fees and if the grant of such aid is considered necessary for the proper conduct of the case. Information is sent to you about this at the relevant time."
-                data-trigger="focus" data-placement="bottom"><span><i class="fas fa-question-circle"></i></span></a>
+              {% trans 'Page3_IndRep_L' %}
+              <a href="#" data-toggle="popover" data-content="{% trans 'Page3_IndRep_L_Popover' %}" data-trigger="focus"
+                data-placement="bottom"><span><i class="fas fa-question-circle"></i></span></a>
             </label>
           </div>
         </div>
@@ -47,7 +42,7 @@
             <input class="custom-control-input" id="representativeNone" type="radio" name="page3[indRepresentativeType]"
               value="selfRepresented" />
             <label class="custom-control-label" for="representativeNone">
-              I represent myself at this stage
+              {% trans 'Page3_IndRep_Self' %}
             </label>
           </div>
         </div>
@@ -61,12 +56,12 @@
         <div class="row">
           <div class="col-sm-6 aleft">
             <button class="btn btn-primary" onclick="stepperForm.previous()">
-              Previous
+              {% trans 'Button_Previous' %}
             </button>
           </div>
           <div class="col-sm-6 aright">
             <button class="btn btn-primary btn-next-form" onclick="stepperForm.next()">
-              Next
+              {% trans 'Button_Next' %}
             </button>
           </div>
         </div>

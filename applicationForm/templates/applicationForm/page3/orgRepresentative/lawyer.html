@@ -1,45 +1,46 @@
 {% load static %}
-
+{% load i18n %}
 <div class="is-hidden" id="orgLawyerRep">
   <div class="row">
     <div class="form-group col-lg-12 col-xl-4">
-      <h4>Surname</h4>
-      <input class="form-control" type="text" name="page3[orglSurname]" placeholder="Enter your surname"
+      <h4>{% trans 'Surname' %}</h4>
+      <input class="form-control" type="text" name="page3[orglSurname]" placeholder="{% trans 'Surname_Placeholder' %}"
         id="orglSurname" data-parsley-group="page3f" maxlength="49" />
     </div>
     <div class="form-group col-lg-12 col-xl-4">
-      <h4>First Name(s)</h4>
-      <input class="form-control" type="text" name="page3[orglFirstName]" placeholder="Enter your first name(s)"
-        id="orglFirstName" data-parsley-group="page3f" maxlength="49" />
+      <h4>{% trans 'FirstName' %}</h4>
+      <input class="form-control" type="text" name="page3[orglFirstName]"
+        placeholder="{% trans 'FirstName_Placeholder' %}" id="orglFirstName" data-parsley-group="page3f"
+        maxlength="49" />
     </div>
   </div>
 
   <div class="row">
     <div class="form-group col-lg-12 col-xl-4">
-      <h4>Address</h4>
-      <textarea class="form-control longAddress" rows="8" cols="49" maxlength="399" placeholder="Enter address"
-        name="page3[orglAddress]" id="orglAddress" oninput="limitLines(this);"
-        onpaste="limitLinesOnPaste(this);"></textarea>
+      <h4>{% trans 'Address' %}</h4>
+      <textarea class="form-control longAddress" rows="8" cols="49" maxlength="399"
+        placeholder="{% trans 'Address_Placeholder' %}" name="page3[orglAddress]" id="orglAddress"
+        oninput="limitLines(this);" onpaste="limitLinesOnPaste(this);"></textarea>
       <div></div>
     </div>
     <div class="col-lg-12 col-xl-4">
       <div class="row">
         <div class="form-group col-sm-12">
-          <h4>Nationality</h4>
+          <h4>{% trans 'Nationality' %}</h4>
           <input class="form-control" name="page3[orglNationality]" id="orglNationality" maxlength="49"
-            placeholder="Select country" />
+            placeholder="{% trans 'Nationality_Placeholder' %}" />
           <input type="hidden" id="orgPhonelNationality" />
         </div>
         <div class="form-group col-sm-12">
-          <h4>Fax</h4>
-          <input class="form-control" type="tel" name="page3[orglFax]" placeholder="Enter fax number" id="orglFax"
-            maxlength="15" />
+          <h4>{% trans 'Fax' %}</h4>
+          <input class="form-control" type="tel" name="page3[orglFax]" placeholder="{% trans 'Fax_Placeholder' %}"
+            id="orglFax" maxlength="15" />
         </div>
         <div class="col-sm-12">
           <div class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="orgLFaxOption" name="page3[orgLFaxOption]" />
             <br />
-            <label class="custom-control-label" for="orgLFaxOption">I do not have a fax number</label>
+            <label class="custom-control-label" for="orgLFaxOption">{% trans 'NoFax_Check' %}</label>
           </div>
         </div>
       </div>
@@ -47,27 +48,22 @@
     <div class="col-lg-12 col-xl-4">
       <div class="row">
         <div class="form-group col-sm-12">
-          <h4>Telephone Number (select country code)</h4>
+          <h4>{% trans 'TelNo' %}</h4>
           <input class="form-control" type="tel" name="page3[orglTel]" id="orglTel"
-            placeholder="Enter telephone number" />
+            placeholder="{% trans 'TelNo_Placeholder' %}" />
         </div>
         <div class="form-group col-sm-12">
-          <h4>Email</h4>
-          <input class="form-control" type="email" name="page3[orglEmail]" placeholder="Enter email" id="orglEmail"
-            maxlength="49" />
+          <h4>{% trans 'Email' %}</h4>
+          <input class="form-control" type="email" name="page3[orglEmail]" placeholder="{% trans 'Email_Placeholder' %}"
+            id="orglEmail" maxlength="49" />
         </div>
       </div>
     </div>
 
     <div id="orgLFaxDiv" class="col-sm-12 is-hidden">
-      <label for="orgLFaxArea">If you do not have a fax number, you must provide an explanation as to why this
-        information is missing and send the document containing this explanation as an accompanying document to your
-        application. <br /> We will generate the text you enter in the below field as an additional document when you
-        generate the application form and we will automatically add the title and description of this document to the
-        Supporting Document list on page 8. You may add any other documents supporting your explanation both to the
-        Supporting Documents list on page 8, and as a copy in the attachments to the application.</label>
+      <label for="orgLFaxArea">{% trans  'Page3_OrgLawyer_NoFaxArea' %}</label>
       <textarea id="orgLFaxArea" name="page3[orgLFaxArea]" class="form-control"
-        placeholder="Please provide an explanation for unavailability of Fax number" rows="10"></textarea>
+        placeholder="{% trans  'Page3_OrgLawyer_NoFaxArea_Placeholder' %}" rows="10"></textarea>
     </div>
   </div>
 
@@ -75,44 +71,31 @@
     <hr />
 
     <br /><br />
-    <h4 class="alert-heading">Authority form (power of attorney)</h4>
+    <h4 class="alert-heading">{% trans 'Page3_Authority_Heading' %}</h4>
 
-    <h5>
-      The representative of the applicant organisation must give the authority
-      to the lawyer to act on its behalf by signing the field corresponding to
-      the Organisation Official on page 4; the lawyer must indicate his or her
-      acceptance by signing on the same page in the field corresponding to the
-      Lawyer.
-    </h5>
+    <h5>{% trans 'Page3_Org_Authority_Description' %}</h5>
     <br />
     <div id="ifOrgLawyerYes" class="is-hidden">
       <div class="row">
         <div class="form-group col-sm-12">
-          <h4>
-            Are both the applicant and the representative able to sign the
-            Authority form (power of attorney)?
-          </h4>
+          <h4>{% trans 'Page3_Authority_Option' %}</h4>
           <br />
           <div class="custom-control custom-radio custom-control-inline">
             <input type="radio" class="custom-control-input orgAttorney" id="orgAttorneyYes" name="page3[orgAttorney]"
               value="yes" data-parsley-group="page3" />
-            <label class="custom-control-label" for="orgAttorneyYes">Yes</label>
+            <label class="custom-control-label" for="orgAttorneyYes">{% trans 'Option_Yes' %}</label>
           </div>
           <div class="custom-control custom-radio custom-control-inline">
             <input type="radio" class="custom-control-input orgAttorney" id="orgAttorneyNo" name="page3[orgAttorney]"
               value="no" data-parsley-group="3" />
-            <label class="custom-control-label" for="orgAttorneyNo">No</label>
+            <label class="custom-control-label" for="orgAttorneyNo">{% trans 'Option_No' %}</label>
           </div>
         </div>
 
         <div id="orgLAuthorityYes" class="is-hidden">
           <div class="orgLAuthorityAlertPic">
             <div class="alert alert-danger" role="alert">
-              <p class="lead">
-                Very Important: This section in the printed application must contain original signatures and dates added
-                after the form has been printed out (page 3 of the printed application form – see picture below).
-                Failing to do so can result in the application being declared inadmissible.
-              </p>
+              <p class="lead">{% trans 'Page3_OrgRep_VeryImportant' %}</p>
             </div>
             <img src="{% static 'applicationForm/img/Signature-ORG.png' %}" width="70%"
               style="border: #ea0000 solid 4px" />
@@ -121,21 +104,15 @@
           <div class="custom-checkbox custom-control custom-control-inline">
             <input type="checkbox" class="custom-control-input" id="orgLAutorityYesCheckbox"
               name="page3[orgLAutorityYesCheckbox]" />
-            <label class="custom-control-label" for="orgLAutorityYesCheckbox">Please confirm you have read and
-              understood that both you and your lawyer have to sign page 3 in the printed application form. If the
-              organisation official is, in addition, the lawyer representing the organisation, you must sign the
-              authority form on both fields.</label>
+            <label class="custom-control-label"
+              for="orgLAutorityYesCheckbox">{% trans 'Page3_OrgLawyer_Authority_Yes_Checkbox' %}
+            </label>
           </div>
         </div>
 
         <div id="orgAttorneyAreaDiv" class="is-hidden">
 
-          <h4>Please explain in this textbox below why the applicant cannot sing the authority form. Please provide any
-            additional documents that you deem necessary to support your case. <br /> We will generate this text as an
-            additional document when you generate the application form and we will automatically add the title and
-            description of this document to the Supporting Document list on page 8. You must remember to add any other
-            documents supporting your explanation – medical records, official documents – both to the Supporting
-            Documents list on page 8, and as a copy in the attachments to the application.</h4>
+          <h4>{% trans 'Page3_AuthorityForm_NoSign' %}</h4>
 
           <textarea id="orgAutorityAreaNo" class="form-control newPageTextArea" name="page3[orgAutorityAreaNo]"
             rows="10"></textarea>
@@ -150,12 +127,12 @@
   </div>
   <div class="form-group col-sm-12">
     <h4>
-      Electronic communication between the representative and the Court
+      {% trans 'Page3_Ecomms' %}
     </h4>
     <div class="text-center">
       <br />
       <button class="btn more-info-button" data-toggle="collapse" data-target="#info-ecomm">
-        More Info
+        {% trans 'Button_MoreInfo' %}
       </button>
       <br />
       <br />
@@ -163,26 +140,13 @@
 
     <div id="info-ecomm" class="collapse">
       <h5 class="ajustify">
-        eComms is a service initiated by the Court for communicating
-        electronically with an applicant’s representative. The service is only
-        activated if and when the case reaches a stage of the proceedings where
-        the Government concerned are requested to submit written observations.
-        The email address provided will be used to create an eComms account. It
-        is recommended that representatives working in a law firm provide a
-        generic email address so that the account can be used by multiple users
-        within the firm. You should inform the Court of any change to your
-        eComms account email address. For more information, please refer to the
-        terms and conditions available on the <a href="https://ecomms.echr.coe.int" target="_blank">eComms website</a>,
-        as well as the <a href="www.echr.coe.int/practicedirections" target="_blank">Practice Direction on electronic
-          filing by applicants</a>
-        (available in English and French only).
+        {% trans 'Page3_Ecomms_MoreInfo' %}
       </h5>
     </div>
     <h4>
-      Please provide an email address for ECtHR communication system,
-      eComms. You can read more about the eComms terms and conditions
-      <a href="https://www.echr.coe.int/Pages/home.aspx?p=ecomms&c=" target="_blank">here</a>.
+      {% trans 'Page3_Ecomms_Email' %}
     </h4>
-    <input class="form-control col-sm-4" type="email" name="page3[orgIndeComms]" id="orgIndeComms" maxlength="49" />
+    <input class="form-control col-sm-4" type="email" name="page3[orgIndeComms]" id="orgIndeComms" maxlength="49"
+      placeholder="{% trans 'Page3_Ecomms_Email_Placeholder' %}" />
   </div>
 </div>

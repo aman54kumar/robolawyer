@@ -1,0 +1,77 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-11 14:33+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: home/templates/home/base.html:106
+msgid "Nav_Menu"
+msgstr ""
+
+#: home/templates/home/base.html:113
+msgid "Nav_Home"
+msgstr ""
+
+#: home/templates/home/base.html:118
+msgid "Nav_ApplicationForm"
+msgstr ""
+
+#: home/templates/home/base.html:123
+msgid "Nav_AboutUs"
+msgstr ""
+
+#: home/templates/home/base.html:128
+msgid "Nav_ExtRes"
+msgstr ""
+
+#: home/templates/home/base.html:152
+msgid "LangSelect_Go"
+msgstr ""
+
+#: home/templates/home/base.html:156
+msgid "Footer_PoweredBy"
+msgstr ""
+
+#: home/templates/home/base.html:157
+msgid "Footer.Contact"
+msgstr ""
+
+#: home/templates/home/home.html:15
+msgid "home_descText"
+msgstr ""
+"In media, solo il <b>5%</b> di tutte le domande presentate al <em>Corte "
+"europea dei diritti dell'uomo</em> ricevono una sentenza. La maggior parte "
+"dei casi è dichiarata irricevibile per motivi formali, come la compilazione "
+"errata del modulo di domanda, il mancato esaurimento di tutte le vie di "
+"ricorso nazionali o la presentazione della domanda entro 6 mesi dal "
+"ricevimento della decisione definitiva del giudice nazionale."
+
+#: home/templates/home/home.html:18
+msgid "Home_HereToHelp"
+msgstr ""
+
+#: home/templates/home/home.html:22
+msgid "Home_Button_GoForm"
+msgstr ""
+
+#: home/templates/home/home.html:36
+msgid "Home_Founders"
+msgstr ""
+
+#: home/templates/home/home.html:37
+msgid "Home_Colab_TechR_UiO"
+msgstr ""

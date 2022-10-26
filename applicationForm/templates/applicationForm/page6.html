@@ -1,91 +1,57 @@
 <div id="form-page-6" role="tabpanel" class="bs-stepper-pane fade" aria-labelledby="stepperFormTrigger6">
   <div class="col-12 col-md-12 mx-auto form-section">
     {% load static %}
+    {% load i18n %}
     <div class="row">
       <div class="card-master col-12 col-md-12">
         <div class="card-master-header">
-          <h4 class="card-header-title acenter">Domestic Proceedings</h4>
+          <h4 class="card-header-title acenter">{% trans 'Page6_Heading' %}</h4>
         </div>
 
         <div class="card-body">
-          <h4>
-            Indicate here all relevant judicial and/or administrative remedies
-            you have used in your country. For each complaint, state all
-            relevant court decisions, including those from lower courts and the
-            final decision.
+          <h4>{% trans 'Page6_Heading_Description' %}
+
           </h4>
           <div class="text-center">
             <button class="btn more-info-button" data-toggle="collapse" data-target="#info-4">
-              More Info
+              {% trans 'Button_MoreInfo' %}
             </button>
           </div>
           <br />
 
           <div id="info-4" class="collapse">
             <h5>
-              For your application to be admissible, you must bring all the matters which you want to complain about
-              before the national courts and use all the available appeals up to the highest level. You must show that
-              you have exhausted the available national legal remedies and provide dates for each decision, so that the
-              Court can see that you have complied with the six-month time-limit (or 4 months, for domestic final
-              decisions served on you starting with February 1, 2022). <br />
-              <br />
-
-              <br />
-              Only a summary of the remedies need be given, with the name of the
-              court, the date and a concise description of the decision taken.
-              Extra details about the court proceedings or how the courts dealt
-              with complaints can be added in supplementary annexes if
-              necessary. Remember to append copies of all the decisions taken by
-              courts or other decision-making bodies, from the lowest to the
-              highest; you must also provide copies of your claims or
-              applications to the courts and your statements of appeal so that
-              you can show that you raised the substance of your Convention
-              complaints at each level. <br />
-              <br />
-              If you think that there were no remedies to exhaust as they were
-              non-existent or ineffective or inaccessible in some way, you
-              should put down this reasoning briefly.
+              {% trans 'Page6_MoreInfo_Text' %}
             </h5>
           </div>
 
           <div class="form-group">
             <div class="complainExample">
-              <h4 class="alert-heading">Examples</h4>
+              <h4 class="alert-heading">{% trans 'Text_Examples' %}</h4>
               <table class="table-bordered">
                 <thead style="border: none">
                   <tr style="background-color: #2679c7; color: white">
-                    <th width="35%" rowspan="2">Complaint</th>
-                    <!-- <th width="35%" scope="col"></th> -->
-                    <th width="65%" scope="col">Domestic remedies used and the date of the final decision</th>
+                    <th width="35%" rowspan="2">{% trans 'Page6_Header_Complaint' %}</th>
+                    <th width="65%" scope="col">{% trans 'Page6_Header_Remedies' %}</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Article 5 - Right to liberty and security: Complaint about arrest by police</td>
-                    <td>
-                      High Court rejected claim on 05/12/13; leave to appeal
-                      refused by Court of Appeal on 14/01/15 in the case with
-                      the case file number XXXXXXX.
+                    <td> {% trans 'Page6_Ex1_Complaint' %}</td>
+                    <td>{% trans 'Page6_Ex1_Remedies' %}
                     </td>
                   </tr>
                   <tr>
-                    <td>Article 6 - Right to a fair trial: Complaint about neighbour dispute</td>
-                    <td>
-                      County Court rejected claim on 03/04/12; Court of Appeal
-                      dismissed appeal on 04/12/14 in the case with the case
-                      file number XXXXXXX.
+                    <td>{% trans 'Page6_Ex2_Complaint' %}
+                      dispute</td>
+                    <td>{% trans 'Page6_Ex2_Remedies' %}
                     </td>
                   </tr>
                   <tr>
-                    <td>
-                      Article 8 - Right to respect for private and family life: Complaint about violation of
-                      personal correspondence
+                    <td>{% trans 'Page6_Ex3_Complaint' %}
                     </td>
 
-                    <td>
-                      County Court rejected claim on 05/06/19; Court of Appeal
-                      dismissed appeal on 04/05/20 in the case with the case
-                      file number XXXXXXX.
+                    <td>{% trans 'Page6_Ex3_Remedies' %}
                     </td>
                   </tr>
                 </tbody>
@@ -106,7 +72,7 @@
                     </th>
                     <th width="30%" style="vertical-align: top">
                       <label class="lead" for="complainSelect_0_0">
-                        <h4>Complaint</h4>
+                        <h4>{% trans 'Page6_Header_Complaint' %}</h4>
                       </label>
                       <!-- width: 35ch;-->
                       <textarea name="page6[0][complainSelect]" style="padding: 10px" id="complain_0_select"
@@ -118,7 +84,7 @@
                     </th>
                     <th>
                       <label class="lead">
-                        <h4> Domestic remedies used and the date of the final decision</h4>
+                        <h4> {% trans 'Page6_Header_Remedies' %}</h4>
                       </label>
                       <textarea class="form-control remedies remediesTextCounter" name="page6[0][remediesUsed]"
                         id="complain_0_remedy" oninput='complaintWrapper(this, 69, false,false);' rows="5"
@@ -128,7 +94,7 @@
                         style="padding: 10px"></textarea>
                       <!-- width: 80ch; -->
                       <div class="remediesCounter is-hidden">
-                        Lines Remaining:
+                        {% trans 'Lines_Remaining' %}:
                       </div>
                     </th>
                   </tr>
@@ -136,10 +102,10 @@
                 <div>
                   <button type="button" class="s-btnAdd btn btn-primary is-hidden" id="addButton_6_0"
                     data-pattern-id="addButton_6_++">
-                    Add +
+                    {% trans 'Add_Button' %} +
                   </button>
                   <button type="button" class="s-btnRemove btn btn-danger is-hidden">
-                    Remove -
+                    {% trans 'Remove_Button' %} -
                   </button>
                 </div>
               </div>
@@ -149,27 +115,25 @@
           <br />
           <br />
           <div class="form-group">
-            <h4>
-              Is or was there an appeal or remedy available to you which you
-              have not used?
+            <h4>{% trans 'Page6_Unused_Remedy_Option' %}
+
             </h4>
             <br />
 
             <div class="custom-control custom-radio custom-control-inline">
               <input type="radio" class="custom-control-input" id="appealAvailableYes" name="page6[appealAvailable]"
                 value="Yes" data-parsley-group="" />
-              <label class="custom-control-label" for="appealAvailableYes">Yes</label>
+              <label class="custom-control-label" for="appealAvailableYes">{% trans 'Option_Yes' %}</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
               <input type="radio" class="custom-control-input" id="appealAvailableNo" name="page6[appealAvailable]"
                 value="No" data-parsley-group="" />
-              <label class="custom-control-label" for="appealAvailableNo">No</label>
+              <label class="custom-control-label" for="appealAvailableNo">{% trans 'Option_No' %}</label>
             </div>
           </div>
           <div class="form-group is-hidden appealDescribe">
             <div class="form-group is-hidden appealDescribe">
-              <h4>Please state which appeal or remedy you have not used and
-                explain why not.
+              <h4>{% trans 'Page6_Unused_Remedy_Explain' %}
               </h4>
             </div>
             <div class="row justify-content-center">
@@ -177,7 +141,7 @@
                 rows="16" maxlength="1600" oninput="limitLines(this)" onpaste="limitLinesOnPaste(this)"
                 style="width: 110ch; padding: 10px"></textarea>
             </div>
-            <div class="row justify-content-center">Lines Remaining:</div>
+            <div class="row justify-content-center">{% trans 'Lines_Remaining' %}:</div>
           </div>
           <br />
           <br />
@@ -186,12 +150,12 @@
             <div class="row">
               <div class="col-sm-6 aleft">
                 <button class="btn btn-primary" onclick="stepperForm.previous()">
-                  Previous
+                  {% trans 'Button_Previous' %}
                 </button>
               </div>
               <div class="col-sm-6 aright">
                 <button class="btn btn-primary btn-next-form" onclick="stepperForm.next()">
-                  Next
+                  {% trans 'Button_Next' %}
                 </button>
               </div>
             </div>

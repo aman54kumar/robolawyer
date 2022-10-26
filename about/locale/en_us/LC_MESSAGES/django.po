@@ -1,0 +1,86 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-26 20:39+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\about\templates\about\aboutUs.html:10
+msgid "AboutUs_Heading"
+msgstr ""
+
+#: .\about\templates\about\aboutUs.html:15
+msgid "AboutUs_Vision_Heading"
+msgstr ""
+
+#: .\about\templates\about\aboutUs.html:17
+msgid "AboutUs_Vision_Description"
+msgstr ""
+
+#: .\about\templates\about\aboutUs.html:21
+msgid "AboutUs_Organisation_Heading"
+msgstr ""
+
+#: .\about\templates\about\aboutUs.html:23
+msgid "AboutUs_Organisation_Description1"
+msgstr ""
+
+#: .\about\templates\about\aboutUs.html:25
+msgid "AboutUs_Organisation_Description2"
+msgstr ""
+
+#: .\about\templates\about\aboutUs.html:29
+msgid "AboutUs_Organisation_Description3"
+msgstr ""
+
+#: .\about\templates\about\aboutUs.html:35
+msgid "AboutUs_People_Heading"
+msgstr ""
+
+#: .\about\templates\about\aboutUs.html:37
+msgid "AboutUs_People_Subheading"
+msgstr ""
+
+#: .\about\templates\about\aboutUs.html:42
+msgid "AboutUs_Lelia_Task"
+msgstr ""
+
+#: .\about\templates\about\aboutUs.html:48
+msgid "AboutUs_Aman_Task"
+msgstr ""
+
+#: .\about\templates\about\aboutUs.html:54
+msgid "AboutUs_Nina_Task"
+msgstr ""
+
+#: .\about\templates\about\aboutUs.html:60
+msgid "AboutUs_Asude_Task"
+msgstr ""
+
+#: .\about\templates\about\aboutUs.html:68
+msgid "AboutUs_Agnes_Task"
+msgstr ""
+
+#: .\about\templates\about\aboutUs.html:74
+msgid "AboutUs_Nabil_Task"
+msgstr ""
+
+#: .\about\templates\about\aboutUs.html:80
+msgid "AboutUs_Dan_Task"
+msgstr ""
+
+#: .\about\templates\about\aboutUs.html:89
+msgid "AboutUs_Footer"
+msgstr ""

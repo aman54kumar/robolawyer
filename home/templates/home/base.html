@@ -40,39 +40,37 @@
 </head>
 
 <body>
-  {% load i18n %}
+
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <a class="navbar-brand js-scroll-trigger" href="{% url 'home' %}"><img id="justbot-brand"
         src="{% static 'home/images/logo.png' %}" alt="JUSTBOT" /></a>
 
-
-
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
       data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
       aria-label="Toggle navigation">
-      {% trans "Nav_Menu" %}
+      Menu
       <i class="fas fa-bars"></i>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger {{ home_page }}" href="{% url 'home' %}">
-            <h5>{% trans "Nav_Home" %}</h5>
+            <h5>Home</h5>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link navbar-links {{ form_page }}" href="{% url 'form' %}">
-            <h5>{% trans "Nav_ApplicationForm" %}</h5>
+            <h5>Application Form</h5>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link navbar-links {{ about_page }}" href="{% url 'about' %}">
-            <h5>{% trans "Nav_AboutUs" %}</h5>
+            <h5>About Us</h5>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link navbar-links {{ res_page }}" href="{% url 'extResPage' %}">
-            <h5>{% trans "Nav_ExtRes" %}</h5>
+            <h5>External Resources</h5>
           </a>
         </li>
       </ul>
@@ -84,24 +82,10 @@
     {% block content %} {% endblock content %}
   </main>
   <footer class="py-4 bg-dark text-white-50">
-
-    <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
-      <select name="language">
-        {% get_current_language as LANGUAGE_CODE %}
-        {% get_available_languages as LANGUAGES %}
-        {% get_language_info_list for LANGUAGES as languages %}
-        {% for language in languages %}
-        <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected{% endif %}>
-          {{ language.name_local }} ({{ language.code }})
-        </option>
-        {% endfor %}
-      </select>
-      <input type="submit" value="{% trans 'LangSelect_Go' %}">
-    </form>
-
     <div class="container text-center">
-      <small> {% trans "Footer_PoweredBy" %} &copy; </small><br />
-      {% trans "Footer.Contact" %}: <a href="mailto:justbot@tech-r.org">justbot@tech-r.org</a><br />
+      <div><a id="privacyLink" href="{% url 'privacy-policy' %}" target="_blank">Privacy Policy</a></div>
+      <small> Powered by Tech-R. Technology for Human Rights. &copy; </small><br />
+      Contact: <a href="mailto:justbot@tech-r.org">justbot@tech-r.org</a><br />
     </div>
   </footer>
   {% comment %} <script src="{% static 'home/js/jquery/jquery-3.4.1.min.js' %}"></script> {% endcomment %}

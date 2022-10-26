@@ -150,7 +150,7 @@ def pdf_email(request):
         message.content_subtype = "html"
         message.send()
 
-        return HttpResponse("The email was sent successfully.")
+        return HttpResponse("The email was sent")
     else:
         return HttpResponse(
             "Our developers are working to resolve this issue. Please try after sometime."

@@ -1,96 +1,122 @@
 <div id="form-page-7" role="tabpanel" class="bs-stepper-pane fade" aria-labelledby="stepperFormTrigger7">
   <div class="col-12 col-md-12 mx-auto form-section">
     {% load static %}
-    {% load i18n %}
     <div class="row">
       <div class="card-master col-12 col-md-12">
         <div class="card-master-header">
-          <h4 class="card-header-title acenter">{% trans 'Page7_Heading' %}</h4>
+          <h4 class="card-header-title acenter">International Proceedings</h4>
         </div>
         <div class="card-body">
           <div class="form-group">
-            <h4>{% trans 'Page7_Another_Investigation' %}
+            <h4>
+              Have you raised any of these complaints in another procedure of
+              international investigation or settlement?
             </h4>
             <div class="text-center">
               <button class="btn more-info-button" data-toggle="collapse" data-target="#info-Q1">
-                {% trans 'Button_MoreInfo' %}
+                More Info
               </button>
             </div>
             <br />
             <div id="info-Q1" class="collapse">
-              <h5>{% trans 'Page7_Another_Investigation_Description' %}
+              <h5>
+                You must indicate whether you have submitted the complaints in
+                your application to any other procedure of international
+                investigation or settlement, for example a United Nations body
+                such as the ILO or the UN Human Rights Committee, or an
+                international arbitration panel. If you have, you should give
+                details, including the name of the body to which you submitted
+                your complaints, the dates and details of any proceedings which
+                took place and details of any decisions that were taken. You
+                should also submit copies of relevant decisions and other
+                documents.
               </h5>
             </div>
             <br />
             <div class="custom-control custom-radio custom-control-inline">
               <input type="radio" class="custom-control-input" id="intInvestigationYes" name="page7[intInvestigation]"
                 value="Yes" data-parsley-group="page7a" />
-              <label class="custom-control-label" for="intInvestigationYes">{% trans 'Option_Yes' %}</label>
+              <label class="custom-control-label" for="intInvestigationYes">Yes</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
               <input type="radio" class="custom-control-input" id="intInvestigationNo" name="page7[intInvestigation]"
                 value="No" data-parsley-group="page7a" />
-              <label class="custom-control-label" for="intInvestigationNo">{% trans 'Option_No' %}</label>
+              <label class="custom-control-label" for="intInvestigationNo">No</label>
             </div>
           </div>
           <div class="form-group is-hidden intInvestigation">
-            <h4>{% trans 'Page7_Another_Investigation_Summary' %}
+            <h4>
+              Please give a concise summary of the procedure (complaints
+              submitted, name of the international body and date and nature of
+              any decisions given).
             </h4>
             <div class="row justify-content-center">
               <textarea class="form-control lastAreas" name="page7[intInvestigationDesc]" id="intInvestigationDesc"
                 oninput="limitLines(this)" onpaste="limitLinesOnPaste(this)" cols="100" rows="20" maxlength="2000"
                 data-parsley-group="page7b" style="width: 110ch; padding: 10px"></textarea>
             </div>
-            <div class="row justify-content-center">{% trans 'Lines_Remaining' %}</div>
+            <div class="row justify-content-center">Lines Remaining</div>
           </div>
           <br />
           <hr />
           <hr />
           <div class="form-group">
-            <h4>{% trans 'Page7_Other_Application' %}
+            <h4>
+              Do you (the applicant) currently have, or have you previously had,
+              any other applications before the Court?
             </h4>
             <div class="text-center">
               <button class="btn more-info-button" data-toggle="collapse" data-target="#info-Q2">
-                {% trans 'Button_MoreInfo' %}
+                More Info
               </button>
             </div>
             <br />
             <div id="info-Q2" class="collapse">
-              <h5>{% trans 'Page7_Other_Application_Description' %}
+              <h5>
+                If you have, or have had, any other applications before the
+                Court give the application number(s). If your first application
+                form was rejected as incomplete, no file is kept, neither the
+                form nor any of the attached documents. So, merely sending the
+                missing document or a letter with the missing information will
+                not be sufficient: you must fill in a fresh application form and
+                append to it copies of all the relevant documents, even if you
+                have sent the documents in previous correspondence addressed to
+                the Court.
               </h5>
             </div>
             <br />
             <div class="custom-control custom-radio custom-control-inline">
               <input type="radio" class="custom-control-input" id="prevApplicationsYes" name="page7[prevApplications]"
                 value="Yes" data-parsley-group="page7c" />
-              <label class="custom-control-label" for="prevApplicationsYes">{% trans 'Option_Yes' %}</label>
+              <label class="custom-control-label" for="prevApplicationsYes">Yes</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
               <input type="radio" class="custom-control-input" id="prevApplicationsNo" name="page7[prevApplications]"
                 value="No" data-parsley-group="page7c" />
-              <label class="custom-control-label" for="prevApplicationsNo">{% trans 'Option_No' %}</label>
+              <label class="custom-control-label" for="prevApplicationsNo">No</label>
             </div>
           </div>
           <div class="form-group prevAppDesc is-hidden">
-            <h4 for="appealDescribe">{% trans 'Page7_Other_Application_Write' %}
+            <h4 for="appealDescribe">
+              Please write the relevant application number(s) in the box below.
             </h4>
             <div class="row justify-content-center">
               <textarea class="form-control lastAreas" name="page7[prevAppDesc]" id="prevAppDesc"
                 oninput="limitLines(this);" cols="100" rows="4" maxlength="400" data-parsley-group="page7d"
                 onpaste="limitLinesOnPaste(this);" style="width: 110ch; padding: 10px"></textarea>
             </div>
-            <div class="row justify-content-center">{% trans 'Lines_Remaining' %}</div>
+            <div class="row justify-content-center">Lines Remaining</div>
           </div>
           <div class="card-footer">
             <div class="row">
               <div class="col-sm-6 aleft">
                 <button class="btn btn-primary" onclick="stepperForm.previous()">
-                  {% trans 'Button_Previous' %}
+                  Previous
                 </button>
               </div>
               <div class="col-sm-6 aright">
                 <button class="btn btn-primary btn-next-form" id="docCreateTrigger" onclick="stepperForm.next()">
-                  {% trans 'Button_Next' %}
+                  Next
                 </button>
               </div>
             </div>

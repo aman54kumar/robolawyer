@@ -3,7 +3,6 @@
 {% block content %}
 
 <header class="masthead">
-    {% load i18n %}
     <div class="container d-flex align-items-center">
         <div class="mx-auto text-center">
 
@@ -12,20 +11,27 @@
 
             <div class="home-desc-div">
 
-                <p class="lead text-white">{% trans "home_descText" %}
+                <p class="lead text-white"> On average, only <b>5%</b> of all the applications submitted to the
+                    <em>European Court of Human Rights</em> are given a judgment.
+                    The majority of cases are declared
+                    inadmissible on formal grounds, such as filling the application
+                    form incorrectly, not exhausting all national remedies or submitting
+                    the application later than 6 months after receiving a final decision
+                    from the national court.
                 </p>
                 <br /><br />
-                <p class="lead text-white"> {% trans 'Home_HereToHelp' %}
-                    <br />
-                    <div class="center">
-                        <a class="btn btn-primary" href="{% url 'form' %}"
-                            role="button">{% trans 'Home_Button_GoForm' %}</a>
-                    </div>
-                    <br /> <br />
-                    <div class="header-down-arrow">
-                        <a id="down-arrow-scroll" href="#homepage-section-2"><img
-                                src="{% static 'home/images/white-down-arrow.png' %}" width="50px" /></a>
-                    </div>
+                <p class="lead text-white"> We are here to help you fill in your application form for the
+                    European Court of Human Rights.
+                </p>
+                <br />
+                <div class="center">
+                    <a class="btn btn-primary" href="{% url 'form' %}" role="button">Go to the Application Form</a>
+                </div>
+                <br /> <br />
+                <div class="header-down-arrow">
+                    <a id="down-arrow-scroll" href="#homepage-section-2"><img
+                            src="{% static 'home/images/white-down-arrow.png' %}" width="50px" /></a>
+                </div>
             </div>
         </div>
     </div>
@@ -33,8 +39,12 @@
 
 <div class="bg-white text-center" style="margin-top: 40px;" id="homepage-section-2">
     <div class="container">
-        <h1>{% trans 'Home_Founders' %}</h1>
-        <p class="font-weight-light lead">{% trans 'Home_Colab_TechR_UiO' %}
+        <h1>Founders</h1>
+        <p class="font-weight-light lead">The JustBot project is a collaboration between <a
+                href="https://www.tech-r.org/" target="_blank">Tech - R</a> and the <a href="https://www.uio.no/"
+                target="_blank">University of
+                Oslo</a>.
+        </p>
     </div>
 </div>
 

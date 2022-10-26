@@ -1,39 +1,61 @@
 <div id="form-page-11" role="tabpanel" class="bs-stepper-pane fade text-center" aria-labelledby="stepperFormTrigger11">
     <div class="col-12 col-md-12 mx-auto form-section">
         {% load static  %}
-        {% load i18n %}
         <div class="row">
             <div class="card-master col-12 col-md-12">
                 <div class="card-master-header">
-                    <h4 class="card-header-title">{% trans 'Page11_Heading' %}</h4>
+                    <h4 class="card-header-title">Finish</h4>
                 </div>
                 <div class="card-body alert-info">
 
-                    <h4>{% trans 'Page11_Very_Important_Subheading' %}</h4>
+                    <h4>VERY IMPORTANT </h4>
                     <div class="ajustify">
-                        <h5 class="acenter">{% trans 'Page11_Subheading_description' %}
+                        <h5 class="acenter">The application form has to be printed out and sent by
+                            mail to the registrar of the
+                            European
+                            Court of Human Rights. <br />
+                            Please keep the Court informed of any change of address and/or circumstances relevant to
+                            your application.
                         </h5>
                         <div style="padding:5%">
-                            <p class="lead"><b><u>{% trans 'Page11_Before_Mailing' %}</u></b>
+                            <p class="lead"><b><u>Before mailing the form, please make sure to:</u></b>
 
                                 <ol class="lead ajustify">
-                                    <li>{% trans 'Page11_Before_Mailing_1' %}
+                                    <li>Add the original signatures of the applicant(s) and/or the authorised
+                                        representative(s) in all the relevant fields (page 3 if you are an
+                                        individual
+                                        that is represented by someone else, page 4 if you are an organisation that
+                                        is
+                                        represented by a lawyer, and page 13 of the printed application form). The
+                                        receipt of a faxed application is not counted as a complete application as
+                                        the
+                                        Court needs to receive the original signed application form.
                                     </li><br>
-                                    <li>{% trans 'Page11_Before_Mailing_2' %}
+                                    <li>Add full and legible copies of all documents mentioned in your application.
+                                        No
+                                        documents will be returned to you. It is thus in your interests to submit
+                                        copies, not originals. You MUST:
 
                                         <ul>
-                                            <li>{% trans 'Page11_Before_Mailing_2_1' %}</li>
-                                            <li>{% trans 'Page11_Before_Mailing_2_2' %}</li>
-                                            <li>{% trans 'Page11_Before_Mailing_2_3' %}</li>
+                                            <li>arrange the documents in order by date and by procedure; </li>
+                                            <li>number the pages consecutively; and </li>
+                                            <li>NOT staple, bind or tape the documents.</li>
                                         </ul>
                                     </li><br>
-                                    <li>{% trans 'Page11_Before_Mailing_3' %}
+                                    <li>You must dispatch the signed original by post within the four-month
+                                        time-limit from the date when the final decision from the highest national
+                                        court
+                                        was communicated.
                                     </li><br>
                                     <li>
-                                        <span> {% trans 'Page11_Before_Mailing_4' %}
-                                        </span> <br> <br>
+                                        <span> The completed and signed application form should be sent by post
+                                            to:</span> <br> <br>
                                         <div style="margin-left:100px">
-                                            {% trans 'Page11_Before_Mailing_4_Address' %}
+                                            <b>The Registrar</b><br>
+                                            <b>European Court of Human Rights</b><br>
+                                            <b>Council of Europe</b><br>
+                                            <b>67075 STRASBOURG CEDEX</b><br>
+                                            <b>FRANCE</b>
                                         </div>
                                     </li>
                                 </ol>
@@ -43,10 +65,10 @@
 
                     </div>
                     <div class="card-footer">
-                        <button class="btn btn-primary"
-                            onclick="stepperForm.previous()">{% trans 'Button_Previous' %}</button>
-                        <button id="form-submit-btn" type="submit" class="btn btn-primary"
-                            name="appFormSubmit">{% trans 'Button_Submit_Form_Button' %}</button>
+                        <button class="btn btn-primary" onclick="stepperForm.previous()">Previous</button>
+                        <button id="form-submit-btn" type="submit" class="btn btn-primary" name="appFormSubmit">Generate
+                            Printable PDF
+                            Form</button>
                     </div>
                 </div>
             </div>

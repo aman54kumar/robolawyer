@@ -1,25 +1,23 @@
 {% load static %}
-{% load i18n %}
 <div class="is-hidden" id="lawyerRep">
   <div id="containerDivForLawyer">
-    <h4>{% trans 'Page3_IndRep_L_Heading' %}</h4>
+    <h4>Details of the Lawyer Representative</h4>
     <div class="row">
       <div class="form-group col-lg-12 col-xl-4">
-        <h4>{% trans 'Surname' %}</h4>
-        <input class="form-control" type="text" name="page3[indLSurname]"
-          placeholder="{% trans 'Surname_Placeholder' %}" id="indLSurname" data-parsley-group="page3c" maxlength="49" />
+        <h4>Surname</h4>
+        <input class="form-control" type="text" name="page3[indLSurname]" placeholder="Enter your surname"
+          id="indLSurname" data-parsley-group="page3c" maxlength="49" />
       </div>
       <div class="form-group col-lg-12 col-xl-4">
-        <h4>{% trans 'FirstName' %}</h4>
-        <input class="form-control" type="text" name="page3[indLFirstName]"
-          placeholder="{% trans 'FirstName_Placeholder' %}" id="indLFirstName" data-parsley-group="page3c"
-          maxlength="49" />
+        <h4>First Name(s)</h4>
+        <input class="form-control" type="text" name="page3[indLFirstName]" placeholder="Enter your first name(s)"
+          id="indLFirstName" data-parsley-group="page3c" maxlength="49" />
       </div>
     </div>
     <div class="row">
       <div class="form-group col-lg-12 col-xl-4">
-        <h4>{% trans 'Address' %}</h4>
-        <textarea class="form-control longAddress" cols="49" rows="8" placeholder="{% trans 'Address_Placeholder' %}"
+        <h4>Address</h4>
+        <textarea class="form-control longAddress" cols="49" rows="8" placeholder="Enter address"
           name="page3[indLAddress]" id="indLAddress" maxlength="399" oninput="limitLines(this);"
           onpaste="limitLinesOnPaste(this);"></textarea>
         <div></div>
@@ -27,15 +25,15 @@
       <div class="col-lg-12 col-xl-8">
         <div class="row">
           <div class="form-group col-lg-12 col-xl-6">
-            <h4>{% trans 'Nationality' %}</h4>
+            <h4>Nationality</h4>
             <input class="form-control" name="page3[indLNationality]" id="indLNationality" maxlength="49"
-              placeholder="{% trans 'Nationality_Placeholder' %}" />
+              placeholder="Select country" />
             <input type="hidden" id="indphoneLNationality" />
           </div>
           <div class="form-group col-lg-12 col-xl-6">
-            <h4>{% trans 'TelNo' %}</h4>
+            <h4>Telephone Number (select country code)</h4>
             <input class="form-control" type="tel" style="width: 100%" name="page3[indLTel]" id="indLTel"
-              placeholder="{% trans 'TelNo_Placeholder' %}" />
+              placeholder="Enter telephone number" />
           </div>
         </div>
 
@@ -43,28 +41,33 @@
 
         <div class="row">
           <div class="form-group col-lg-12 col-xl-6">
-            <h4>{% trans 'Fax' %}</h4>
-            <input class="form-control" type="tel" name="page3[indLFax]" placeholder="{% trans 'Fax_Placeholder' %}"
-              id="indLFax" maxlength="15" />
+            <h4>Fax</h4>
+            <input class="form-control" type="tel" name="page3[indLFax]" placeholder="Enter fax number" id="indLFax"
+              maxlength="15" />
             <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input" id="indLFaxOption" name="page3[indLFaxOption]"
                 value="No" data-parsley-group="page3b" />
               <br />
-              <label class="custom-control-label" for="indLFaxOption">{% trans 'NoFax_Check' %}</label>
+              <label class="custom-control-label" for="indLFaxOption">I do not have a fax number</label>
             </div>
           </div>
           <div class="form-group col-lg-12 col-xl-6">
-            <h4>{% trans 'Email' %}</h4>
-            <input class="form-control" type="email" name="page3[indLEmail]"
-              placeholder="{% trans 'Email_Placeholder' %}" id="indLEmail" maxlength="49" />
+            <h4>Email</h4>
+            <input class="form-control" type="email" name="page3[indLEmail]" placeholder="Enter email address"
+              id="indLEmail" maxlength="49" />
           </div>
         </div>
       </div>
     </div>
     <div id="indLFaxDiv" class="col-sm-12 is-hidden">
-      <label for="indLFaxArea">{% trans 'Page3_IndRep_L_NoFax_Message' %}</label>
+      <label for="indLFaxArea">If you do not have a fax number, you must provide an explanation as to why this
+        information is missing and send the document containing this explanation as an accompanying document to your
+        application. <br /> We will generate the text you enter in the below field as an additional document when you
+        generate the application form and we will automatically add the title and description of this document to the
+        Supporting Document list on page 8. You may add any other documents supporting your explanation both to the
+        Supporting Documents list on page 8, and as a copy in the attachments to the application.</label>
       <textarea id="indLFaxArea" name="page3[indLFaxArea]" class="form-control"
-        placeholder="{% trans 'Page3_IndRep_L_NoFaxArea_Placeholder' %}" rows="10"></textarea>
+        placeholder="Please provide an explanation for unavailability of fax number" rows="10"></textarea>
     </div>
   </div>
 
@@ -74,20 +77,43 @@
 
     <hr />
 
-    <h4 class="alert-heading">{% trans 'Page3_Authority_Heading' %}</h4>
+    <h4 class="alert-heading">Authority form (power of attorney)</h4>
     <h5 class="ajustify">
-      {% trans 'Page3_IndRep_L_Authority_Description' %}
+      An applicant must sign the authority empowering the representative
+      to act on his or her behalf, unless, for example, the applicant is a
+      child or lacks legal capacity and is unable to sign. If a
+      representative who is not a lawyer has instructed a lawyer on behalf
+      of an applicant who is unable to sign, the representative should
+      sign the authority on the applicant’s behalf. A separate authority
+      form will not be accepted unless adequate explanations are provided
+      as to the existence of insurmountable practical obstacles in signing
+      the authority section on the form or it is used at a later stage to
+      appoint a lawyer/representative after the application has been
+      lodged with the Court.
     </h5>
 
     <div class="text-center">
       <button class="btn more-info-button" data-toggle="collapse" data-target="#info-authorityL">
-        {% trans 'Button_MoreInfo' %}
+        More Info
       </button>
     </div>
     <br />
     <div id="info-authorityL" class="collapse">
       <h5 class="ajustify">
-        {% trans 'Page3_IndRep_L_Authority_MoreInfo' %}
+        If an applicant is represented by a lawyer or other person, both
+        the applicant and the designated representative – whose
+        identifying details must be indicated on the application form -
+        must sign the authority section on the application form. The
+        applicant’s signature provides the necessary proof that the
+        representative has been authorised by the applicant to act on the
+        latter’s behalf; the representative’s signature, which is a new
+        requirement, provides confirmation that this person has in fact
+        accepted to act for the applicant. Where the applicant is an
+        organisation, it is the official or officer of that organisation
+        and the lawyer who sign. In the absence of such signature, the
+        Registry may continue to correspond only with the applicant due to
+        lack of proof that the representative is in fact involved in the
+        case.
       </h5>
     </div>
     <br />
@@ -95,17 +121,18 @@
     <div id="indLAuthorityExtra">
       <div class="form-group">
         <h4>
-          {% trans 'Page3_Authority_Option' %}
+          Are both the applicant and the representative able to sign the
+          Authority form (power of attorney)?
         </h4>
         <div class="custom-control custom-radio custom-control-inline">
           <input type="radio" class="custom-control-input indLAuthorityPower" id="indLAuthorityPowerYes"
             name="page3[indLAuthorityPower]" value="Yes" data-parsley-group="page3" />
-          <label class="custom-control-label" for="indLAuthorityPowerYes">{% trans 'Option_Yes' %}</label>
+          <label class="custom-control-label" for="indLAuthorityPowerYes">Yes</label>
         </div>
         <div class="custom-control custom-radio custom-control-inline">
           <input type="radio" class="custom-control-input indLAuthorityPower" id="indLAuthorityPowerNo"
             name="page3[indLAuthorityPower]" value="No" data-parsley-group="3" />
-          <label class="custom-control-label" for="indLAuthorityPowerNo">{% trans 'Option_No' %}</label>
+          <label class="custom-control-label" for="indLAuthorityPowerNo">No</label>
         </div>
 
       </div>
@@ -115,7 +142,9 @@
           <br>
           <div class="alert alert-danger" role="alert">
             <p class="lead">
-              {% trans 'Page3_IndRep_VeryImportant' %}
+              Very Important: This section in the printed application must contain original signatures and dates added
+              after the form has been printed out (page 3 of the printed application form – see picture below). Failing
+              to do so can result in the application being declared inadmissible.
             </p>
           </div>
           <br />
@@ -127,14 +156,21 @@
         <div class="custom-control custom-checkbox custom-control-inline">
           <input type="checkbox" class="custom-control-input" id="indLAuthorityPowerYesCheckbox"
             name="page3[indLAuthorityPowerYesCheckbox]" />
-          <label class="custom-control-label"
-            for="indLAuthorityPowerYesCheckbox">{% trans 'Page3_IndRep_L_AuthorityUnderstood_Check' %}</label>
+          <label class="custom-control-label" for="indLAuthorityPowerYesCheckbox">Please confirm you have read and
+            understood that both you and your representative have to sign page 3 in the printed application
+            form.</label>
         </div>
         <br>
       </div>
       <div id="indLAuthorityPowerNoDiv" class="is-hidden">
-        <h4 class="ajustify">{% trans 'Page3_IndRep_L_AuthorityNo_Message' %}<br /> <br /></h4>
-        <h5 class="ajustify">{% trans 'Page3_IndRep_L_AuthorityNo_Message_Explanation' %}</h5>
+        <h4 class="ajustify">Please explain in the textbox below why the applicant cannot sign the
+          authority form and provide the details of the non-lawyer representative (parent, close relative, guardian)
+          who can authorise the lawyer to act on the applicant’s behalf. <br /> <br /></h4>
+        <h5 class="ajustify">We will generate this text as an additional document when you generate the application
+          form and we will
+          automatically add the title and description of this document to the Supporting Document list on page 8. You
+          must remember to add any other documents supporting your explanation – medical records, official documents –
+          both to the Supporting Documents list, and as a copy in the attachments to the application.</h5>
 
         <textarea name="page3[indLAuthAreaYes]" id="indLAuthAreaYes" class="form-control newPageTextArea indLAuthArea"
           rows="10"></textarea>
@@ -146,7 +182,9 @@
         <br>
         <label>
           <h4>
-            {% trans 'Page3_IndRep_L_OtherNL' %}
+            Is there another person (parent, close relative, guardian)
+            sufficiently linked to the applicant who can act in the
+            name of the applicant and authorise the representative?
           </h4>
         </label>
 
@@ -155,7 +193,7 @@
           <input type="radio" class="custom-control-input" id="LotherNLYes" name="page3[LotherNL]" value="yes"
             data-parsley-group="page3" data-parsley-errors-container="#LotherNLError" />
           <label class="custom-control-label" for="LotherNLYes">
-            {% trans 'Option_Yes' %}
+            Yes
           </label>
         </div>
 
@@ -163,7 +201,7 @@
           <input type="radio" class="custom-control-input" id="LotherNLNo" name="page3[LotherNL]" value="no"
             data-parsley-group="page3" data-parsley-required />
           <label class="custom-control-label" for="LotherNLNo">
-            {% trans 'Option_Yes' %}
+            No
           </label>
         </div>
 
@@ -174,7 +212,13 @@
         </div>
         <div id="indLOtherNo" class="is-hidden">
           <br>
-          <h5 class="ajustify">{% trans 'Page3_AuthorityForm_NoSign' %}</h5>
+          <h5 class="ajustify">Please explain in this textbox below why the applicant cannot sing the
+            authority form. Please provide any
+            additional documents that you deem necessary to support your case. <br /> We will generate this text as an
+            additional document when you generate the application form and we will automatically add the title and
+            description of this document to the Supporting Document list on page 8. You must remember to add any other
+            documents supporting your explanation – medical records, official documents – both to the Supporting
+            Documents list on page 8, and as a copy in the attachments to the application.</h5>
 
           <textarea name="page3[indLAuthAreaNo]" id="indLAuthAreaNo" class="form-control newPageTextArea"
             rows="10"></textarea>
@@ -195,27 +239,42 @@
   <br />
   <label for="indLIndeComms">
     <h4>
-      {% trans 'Page3_Ecomms' %}
+      Electronic communication between the representative and the Court
     </h4>
   </label>
   <div class="text-center">
     <button class="btn more-info-button" data-toggle="collapse" data-target="#info-ecomm">
-      {% trans 'Button_MoreInfo' %}
+      More Info
     </button>
   </div>
 
   <br />
   <div id="info-ecomm" class="collapse">
     <h5 class="ajustify">
-      {% trans 'Page3_Ecomms_MoreInfo' %}
+      eComms is a service initiated by the Court for communicating
+      electronically with an applicant’s representative. The service is only
+      activated if and when the case reaches a stage of the proceedings where
+      the Government concerned are requested to submit written observations.
+      The email address provided will be used to create an eComms account. It
+      is recommended that representatives working in a law firm provide a
+      generic email address so that the account can be used by multiple users
+      within the firm. You should inform the Court of any change to your
+      eComms account email address. For more information, please refer to the
+      terms and conditions available on the <a href="https://ecomms.echr.coe.int" target="_blank">eComms website</a>,
+      as well as the <a href="www.echr.coe.int/practicedirections" target="_blank">Practice Direction on electronic
+        filing by applicants</a>
+      (available in English and French only).
     </h5>
   </div>
   <div>
     <h4>
-      {% trans 'Page3_Ecomms_Email' %}
+      Please provide an email address for ECtHR communication system,
+      eComms. You can read more about the eComms terms and conditions
+
+      <a href="https://www.echr.coe.int/Pages/home.aspx?p=ecomms&c=" target="_blank">here</a>.
     </h4>
     <input class="form-control col-sm-4" type="email" name="page3[indLIndeComms]" id="indLIndeComms" maxlength="49"
-      placeholder="{% trans 'Page3_Ecomms_Email_Placeholder' %}" />
+      placeholder="Enter ecomms email address" />
   </div>
   <br /><br />
 </div>

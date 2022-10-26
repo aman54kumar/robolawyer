@@ -1,50 +1,62 @@
 <div id="form-page-5" role="tabpanel" class="bs-stepper-pane fade" aria-labelledby="stepperFormTrigger5">
   <div class="col-md col-md-12 mx-auto form-section">
     {% load static %}
-    {% load i18n %}
     <div class="row">
       <div class="card-master col-12 col-md-12">
         <div class="card-master-header">
-          <h4 class="card-header-title acenter">{% trans 'Page5_Heading' %}</h4>
+          <h4 class="card-header-title acenter">Alleged violations of the Convention/Protocols</h4>
         </div>
 
         <div class="card-body alert-info">
           <label>
-            <h4 class="ajustify"> {% trans 'Page5_Heading_Description' %}
+            <h4 class="ajustify">
+              Indicate here alleged violation(s) of the
+              <a href="https://www.echr.coe.int/Documents/Convention_ENG.pdf" _target="#">
+                Convention and/or Protocols </a>and relevant arguments. Explain as precisely as you can why the
+              facts described in the previous section entail a violation of the
+              Convention or/and Protocols. For each complaint raised you need to
+              indicate the Article/s that apply and argue in brief sentences how
+              it has been infringed.
             </h4>
           </label>
           <br />
 
           <div class="form-group">
             <div class="articleExample">
-              <h4 class="alert-heading">{% trans 'Text_Examples' %}</h4>
+              <h4 class="alert-heading">Examples</h4>
               <table class="table-bordered">
                 <thead style="border: none">
                   <tr style="background-color: #2679c7; color: white">
-                    <th scope="col" width="25%">{% trans 'Page5_Header_ArticlesInvoked' %}</th>
-                    <th scope="col">{% trans 'Page5_Header_Explanation' %}</th>
+                    <th scope="col" width="25%">Article(s) invoked</th>
+                    <th scope="col">Explanation</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>
-                      {% trans 'Page5_Ex1_Article' %}
+                      Article 5 – Right to liberty and security
                     </td>
-                    <td>{% trans 'Page5_Ex1_Explanation' %}
+                    <td>
+                      I was detained wrongfully at the border police station for three days without being told why or
+                      being allowed to phone a lawyer or my family. 
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      {% trans 'Page5_Ex2_Article' %}
+                      Article 6 – Right to a fair trial
                     </td>
-                    <td>{% trans 'Page5_Ex2_Explanation' %}
+                    <td>
+                      The criminal proceedings against me lasted 9 years and 8 months for two levels of jurisdiction.
+                      Also, I was not allowed to cross-examine the witness who gave the sole evidence against me.
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      {% trans 'Page5_Ex3_Article' %}
+                      Article 8 – Right to respect for private and family life
                     </td>
-                    <td>{% trans 'Page5_Ex3_Explanation' %}
+                    <td>
+                      The domestic courts dismissed my complaints after my employer has been monitoring my personal
+                      correspondence and fired me based on the content of my personal correspondence.
                     </td>
                   </tr>
                 </tbody>
@@ -59,7 +71,7 @@
                   <tr>
                     <td class="page5TableTDSelect">
                       <label class="lead" for="articleSelect">
-                        <h4>{% trans 'Page5_Header_ArticlesInvoked' %}</h4>
+                        <h4>Article(s) invoked </h4>
                       </label>
                       <select name="page5[0][articleSelect]" id="article_0_select" class="form-control articleSelect"
                         data-parsley-group="page5" data-pattern-name="page5[++][articleSelect]"
@@ -71,13 +83,13 @@
                       </div>
 
                       <div class="is-hidden page5AlertText">
-                        <p class="alert alert-danger">{% trans 'Page5_Please_Choose_One' %}</p>
+                        <p class="alert alert-danger">Please choose at least one option</p>
                       </div>
                       <div class="conjArticle">
                         <div class="secondSelectDiv">
                         </div>
                         <div class="is-hidden page5SecondAlertText">
-                          <p class="alert alert-danger">{% trans 'Page5_Please_Choose_One' %}</p>
+                          <p class="alert alert-danger">Please choose at least one option</p>
                         </div>
                       </div>
                     </td>
@@ -89,7 +101,7 @@
                     </td>
                     <td class="page5TableTDArea">
                       <label class="lead">
-                        <h4>{% trans 'Page5_Header_Explanation' %}</h4>
+                        <h4>Explanation</h4>
                       </label>
                       <textarea class="form-control articleExplanation articleExpCounter"
                         name="page5[0][articleExplanation]" id="article_0_explanation"
@@ -100,11 +112,13 @@
 
                       <br />
                       <div class="explanationCounter is-hidden">
-                        {% trans 'Lines_Remaining' %}:
+                        Lines Remaining:
                       </div>
-                      <div class="textAreaLimitWarningDiv alert alert-danger is-hidden">
-                        {% trans 'Page5_Text_Area_Limit_Warning' %}
-                      </div>
+                      <div class="textAreaLimitWarningDiv alert alert-danger is-hidden">You cannot add any more text
+                        because
+                        you’ve reached the text limit imposed by the court in the application form. Please rephrase your
+                        text if you want to make changes</div>
+                      <!-- 'this.style.height = ""; this.style.height = this.scrollHeight + "px"; -->
                     </td>
 
                     <p>
@@ -125,15 +139,17 @@
                   </div>
                   <hr />
                 </div>
-                <div class="addButtonWarningDiv alert alert-danger is-hidden">
-                  {% trans 'Page5_Cannot_Add_More_Warning' %}</div>
+                <div class="addButtonWarningDiv alert alert-danger is-hidden">You cannot add any more articles because
+                  you have reached the text limit imposed by the Court on the application form. The add button is
+                  disabled. If you need to add more articles, please rephrase the text in the explanation fields and
+                  make it shorter to free up space.</div>
                 <div class="page5GroupButtonsDiv">
                   <button type="button" class="a-btnAdd btn btn-primary page5_addButton" id="addButton_5_0"
                     data-pattern-id="addButton_5_++" disabled>
-                    {% trans 'Add_Button' %} +
+                    Add +
                   </button>
                   <button type="button" class="a-btnRemove btn btn-danger">
-                    {% trans 'Remove_Button' %} -
+                    Remove -
                   </button>
                 </div>
               </div>
@@ -143,12 +159,12 @@
             <div class="row">
               <div class="col-sm-6 aleft">
                 <button class="btn btn-primary" onclick="stepperForm.previous()">
-                  {% trans 'Button_Previous' %}
+                  Previous
                 </button>
               </div>
               <div class="col-sm-6 aright">
                 <button class="btn btn-primary btn-next-form" onclick="stepperForm.next()">
-                  {% trans 'Button_Next' %}
+                  Next
                 </button>
               </div>
             </div>

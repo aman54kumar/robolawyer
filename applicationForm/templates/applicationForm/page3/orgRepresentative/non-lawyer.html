@@ -1,58 +1,57 @@
 {% load static %}
-{% load i18n %}
 <div class="section" id="orgNonLawyerRep">
   <br /><br />
-  <h4>{% trans 'Page3_OrgOfficial_Heading' %}</h4>
+  <h4>Organisation Official</h4>
   <br><br>
   <div class="row">
     <div class="form-group col-lg-12 col-xl-4">
-      <h4>{% trans 'Page3_OrgOfficial_Capacity' %}</h4>
+      <h4>Capacity/function</h4>
       <input class="form-control" type="text" name="page3[orgCapacity]"
-        placeholder="{% trans 'Page3_OrgOfficial_Capacity_Placeholder' %}" id="orgnlCapacity"
+        placeholder="Enter your capacity/relationship/function in the organisation" id="orgnlCapacity"
         data-parsley-group="page3d" maxlength="49" />
     </div>
     <div class="form-group col-lg-12 col-xl-4">
-      <h4>{% trans 'Surname' %}</h4>
-      <input class="form-control" type="text" name="page3[orgnlSurname]" placeholder="{% trans 'Surname_Placeholder' %}"
+      <h4>Surname</h4>
+      <input class="form-control" type="text" name="page3[orgnlSurname]" placeholder="Enter your surname"
         id="orgnlSurname" data-parsley-group="page3d" maxlength="49" />
     </div>
     <div class="form-group col-lg-12 col-xl-4">
-      <h4>{% trans 'FirstName' %}</h4>
-      <input class="form-control" type="text" name="page3[orgnlFirstName]"
-        placeholder="{% trans 'FirstName_Placeholder' %}" id="orgnlFirstName" data-parsley-group="page3d"
-        maxlength="49" />
+      <h4>First Name(s)</h4>
+      <input class="form-control" type="text" name="page3[orgnlFirstName]" placeholder="Enter your first name(s)"
+        id="orgnlFirstName" data-parsley-group="page3d" maxlength="49" />
     </div>
   </div>
 
   <div class="row">
     <div class="form-group col-lg-12 col-xl-4">
-      <h4>{% trans 'Address' %}
-        <a href="javascript://" data-toggle="popover" data-content="{% trans 'Page3_Address_OrgOfficial_Popover' %}"
+      <h4>Address
+        <a href="javascript://" data-toggle="popover"
+          data-content="An applicant must provide a postal address separate from that of a lawyer or representative so that the Court can make contact if necessary. An applicant who is homeless or has no fixed residence may have to give a box number or friend’s details but should provide an explanation."
           data-trigger="focus" data-placement="bottom">
           <span><i class="fas fa-question-circle"></i></span></a></h4>
-      <textarea class="form-control shortAddress" rows="6" cols="49" maxlength="299"
-        placeholder="{% trans 'Address_Placeholder' %}" name="page3[orgnlAddress]" id="orgnlAddress"
-        oninput="limitLines(this);" onpaste="limitLinesOnPaste(this);"></textarea>
+      <textarea class="form-control shortAddress" rows="6" cols="49" maxlength="299" placeholder="Enter address"
+        name="page3[orgnlAddress]" id="orgnlAddress" oninput="limitLines(this);"
+        onpaste="limitLinesOnPaste(this);"></textarea>
       <div></div>
     </div>
     <div class="col-lg-12 col-xl-4">
       <div class="row">
         <div class="form-group col-sm-12">
-          <h4>{% trans 'Nationality' %}</h4>
+          <h4>Nationality</h4>
           <input class="form-control" name="page3[orgnlNationality]" id="orgnlNationality" maxlength="49"
-            placeholder="{% trans 'Nationality_Placeholder' %}" />
+            placeholder="Select country" />
           <input type="hidden" id="orgPhonenlNationality" />
         </div>
         <div class="col-sm-12">
-          <h4>{% trans 'Fax' %}</h4>
-          <input class="form-control" type="tel" name="page3[orgnlFax]" placeholder="{% trans 'Fax_Placeholder' %}"
-            id="orgnlFax" maxlength="15" />
+          <h4>Fax</h4>
+          <input class="form-control" type="tel" name="page3[orgnlFax]" placeholder="Enter Fax number" id="orgnlFax"
+            maxlength="15" />
         </div>
         <div class="col-sm-12">
           <div class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="orgNLFaxOption" name="page3[orgNLFaxOption]" />
             <br />
-            <label class="custom-control-label" for="orgNLFaxOption">{% trans 'NoFax_Check' %}</label>
+            <label class="custom-control-label" for="orgNLFaxOption">I do not have a fax number</label>
           </div>
         </div>
       </div>
@@ -60,31 +59,42 @@
     <div class="col-lg-12 col-xl-4">
       <div class="row">
         <div class="form-group col-sm-12">
-          <h4>{% trans 'TelNo' %}</h4>
+          <h4>Telephone Number (select country code)</h4>
           <input class="form-control" type="tel" name="page3[orgnlTel]" id="orgnlTel"
-            placeholder="{% trans 'TelNo_Placeholder' %}" />
+            placeholder="Enter telephone number" />
         </div>
         <div class="form-group col-sm-12">
-          <h4>{% trans 'Email' %}</h4>
-          <input class="form-control" type="email" name="page3[orgnlEmail]"
-            placeholder="{% trans 'Email_Placeholder' %}" id="orgnlEmail" maxlength="49" />
+          <h4>Email</h4>
+          <input class="form-control" type="email" name="page3[orgnlEmail]" placeholder="Enter email" id="orgnlEmail"
+            maxlength="49" />
         </div>
+
       </div>
     </div>
 
 
 
     <div id="orgNLFaxDiv" class="col-sm-12 is-hidden">
-      <label for="orgNLFaxArea">{% trans 'Page3_OrgOff_NoFaxArea' %}</label>
+      <label for="orgNLFaxArea">If you do not have a fax number, you must provide an explanation as to why this
+        information is missing and send the document containing this explanation as an accompanying document to your
+        application. <br /> We will generate the text you enter in the below field as an additional document when you
+        generate the application form and we will automatically add the title and description of this document to the
+        Supporting Document list on page 8. You may add any other documents supporting your explanation both to the
+        Supporting Documents list on page 8, and as a copy in the attachments to the application.</label>
       <textarea id="orgNLFaxArea" name="page3[orgNLFaxArea]" class="form-control"
-        placeholder="{% trans 'Page3_OrgOff_NoFaxArea_Placeholder' %}" rows="10"></textarea>
+        placeholder="Please provide an explanation for unavailability of Fax number" rows="10"></textarea>
     </div>
   </div>
   <br><br>
   <div class="row">
     <div class="col-sm-12">
-      <h4>{% trans 'Page3_OrgOff_Entitled' %}<h4>
-          <h5>{% trans 'Page3_OrgOff_Entitled_Description' %}
+      <h4>Do you have a document proving that the organisation official is legally
+        entitled to represent the organisation?<h4>
+          <h5> You have to provide evidence that the organisation official is entitled
+            to represent the organisation under your national law. This document can
+            be: a copy of the extract of the company register or of the chamber of
+            commerce register, a notarised authorisation or minutes of the governing
+            body.
           </h5>
     </div>
   </div>
@@ -93,12 +103,12 @@
       <div class="custom-control custom-radio custom-control-inline">
         <input type="radio" class="custom-control-input orgOffEntitled" id="orgOffEntitledYes"
           name="page3[orgOffEntitled]" value="yes" data-parsley-group="page3" />
-        <label class="custom-control-label" for="orgOffEntitledYes">{% trans 'Option_Yes' %}</label>
+        <label class="custom-control-label" for="orgOffEntitledYes">Yes</label>
       </div>
       <div class="custom-control custom-radio custom-control-inline">
         <input type="radio" class="custom-control-input orgOffEntitled" id="orgOffEntitledNo"
           name="page3[orgOffEntitled]" value="no" data-parsley-group="3" />
-        <label class="custom-control-label" for="orgOffEntitledNo">{% trans 'Option_No' %}</label>
+        <label class="custom-control-label" for="orgOffEntitledNo">No</label>
       </div>
     </div>
     <div id="orgOfficialAreaDiv" class="col-sm-12"></div>
@@ -106,19 +116,19 @@
 
   <div class="form-group">
     <h4>
-      {% trans 'Page3_Org_RepLawyer' %}
+      Is the organisation going to be represented by a Lawyer?
     </h4>
 
     <div class="custom-control custom-radio custom-control-inline">
       <input type="radio" class="custom-control-input" id="orgLYesRepresentative" name="page3[orgRepresentativeType]"
         value="orgYesLawyer" data-parsley-group="page3e" data-parsley-required
         data-parsley-errors-container="#orgRepError" />
-      <label class="custom-control-label" for="orgLYesRepresentative">{% trans 'Option_Yes' %}</label>
+      <label class="custom-control-label" for="orgLYesRepresentative">Yes</label>
     </div>
     <div class="custom-control custom-radio custom-control-inline">
       <input type="radio" class="custom-control-input" id="orgLNoRepresentative" name="page3[orgRepresentativeType]"
         value="orgNoLawyer" data-parsley-group="page3e" />
-      <label class="custom-control-label" for="orgLNoRepresentative">{% trans 'Option_No' %}</label>
+      <label class="custom-control-label" for="orgLNoRepresentative">No</label>
     </div>
     <div id="orgRepError"></div>
     <div id="orgRepresentNoLawyer"></div>

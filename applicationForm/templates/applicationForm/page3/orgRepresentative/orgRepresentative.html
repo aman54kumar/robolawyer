@@ -1,27 +1,37 @@
 {% load static %}
-{% load i18n %}
 <div class="is-hidden" id="orgRepresentative">
   <div class="card-master">
     <div class="card-master-header">
-      <h4 class="card-header-title acenter">{% trans 'Page3_OrgRep_Heading' %}</h4>
+      <h4 class="card-header-title acenter">Representation</h4>
     </div>
 
     <div class="card-body">
       <h3 class="acenter">
-        {% trans 'Page3_OrgRep_Body_Heading' %}
+        Representative(s) of the Applicant Organisation
       </h3>
       <p class="lead">
-        {% trans 'Page3_OrgRep_Official_Instructions' %}
+        Where the applicant is an organisation, it must be represented
+        before the Court by a person entitled to act on its behalf and
+        in its name (e.g. a duly authorised director or official).
       </p>
       <div class="text-center">
         <button class="btn more-info-button" data-toggle="collapse" data-target="#info-ORG">
-          {% trans 'Button_MoreInfo' %}
+          More Info
         </button>
       </div>
       <br />
       <div id="info-ORG" class="collapse">
         <h5 class="ajustify">
-          {% trans 'Page3_OrgRep_Official_MoreInfo' %}
+          This official representative might be the person specifically
+          designated by the board, or council of administration for that
+          purpose, or the person who is authorised generally under
+          domestic law or the organisation's articles to act on its
+          behalf. It may be that a legal person's representative is also
+          a lawyer or legal officer and has the capacity to act
+          additionally as legal representative. Both parts of the
+          application form concerning representation must still be
+          filled in, and requisite documentary proof provided of
+          authority to represent the legal person must be attached.
         </h5>
 
         <hr />
@@ -37,12 +47,12 @@
         <div class="row">
           <div class="col-sm-6 aleft">
             <button class="btn btn-primary" onclick="stepperForm.previous()">
-              {% trans 'Button_Previous' %}
+              Previous
             </button>
           </div>
           <div class="col-sm-6 aright">
             <button class="btn btn-primary btn-next-form" onclick="stepperForm.next()">
-              {% trans 'Button_Next' %}
+              Next
             </button>
           </div>
         </div>

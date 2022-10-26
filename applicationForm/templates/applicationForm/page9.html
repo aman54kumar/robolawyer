@@ -1,17 +1,17 @@
 <div id="form-page-9" role="tabpanel" class="bs-stepper-pane fade text-center" aria-labelledby="stepperFormTrigger9">
   <div class="col-12 col-md-12 mx-auto form-section">
     {% load static %}
-    {% load i18n %}
     <div class="row">
       <div class="card-master col-12 col-md-12">
         <div class="card-master-header">
-          <h4 class="card-header-title">{% trans 'Page9_Heading' %}</h4>
+          <h4 class="card-header-title">Other Comments and Declaration</h4>
         </div>
         <div class="card-body aleft">
 
           <!-- other comments section -->
           <div class="form-group aleft">
-            <h4>{% trans 'Page9_OtherComments' %}</h4>
+            <h4>Do you have any other comments regarding your application? If you do, please write them in the box
+              below. </h4>
             <div class="row justify-content-center">
               <textarea class="limitedArea form-control lastAreas" name="page9[formComments]" id="formComments"
                 cols="100" rows="4" maxlength="500" oninput="limitLines(this);" onpaste="limitLinesOnPaste(this);"
@@ -25,50 +25,68 @@
 
           <!-- correspondence section -->
           <div class="form-group">
-            <h4>{% trans 'Page9_WhoCorrespond' %}</h4>
-            <h5>{% trans 'Page9_WhoCorrespond_Description' %}
+            <h4>Who will correspond with the court?</h4>
+            <h5>
+              The European Court of Human Rights will need to contact you in
+              order to inform you about the status of your application. The
+              Court may also need additional information from you in order to
+              process your application. For this reason it is very important
+              that you choose the preferred contact person with the Court in
+              such a manner that the communication is not delayed unnecessary.
+              Please keep in mind that failing to reply to the communications
+              from the Court may render your application incomplete or struck
+              out of the list of applications.
             </h5>
 
             <div class="custom-control custom-radio custom-control-inline">
               <input type="radio" class="custom-control-input" id="signatureDeclarationApplicant"
                 name="page9[signatureDeclaration]" value="Applicant" data-parsley-group="page9a" />
-              <label class="custom-control-label"
-                for="signatureDeclarationApplicant">{% trans 'Page9_Applicant' %}</label>
+              <label class="custom-control-label" for="signatureDeclarationApplicant">Applicant(s)</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
               <input type="radio" class="custom-control-input" id="signatureDeclarationRepresentative"
                 name="page9[signatureDeclaration]" value="Representative" data-parsley-group="page9a" />
-              <label class="custom-control-label"
-                for="signatureDeclarationRepresentative">{% trans 'Page9_Representative' %}</label>
+              <label class="custom-control-label" for="signatureDeclarationRepresentative">Representative(s)</label>
             </div>
             <div class="form-group">
               <br />
               <div class="is-hidden" id="correspondentOptionApplicant">
-                <h4>{% trans 'Page9_Confirmation_Applicant' %}</h4>
-                <h5>{% trans 'Page9_Confirmation_Applicant_Description' %}
-                </h5>
-                <label for="confirmationApplicantName">{% trans 'Page9_Applicant_Name' %}</label>
+                <label class="lead">Confirmation of correspondent</label>
+                <p class="ajustify">
+                  If there is more than one applicant or more than one
+                  representative, please give the name and address of the one
+                  person with whom the Court will correspond. Where the
+                  applicant is represented, the Court will correspond only
+                  with the representative (lawyer or nonlawyer).
+                </p>
+                <label for="confirmationApplicantName">Name of applicant</label>
                 <input class="form-control" type="text" name="page9[confirmationApplicantName]"
                   id="confirmationApplicantName" maxlength="80" data-parsley-group="page9b" />
 
-                <label for="confirmationApplicantAddress">{% trans 'Page9_Applicant_Address' %}
+                <label for="confirmationApplicantAddress">Address of applicant
                   <a href="javascript://" data-toggle="popover"
-                    data-content="{% trans 'Page9_Applicant_Address_Popover' %}" data-trigger="focus"
-                    data-placement="bottom"><span><i class="fas fa-question-circle"></i></span></a></label>
+                    data-content="An applicant must provide a postal address separate from that of a lawyer or representative so that the Court can make contact if necessary. An applicant who is homeless or has no fixed residence may have to give a box number or friend’s details but should provide an explanation."
+                    data-trigger="focus" data-placement="bottom"><span><i
+                        class="fas fa-question-circle"></i></span></a></label>
                 <input class="form-control" type="text" name="page9[confirmationApplicantAddress]"
                   id="confirmationApplicantAddress" maxlength="300" data-parsley-group="page9b" />
               </div>
 
               <div class="is-hidden" id="correspondentOptionRepresentative">
 
-                <h4>{% trans 'Page9_Confirmation_Applicant' %}</h4>
-                <h5>{% trans 'Page9_Confirmation_Representative_Description' %}
-                </h5>
-                <label for="confirmationRepresentativeName">{% trans 'Page9_Representative_Name' %}</label>
+                <label class="lead">Confirmation of correspondent</label>
+                <p>
+                  If there is more than one representative, please give the
+                  name and address of the one person with whom the Court will
+                  correspond. Where the applicant is represented, the Court
+                  will correspond only with the representative (lawyer or
+                  nonlawyer).
+                </p>
+                <label for="confirmationRepresentativeName">Name of Representative</label>
                 <input class="form-control" type="text" name="page9[confirmationRepresentativeName]"
                   id="confirmationRepresentativeName" maxlength="80" data-parsley-group="page9c" />
 
-                <label for="confirmationRepresentativeAddress">{% trans 'Page9_Representative_Address' %}</label>
+                <label for="confirmationRepresentativeAddress">Address of Representative</label>
                 <input class="form-control" type="text" name="page9[confirmationRepresentativeAddress]"
                   id="confirmationRepresentativeAddress" maxlength="300" data-parsley-group="page9c" />
               </div>
@@ -79,27 +97,30 @@
           <div>
             <div>
               <br />
-              <h4>{% trans 'Page9_Signature' %}</h4>
+              <h4>Signature</h4>
             </div>
-            <h5>{% trans 'Page9_Signature_Description' %}
+            <h5>
+              You must declare that, to the best of your knowledge and belief,
+              the information you have given in the present application form is
+              correct.
             </h5>
 
 
             <div>
-              <br>
-              <h5>{% trans 'Page9_Who_Sign' %}</h5>
+
+              <h5>Who is going to sign the declaration concerning the accuracy of the information provided in the
+                application form?</h5>
 
               <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" class="custom-control-input" id="signAccuracyDeclarationApplicant"
                   name="page9[signAccuracyDeclaration]" value="Applicant" data-parsley-group="page9a" />
-                <label class="custom-control-label"
-                  for="signAccuracyDeclarationApplicant">{% trans 'Page9_Who_Sign_Applicant' %}</label>
+                <label class="custom-control-label" for="signAccuracyDeclarationApplicant">The applicant</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" class="custom-control-input" id="signAccuracyDeclarationRepresentative"
                   name="page9[signAccuracyDeclaration]" value="Representative" data-parsley-group="page9a" />
-                <label class="custom-control-label"
-                  for="signAccuracyDeclarationRepresentative">{% trans 'Page9_Who_Sign_Representative' %}</label>
+                <label class="custom-control-label" for="signAccuracyDeclarationRepresentative">The
+                  representative</label>
               </div>
 
             </div>
@@ -108,7 +129,10 @@
             <div id="page9AlertAndImage" class="alert alert-danger is-hidden">
               <br>
               <h5 class="lead">
-                {% trans 'Page9_Very_Important' %}
+                <b>VERY IMPORTANT</b>: This section in the printed version must contain original signatures of the
+                applicant or its representative, as well as the date when the document was signed. Please finish to
+                fill in the application form, print it and then SIGN and DATE this section (on page 13 of the printed
+                application form). Failing to do so will result in the application not being examined by the Court.
               </h5>
             </div>
 
@@ -129,12 +153,13 @@
           <!-- Todo: make required -->
           <div>
             <br><br>
-            <h4>{% trans 'Page9_Confirm_Read' %}</h4>
+            <h4>Please confirm you have read and
+              understood that either the applicant or its representative have to sign and date page 13 in the printed
+              application form.</h4>
             <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input" id="page9ConfirmReadCheckbox"
                 name="page9[confirmReadCheckboxYes]" />
-              <label class="custom-control-label"
-                for="page9ConfirmReadCheckbox">{% trans 'Page9_Confirm_Checkbox_Text' %}</label>
+              <label class="custom-control-label" for="page9ConfirmReadCheckbox">I CONFIRM</label>
             </div>
             <br>
           </div>
@@ -144,12 +169,12 @@
           <div class="row">
             <div class="col-sm-6 aleft">
               <button class="btn btn-primary" onclick="stepperForm.previous()">
-                {% trans 'Button_Previous' %}
+                Previous
               </button>
             </div>
             <div class="col-sm-6 aright">
               <button class="btn btn-primary btn-next-form" id="gotoPage10" onclick="stepperForm.next()">
-                {% trans 'Button_Next' %}
+                Next
               </button>
             </div>
           </div>

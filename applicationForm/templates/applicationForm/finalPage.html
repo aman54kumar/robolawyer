@@ -51,20 +51,4 @@
         window.history.replaceState(null, null, window.location.href);
     }
 </script>
-
-
-
-
-{% comment %} <script type="text/javascript">
-    window.addEventListener("beforeunload", function (e) {
-
-        Swal.fire("hello")
-        // *********** perform database operation here
-        // before closing the browser ************** //
-
-        // added the delay otherwise database operation will not work
-        for (var i = 0; i < 500000000; i++) {}
-        return undefined;
-    });
-</script> {% endcomment %}
 {% endblock scriptContent %}

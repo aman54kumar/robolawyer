@@ -43,7 +43,7 @@ def getFormattedArticleText(text):
 
 ARTICLE_FILE = os.path.join(
     settings.BASE_DIR,
-    "applicationForm/dataPreparation/countryAPI/Updated API ratification list.xlsx",
+    "applicationForm/dataPreparation/countryAPI/Updated API ratification list-old.xlsx",
 )
 
 COURT_FILE = os.path.join(
@@ -67,8 +67,7 @@ FILL_DT = datetime(2100, 1, 1)
 FILL_NA = "N/A"
 
 SHEET_NAME = [i for i in range(1, 48)]
-DATA = pd.read_excel(ARTICLE_FILE, sheet_name=SHEET_NAME,
-                     index_col=0, engine="xlrd")
+DATA = pd.read_excel(ARTICLE_FILE, sheet_name=SHEET_NAME, index_col=0, engine="xlrd")
 COURT = pd.read_csv(COURT_FILE, header=0, sep=",", encoding="utf-8")
 
 for element in DATA:

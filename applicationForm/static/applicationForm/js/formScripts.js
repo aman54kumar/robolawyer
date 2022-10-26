@@ -7,6 +7,9 @@ $(".btn-next-form").on("click", function () {
   );
 });
 
+const simpleString = gettext("Simple string");
+console.log(simpleString);
+
 let isAutoDoc = false;
 let isFormRefresh = false;
 

@@ -7,6 +7,7 @@ from .views import (
     error_500,
     pdf_email,
     docObject,
+    deleteFiles
 )
 from django.conf.urls import handler400, handler500
 
@@ -17,6 +18,7 @@ urlpatterns = [
     path("download", download, name="download"),
     path("email", pdf_email, name="pdf_email"),
     path("docObject", docObject, name="docObject"),
+    path("deleteUserData", deleteFiles, name="deleteFiles"),
 ]
 
 # handler404 =

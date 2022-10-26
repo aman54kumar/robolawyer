@@ -1,14 +1,7 @@
 {% extends 'home/base.html' %} {% load static %} {% block headContent %}
 
-<link
-  rel="stylesheet"
-  href="{% static 'applicationForm/css/formStyles.css' %}"
-/>
-<link
-  rel="stylesheet"
-  href="{{ STATIC_URL }}/static/extResources/css/extRes.css"
-  type="text/css"
-/>
+<link rel="stylesheet" href="{% static 'applicationForm/css/formStyles.css' %}" />
+<link rel="stylesheet" href="{{ STATIC_URL }}/static/extResources/css/extRes.css" type="text/css" />
 
 {% endblock headContent %} {% block content %}
 
@@ -24,17 +17,11 @@
       <br />
       <div class="row">
         <div class="col-sm-6">
-          <img
-            src="{% static 'extResources/images/extRess.svg' %}"
-            width="60%;"
-            class="acenter"
-          />
+          <img src="{% static 'extResources/images/extRess.svg' %}" width="60%;" class="acenter" />
           <div class="card-body shadow-lg p-3 bg-white rounded">
             <h3 class="lead">
-              <a href="https://youtu.be/EPWGdhgQlgk" target="_blank"
-                ><i class="far fa-folder-open"></i
-                ><b> Presentation of the European Court of Human Rights</b></a
-              >
+              <a href="https://youtu.be/EPWGdhgQlgk" target="_blank"><i class="far fa-folder-open"></i><b> Presentation
+                  of the European Court of Human Rights</b></a>
               <button type="button" class="btn btn-info extPButton">
                 Details <i class="fa fa-angle-right"></i>
               </button>
@@ -48,187 +35,137 @@
 
           <div class="card-body shadow-lg p-3 bg-white rounded">
             <h3 class="lead">
-              <a
-                href="https://www.echr.coe.int/Pages/home.aspx?p=caselaw/analysis/guides&c="
-                target="_blank"
-                ><i class="far fa-folder-open"></i>
-                <b>ECtHR Guides by theme and by article</b></a
-              >
+              <a href="https://www.echr.coe.int/Pages/home.aspx?p=caselaw/analysis/guides&c=" target="_blank"><i
+                  class="far fa-folder-open"></i>
+                <b>ECtHR Guides by theme and by article</b></a>
               <button type="button" class="btn btn-info extPButton">
                 Details <i class="fa fa-angle-right"></i>
               </button>
             </h3>
             <div class="ext-text">
               Here you can find ECtHR’s aggregated guides for clustered themes
-              within human rights (<a
-                href="https://www.echr.coe.int/Documents/Guide_Immigration_ENG.pdf"
-                >immigration</a
-              >,
-              <a
-                href="https://www.echr.coe.int/Documents/Guide_Mass_protests_ENG.pdf"
-                >mass protests</a
-              >,
-              <a
-                href="https://www.echr.coe.int/Documents/Guide_Prisoners_rights_ENG.pdf"
-                >prisoners’ rights</a
-              >,
-              <a
-                href="https://www.echr.coe.int/Documents/Guide_Terrorism_ENG.pdf"
-                >terrorism</a
-              >) as well as by articles of the European Convention on Human
-              Rights and its Protocols. The Guides by article includes:
+              within human rights (<a href="https://www.echr.coe.int/Documents/Guide_Immigration_ENG.pdf"
+                target="_blank">immigration</a>,
+              <a href="https://www.echr.coe.int/Documents/Guide_Mass_protests_ENG.pdf" target="_blank">mass
+                protests</a>,
+              <a href="https://www.echr.coe.int/Documents/Guide_Prisoners_rights_ENG.pdf" target="_blank">prisoners'
+                rights</a>,
+              <a href="https://www.echr.coe.int/Documents/Guide_Terrorism_ENG.pdf" target="_blank">terrorism</a>) as
+              well as by articles
+              of the European Convention on Human
+              Rights and its Protocols. The Guides by article include:
               <ul>
                 <li>
-                  <a
-                    href="https://www.echr.coe.int/Documents/Guide_Art_1_ENG.pdf"
-                    >Guide on Article 1</a
-                  >
+                  <a href="https://www.echr.coe.int/Documents/Guide_Art_1_ENG.pdf" target="_blank">Guide on Article
+                    1</a>
                   - Obligation to respect human rights
                 </li>
                 <li>
-                  <a
-                    href="https://www.echr.coe.int/Documents/Guide_Art_2_ENG.pdf"
-                    >Guide on Article 2</a
-                  >
+                  <a href="https://www.echr.coe.int/Documents/Guide_Art_2_ENG.pdf" target="_blank">Guide on Article
+                    2</a>
                   - Right to life
                 </li>
                 <li>
-                  <a
-                    href="https://www.echr.coe.int/Documents/Guide_Art_4_ENG.pdf"
-                    >Guide on Article 4</a
-                  >
+                  <a href="https://www.echr.coe.int/Documents/Guide_Art_4_ENG.pdf" target="_blank">Guide on Article
+                    4</a>
                   - Prohibition of slavery and forced labour
                 </li>
                 <li>
-                  <a
-                    href="https://www.echr.coe.int/Documents/Guide_Art_5_ENG.pdf"
-                    >Guide on Article 5</a
-                  >
+                  <a href="https://www.echr.coe.int/Documents/Guide_Art_5_ENG.pdf" target="_blank">Guide on Article
+                    5</a>
                   - Right to liberty and security
                 </li>
                 <li>
                   Guide on Article 6 - Right to a fair trial (both
-                  <a
-                    href="https://www.echr.coe.int/Documents/Guide_Art_6_ENG.pdf"
-                    >civil</a
-                  >
+                  <a href="https://www.echr.coe.int/Documents/Guide_Art_6_ENG.pdf" target="_blank">civil</a>
                   and
-                  <a
-                    href="https://www.echr.coe.int/Documents/Guide_Art_6_criminal_ENG.pdf"
-                    >criminal</a
-                  >
+                  <a href="https://www.echr.coe.int/Documents/Guide_Art_6_criminal_ENG.pdf" target="_blank">criminal</a>
                   limb)
                 </li>
                 <li>
-                  <a
-                    href="https://www.echr.coe.int/Documents/Guide_Art_7_ENG.pdf"
-                    >Guide on Article 7</a
-                  >
+                  <a href="https://www.echr.coe.int/Documents/Guide_Art_7_ENG.pdf" target="_blank">Guide on Article
+                    7</a>
                   - No punishment without law
                 </li>
                 <li>
-                  <a
-                    href="https://www.echr.coe.int/Documents/Guide_Art_8_ENG.pdf"
-                    >Guide on Article 8</a
-                  >
+                  <a href="https://www.echr.coe.int/Documents/Guide_Art_8_ENG.pdf" target="_blank">Guide on Article
+                    8</a>
                   - Right to respect for private and family life
                 </li>
                 <li>
-                  <a
-                    href="https://www.echr.coe.int/Documents/Guide_Art_9_ENG.pdf"
-                    >Guide on Article 9</a
-                  >
+                  <a href="https://www.echr.coe.int/Documents/Guide_Art_9_ENG.pdf" target="_blank">Guide on Article
+                    9</a>
                   - Freedom of thought, conscience and religion
                 </li>
                 <li>
-                  <a
-                    href="https://www.echr.coe.int/Documents/Guide_Art_10_FRA.pdf"
-                    >Guide on Article 10</a
-                  >
+                  <a href="https://www.echr.coe.int/Documents/Guide_Art_10_FRA.pdf" target="_blank">Guide on Article
+                    10</a>
                   - Freedom of expression (French Only)
                 </li>
                 <li>
-                  <a
-                    href="https://www.echr.coe.int/Documents/Guide_Art_11_ENG.pdf"
-                    >Guide on Article 11</a
-                  >
+                  <a href="https://www.echr.coe.int/Documents/Guide_Art_11_ENG.pdf" target="_blank">Guide on Article
+                    11</a>
                   - Freedom of assembly and association
                 </li>
                 <li>
-                  <a
-                    href="https://www.echr.coe.int/Documents/Guide_Art_13_ENG.pdf"
-                    >Guide on Article 13</a
-                  >
+                  <a href="https://www.echr.coe.int/Documents/Guide_Art_13_ENG.pdf" target="_blank">Guide on Article
+                    13</a>
                   - Right to an effective remedy
                 </li>
                 <li>
-                  <a
-                    href="https://www.echr.coe.int/Documents/Guide_Art_14_Art_1_Protocol_12_ENG.pdf"
-                    >Guide on Article 14 and Article 1 of Protocol No. 12</a
-                  >
+                  <a href="https://www.echr.coe.int/Documents/Guide_Art_14_Art_1_Protocol_12_ENG.pdf"
+                    target="_blank">Guide on Article
+                    14 and Article 1 of Protocol No. 12</a>
                   - Prohibition of discrimination
                 </li>
                 <li>
-                  <a
-                    href="https://www.echr.coe.int/Documents/Guide_Art_15_ENG.pdf"
-                    >Guide on Article 15</a
-                  >
+                  <a href="https://www.echr.coe.int/Documents/Guide_Art_15_ENG.pdf" target="_blank">Guide on Article
+                    15</a>
                   - Derogation in time of emergency
                 </li>
                 <li>
-                  <a
-                    href="https://www.echr.coe.int/Documents/Guide_Art_17_ENG.pdf"
-                    >Guide on Article 17</a
-                  >
+                  <a href="https://www.echr.coe.int/Documents/Guide_Art_17_ENG.pdf" target="_blank">Guide on Article
+                    17</a>
                   - Prohibition of abuse of rights
                 </li>
                 <li>
-                  <a
-                    href="https://www.echr.coe.int/Documents/Guide_Art_18_ENG.pdf"
-                    >Guide on Article 18</a
-                  >
+                  <a href="https://www.echr.coe.int/Documents/Guide_Art_18_ENG.pdf" target="_blank">Guide on Article
+                    18</a>
                   - Limitation on use of restrictions on rights
                 </li>
                 <li>
-                  <a
-                    href="https://www.echr.coe.int/Documents/Guide_Art_46_ENG.pdf"
-                    >Guide on Article 46</a
-                  >
+                  <a href="https://www.echr.coe.int/Documents/Guide_Art_46_ENG.pdf" target="_blank">Guide on Article
+                    46</a>
                   - Binding force and execution of judgments
                 </li>
                 <li>
-                  <a
-                    href="https://www.echr.coe.int/Documents/Guide_Art_1_Protocol_1_ENG.pdf"
-                    >Guide on Article 1 of Protocol No. 1</a
-                  >
+                  <a href="https://www.echr.coe.int/Documents/Guide_Art_1_Protocol_1_ENG.pdf" target="_blank">Guide on
+                    Article 1 of
+                    Protocol No. 1</a>
                   - Protection of property
                 </li>
                 <li>
-                  <a
-                    href="https://www.echr.coe.int/Documents/Guide_Art_2_Protocol_1_ENG.pdf"
-                    >Guide on Article 2 of Protocol No.1</a
-                  >
+                  <a href="https://www.echr.coe.int/Documents/Guide_Art_2_Protocol_1_ENG.pdf" target="_blank">Guide on
+                    Article 2 of
+                    Protocol No.1</a>
                   - Right to Education
                 </li>
                 <li>
-                  <a
-                    href="https://www.echr.coe.int/Documents/Guide_Art_3_Protocol_1_ENG.pdf"
-                    >Guide on Article 3 of Protocol No.1</a
-                  >
+                  <a href="https://www.echr.coe.int/Documents/Guide_Art_3_Protocol_1_ENG.pdf" target="_blank">Guide on
+                    Article 3 of
+                    Protocol No.1</a>
                   - Right to free elections
                 </li>
                 <li>
-                  <a
-                    href="https://www.echr.coe.int/Documents/Guide_Art_4_Protocol_4_ENG.pdf"
-                    >Guide on Article 4 of Protocol No.4</a
-                  >
+                  <a href="https://www.echr.coe.int/Documents/Guide_Art_4_Protocol_4_ENG.pdf" target="_blank">Guide on
+                    Article 4 of
+                    Protocol No.4</a>
                   - Prohibition of collective expulsions of aliens
                 </li>
                 <li>
-                  <a
-                    href="https://www.echr.coe.int/Documents/Guide_Art_4_Protocol_7_ENG.pdf"
-                    >Guide on Article 4 of Protocol No.7</a
-                  >
+                  <a href="https://www.echr.coe.int/Documents/Guide_Art_4_Protocol_7_ENG.pdf" target="_blank">Guide on
+                    Article 4 of
+                    Protocol No.7</a>
                   - Right not to be tried or punished twice
                 </li>
               </ul>
@@ -238,13 +175,9 @@
         <div class="col-sm-6">
           <div class="card-body shadow-lg p-3 bg-white rounded">
             <h3 class="lead">
-              <a
-                href="https://www.echr.coe.int/Documents/Convention_ENG.pdf"
-                target="_blank"
-              >
+              <a href="https://www.echr.coe.int/Documents/Convention_ENG.pdf" target="_blank">
                 <i class="far fa-folder-open"></i>
-                <b>European Convention on Human Rights</b></a
-              ><button type="button" class="btn btn-info extPButton">
+                <b>European Convention on Human Rights</b></a><button type="button" class="btn btn-info extPButton">
                 Details <i class="fa fa-angle-right"></i>
               </button>
             </h3>
@@ -259,11 +192,8 @@
           </div>
           <div class="card-body shadow-lg p-3 bg-white rounded">
             <h3 class="lead">
-              <a
-                href="https://www.coe.int/en/web/conventions/search-on-treaties/-/conventions/treaty/results/subject/3"
-                target="_blank"
-                ><i class="far fa-folder-open"></i
-                ><b> ECHR and Protocols to the Convention </b>
+              <a href="https://www.coe.int/en/web/portal/home?p_p_id=15&p_p_lifecycle=0&p_p_state=pop_up&p_p_mode=view&_15_groupId=99928066&_15_struts_action=/journal/preview_article_content&_15_articleId=99928550&_15_version=1.6"
+                target="_blank"><i class="far fa-folder-open"></i><b> ECHR and Protocols to the Convention </b>
               </a>
               <button type="button" class="btn btn-info extPButton">
                 Details <i class="fa fa-angle-right"></i>
@@ -277,11 +207,8 @@
 
           <div class="card-body shadow-lg p-3 bg-white rounded">
             <h3 class="lead">
-              <a
-                href="https://www.echr.coe.int/Pages/home.aspx?p=applicants/ol&c="
-                target="_blank"
-                ><i class="far fa-folder-open"></i
-                ><b> Application forms in other languages</b>
+              <a href="https://www.echr.coe.int/Pages/home.aspx?p=applicants/ol&c=" target="_blank"><i
+                  class="far fa-folder-open"></i><b> Application forms in other languages</b>
               </a>
               <button type="button" class="btn btn-info extPButton">
                 Details <i class="fa fa-angle-right"></i>
@@ -296,10 +223,7 @@
           </div>
           <div class="card-body shadow-lg p-3 bg-white rounded">
             <h3 class="lead">
-              <a
-                href="https://www.echr.coe.int/Documents/Rules_Court_ENG.pdf"
-                target="_blank"
-              >
+              <a href="https://www.echr.coe.int/Documents/Rules_Court_ENG.pdf" target="_blank">
                 <i class="far fa-folder-open"></i><b> Rules of the Court </b>
               </a>
               <button type="button" class="btn btn-info extPButton">
@@ -308,16 +232,13 @@
             </h3>
             <p class="is-hidden">
               The European Court of Human Rights functions according to a number
-              of rules. In this document you can find all the rules of the Court
-              as of 1st of January 2020.
+              of rules. In this document you can find all the rules of the Court.
             </p>
           </div>
           <div class="card-body shadow-lg p-3 bg-white rounded">
             <h3 class="lead">
-              <a
-                href="https://www.echr.coe.int/Documents/Rule_47_ENG.pdf"
-                target="_blank"
-                ><i class="far fa-folder-open"></i><b>Rule 47</b>
+              <a href="https://www.echr.coe.int/Documents/Rule_47_ENG.pdf" target="_blank"><i
+                  class="far fa-folder-open"></i><b>Rule 47</b>
               </a>
               <button type="button" class="btn btn-info extPButton">
                 Details <i class="fa fa-angle-right"></i>
@@ -332,11 +253,8 @@
           </div>
           <div class="card-body shadow-lg p-3 bg-white rounded">
             <h3 class="lead">
-              <a
-                href="https://www.echr.coe.int/Documents/Application_Notes_ENG.pdf"
-                target="_blank"
-                ><i class="far fa-folder-open"></i
-                ><b>Notes for filling in the application form</b>
+              <a href="https://www.echr.coe.int/Documents/Application_Notes_ENG.pdf" target="_blank"><i
+                  class="far fa-folder-open"></i><b>Notes for filling in the application form</b>
               </a>
               <button type="button" class="btn btn-info extPButton">
                 Details <i class="fa fa-angle-right"></i>
@@ -353,10 +271,8 @@
           <!--  -->
           <div class="card-body shadow-lg p-3 bg-white rounded">
             <h3 class="lead">
-              <a
-                href="https://www.echr.coe.int/Documents/Applicant_common_mistakes_ENG.pdf"
-                target="_blank"
-                ><i class="far fa-folder-open"></i><b>Common mistakes</b>
+              <a href="https://www.echr.coe.int/Documents/Applicant_common_mistakes_ENG.pdf" target="_blank"><i
+                  class="far fa-folder-open"></i><b>Common mistakes</b>
               </a>
               <button type="button" class="btn btn-info extPButton">
                 Details <i class="fa fa-angle-right"></i>
@@ -364,17 +280,14 @@
             </h3>
             <p class="is-hidden">
               Here you can find a list with the most common mistakes made by
-              applications to the European Court of Human Rights.
+              applicants to the European Court of Human Rights.
             </p>
           </div>
           <!--  -->
           <div class="card-body shadow-lg p-3 bg-white rounded">
             <h3 class="lead">
-              <a
-                href="https://www.echr.coe.int/Documents/Admissibility_guide_ENG.pdf"
-                target="_blank"
-                ><i class="far fa-folder-open"></i
-                ><b>Practical Guide on Admissibility Criteria</b>
+              <a href="https://www.echr.coe.int/Documents/Admissibility_guide_ENG.pdf" target="_blank"><i
+                  class="far fa-folder-open"></i><b>Practical Guide on Admissibility Criteria</b>
               </a>
               <button type="button" class="btn btn-info extPButton">
                 Details <i class="fa fa-angle-right"></i>
@@ -392,9 +305,8 @@
           </div>
           <div class="card-body shadow-lg p-3 bg-white rounded">
             <h3 class="lead">
-              <a href="https://youtu.be/mcbDDhs5ZVA" target="_blank"
-                ><i class="far fa-folder-open"></i
-                ><b> ECHR - Video on the admissibility conditions</b>
+              <a href="https://youtu.be/mcbDDhs5ZVA" target="_blank"><i class="far fa-folder-open"></i><b> ECHR - Video
+                  on the admissibility conditions</b>
               </a>
               <button type="button" class="btn btn-info extPButton">
                 Details <i class="fa fa-angle-right"></i>
@@ -407,15 +319,10 @@
           </div>
           <div class="card-body shadow-lg p-3 bg-white rounded">
             <h3 class="lead">
-              <a
-                href="https://www.echr.coe.int/Pages/home.aspx?p=caselaw/analysis/guides&amp;c="
-                target="_blank"
-                ><i class="far fa-folder-open"></i>
-                <b
-                  >Relevant case law for each article of the European Convention
-                  on Human Rights and its Protocols</b
-                ></a
-              >
+              <a href="https://www.echr.coe.int/Pages/home.aspx?p=caselaw/analysis/guides&amp;c=" target="_blank"><i
+                  class="far fa-folder-open"></i>
+                <b>Relevant case law for each article of the European Convention
+                  on Human Rights and its Protocols</b></a>
               <button type="button" class="btn btn-info extPButton">
                 Details <i class="fa fa-angle-right"></i>
               </button>
@@ -433,8 +340,7 @@
           </div>
           <div class="card-body shadow-lg p-3 bg-white rounded">
             <h3 class="lead">
-              <a href="https://youtu.be/JP0fB-_X0l8" target="_blank"
-                ><i class="far fa-folder-open"></i>
+              <a href="https://youtu.be/JP0fB-_X0l8" target="_blank"><i class="far fa-folder-open"></i>
                 <b>The Human Rights Treaty Body system</b>
               </a>
               <button type="button" class="btn btn-info extPButton">
@@ -445,7 +351,7 @@
               The European Convention on Human Rights is not the only human
               rights convention stipulating the individual rights and freedoms.
               Here you can find a video about the UN treaty body system which
-              monitors the implementation by States of the core international
+              monitors the implementation by the member states of the core international
               human rights treaties.
             </p>
           </div>
@@ -454,6 +360,9 @@
     </div>
   </div>
 </div>
-<script src="{% static 'home/js/jquery/jquery-3.4.1.min.js' %}"></script>
+{% comment %} <script src="{% static 'home/js/jquery/jquery-3.4.1.min.js' %}"></script> {% endcomment %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+  integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="{% static 'extResources/js/externalScripts.js' %}"></script>
 {% endblock content %}

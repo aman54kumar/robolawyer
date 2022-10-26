@@ -279,3 +279,31 @@ body {
 .align-center {
   margin: auto;
 }
+
+.aboutpage-founder-logo {
+  margin: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .aboutpage-founder-logo {
+    margin: 0;
+
+  }
+}
+
+.about-footerImages-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-images-about {
+  /* float: left; */
+  width:  12rem;
+  height: auto;
+  object-fit: cover;
+}
+
+.footer-container {
+  text-align: justify;
+}

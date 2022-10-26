@@ -186,7 +186,7 @@ footer {
 }
 
 .popButtonLeftAlign {
-  justify-content: flex-start !important;
+  justify-content: center;
 }
 
 #page9AlertAndImage {
@@ -206,6 +206,24 @@ img {
 @media screen and (min-width: 768px) {
   .homepage-founder-logo {
     margin: 0;
-    
+
   }
+}
+
+.swal2-styled.swal2-confirm {
+  border: 0;
+  border-radius: 0.25em;
+  background: initial;
+  background-color: #3085d6 !important;
+  color: #fff;
+  font-size: 1.0625em;
+}
+
+#privacyLink {
+  color: #fff;
+  font-size: 1rem;
+}
+
+#privacyLink:hover {
+  text-decoration: underline;
 }

@@ -612,7 +612,6 @@ $("#docCreateTrigger, #stepperFormTrigger8").on("click", function () {
       setTimeout(() => {
         // add manual docs
         const combinedList = autoDocList.concat(manualDocList);
-        console.log(combinedList);
         $("input[name='page8[hiddenDocObject]']").val(
           JSON.stringify(combinedList)
         );

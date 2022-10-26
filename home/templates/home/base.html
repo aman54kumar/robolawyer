@@ -22,71 +22,18 @@
   <link rel="shortcut icon" href="{% static 'home/images/favicon.ico' %}" />
   <title>JustBot</title>
 
-  <link rel="stylesheet" href="{% static 'home/bootstrap/bootstrap.min.css' %}" />
-
-  <link rel="stylesheet" href="{% static 'home/fa/all.min.css' %}" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+  {% comment %}
+  <link rel="stylesheet" href="{% static 'home/fa/all.min.css' %}" /> {% endcomment %}
   <link rel="stylesheet" href="{% static 'home/css/styles.css' %}" />
   <!-- Custom fonts for this template -->
-  <link href="{% static 'home/css/font/fontawesome-free/css/all.min.css' %}" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css"
+    integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="{% static 'home/sweetalert2/sweetalert2.bulma.min.css' %}" />
+
 
   <!-- Custom styles for this template -->
   <link href="{% static 'home/css/grayscale.css' %}" rel="stylesheet" />
-
-  <script type="text/javascript">
-    var appInsights = window.appInsights || function (a) {
-      function b(a) {
-        c[a] = function () {
-          var b = arguments;
-          c.queue.push(function () {
-            c[a].apply(c, b)
-          })
-        }
-      }
-      var c = {
-          config: a
-        },
-        d = document,
-        e = window;
-      setTimeout(function () {
-        var b = d.createElement("script");
-        b.src = a.url || "https://az416426.vo.msecnd.net/scripts/a/ai.0.js", d.getElementsByTagName("script")[0]
-          .parentNode.appendChild(b)
-      });
-      try {
-        c.cookie = d.cookie
-      } catch (a) {}
-      c.queue = [];
-      for (var f = ["Event", "Exception", "Metric", "PageView", "Trace", "Dependency"]; f.length;) b("track" + f
-        .pop());
-      if (b("setAuthenticatedUserContext"), b("clearAuthenticatedUserContext"), b("startTrackEvent"), b(
-          "stopTrackEvent"), b("startTrackPage"), b("stopTrackPage"), b("flush"), !a.disableExceptionTracking) {
-        f = "onerror", b("_" + f);
-        var g = e[f];
-        e[f] = function (a, b, d, e, h) {
-          var i = g && g(a, b, d, e, h);
-          return !0 !== i && c["_" + f](a, b, d, e, h), i
-        }
-      }
-      return c
-    }({
-      instrumentationKey: "ee5f04a0-52bc-4118-bcef-1a92012632d8"
-    });
-
-    window.appInsights = appInsights, appInsights.queue && 0 === appInsights.queue.length && appInsights
-      .trackPageView();
-  </script>
-
-  <!-- <script type="text/javascript">
-    var appInsights = window.appInsights || function (config) { function i(config) { t[config] = function () { var i = arguments; t.queue.push(function () { t[config].apply(t, i) }) } } var t = { config: config }, u = document, e = window, o = "script", s = "AuthenticatedUserContext", h = "start", c = "stop", l = "Track", a = l + "Event", v = l + "Page", y = u.createElement(o), r, f; y.src = config.url || "https://az416426.vo.msecnd.net/scripts/a/ai.0.js"; u.getElementsByTagName(o)[0].parentNode.appendChild(y); try { t.cookie = u.cookie } catch (p) { } for (t.queue = [], t.version = "1.0", r = ["Event", "Exception", "Metric", "PageView", "Trace", "Dependency"]; r.length;)i("track" + r.pop()); return i("set" + s), i("clear" + s), i(h + a), i(c + a), i(h + v), i(c + v), i("flush"), config.disableExceptionTracking || (r = "onerror", i("_" + r), f = e[r], e[r] = function (config, i, u, e, o) { var s = f && f(config, i, u, e, o); return s !== !0 && t["_" + r](config, i, u, e, o), s }), t } ({
-      instrumentationKey: "ee5f04a0-52bc-4118-bcef-1a92012632d8",
-      disableCorrelationHeaders: false,
-      enableDebug: true
-    });
-    window.appInsights = appInsights;
-  </script> -->
-
 
   {% block headContent %} {% endblock headContent %} {% block spHeadContent %}
   {% endblock spHeadContent %}
@@ -96,7 +43,7 @@
   {% load i18n %}
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <a class="navbar-brand js-scroll-trigger" href="{% url 'home' %}"><img id="justbot-brand"
-        src="{% static 'home/images/logo.png' %}" alt="JUST BOT" /></a>
+        src="{% static 'home/images/logo.png' %}" alt="JUSTBOT" /></a>
 
 
 
@@ -161,16 +108,28 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
     integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="{% static 'home/js/jquery-easing/jquery.js' %}"></script>
-  <script src="{% static 'home/js/jquery-easing/jquery.easing.min.js' %}"></script>
-  <script src="{% static 'home/bootstrap/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'home/js/grayscale.js' %}"></script>
-  <!-- <script src="{% static 'home/js/grayscale.min.js' %}"></script> -->
-  <script src="{% static 'home/sweetalert2/sweetalert2.all.min.js'%}"></script>
-  <script src="{% static 'home/js/home.js' %}"></script>
-  <!-- <script src="{% static 'home/js/promise-polyfill.js' %}"></script> -->
+  {% comment %} <script src="{% static 'home/js/jquery-easing/jquery.js' %}"></script> {% endcomment %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"
+    integrity="sha512-0QbL0ph8Tc8g5bLhfVzSqxe9GERORsKhIn1IrpxDAgUsbBGz/V7iSav2zzW325XGd1OMLdL4UiqRJj702IeqnQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  {% comment %} <script src="{% static 'home/bootstrap/bootstrap.bundle.min.js' %}"></script> {% endcomment %}
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+    integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous">
+  </script>
 
-  {% block scriptContent %} {% endblock scriptContent %}
+  <script src="{% static 'home/js/grayscale.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.29/dist/sweetalert2.all.min.js"
+    integrity="sha256-qxQs7IPMvfbL9ZXhsZ3tG/LuZSjNxPSTBNtzk4j5FiU=" crossorigin="anonymous"></script>
+  {% comment %} <script src="{% static 'home/sweetalert2/sweetalert2.all.min.js'%}"></script> {% endcomment %}
+  <script src="{% static 'home/js/home.js' %}"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es5%2Ces6%2Ces7"></script>
+  
+
+
+  {% block scriptContent %}
+  {% endblock scriptContent %}
 </body>
 
 </html>

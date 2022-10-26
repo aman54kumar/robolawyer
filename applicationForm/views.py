@@ -1,6 +1,6 @@
 # from posixpath import dirname
 from cmath import log
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.template import RequestContext
 from django.http import HttpResponse, Http404, response, JsonResponse
@@ -35,7 +35,7 @@ def FormPageView(request):
 
 
 def formProcessing(request):
-
+    print(sessionID)
     spclReplies = []
     hiddenDocsObject = []
     hiddenObject = []
@@ -218,3 +218,15 @@ def docObject(request):
             pageNList.append(pageReturned)
         return JsonResponse(newObject, safe=False)
     return HttpResponse("done")
+
+
+def deleteFiles(request):
+    if request.method == "DELETE":
+        file_path = os.path.join(
+            settings.BASE_DIR,
+            "applicationForm/dataPreparation/results/"
+            + sessionID
+        )
+
+        shutil.rmtree(file_path)
+    return redirect(request.META.get('HTTP_REFERER', 'redirect_if_referer_not_found'))

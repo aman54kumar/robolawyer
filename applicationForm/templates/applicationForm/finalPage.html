@@ -27,15 +27,17 @@
             <div class="text-center"> <img src="{% static 'about/images/team.png' %}" width=20%;></div>
             <br>
             <div class="buttonHolder">
-                
-                <a href="{% url 'download' %}" download><button class="btn btn-primary pdfButton">Download as PDF</button></a>
+
+                <a href="{% url 'download' %}" download><button class="btn btn-primary pdfButton">Download as
+                        PDF</button></a>
 
                 <button id="pdfEmail" class="btn btn-primary">Send PDF to Email</button>
+                <button class="btn btn-secondary" id="deleteDataButton">Delete My Data</button>
             </div>
         </div>
 
 
-    </div> 
+    </div>
 </div>
 
 
@@ -44,4 +46,25 @@
 
 <script type="text/javascript" src="{% static 'applicationForm/axios/axios.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'applicationForm/js/finalPage.js' %}"></script>
+<script>
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+</script>
+
+
+
+
+{% comment %} <script type="text/javascript">
+    window.addEventListener("beforeunload", function (e) {
+
+        Swal.fire("hello")
+        // *********** perform database operation here
+        // before closing the browser ************** //
+
+        // added the delay otherwise database operation will not work
+        for (var i = 0; i < 500000000; i++) {}
+        return undefined;
+    });
+</script> {% endcomment %}
 {% endblock scriptContent %}

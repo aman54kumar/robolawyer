@@ -11,7 +11,7 @@ ipykernel = "*"
 pylint = "*"
 
 [packages]
-django = "==3.2.4"
+django = "==3.2.18"
 pycountry = "*"
 gunicorn = "*"
 psycopg2-binary = "*"

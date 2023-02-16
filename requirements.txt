@@ -90,7 +90,7 @@ tzlocal==4.1
 urllib3==1.26.9
 uvicorn==0.17.6
 webencodings==0.5.1
-Werkzeug==2.1.0
+Werkzeug==2.2.3
 whitenoise==6.0.0
 wrapt==1.14.0
 xlrd==1.2.0
